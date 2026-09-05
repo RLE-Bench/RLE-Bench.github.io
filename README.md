@@ -16,6 +16,7 @@ python3 -m http.server 8000   # then http://localhost:8000
 | `styles.css` | design tokens, light + dark themes, all layout |
 | `app.js` | scoring, the index, the charts, tabs, tooltips |
 | `data.js` | **the only file you edit to publish new results** |
+| `blog/` | the blog — index, posts, and the one data file that lists them |
 | `assets/` | the project icon — favicon, apple-touch icon, header and hero mark |
 
 ## Updating results
@@ -91,6 +92,42 @@ Two details make the shading read:
   third of the scale, so the ramp is stretched over the values actually
   present. One transform is used for every column, so cells stay comparable
   across families; the legend prints the range it covers.
+
+## The blog
+
+`blog/` is a second, self-contained page in the same shell: same header, same
+footer, same theme toggle (it shares the `rlebench-theme` key, so a reader who
+picked light on the leaderboard stays in light). It is reachable from the
+**Blog** nav item and from the second hero button on the front page.
+
+| file | what it holds |
+|---|---|
+| `blog/index.html` | the post list — structure only; the cards are rendered from `posts.js` |
+| `blog/posts.js` | **the post index**: one entry per post, newest first |
+| `blog/blog.js` | theme, header links, the card list, the contents rail, prev/next, progress bar |
+| `blog/blog.css` | everything the leaderboard has no use for — prose, cards, callouts, figures |
+| `blog/*.html` | one file per post |
+
+### Adding a post
+
+1. Copy an existing post file. Set its `<title>`, `<meta name="description">`
+   and — this one matters — `<body data-slug="…">`.
+2. Write the article inside `<div class="post-body">`. Use `<h2>` for sections;
+   `blog.js` numbers them, gives them ids and builds the contents rail from
+   them, so the rail can never drift from the headings it points at.
+3. Add an entry at the **top** of `POSTS` in `blog/posts.js`. Its `slug` must
+   match the `data-slug` attribute, and its `file` must match the filename.
+
+The date, reading time and prev/next links on a post page are all read from
+that `posts.js` entry — the post file itself carries none of them, so there is
+one place to correct a typo.
+
+Available prose blocks, beyond ordinary HTML: `.callout` (add `.is-warn` for
+the orange variant), `.post-table` around a `<table>`, `.post-fig` around an
+inline `<svg>` with a `<figcaption>`, and `<pre><code>` for code. Figures use
+the `.fig-box` / `.fig-t` / `.fig-k` / `.fig-arrow` classes so they pick up
+theme tokens instead of hard-coded colours, and they scroll rather than shrink
+below 540px.
 
 ## Design notes
 

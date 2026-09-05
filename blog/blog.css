@@ -1,0 +1,212 @@
+/* ===========================================================================
+   RLE-Bench — blog styles
+   Layered on top of styles.css: same tokens, same serif/mono split. Only the
+   things the leaderboard has no use for live here — long-form prose, post
+   cards, a sticky contents rail, callouts and code blocks.
+   =========================================================================== */
+
+/* the current section in the header nav */
+.site-nav a.is-active { color: var(--text-primary); background: var(--surface-2); }
+
+/* ── reading progress ──────────────────────────────────────────────────────
+   A 2px rule under the sticky header. It is decoration, not a control: no
+   focus, no pointer, and it disappears entirely on the index. */
+.progress {
+  position: fixed; top: 62px; left: 0; height: 2px; width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  z-index: 45; pointer-events: none;
+}
+
+/* ── blog hero ─────────────────────────────────────────────────────────── */
+.blog-hero { position: relative; padding: 74px 0 34px; overflow: hidden; }
+.blog-hero .hero-glow { position: absolute; inset: -30% -10% auto -10%; height: 520px; background: var(--hero-wash); }
+.blog-hero .wrap { position: relative; }
+.blog-hero h1 { font-size: clamp(32px, 4.6vw, 48px); letter-spacing: -.022em; }
+.blog-hero .lede { max-width: 68ch; }
+
+/* ── post cards ────────────────────────────────────────────────────────── */
+/* the card width is set by the summary column: ~72ch of prose plus the rail,
+   so a card never runs wider than the text inside it can fill */
+.post-list { display: grid; gap: 16px; max-width: 920px; padding-bottom: 80px; }
+
+.postcard {
+  display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 28px;
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 24px 26px; text-decoration: none; color: inherit;
+  transition: border-color .15s ease, transform .15s ease;
+}
+.postcard:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+.postcard:hover .postcard-title { color: var(--accent); }
+
+.postcard-rail { display: flex; flex-direction: column; gap: 6px; }
+.postcard-num {
+  font: 600 26px/1 var(--mono); letter-spacing: -.04em; color: var(--text-muted);
+}
+.postcard-date {
+  font: 10.5px/1.4 var(--mono); letter-spacing: .07em; text-transform: uppercase;
+  color: var(--text-muted);
+}
+.postcard-title { font-size: 23px; margin: 0 0 8px; transition: color .15s ease; }
+.postcard-kicker {
+  font: 10.5px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 9px;
+}
+.postcard-sum { margin: 0; color: var(--text-secondary); font-size: 15.5px; max-width: 72ch; }
+
+@media (max-width: 720px) {
+  .postcard { grid-template-columns: 1fr; gap: 12px; }
+  .postcard-rail { flex-direction: row; align-items: baseline; gap: 12px; }
+}
+
+/* ── tags ──────────────────────────────────────────────────────────────── */
+.tagrow { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.tag {
+  font: 10.5px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase;
+  padding: 5px 8px; border-radius: 5px;
+  background: var(--surface-2); border: 1px solid var(--border); color: var(--text-muted);
+}
+
+/* ── post page layout ──────────────────────────────────────────────────── */
+.post-wrap { position: relative; z-index: 1; padding: 46px 0 84px; }
+.post-layout { display: grid; grid-template-columns: 196px minmax(0, 1fr); gap: 56px; align-items: start; }
+@media (max-width: 1000px) {
+  .post-layout { grid-template-columns: 1fr; gap: 0; }
+  .toc { display: none; }
+}
+
+.toc { position: sticky; top: 92px; }
+.toc-head {
+  font: 10.5px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase;
+  color: var(--text-muted); padding-bottom: 10px; border-bottom: 1px solid var(--grid);
+}
+.toc ol { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 2px; counter-reset: toc; }
+.toc a {
+  display: block; text-decoration: none; color: var(--text-muted);
+  font-size: 13.5px; line-height: 1.35; padding: 5px 8px 5px 10px;
+  border-left: 2px solid transparent; border-radius: 0 6px 6px 0;
+}
+.toc a:hover { color: var(--text-primary); background: var(--surface-2); }
+.toc a.is-here { color: var(--text-primary); border-left-color: var(--accent); }
+.toc-back {
+  display: inline-flex; align-items: center; gap: 7px; margin-top: 22px;
+  font: 11px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase;
+  color: var(--text-muted); text-decoration: none;
+}
+.toc-back:hover { color: var(--text-primary); }
+
+/* ── the article ───────────────────────────────────────────────────────── */
+.post { min-width: 0; }
+.post-head { padding-bottom: 26px; margin-bottom: 34px; border-bottom: 1px solid var(--grid); }
+.post-kicker {
+  font: 11px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 16px;
+}
+.post-head h1 { font-size: clamp(30px, 4.2vw, 44px); letter-spacing: -.024em; line-height: 1.1; }
+.post-standfirst { max-width: 66ch; margin: 20px 0 0; font-size: 18px; color: var(--text-secondary); }
+.post-byline {
+  display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 22px;
+  font: 11px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--text-muted);
+}
+
+.post-body { max-width: 72ch; font-size: 17px; }
+
+/* One owner for vertical rhythm: every top-level block carries its own bottom
+   margin, and nothing else in this file sets one. Element-plus-class rules such
+   as `.post-body p` outrank a `> * + *` flow rule, which is exactly the fight
+   this avoids. */
+.post-body > * { margin: 0 0 22px; }
+.post-body > *:last-child { margin-bottom: 0; }
+
+.post-body p { color: var(--text-secondary); }
+.post-body strong { color: var(--text-primary); font-weight: 600; }
+.post-body a { color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
+.post-body a:hover { border-bottom-color: var(--accent); }
+
+.post-body h2 {
+  font-size: 26px; margin: 56px 0 18px; scroll-margin-top: 92px;
+  letter-spacing: -.018em;
+}
+.post-body h2 .h-num {
+  display: block; font: 10.5px/1 var(--mono); letter-spacing: .1em;
+  text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px;
+}
+.post-body h3 { font-size: 19px; margin: 36px 0 14px; scroll-margin-top: 92px; }
+
+.post-body ul, .post-body ol { padding-left: 22px; color: var(--text-secondary); }
+.post-body li + li { margin-top: 9px; }
+.post-body li::marker { color: var(--text-muted); }
+.post-body li > strong:first-child { color: var(--text-primary); }
+
+.post-body blockquote {
+  padding: 4px 0 4px 20px; border-left: 2px solid var(--accent);
+  color: var(--text-primary); font-size: 18px;
+}
+.post-body blockquote p { margin: 0; color: inherit; }
+
+.post-body pre {
+  padding: 16px 18px; overflow-x: auto;
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 10px; font: 13px/1.6 var(--mono); color: var(--text-secondary);
+}
+.post-body pre code { background: none; padding: 0; font-size: inherit; }
+
+.post-body hr { border: 0; border-top: 1px solid var(--grid); margin: 46px 0; }
+
+/* a table inside prose keeps the leaderboard's rules */
+.post-table { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-1); }
+.post-table table { font-size: 14px; }
+.post-table th, .post-table td { padding: 10px 14px; }
+.post-table thead th { background: var(--surface-1); }
+.post-table tbody tr:last-child td { border-bottom: 0; }
+.post-table td.l { white-space: normal; min-width: 220px; color: var(--text-secondary); }
+.post-table td .k { font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
+
+/* ── callout ───────────────────────────────────────────────────────────── */
+.callout {
+  border: 1px solid var(--border); border-left: 2px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface-1));
+  border-radius: 0 10px 10px 0; padding: 16px 20px;
+}
+.callout .callout-key {
+  font: 10.5px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 9px;
+}
+.callout p { margin: 0; font-size: 15.5px; }
+.callout.is-warn { border-left-color: var(--cat-2); background: color-mix(in srgb, var(--cat-2) 7%, var(--surface-1)); }
+.callout.is-warn .callout-key { color: var(--cat-2); }
+
+/* ── figure: a small hand-built diagram ────────────────────────────────── */
+.post-fig {
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px 24px 18px; box-shadow: var(--shadow);
+}
+/* below its natural width the diagram scrolls rather than shrinking its own
+   labels into illegibility — the same rule the leaderboard's wide panels use */
+.post-fig { overflow-x: auto; }
+.post-fig svg { width: 100%; min-width: 540px; height: auto; display: block; }
+.post-fig figcaption { margin-top: 14px; font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+.fig-box { fill: var(--surface-2); stroke: var(--border-strong); }
+.fig-box.accent { fill: color-mix(in srgb, var(--accent) 12%, var(--surface-2)); stroke: var(--accent); }
+.fig-box.wall { fill: none; stroke: var(--cat-2); stroke-dasharray: 5 4; }
+.fig-t { fill: var(--text-primary); font: 13px var(--serif); }
+.fig-k { fill: var(--text-muted); font: 10px var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+.fig-arrow { stroke: var(--axis); stroke-width: 1.4; fill: none; }
+
+/* ── prev / next ───────────────────────────────────────────────────────── */
+/* the font-size is here only so `ch` resolves against the same measure the
+   article body uses — every child below sets its own size */
+.post-foot { max-width: 72ch; font-size: 17px; margin-top: 64px; padding-top: 26px; border-top: 1px solid var(--grid); }
+.post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } }
+.pn {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+  transition: border-color .15s ease;
+}
+.pn:hover { border-color: var(--border-strong); }
+.pn.is-next { text-align: right; }
+.pn-key { font: 10.5px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase; color: var(--text-muted); }
+.pn-title { display: block; margin-top: 7px; font-size: 15.5px; }
+.pn.is-empty { visibility: hidden; }

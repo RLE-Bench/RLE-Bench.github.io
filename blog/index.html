@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog — RLE-Bench</title>
+<meta name="description" content="Design notes and construction findings from RLE-Bench — how the eight task families were chosen, how the verifiers are built, and what building the suite taught us.">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="blog.css">
+<link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/icon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+</head>
+<body>
+
+<div class="scanline" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../">
+      <img class="brand-mark" src="../assets/icon.png" width="30" height="30"
+           alt="RLE-Bench: a llama operating a robot arm">
+      <span class="brand-text">RLE<span class="brand-dim">-Bench</span></span>
+    </a>
+    <nav class="site-nav">
+      <a href="../#index">Index</a>
+      <a href="../#tasks">Rankings</a>
+      <a href="../#cost">Cost</a>
+      <a class="is-active" href="./" aria-current="page">Blog</a>
+      <a class="nav-ext" id="navGithub" href="https://github.com/RLE-Bench/RLE-Bench-dev" rel="noopener">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        GitHub
+      </a>
+      <a class="nav-ext" id="navArxiv" href="#" rel="noopener">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 1.5h6l3 3v10h-9z"/><path d="M9.5 1.5v3h3"/><path d="M5.5 8h5M5.5 11h3"/></svg>
+        arXiv
+      </a>
+      <a class="nav-ext" id="navContact" href="#" rel="noopener">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="1.5"/><path d="m2 4.5 6 4 6-4"/></svg>
+        Contact
+      </a>
+    </nav>
+    <div class="header-actions">
+      <span class="pill pill-version" id="versionPill">v1.0-dev</span>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle colour theme">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path class="ico-moon" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor"/><g class="ico-sun" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></g></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="blog-hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow">Notebook · RLE-Bench</p>
+      <h1>How the exam was <span class="grad">written</span></h1>
+      <p class="lede">
+        The leaderboard shows what the agents scored. This is the other half — why these eight families and not
+        eighty, how a verifier is built so that a submission cannot argue with it, and the things that only turned
+        up once the suite was running: the harness turning out to be the more interesting variable, a difficulty
+        band nobody clears, a task retired mid-development with its number left behind.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 8px;">
+    <div class="wrap">
+      <div class="callout is-warn" style="max-width: 920px; margin-bottom: 28px;">
+        <div class="callout-key">On numbers</div>
+        <p>
+          These posts describe design and construction. They quote task budgets, split structure and reward
+          weights, which are read from the benchmark repo and are accurate — but no per-model scores, because the
+          leaderboard data is still placeholder until real runs land.
+        </p>
+      </div>
+
+      <div class="post-list" id="postList"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand">
+        <img class="brand-mark" src="../assets/icon.png" width="26" height="26" alt="">
+        <span class="brand-text small">RLE<span class="brand-dim">-Bench</span></span>
+      </div>
+      <p class="muted">A Qualifying Exam for Coding Agents as Robot Learning Engineers.</p>
+      <p class="muted fine">
+        The suite ships eight families — <code>task01</code>–<code>task06</code>, <code>task08</code> and
+        <code>task09</code>. There is no <code>task07</code>: the slot was retired during development and the
+        numbering left stable so published results keep pointing at the same tasks.
+      </p>
+    </div>
+    <div class="footer-meta">
+      <span id="footerUpdated"></span>
+      <span id="footerVersion"></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../data.js"></script>
+<script src="posts.js"></script>
+<script src="blog.js"></script>
+</body>
+</html>
