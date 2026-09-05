@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RLE-Bench — A Qualifying Exam for Coding Agents as Robot Learning Engineers</title>
+<meta name="description" content="RLE-Bench is a qualifying exam for coding agents working as robot learning engineers — eight families of real engineering problems — design, co-design, sample-efficient learning, harness engineering, perception, manipulation, physical reasoning and whole-body control — each with its own ranking.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+<body>
+
+<div class="scanline" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">
+      <img class="brand-mark" src="assets/icon.png" width="30" height="30"
+           alt="RLE-Bench: a llama operating a robot arm">
+      <span class="brand-text">RLE<span class="brand-dim">-Bench</span></span>
+    </a>
+    <nav class="site-nav" id="siteNav">
+      <a href="#index">Index</a>
+      <a href="#tasks">Rankings</a>
+      <a href="#cost">Cost</a>
+      <a class="nav-ext" id="navGithub" href="https://github.com/RLE-Bench/RLE-Bench-dev" rel="noopener">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        GitHub
+      </a>
+      <a class="nav-ext" id="navArxiv" href="#" rel="noopener">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 1.5h6l3 3v10h-9z"/><path d="M9.5 1.5v3h3"/><path d="M5.5 8h5M5.5 11h3"/></svg>
+        arXiv
+      </a>
+      <a class="nav-ext" id="navContact" href="#" rel="noopener">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="1.5"/><path d="m2 4.5 6 4 6-4"/></svg>
+        Contact
+      </a>
+    </nav>
+    <div class="header-actions">
+      <span class="pill pill-version" id="versionPill">v1.0-dev</span>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle colour theme">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path class="ico-moon" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor"/><g class="ico-sun" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></g></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="databanner" id="dataBanner" role="note">
+  <strong>Sample data.</strong> Task definitions, budgets and scoring weights are read from the benchmark repo and are accurate.
+  The per-model scores on this page are placeholders — swap <code>data.js</code> for real <code>reward.json</code> aggregates before publishing.
+</div>
+
+<main id="top">
+
+  <!-- ── hero ─────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-title">
+        <img class="hero-mark" src="assets/icon.png" width="116" height="116"
+             alt="RLE-Bench: a llama operating a robot arm">
+        <h1>A Qualifying Exam for Coding Agents<br><span class="grad">as Robot Learning Engineers</span></h1>
+      </div>
+      <p class="lede">
+        Not a puzzle set. Eight families of the work a robot learning engineer actually does — design a mobile
+        manipulator from stock parts, co-design teleop hardware, learn a policy through a metered simulator, build a
+        harness a stranger can use, estimate pose under adversarial sensing, ship a closed-loop controller, reason about
+        physical structure, train a whole-body tracking pipeline. Each one is a real engineering problem handed to the
+        agent inside a container, and each one is graded by a verifier the agent never sees.
+      </p>
+      <div class="hero-stats" id="heroStats"></div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#index">See the rankings</a>
+        <a class="btn" href="#tasks">Browse the exam</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── aggregate index ──────────────────────────────────────────────── -->
+  <section id="index" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">RLE&nbsp;Index</h2>
+          <p class="section-sub" id="indexBlurb"></p>
+        </div>
+        <div class="seg" role="group" aria-label="Index metric">
+          <button class="seg-btn is-on" data-metric="score" type="button">By score</button>
+          <button class="seg-btn" data-metric="rank" type="button">By task rank</button>
+        </div>
+      </div>
+
+      <div class="panel scroll-x">
+        <div id="indexGrid" class="ig"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── per-task rankings ────────────────────────────────────────────── -->
+  <section id="tasks" class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Task rankings</h2>
+          <p class="section-sub">Eight families, eight independent leaderboards. Pick one.</p>
+        </div>
+      </div>
+
+      <div class="tabs" id="taskTabs" role="tablist" aria-label="Benchmark families"></div>
+
+      <div class="task-view" id="taskView"></div>
+    </div>
+  </section>
+
+  <!-- ── cost ─────────────────────────────────────────────────────────── -->
+  <section id="cost" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Index vs. cost</h2>
+          <p class="section-sub">
+            Suite cost is API spend for one complete pass over every family and variant. Up and to the left is better:
+            the same capability for less money.
+          </p>
+        </div>
+      </div>
+
+      <div class="tabs tabs-cost" id="costTabs" role="tablist" aria-label="Cost view"></div>
+
+      <div class="panel">
+        <div class="fig-head" id="costCaption"></div>
+        <div id="scatter" class="scatter"></div>
+      </div>
+
+      <div class="panel scroll-x" id="costTable"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand">
+        <img class="brand-mark" src="assets/icon.png" width="26" height="26" alt="">
+        <span class="brand-text small">RLE<span class="brand-dim">-Bench</span></span>
+      </div>
+      <p class="muted">A Qualifying Exam for Coding Agents as Robot Learning Engineers.</p>
+      <p class="muted fine">
+        The suite ships eight families — <code>task01</code>–<code>task06</code>, <code>task08</code> and
+        <code>task09</code>. There is no <code>task07</code>: the slot was retired during development and the numbering
+        left stable so published results keep pointing at the same tasks.
+      </p>
+    </div>
+    <div class="footer-meta">
+      <span id="footerUpdated"></span>
+      <span id="footerVersion"></span>
+    </div>
+  </div>
+</footer>
+
+<div class="tooltip" id="tooltip" role="status" aria-live="polite" hidden></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
