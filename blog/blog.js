@@ -144,20 +144,26 @@
     }
   }
 
-  /* prev / next, taken from the same order the index uses */
+  /* prev / next, taken from the same order the index uses. With nothing on
+     either side — a single post, so far — the rail is left out rather than
+     drawn as two empty boxes. */
   const nav = $("#postNav");
   if (nav && post && typeof POSTS !== "undefined") {
     const i = POSTS.indexOf(post);
-    const mk = (p, key, cls) => {
-      const a = el("a", "pn " + cls + (p ? "" : " is-empty"));
-      a.href = p ? p.file : "#";
-      if (!p) a.setAttribute("aria-hidden", "true");
-      a.append(el("span", "pn-key", key),
-               el("span", "pn-title", p ? p.title : "—"));
-      return a;
-    };
-    nav.append(mk(POSTS[i + 1], "Older", "is-prev"),
-               mk(POSTS[i - 1], "Newer", "is-next"));
+    if (!POSTS[i - 1] && !POSTS[i + 1]) {
+      nav.remove();
+    } else {
+      const mk = (p, key, cls) => {
+        const a = el("a", "pn " + cls + (p ? "" : " is-empty"));
+        a.href = p ? p.file : "#";
+        if (!p) a.setAttribute("aria-hidden", "true");
+        a.append(el("span", "pn-key", key),
+                 el("span", "pn-title", p ? p.title : "—"));
+        return a;
+      };
+      nav.append(mk(POSTS[i + 1], "Older", "is-prev"),
+                 mk(POSTS[i - 1], "Newer", "is-next"));
+    }
   }
 
   /* reading progress across the article only, not the whole document */
