@@ -16,7 +16,7 @@ python3 -m http.server 8000   # then http://localhost:8000
 | `styles.css` | design tokens, light + dark themes, all layout |
 | `app.js` | scoring, the index, the charts, tabs, tooltips |
 | `data.js` | **the only file you edit to publish new results** |
-| `blog/` | the blog — index, posts, and the one data file that lists them |
+| `blog/` | the research article, served directly at `/blog/` |
 | `assets/` | the project icon — favicon, apple-touch icon, header and hero mark |
 
 ## Updating results
@@ -95,39 +95,30 @@ Two details make the shading read:
 
 ## The blog
 
-`blog/` is a second, self-contained page in the same shell: same header, same
-footer, same theme toggle (it shares the `rlebench-theme` key, so a reader who
-picked light on the leaderboard stays in light). It is reachable from the
-**Blog** nav item and from the second hero button on the front page.
+Both **Blog** in the navigation and **Read the blog** on the homepage link
+straight to the complete research article at `/blog/`. There is no post list
+or second click. The article is adapted from `RLE-Bench-blog-polished.html`,
+with its text, layout, figures, results, and interactive behavior preserved.
 
 | file | what it holds |
 |---|---|
-| `blog/index.html` | the post list — structure only; the cards are rendered from `posts.js` |
-| `blog/posts.js` | **the post index**: one entry per post, newest first |
-| `blog/blog.js` | theme, header links, the card list, the contents rail, prev/next, progress bar |
-| `blog/blog.css` | everything the leaderboard has no use for — prose, cards, callouts, figures |
-| `blog/*.html` | one file per post |
+| `blog/index.html` | the full article, including its styles, publication metadata, results data, and progressive enhancements |
+| `blog/introducing-rle-bench.html` | compatibility redirect to `/blog/`, preserving query strings and section anchors when JavaScript is enabled |
+| `assets/blog/` | images, the results CSV, and the original harness-comparison PDF extracted from the supplied HTML |
 
-### Adding a post
+The article shares the `rlebench-theme` preference with the leaderboard.
+Its contents navigation, capability chart, expandable task details, image
+zoom dialog, and CSV/PDF downloads work from the direct Blog entrypoint.
+The source HTML's embedded assets are stored as ordinary files so images
+can be cached and downloads can be linked directly. Canonical and sharing
+metadata identify `/blog/`; the sharing image uses the included RoboCasa
+figure. The article's links back to the leaderboard are relative so they
+also work in a local preview.
 
-1. Copy an existing post file. Set its `<title>`, `<meta name="description">`
-   and — this one matters — `<body data-slug="…">`.
-2. Write the article inside `<div class="post-body">`. Use `<h2>` for sections;
-   `blog.js` numbers them, gives them ids and builds the contents rail from
-   them, so the rail can never drift from the headings it points at.
-3. Add an entry at the **top** of `POSTS` in `blog/posts.js`. Its `slug` must
-   match the `data-slug` attribute, and its `file` must match the filename.
-
-The date, reading time and prev/next links on a post page are all read from
-that `posts.js` entry — the post file itself carries none of them, so there is
-one place to correct a typo.
-
-Available prose blocks, beyond ordinary HTML: `.callout` (add `.is-warn` for
-the orange variant), `.post-table` around a `<table>`, `.post-fig` around an
-inline `<svg>` with a `<figcaption>`, and `<pre><code>` for code. Figures use
-the `.fig-box` / `.fig-t` / `.fig-k` / `.fig-arrow` classes so they pick up
-theme tokens instead of hard-coded colours, and they scroll rather than shrink
-below 540px.
+To update this page, edit `blog/index.html` and its supporting assets. The
+homepage's placeholder leaderboard data remains managed in `data.js`;
+this article carries the provided manuscript's separate results and
+coverage notes.
 
 ## Design notes
 
