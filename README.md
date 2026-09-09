@@ -5,8 +5,12 @@ engineering benchmark (`~/Codes/RLE-Bench-dev`). No build step, no network
 calls — open `index.html` or serve the folder.
 
 ```bash
-python3 -m http.server 8000   # then http://localhost:8000
+python3 scripts/serve.py --port 8000   # then http://127.0.0.1:8000
 ```
+
+The preview server supports HTTP byte ranges, which browsers need for video
+seeking. Plain `python3 -m http.server` may report a zero-length seekable range
+even after a clip has downloaded. GitHub Pages already supports range requests.
 
 ## Files
 
@@ -134,11 +138,13 @@ GELLO design study from the September 9 demo snapshot:
 | Development and evaluation / T09 | Camera views and force feedback, 29.5 s | GPT-6 Astra, v1.0.1, development preview |
 
 `blog/demos.css` extends the article's family colors, type, and figure styling.
-`blog/demos.js` progressively enhances the videos with a centered poster play
-button and a theme-aware control bar below the image: play/pause, a thin seek
+`blog/demos.js` progressively enhances the videos with a compact translucent play
+strip in the corner of the poster and a theme-aware control bar below the image: play/pause, a thin seek
 slider, elapsed/total time, fullscreen, and an icon-only download link. The
 controls support keyboard seeking, replay, loading/error states, and seeking
-before metadata arrives. Only one demo plays at a time, and switching tabs
+before metadata arrives. Pointer dragging pauses playback and previews the
+chosen time without the playhead moving the thumb; releasing commits the seek
+and resumes only if the clip was already playing. Only one demo plays at a time, and switching tabs
 pauses playback. The original native controls remain the no-JavaScript fallback.
 Videos retain inline mobile playback, explicit poster dimensions, and
 `preload="none"`; they never autoplay. Posters are frames from the actual

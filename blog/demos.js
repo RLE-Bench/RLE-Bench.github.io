@@ -3,6 +3,7 @@
 (() => {
   'use strict';
   const videos = Array.from(document.querySelectorAll('.demo-video'));
+  const cancelResume = new Map();
   const paths = {
     play: '<path d="m9 5 11 7-11 7Z" fill="currentColor" stroke="none"/>',
     pause: '<path d="M8 5v14M16 5v14" stroke-width="3"/>',
@@ -24,7 +25,7 @@
     player.className = 'demo-player';
     player.innerHTML = `
       <div class="demo-stage">
-        <button class="demo-cover-play" type="button" aria-label="Play video">${icon('play')}<span class="demo-cover-label">Play film</span></button>
+        <button class="demo-cover-play" type="button" aria-label="Play video">${icon('play')}<span class="demo-cover-label">Play demo</span><span class="demo-cover-duration" aria-hidden="true"></span></button>
       </div>
       <div class="demo-controls" role="group" aria-label="Video controls">
         <button class="demo-control demo-toggle" type="button" aria-label="Play video" title="Play">${icon('play')}</button>
@@ -45,19 +46,26 @@
     const download = figure.querySelector('.demo-download');
     let pendingSeek = null;
     let loadRequested = false;
+    let scrubbing = false;
+    let scrubTime = 0;
+    let resumeAfterSeek = false;
+    let resumeAfterScrub = false;
+    cancelResume.set(video, () => { resumeAfterSeek = false; resumeAfterScrub = false; });
     const duration = () => Number.isFinite(video.duration) && video.duration > 0
       ? video.duration : Number(video.dataset.duration) || 0;
     const announce = message => { status.textContent = message; status.hidden = !message; };
 
     const updateTime = () => {
       const length = duration();
-      const current = pendingSeek === null ? video.currentTime || 0 : pendingSeek;
+      const current = scrubbing ? scrubTime : pendingSeek === null ? video.currentTime || 0 : pendingSeek;
       const progress = length ? Math.min(100, Math.max(0, current / length * 100)) : 0;
-      seek.value = String(Math.round(progress * 10));
+      // Playback updates must not move the thumb out from under the pointer.
+      if (!scrubbing) seek.value = String(Math.round(progress * 10));
       seek.style.setProperty('--played', `${progress}%`);
       seek.setAttribute('aria-valuetext', `${time(current)} of ${time(length)}`);
       elapsed.textContent = time(current);
       total.textContent = time(length);
+      cover.querySelector('.demo-cover-duration').textContent = time(length);
       seek.disabled = !length;
     };
     const updatePlayback = () => {
@@ -71,15 +79,16 @@
       toggle.title = label;
       cover.setAttribute('aria-label', label);
       cover.querySelector('svg').outerHTML = icon(video.ended ? 'replay' : 'play');
-      cover.querySelector('span').textContent = video.ended ? 'Replay film' : 'Play film';
+      cover.querySelector('.demo-cover-label').textContent = video.ended ? 'Replay' : video.currentTime > 0 ? 'Resume' : 'Play demo';
       if (!stopped && document.activeElement === cover) toggle.focus({preventScroll: true});
-      cover.hidden = !stopped;
+      cover.hidden = !stopped || scrubbing;
       if (stopped) player.classList.remove('is-loading');
     };
     const togglePlayback = async () => {
       announce('');
       if (!video.paused && !video.ended) { video.pause(); return; }
       if (video.error) { loadRequested = false; video.load(); }
+      if (pendingSeek !== null) { resumeAfterSeek = true; applyPendingSeek(); return; }
       if (video.ended) video.currentTime = 0;
       try { await video.play(); }
       catch (error) {
@@ -88,35 +97,89 @@
         updatePlayback();
       }
     };
-    const seekTo = seconds => {
+    const applyPendingSeek = () => {
+      if (pendingSeek === null || !video.readyState || video.seeking) return;
+      for (let i = 0; i < video.seekable.length; i++) {
+        if (pendingSeek >= video.seekable.start(i) && pendingSeek <= video.seekable.end(i)) {
+          video.currentTime = pendingSeek;
+          return;
+        }
+      }
+    };
+    const seekTo = (seconds, resume = false) => {
       const target = Math.min(duration(), Math.max(0, seconds));
+      pendingSeek = target;
+      resumeAfterSeek = resume;
       if (video.readyState === 0) {
-        pendingSeek = target;
         if (!loadRequested) { loadRequested = true; video.load(); }
-      } else video.currentTime = target;
+      } else applyPendingSeek();
       updateTime();
+    };
+    const finishScrub = () => {
+      if (!scrubbing) return;
+      scrubbing = false;
+      player.classList.remove('is-scrubbing');
+      seekTo(scrubTime, resumeAfterScrub);
+      updatePlayback();
     };
 
     toggle.addEventListener('click', togglePlayback);
     cover.addEventListener('click', togglePlayback);
     video.addEventListener('click', togglePlayback);
-    seek.addEventListener('input', () => seekTo(Number(seek.value) / 1000 * duration()));
+    seek.addEventListener('pointerdown', event => {
+      if (event.button !== 0) return;
+      scrubbing = true;
+      scrubTime = pendingSeek === null ? video.currentTime || 0 : pendingSeek;
+      resumeAfterScrub = !video.paused && !video.ended;
+      resumeAfterSeek = false;
+      player.classList.add('is-scrubbing');
+      if (resumeAfterScrub) video.pause();
+      updatePlayback();
+    });
+    seek.addEventListener('input', () => {
+      const target = Number(seek.value) / 1000 * duration();
+      if (scrubbing) { scrubTime = target; updateTime(); }
+      else seekTo(target);
+    });
+    // A document listener handles release outside the range control too.
+    document.addEventListener('pointerup', finishScrub);
+    document.addEventListener('pointercancel', finishScrub);
+    seek.addEventListener('change', finishScrub);
     seek.addEventListener('keydown', event => {
       if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
       event.preventDefault();
       seekTo((pendingSeek === null ? video.currentTime : pendingSeek) + (event.key === 'ArrowRight' ? 5 : -5));
     });
     video.addEventListener('loadedmetadata', () => {
-      if (pendingSeek !== null) { video.currentTime = Math.min(pendingSeek, duration()); pendingSeek = null; }
+      if (pendingSeek !== null) pendingSeek = Math.min(pendingSeek, duration());
+      applyPendingSeek();
       updateTime();
     });
-    ['durationchange', 'timeupdate', 'seeked'].forEach(event => video.addEventListener(event, updateTime));
+    ['loadeddata', 'progress', 'canplay'].forEach(event => video.addEventListener(event, applyPendingSeek));
+    ['durationchange', 'timeupdate'].forEach(event => video.addEventListener(event, updateTime));
+    video.addEventListener('seeked', async () => {
+      if (pendingSeek !== null && Math.abs(video.currentTime - pendingSeek) > .2) { applyPendingSeek(); return; }
+      pendingSeek = null;
+      const resume = resumeAfterSeek;
+      resumeAfterSeek = false;
+      updateTime();
+      updatePlayback();
+      if (resume) {
+        try { await video.play(); }
+        catch { updatePlayback(); }
+      }
+    });
     ['play', 'pause', 'ended'].forEach(event => video.addEventListener(event, updatePlayback));
-    video.addEventListener('play', () => videos.forEach(other => { if (other !== video) other.pause(); }));
+    video.addEventListener('play', () => videos.forEach(other => {
+      if (other !== video) { cancelResume.get(other)?.(); other.pause(); }
+    }));
     video.addEventListener('waiting', () => { if (!video.paused) player.classList.add('is-loading'); });
     video.addEventListener('playing', () => { player.classList.remove('is-loading'); announce(''); });
     video.addEventListener('error', () => {
       pendingSeek = null;
+      resumeAfterSeek = false;
+      scrubbing = false;
+      player.classList.remove('is-scrubbing');
       loadRequested = false;
       video.pause();
       updatePlayback();
@@ -154,6 +217,6 @@
   });
 
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) videos.forEach(video => video.pause());
+    if (document.hidden) videos.forEach(video => { cancelResume.get(video)?.(); video.pause(); });
   });
 })();
