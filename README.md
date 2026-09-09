@@ -120,6 +120,34 @@ homepage's placeholder leaderboard data remains managed in `data.js`;
 this article carries the provided manuscript's separate results and
 coverage notes.
 
+### Curated task demos
+
+The article embeds four complete, silent simulation recordings and a three-image
+GELLO design study from the September 9 demo snapshot:
+
+| Location | Selected media | Source |
+|---|---|---|
+| Interactive control / T05 | Hidden-center-of-mass interaction, 36.6 s | GPT-5.6 Sol, v0.8.0, evaluation recording |
+| Policy learning / T04 | Fall-and-get-up motion, 20 s | GPT-6 Astra, v1.0.0, evaluation recording |
+| Embodiment / T07 | Franka, UR5e, and xArm7 GELLO assemblies | GPT-6 Astra, v1.1.2, development artifacts |
+| Perception / T08 | Method-agnostic pose estimation, 6 s | Gemini 3.7 Flash High, v1.3.0, evaluation recording |
+| Development and evaluation / T09 | Camera views and force feedback, 29.5 s | GPT-6 Astra, v1.0.1, development preview |
+
+`blog/demos.css` extends the article's family colors, type, and figure styling.
+`blog/demos.js` pauses other demos when a reader starts playback, and pauses
+playback when the tab is hidden. Videos use native controls, inline mobile
+playback, explicit poster dimensions, and `preload="none"`; they never autoplay.
+Posters are frames from the actual recordings and are also used for printing.
+
+The videos retain the source resolution, frame rate, complete timeline, and
+encoded video packets, with MP4 metadata moved to the front for streaming.
+GELLO images use lossless WebP. The selected media total approximately 5.24 MB;
+the original 3.3 GB archive, logs, and unselected material are not published.
+`assets/blog/demos/sources.json` records source archive paths, task versions,
+models, hashes, and poster timestamps. These individual examples do not update
+or stand in for the manuscript's aggregate results; development material is
+labeled separately from evaluation recordings.
+
 ## Design notes
 
 - Data colours come from a validated categorical palette and a single-hue blue
