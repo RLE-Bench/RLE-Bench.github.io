@@ -134,10 +134,16 @@ GELLO design study from the September 9 demo snapshot:
 | Development and evaluation / T09 | Camera views and force feedback, 29.5 s | GPT-6 Astra, v1.0.1, development preview |
 
 `blog/demos.css` extends the article's family colors, type, and figure styling.
-`blog/demos.js` pauses other demos when a reader starts playback, and pauses
-playback when the tab is hidden. Videos use native controls, inline mobile
-playback, explicit poster dimensions, and `preload="none"`; they never autoplay.
-Posters are frames from the actual recordings and are also used for printing.
+`blog/demos.js` progressively enhances the videos with a centered poster play
+button and a theme-aware control bar below the image: play/pause, a thin seek
+slider, elapsed/total time, fullscreen, and an icon-only download link. The
+controls support keyboard seeking, replay, loading/error states, and seeking
+before metadata arrives. Only one demo plays at a time, and switching tabs
+pauses playback. The original native controls remain the no-JavaScript fallback.
+Videos retain inline mobile playback, explicit poster dimensions, and
+`preload="none"`; they never autoplay. Posters are frames from the actual
+recordings and are also used for printing. Short captions separate the visual
+description from secondary notes about evaluation scope.
 
 The videos retain the source resolution, frame rate, complete timeline, and
 encoded video packets, with MP4 metadata moved to the front for streaming.
