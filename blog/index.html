@@ -1,103 +1,1969 @@
-<!doctype html>
-<html lang="en" data-theme="dark">
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog — RLE-Bench</title>
-<meta name="description" content="Design notes and construction findings from RLE-Bench — how the eight task families were chosen, how the verifiers are built, and what building the suite taught us.">
-<link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="blog.css">
-<link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
-<link rel="icon" type="image/png" sizes="512x512" href="../assets/icon.png">
-<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Introducing RLE-Bench — Evaluating Coding Agents as Robot Learning Engineers</title>
+<meta content="RLE-Bench evaluates coding agents across robot learning workflows, with simulation-based development, independent physical evaluation, and capability profiles spanning control, learning, design, and perception." name="description"/>
+<meta content="#0d0d0d" name="theme-color"/>
+<meta content="article" property="og:type"/>
+<meta content="Introducing RLE-Bench" property="og:title"/>
+<meta content="Evaluating coding agents as robot learning engineers through simulation-based development and independent physical evaluation." property="og:description"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://rle-bench.github.io/blog/" rel="canonical"/>
+<meta content="https://rle-bench.github.io/blog/" property="og:url"/>
+<meta content="RLE-Bench" property="og:site_name"/>
+<meta content="https://rle-bench.github.io/assets/blog/robocasa.webp" property="og:image"/>
+<meta content="672" property="og:image:width"/>
+<meta content="455" property="og:image:height"/>
+<meta content="Simulated RoboCasa kitchen with a mobile manipulator." property="og:image:alt"/>
+<meta content="Introducing RLE-Bench" name="twitter:title"/>
+<meta content="Evaluating coding agents as robot learning engineers through simulation-based development and independent physical evaluation." name="twitter:description"/>
+<meta content="https://rle-bench.github.io/assets/blog/robocasa.webp" name="twitter:image"/>
+<script>try{var t=localStorage.getItem('rlebench-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script>
+<style>/* ===========================================================================
+   RLE-Bench — stylesheet
+   Prose is set in a serif; data (numbers, axis ticks, micro-labels) stays in a
+   monospace so columns line up. Data colours come from a validated categorical
+   palette plus a single-hue blue sequential ramp.
+   =========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* surfaces & ink */
+  --page:           #f9f9f7;
+  --surface-1:      #fcfcfb;
+  --surface-2:      #f2f2ee;
+  --surface-3:      #e9e9e3;
+  --text-primary:   #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted:     #898781;
+  --grid:           #e1e0d9;
+  --axis:           #c3c2b7;
+  --border:         rgba(11, 11, 11, .10);
+  --border-strong:  rgba(11, 11, 11, .18);
+
+  /* data */
+  --series-1: #2a78d6;
+  --accent:   #2a78d6;
+  --accent-2: #4a3aa7;
+  --cat-1: #2a78d6; --cat-2: #eb6834; --cat-3: #1baf7a;
+  --cat-4: #eda100; --cat-5: #e87ba4;
+
+  /* blue sequential ramp, light surface */
+  --seq-1: #cde2fb; --seq-2: #b7d3f6; --seq-3: #9ec5f4; --seq-4: #86b6ef;
+  --seq-5: #6da7ec; --seq-6: #5598e7; --seq-7: #3987e5; --seq-8: #2a78d6;
+  --seq-9: #256abf; --seq-10:#1c5cab;
+
+  --hero-wash: radial-gradient(1100px 460px at 18% -8%, rgba(42,120,214,.16), transparent 62%),
+               radial-gradient(820px 420px at 84% 4%, rgba(74,58,167,.13), transparent 66%);
+
+  --radius: 12px;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+           "New York", Georgia, "Times New Roman", serif;
+  --mono:  ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --shadow: 0 1px 2px rgba(11,11,11,.05), 0 8px 24px rgba(11,11,11,.06);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --page:           #0d0d0d;
+  --surface-1:      #1a1a19;
+  --surface-2:      #202020;
+  --surface-3:      #2a2a28;
+  --text-primary:   #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted:     #898781;
+  --grid:           #2c2c2a;
+  --axis:           #383835;
+  --border:         rgba(255, 255, 255, .10);
+  --border-strong:  rgba(255, 255, 255, .18);
+
+  --series-1: #3987e5;
+  --accent:   #3987e5;
+  --accent-2: #9085e9;
+  --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
+  --cat-4: #c98500; --cat-5: #d55181;
+
+  --seq-1: #104281; --seq-2: #184f95; --seq-3: #1c5cab; --seq-4: #256abf;
+  --seq-5: #2a78d6; --seq-6: #3987e5; --seq-7: #5598e7; --seq-8: #6da7ec;
+  --seq-9: #86b6ef; --seq-10:#9ec5f4;
+
+  --hero-wash: radial-gradient(1100px 460px at 18% -8%, rgba(57,135,229,.20), transparent 62%),
+               radial-gradient(820px 420px at 84% 4%, rgba(144,133,233,.16), transparent 66%);
+
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 32px rgba(0,0,0,.35);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+
+body {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--page);
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: tabular-nums;
+}
+
+a { color: inherit; }
+h1, h2, h3, h4 { line-height: 1.2; letter-spacing: -.012em; margin: 0; font-weight: 600; }
+code {
+  font-family: var(--mono); font-size: .85em;
+  background: var(--surface-3); padding: .1em .38em; border-radius: 5px;
+}
+
+.wrap { width: min(1220px, 100% - 48px); margin-inline: auto; }
+.muted { color: var(--text-muted); }
+.fine { font-size: 12.5px; max-width: 58ch; }
+
+/* micro-labels: uppercase mono, used for every key/axis/eyebrow */
+.mono-key {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--text-muted);
+}
+
+.scanline {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: repeating-linear-gradient(to bottom, rgba(127,127,127,.045) 0 1px, transparent 1px 3px);
+  opacity: .5;
+}
+:root[data-theme="light"] .scanline { opacity: .26; }
+
+/* ── header ────────────────────────────────────────────────────────────── */
+.site-header {
+  position: sticky; top: 0; z-index: 40;
+  background: color-mix(in srgb, var(--page) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner { display: flex; align-items: center; gap: 24px; height: 62px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; }
+.brand-mark {
+  width: 30px; height: 30px; border-radius: 8px; flex: none;
+  background: #fff; object-fit: cover;
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+.footer-brand { display: flex; align-items: center; gap: 9px; }
+.brand-text { font-size: 19px; letter-spacing: -.015em; }
+.brand-text.small { font-size: 17px; }
+.brand-dim { color: var(--text-muted); }
+
+.site-nav { display: flex; gap: 4px; margin-left: auto; }
+.site-nav a {
+  text-decoration: none; color: var(--text-secondary);
+  font-size: 15px; padding: 6px 11px; border-radius: 7px;
+}
+.site-nav a:hover { color: var(--text-primary); background: var(--surface-2); }
+.site-nav .nav-ext { display: inline-flex; align-items: center; gap: 6px; }
+.site-nav .nav-ext svg { opacity: .8; }
+.site-nav .nav-ext.is-pending { color: var(--text-muted); cursor: default; }
+.site-nav .nav-ext.is-pending:hover { background: transparent; color: var(--text-muted); }
+@media (max-width: 780px) { .site-nav a:not(.nav-ext) { display: none; } }
+
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.pill {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .04em;
+  padding: 4px 9px; border-radius: 999px;
+  border: 1px solid var(--border); color: var(--text-secondary);
+}
+.icon-btn {
+  display: grid; place-items: center; width: 32px; height: 32px;
+  border-radius: 8px; border: 1px solid var(--border);
+  background: var(--surface-1); color: var(--text-secondary); cursor: pointer;
+}
+.icon-btn:hover { color: var(--text-primary); border-color: var(--border-strong); }
+.ico-sun { display: none; }
+:root[data-theme="dark"] .ico-moon { display: none; }
+:root[data-theme="dark"] .ico-sun  { display: block; }
+
+/* ── data banner ───────────────────────────────────────────────────────── */
+.databanner {
+  position: relative; z-index: 1;
+  background: color-mix(in srgb, var(--cat-2) 14%, var(--page));
+  border-bottom: 1px solid color-mix(in srgb, var(--cat-2) 34%, transparent);
+  color: var(--text-secondary);
+  font-size: 13px; padding: 9px 24px; text-align: center;
+}
+.databanner strong { color: var(--text-primary); }
+
+/* ── hero ──────────────────────────────────────────────────────────────── */
+.hero { position: relative; padding: 92px 0 72px; overflow: hidden; }
+.hero-glow { position: absolute; inset: -20% -10% auto -10%; height: 640px; background: var(--hero-wash); }
+.hero .wrap { position: relative; }
+
+.eyebrow {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--text-muted); margin: 0 0 22px;
+}
+.eyebrow a { color: var(--accent); text-decoration: none; }
+.eyebrow a:hover { text-decoration: underline; }
+
+.hero-title { display: flex; align-items: center; gap: 22px; }
+.hero-mark {
+  width: 116px; height: 116px; flex: none; border-radius: 20px;
+  background: #fff; box-shadow: inset 0 0 0 1px var(--border), var(--shadow);
+}
+@media (max-width: 760px) {
+  .hero-title { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .hero-mark { width: 96px; height: 96px; border-radius: 18px; }
+}
+
+.hero h1 {
+  font-size: clamp(34px, 5vw, 56px); font-weight: 600;
+  letter-spacing: -.022em; line-height: 1.08;
+}
+.grad {
+  background: linear-gradient(100deg, var(--accent) 0%, var(--accent-2) 62%, var(--cat-3) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.lede { max-width: 70ch; margin: 26px 0 0; font-size: 17.5px; color: var(--text-secondary); }
+
+.hero-stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1px; margin: 42px 0 34px;
+  background: var(--border); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+}
+.stat { background: var(--surface-1); padding: 18px 22px; }
+.stat-val { font-family: var(--mono); font-size: 27px; font-weight: 600; letter-spacing: -.03em; }
+.stat-key {
+  font-family: var(--mono); font-size: 10.5px; color: var(--text-muted); margin-top: 5px;
+  text-transform: uppercase; letter-spacing: .07em;
+}
+
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px; border-radius: 9px; text-decoration: none;
+  font-family: var(--serif); font-size: 15.5px;
+  border: 1px solid var(--border-strong); color: var(--text-primary);
+  background: var(--surface-1);
+}
+.btn:hover { background: var(--surface-2); }
+.btn-primary { background: var(--accent); border-color: transparent; color: #fff; }
+.btn-primary:hover { filter: brightness(1.08); background: var(--accent); }
+
+/* ── sections ──────────────────────────────────────────────────────────── */
+.section { position: relative; z-index: 1; padding: 72px 0; }
+.section-alt { background: color-mix(in srgb, var(--surface-1) 55%, var(--page)); border-block: 1px solid var(--border); }
+
+.section-head { display: flex; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 26px; }
+.section-title { font-size: clamp(28px, 3.4vw, 36px); }
+.section-sub { max-width: 76ch; margin: 10px 0 0; color: var(--text-secondary); font-size: 15.5px; }
+.section-sub.tight { margin-top: 6px; }
+.sub-head { margin: 52px 0 0; font-size: 21px; }
+
+.panel {
+  margin-top: 18px;
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 22px;
+}
+.scroll-x { overflow-x: auto; }
+
+.seg {
+  display: inline-flex; padding: 3px; gap: 3px; margin-left: auto;
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: 9px;
+}
+.seg-btn {
+  border: 0; background: transparent; cursor: pointer;
+  font: 14px/1 var(--serif); color: var(--text-secondary);
+  padding: 8px 15px; border-radius: 7px;
+}
+.seg-btn.is-on { background: var(--surface-1); color: var(--text-primary); box-shadow: var(--shadow); }
+
+/* ── the index grid: average and every family, at once ─────────────────── */
+.ig { display: grid; row-gap: 7px; column-gap: 4px; min-width: 940px; }
+.ig-row { display: grid; column-gap: 4px; align-items: center; }
+.ig-row.is-head { align-items: end; margin-bottom: 2px; }
+.ig-row.is-body { border-radius: 8px; }
+.ig-row.is-body:hover { background: var(--surface-2); }
+
+.ig-head {
+  font: 10.5px/1.3 var(--mono); color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: .05em; text-align: center;
+  padding-bottom: 7px;
+}
+.ig-head.l { text-align: left; }
+.ig-head .task-key { display: block; padding-bottom: 5px; border-bottom: 2px solid var(--axis); }
+
+.ig-name { font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 8px 0 11px; }
+.ig-name .sub { display: block; font: 10px/1.4 var(--mono); color: var(--text-muted); }
+
+.ig-cell {
+  height: 42px; border-radius: 6px; display: grid; place-items: center;
+  font: 13.5px/1 var(--mono); transition: transform .12s ease;
+}
+.ig-cell:hover { transform: scale(1.06); outline: 2px solid var(--text-primary); outline-offset: -2px; }
+.ig-cell.is-void { background: transparent; color: var(--text-muted); }
+
+.ig-agg { display: flex; align-items: center; gap: 9px; padding-left: 6px; }
+.ig-track { flex: 1; height: 8px; border-radius: 4px; background: var(--surface-3); overflow: hidden; }
+.ig-fill {
+  display: block; height: 100%; border-radius: 4px; background: var(--series-1);
+  transform-origin: left center; animation: grow .6s cubic-bezier(.22,.9,.28,1) both;
+}
+.ig-fill.is-baseline { background: repeating-linear-gradient(135deg, var(--axis) 0 4px, transparent 4px 8px), var(--surface-3); }
+.ig-val { font: 600 14px/1 var(--mono); width: 46px; text-align: right; }
+
+.ig-legend {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin-top: 16px; font-size: 12px; color: var(--text-muted);
+}
+.ig-legend .ramp { display: flex; gap: 2px; }
+.ig-legend .ramp i { width: 15px; height: 10px; border-radius: 2px; display: block; }
+
+/* the placement number is a headline, not a footnote */
+.rank {
+  font: 600 19px/1 var(--mono); letter-spacing: -.03em;
+  color: var(--text-secondary); text-align: right; font-variant-numeric: tabular-nums;
+}
+.rank.is-top { color: var(--text-primary); font-weight: 700; }
+
+.who { min-width: 0; }
+.who-name { font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.who-meta {
+  font-family: var(--mono); font-size: 10.5px; color: var(--text-muted);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px;
+  letter-spacing: .02em;
+}
+.tag-open {
+  font: 9.5px/1 var(--mono); letter-spacing: .05em;
+  border: 1px solid var(--border-strong); color: var(--text-muted);
+  padding: 2px 4px; border-radius: 4px; margin-left: 6px;
+}
+
+.track { position: relative; height: 20px; background: var(--surface-3); border-radius: 4px; overflow: hidden; }
+.bar {
+  height: 100%; border-radius: 0 4px 4px 0; background: var(--series-1);
+  transform-origin: left center; animation: grow .62s cubic-bezier(.22,.9,.28,1) both;
+}
+.bar.is-baseline { background: repeating-linear-gradient(135deg, var(--axis) 0 5px, transparent 5px 10px), var(--surface-3); }
+@keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { .bar, .seg-mark { animation: none !important; } }
+
+.val { font-family: var(--mono); font-size: 15px; text-align: right; }
+
+/* ── tables ────────────────────────────────────────────────────────────── */
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th, td { text-align: right; padding: 9px 12px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+th:first-child, td:first-child, th.l, td.l { text-align: left; }
+thead th {
+  font: 10.5px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase;
+  color: var(--text-muted); border-bottom: 1px solid var(--axis);
+  position: sticky; top: 0; background: var(--surface-1);
+}
+thead th.sortable { cursor: pointer; user-select: none; }
+thead th.sortable:hover { color: var(--text-primary); }
+thead th .caret { opacity: .35; }
+thead th.is-sorted { color: var(--text-primary); }
+thead th.is-sorted .caret { opacity: 1; }
+tbody tr:hover { background: var(--surface-2); }
+tbody tr.is-baseline td { color: var(--text-secondary); font-style: italic; }
+td.num { font-family: var(--mono); font-size: 13.5px; }
+td.lead { color: var(--text-primary); font-weight: 600; }
+td .sub { display: block; font: 10.5px/1.4 var(--mono); color: var(--text-muted); }
+.table-note { font-size: 12.5px; color: var(--text-muted); margin: 12px 0 0; }
+
+/* ── task tabs: always one row ─────────────────────────────────────────── */
+.tabs { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px; margin-bottom: 22px; }
+.tab {
+  cursor: pointer; text-align: left; font-family: var(--serif);
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 11px; color: var(--text-secondary);
+  transition: border-color .15s, transform .15s; min-width: 0;
+}
+.tab:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+.tab.is-on { border-color: var(--accent); color: var(--text-primary); box-shadow: inset 0 0 0 1px var(--accent), var(--shadow); }
+.tab-num { font: 10px/1 var(--mono); letter-spacing: .09em; color: var(--text-muted); }
+.tab.is-on .tab-num { color: var(--accent); }
+.tab-name { display: block; font-size: 13.5px; line-height: 1.25; margin-top: 6px; color: var(--text-primary); }
+@media (max-width: 1080px) { .tabs { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 560px)  { .tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ── task view: brief and ranking share one height ─────────────────────── */
+.task-view { display: grid; grid-template-columns: minmax(0, 350px) minmax(0, 1fr); gap: 20px; align-items: stretch; }
+@media (max-width: 940px) { .task-view { grid-template-columns: 1fr; } }
+
+.brief, .results {
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; min-width: 0;
+}
+.brief-id { font: 10.5px/1 var(--mono); letter-spacing: .11em; color: var(--accent); }
+.brief h3 { font-size: 24px; margin: 10px 0 6px; }
+.brief .tagline { color: var(--text-secondary); font-size: 15px; margin: 0 0 14px; }
+.brief p.body { font-size: 14.5px; color: var(--text-secondary); margin: 0 0 16px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.chip {
+  font: 11px/1 var(--mono); padding: 6px 9px; border-radius: 6px;
+  background: var(--surface-2); border: 1px solid var(--border); color: var(--text-secondary);
+  letter-spacing: .02em;
+}
+.chip b { color: var(--text-primary); font-weight: 600; }
+.chip.gpu { border-color: color-mix(in srgb, var(--cat-3) 45%, transparent); }
+
+.weights-head { font: 10.5px/1 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+.weight-row { display: grid; grid-template-columns: 1fr 38px; gap: 10px; align-items: baseline; margin-bottom: 9px; font-size: 13.5px; }
+.weight-row .wl { color: var(--text-secondary); }
+.weight-row .wv { font-family: var(--mono); font-size: 11.5px; text-align: right; color: var(--text-muted); }
+.weight-bar { grid-column: 1 / -1; height: 4px; border-radius: 2px; background: var(--surface-3); overflow: hidden; margin-top: -3px; }
+.weight-bar i { display: block; height: 100%; background: var(--accent); border-radius: 2px; }
+
+.brief-note {
+  margin-top: auto; padding-top: 16px; border-top: 1px solid var(--grid);
+  font-size: 12.5px; color: var(--text-muted); line-height: 1.5;
+}
+
+.results-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.results-head h4 { margin: 0; font-size: 18px; }
+.results-head .agg { font: 11px/1 var(--mono); color: var(--text-muted); border: 1px solid var(--border); padding: 5px 8px; border-radius: 5px; }
+
+.srow { display: grid; grid-template-columns: 34px minmax(160px, 225px) 1fr 56px; align-items: center; gap: 14px; padding: 9px 8px; border-radius: 9px; }
+.srow:hover { background: var(--surface-2); }
+.srow-list { margin-top: 2px; display: grid; gap: 2px; }
+.stack { display: flex; height: 20px; gap: 2px; }
+.seg-mark { height: 100%; border-radius: 3px; min-width: 1px; animation: grow .5s cubic-bezier(.22,.9,.28,1) both; transform-origin: left center; }
+
+.split-legend { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0 0; font-size: 12px; color: var(--text-muted); }
+.split-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.split-legend i { width: 10px; height: 10px; border-radius: 3px; display: block; }
+
+details.splits { margin-top: auto; padding-top: 16px; }
+details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-secondary); }
+
+/* ── scatter ───────────────────────────────────────────────────────────── */
+.scatter svg { width: 100%; height: auto; display: block; overflow: visible; }
+.sc-grid { stroke: var(--grid); stroke-width: 1; }
+.sc-axis { stroke: var(--axis); stroke-width: 1; }
+.sc-tick { fill: var(--text-muted); font: 11px var(--mono); }
+.sc-label { fill: var(--text-secondary); font: 13px var(--serif); }
+.sc-title { fill: var(--text-muted); font: 10.5px var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+.sc-dot { fill: var(--series-1); stroke: var(--surface-1); stroke-width: 2; transition: r .12s ease; }
+.sc-dot:hover { r: 9; }
+
+/* ── cost tabs & figure ────────────────────────────────────────────────── */
+.tabs-cost { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+@media (max-width: 1180px) { .tabs-cost { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+@media (max-width: 620px)  { .tabs-cost { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.fig-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 6px; }
+.fig-head h4 { font-size: 18px; }
+.fig-head .fig-note { font: 11px/1.5 var(--mono); color: var(--text-muted); }
+.fig-head .fig-sub { font-size: 14px; color: var(--text-secondary); flex-basis: 100%; margin: 0; }
+
+/* ── footer ────────────────────────────────────────────────────────────── */
+.site-footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 38px 0; }
+.footer-inner { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; align-items: flex-start; }
+.footer-inner p { margin: 6px 0 0; font-size: 14px; }
+.footer-meta { display: flex; gap: 18px; font-family: var(--mono); font-size: 11.5px; color: var(--text-muted); }
+
+/* ── tooltip ───────────────────────────────────────────────────────────── */
+.tooltip {
+  position: fixed; z-index: 90; pointer-events: none;
+  background: var(--surface-1); border: 1px solid var(--border-strong);
+  border-radius: 9px; padding: 11px 13px; box-shadow: var(--shadow);
+  font-size: 13.5px; max-width: 300px;
+}
+.tooltip .tt-title { margin-bottom: 7px; }
+.tooltip .tt-line { display: flex; justify-content: space-between; gap: 16px; color: var(--text-secondary); font-size: 13px; }
+.tooltip .tt-line b { font-family: var(--mono); font-size: 12px; color: var(--text-primary); font-weight: 600; }
+.tooltip .tt-sub { margin-top: 7px; padding-top: 7px; border-top: 1px solid var(--grid); color: var(--text-muted); font: 11px/1.5 var(--mono); }
+</style>
+<style>/* ===========================================================================
+   RLE-Bench — blog styles
+   Layered on top of styles.css: same tokens, same serif/mono split. Only the
+   things the leaderboard has no use for live here — long-form prose, post
+   cards, a sticky contents rail, callouts and code blocks.
+   =========================================================================== */
+
+/* the current section in the header nav */
+.site-nav a.is-active { color: var(--text-primary); background: var(--surface-2); }
+
+/* ── reading progress ──────────────────────────────────────────────────────
+   A 2px rule under the sticky header. It is decoration, not a control: no
+   focus, no pointer, and it disappears entirely on the index. */
+.progress {
+  position: fixed; top: 62px; left: 0; height: 2px; width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  z-index: 45; pointer-events: none;
+}
+
+/* ── blog hero ─────────────────────────────────────────────────────────── */
+.blog-hero { position: relative; padding: 74px 0 34px; overflow: hidden; }
+.blog-hero .hero-glow { position: absolute; inset: -30% -10% auto -10%; height: 520px; background: var(--hero-wash); }
+.blog-hero .wrap { position: relative; }
+.blog-hero h1 { font-size: clamp(32px, 4.6vw, 48px); letter-spacing: -.022em; }
+.blog-hero .lede { max-width: 68ch; }
+
+/* ── post cards ────────────────────────────────────────────────────────── */
+/* the card width is set by the summary column: ~72ch of prose plus the rail,
+   so a card never runs wider than the text inside it can fill */
+.post-list { display: grid; gap: 16px; max-width: 920px; padding-bottom: 80px; }
+
+.postcard {
+  display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 28px;
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 24px 26px; text-decoration: none; color: inherit;
+  transition: border-color .15s ease, transform .15s ease;
+}
+.postcard:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+.postcard:hover .postcard-title { color: var(--accent); }
+
+.postcard-rail { display: flex; flex-direction: column; gap: 6px; }
+.postcard-num {
+  font: 600 26px/1 var(--mono); letter-spacing: -.04em; color: var(--text-muted);
+}
+.postcard-date {
+  font: 10.5px/1.4 var(--mono); letter-spacing: .07em; text-transform: uppercase;
+  color: var(--text-muted);
+}
+.postcard-title { font-size: 23px; margin: 0 0 8px; transition: color .15s ease; }
+.postcard-kicker {
+  font: 10.5px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 9px;
+}
+.postcard-sum { margin: 0; color: var(--text-secondary); font-size: 15.5px; max-width: 72ch; }
+
+@media (max-width: 720px) {
+  .postcard { grid-template-columns: 1fr; gap: 12px; }
+  .postcard-rail { flex-direction: row; align-items: baseline; gap: 12px; }
+}
+
+/* ── tags ──────────────────────────────────────────────────────────────── */
+.tagrow { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.tag {
+  font: 10.5px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase;
+  padding: 5px 8px; border-radius: 5px;
+  background: var(--surface-2); border: 1px solid var(--border); color: var(--text-muted);
+}
+
+/* ── post page layout ──────────────────────────────────────────────────── */
+.post-wrap { position: relative; z-index: 1; padding: 46px 0 84px; }
+.post-layout { display: grid; grid-template-columns: 196px minmax(0, 1fr); gap: 56px; align-items: start; }
+@media (max-width: 1000px) {
+  .post-layout { grid-template-columns: 1fr; gap: 0; }
+  .toc { display: none; }
+}
+
+.toc { position: sticky; top: 92px; }
+.toc-head {
+  font: 10.5px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase;
+  color: var(--text-muted); padding-bottom: 10px; border-bottom: 1px solid var(--grid);
+}
+.toc ol { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 2px; counter-reset: toc; }
+.toc a {
+  display: block; text-decoration: none; color: var(--text-muted);
+  font-size: 13.5px; line-height: 1.35; padding: 5px 8px 5px 10px;
+  border-left: 2px solid transparent; border-radius: 0 6px 6px 0;
+}
+.toc a:hover { color: var(--text-primary); background: var(--surface-2); }
+.toc a.is-here { color: var(--text-primary); border-left-color: var(--accent); }
+.toc-back {
+  display: inline-flex; align-items: center; gap: 7px; margin-top: 22px;
+  font: 11px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase;
+  color: var(--text-muted); text-decoration: none;
+}
+.toc-back:hover { color: var(--text-primary); }
+
+/* ── the article ───────────────────────────────────────────────────────── */
+.post { min-width: 0; }
+.post-head { padding-bottom: 26px; margin-bottom: 34px; border-bottom: 1px solid var(--grid); }
+.post-kicker {
+  font: 11px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 16px;
+}
+.post-head h1 { font-size: clamp(30px, 4.2vw, 44px); letter-spacing: -.024em; line-height: 1.1; }
+.post-standfirst { max-width: 66ch; margin: 20px 0 0; font-size: 18px; color: var(--text-secondary); }
+.post-byline {
+  display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 22px;
+  font: 11px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--text-muted);
+}
+
+.post-body { max-width: 72ch; font-size: 17px; }
+
+/* One owner for vertical rhythm: every top-level block carries its own bottom
+   margin, and nothing else in this file sets one. Element-plus-class rules such
+   as `.post-body p` outrank a `> * + *` flow rule, which is exactly the fight
+   this avoids. */
+.post-body > * { margin: 0 0 22px; }
+.post-body > *:last-child { margin-bottom: 0; }
+
+.post-body p { color: var(--text-secondary); }
+.post-body strong { color: var(--text-primary); font-weight: 600; }
+.post-body a { color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
+.post-body a:hover { border-bottom-color: var(--accent); }
+
+.post-body h2 {
+  font-size: 26px; margin: 56px 0 18px; scroll-margin-top: 92px;
+  letter-spacing: -.018em;
+}
+.post-body h2 .h-num {
+  display: block; font: 10.5px/1 var(--mono); letter-spacing: .1em;
+  text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px;
+}
+.post-body h3 { font-size: 19px; margin: 36px 0 14px; scroll-margin-top: 92px; }
+
+.post-body ul, .post-body ol { padding-left: 22px; color: var(--text-secondary); }
+.post-body li + li { margin-top: 9px; }
+.post-body li::marker { color: var(--text-muted); }
+.post-body li > strong:first-child { color: var(--text-primary); }
+
+.post-body blockquote {
+  padding: 4px 0 4px 20px; border-left: 2px solid var(--accent);
+  color: var(--text-primary); font-size: 18px;
+}
+.post-body blockquote p { margin: 0; color: inherit; }
+
+.post-body pre {
+  padding: 16px 18px; overflow-x: auto;
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 10px; font: 13px/1.6 var(--mono); color: var(--text-secondary);
+}
+.post-body pre code { background: none; padding: 0; font-size: inherit; }
+
+.post-body hr { border: 0; border-top: 1px solid var(--grid); margin: 46px 0; }
+
+/* a table inside prose keeps the leaderboard's rules */
+.post-table { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-1); }
+.post-table table { font-size: 14px; }
+.post-table th, .post-table td { padding: 10px 14px; }
+.post-table thead th { background: var(--surface-1); }
+.post-table tbody tr:last-child td { border-bottom: 0; }
+.post-table td.l { white-space: normal; min-width: 220px; color: var(--text-secondary); }
+.post-table td .k { font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
+
+/* ── callout ───────────────────────────────────────────────────────────── */
+.callout {
+  border: 1px solid var(--border); border-left: 2px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface-1));
+  border-radius: 0 10px 10px 0; padding: 16px 20px;
+}
+.callout .callout-key {
+  font: 10.5px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 9px;
+}
+.callout p { margin: 0; font-size: 15.5px; }
+.callout.is-warn { border-left-color: var(--cat-2); background: color-mix(in srgb, var(--cat-2) 7%, var(--surface-1)); }
+.callout.is-warn .callout-key { color: var(--cat-2); }
+
+/* ── figure: a small hand-built diagram ────────────────────────────────── */
+.post-fig {
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px 24px 18px; box-shadow: var(--shadow);
+}
+/* below its natural width the diagram scrolls rather than shrinking its own
+   labels into illegibility — the same rule the leaderboard's wide panels use */
+.post-fig { overflow-x: auto; }
+.post-fig svg { width: 100%; min-width: 540px; height: auto; display: block; }
+.post-fig figcaption { margin-top: 14px; font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+.fig-box { fill: var(--surface-2); stroke: var(--border-strong); }
+.fig-box.accent { fill: color-mix(in srgb, var(--accent) 12%, var(--surface-2)); stroke: var(--accent); }
+.fig-box.wall { fill: none; stroke: var(--cat-2); stroke-dasharray: 5 4; }
+.fig-t { fill: var(--text-primary); font: 13px var(--serif); }
+.fig-k { fill: var(--text-muted); font: 10px var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+.fig-arrow { stroke: var(--axis); stroke-width: 1.4; fill: none; }
+
+/* ── prev / next ───────────────────────────────────────────────────────── */
+/* the font-size is here only so `ch` resolves against the same measure the
+   article body uses — every child below sets its own size */
+.post-foot { max-width: 72ch; font-size: 17px; margin-top: 64px; padding-top: 26px; border-top: 1px solid var(--grid); }
+.post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } }
+.pn {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+  transition: border-color .15s ease;
+}
+.pn:hover { border-color: var(--border-strong); }
+.pn.is-next { text-align: right; }
+.pn-key { font: 10.5px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase; color: var(--text-muted); }
+.pn-title { display: block; margin-top: 7px; font-size: 15.5px; }
+.pn.is-empty { visibility: hidden; }
+</style>
+<style>/* Manuscript companion. Inherits the site's serif/mono typography, surfaces,
+   radius, accents, and shared theme. No fonts, frameworks, or network requests. */
+.research-page { --text-muted: #a19f97; }
+:root[data-theme="light"] .research-page { --text-muted: #706e69; }
+.research-page main { position: relative; z-index: 1; }
+.research-page .scanline { opacity: .19; }
+.research-page a, .research-page button, .research-page summary { -webkit-tap-highlight-color: transparent; }
+.research-page :focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.research-page .site-nav { align-items: center; }
+.research-page .site-header { z-index: 60; }
+.research-page .icon-btn { width: 36px; height: 36px; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.skip-link { position: fixed; top: 8px; left: 12px; z-index: 100; padding: 10px 18px; background: var(--surface-1); border: 1px solid var(--accent); border-radius: 6px; transform: translateY(-160%); }
+.skip-link:focus { transform: none; }
+.family-interactive { --family: var(--accent); }
+.family-learning { --family: var(--cat-3); }
+.family-embodiment { --family: var(--cat-2); }
+.family-perception { --family: var(--accent-2); }
+.family-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--family); flex: 0 0 7px; }
+.figure-label, .micro, .caption-label { font: 10px/1.6 var(--mono); text-transform: uppercase; letter-spacing: .075em; color: var(--text-muted); }
+.status-dot { display: inline-block; width: 6px; height: 6px; background: var(--cat-2); border-radius: 50%; flex: 0 0 6px; }
+
+/* Opening spread */
+.article-hero { position: relative; padding: 34px 0 54px; overflow: hidden; }
+.article-hero .hero-glow { inset: -90px -10% auto; height: 670px; opacity: .78; pointer-events: none; }
+.article-hero .wrap { position: relative; }
+.hero-topline { display: flex; align-items: center; gap: 11px; margin-bottom: 51px; font: 10px/1.4 var(--mono); letter-spacing: .065em; text-transform: uppercase; color: var(--text-muted); }
+.hero-topline a { text-decoration: none; }
+.hero-topline a:hover { color: var(--text-primary); }
+.hero-topline > span:first-of-type { color: var(--axis); }
+.hero-editorial-grid { display: grid; grid-template-columns: minmax(0, 1fr) 267px; gap: 70px; align-items: center; }
+.article-hero .post-kicker { font-size: 10px; letter-spacing: .09em; line-height: 1.7; margin: 0 0 20px; }
+.article-hero h1 { font-size: clamp(51px, 6.4vw, 81px); letter-spacing: -.048em; font-weight: 500; line-height: .99; }
+.article-hero h1 .grad { display: inline-block; padding-bottom: 6px; }
+.hero-subtitle { font-size: clamp(21px, 2.35vw, 29px); line-height: 1.35; letter-spacing: -.018em; margin: 25px 0 0; }
+.hero-description { color: var(--text-secondary); font-size: 17px; line-height: 1.7; max-width: 66ch; margin: 18px 0 0; }
+.article-hero .post-byline { font-size: 9.5px; line-height: 1.5; letter-spacing: .025em; margin-top: 29px; gap: 8px 16px; }
+.hero-scope { padding: 8px 0 0 25px; border-left: 1px solid var(--border-strong); }
+.scope-item { display: grid; grid-template-columns: 59px 1fr; gap: 14px; padding: 24px 0; border-bottom: 1px solid var(--grid); }
+.scope-number { font: 400 39px/1 var(--mono); letter-spacing: -.08em; color: var(--text-primary); }
+.scope-item strong { font-size: 16px; font-weight: 500; line-height: 1.3; display: block; margin-bottom: 7px; }
+.scope-item div > span { display: block; font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+.scope-link { display: flex; gap: 12px; text-decoration: none; font-size: 12px; line-height: 1.5; padding-top: 18px; color: var(--text-secondary); }
+.scope-link span { color: var(--accent); font-size: 18px; }
+.scope-link:hover { color: var(--text-primary); }
+.hero-atlas { margin: 43px 0 0; }
+.atlas-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.atlas-tile { position: relative; min-width: 0; display: block; padding-bottom: 41px; text-decoration: none; border: 1px solid var(--border-strong); border-radius: 9px; overflow: hidden; background: var(--surface-1); }
+.atlas-tile img { width: 100%; height: 168px; display: block; object-fit: cover; transition: transform .4s ease; }
+.atlas-tile:hover img { transform: scale(1.04); }
+.atlas-id { position: absolute; top: 10px; left: 10px; font: 9px/1.3 var(--mono); letter-spacing: .02em; padding: 5px 7px; border: 1px solid rgba(255,255,255,.18); border-radius: 4px; background: rgba(10,10,10,.77); color: #fff; }
+.atlas-caption { display: flex; align-items: center; gap: 8px; position: absolute; bottom: 0; left: 0; right: 0; height: 41px; padding: 0 13px; font-size: 13px; line-height: 1.2; color: var(--text-primary); background: var(--surface-1); }
+.atlas-caption > span:last-child { margin-left: auto; color: var(--text-muted); }
+.hero-atlas figcaption { font-size: 12px; line-height: 1.7; color: var(--text-muted); margin-top: 11px; }
+.caption-label { margin-right: 13px; font-size: 9px; }
+
+/* Reading measure and navigation */
+.research-layout { padding-top: 54px; padding-bottom: 80px; border-top: 1px solid var(--grid); grid-template-columns: 187px minmax(0, 1fr); gap: 58px; }
+.research-layout .toc { top: 96px; max-height: calc(100dvh - 120px); overflow-y: auto; scrollbar-width: thin; }
+.research-layout .toc-head { font-size: 10px; padding-bottom: 16px; }
+.research-layout .toc ol { gap: 4px; margin-top: 17px; counter-reset: item; }
+.research-layout .toc li { counter-increment: item; }
+.research-layout .toc li a { display: grid; grid-template-columns: 22px 1fr; gap: 4px; padding: 7px 3px 7px 8px; font-size: 13px; line-height: 1.4; border-radius: 0; }
+.research-layout .toc li a::before { content: counter(item, decimal-leading-zero); color: var(--text-muted); font: 9px/1.9 var(--mono); }
+.research-layout .toc a.is-here { color: var(--text-primary); background: color-mix(in srgb, var(--accent) 5%, transparent); }
+.research-layout .toc .toc-back { display: block; margin-top: 24px; padding-left: 10px; font-size: 9px; line-height: 1.5; }
+.toc-footnote { margin: 32px 10px 0; padding-top: 16px; border-top: 1px solid var(--grid); color: var(--text-muted); font: 9px/1.9 var(--mono); }
+.toc-footnote .status-dot { margin-right: 4px; }
+.mobile-toc { display: none; }
+.research-page .post-body { max-width: none; font-size: 18px; line-height: 1.78; }
+.research-page .post-body > p { max-width: 78ch; margin-bottom: 23px; }
+.research-page .post-body > h2 { font-size: 32px; line-height: 1.2; font-weight: 500; letter-spacing: -.023em; margin: 75px 0 25px; max-width: none; text-wrap: balance; scroll-margin-top: 100px; }
+.research-page .post-body > h2:first-child { margin-top: 0; }
+.research-page .post-body h2 .h-num { font-size: 10px; margin-bottom: 15px; color: var(--accent); }
+.research-page .post-body > .small-note { font-size: 13px; line-height: 1.7; color: var(--text-muted); max-width: none; margin-top: 18px; }
+.research-page .post-body a { text-underline-offset: 3px; }
+.research-page .post-body sup { margin-left: 3px; font: 10px/0 var(--mono); vertical-align: super; }
+.research-page .post-body .cite { padding: 2px; border-bottom: 0; color: var(--accent); }
+.research-page .post-body .cite::before { content: '['; }
+.research-page .post-body .cite::after { content: ']'; }
+.research-page .post-body .thesis { margin: 34px 0; padding: 23px 0 23px 29px; border-left: 2px solid var(--accent); max-width: 720px; }
+.research-page .thesis p { color: var(--text-primary); font-size: 26px; line-height: 1.4; letter-spacing: -.016em; }
+.thesis footer { font: 9px/1.5 var(--mono); color: var(--text-muted); text-transform: uppercase; letter-spacing: .07em; margin-top: 15px; }
+
+/* The four-family task atlas */
+.research-page .post-body .workflow { margin: 28px 0 25px; padding-top: 20px; border-top: 1px solid var(--grid); scroll-margin-top: 95px; }
+.workflow-heading { display: flex; align-items: center; gap: 10px; }
+.research-page .workflow-heading h3 { font-size: 20px; line-height: 1.3; margin: 0; font-weight: 500; }
+.workflow-count { margin-left: auto; color: var(--text-muted); white-space: nowrap; font: 9px/1.5 var(--mono); letter-spacing: .06em; }
+.research-page .workflow-intro { font-size: 14px; line-height: 1.6; margin: 8px 0 16px; color: var(--text-muted); }
+.task-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.task-grid.single { grid-template-columns: 1fr; }
+.task-card { padding: 18px 19px 9px; border: 1px solid var(--border); border-radius: 9px; background: var(--surface-1); transition: border-color .2s; }
+.task-card:focus-within, .task-card:hover { border-color: color-mix(in srgb, var(--family) 45%, var(--border)); }
+.task-card-top { display: flex; align-items: flex-start; gap: 11px; }
+.task-id { border: 1px solid color-mix(in srgb, var(--family) 30%, var(--border)); background: color-mix(in srgb, var(--family) 8%, var(--surface-1)); border-radius: 4px; color: var(--text-secondary); padding: 3px 5px; font: 10px/1.4 var(--mono); flex: none; }
+.research-page .task-card h4 { font-size: 17px; line-height: 1.4; font-weight: 500; margin-top: 0; }
+.research-page .task-card p { font-size: 14.5px; line-height: 1.62; margin: 13px 0 13px; }
+.task-details { border-top: 1px solid var(--grid); }
+.task-details summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 38px; color: var(--text-muted); font: 10px/1.6 var(--mono); cursor: pointer; }
+.task-details summary::-webkit-details-marker { display: none; }
+.task-details summary > span { font-size: 19px; font-family: var(--serif); transition: transform .18s; }
+.task-details[open] summary > span { transform: rotate(45deg); }
+.task-details summary:hover { color: var(--text-primary); }
+.task-details dl { margin: 0 0 9px; }
+.task-details dl > div { margin-top: 9px; }
+.task-details dt { font: 9px/1.5 var(--mono); text-transform: uppercase; letter-spacing: .055em; color: var(--text-muted); }
+.task-details dd { margin: 5px 0 0; font-size: 13.5px; line-height: 1.6; color: var(--text-secondary); }
+
+/* Scientific figures share one visual grammar */
+.research-page .post-body .figure-card { margin: 31px 0; border: 1px solid var(--border-strong); border-radius: 12px; background: var(--surface-1); overflow: hidden; }
+.figure-top { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; padding: 20px 24px; border-bottom: 1px solid var(--grid); }
+.research-page .figure-top h3 { margin: 5px 0 0; font-size: 23px; font-weight: 500; line-height: 1.3; }
+.research-page .figure-card figcaption { margin: 0; padding: 17px 24px; border-top: 1px solid var(--grid); font-size: 12.5px; line-height: 1.7; color: var(--text-muted); }
+.research-page .figure-card figcaption strong { font-weight: 500; color: var(--text-secondary); }
+.research-page .post-body .download-link { display: inline-flex; gap: 10px; align-items: center; font: 10px/1.5 var(--mono); color: var(--text-secondary); text-decoration: none; border-bottom: 0; padding: 3px 0; }
+.research-page .post-body .download-link:hover { color: var(--accent); }
+.trust-grid { display: grid; grid-template-columns: minmax(0, 1fr) 100px minmax(0, 1fr); padding: 26px 24px; gap: 8px; }
+.trust-side { padding: 10px 0; }
+.trust-side .micro { color: var(--accent); }
+.verifier-side .micro { color: var(--text-muted); }
+.research-page .trust-side h3 { font-size: 23px; margin: 11px 0 12px; font-weight: 500; }
+.research-page .trust-side p { font-size: 14px; line-height: 1.6; margin: 0 0 19px; }
+.iteration-loop { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px; font-size: 13px; border-top: 1px solid var(--grid); padding-top: 14px; }
+.iteration-loop > span:nth-child(even) { color: var(--text-muted); }
+.iteration-loop .loop-return { width: 100%; padding-top: 10px; color: var(--text-muted); font-size: 11px; }
+.trust-chips { display: flex; gap: 6px; margin-top: 15px; }
+.trust-chips span { font: 9px/1.4 var(--mono); color: var(--text-muted); border: 1px solid var(--border); border-radius: 4px; padding: 5px 7px; }
+.trust-boundary { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; font-size: 11px; position: relative; padding: 0 4px; }
+.trust-boundary::before { position: absolute; content: ''; top: 0; bottom: 0; left: 50%; border-left: 1px dashed var(--axis); z-index: 0; }
+.trust-boundary > * { z-index: 1; background: var(--surface-1); }
+.trust-boundary > span { font-size: 32px; line-height: 1.2; padding: 8px; color: var(--text-muted); }
+.trust-boundary strong { font-weight: 400; color: var(--text-secondary); line-height: 1.5; padding: 4px 0; }
+.trust-boundary small { padding: 6px 0 9px; color: var(--text-muted); font: 8px/1.6 var(--mono); }
+.verification-steps { display: grid; gap: 11px; font-size: 13px; margin-top: 22px; }
+.verification-steps span { display: flex; gap: 11px; }
+.verification-steps b { font: 10px/2.1 var(--mono); color: var(--text-muted); font-weight: 400; }
+
+/* Scoring diagram */
+.research-page .post-body .index-equation { margin: 30px 0; padding: 24px 26px 0; border: 1px solid var(--border-strong); border-radius: 12px; background: var(--surface-1); overflow: hidden; }
+.equation-label { font: 10px/1.5 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); }
+.equation-main { display: flex; align-items: center; gap: 15px; margin: 14px 0 24px; font-size: 23px; line-height: 1.35; }
+.equation-main > strong { font: 500 39px/1 var(--mono); letter-spacing: -.08em; }
+.equation-main > span:first-of-type { color: var(--text-muted); }
+.equation-main em { font-style: normal; color: var(--text-primary); }
+.family-weight-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3px; }
+.family-weight-strip > div { padding: 12px 11px 9px; background: color-mix(in srgb, var(--family) 10%, var(--surface-1)); border-top: 3px solid var(--family); }
+.family-weight-strip span { display: block; font-size: 12px; color: var(--text-secondary); }
+.family-weight-strip strong { font: 500 17px/1.8 var(--mono); }
+.research-page .index-equation > p { margin: 17px 0; font: 10px/1.8 var(--mono); color: var(--text-muted); }
+
+/* Reported evidence: no placeholder data, no inferred missing measurements */
+.research-page .post-body .coverage-note { margin: 26px 0 28px; padding: 20px 24px; border: 1px solid color-mix(in srgb, var(--cat-2) 32%, var(--border)); border-left: 2px solid var(--cat-2); border-radius: 0 9px 9px 0; background: color-mix(in srgb, var(--cat-2) 5%, var(--surface-1)); scroll-margin-top: 96px; }
+.coverage-heading { display: flex; gap: 9px; align-items: center; margin-bottom: 8px; font: 10px/1.7 var(--mono); letter-spacing: .01em; }
+.research-page .coverage-heading strong { font-weight: 400; }
+.research-page .coverage-note p { font-size: 14px; line-height: 1.65; margin: 0; }
+.data-badge { font: 8px/1.5 var(--mono); letter-spacing: .065em; color: var(--text-muted); border: 1px solid var(--border-strong); border-radius: 4px; padding: 5px 7px; }
+.metric-tabs { display: flex; gap: 6px; padding: 20px 24px 8px; flex-wrap: wrap; }
+.metric-tabs button { background: transparent; border: 1px solid var(--border); color: var(--text-muted); border-radius: 6px; padding: 8px 12px; font: 11px/1.4 var(--mono); cursor: pointer; transition: background .2s, border-color .2s; min-height: 34px; }
+.metric-tabs button:hover { color: var(--text-primary); border-color: var(--border-strong); }
+.metric-tabs button[aria-pressed="true"] { background: color-mix(in srgb, var(--family) 15%, var(--surface-1)); border-color: color-mix(in srgb, var(--family) 70%, var(--border)); color: var(--text-primary); }
+.research-page .chart-context { font: 10px/1.6 var(--mono); color: var(--text-muted); margin: 7px 24px 5px; min-height: 32px; }
+.capability-chart { padding: 3px 24px 23px; --bar-label-width: 183px; --bar-number-width: 60px; --bar-gap: 16px; }
+.bar-row { display: grid; grid-template-columns: var(--bar-label-width) minmax(0, 1fr) var(--bar-number-width); align-items: center; gap: var(--bar-gap); min-height: 53px; padding: 5px 0; }
+.bar-label { min-width: 0; }
+.research-page .bar-label strong { font-size: 14px; font-weight: 400; line-height: 1.4; display: block; }
+.bar-label > span { display: block; font: 9px/1.6 var(--mono); color: var(--text-muted); margin-top: 3px; }
+.bar-track { height: 13px; background: var(--surface-3); border-radius: 2px; position: relative; }
+.bar-fill { display: block; height: 100%; background: var(--family); border-radius: 2px; transition: width .32s ease, background .25s; }
+.bar-row.is-partial .bar-fill { background: repeating-linear-gradient(130deg, var(--family) 0 4px, color-mix(in srgb, var(--family) 42%, var(--surface-1)) 4px 8px); }
+.bar-value { font: 12px/1.5 var(--mono); color: var(--text-primary); text-align: right; }
+.chart-axis { margin: 13px calc(var(--bar-number-width) + var(--bar-gap)) 0 calc(var(--bar-label-width) + var(--bar-gap)); display: flex; justify-content: space-between; border-top: 1px solid var(--grid); padding-top: 8px; color: var(--text-muted); font: 9px/1.5 var(--mono); }
+.research-page .post-body .results-panel { margin: 28px 0 30px; border: 1px solid var(--border-strong); border-radius: 12px; overflow: hidden; background: var(--surface-1); }
+.results-panel-head { padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.research-page .results-panel-head h3 { margin: 5px 0 0; font-size: 23px; font-weight: 500; }
+.results-scroll { overflow-x: auto; scrollbar-width: thin; }
+.research-results { min-width: 780px; font-size: 13px; line-height: 1.4; }
+.research-results thead th { position: static; color: var(--text-muted); padding: 13px 11px; font-size: 8.5px; letter-spacing: .025em; border-top: 1px solid var(--grid); white-space: nowrap; }
+.research-results thead .family-dot { width: 5px; height: 5px; margin-right: 5px; vertical-align: 1px; }
+.research-results th.system-col { text-align: left; padding-left: 24px; }
+.research-results tbody th { text-align: left; padding: 15px 11px 14px 24px; min-width: 177px; }
+.research-page .research-results tbody th > strong { font-size: 13.5px; font-weight: 400; }
+.table-harness { display: block; color: var(--text-muted); font: 9px/1.5 var(--mono); margin-top: 4px; }
+.research-results td { padding: 10px 11px; font: 12px/1.5 var(--mono); }
+.research-results .index-col { background: color-mix(in srgb, var(--text-primary) 3%, var(--surface-1)); border-left: 1px solid var(--grid); padding-right: 22px; min-width: 85px; }
+.research-results tbody td.index-col strong { font-weight: 500; }
+.score-cell { position: relative; padding: 2px 0 9px; min-width: 66px; }
+.score-cell i { display: block; position: absolute; right: 0; bottom: 0; height: 2px; background: var(--family); opacity: .72; }
+.partial .score-cell i { height: 3px; background: repeating-linear-gradient(120deg, var(--family) 0 3px, transparent 3px 5px); }
+.research-page .coverage-mark { font: 9px/1 var(--mono); margin-left: 2px; vertical-align: super; border-bottom: 0 !important; }
+.research-results tbody tr:last-child td, .research-results tbody tr:last-child th { border-bottom: 0; }
+.research-page .results-panel > .table-note { margin: 0; border-top: 1px solid var(--grid); padding: 15px 24px; font-size: 12px; line-height: 1.7; color: var(--text-muted); }
+
+/* Harness and transfer mechanisms */
+.research-page .post-body .harness-levels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 28px 0; }
+.harness-levels > div { display: flex; flex-direction: column; border: 1px solid var(--border-strong); background: var(--surface-1); border-radius: 9px; padding: 20px 19px; }
+.level-tag { font: 500 23px/1.3 var(--mono); letter-spacing: -.045em; color: var(--accent); }
+.research-page .harness-levels h3 { font-size: 18px; font-weight: 500; margin: 14px 0 10px; }
+.research-page .harness-levels p { font-size: 14px; line-height: 1.65; margin: 0 0 21px; }
+.level-delta { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--grid); font: 9px/1.6 var(--mono); color: var(--text-muted); }
+.research-page .post-body .zoom-image { display: block; border: 0; text-decoration: none; cursor: zoom-in; }
+.zoom-image img { display: block; width: 100%; height: auto; }
+.paper-chart-image { background: #fff; padding: 12px; }
+.transfer-flow { display: grid; grid-template-columns: 1fr 27px 1fr 27px 1fr; gap: 8px; align-items: center; padding: 28px 24px; }
+.transfer-step { color: var(--text-muted); font: 9px/1.5 var(--mono); }
+.research-page .transfer-flow h3 { font-size: 21px; line-height: 1.35; font-weight: 500; margin: 14px 0 10px; }
+.research-page .transfer-flow p { font-size: 13px; line-height: 1.6; margin: 0; }
+.transfer-arrow { font-size: 24px; color: var(--text-muted); }
+.transfer-artifact { background: var(--surface-2); border: 1px solid var(--border-strong); border-radius: 7px; padding: 16px 12px; }
+.transfer-artifact .transfer-step { display: block; margin-bottom: 14px; }
+.transfer-artifact code { display: block; font: 11px/1.9 var(--mono); background: none; padding: 0; color: var(--text-secondary); }
+.design-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--grid); }
+.design-comparison > div { background: var(--surface-1); min-width: 0; }
+.design-comparison img { aspect-ratio: 4/3; object-fit: cover; }
+.design-label { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 13px 19px; }
+.research-page .design-label strong { font-size: 15px; font-weight: 500; }
+.design-label > span { color: var(--text-muted); font: 9px/1.5 var(--mono); }
+
+/* Closing and source apparatus */
+.research-page .post-body .closing-statement { border-top: 1px solid var(--border-strong); border-bottom: 1px solid var(--border-strong); margin: 39px 0 43px; padding: 29px 0; max-width: 750px; }
+.research-page .closing-statement > p { font-size: 27px; line-height: 1.45; color: var(--text-primary); letter-spacing: -.018em; margin: 16px 0; }
+.research-page .closing-statement .closing-small { color: var(--text-secondary); font-size: 17px; line-height: 1.7; margin-bottom: 0; letter-spacing: 0; }
+.research-page .article-sources { max-width: 760px; }
+.research-page .article-sources h3 { font-size: 17px; font-weight: 500; margin: 0 0 13px; }
+.research-page .article-sources p { font-size: 13px; line-height: 1.7; margin: 0 0 15px; color: var(--text-muted); }
+.research-page .article-sources ol { padding-left: 22px; font-size: 12px; line-height: 1.7; color: var(--text-muted); margin: 0; }
+.research-page .article-sources li { padding-left: 4px; margin-top: 11px; scroll-margin-top: 105px; }
+.research-page .article-sources li::marker { font: 9px/1.5 var(--mono); color: var(--accent); }
+.research-page .article-sources li:target { outline: 1px solid var(--accent); outline-offset: 5px; background: color-mix(in srgb, var(--accent) 7%, transparent); }
+.research-page .article-sources strong { font-weight: 500; color: var(--text-secondary); }
+.research-page .article-end { display: flex; flex-wrap: wrap; gap: 25px; align-items: center; justify-content: space-between; max-width: none; margin-top: 49px; padding-top: 24px; }
+.article-end h3 { font-size: 21px; font-weight: 500; margin: 6px 0 10px; }
+.article-end p { font-size: 14px; line-height: 1.6; margin: 0; color: var(--text-muted); }
+.article-end .btn { padding: 11px 17px; font-size: 14px; }
+.article-end .development-note { width: 100%; padding-top: 17px; border-top: 1px solid var(--grid); font-size: 11.5px; line-height: 1.7; max-width: none; }
+.research-page .footer-meta a { color: var(--text-muted); text-decoration: none; }
+.image-dialog { max-width: min(1200px, 95vw); max-height: 94dvh; border: 1px solid var(--border-strong); border-radius: 11px; background: var(--surface-1); color: var(--text-primary); padding: 16px; box-shadow: var(--shadow); }
+.image-dialog::backdrop { background: rgba(0,0,0,.86); backdrop-filter: blur(5px); }
+.image-dialog form { display: flex; justify-content: flex-end; margin: 0 0 12px; }
+.dialog-close { border: 1px solid var(--border-strong); border-radius: 5px; background: var(--surface-2); color: var(--text-primary); padding: 10px 15px; font: 11px/1.4 var(--mono); cursor: pointer; }
+.dialog-close span { font-size: 16px; margin-left: 9px; }
+.image-dialog > img { display: block; max-width: 100%; max-height: 72dvh; width: auto; height: auto; margin: 0 auto; }
+.image-dialog > p { color: var(--text-secondary); font-size: 13px; line-height: 1.6; max-width: 90ch; margin: 12px auto 0; }
+
+/* Research notebook index */
+.notebook-hero { padding: 80px 0 50px; }
+.notebook-hero h1 { font-size: clamp(50px, 6vw, 78px); line-height: 1.02; font-weight: 500; letter-spacing: -.04em; }
+.notebook-hero .lede { font-size: 18px; line-height: 1.75; max-width: 62ch; }
+.notebook-posts { padding: 14px 0 100px; }
+.notebook-section-label { display: flex; justify-content: space-between; align-items: center; margin: 0 0 20px; padding-top: 20px; border-top: 1px solid var(--border-strong); }
+.notebook-section-label > span:last-child { font: 9px/1.5 var(--mono); color: var(--text-muted); }
+.featured-post { display: grid; grid-template-columns: 1.07fr 1fr; border: 1px solid var(--border-strong); border-radius: 12px; overflow: hidden; text-decoration: none; background: var(--surface-1); transition: border-color .2s; }
+.featured-post:hover { border-color: var(--accent); }
+.featured-copy { padding: 39px 38px; }
+.featured-copy .post-kicker { font-size: 10px; margin: 0 0 22px; }
+.featured-copy h2 { font-size: 45px; font-weight: 500; letter-spacing: -.026em; line-height: 1.04; }
+.featured-copy > p:not(.post-kicker) { font-size: 17px; line-height: 1.7; color: var(--text-secondary); max-width: 49ch; margin: 24px 0 0; }
+.featured-copy .tagrow { margin-top: 25px; }
+.featured-copy .tag { font-size: 8px; line-height: 1.5; }
+.featured-meta { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 35px; padding-top: 20px; border-top: 1px solid var(--grid); font: 9px/1.5 var(--mono); color: var(--text-muted); }
+.read-article { color: var(--text-primary); white-space: nowrap; }
+.read-article > span { margin-left: 7px; color: var(--accent); }
+.featured-visual { position: relative; min-height: 400px; background: #151515; overflow: hidden; }
+.featured-visual img { display: block; position: absolute; width: 100%; height: 100%; object-fit: cover; }
+.featured-visual > span { position: absolute; top: 22px; left: 24px; border: 1px solid rgba(255,255,255,.3); border-radius: 4px; color: #eee; background: rgba(0,0,0,.6); padding: 7px 10px; font: 9px/1.5 var(--mono); }
+.notebook-note { display: flex; align-items: baseline; gap: 9px; max-width: 85ch; margin-top: 22px; }
+.notebook-note p { color: var(--text-muted); font-size: 12px; line-height: 1.7; margin: 0; }
+
+/* Responsive reading, without reducing the scientific data to illegibility */
+@media (min-width: 1500px) { .hero-editorial-grid { gap: 100px; } }
+@media (max-width: 1120px) {
+  .hero-editorial-grid { gap: 38px; grid-template-columns: minmax(0, 1fr) 238px; }
+  .scope-item { grid-template-columns: 51px 1fr; gap: 10px; }
+  .scope-number { font-size: 34px; }
+  .atlas-caption { font-size: 12px; padding-inline: 10px; gap: 6px; }
+  .research-layout { grid-template-columns: 168px minmax(0, 1fr); gap: 36px; }
+  .trust-grid { grid-template-columns: minmax(0, 1fr) 86px minmax(0, 1fr); gap: 5px; padding-inline: 20px; }
+  .research-page .trust-side h3 { font-size: 20px; }
+  .transfer-artifact { padding: 16px 9px; }
+  .transfer-artifact code { font-size: 10px; }
+  .transfer-flow { gap: 5px; padding: 24px 20px; }
+  .research-page .transfer-flow h3 { font-size: 19px; }
+}
+@media (max-width: 1000px) {
+  .research-layout { grid-template-columns: 1fr; max-width: 820px; gap: 0; padding-top: 31px; }
+  .research-layout .toc { display: none; }
+  .mobile-toc { display: block; margin: 0 0 35px; border: 1px solid var(--border-strong); border-radius: 7px; background: var(--surface-1); }
+  .mobile-toc summary { list-style: none; cursor: pointer; padding: 14px 17px; display: flex; justify-content: space-between; align-items: center; color: var(--text-secondary); font: 10px/1.5 var(--mono); }
+  .mobile-toc summary::-webkit-details-marker { display: none; }
+  .mobile-toc summary > span { font-size: 17px; }
+  .mobile-toc[open] summary { border-bottom: 1px solid var(--grid); }
+  .mobile-toc ol { margin: 0; padding: 16px 16px 17px 41px; columns: 2; color: var(--text-muted); }
+  .mobile-toc li { font-size: 13px; line-height: 1.5; margin-bottom: 12px; }
+  .mobile-toc li::marker { font: 10px var(--mono); }
+  .mobile-toc a { text-decoration: none; }
+  .research-page .pill-version { display: none; }
+}
+@media (max-width: 820px) {
+  .hero-editorial-grid { grid-template-columns: 1fr; gap: 33px; }
+  .hero-scope { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0; border-left: 0; border-top: 1px solid var(--border-strong); }
+  .scope-item { grid-template-columns: 42px 1fr; padding: 19px 13px 16px 0; gap: 10px; border-bottom: 0; }
+  .scope-number { font-size: 30px; }
+  .scope-item strong { font-size: 14px; }
+  .scope-item div > span { font-size: 11px; }
+  .scope-link { display: none; }
+  .atlas-strip { gap: 8px; }
+  .atlas-tile img { height: 137px; }
+  .atlas-caption { font-size: 11px; gap: 6px; }
+  .atlas-caption > span:last-child { display: none; }
+  .atlas-id { font-size: 8px; left: 7px; top: 7px; padding: 4px 5px; }
+  .hero-atlas { margin-top: 17px; }
+  .hero-topline { margin-bottom: 40px; }
+  .article-hero h1 { font-size: 66px; }
+  .featured-copy { padding: 29px 27px; }
+  .featured-copy h2 { font-size: 39px; }
+}
+@media (max-width: 680px) {
+  .research-page .wrap { width: calc(100% - 36px); }
+  .research-page .header-inner { gap: 12px; }
+  .research-page .site-nav a { padding: 6px 8px; }
+  .research-page .site-nav a.is-active { display: inline-flex; }
+  .research-page #navArxiv, .research-page #navContact { display: none; }
+  .research-page .header-actions { gap: 0; }
+  .research-page .icon-btn { width: 40px; height: 40px; }
+  .hero-topline { font-size: 8px; gap: 7px; margin-bottom: 33px; }
+  .article-hero { padding-top: 25px; padding-bottom: 31px; }
+  .article-hero h1 { font-size: clamp(48px, 12vw, 65px); }
+  .article-hero .post-kicker { font-size: 8px; letter-spacing: .04em; margin-bottom: 18px; }
+  .hero-subtitle { font-size: 23px; line-height: 1.4; margin-top: 22px; }
+  .desktop-break { display: none; }
+  .hero-description { font-size: 16px; }
+  .article-hero .post-byline { font-size: 8px; line-height: 1.8; gap: 4px 12px; margin-top: 22px; }
+  .hero-editorial-grid { gap: 25px; }
+  .hero-scope { gap: 7px; }
+  .scope-item { grid-template-columns: 1fr; gap: 7px; padding: 17px 4px 12px 0; }
+  .scope-number { font-size: 29px; }
+  .scope-item strong { font-size: 12px; }
+  .scope-item div > span { font-size: 10px; line-height: 1.55; }
+  .atlas-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .atlas-tile img { height: 128px; }
+  .atlas-caption { font-size: 11.5px; padding-inline: 11px; height: 38px; }
+  .atlas-tile { padding-bottom: 38px; }
+  .hero-atlas figcaption { font-size: 11px; line-height: 1.65; margin-top: 13px; }
+  .caption-label { display: block; margin-bottom: 4px; font-size: 8px; }
+  .research-layout { padding-bottom: 56px; }
+  .research-page .post-body { font-size: 17px; line-height: 1.8; }
+  .research-page .post-body > h2 { font-size: 28px; margin-top: 56px; line-height: 1.24; }
+  .research-page .post-body h2 .h-num { font-size: 9px; margin-bottom: 12px; }
+  .research-page .post-body .thesis { padding: 12px 0 12px 20px; margin: 29px 0; }
+  .research-page .thesis p { font-size: 23px; }
+  .workflow-heading { gap: 8px; }
+  .research-page .workflow-heading h3 { font-size: 18px; }
+  .workflow-count { font-size: 8px; }
+  .task-grid { grid-template-columns: 1fr; }
+  .task-card { padding: 17px 17px 7px; }
+  .research-page .task-card p { font-size: 14.5px; }
+  .task-details summary { min-height: 42px; }
+  .figure-top { padding: 17px 17px; gap: 5px 13px; }
+  .figure-label, .micro { font-size: 9px; }
+  .research-page .figure-top h3, .research-page .results-panel-head h3 { font-size: 21px; }
+  .research-page .figure-card figcaption { padding: 15px 17px; font-size: 12px; }
+  .trust-grid { grid-template-columns: 1fr; gap: 0; padding: 14px 17px; }
+  .trust-side { padding: 10px 0; }
+  .trust-boundary { flex-direction: row; gap: 11px; justify-content: flex-start; align-items: center; padding: 13px 0; margin-block: 10px; border-block: 1px dashed var(--axis); text-align: left; }
+  .trust-boundary::before { display: none; }
+  .trust-boundary > span { transform: rotate(90deg); font-size: 25px; padding: 0; }
+  .trust-boundary > strong br { display: none; }
+  .trust-boundary > small { margin-left: auto; padding: 0; }
+  .trust-side p { max-width: 40ch; }
+  .trust-chips { margin-top: 12px; }
+  .verification-steps { margin-top: 16px; gap: 9px; }
+  .research-page .post-body .index-equation { padding: 20px 17px 0; }
+  .equation-main { font-size: 19px; gap: 11px; }
+  .equation-main > strong { font-size: 34px; }
+  .family-weight-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+  .family-weight-strip > div { display: flex; justify-content: space-between; align-items: center; padding: 7px 9px; }
+  .family-weight-strip span { font-size: 11px; }
+  .family-weight-strip strong { font-size: 14px; }
+  .research-page .index-equation > p { font-size: 9px; }
+  .research-page .post-body .coverage-note { padding: 17px; }
+  .coverage-heading { font-size: 9px; align-items: baseline; }
+  .metric-tabs { padding: 16px 17px 6px; gap: 5px; display: grid; grid-template-columns: repeat(2, 1fr); }
+  .metric-tabs button { padding: 10px 7px; min-height: 40px; font-size: 10px; }
+  .research-page .chart-context { margin: 9px 17px 4px; font-size: 9px; min-height: 42px; }
+  .capability-chart { --bar-label-width: 115px; --bar-number-width: 40px; --bar-gap: 10px; padding: 0 17px 20px; }
+  .bar-row { min-height: 57px; }
+  .research-page .bar-label strong { font-size: 12px; }
+  .bar-label > span { font-size: 8px; line-height: 1.5; }
+  .bar-value { font-size: 10px; }
+  .bar-track { height: 11px; }
+  .chart-axis { font-size: 8px; }
+  .results-panel-head { padding: 17px; flex-wrap: wrap; }
+  .research-page .results-panel > .table-note { padding: 15px 17px; font-size: 11.5px; }
+  .research-results { min-width: 765px; }
+  .research-results tbody th { padding-left: 17px; }
+  .research-results th.system-col { padding-left: 17px; }
+  .research-page .post-body .harness-levels { grid-template-columns: 1fr; }
+  .harness-levels > div { display: grid; grid-template-columns: 37px 1fr; gap: 0 13px; padding: 19px 17px; }
+  .level-tag { grid-row: span 3; font-size: 22px; }
+  .research-page .harness-levels h3 { margin: 0 0 9px; }
+  .research-page .harness-levels p { margin-bottom: 16px; }
+  .level-delta { grid-column: 2; }
+  .paper-chart-image { padding: 6px; }
+  .transfer-flow { grid-template-columns: 1fr; gap: 14px; padding: 24px 17px; }
+  .transfer-flow > div { width: 100%; }
+  .transfer-arrow { transform: rotate(90deg); text-align: center; width: 28px; justify-self: center; line-height: 1; }
+  .transfer-artifact { padding: 15px 17px; }
+  .transfer-artifact code { font-size: 12px; }
+  .research-page .transfer-flow h3 { font-size: 22px; margin: 8px 0; }
+  .transfer-flow h3 br { display: none; }
+  .design-comparison { grid-template-columns: 1fr; }
+  .design-label { padding: 12px 17px; }
+  .research-page .closing-statement > p { font-size: 25px; }
+  .research-page .closing-statement .closing-small { font-size: 16px; }
+  .research-page .article-end { gap: 20px; }
+  .research-page .site-footer .footer-inner { gap: 20px; }
+  .notebook-hero { padding: 48px 0 30px; }
+  .notebook-hero h1 { font-size: 55px; }
+  .notebook-hero .eyebrow { font-size: 9px; line-height: 1.7; }
+  .notebook-hero .lede { font-size: 17px; line-height: 1.7; }
+  .notebook-section-label > span:last-child { font-size: 8px; }
+  .featured-post { grid-template-columns: 1fr; }
+  .featured-copy { padding: 28px 23px; }
+  .featured-copy h2 { font-size: 43px; }
+  .featured-copy > p:not(.post-kicker) { font-size: 16px; }
+  .featured-visual { min-height: 270px; }
+  .featured-meta { margin-top: 27px; }
+  .notebook-posts { padding-bottom: 65px; }
+}
+@media (max-width: 480px) { .research-page #navGithub { display: none; } .mobile-toc ol { columns: 1; } }
+@media (max-width: 360px) {
+  .research-page .wrap { width: calc(100% - 28px); }
+  .hero-topline { flex-wrap: wrap; }
+  .atlas-caption { font-size: 10px; padding-inline: 8px; gap: 5px; }
+  .capability-chart { --bar-label-width: 105px; --bar-number-width: 34px; --bar-gap: 7px; padding-inline: 13px; }
+  .bar-value { font-size: 9px; }
+  .research-page .bar-label strong { font-size: 11px; }
+  .workflow-count { display: none; }
+  .research-page .workflow-heading h3 { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .research-page *, .research-page *::before, .research-page *::after { animation: none !important; transition: none !important; }
+}
+@media print {
+  :root, :root[data-theme="dark"] { --page: #fff; --surface-1: #fff; --surface-2: #f3f3f3; --surface-3: #eee; --text-primary: #111; --text-secondary: #333; --grid: #ddd; --axis: #bbb; --border: #ddd; --border-strong: #bbb; }
+  .research-page { --text-muted: #555; background: #fff; color: #111; }
+  .site-header, .scanline, .progress, .toc, .mobile-toc, .skip-link, .hero-glow, .image-dialog, .article-end, .site-footer, .metric-tabs, .download-link { display: none !important; }
+  .research-page .wrap { width: 100%; }
+  .article-hero { padding: 0 0 25px; }
+  .hero-topline { margin-bottom: 20px; }
+  .hero-editorial-grid { grid-template-columns: 1fr; }
+  .hero-scope { display: none; }
+  .article-hero h1 { font-size: 48px; }
+  .grad { background: none; color: #222; }
+  .hero-atlas { margin-top: 24px; }
+  .atlas-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .atlas-tile img { height: 94px; }
+  .research-layout { display: block; padding: 20px 0 0; }
+  .research-page .post-body { font-size: 11pt; line-height: 1.55; }
+  .research-page .post-body > h2 { margin-top: 28px; font-size: 22pt; break-after: avoid; }
+  .research-page .post-body .figure-card, .task-card, .harness-levels, .index-equation { break-inside: avoid; }
+  .results-scroll { overflow: visible; }
+  .research-results { min-width: 0; font-size: 9px; }
+  .research-results th, .research-results td { min-width: 0 !important; padding: 8px 6px !important; }
+  .research-results tbody th > strong { font-size: 11px !important; }
+  .score-cell { min-width: 44px; }
+  .research-page * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
+</style>
+<link href="../assets/favicon-64.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="../assets/apple-touch-icon.png" rel="apple-touch-icon"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Introducing RLE-Bench: A Qualifying Exam for Coding Agents as Robot Learning Engineers","description":"RLE-Bench evaluates coding agents across robot learning workflows, with simulation-based development, independent physical evaluation, and capability profiles spanning control, learning, design, and perception.","inLanguage":"en","dateModified":"2026-09-09","author":{"@type":"Organization","name":"RLE-Bench team"}}</script>
+<noscript><style>.metric-tabs,.toc,.mobile-toc{display:none}.research-layout{grid-template-columns:1fr;max-width:920px}</style></noscript>
 </head>
-<body>
-
-<div class="scanline" aria-hidden="true"></div>
-
+<body class="research-page" data-slug="introducing-rle-bench">
+<a class="skip-link" href="#article-content">Skip to article</a>
+<div aria-hidden="true" class="scanline"></div><div aria-hidden="true" class="progress" id="progress"></div>
 <header class="site-header">
-  <div class="wrap header-inner">
-    <a class="brand" href="../">
-      <img class="brand-mark" src="../assets/icon.png" width="30" height="30"
-           alt="RLE-Bench: a llama operating a robot arm">
-      <span class="brand-text">RLE<span class="brand-dim">-Bench</span></span>
-    </a>
-    <nav class="site-nav">
-      <a href="../#index">Index</a>
-      <a href="../#tasks">Rankings</a>
-      <a href="../#cost">Cost</a>
-      <a class="is-active" href="./" aria-current="page">Blog</a>
-      <a class="nav-ext" id="navGithub" href="https://github.com/RLE-Bench/RLE-Bench-dev" rel="noopener">
-        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+<div class="wrap header-inner">
+<a class="brand" href="../">
+<img alt="RLE-Bench: a llama operating a robot arm" class="brand-mark" height="30" src="../assets/icon.png" width="30"/>
+<span class="brand-text">RLE<span class="brand-dim">-Bench</span></span>
+</a>
+<nav aria-label="Main navigation" class="site-nav">
+<a href="../#index">Leaderboard</a>
+<a aria-current="page" class="is-active" href="./">Blog</a>
+<a class="nav-ext" href="https://github.com/RLE-Bench/RLE-Bench-dev" id="navGithub" rel="noopener">
+<svg aria-hidden="true" fill="currentColor" height="14" viewbox="0 0 16 16" width="14"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path></svg>
         GitHub
       </a>
-      <a class="nav-ext" id="navArxiv" href="#" rel="noopener">
-        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 1.5h6l3 3v10h-9z"/><path d="M9.5 1.5v3h3"/><path d="M5.5 8h5M5.5 11h3"/></svg>
-        arXiv
+<a aria-disabled="true" class="nav-ext is-pending" id="navArxiv" title="Public paper link not yet available">
+<svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 16 16" width="14"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path><path d="M5.5 8h5M5.5 11h3"></path></svg>
+        Paper
       </a>
-      <a class="nav-ext" id="navContact" href="#" rel="noopener">
-        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="1.5"/><path d="m2 4.5 6 4 6-4"/></svg>
+<a class="nav-ext" href="https://github.com/RLE-Bench/RLE-Bench-dev/issues" id="navContact" rel="noopener">
+<svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 16 16" width="14"><rect height="10" rx="1.5" width="13" x="1.5" y="3"></rect><path d="m2 4.5 6 4 6-4"></path></svg>
         Contact
       </a>
-    </nav>
-    <div class="header-actions">
-      <span class="pill pill-version" id="versionPill">v1.0-dev</span>
-      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle colour theme">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path class="ico-moon" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor"/><g class="ico-sun" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></g></svg>
-      </button>
-    </div>
-  </div>
+</nav>
+<div class="header-actions">
+<span class="pill pill-version" id="versionPill">Research</span>
+<button aria-label="Toggle colour theme" class="icon-btn" id="themeToggle" type="button">
+<svg aria-hidden="true" height="16" viewbox="0 0 24 24" width="16"><path class="ico-moon" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor"></path><g class="ico-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></g></svg>
+</button>
+</div>
+</div>
+</header><main id="main-content">
+<header class="article-hero">
+<div aria-hidden="true" class="hero-glow"></div>
+<div class="wrap">
+<div class="hero-topline"><a href="./">Research blog</a><span aria-hidden="true">/</span><span>Benchmark overview</span></div>
+<div class="hero-editorial-grid">
+<div>
+<p class="post-kicker">Coding agents for robot learning</p>
+<h1>Introducing<br/><span class="grad">RLE-Bench</span></h1>
+<p class="hero-subtitle">A qualifying exam for coding agents<br class="desktop-break"/> as robot learning engineers</p>
+<p class="hero-description">RLE-Bench evaluates whether coding agents can build and improve robotic systems through programming, experimentation, and simulation. Its tasks span control, policy learning, embodiment design, and perception.</p>
+<div class="post-byline" id="postByline"><span>RLE-Bench team</span><span>Updated 9 September 2026</span><span>13 min read</span></div>
+</div>
+<div aria-label="Benchmark at a glance" class="hero-scope">
+<div class="scope-item"><span class="scope-number">09</span><div><strong>Engineering tasks</strong><span>Across the robotic development stack</span></div></div>
+<div class="scope-item"><span class="scope-number">04</span><div><strong>Workflow families</strong><span>Equally weighted in the RLE Index</span></div></div>
+<div class="scope-item"><span class="scope-number">07</span><div><strong>Evaluated systems</strong><span>Initial results; coverage varies</span></div></div>
+<a class="scope-link" href="#results">View results and coverage <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+<figure class="hero-atlas">
+<div class="atlas-strip">
+<a class="atlas-tile family-interactive" href="#family-interactive"><img alt="Simulated RoboCasa kitchen with a mobile manipulator." fetchpriority="high" height="455" src="../assets/blog/robocasa.webp" width="672"/><span class="atlas-id">T01 · RoboCasa</span><span class="atlas-caption"><span class="family-dot"></span>Interactive control<span aria-hidden="true">↗</span></span></a>
+<a class="atlas-tile family-learning" href="#family-learning"><img alt="Humanoid performing a reference motion in simulation." fetchpriority="high" height="488" src="../assets/blog/motion-tracking.webp" width="1014"/><span class="atlas-id">T04 · Motion tracking</span><span class="atlas-caption"><span class="family-dot"></span>Policy learning<span aria-hidden="true">↗</span></span></a>
+<a class="atlas-tile family-embodiment" href="#family-embodiment"><img alt="A simulated GELLO leader-arm assembly." fetchpriority="high" height="542" src="../assets/blog/gello.webp" width="777"/><span class="atlas-id">T07 · GELLO</span><span class="atlas-caption"><span class="family-dot"></span>Embodiment design<span aria-hidden="true">↗</span></span></a>
+<a class="atlas-tile family-perception" href="#family-perception"><img alt="A camera-view visualization of object pose estimation." fetchpriority="high" height="559" src="../assets/blog/pose-estimation.webp" width="758"/><span class="atlas-id">T08 · Pose estimation</span><span class="atlas-caption"><span class="family-dot"></span>Perception &amp; estimation<span aria-hidden="true">↗</span></span></a>
+</div>
+<figcaption><span class="caption-label">Representative tasks</span> Scenes from four workflow families. All tasks use simulation for physical evaluation.</figcaption>
+</figure>
+</div>
 </header>
+<div class="wrap post-layout research-layout">
+<aside aria-label="Article contents" class="toc"><div class="toc-head">In this article</div><nav id="toc"></nav><a class="toc-back" href="../#index">← Leaderboard</a><div class="toc-footnote"><span class="status-dot"></span> Research overview<br/>Initial evaluation results</div></aside>
+<article class="post">
+<details class="mobile-toc"><summary>In this article <span aria-hidden="true">⌄</span></summary><nav aria-label="Article contents" id="mobileContents"></nav></details>
+<div class="post-body" id="article-content">
+<h2 data-toc="The engineering question" id="why">Evaluating the engineering behind robotic behavior</h2>
+<p>Coding agents can inspect unfamiliar repositories, run experiments, and revise programs in response to failures. Robotics extends this work beyond software execution: an agent must also understand how its implementation affects a physical system. A controller can run without error and still cause a collision. A training run can finish successfully while producing a policy that loses balance under unfamiliar conditions.</p>
+<p>The work of a robot learning engineer therefore extends well beyond selecting a robot’s next action. It includes developing estimators and controllers, training and deploying policies, designing embodiments, calibrating systems, and diagnosing failures. Across these activities, progress depends on connecting engineering decisions to evidence from the environment.</p>
+<p><strong>We introduce RLE-Bench to evaluate coding agents in this broader engineering role.</strong> The benchmark assigns agents tasks across the robotic development stack, with simulation providing feedback on the physical consequences of their work. Agents inspect assets, modify implementations, run experiments, and refine their solutions within explicit time, interaction, and compute budgets. Their work is then evaluated under task-specific physical conditions.<sup><a aria-label="Source 1: benchmark motivation and design" class="cite" href="#source-design">1</a></sup></p>
+<blockquote class="thesis"><p>Can general-purpose coding agents qualify for the diverse, iterative, and physically grounded work of robot learning engineers?</p><footer>The research question</footer></blockquote>
+<p>The suite samples complementary engineering responsibilities rather than asking one agent to complete an entire robotics project. Together, these tasks examine whether an agent can develop the components, tools, and learning procedures that enable robotic behavior, as well as the behavior itself.</p>
+<h2 data-toc="Tasks and workflows" id="tasks">A benchmark spanning four engineering workflows</h2>
+<p>RLE-Bench comprises nine tasks grouped into four primary workflow families: <strong>interactive control and embodied reasoning, policy learning and deployment, embodiment and co-design, and perception and estimation.</strong> The tasks combine established simulation environments with problems motivated by robotics practice. They vary both the physical objective and the work assigned to the agent: solving a manipulation task, constructing reusable tools, improving a training procedure, or designing a mechanical system.<sup><a aria-label="Source 2: task definitions and evaluation contracts" class="cite" href="#source-tasks">2</a></sup></p>
+<section aria-labelledby="heading-interactive" class="workflow family-interactive" id="family-interactive"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-interactive">Interactive control &amp; embodied reasoning</h3><span class="workflow-count">04 TASKS</span></div><p class="workflow-intro">These tasks evaluate closed-loop behavior, reusable tool development, and physical reasoning through interaction.</p><div class="task-grid"><div class="task-card" id="task-t01"><div class="task-card-top"><span class="task-id">T01</span><h4>RoboCasa closed-loop control</h4></div><p>Agents develop closed-loop programs for ten kitchen tasks under three levels of perception and control support.</p><details class="task-details"><summary>Task details <span aria-hidden="true">+</span></summary><dl><div><dt>Work product</dt><dd>Agent context and workspace code</dd></div><div><dt>Development</dt><dd>8 h · 50,000 development steps</dd></div><div><dt>Evaluation</dt><dd>Five hidden target-scene trials. The agent’s context and files persist; success is measured by the environment.</dd></div></dl></details></div><div class="task-card" id="task-t02"><div class="task-card-top"><span class="task-id">T02</span><h4>Reusable harness engineering</h4></div><p>Agents build perception and control tools for independent agents to use on held-out RoboCasa tasks.</p><details class="task-details"><summary>Task details <span aria-hidden="true">+</span></summary><dl><div><dt>Work product</dt><dd>Perception code, controllers, and a manual</dd></div><div><dt>Development</dt><dd>8 h · 75,000 development steps</dd></div><div><dt>Evaluation</dt><dd>Fifteen activity groups. Five fresh agents per held-out task receive the harness, not the developer’s conversation.</dd></div></dl></details></div><div class="task-card" id="task-t05"><div class="task-card-top"><span class="task-id">T05</span><h4>Tabletop physical reasoning</h4></div><p>Agents use interaction to solve problems involving balance, overhang, packing, fragility, and hidden centers of mass.</p><details class="task-details"><summary>Task details <span aria-hidden="true">+</span></summary><dl><div><dt>Work product</dt><dd>Task-specific interaction or answer</dd></div><div><dt>Development</dt><dd>Task-specific budgets</dd></div><div><dt>Evaluation</dt><dd>Six problems. Most use the L3 interface; the hidden-center-of-mass task deliberately withholds key physical state.</dd></div></dl></details></div><div class="task-card" id="task-t09"><div class="task-card-top"><span class="task-id">T09</span><h4>Contact-rich bin clearing</h4></div><p>Agents integrate visual and force feedback into a policy that transfers steel brackets from a cluttered bin to a conveyor.</p><details class="task-details"><summary>Task details <span aria-hidden="true">+</span></summary><dl><div><dt>Work product</dt><dd>A standalone closed-loop policy package</dd></div><div><dt>Development</dt><dd>4 h · CPU development</dd></div><div><dt>Evaluation</dt><dd>Eight hidden piles. Clearance, throughput, and penalties for drops, damage, and impacts determine the score.</dd></div></dl></details></div></div></section><section aria-labelledby="heading-learning" class="workflow family-learning" id="family-learning"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-learning">Policy learning &amp; deployment</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">These tasks evaluate the training and deployment procedures that determine a policy’s capability, efficiency, and robustness.</p><div class="task-grid"><div class="task-card" id="task-t03"><div class="task-card-top"><span class="task-id">T03</span><h4>nanoVLA recipe engineering</h4></div><p>Agents develop vision-language-action training or serving recipes across six tracks covering capability, efficiency, initialization, and robustness.</p><details class="task-details"><summary>Task details <span aria-hidden="true">+</span></summary><dl><div><dt>Work product</dt><dd>One executable solution.py recipe</dd></div><div><dt>Development</dt><dd>4 h of exploration per track</dd></div><div><dt>Evaluation</dt><dd>A separate verifier replays the recipe in a fresh environment, then evaluates it on private LIBERO episodes.</dd></div></dl></details></div><div class="task-card" id="task-t04"><div class="task-card-top"><span class="task-id">T04</span><h4>Whole-body motion tracking</h4></div><p>Agents train a humanoid policy to follow reference motions while maintaining stability under changes in deployment conditions.</p><details class="task-details"><summary>Task details <span aria-hidden="true">+</span></summary><dl><div><dt>Work product</dt><dd>An exported ONNX policy</dd></div><div><dt>Development</dt><dd>4 h · 1 GPU</dd></div><div><dt>Evaluation</dt><dd>Five motion clips. Policies move from MuJoCo-Warp training to MuJoCo-C evaluation under hidden perturbations; motion calibration remains provisional.</dd></div></dl></details></div></div></section><section aria-labelledby="heading-embodiment" class="workflow family-embodiment" id="family-embodiment"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-embodiment">Embodiment &amp; co-design</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">These tasks evaluate mechanical design and its supporting control software as a coupled system.</p><div class="task-grid"><div class="task-card" id="task-t06"><div class="task-card-top"><span class="task-id">T06</span><h4>Universal mobile-manipulator base</h4></div><p>Agents design a common mobile base and controller for Panda, UR5e, and xArm7 arms, subject to physical and resource constraints.</p><details class="task-details"><summary>Task details <span aria-hidden="true">+</span></summary><dl><div><dt>Work product</dt><dd>MJCF design and controller code</dd></div><div><dt>Development</dt><dd>2 h · CPU development</dd></div><div><dt>Evaluation</dt><dd>Trusted arm models, shelf targets, payload tests, and static and dynamic checks. Each checkpoint is reduced by the worst arm.</dd></div></dl></details></div><div class="task-card" id="task-t07"><div class="task-card-top"><span class="task-id">T07</span><h4>Multi-robot GELLO co-design</h4></div><p>Agents co-design passive gravity compensation and adaptive feedforward control for three GELLO leader arms used in teleoperation.</p><details class="task-details"><summary>Task details <span aria-hidden="true">+</span></summary><dl><div><dt>Work product</dt><dd>Mechanical designs and calibration programs</dd></div><div><dt>Development</dt><dd>3 h · CPU development</dd></div><div><dt>Evaluation</dt><dd>Unseen physical instances, poses, and payloads test holding, backdrivability, torque headroom, and recovery.</dd></div></dl></details></div></div></section><section aria-labelledby="heading-perception" class="workflow family-perception" id="family-perception"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-perception">Perception &amp; estimation</h3><span class="workflow-count">01 TASK</span></div><p class="workflow-intro">This task evaluates standalone estimation components under sensing, learning, and computational constraints.</p><div class="task-grid single"><div class="task-card" id="task-t08"><div class="task-card-top"><span class="task-id">T08</span><h4>Blind pose estimation</h4></div><p>Agents develop an estimator that identifies asymmetric objects and recovers their planar position and orientation during motion and partial occlusion.</p><details class="task-details"><summary>Task details <span aria-hidden="true">+</span></summary><dl><div><dt>Work product</dt><dd>An estimator or trained TorchScript model</dd></div><div><dt>Development</dt><dd>2 h · variant-specific CPU/GPU access</dd></div><div><dt>Evaluation</dt><dd>Four sensing and method variants. Hidden frames and push trajectories test robust pose estimation; all inference runs on CPU.</dd></div></dl></details></div></div></section><p class="small-note">Each task contributes to one primary scoring family, even when it requires several capabilities. T09 belongs to interactive control because perception, force feedback, and action selection are evaluated together within a closed-loop policy.</p>
+<h2 data-toc="Development and evaluation" id="protocol">Development and independent evaluation</h2>
+<p>A common evaluation protocol accommodates these different engineering outputs. Each task specifies an instruction, a public development environment, a resource budget, the required deliverable, a verifier-controlled evaluation environment, and a programmatic metric. Development may involve file edits, shell commands, simulator interactions, or training runs. Evaluation measures the resulting behavior using benchmark-owned instrumentation, independently of the agent’s own success claims.<sup><a aria-label="Source 3: evaluation and score aggregation" class="cite" href="#source-protocol">3</a></sup></p>
+<figure class="protocol-figure figure-card">
+<div class="figure-top"><span class="figure-label">01 / Evaluation protocol</span><span class="micro">Public development → hidden evaluation</span></div>
+<div class="trust-grid">
+<div class="trust-side development-side"><span class="micro">Agent-visible</span><h3>Agent development</h3><p>Public instructions, assets, and tools support a resource-bounded development session.</p><div class="iteration-loop"><span>Observe</span><span aria-hidden="true">→</span><span>Implement</span><span aria-hidden="true">→</span><span>Simulate</span><span class="loop-return">↶ Physical feedback informs the next revision</span></div><div class="trust-chips"><span>Time</span><span>Interactions</span><span>Compute</span></div></div>
+<div class="trust-boundary"><span aria-hidden="true">→</span><strong>Task-specific<br/>handoff</strong><small>Work product or<br/>retained agent state</small></div>
+<div class="trust-side verifier-side"><span class="micro">Verifier-owned</span><h3>Independent evaluation</h3><p>Task-specific evaluation uses hidden scenes, seeds, embodiments, or physical conditions.</p><div class="verification-steps"><span><b>01</b> Enforce the task contract</span><span><b>02</b> Run physical evaluation</span><span><b>03</b> Write the authoritative score</span></div></div>
+</div>
+<figcaption><strong>The verifier controls evaluation and scoring.</strong> What passes from development to evaluation depends on the task: T01 retains agent context and code, T02 transfers a tool package, and T03 replays a submitted recipe. Other tasks evaluate designs, estimators, or exported policies.</figcaption>
+</figure>
+<p>The tasks are packaged as Harbor environments, with network access disabled by default and declared allowlists for model APIs where needed. Submissions are treated as untrusted inputs and evaluated in task-specific sandboxes or constrained subprocesses. Hidden evaluation conditions, reference assets, and scoring remain under verifier control. In T06, for example, the verifier uses canonical arm models and independent physics tests rather than relying on the agent’s submitted preview.</p>
+<p>Resource limits make experimental judgment part of the evaluation. An agent must choose which tests are informative, how to allocate simulation or training compute, and when to revise its approach. Efficiency is tied to the task’s physical objective where appropriate. In T01, for example, the sample-efficiency term is proportional to demonstrated task success, so conserving interactions cannot compensate for failing to solve the task.</p>
+<h2 data-toc="Scoring and aggregation" id="scoring">The RLE Index and capability profiles</h2>
+<p>Each task produces a normalized score in <code>[0, 1]</code> that combines its physical objectives with efficiency terms where applicable. Results are first aggregated over the task’s trials, variants, or subtasks according to its evaluation contract. These rules can include conservative reductions, such as taking the worst-performing arm at each T06 checkpoint. The resulting task scores are averaged within each workflow family, and the <strong>RLE Index</strong> is the equal-weight mean of the four family scores, reported on a 0–100 scale.</p>
+<div aria-label="RLE Index definition" class="index-equation" role="group"><span class="equation-label">The RLE Index</span><div class="equation-main"><strong>100</strong><span>×</span><span>mean of the <em>four family scores</em></span></div><div class="family-weight-strip"><div class="family-interactive"><span>Interactive</span><strong>25%</strong></div><div class="family-learning"><span>Learning</span><strong>25%</strong></div><div class="family-embodiment"><span>Embodiment</span><strong>25%</strong></div><div class="family-perception"><span>Perception</span><strong>25%</strong></div></div><p>Task-specific aggregation → family averages → equal-weight RLE Index</p></div>
+<p>Equal family weighting prevents tasks with more evaluation variants from dominating the index. The thirty task–interface combinations in T01, for example, do not receive thirty times the weight of a single design task. Family profiles and native task metrics remain essential to interpretation: the same change in a normalized score need not have the same practical meaning for perception, policy learning, or mechanical design.<sup><a aria-label="Source 3: evaluation and score aggregation" class="cite" href="#source-protocol">3</a></sup></p>
+<h2 data-toc="Initial results" id="results">Initial results across coding-agent systems</h2>
+<p>The initial evaluation reports results for seven coding-agent systems. Each system combines a model with a coding-agent harness, so the results characterize the declared configuration rather than the model independently of its tools. We report the four workflow-family scores alongside the overall index to show where performance differs across engineering responsibilities.<sup><a aria-label="Source 4: initial results and task-level analyses" class="cite" href="#source-results">4</a></sup></p>
+<aside aria-label="Important result coverage note" class="coverage-note" id="coverage-note"><span class="coverage-heading">Evaluation coverage</span><p><strong>T03 and T05 are pending for all systems.</strong> GPT-6 Astra’s Interactive score covers <strong>T09 only</strong>; the other systems cover T01, T02, and T09. Learning currently reflects T04 alone. The reported index is provisional and does not represent a matched-coverage ranking across all seven systems.</p></aside>
+<figure class="capability-figure figure-card" id="capability-figure">
+<div class="figure-top"><div><span class="figure-label">02 / Workflow-family comparison</span><h3>Performance by workflow family</h3></div><span class="data-badge">PRELIMINARY</span></div>
+<div aria-label="Select a workflow family" class="metric-tabs" role="group">
+<button aria-pressed="true" class="family-perception" data-metric="perception" type="button">Perception</button><button aria-pressed="false" class="family-embodiment" data-metric="embodiment" type="button">Embodiment</button><button aria-pressed="false" class="family-learning" data-metric="learning" type="button">Learning</button><button aria-pressed="false" class="family-interactive" data-metric="interactive" type="button">Interactive</button>
+</div>
+<p class="chart-context" id="chartContext">T08 · Blind pose estimation · Matched task coverage</p>
+<div aria-label="Perception scores on a zero to one hundred scale" class="capability-chart family-perception" id="capabilityChart" role="group">
+<!-- BEGIN MANUSCRIPT BARS -->
+<div class="bar-row" data-system="astra"><div class="bar-label"><strong>GPT-6 Astra</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:72.06%"></span></div><span class="bar-value">72.06</span></div>
+<div class="bar-row" data-system="opus5"><div class="bar-label"><strong>Claude Opus 5</strong><span>Claude Code</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:42.87%"></span></div><span class="bar-value">42.87</span></div>
+<div class="bar-row" data-system="sol"><div class="bar-label"><strong>GPT-5.6 Sol</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:14.52%"></span></div><span class="bar-value">14.52</span></div>
+<div class="bar-row" data-system="gemini"><div class="bar-label"><strong>Gemini 3.7 Flash</strong><span>Antigravity CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:11.15%"></span></div><span class="bar-value">11.15</span></div>
+<div class="bar-row" data-system="opus48"><div class="bar-label"><strong>Claude Opus 4.8</strong><span>Claude Code</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:7.33%"></span></div><span class="bar-value">7.33</span></div>
+<div class="bar-row" data-system="luna"><div class="bar-label"><strong>GPT-5.6 Luna</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:6.56%"></span></div><span class="bar-value">6.56</span></div>
+<div class="bar-row" data-system="terra"><div class="bar-label"><strong>GPT-5.6 Terra</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:7.48%"></span></div><span class="bar-value">7.48</span></div>
+<!-- END MANUSCRIPT BARS --><div aria-hidden="true" class="chart-axis"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div><p aria-live="polite" class="chart-live visually-hidden" id="chartAnnouncement"></p><figcaption>Normalized family scores on a fixed 0–100 scale, in the same order as the results table. These scores are not interchangeable with task success rates. Uncertainty intervals are not reported. <span id="chartCoverage">T08 is available for all seven systems.</span></figcaption></figure>
+<div class="results-panel">
+<div class="results-panel-head"><div><span class="figure-label">Initial evaluation</span><h3>Family scores and the RLE Index</h3></div><a class="download-link" download="manuscript-results.csv" href="../assets/blog/manuscript-results.csv">Data CSV <span aria-hidden="true">↘</span></a></div>
+<div aria-label="Initial evaluation results; scroll horizontally on small screens" class="results-scroll" role="region" tabindex="0">
+<table class="research-results"><caption class="visually-hidden">Initial results for seven coding-agent systems, reported on a 0–100 scale. Interactive task coverage differs across systems; see the evaluation coverage note above.</caption><thead><tr><th class="system-col" scope="col">Coding-agent system</th><th class="family-embodiment" scope="col"><span aria-hidden="true" class="family-dot"></span>Embodiment</th><th class="family-perception" scope="col"><span aria-hidden="true" class="family-dot"></span>Perception</th><th class="family-interactive" scope="col"><span aria-hidden="true" class="family-dot"></span>Interactive</th><th class="family-learning" scope="col"><span aria-hidden="true" class="family-dot"></span>Learning</th><th class="index-col" scope="col">Reported<br/>index</th></tr></thead><tbody><!-- BEGIN MANUSCRIPT TABLE -->
+<tr><th scope="row"><strong>GPT-6 Astra</strong><span class="table-harness">Codex CLI</span></th><td class="family-embodiment"><div class="score-cell"><span>57.12</span><i aria-hidden="true" style="width:57.12%"></i></div></td><td class="family-perception"><div class="score-cell"><span>72.06</span><i aria-hidden="true" style="width:72.06%"></i></div></td><td class="family-interactive partial"><div class="score-cell"><span>85.81<a aria-label="Partial task coverage; see coverage note" class="coverage-mark" href="#coverage-note">†</a></span><i aria-hidden="true" style="width:85.81%"></i></div></td><td class="family-learning"><div class="score-cell"><span>80.56</span><i aria-hidden="true" style="width:80.56%"></i></div></td><td class="index-col"><strong>73.89</strong><a aria-label="Unequal task coverage affects index" class="coverage-mark" href="#coverage-note">†</a></td></tr>
+<tr><th scope="row"><strong>Claude Opus 5</strong><span class="table-harness">Claude Code</span></th><td class="family-embodiment"><div class="score-cell"><span>53.64</span><i aria-hidden="true" style="width:53.64%"></i></div></td><td class="family-perception"><div class="score-cell"><span>42.87</span><i aria-hidden="true" style="width:42.87%"></i></div></td><td class="family-interactive"><div class="score-cell"><span>53.70</span><i aria-hidden="true" style="width:53.70%"></i></div></td><td class="family-learning"><div class="score-cell"><span>78.70</span><i aria-hidden="true" style="width:78.70%"></i></div></td><td class="index-col"><strong>57.23</strong></td></tr>
+<tr><th scope="row"><strong>GPT-5.6 Sol</strong><span class="table-harness">Codex CLI</span></th><td class="family-embodiment"><div class="score-cell"><span>51.37</span><i aria-hidden="true" style="width:51.37%"></i></div></td><td class="family-perception"><div class="score-cell"><span>14.52</span><i aria-hidden="true" style="width:14.52%"></i></div></td><td class="family-interactive"><div class="score-cell"><span>43.89</span><i aria-hidden="true" style="width:43.89%"></i></div></td><td class="family-learning"><div class="score-cell"><span>71.52</span><i aria-hidden="true" style="width:71.52%"></i></div></td><td class="index-col"><strong>45.33</strong></td></tr>
+<tr><th scope="row"><strong>Gemini 3.7 Flash</strong><span class="table-harness">Antigravity CLI</span></th><td class="family-embodiment"><div class="score-cell"><span>45.70</span><i aria-hidden="true" style="width:45.70%"></i></div></td><td class="family-perception"><div class="score-cell"><span>11.15</span><i aria-hidden="true" style="width:11.15%"></i></div></td><td class="family-interactive"><div class="score-cell"><span>22.62</span><i aria-hidden="true" style="width:22.62%"></i></div></td><td class="family-learning"><div class="score-cell"><span>28.86</span><i aria-hidden="true" style="width:28.86%"></i></div></td><td class="index-col"><strong>27.08</strong></td></tr>
+<tr><th scope="row"><strong>Claude Opus 4.8</strong><span class="table-harness">Claude Code</span></th><td class="family-embodiment"><div class="score-cell"><span>47.75</span><i aria-hidden="true" style="width:47.75%"></i></div></td><td class="family-perception"><div class="score-cell"><span>7.33</span><i aria-hidden="true" style="width:7.33%"></i></div></td><td class="family-interactive"><div class="score-cell"><span>14.49</span><i aria-hidden="true" style="width:14.49%"></i></div></td><td class="family-learning"><div class="score-cell"><span>33.70</span><i aria-hidden="true" style="width:33.70%"></i></div></td><td class="index-col"><strong>25.82</strong></td></tr>
+<tr><th scope="row"><strong>GPT-5.6 Luna</strong><span class="table-harness">Codex CLI</span></th><td class="family-embodiment"><div class="score-cell"><span>38.66</span><i aria-hidden="true" style="width:38.66%"></i></div></td><td class="family-perception"><div class="score-cell"><span>6.56</span><i aria-hidden="true" style="width:6.56%"></i></div></td><td class="family-interactive"><div class="score-cell"><span>6.19</span><i aria-hidden="true" style="width:6.19%"></i></div></td><td class="family-learning"><div class="score-cell"><span>24.47</span><i aria-hidden="true" style="width:24.47%"></i></div></td><td class="index-col"><strong>18.97</strong></td></tr>
+<tr><th scope="row"><strong>GPT-5.6 Terra</strong><span class="table-harness">Codex CLI</span></th><td class="family-embodiment"><div class="score-cell"><span>25.38</span><i aria-hidden="true" style="width:25.38%"></i></div></td><td class="family-perception"><div class="score-cell"><span>7.48</span><i aria-hidden="true" style="width:7.48%"></i></div></td><td class="family-interactive"><div class="score-cell"><span>11.29</span><i aria-hidden="true" style="width:11.29%"></i></div></td><td class="family-learning"><div class="score-cell"><span>8.46</span><i aria-hidden="true" style="width:8.46%"></i></div></td><td class="index-col"><strong>13.15</strong></td></tr>
+<!-- END MANUSCRIPT TABLE --></tbody></table></div><p class="table-note">† Astra’s Interactive score covers T09 only. T03 and T05 are pending for all systems. Values follow the paper’s results table; aggregate resource costs and uncertainty intervals are not yet available.</p></div>
+<p>The reported profiles show that the differences between systems are not uniform across workflows. In perception, GPT-6 Astra scores <strong data-result="astra.perception">72.06</strong>, compared with <strong data-result="opus5.perception">42.87</strong> for Claude Opus 5. Their embodiment scores are much closer, at <strong data-result="astra.embodiment">57.12</strong> and <strong data-result="opus5.embodiment">53.64</strong>, as are their current learning scores, at <strong data-result="astra.learning">80.56</strong> and <strong data-result="opus5.learning">78.70</strong>. Among these equally covered families, the largest separation between the two systems is in perception.</p>
+<p>Several other systems also show markedly different profiles across families. Claude Opus 4.8, for example, scores <strong data-result="opus48.embodiment">47.75</strong> in embodiment and <strong data-result="opus48.perception">7.33</strong> in perception. These scores measure different objectives, but their contrast illustrates why a single aggregate is insufficient to describe an agent’s engineering capabilities. Visual estimation, policy training, and mechanical design impose distinct demands, and progress in one does not establish comparable performance in the others.</p>
+<p>The Interactive family is especially relevant to understanding how agents use repeated physical feedback. Its current coverage differs across systems, however, so the reported values do not yet support a like-for-like comparison across the full family. The task-level analyses below examine how interfaces, reusable tools, and physical constraints help explain the engineering challenges behind the scores.</p>
+<h2 data-toc="Robotics scaffolding" id="harness">How robotics scaffolding affects performance</h2>
+<p>RLE-Bench distinguishes two layers of tooling. The <strong>coding-agent harness</strong>, such as Claude Code, Codex CLI, or Antigravity CLI, manages the agent’s development process. <strong>Robotics scaffolding</strong> supplies task-specific perception utilities, geometric abstractions, control primitives, and access to simulator state. Both shape what the agent can accomplish within its development budget.</p>
+<p>T01 studies robotics scaffolding through three nested interface levels. The kitchen tasks, evaluation scenes, seeds, interaction limits, and scoring rule remain fixed; only the supplied tools and information change. This design separates the benefit of reusable software from the benefit of directly observing task-relevant state.<sup><a aria-label="Source 2: task definitions and evaluation contracts" class="cite" href="#source-tasks">2</a></sup></p>
+<div aria-label="Three nested robotics interface levels" class="harness-levels">
+<div><span class="level-tag">L1</span><h3>Low-level interface</h3><p>Camera observations, optional depth, robot state, and low-level actions are available. The agent implements its own perception and control logic.</p><span class="level-delta">Baseline observations and actions</span></div>
+<div><span class="level-tag">L2</span><h3>Reusable robotics tools</h3><p>The same observations are supplemented by perception models, coordinate transforms, geometry utilities, and motion primitives.</p><span class="level-delta">Additional software abstractions</span></div>
+<div><span class="level-tag">L3</span><h3>Privileged scene state</h3><p>The complete L2 interface is supplemented by task-relevant object and fixture poses and additional simulator state.</p><span class="level-delta">Additional state information</span></div>
+</div>
+<p>L2 provides reusable implementations without exposing additional simulator state. Its perception tools include SAM3 segmentation and Contact-GraspNet grasp proposals, which operate on the same observations available at L1. L3 adds privileged information, including object and fixture poses, reducing the need to infer that state from images. Actions executed through supplied tools remain subject to the same interaction budget.</p>
+<figure class="paper-figure figure-card">
+<div class="figure-top"><span class="figure-label">03 / T01 interface comparison</span><a class="download-link" download="harness-comparison.pdf" href="../assets/blog/harness-comparison.pdf">Original figure <span aria-hidden="true">↗</span></a></div>
+<a aria-label="Enlarge the paper’s harness comparison figure" class="zoom-image paper-chart-image" data-caption="Task success and cost across the three T01 interface levels. This task-specific study includes an additional system beyond the main results table and does not report uncertainty intervals." data-zoom="" href="../assets/blog/harness-comparison.webp"><img alt="Original manuscript chart comparing L1, L2 and L3 harnesses. Success generally rises and cost often falls for several systems, while GPT-6 Astra has high L1 success and no improvement from added scaffolding." decoding="async" height="767" loading="lazy" src="../assets/blog/harness-comparison.webp" width="2034"/></a>
+<figcaption>Task success and cost across the three T01 interface levels, reproduced from the paper. This task-specific study includes an additional system beyond the seven-system results table; uncertainty intervals are not shown.<sup><a aria-label="Source 4: initial results and task-level analyses" class="cite" href="#source-results">4</a></sup></figcaption>
+</figure>
+<p>For most systems in the study, richer interfaces are associated with higher task success and lower cost. GPT-6 Astra already performs strongly at L1, while the additional layers yield diminishing returns or slight decreases in performance in some cases. These findings suggest that the value of robotics scaffolding depends on the system using it. Supplying additional modules does not by itself guarantee better results; their interfaces and outputs must support the agent’s own perception and control process.</p>
+<h2 data-toc="Reusable tools and transfer" id="transfer">Evaluating the transfer of reusable tools</h2>
+<p>T02 extends the evaluation from using tools to developing them for others. Within each of fifteen RoboCasa activity groups, a developer agent works on three tasks and packages its experience into perception functions, closed-loop controllers, and a usage manual. Five independent evaluation agents then receive that package and attempt a held-out task without access to the developer’s conversation or other workspace files.</p>
+<figure class="transfer-figure figure-card"><div class="figure-top"><span class="figure-label">04 / Reusable-tool evaluation</span><span class="micro">T02 · Independent evaluation agents</span></div><div class="transfer-flow"><div><span class="transfer-step">01 / Development</span><h3>Development on three tasks</h3><p>One agent develops and tests reusable perception and control tools.</p></div><span aria-hidden="true" class="transfer-arrow">→</span><div class="transfer-artifact"><span class="transfer-step">02 / Tool package</span><code>MANUAL.md</code><code>perception/</code><code>controllers/</code></div><span aria-hidden="true" class="transfer-arrow">→</span><div><span class="transfer-step">03 / Evaluation</span><h3>Transfer to a held-out task</h3><p>Five independent agents use the resulting tools without shared development context.</p></div></div><figcaption>Only the manual, perception functions, and controllers transfer to evaluation. Each evaluation agent starts independently, without the developer’s conversation or other workspace files.</figcaption></figure>
+<p>The split is constructed so that every atomic primitive required by the held-out task appears in the development tasks. The evaluation agents must nevertheless apply those capabilities in a new composition. This tests whether the developer has produced useful abstractions and documented their assumptions clearly enough for another agent to use them.<sup><a aria-label="Source 2: task definitions and evaluation contracts" class="cite" href="#source-tasks">2</a></sup></p>
+<p>T01 measures an agent’s ability to solve manipulation tasks under a supplied interface. T02 instead evaluates the usefulness of the interface the agent builds. Separating development from use makes software organization, documentation, and transfer to new tasks explicit parts of the engineering objective.</p>
+<h2 data-toc="Embodiment design" id="grounding">Physical constraints in embodiment design</h2>
+<p>Embodiment design provides a concrete test of whether an agent can translate a specification into a functioning physical system. T06 asks for one compact mobile base and controller that work with Panda, UR5e, and xArm7 arms. Evaluation covers structural validity, resource use, shelf access, payload capacity, and stability, with each checkpoint reduced across arms by the worst-performing embodiment.</p>
+<figure class="design-figure figure-card"><div class="figure-top"><span class="figure-label">05 / Mobile-base design examples</span><span class="micro">T06 · Case study</span></div><div class="design-comparison"><div><a aria-label="Enlarge GPT-6 Astra’s mobile-base design" class="zoom-image" data-caption="GPT-6 Astra’s mobile-base submission. The accompanying case analysis reports strong shelf access and payload performance, but failures on static-stability and lateral/turning checks." data-zoom="" href="../assets/blog/astra-mobile-manipulator.webp"><img alt="GPT-6 Astra’s simulated robot arm mounted on a connected wheeled chassis beside a shelf." decoding="async" height="960" loading="lazy" src="../assets/blog/astra-mobile-manipulator.webp" width="1280"/></a><div class="design-label"><strong>GPT-6 Astra</strong><span>Codex CLI</span></div></div><div><a aria-label="Enlarge GPT-5.6 Luna’s mobile-base design" class="zoom-image" data-caption="GPT-5.6 Luna’s mobile-base submission. The paper identifies disconnected frame elements despite an explicit connected-frame requirement." data-zoom="" href="../assets/blog/luna-mobile-base.webp"><img alt="GPT-5.6 Luna’s simulated mobile-base submission, which the manuscript identifies as having disconnected frame elements." decoding="async" height="960" loading="lazy" src="../assets/blog/luna-mobile-base.webp" width="1280"/></a><div class="design-label"><strong>GPT-5.6 Luna</strong><span>Codex CLI</span></div></div></div><figcaption>Mobile-base submissions from GPT-6 Astra and GPT-5.6 Luna, reproduced from the paper. The Luna design contains disconnected frame elements despite an explicit connected-frame requirement. These images illustrate individual submissions rather than failure frequencies.<sup><a aria-label="Source 4: initial results and task-level analyses" class="cite" href="#source-results">4</a></sup></figcaption></figure>
+<p>The accompanying T06 analysis also illustrates the difference between accomplishing a motion and satisfying the broader design requirements. Astra earns full credit for shelf access and payload margin in the reported case, but scores zero on the static-stability and lateral/turning checks. Improvements in reach and load handling therefore do not establish that a design meets the benchmark’s stability requirements.<sup><a aria-label="Source 4: initial results and task-level analyses" class="cite" href="#source-results">4</a></sup></p>
+<p>Structural validity, reachability, payload capacity, and stability are distinct engineering requirements. Evaluating them separately exposes failures that may be missed when judging a design by its appearance or by a successful trajectory. This is a central purpose of physical feedback in RLE-Bench: it tests whether the consequences of an implementation are consistent with the constraints it was meant to satisfy.</p>
+<h2 data-toc="Scope and outlook" id="outlook">Scope and research directions</h2>
+<p>RLE-Bench is intended to identify which parts of robot learning engineering coding agents can carry out reliably and where better models, interfaces, or learning methods are needed. The index provides a common summary, while task-level results and family profiles identify the capabilities behind it. The transfer and recipe-engineering tasks also provide settings for studying whether agents can improve the tools and learning procedures used to build robotic systems.</p>
+<p>The benchmark evaluates a representative set of workflows in simulation. <strong>Success in these environments does not establish real-world reliability or safety.</strong> Simulators and sensors approximate selected aspects of physical systems, and the suite does not cover every responsibility of a robot learning engineer. Reference artifacts provide calibration points rather than human or optimal-performance ceilings; scores remain specific to the evaluated model–harness configuration and task interface.<sup><a aria-label="Source 5: scope and limitations" class="cite" href="#source-limits">5</a></sup></p>
+<p>The initial results establish a starting point for this evaluation. Completing the remaining tasks, reporting uncertainty and resource use, and examining development trajectories will support more precise comparisons and help distinguish limitations in perception, experimentation, tool use, and physical reasoning.</p>
+<div class="closing-statement"><span class="figure-label">Research outlook</span><p>The longer-term aim is to develop agents that use physical feedback to improve both robotic behavior and the tools, models, and engineering processes that produce it.</p><p class="closing-small">RLE-Bench provides a structured setting for measuring these capabilities through executable tasks, explicit resource limits, and independent physical evaluation.</p></div>
+<section aria-labelledby="sources-heading" class="article-sources"><h3 id="sources-heading">Paper and methodological references</h3><p>This article accompanies RLE-Bench: A Qualifying Exam for Coding Agents as Robot Learning Engineers. The following sections of the paper provide the underlying task definitions, evaluation procedures, and experimental evidence.</p><ol><li id="source-design"><strong>Motivation and benchmark design.</strong> Introduction and “RLE-Bench”: the engineering-centered evaluation question, task construction, and scope.</li><li id="source-tasks"><strong>Task definitions.</strong> “Task Suite and Capability Taxonomy” and “Complete Task Cards,” T01–T09: objectives, interfaces, resource budgets, deliverables, and evaluation conditions.</li><li id="source-protocol"><strong>Evaluation and scoring.</strong> “Evaluation Protocol” and “Aggregation and Statistical Protocol”: verifier control, model–harness configurations, task-level reductions, and family weighting.</li><li id="source-results"><strong>Experimental evidence.</strong> “Experimental Results”: the initial seven-system comparison, coverage notes, T01 interface study, and T06 mobile-base case analysis and submission images.</li><li id="source-limits"><strong>Scope and interpretation.</strong> Conclusion and benchmark limitations: simulation fidelity, workflow coverage, reference artifacts, and the interpretation of system-level scores.</li></ol></section>
+</div>
+<footer class="post-foot article-end"><div><span class="figure-label">Benchmark resources</span><h3>Explore RLE-Bench</h3><p>Task interfaces, evaluation specifications, and benchmark implementation.</p></div><a class="btn" href="https://github.com/RLE-Bench/RLE-Bench-dev" id="repoCta" rel="noopener">Explore the repository <span aria-hidden="true">↗</span></a><p class="development-note">The separate leaderboard is a development preview with illustrative data. The results presented here are drawn from the paper.</p></footer>
+</article></div></main>
+<footer class="site-footer"><div class="wrap footer-inner"><div><div class="footer-brand"><img alt="" class="brand-mark" height="26" src="../assets/icon.png" width="26"/><span class="brand-text small">RLE<span class="brand-dim">-Bench</span></span></div><p class="muted">A qualifying exam for coding agents as robot learning engineers.</p></div><div class="footer-meta"><a href="./">Research blog</a><span>Manuscript companion · September 2026</span></div></div></footer>
+<dialog aria-label="Expanded paper figure" class="image-dialog" id="imageDialog"><form method="dialog"><button aria-label="Close expanded figure" class="dialog-close" type="submit">Close <span aria-hidden="true">×</span></button></form><img alt="" id="dialogImage"/><p id="dialogCaption"></p></dialog>
+<script>/* ---------------------------------------------------------------------------
+ * RLE-Bench leaderboard data
+ *
+ * !!! PLACEHOLDER RESULTS !!!
+ * The task metadata below (names, budgets, splits, scoring weights) is read
+ * from the RLE-Bench-dev repository and is real. The per-model SCORES are
+ * illustrative sample data so the page has something to render -- no runs have
+ * been scored into this file yet. Replace `scores`, `models` and
+ * `meta.dataStatus` with real `reward.json` aggregates before publishing.
+ *
+ * Each scores[taskId][modelId] is an array aligned to that task's `splits`.
+ * ------------------------------------------------------------------------- */
 
-<main>
+const BENCH = {
+  meta: {
+    name: "RLE-Bench",
+    subtitle: "A full-stack robotics engineering benchmark for coding agents",
+    version: "v1.0-dev",
+    updated: "2026-09-02",
+    dataStatus: "placeholder", // set to "measured" once real runs land
+    // Header links. Fill `arxiv` in when the paper is up — until then the
+    // nav shows the link greyed out rather than pointing nowhere.
+    github: "https://github.com/RLE-Bench/RLE-Bench-dev",
+    arxiv: "",
+    // Where to reach the maintainers. A mailto: also works — e.g.
+    // "mailto:you@example.com" — swap it for whichever you want public.
+    contact: "https://github.com/RLE-Bench/RLE-Bench-dev/issues",
+  },
 
-  <section class="blog-hero">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="wrap">
-      <p class="eyebrow">Notebook · RLE-Bench</p>
-      <h1>How the exam was <span class="grad">written</span></h1>
-      <p class="lede">
-        The leaderboard shows what the agents scored. This is the other half — announcements, the reasoning
-        behind the design, and the things that only turned up once the suite was running.
-      </p>
-    </div>
-  </section>
+  /* --- agents under evaluation -------------------------------------------
+   * harness = the agent scaffold the model was driven with
+   * cost    = USD per full suite run (all families, all variants)
+   * hours   = median agent wall-clock hours per task
+   */
+  models: [
+    { id: "opus5",    name: "Claude Opus 5",   org: "Anthropic", cost: 412, hours: 3.9, open: false , harness: "Claude Code" },
+    { id: "sonnet5",  name: "Claude Sonnet 5", org: "Anthropic", cost: 138, hours: 3.6, open: false , harness: "Claude Code" },
+    { id: "gpt52",    name: "GPT-5.2",         org: "OpenAI",    cost: 356, hours: 4.1, open: false , harness: "Codex CLI" },
+    { id: "gemini3",  name: "Gemini 3 Pro",    org: "Google",    cost: 291, hours: 3.8, open: false , harness: "Gemini CLI" },
+    { id: "glm52",    name: "GLM-5.2",         org: "Z.ai",      cost:  74, hours: 4.4, open: true  , harness: "Claude Code" },
+    { id: "ds4",      name: "DeepSeek-V4",     org: "DeepSeek",  cost:  61, hours: 4.3, open: true  , harness: "Claude Code" },
+    { id: "qwen3max", name: "Qwen3-Max",       org: "Alibaba",   cost:  88, hours: 4.2, open: true  , harness: "Qwen Code" },
+    { id: "kimi25",   name: "Kimi K2.5",       org: "Moonshot",  cost:  52, hours: 4.5, open: true  , harness: "Claude Code" },
+    { id: "oracle",   name: "Oracle reference", org: "RLE-Bench", cost: 0,  hours: 0.4, open: true, baseline: true , harness: "Reference solution" },
+  ],
 
-  <section class="section" style="padding-top: 8px;">
-    <div class="wrap">
-      <div class="callout is-warn" style="max-width: 920px; margin-bottom: 28px;">
-        <div class="callout-key">On numbers</div>
-        <p>
-          These posts describe design and construction. They quote task budgets, split structure and reward
-          weights, which are read from the benchmark repo and are accurate — but no per-model scores, because the
-          leaderboard data is still placeholder until real runs land.
-        </p>
-      </div>
+  /* --- the task families -------------------------------------------------- */
+  tasks: [
+    {
+      id: "task01",
+      num: "01",
+      name: "Mobile Manipulator Design",
+      short: "Manipulator Design",
+      costShare: 0.06,
+      tagline: "Design and prove a stable mobile base from an aluminum-profile library",
+      description:
+        "The agent designs a mobile-manipulator chassis from a stock aluminum-profile library and must prove it stable. One submitted base is verified against three canonical arms — Panda, UR5e, xArm7 — attached through a universal adapter, and checkpoints reduce by minimum: the weakest arm is the score.",
+      aggregate: "min",
+      gpu: false,
+      agentLimit: "2 h",
+      verifierLimit: "1.5 h",
+      variants: 1,
+      splitLabel: "Canonical arm",
+      splits: ["Panda", "UR5e", "xArm7"],
+      scoring: [
+        { label: "Validity & stability gates", weight: 0.30 },
+        { label: "Reach preservation (12 targets)", weight: 0.28 },
+        { label: "Design efficiency", weight: 0.22 },
+        { label: "Load & settling", weight: 0.18 },
+      ],
+      notes: "Soft targets: 0.56 m footprint, 60 kg assembled mass, 12 m of profile. Reference chassis measures 33.5 kg submitted base.",
+    },
+    {
+      id: "task02",
+      num: "02",
+      name: "GELLO Lead-Arm Co-Design",
+      short: "GELLO Co-Design",
+      costShare: 0.09,
+      tagline: "Hardware/software co-design of teleop lead arms for three followers",
+      description:
+        "One three-hour session, three co-design problems: GELLO-style lead arms for Franka, UR5e and xArm7 followers, printable linkage plus a gravity-trim program, under one half-scale servo and mass budget. The verifier treats the submission as untrusted input and recomputes every physical quantity itself.",
+      aggregate: "mean",
+      gpu: false,
+      agentLimit: "3 h",
+      verifierLimit: "1 h",
+      variants: 3,
+      splitLabel: "Follower arm",
+      splits: ["Franka (7 DoF)", "UR5e (6 DoF)", "xArm7 (7 DoF)"],
+      scoring: [
+        { label: "Co-design (hold, backdrive, headroom, recovery)", weight: 0.35 },
+        { label: "Hardware (passive residual, hold, backdrive)", weight: 0.25 },
+        { label: "Validity gates", weight: 0.20 },
+        { label: "Software (nominal & adapted trim)", weight: 0.20 },
+      ],
+      notes: "Transfer test: shared checkpoint weights and reward curves, with absolute bars calibrated per follower.",
+    },
+    {
+      id: "task03",
+      num: "03",
+      name: "RoboCasa Speed-Run",
+      short: "RoboCasa Speed-Run",
+      costShare: 0.22,
+      tagline: "Learn a kitchen subtask through a metered socket — capability first, sample efficiency second",
+      description:
+        "Three harness levels × ten RoboCasa kitchen subtasks, reached only through a metered socket — every simulator step is charged to an interaction budget. The task, the seeds and the weights are identical at every level, so the gap between an L1 and an L3 score is exactly what the harness bought.",
+      aggregate: "mean",
+      gpu: true,
+      agentLimit: "8 h + 1 h",
+      verifierLimit: "per step",
+      variants: 30,
+      splitLabel: "Harness level",
+      splits: ["L1 — action API only", "L2 — + harness library", "L3 — + privileged state"],
+      scoring: [
+        { label: "Success rate on held seeds", weight: 0.80 },
+        { label: "Sample efficiency × success", weight: 0.20 },
+      ],
+      notes: "reward = 0.80 × success_rate + 0.20 × success_rate × (1 − dev_steps / budget). No participation credit: an unsealed ledger scores zero.",
+    },
+    {
+      id: "task04",
+      num: "04",
+      name: "Harness Engineering",
+      short: "Harness Engineering",
+      costShare: 0.24,
+      tagline: "Build a harness a different agent, with no shared context, can apply to a task neither has seen",
+      description:
+        "Agent A practises on an activity group and writes a harness — perception primitives, controllers, a manual. Independent agents then start with fresh context, read that manual, and get one shot each at a held-out task neither has seen; the reward is their mean.",
+      aggregate: "mean",
+      gpu: true,
+      agentLimit: "8 h + 5×1 h",
+      verifierLimit: "per step",
+      variants: 15,
+      splitLabel: "Difficulty band",
+      splits: ["EASY (5 groups)", "MEDIUM (5 groups)", "HARD (5 groups)"],
+      scoring: [
+        { label: "Held-out stage score (mean over trials)", weight: 1.00 },
+      ],
+      notes: "The HARD band is doors and enclosed cavities — kept in the suite because a benchmark needs a floor that is known to be uncleared.",
+    },
+    {
+      id: "task05",
+      num: "05",
+      name: "Blind Pose Estimation",
+      short: "Pose Estimation",
+      costShare: 0.07,
+      tagline: "Multi-shape 6-DoF pose under adversarial sensing",
+      description:
+        "Four subtasks share one blind three-shape renderer the agent never sees, varying only the exposed modalities, the required method and the hardware — from RGB-only on CPU, through a mandatory trained TorchScript model, to an unrestricted method on GPU.",
+      aggregate: "mean",
+      gpu: "2 of 4",
+      agentLimit: "2 h",
+      verifierLimit: "0.5 h",
+      variants: 4,
+      splitLabel: "Subtask",
+      splits: ["rgb-only", "rgb-depth", "model-training", "method-agnostic"],
+      scoring: [
+        { label: "Translation accuracy", weight: 0.40 },
+        { label: "Rotation accuracy", weight: 0.35 },
+        { label: "Shape identification", weight: 0.15 },
+        { label: "Contract & determinism gates", weight: 0.10 },
+      ],
+      notes: "Meshes and canonical assets live in robobench/; the agent's build context is generated, never committed.",
+    },
+    {
+      id: "task06",
+      num: "06",
+      name: "Bin Clearing",
+      short: "Bin Clearing",
+      costShare: 0.11,
+      tagline: "Ship a closed-loop policy scored on hidden pile seeds",
+      description:
+        "A magnet-tipped Panda must singulate stamped brackets from a bin into a conveyor nest, from RGB-D, robot state, force-torque and magnet observations. The verifier reruns the submitted policy in sandboxed subprocesses on eight hidden piles, behind smoke episodes that gate loading, contract compliance and determinism.",
+      aggregate: "mean",
+      gpu: false,
+      agentLimit: "4 h",
+      verifierLimit: "2 h",
+      variants: 1,
+      splitLabel: "Reward component",
+      splits: ["Clearance", "Throughput", "Perfect clear", "Safety"],
+      scoring: [
+        { label: "Clearance (weighted to the last parts)", weight: 0.45 },
+        { label: "Throughput (parts / min)", weight: 0.25 },
+        { label: "Perfect clear bonus", weight: 0.15 },
+        { label: "Safety penalties avoided", weight: 0.15 },
+      ],
+      notes: "The policy's RNG seed is derived with a verifier-only key, so an evaluation pile cannot be reconstructed.",
+    },
+    {
+      id: "task08",
+      num: "08",
+      name: "Tabletop Reasoning",
+      short: "Tabletop Reasoning",
+      costShare: 0.12,
+      tagline: "Five physical-reasoning problems with perception removed from the equation",
+      description:
+        "Only the full L3 harness ships here — skill library, privileged poses, perception service — so perception is out of the problem and the reasoning is not. Five tabletop problems, from building the tallest stable tower to packing six items so they survive a shake.",
+      aggregate: "mean",
+      gpu: true,
+      agentLimit: "8 h + 1 h",
+      verifierLimit: "per step",
+      variants: 5,
+      splitLabel: "Scenario",
+      splits: ["Tower height", "Cantilever", "Balance coins", "Stability packing", "Fragile grasp"],
+      scoring: [
+        { label: "Continuous scenario score (mean over trials)", weight: 1.00 },
+      ],
+      notes: "Scores are continuous, not pass/fail — settled tower height, overhang past the edge, weighings used, items surviving the shake.",
+    },
+    {
+      id: "task09",
+      num: "09",
+      name: "Humanoid Motion Tracking",
+      short: "Motion Tracking",
+      costShare: 0.09,
+      tagline: "Write a whole-body tracking training pipeline, scored sim-to-sim",
+      description:
+        "Five independent tasks, one per retargeted LAFAN1 clip, sharing one evaluation contract. The agent writes a training pipeline for a Unitree G1 whole-body tracking controller; the image ships a deliberately ordinary one-hour PPO recipe it may use, modify or ignore.",
+      aggregate: "mean",
+      gpu: true,
+      agentLimit: "4 h",
+      verifierLimit: "1 h",
+      variants: 5,
+      splitLabel: "Motion (20 s clip)",
+      splits: ["Dance", "Fight", "Fall & get up", "Run", "Sprint"],
+      scoring: [
+        { label: "Multi-scale tracking error", weight: 0.70 },
+        { label: "Survival & gate compliance", weight: 0.30 },
+      ],
+      notes: "Only the dance thresholds are calibrated today; the other four motions currently copy them with calibrated=false.",
+    },
+  ],
 
-      <div class="post-list" id="postList"></div>
-    </div>
-  </section>
+  /* --- PLACEHOLDER scores, per split, 0.00–1.00 --------------------------- */
+  scores: {
+    task01: {
+      opus5:   [0.78, 0.61, 0.74], sonnet5: [0.71, 0.54, 0.68],
+      gpt52:   [0.75, 0.58, 0.71], gemini3: [0.72, 0.56, 0.70],
+      glm52:   [0.58, 0.41, 0.55], ds4:     [0.55, 0.38, 0.52],
+      qwen3max:[0.60, 0.44, 0.57], kimi25:  [0.49, 0.33, 0.47],
+      oracle:  [0.83, 0.58, 0.81],
+    },
+    task02: {
+      opus5:   [0.69, 0.64, 0.66], sonnet5: [0.58, 0.53, 0.55],
+      gpt52:   [0.72, 0.66, 0.68], gemini3: [0.63, 0.59, 0.60],
+      glm52:   [0.44, 0.40, 0.42], ds4:     [0.47, 0.42, 0.44],
+      qwen3max:[0.41, 0.37, 0.39], kimi25:  [0.36, 0.31, 0.34],
+      oracle:  [0.79, 0.74, 0.76],
+    },
+    task03: {
+      opus5:   [0.31, 0.52, 0.68], sonnet5: [0.22, 0.41, 0.57],
+      gpt52:   [0.28, 0.49, 0.64], gemini3: [0.26, 0.47, 0.63],
+      glm52:   [0.12, 0.27, 0.41], ds4:     [0.15, 0.31, 0.44],
+      qwen3max:[0.11, 0.25, 0.38], kimi25:  [0.08, 0.20, 0.33],
+      oracle:  [0.40, 0.63, 0.79],
+    },
+    task04: {
+      opus5:   [0.54, 0.33, 0.06], sonnet5: [0.42, 0.24, 0.03],
+      gpt52:   [0.51, 0.30, 0.05], gemini3: [0.48, 0.29, 0.04],
+      glm52:   [0.26, 0.13, 0.01], ds4:     [0.29, 0.15, 0.02],
+      qwen3max:[0.24, 0.12, 0.01], kimi25:  [0.19, 0.09, 0.00],
+      oracle:  [0.66, 0.44, 0.11],
+    },
+    task05: {
+      opus5:   [0.57, 0.74, 0.66, 0.79], sonnet5: [0.48, 0.65, 0.55, 0.69],
+      gpt52:   [0.61, 0.77, 0.71, 0.82], gemini3: [0.59, 0.75, 0.68, 0.80],
+      glm52:   [0.34, 0.49, 0.41, 0.53], ds4:     [0.38, 0.53, 0.46, 0.58],
+      qwen3max:[0.36, 0.51, 0.43, 0.55], kimi25:  [0.28, 0.42, 0.34, 0.46],
+      oracle:  [0.68, 0.85, 0.80, 0.88],
+    },
+    task06: {
+      opus5:   [0.66, 0.51, 0.34, 0.88], sonnet5: [0.55, 0.42, 0.22, 0.83],
+      gpt52:   [0.62, 0.48, 0.29, 0.85], gemini3: [0.59, 0.45, 0.27, 0.86],
+      glm52:   [0.37, 0.26, 0.09, 0.72], ds4:     [0.40, 0.29, 0.12, 0.74],
+      qwen3max:[0.35, 0.24, 0.08, 0.70], kimi25:  [0.29, 0.19, 0.05, 0.66],
+      oracle:  [0.78, 0.63, 0.46, 0.92],
+    },
+    task08: {
+      opus5:   [0.62, 0.48, 0.71, 0.55, 0.44], sonnet5: [0.51, 0.38, 0.62, 0.45, 0.35],
+      gpt52:   [0.58, 0.51, 0.74, 0.52, 0.40], gemini3: [0.60, 0.46, 0.69, 0.53, 0.42],
+      glm52:   [0.33, 0.24, 0.45, 0.29, 0.21], ds4:     [0.36, 0.27, 0.49, 0.32, 0.24],
+      qwen3max:[0.31, 0.22, 0.43, 0.28, 0.20], kimi25:  [0.25, 0.17, 0.36, 0.22, 0.15],
+      oracle:  [0.74, 0.61, 0.84, 0.68, 0.57],
+    },
+    task09: {
+      opus5:   [0.58, 0.21, 0.29, 0.47, 0.38], sonnet5: [0.47, 0.14, 0.21, 0.38, 0.29],
+      gpt52:   [0.54, 0.19, 0.26, 0.44, 0.35], gemini3: [0.56, 0.20, 0.27, 0.45, 0.36],
+      glm52:   [0.31, 0.07, 0.11, 0.24, 0.17], ds4:     [0.34, 0.09, 0.13, 0.27, 0.19],
+      qwen3max:[0.29, 0.06, 0.10, 0.23, 0.16], kimi25:  [0.23, 0.04, 0.07, 0.18, 0.12],
+      oracle:  [0.64, 0.18, 0.24, 0.52, 0.41],
+    },
+  },
+};
 
-</main>
+if (typeof module !== "undefined") module.exports = BENCH;
+</script>
+<script>/* Publication metadata. The date records an editorial update. */
+const POSTS = [
+  {
+    "slug": "introducing-rle-bench",
+    "file": "./",
+    "title": "Introducing RLE-Bench",
+    "kicker": "Research overview",
+    "date": "2026-09-09",
+    "dateLabel": "Updated",
+    "readingTime": "13 min",
+    "tags": [
+      "Engineering workflows",
+      "Physical evaluation",
+      "Capability profiles"
+    ],
+    "summary": "An introduction to RLE-Bench’s engineering tasks, evaluation methodology, and initial findings on the capabilities of coding agents in robotics."
+  }
+];
+if (typeof module !== "undefined") module.exports = POSTS;
+</script>
+<script>/* Shared blog shell. Progressive enhancement; the article and index are static.
+   BENCH is read only for site links, never for manuscript metrics or dates. */
+(() => {
+  'use strict';
+  const $ = (s, root = document) => root.querySelector(s);
+  const $$ = (s, root = document) => Array.from(root.querySelectorAll(s));
+  const make = (tag, cls, text) => {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text != null) node.textContent = text;
+    return node;
+  };
+  const themeButton = $('#themeToggle');
+  const applyTheme = (value, persist = false) => {
+    if (!['dark', 'light'].includes(value)) return;
+    document.documentElement.dataset.theme = value;
+    if (persist) { try { localStorage.setItem('rlebench-theme', value); } catch (_) {} }
+    if (themeButton) {
+      const label = `Switch to ${value === 'dark' ? 'light' : 'dark'} theme`;
+      themeButton.setAttribute('aria-label', label);
+      themeButton.title = label;
+    }
+    const meta = $('meta[name="theme-color"]');
+    if (meta) meta.content = value === 'dark' ? '#0d0d0d' : '#f9f9f7';
+  };
+  let initial = document.documentElement.dataset.theme || 'dark';
+  try { initial = localStorage.getItem('rlebench-theme') || initial; } catch (_) {}
+  applyTheme(initial);
+  themeButton?.addEventListener('click', () => applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark', true));
+  addEventListener('storage', event => { if (event.key === 'rlebench-theme' && event.newValue) applyTheme(event.newValue); });
 
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div>
-      <div class="footer-brand">
-        <img class="brand-mark" src="../assets/icon.png" width="26" height="26" alt="">
-        <span class="brand-text small">RLE<span class="brand-dim">-Bench</span></span>
-      </div>
-      <p class="muted">A Qualifying Exam for Coding Agents as Robot Learning Engineers.</p>
-    </div>
-    <div class="footer-meta">
-      <span id="footerUpdated"></span>
-      <span id="footerVersion"></span>
-    </div>
-  </div>
-</footer>
-
-<script src="../data.js"></script>
-<script src="posts.js"></script>
-<script src="blog.js"></script>
-</body>
-</html>
+  const safeURL = value => {
+    if (!value) return null;
+    try { const u = new URL(value, location.href); return ['http:', 'https:', 'mailto:'].includes(u.protocol) ? value : null; } catch (_) { return null; }
+  };
+  if (typeof BENCH !== 'undefined' && BENCH.meta) {
+    [['#navGithub', BENCH.meta.github], ['#repoCta', BENCH.meta.github], ['#navContact', BENCH.meta.contact]].forEach(([selector, value]) => {
+      const link = $(selector), url = safeURL(value);
+      if (link && url) link.href = url;
+      else if (link) link.remove();
+    });
+    const paper = $('#navArxiv');
+    if (paper) {
+      const url = safeURL(BENCH.meta.arxiv);
+      if (url) {
+        paper.href = url;
+        paper.classList.remove('is-pending');
+        paper.removeAttribute('aria-disabled');
+        paper.title = 'Read the paper';
+      } else {
+        paper.removeAttribute('href');
+        paper.classList.add('is-pending');
+        paper.setAttribute('aria-disabled', 'true');
+        paper.title = 'Public paper link not yet available';
+      }
+    }
+    // Older non-research posts may still use these site-version placeholders.
+    if (!document.body.classList.contains('research-page')) {
+      if ($('#versionPill')) $('#versionPill').textContent = BENCH.meta.version;
+      if ($('#footerVersion')) $('#footerVersion').textContent = BENCH.meta.version;
+      if ($('#footerUpdated')) $('#footerUpdated').textContent = `Updated ${BENCH.meta.updated}`;
+    }
+  }
+  const longDate = iso => {
+    const [y, m, d] = iso.split('-').map(Number);
+    return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('en-GB', {day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'});
+  };
+  // Optional generic list for future posts; this release's featured index is static.
+  const list = $('#postList');
+  if (list && typeof POSTS !== 'undefined') {
+    list.replaceChildren();
+    POSTS.forEach((post, index) => {
+      const card = make('a', 'postcard'); card.href = post.file;
+      const rail = make('div', 'postcard-rail');
+      rail.append(make('div', 'postcard-num', String(POSTS.length - index).padStart(2, '0')), make('div', 'postcard-date', longDate(post.date)), make('div', 'postcard-date', post.readingTime));
+      const content = make('div', 'postcard-main');
+      content.append(make('div', 'postcard-kicker', post.kicker), make('h2', 'postcard-title', post.title), make('p', 'postcard-sum', post.summary));
+      const tags = make('div', 'tagrow'); post.tags.forEach(tag => tags.append(make('span', 'tag', tag))); content.append(tags);
+      card.append(rail, content); list.append(card);
+    });
+  }
+  const slug = document.body.dataset.slug;
+  if (!slug) return;
+  const post = typeof POSTS !== 'undefined' ? POSTS.find(p => p.slug === slug) : null;
+  const byline = $('#postByline');
+  if (post && byline) {
+    byline.replaceChildren();
+    ['RLE-Bench team', `${post.dateLabel || 'Updated'} ${longDate(post.date)}`, `${post.readingTime} read`].forEach(text => byline.append(make('span', null, text)));
+  }
+  const body = $('.post-body');
+  if (!body) return;
+  const heads = $$(':scope > h2', body);
+  const createTOC = () => {
+    const ol = make('ol');
+    heads.forEach((heading, index) => {
+      if (!heading.id) heading.id = `section-${index + 1}`;
+      const label = heading.dataset.toc || heading.textContent;
+      if (!$('.h-num', heading)) heading.prepend(make('span', 'h-num', `§ ${String(index + 1).padStart(2, '0')}`));
+      const li = make('li'); const a = make('a', null, label); a.href = `#${heading.id}`;
+      li.append(a); ol.append(li);
+    });
+    return ol;
+  };
+  const toc = $('#toc'), mobileTOC = $('#mobileContents');
+  if (toc) toc.replaceChildren(createTOC());
+  if (mobileTOC) {
+    mobileTOC.replaceChildren(createTOC());
+    mobileTOC.addEventListener('click', event => {
+      if (event.target.closest('a')) { const details = mobileTOC.closest('details'); if (details) details.open = false; }
+    });
+  }
+  const progress = $('#progress');
+  const links = toc ? $$('a', toc) : [];
+  let scheduled = false;
+  const updateReading = () => {
+    scheduled = false;
+    let current = 0;
+    heads.forEach((h, i) => { if (h.getBoundingClientRect().top <= 160) current = i; });
+    links.forEach((a, i) => {
+      a.classList.toggle('is-here', i === current);
+      if (i === current) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+    });
+    if (progress) {
+      const rect = body.getBoundingClientRect();
+      const range = rect.height - innerHeight + 160;
+      const done = range > 0 ? Math.max(0, Math.min(1, (160 - rect.top) / range)) : 0;
+      progress.style.width = `${(done * 100).toFixed(2)}%`;
+    }
+  };
+  const queueReading = () => { if (!scheduled) { scheduled = true; requestAnimationFrame(updateReading); } };
+  addEventListener('scroll', queueReading, {passive: true});
+  addEventListener('resize', queueReading, {passive: true});
+  document.addEventListener('toggle', queueReading, true);
+  addEventListener('load', queueReading, {once: true});
+  updateReading();
+  // Single-post releases do not display empty previous / next cards.
+  const postNav = $('#postNav');
+  if (postNav && post && typeof POSTS !== 'undefined') {
+    const index = POSTS.indexOf(post), neighbors = [[POSTS[index+1], 'Older'], [POSTS[index-1], 'Newer']];
+    if (!neighbors.some(([item]) => item)) postNav.remove();
+    else neighbors.forEach(([item, direction]) => {
+      if (!item) return;
+      const a = make('a', 'pn'); a.href = item.file;
+      a.append(make('span', 'pn-key', direction), make('span', 'pn-title', item.title)); postNav.append(a);
+    });
+  }
+})();
+</script>
+<script>/* Generated from manuscript-results.json. Do not edit this copy. */
+const MANUSCRIPT_RESULTS = {
+  "status": "provisional",
+  "source": "Provided manuscript: content/results.tex, Table tab:leaderboard; harnesses from content/evaluation_protocol.tex, Table tab:evaluated-systems.",
+  "units": "0–100, as reported in the manuscript. Family metrics are normalized task scores, not universal success rates.",
+  "pendingTasks": [
+    "T03",
+    "T05"
+  ],
+  "coverageNote": "GPT-6 Astra has only T09 in the Interactive family. T01 and T02 are also unavailable for this system in the reported table. Other reported systems average T01, T02 and T09 for Interactive. Learning currently covers T04 only. Scores have unequal coverage; the overall index is not a matched-coverage final ranking.",
+  "models": [
+    {
+      "id": "astra",
+      "name": "GPT-6 Astra",
+      "harness": "Codex CLI",
+      "index": 73.89,
+      "embodiment": 57.12,
+      "perception": 72.06,
+      "interactive": 85.81,
+      "learning": 80.56,
+      "partialInteractive": true
+    },
+    {
+      "id": "opus5",
+      "name": "Claude Opus 5",
+      "harness": "Claude Code",
+      "index": 57.23,
+      "embodiment": 53.64,
+      "perception": 42.87,
+      "interactive": 53.7,
+      "learning": 78.7,
+      "partialInteractive": false
+    },
+    {
+      "id": "sol",
+      "name": "GPT-5.6 Sol",
+      "harness": "Codex CLI",
+      "index": 45.33,
+      "embodiment": 51.37,
+      "perception": 14.52,
+      "interactive": 43.89,
+      "learning": 71.52,
+      "partialInteractive": false
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini 3.7 Flash",
+      "harness": "Antigravity CLI",
+      "index": 27.08,
+      "embodiment": 45.7,
+      "perception": 11.15,
+      "interactive": 22.62,
+      "learning": 28.86,
+      "partialInteractive": false
+    },
+    {
+      "id": "opus48",
+      "name": "Claude Opus 4.8",
+      "harness": "Claude Code",
+      "index": 25.82,
+      "embodiment": 47.75,
+      "perception": 7.33,
+      "interactive": 14.49,
+      "learning": 33.7,
+      "partialInteractive": false
+    },
+    {
+      "id": "luna",
+      "name": "GPT-5.6 Luna",
+      "harness": "Codex CLI",
+      "index": 18.97,
+      "embodiment": 38.66,
+      "perception": 6.56,
+      "interactive": 6.19,
+      "learning": 24.47,
+      "partialInteractive": false
+    },
+    {
+      "id": "terra",
+      "name": "GPT-5.6 Terra",
+      "harness": "Codex CLI",
+      "index": 13.15,
+      "embodiment": 25.38,
+      "perception": 7.48,
+      "interactive": 11.29,
+      "learning": 8.46,
+      "partialInteractive": false
+    }
+  ]
+};
+</script>
+<script>/* Article-only enhancements. All text, default chart values, table values,
+   figures, citations, and fallbacks are present in the static HTML. */
+(() => {
+  'use strict';
+  const chart = document.getElementById('capabilityChart');
+  const controls = Array.from(document.querySelectorAll('[data-metric]'));
+  const labels = {
+    perception: {title: 'Perception', context: 'T08 · Blind pose estimation · Matched task coverage', coverage: 'T08 is available for all seven systems.'},
+    embodiment: {title: 'Embodiment', context: 'T06 + T07 · Embodiment and co-design · Matched task coverage', coverage: 'Both embodiment tasks are included in the reported family scores.'},
+    learning: {title: 'Learning', context: 'T04 · Whole-body motion tracking · T03 pending for all systems', coverage: 'Learning currently reflects T04. T03 is pending for all systems.'},
+    interactive: {title: 'Interactive', context: 'Interactive coverage varies: Astra covers T09; other systems cover T01, T02, and T09. T05 is pending.', coverage: '† Astra’s striped bar represents T09 only; Interactive scores have unequal task coverage.'}
+  };
+  const records = typeof MANUSCRIPT_RESULTS !== 'undefined' && Array.isArray(MANUSCRIPT_RESULTS.models) ? MANUSCRIPT_RESULTS.models : [];
+  const valid = records.length === 7 && records.every(row => Object.keys(labels).every(key => Number.isFinite(row[key]) && row[key] >= 0 && row[key] <= 100));
+  if (chart && valid) {
+    const setMetric = metric => {
+      if (!Object.hasOwn(labels, metric)) return;
+      const meta = labels[metric];
+      chart.className = `capability-chart family-${metric}`;
+      chart.setAttribute('aria-label', `${meta.title} family scores, zero to one hundred. ${meta.coverage}`);
+      records.forEach(record => {
+        const row = chart.querySelector(`[data-system="${record.id}"]`);
+        if (!row) return;
+        const partial = metric === 'interactive' && record.partialInteractive;
+        row.classList.toggle('is-partial', partial);
+        row.querySelector('.bar-fill').style.width = `${record[metric]}%`;
+        row.querySelector('.bar-value').textContent = record[metric].toFixed(2) + (partial ? '†' : '');
+        row.setAttribute('aria-label', `${record.name}, ${record.harness}: ${record[metric].toFixed(2)} out of 100${partial ? ', T09 only, partial family coverage' : ''}`);
+      });
+      controls.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.metric === metric)));
+      document.getElementById('chartContext').textContent = meta.context;
+      document.getElementById('chartCoverage').textContent = meta.coverage;
+      const announcement = document.getElementById('chartAnnouncement');
+      if (announcement) announcement.textContent = `${meta.title} selected. ${meta.context}`;
+    };
+    controls.forEach(button => button.addEventListener('click', () => setMetric(button.dataset.metric)));
+    // Native buttons are tab-accessible; arrow keys are an additional convenience.
+    const group = document.querySelector('.metric-tabs');
+    group?.addEventListener('keydown', event => {
+      if (!['ArrowRight','ArrowLeft','Home','End'].includes(event.key)) return;
+      const index = controls.indexOf(document.activeElement);
+      if (index < 0) return;
+      event.preventDefault();
+      const next = event.key === 'Home' ? 0 : event.key === 'End' ? controls.length-1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + controls.length) % controls.length;
+      controls[next].focus(); controls[next].click();
+    });
+  } else {
+    // A missing or invalid optional data script must not leave inactive controls.
+    const group = document.querySelector('.metric-tabs'); if (group) group.hidden = true;
+  }
+  const dialog = document.getElementById('imageDialog');
+  if (dialog && typeof dialog.showModal === 'function') {
+    const image = document.getElementById('dialogImage');
+    const caption = document.getElementById('dialogCaption');
+    let previousFocus = null;
+    let priorOverflow = '';
+    document.querySelectorAll('[data-zoom]').forEach(link => {
+      link.addEventListener('click', event => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        previousFocus = link;
+        image.src = link.href;
+        image.alt = link.querySelector('img')?.alt || 'Figure from the RLE-Bench manuscript';
+        caption.textContent = link.dataset.caption || '';
+        priorOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        dialog.showModal();
+      });
+    });
+    dialog.addEventListener('click', event => {
+      if (event.target !== dialog) return;
+      const r = dialog.getBoundingClientRect();
+      if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+      document.body.style.overflow = priorOverflow;
+      if (previousFocus) previousFocus.focus({preventScroll: true});
+    });
+  }
+})();
+</script>
+</body></html>
