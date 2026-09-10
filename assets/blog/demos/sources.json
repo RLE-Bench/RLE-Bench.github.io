@@ -1,0 +1,76 @@
+{
+  "archive": "robobench_demo_share_2026-09-09.zip",
+  "snapshot_date": "2026-09-09",
+  "note": "Selected illustrative recordings and design artifacts; separate from the manuscript aggregate results. Videos preserve the complete source recording at its original playback rate.",
+  "assets": [
+    {
+      "file": "hidden-center-of-mass.mp4",
+      "poster": "hidden-center-of-mass.webp",
+      "poster_time_seconds": 30,
+      "dimensions": [
+        1024,
+        576
+      ],
+      "duration_seconds": 36.6,
+      "source_path": "demo/tasks/task05/0.8.0/gpt-5.6-sol/217/codex-gpt_56_sol-20260909T030228-07_hidden_center_of_mass_hidden_com_clear_sweep_attempt_1/verifier/media/trial-01/interaction.mp4",
+      "source_sha256": "8fb6600483408a815221bd60f66e9bb2e631b2dd6d0aa9187bd61ebc98b4191f",
+      "published_sha256": "2c31a436459ae8ec97b5eb31311b55011bbd975a2e887654517befa53769e41f",
+      "task": "task05",
+      "version": "0.8.0",
+      "model": "gpt-5.6-sol",
+      "kind": "verifier"
+    },
+    {
+      "file": "humanoid-recovery.mp4",
+      "poster": "humanoid-recovery.webp",
+      "poster_time_seconds": 16,
+      "dimensions": [
+        640,
+        360
+      ],
+      "duration_seconds": 20.0,
+      "source_path": "demo/tasks/task04/1.0.0/gpt-6-astra/216/codex-gpt_6_astra-20260905T114920-fall_and_get_up/03-fall-and-get-up__3UuYmaG/verifier/videos/ep0.mp4",
+      "source_sha256": "b50f6f984a80a73a63ee43369adf89151caff11a8085260cdfedddd84686d662",
+      "published_sha256": "4bdb4fe882ef60eb12f37d6c9a3a5381238df6d2c5c36fe3cb252de71063810c",
+      "task": "task04",
+      "version": "1.0.0",
+      "model": "gpt-6-astra",
+      "kind": "verifier"
+    },
+    {
+      "file": "pose-under-occlusion.mp4",
+      "poster": "pose-under-occlusion.webp",
+      "poster_time_seconds": 2.4,
+      "dimensions": [
+        1280,
+        480
+      ],
+      "duration_seconds": 6.0,
+      "source_path": "demo/tasks/task08/1.3.0/gemini-3.7-flash-high/171/antigravity_cli_login-google_gemini_3_7_flash_high-20260908T072647-method_agnostic/verifier/media/ep0_seed4394501109711360486.mp4",
+      "source_sha256": "ed968c7a241471d553a14becb771e5e3b7627cc865be3effbdd6dc1eabb1384c",
+      "published_sha256": "e10442a42988d8771599b7dffbc86c4d20f29dcb450f598d2bd27d5981d64787",
+      "task": "task08",
+      "version": "1.3.0",
+      "model": "gemini-3.7-flash-high",
+      "kind": "verifier"
+    },
+    {
+      "file": "contact-rich-bin-clearing.mp4",
+      "poster": "contact-rich-bin-clearing.webp",
+      "poster_time_seconds": 13,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "duration_seconds": 29.5,
+      "source_path": "demo/tasks/task09/1.0.1/gpt-6-astra/216/codex-gpt_6_astra-20260905T194322/task09__py2rB9p/artifacts/logs/artifacts/demo_preview.mp4",
+      "source_sha256": "5691c2b931eb1b2001b1b7469799ead567a98a3dfaf45072a6b73338666d300f",
+      "published_sha256": "9d057dbf6f4259042a9c3218176c713498c2996af63a35cabfa4887debf3b4c5",
+      "task": "task09",
+      "version": "1.0.1",
+      "model": "gpt-6-astra",
+      "kind": "artifact"
+    }
+  ],
+  "imported_from": "ade333a7b4430867b196a01d925ac5606ccb4497"
+}

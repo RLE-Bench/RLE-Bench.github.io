@@ -1,0 +1,28 @@
+{
+  "note": "Scene-level captions for current videos. RoboCasa class matches are inferred from visible object layouts/actions and checked against official class instructions; original episode metadata was not supplied. Food names in T01 are identified visually. Captions describe goals, not claims of successful completion.",
+  "robocasa_revision": "4f8a2980def75a55dff96b990745b83540425f09",
+  "demos": {
+    "T01": {
+      "goal": "Put the potato and corn into the bowl on the counter, and move the orange and banana into the sink to defrost the fruit under running water.",
+      "matched_task": "DefrostByCategory",
+      "source": "https://github.com/robocasa/robocasa/blob/4f8a2980def75a55dff96b990745b83540425f09/robocasa/environments/kitchen/composite/defrosting_food/defrost_by_category.py"
+    },
+    "T02": {
+      "goal": "Transfer the chicken drumstick and the vegetable from their plates into the bowl, then carry the filled bowl to the fridge and place it inside.",
+      "matched_task": "StoreLeftoversInBowl",
+      "source": "https://github.com/robocasa/robocasa/blob/4f8a2980def75a55dff96b990745b83540425f09/robocasa/environments/kitchen/composite/storing_leftovers/store_leftovers_in_bowl.py"
+    },
+    "T04": {
+      "goal": "Make the humanoid follow the reference dance, coordinating its arms, legs, and torso while maintaining balance."
+    },
+    "T05": {
+      "goal": "Probe the sealed box with the robot and use its physical response to identify which marked quadrant—A, B, C, or D—contains the hidden ballast."
+    },
+    "T08": {
+      "goal": "Estimate the red object’s position on the tabletop and its orientation as it moves and the robot partially blocks the camera view."
+    },
+    "T09": {
+      "goal": "Pick the steel brackets out of the cluttered bin and place them onto the conveyor, clearing the bin while avoiding drops, damage, and excessive impacts."
+    }
+  }
+}
