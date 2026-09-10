@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "source": {
+    "method": "Transcribed from user-provided T01 success-rate and cost table screenshots. Rows correspond to L1, L2, L3; costs use the same model column order as the success-rate table. Kimi K3 and DeepSeek are excluded. Blank Gemini costs are null (not reported)."
+  },
+  "levels": [
+    "L1",
+    "L2",
+    "L3"
+  ],
+  "models": [
+    {
+      "name": "GPT-6 Astra",
+      "success_rate": {
+        "L1": 0.908218,
+        "L2": 0.77951,
+        "L3": 0.727968
+      },
+      "cost_usd": {
+        "L1": 35.41,
+        "L2": 42.92,
+        "L3": 42.48
+      }
+    },
+    {
+      "name": "GPT-5.6 Sol",
+      "success_rate": {
+        "L1": 0.234012,
+        "L2": 0.303693,
+        "L3": 0.494422
+      },
+      "cost_usd": {
+        "L1": 38.67,
+        "L2": 21.59,
+        "L3": 17.6
+      }
+    },
+    {
+      "name": "GPT-5.6 Terra",
+      "success_rate": {
+        "L1": 0.0,
+        "L2": 0.039181,
+        "L3": 0.078679
+      },
+      "cost_usd": {
+        "L1": 3.18,
+        "L2": 2.27,
+        "L3": 1.94
+      }
+    },
+    {
+      "name": "GPT-5.6 Luna",
+      "success_rate": {
+        "L1": 0.03957,
+        "L2": 0.079161,
+        "L3": 0.114176
+      },
+      "cost_usd": {
+        "L1": 0.55,
+        "L2": 0.41,
+        "L3": 0.42
+      }
+    },
+    {
+      "name": "Claude Opus 5",
+      "success_rate": {
+        "L1": 0.302961,
+        "L2": 0.451522,
+        "L3": 0.459028
+      },
+      "cost_usd": {
+        "L1": 75.47,
+        "L2": 42.29,
+        "L3": 40.85
+      }
+    },
+    {
+      "name": "Claude Opus 4.8",
+      "success_rate": {
+        "L1": 0.09952,
+        "L2": 0.098467,
+        "L3": 0.032
+      },
+      "cost_usd": {
+        "L1": 47.43,
+        "L2": 40.19,
+        "L3": 30.5
+      }
+    },
+    {
+      "name": "Gemini 3.7 Flash",
+      "success_rate": {
+        "L1": 0.0,
+        "L2": 0.072094,
+        "L3": 0.218579
+      },
+      "cost_usd": {
+        "L1": null,
+        "L2": null,
+        "L3": null
+      }
+    },
+    {
+      "name": "GLM 5.3 Flash",
+      "success_rate": {
+        "L1": 0,
+        "L2": 0.096047,
+        "L3": 0.064
+      },
+      "cost_usd": {
+        "L1": 58.78,
+        "L2": 33.37,
+        "L3": 28.03
+      }
+    }
+  ]
+}

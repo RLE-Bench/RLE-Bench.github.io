@@ -125,7 +125,7 @@ metadata identify `/blog/`; the sharing image uses the included RoboCasa
 figure. The article's links back to the leaderboard are relative so they
 also work in a local preview.
 
-To update this page, edit `blog/index.html` and its supporting assets. The
+To update this page, edit `blog/index.html` and its supporting assets. Keep article prose, headings, figure captions, and video descriptions synchronized with `blog/introducing-rle-bench.edit.md` in the same change. Preserve its `source` comments and editorial notes; the Chinese summary is not published. This synchronization is manual, not an automatic build step. The
 homepage's placeholder leaderboard data remains managed in `data.js`;
 this article carries the provided manuscript's separate results and
 coverage notes.
@@ -184,3 +184,24 @@ labeled separately from evaluation recordings.
   `icon.png` (header, hero, large favicon), a 180px `apple-touch-icon.png` and
   a 64px `favicon-64.png`. It sits on a white tile so its own white background
   reads as deliberate in dark mode. Replace all three to change the mark.
+
+
+## Updating the T01 interface chart
+
+Edit `assets/blog/harness-comparison.json` to update the native success/cost chart.
+Each entry in `models` has a `name`, `success_rate`, and `cost_usd`; both metrics
+contain `L1`, `L2`, and `L3` values. Success rates use **0–1**, costs use **USD**,
+and **null means not reported**, not zero. Models appear in JSON order; adding
+or removing a model adjusts the chart automatically. Keep names unique.
+
+Success rates and costs are transcribed from the supplied T01 table screenshots
+(rows L1, L2, L3, with matching model columns). Kimi K3 and DeepSeek are excluded.
+Gemini's blank costs remain null. Update the JSON `source` note when replacing data.
+
+`blog/harness-chart.js` fetches the JSON on page load without a build step. Refresh
+an HTTP preview after editing (for example, `python3 -m http.server 8000` then
+`http://localhost:8000/blog/`). Opening the HTML with `file://` may block JSON
+loading; the chart then falls back to the original image. Publish the JSON with
+the page for online updates. Its two SVG panels animate once as they enter view,
+respect reduced-motion settings, and show exact values on hover or keyboard focus.
+Update matching narrative claims in both HTML and Markdown if the results change.

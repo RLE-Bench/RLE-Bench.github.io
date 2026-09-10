@@ -19,7 +19,7 @@
   };
 
   videos.forEach(video => {
-    const figure = video.closest('.demo-figure');
+    const figure = video.closest('.task-demo, .demo-figure');
     if (!figure) return;
     const player = document.createElement('div');
     player.className = 'demo-player';
@@ -51,6 +51,23 @@
     let resumeAfterSeek = false;
     let resumeAfterScrub = false;
     cancelResume.set(video, () => { resumeAfterSeek = false; resumeAfterScrub = false; });
+    const taskRow = video.closest('.task-row');
+    const autoplayIfOpen = () => {
+      if (video.dataset.autoplay === 'true' && taskRow?.open && !document.hidden && video.paused) {
+        video.muted = true;
+        video.play().catch(() => updatePlayback());
+      }
+    };
+    taskRow?.addEventListener('toggle', () => {
+      autoplayIfOpen();
+      if (!taskRow.open) {
+        cancelResume.get(video)?.();
+        scrubbing = false;
+        player.classList.remove('is-scrubbing');
+        video.pause();
+        updatePlayback();
+      }
+    });
     const duration = () => Number.isFinite(video.duration) && video.duration > 0
       ? video.duration : Number(video.dataset.duration) || 0;
     const announce = message => { status.textContent = message; status.hidden = !message; };
@@ -214,6 +231,22 @@
     updatePlayback();
     video.controls = false;
     figure.classList.add('has-custom-player');
+    autoplayIfOpen();
+    if (!taskRow && video.dataset.autoplay === 'true' && 'IntersectionObserver' in window) {
+      let started = false;
+      const observer = new IntersectionObserver(entries => {
+        const visible = entries[0].isIntersecting;
+        if (visible && !started && !document.hidden) {
+          started = true;
+          video.muted = true;
+          video.play().catch(() => updatePlayback());
+        } else if (!visible) {
+          cancelResume.get(video)?.();
+          video.pause();
+        }
+      }, { threshold: 0.4 });
+      observer.observe(player);
+    }
   });
 
   document.addEventListener('visibilitychange', () => {

@@ -113,5 +113,6 @@
       "model": "gpt-6-astra",
       "kind": "artifact"
     }
-  ]
+  ],
+  "imported_from": "ade333a7b4430867b196a01d925ac5606ccb4497"
 }
