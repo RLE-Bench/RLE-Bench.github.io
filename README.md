@@ -125,7 +125,7 @@ metadata identify `/blog/`; the sharing image uses the included RoboCasa
 figure. The article's links back to the leaderboard are relative so they
 also work in a local preview.
 
-To update this page, edit `blog/index.html` and its supporting assets. Keep article prose, headings, figure captions, and video descriptions synchronized with `blog/introducing-rle-bench.edit.md` in the same change. Preserve its `source` comments and editorial notes; the Chinese summary is not published. This synchronization is manual, not an automatic build step. The
+To update this page, edit `blog/index.html` and its supporting assets. If you maintain a local `blog/introducing-rle-bench.edit.md`, manually keep its article prose, headings, figure captions, and video descriptions synchronized with the page. This draft and `idea.md` are local editorial notes excluded from Git; preserve any source comments and editorial notes locally. The
 homepage's placeholder leaderboard data remains managed in `data.js`;
 this article carries the provided manuscript's separate results and
 coverage notes.

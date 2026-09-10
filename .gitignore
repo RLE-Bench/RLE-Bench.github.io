@@ -4,3 +4,7 @@
 # OS cruft
 .DS_Store
 Thumbs.db
+
+# Local editorial notes
+/idea.md
+/blog/introducing-rle-bench.edit.md
