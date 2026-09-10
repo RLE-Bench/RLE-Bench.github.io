@@ -15,7 +15,7 @@
     "T04": {
       "goal": "Make the humanoid follow the reference dance, coordinating its arms, legs, and torso while maintaining balance."
     },
-    "T05": {
+    "T03": {
       "goal": "Probe the sealed box with the robot and use its physical response to identify which marked quadrant—A, B, C, or D—contains the hidden ballast."
     },
     "T08": {

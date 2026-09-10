@@ -137,7 +137,7 @@ GELLO design study from the September 9 demo snapshot:
 
 | Location | Selected media | Source |
 |---|---|---|
-| Interactive control / T05 | Hidden-center-of-mass interaction, 36.6 s | GPT-5.6 Sol, v0.8.0, evaluation recording |
+| Interactive control / T03 | Hidden-center-of-mass interaction, 36.6 s | GPT-5.6 Sol, v0.8.0, evaluation recording |
 | Policy learning / T04 | Fall-and-get-up motion, 20 s | GPT-6 Astra, v1.0.0, evaluation recording |
 | Embodiment / T07 | Franka, UR5e, and xArm7 GELLO assemblies | GPT-6 Astra, v1.1.2, development artifacts |
 | Perception / T08 | Method-agnostic pose estimation, 6 s | Gemini 3.7 Flash High, v1.3.0, evaluation recording |

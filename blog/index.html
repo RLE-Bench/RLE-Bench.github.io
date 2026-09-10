@@ -749,7 +749,7 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 .article-hero h1 { font-size: clamp(51px, 6.4vw, 81px); letter-spacing: -.048em; font-weight: 500; line-height: .99; }
 .article-hero h1 .grad { display: inline-block; padding-bottom: 6px; }
 .hero-subtitle { font-size: clamp(21px, 2.35vw, 29px); line-height: 1.35; letter-spacing: -.018em; margin: 25px 0 0; }
-.hero-description { color: var(--text-secondary); font-size: 17px; line-height: 1.7; max-width: 66ch; margin: 18px 0 0; }
+.hero-description { color: var(--text-secondary); font-size: 17px; line-height: 1.7; max-width: none; margin: 18px 0 0; }
 .article-hero .post-byline { font-size: 9.5px; line-height: 1.5; letter-spacing: .025em; margin-top: 29px; gap: 8px 16px; }
 .hero-scope { padding: 8px 0 0 25px; border-left: 1px solid var(--border-strong); }
 .scope-item { display: grid; grid-template-columns: 59px 1fr; gap: 14px; padding: 24px 0; border-bottom: 1px solid var(--grid); }
@@ -783,8 +783,8 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 .toc-footnote { margin: 32px 10px 0; padding-top: 16px; border-top: 1px solid var(--grid); color: var(--text-muted); font: 9px/1.9 var(--mono); }
 .toc-footnote .status-dot { margin-right: 4px; }
 .mobile-toc { display: none; }
-.research-page .post-body { max-width: none; font-size: 18px; line-height: 1.78; }
-.research-page .post-body > p { max-width: 78ch; margin-bottom: 23px; }
+.research-page .post-body { max-width: none; font-size: 18px; line-height: 1.65; }
+.research-page .post-body > p { max-width: none; margin-bottom: 23px; }
 .research-page .post-body > h2 { font-size: 32px; line-height: 1.2; font-weight: 500; letter-spacing: -.023em; margin: 75px 0 25px; max-width: none; text-wrap: balance; scroll-margin-top: 100px; }
 .research-page .post-body > h2:first-child { margin-top: 0; }
 .research-page .post-body > h3 { font-size: 23px; line-height: 1.35; font-weight: 500; margin: 35px 0 14px; scroll-margin-top: 100px; }
@@ -1067,7 +1067,7 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
   .hero-atlas figcaption { font-size: 11px; line-height: 1.65; margin-top: 13px; }
   .caption-label { display: block; margin-bottom: 4px; font-size: 8px; }
   .research-layout { padding-bottom: 56px; }
-  .research-page .post-body { font-size: 17px; line-height: 1.8; }
+  .research-page .post-body { font-size: 17px; line-height: 1.65; }
   .research-page .post-body > h2 { font-size: 28px; margin-top: 56px; line-height: 1.24; }
   .research-page .post-body h2 .h-num { font-size: 9px; margin-bottom: 12px; }
   .research-page .post-body .thesis { padding: 12px 0 12px 20px; margin: 29px 0; }
@@ -1230,8 +1230,8 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 <div class="hero-editorial-grid">
 <div>
 <!-- <p class="post-kicker">Coding agents for robot learning</p> -->
-<h1>Introducing<br/><span class="grad">RLE-Bench</span></h1>
-<p class="hero-subtitle">A qualifying exam for coding agents<br class="desktop-break"/> as robot learning engineers</p>
+<h1>Introducing <span class="grad">RLE-Bench</span></h1>
+<p class="hero-subtitle">A qualifying exam for coding agents as robot learning engineers</p>
 <p class="hero-description">
   RLE-Bench tests whether general-purpose coding agents can operate as autonomous problem solvers in physically grounded environments.
   Agents must perceive, reason, experiment, write and revise code, and use feedback from simulation to improve their solutions. 
@@ -1251,12 +1251,12 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 <video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/task01-6x.webp" aria-label="T01 Agentic control preview"><source src="../assets/blog/demos/task01-6x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>T01 · Agentic control</span></a>
 <a class="atlas-tile family-interactive" href="#task-t02" aria-label="T02 Harness engineering: open task details">
 <video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/task02-4x.webp" aria-label="T02 Harness engineering preview"><source src="../assets/blog/demos/task02-4x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>T02 · Harness engineering</span></a>
-<a class="atlas-tile family-learning" href="#task-t03" aria-label="T03 nanoVLA recipe engineering: open task details">
-<div class="atlas-placeholder"><span aria-hidden="true">▷</span><span>Video coming soon</span></div><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>T03 · nanoVLA recipe engineering</span></a>
+<a class="atlas-tile family-interactive" href="#task-t03" aria-label="T03 Physical reasoning: open task details">
+<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/hidden-center-of-mass.webp" aria-label="T03 Physical reasoning preview"><source src="../assets/blog/demos/hidden-center-of-mass-2x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>T03 · Physical reasoning</span></a>
 <a class="atlas-tile family-learning" href="#task-t04" aria-label="T04 Whole-body motion tracking: open task details">
 <video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/astra_dance.webp" aria-label="T04 Whole-body motion tracking preview"><source src="../assets/blog/demos/astra_dance.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>T04 · Whole-body motion tracking</span></a>
-<a class="atlas-tile family-interactive" href="#task-t05" aria-label="T05 Physical reasoning: open task details">
-<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/hidden-center-of-mass.webp" aria-label="T05 Physical reasoning preview"><source src="../assets/blog/demos/hidden-center-of-mass-2x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>T05 · Physical reasoning</span></a>
+<a class="atlas-tile family-learning" href="#task-t05" aria-label="T05 nanoVLA recipe engineering: open task details">
+<div class="atlas-placeholder"><span aria-hidden="true">▷</span><span>Video coming soon</span></div><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>T05 · nanoVLA recipe engineering</span></a>
 <a class="atlas-tile family-embodiment" href="#task-t06" aria-label="T06 Universal mobile-manipulator base: open task details">
 <video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/base-showcase-and-shelf-reach-1080p.webp" aria-label="T06 Universal mobile-manipulator base preview"><source src="../assets/blog/demos/base-showcase-and-shelf-reach-1080p.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>T06 · Universal mobile-manipulator base</span></a>
 <a class="atlas-tile family-embodiment" href="#task-t07" aria-label="T07 Lead arm gravity compensation design: open task details">
@@ -1267,7 +1267,7 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 <video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/task09-1080p50-10x.webp" aria-label="T09 Contact-rich bin clearing preview"><source src="../assets/blog/demos/task09-1080p50-10x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>T09 · Contact-rich bin clearing</span></a>
 </div>
 <figcaption class="atlas-footer">
-<span><span class="caption-label">Task demos</span> · Explore all nine tasks. Eight video previews are available; T03 is coming soon.</span>
+<span><span class="caption-label">Task demos</span> · Explore all nine tasks. Eight video previews are available; T05 is coming soon.</span>
 <div class="atlas-controls" role="group" aria-label="Carousel controls" hidden>
 <button type="button" data-carousel="previous" aria-label="Previous task" aria-controls="task-video-track">←</button>
 <button type="button" data-carousel="pause" aria-label="Pause video previews and automatic scrolling" aria-pressed="false">Pause</button>
@@ -1282,7 +1282,7 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 <article class="post">
 <details class="mobile-toc"><summary>In this article <span aria-hidden="true">⌄</span></summary><nav aria-label="Article contents" id="mobileContents"></nav></details>
 <div class="post-body" id="article-content">
-<h2 data-toc="The research question" id="why">Coding agents beyond the digital world</h2>
+<h2 id="why">Coding agents beyond the digital world</h2>
 <p>
   Coding agents are rapidly becoming more autonomous. They can increasingly pursue complex goals over long trajectories, adapting their solutions as they encounter new information and failures. Most evaluations of these agents, however, remain confined to digital environments such as terminals.
 </p>
@@ -1301,7 +1301,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 <strong> The capabilities we would like to evaluate span over the agent’s development process, not merely the policy it eventually produces.</strong>
 
 </p>
-<h2 data-toc="Tasks and workflows" id="tasks">Complementary views of physically grounded agent capability</h2>
+<h2 id="tasks">Complementary views of physically grounded agent capability</h2>
 <p>A capable physical-world agent needs more than a good controller. 
   RLE-Bench looks at these abilities from four complementary angles: 
   
@@ -1332,22 +1332,22 @@ RLEs design robots, control them to interact with the world, collect data, write
 <a class="demo-download" href="../assets/blog/demos/task02-4x.mp4" download>Download video</a>
 <p class="task-video-note" id="video-note-t02">GPT-6 Astra · 4× speed · <span class="task-demo-source">RoboCasa · <a href="https://github.com/robocasa/robocasa/blob/4f8a2980def75a55dff96b990745b83540425f09/robocasa/environments/kitchen/composite/storing_leftovers/store_leftovers_in_bowl.py" rel="noopener">StoreLeftoversInBowl</a></span><br/><span id="video-goal-t02">Demo goal: Transfer the chicken drumstick and the vegetable from their plates into the bowl, then carry the filled bowl to the fridge and place it inside.</span></p></div>
 </div>
-</details><details class="task-card task-row" id="task-t05">
-<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T05</span><span class="task-title">Physical reasoning</span></summary>
+</details><details class="task-card task-row" id="task-t03">
+<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T03</span><span class="task-title">Physical reasoning</span></summary>
 <div class="task-row-content">
 <div class="task-description"><p>Agents use interaction to solve problems involving balance, overhang, packing, fragility, and hidden centers of mass.</p><dl><div><dt>Work product</dt><dd>Task-specific interaction or answer</dd></div><div><dt>Development</dt><dd>Task-specific budgets</dd></div><div><dt>Evaluation</dt><dd>Six problems. Most use the L3 interface; the hidden-center-of-mass task deliberately withholds key physical state.</dd></div></dl></div>
-<div class="task-demo"><video data-autoplay="true" class="task-video demo-video" data-duration="18.3" controls muted playsinline preload="none" width="1024" height="576" poster="../assets/blog/demos/hidden-center-of-mass.webp" aria-label="T05 task demonstration" aria-describedby="video-note-t05">
+<div class="task-demo"><video data-autoplay="true" class="task-video demo-video" data-duration="18.3" controls muted playsinline preload="none" width="1024" height="576" poster="../assets/blog/demos/hidden-center-of-mass.webp" aria-label="T03 task demonstration" aria-describedby="video-note-t03">
   <source src="../assets/blog/demos/hidden-center-of-mass-2x.mp4" type="video/mp4"/>
-  <a href="../assets/blog/demos/hidden-center-of-mass-2x.mp4">Watch the T05 demonstration</a>
+  <a href="../assets/blog/demos/hidden-center-of-mass-2x.mp4">Watch the T03 demonstration</a>
 </video>
 <a class="demo-download" href="../assets/blog/demos/hidden-center-of-mass-2x.mp4" download>Download video</a>
-<p class="task-video-note" id="video-note-t05">GPT-5.6 Sol · 2× speed<br/><span id="video-goal-t05">Demo goal: Probe the sealed box with the robot and use its physical response to identify which marked quadrant—A, B, C, or D—contains the hidden ballast.</span></p></div>
+<p class="task-video-note" id="video-note-t03">GPT-5.6 Sol · 2× speed<br/><span id="video-goal-t03">Demo goal: Probe the sealed box with the robot and use its physical response to identify which marked quadrant—A, B, C, or D—contains the hidden ballast.</span></p></div>
 </div>
-</details></div></section><section aria-labelledby="heading-learning" class="workflow family-learning" id="family-learning"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-learning">Policy learning &amp; deployment</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">These tasks evaluate the training and deployment procedures that determine a policy’s capability, efficiency, and robustness.</p><div class="task-grid"><details class="task-card task-row" id="task-t03">
-<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T03</span><span class="task-title">nanoVLA recipe engineering</span></summary>
+</details></div></section><section aria-labelledby="heading-learning" class="workflow family-learning" id="family-learning"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-learning">Policy learning &amp; deployment</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">These tasks evaluate the training and deployment procedures that determine a policy’s capability, efficiency, and robustness.</p><div class="task-grid"><details class="task-card task-row" id="task-t05">
+<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T05</span><span class="task-title">nanoVLA recipe engineering</span></summary>
 <div class="task-row-content">
 <div class="task-description"><p>Agents develop vision-language-action training or serving recipes across six tracks covering capability, efficiency, initialization, and robustness.</p><dl><div><dt>Work product</dt><dd>One executable solution.py recipe</dd></div><div><dt>Development</dt><dd>4 h of exploration per track</dd></div><div><dt>Evaluation</dt><dd>A separate verifier replays the recipe in a fresh environment, then evaluates it on private LIBERO episodes.</dd></div></dl></div>
-<div class="task-demo"><div class="task-video-placeholder" role="img" aria-label="T03 demo video not yet available"><span aria-hidden="true">▷</span><span>Video coming soon</span></div></div>
+<div class="task-demo"><div class="task-video-placeholder" role="img" aria-label="T05 demo video not yet available"><span aria-hidden="true">▷</span><span>Video coming soon</span></div></div>
 </div>
 </details><details class="task-card task-row" id="task-t04">
 <summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T04</span><span class="task-title">Whole-body motion tracking</span></summary>
@@ -1408,7 +1408,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 </details>
 </div></section>
 <!-- <p class="small-note">Each task contributes to one primary scoring family, even when it requires several capabilities. T09 is presented here under perception and estimation; the reported scores retain its original interactive-control scoring assignment.</p> -->
-<h2 data-toc="Learning through action" id="protocol">How agents solve physically grounded problems</h2>
+<h2 id="protocol">How agents solve physically grounded problems</h2>
 <figure class="demo-figure figure-card family-interactive" id="demo-astra-cube-loop">
 <video class="demo-video" data-autoplay="true" data-duration="14.5" controls muted playsinline preload="none" width="1280" height="720" poster="../assets/blog/demos/section_3/astra-cube-loop.en.webp" aria-label="GPT-6 Astra cube-handoff learning loop" aria-describedby="caption-astra-cube-loop">
 <source src="../assets/blog/demos/section_3/astra-cube-loop.en.mp4" type="video/mp4"/>
@@ -1425,11 +1425,11 @@ RLEs design robots, control them to interact with the world, collect data, write
 <div class="trust-boundary"><span aria-hidden="true">→</span><strong>Submitted<br/>artifact</strong><small>Or retained state,<br/>depending on task</small></div>
 <div class="trust-side verifier-side"><span class="micro">Independent evaluation</span><h3>Hidden physical test</h3><p>The resulting solution faces hidden scenes, seeds, embodiments, or physical conditions.</p><div class="verification-steps"><span><b>01</b> Put the solution to work</span><span><b>02</b> Observe its physical behavior</span><span><b>03</b> Score how well it performs</span></div></div>
 </div>
-<figcaption><strong>Development turns physical feedback into revisions; hidden tests measure the result.</strong> What carries forward depends on the task: T01 retains agent context and code, T02 transfers a tool package, and T03 replays a submitted recipe. Other tasks evaluate designs, estimators, or exported policies.</figcaption>
+<figcaption><strong>Development turns physical feedback into revisions; hidden tests measure the result.</strong> What carries forward depends on the task: T01 retains agent context and code, T02 transfers a tool package, and T05 replays a submitted recipe. Other tasks evaluate designs, estimators, or exported policies.</figcaption>
 </figure>
 <p>With limited time, interactions, and compute, agents must decide which experiments are worth running. Each trial is a chance to test a hypothesis, uncover a failure, or check whether a revision helped. Once development ends, the agent’s solution is evaluated under hidden physical conditions it cannot tune against directly.</p>
 <p class="small-note"><strong>Evaluation setup.</strong> Tasks run in Harbor environments with network access disabled by default and declared allowlists for model APIs where needed. Submissions are evaluated in task-specific sandboxes or constrained subprocesses; hidden conditions, reference assets, and scoring remain under verifier control.</p>
-<h2 data-toc="What agents can do" id="results">The performance profiles</h2>
+<h2 id="results">The performance profiles</h2>
 <p>The initial results reveal an uneven picture: some systems recover physical state from visual observations far more effectively, several are close on policy learning, and even capable agents produce designs that fail basic physical checks. Three findings help explain what these agents can do—and where their reasoning still breaks down.</p>
 <h3>Visual grounding shows the largest separation</h3>
 <p>On perception, GPT-6 Astra scores <strong data-result="astra.perception">72.06</strong>, compared with <strong data-result="opus5.perception">42.87</strong> for Claude Opus 5. Their embodiment and learning scores are much closer. Among the families with equal task coverage, the largest gap between these two systems appears in recovering physical state from visual observations. This is a key ingredient of agents that can use environmental feedback to guide action.</p>
@@ -1449,10 +1449,10 @@ RLEs design robots, control them to interact with the world, collect data, write
 <div class="bar-row" data-system="terra"><div class="bar-label"><strong>GPT-5.6 Terra</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:7.48%"></span></div><span class="bar-value">7.48</span></div>
 <!-- END PERCEPTION BARS --><div aria-hidden="true" class="chart-axis"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div><p aria-live="polite" class="chart-live visually-hidden" data-chart-part="chartAnnouncement"></p></figure>
 <h3>Policy learning shows a narrower gap</h3>
-<p>Astra, Opus 5, and GPT-5.6 Sol score <strong data-result="astra.learning">80.56</strong>, <strong data-result="opus5.learning">78.70</strong>, and <strong data-result="sol.learning">71.52</strong> on the current learning evaluation. Their closer results suggest that training and deploying a motion-tracking policy may be a more established capability for these systems. This finding is limited to T04; the broader recipe-engineering task, T03, is still pending.</p>
+<p>Astra, Opus 5, and GPT-5.6 Sol score <strong data-result="astra.learning">80.56</strong>, <strong data-result="opus5.learning">78.70</strong>, and <strong data-result="sol.learning">71.52</strong> on the current learning evaluation. Their closer results suggest that training and deploying a motion-tracking policy may be a more established capability for these systems. This finding is limited to T04; the broader recipe-engineering task, T05, is still pending.</p>
 <figure class="capability-figure figure-card" id="learning-figure" data-initial-metric="learning">
 
-<p class="chart-context" data-chart-part="chartContext">T04 · Whole-body motion tracking · T03 pending for all systems</p>
+<p class="chart-context" data-chart-part="chartContext">T04 · Whole-body motion tracking · T05 pending for all systems</p>
 <div aria-label="Learning scores on a zero to one hundred scale" class="capability-chart family-learning" data-chart-part="capabilityChart" role="group">
 <!-- BEGIN LEARNING BARS -->
 <div class="bar-row" data-system="astra"><div class="bar-label"><strong>GPT-6 Astra</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:80.56%"></span></div><span class="bar-value">80.56</span></div>
@@ -1495,7 +1495,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 <figcaption id="coverage-note">Reported RLE Index · 0–100. Task coverage differs across systems; scores are provisional.</figcaption>
 </figure>
 <p>The next question is what helps agents close these gaps. The task studies below examine the tools they receive, the tools they build for others, and the physical consequences they miss.</p>
-<h2 data-toc="How much scaffolding?" id="harness">How much robotics knowledge does an agent need?</h2>
+<h2 id="harness">How much robotics knowledge does an agent need?</h2>
 <p>Today’s coding agents often enter robotics with help: perception models, coordinate transforms, motion primitives, or even direct access to simulator state. How much do these abstractions matter as the underlying agent gets stronger?</p>
 <p>T01 tests this question through three nested interfaces. The kitchen tasks, evaluation scenes, seeds, interaction limits, and scoring rule stay fixed; only the supplied robotics tools and information change. This lets us examine what an agent gains from reusable software and what it gains from access to otherwise hidden state.</p>
 <div aria-label="Three nested robotics interface levels" class="harness-levels">
@@ -1511,13 +1511,13 @@ RLEs design robots, control them to interact with the world, collect data, write
 <figcaption>Task success and cost across the three T01 interface levels. This study includes an additional system beyond the seven-system comparison; uncertainty intervals are not shown. Missing cost values are marked “Not reported”.</figcaption>
 </figure>
 <p>Most systems <strong>Other than GPT-6 Astra</strong> in this study achieve higher task success and often lower cost with richer interfaces. Systems that struggle with the low-level interface tend to gain more from robotics scaffolding, while the strongest L1 performer needs less help. However, <strong>adding additional harness hurts the capabilities of GPT-6 Astra.</strong></p>
-<h2 data-toc="Tools for another agent" id="transfer">Can one agent make another agent better?</h2>
+<h2 id="transfer">Can one agent make another agent better?</h2>
 <p>Solving a task yourself is one thing. Building something that helps a different agent solve a new task is harder.</p>
 <p>In T02, a developer agent builds a robotics harness: perception functions, closed-loop controllers, and a usage manual. A fresh agent receives only those tools and documentation, without the original conversation, and must use them on a held-out task. This lets us ask whether agents can leave behind <strong>abstractions that outlive their own context.</strong></p>
 <figure class="transfer-figure figure-card"><div class="figure-top"><span class="figure-label">04 / Reusable-tool evaluation</span><span class="micro">T02 · Independent evaluation agents</span></div><div class="transfer-flow"><div><span class="transfer-step">01 / Development</span><h3>Development on three tasks</h3><p>One agent develops and tests reusable perception and control tools.</p></div><span aria-hidden="true" class="transfer-arrow">→</span><div class="transfer-artifact"><span class="transfer-step">02 / Tool package</span><code>MANUAL.md</code><code>perception/</code><code>controllers/</code></div><span aria-hidden="true" class="transfer-arrow">→</span><div><span class="transfer-step">03 / Evaluation</span><h3>Transfer to a held-out task</h3><p>Five independent agents use the resulting tools without shared development context.</p></div></div><figcaption>Only the manual, perception functions, and controllers transfer to evaluation. Each evaluation agent starts independently, without the developer’s conversation or other workspace files.</figcaption></figure>
 <p>Within each of fifteen RoboCasa activity groups, the developer works on three tasks. Five independent evaluation agents then attempt a held-out task using the resulting package. Every atomic primitive needed for that task appears during development, but the evaluation agents must combine them in a new way.</p>
 <p>The challenge is to turn local experience into something another agent can use: a controller with a clear interface, a perception function with explicit assumptions, or a manual that explains when a tool will fail. T02 makes the usefulness of those abstractions the object of evaluation. It provides a way to study agent-to-agent improvement without assuming that a successful solution will transfer automatically.</p>
-<h2 data-toc="When designs fail physics" id="grounding">Design is difficult under physical constraints</h2>
+<h2 id="grounding">Design is difficult under physical constraints</h2>
 <p>Consider these two mobile-base submissions from T06. Each is meant to support robot arms while reaching shelves and carrying payloads. The agent should use less materials and design base with less weight, but preserving static and dynamical stability.</p>
 <figure class="design-figure figure-card"><div class="figure-top"><span class="figure-label">Mobile-base design examples in T06</span></div><div class="design-comparison"><div><a aria-label="Enlarge GPT-6 Astra’s mobile-base design" class="zoom-image" data-caption="GPT-6 Astra’s mobile-base submission. The accompanying case analysis reports strong shelf access and payload performance, but failures on static-stability and lateral/turning checks." data-zoom="" href="../assets/blog/astra-mobile-manipulator.webp"><img alt="GPT-6 Astra’s simulated robot arm mounted on a connected wheeled chassis beside a shelf." decoding="async" height="960" loading="lazy" src="../assets/blog/astra-mobile-manipulator.webp" width="1280"/></a><div class="design-label"><span>GPT-6 Astra</span><span>· Codex CLI</span></div></div><div><a aria-label="Enlarge GPT-5.6 Luna’s mobile-base design" class="zoom-image" data-caption="GPT-5.6 Luna’s mobile-base submission. The paper identifies disconnected frame elements despite an explicit connected-frame requirement." data-zoom="" href="../assets/blog/luna-mobile-base.webp"><img alt="GPT-5.6 Luna’s simulated mobile-base submission, which the manuscript identifies as having disconnected frame elements." decoding="async" height="960" loading="lazy" src="../assets/blog/luna-mobile-base.webp" width="1280"/></a><div class="design-label"><span>GPT-5.6 Luna</span><span>· Codex CLI</span></div></div></div><figcaption>The Luna design contains disconnected frame elements despite an explicit connected-frame requirement. These images illustrate individual submissions rather than failure frequencies.</figcaption></figure>
 <p>Astra’s design reaches the shelves and carries the payloads: it earns full credit for shelf access and payload margin in the reported case. <strong>However</strong>, it fails a few stability tests.</p>
@@ -1529,7 +1529,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 <figcaption id="caption-astra-stability"><p>GPT-6 Astra failed static &amp; dynamic stability tests.</p><a class="demo-download" href="../assets/blog/demos/section_3/stability-failures-panda-only-1080p.mp4" download>Download video</a></figcaption>
 </figure>
 <p>These cases show how an agent can satisfy visible objectives while missing coupled physical consequences. Reach, load handling, and stability must hold together in the same design. A successful trajectory or a convincing preview cannot establish that they do.</p>
-<h2 data-toc="Learning from the physical world" id="outlook">Ending: Toward agents that learn from the physical world</h2>
+<h2 id="outlook">Ending: Toward agents that learn from the physical world</h2>
 <p>Can agents close the loop with the physical world? The initial results show pieces of that capability: stronger and rapidly increasing visual grounding capability, closer performance among leading systems on motion-policy learning, resulting in effective manipulation with possibly less robotics scaffolding. They also expose a persistent difficulty: anticipating the physical consequences of a design.</p>
 <p>The next step is to understand how these capabilities emerge through experimentation: which feedback changes an agent’s approach, which abstractions transfer, and which physical failures it repeatedly overlooks. Completing the pending tasks and examining development trajectories, uncertainty, and resource use will help answer those questions.</p>
 <div class="closing-statement"><p>The next generation of coding agents may not simply write better robotics software. They may increasingly learn how the physical world responds to what they build.</p></div>
@@ -1960,7 +1960,9 @@ if (typeof module !== "undefined") module.exports = POSTS;
     const ol = make('ol');
     heads.forEach((heading, index) => {
       if (!heading.id) heading.id = `section-${index + 1}`;
-      const label = heading.dataset.toc || heading.textContent;
+      const title = heading.cloneNode(true);
+      $('.h-num', title)?.remove();
+      const label = title.textContent.trim();
       if (!$('.h-num', heading)) heading.prepend(make('span', 'h-num', `§ ${String(index + 1).padStart(2, '0')}`));
       const li = make('li'); const a = make('a', null, label); a.href = `#${heading.id}`;
       li.append(a); ol.append(li);
@@ -1981,7 +1983,11 @@ if (typeof module !== "undefined") module.exports = POSTS;
   const updateReading = () => {
     scheduled = false;
     let current = 0;
-    heads.forEach((h, i) => { if (h.getBoundingClientRect().top <= 160) current = i; });
+    const scrollPadding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+    heads.forEach((h, i) => {
+      const scrollMargin = parseFloat(getComputedStyle(h).scrollMarginTop) || 0;
+      if (h.getBoundingClientRect().top <= scrollPadding + scrollMargin + 1) current = i;
+    });
     links.forEach((a, i) => {
       a.classList.toggle('is-here', i === current);
       if (i === current) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
@@ -2111,8 +2117,8 @@ const MANUSCRIPT_RESULTS = {
   const labels = {
     perception: {title: 'Perception', context: 'T08 · Blind pose estimation · Matched task coverage', coverage: 'T08 is available for all seven systems.'},
     embodiment: {title: 'Embodiment', context: 'T06 + T07 · Embodiment and co-design · Matched task coverage', coverage: 'Both embodiment tasks are included in the reported family scores.'},
-    learning: {title: 'Learning', context: 'T04 · Whole-body motion tracking · T03 pending for all systems', coverage: 'Learning currently reflects T04. T03 is pending for all systems.'},
-    interactive: {title: 'Interactive', context: 'Interactive coverage varies: Astra covers T09; other systems cover T01, T02, and T09. T05 is pending.', coverage: '† Astra’s striped bar represents T09 only; Interactive scores have unequal task coverage.'}
+    learning: {title: 'Learning', context: 'T04 · Whole-body motion tracking · T05 pending for all systems', coverage: 'Learning currently reflects T04. T05 is pending for all systems.'},
+    interactive: {title: 'Interactive', context: 'Interactive coverage varies: Astra covers T09; other systems cover T01, T02, and T09. T03 is pending.', coverage: '† Astra’s striped bar represents T09 only; Interactive scores have unequal task coverage.'}
   };
   const records = typeof MANUSCRIPT_RESULTS !== 'undefined' && Array.isArray(MANUSCRIPT_RESULTS.models) ? MANUSCRIPT_RESULTS.models : [];
   const valid = records.length === 7 && records.every(row => Object.keys(labels).every(key => Number.isFinite(row[key]) && row[key] >= 0 && row[key] <= 100));
