@@ -124,22 +124,6 @@ homepage's placeholder leaderboard data remains managed in `data.js`;
 this article carries the provided manuscript's separate results and
 coverage notes.
 
-### T01 interface comparison
-
-The T01 success/cost figure uses horizontal grouped bars with a shared L1/L2/L3
-palette, direct value labels, and separate light/dark SVG assets. The two panels
-stack on narrow screens and open in the existing image zoom dialog. Both metrics
-retain linear axes, the original system order, and all reported values. Gemini
-3.7 Flash has no cost bars in the source and is labelled "Not reported".
-
-`scripts/render_harness_chart.py` regenerates the four SVGs and the downloadable
-`assets/blog/harness-comparison-values.csv`. Install `matplotlib` and
-`pdfplumber`, then run `python3 scripts/render_harness_chart.py`. It recovers
-bar heights from the original PDF's vector geometry against the labelled axes,
-checks that values resolve to two decimals, and records the source hash and
-method in `harness-comparison-values.json`. These are the paper's plotted
-values, not underlying trial data. The original PDF and raster remain intact.
-
 ### Curated task demos
 
 The article embeds four complete, silent simulation recordings and a three-image
