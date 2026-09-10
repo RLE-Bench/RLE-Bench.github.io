@@ -142,13 +142,10 @@
     const stats=[[tasks.length,'Task families','Distinct engineering evaluations'],[tasks.reduce((sum,t)=>sum+t.variants,0),'Harbor tasks','Containerized task instances'],[completeAgents.length,'Agents ranked','Model–harness configurations']];
     const dl=$('#heroStats');dl.replaceChildren();
     stats.forEach(([value,title,note])=>{const row=make('div','stat');const dt=make('dt','stat-key',title);row.title=note;row.append(dt,make('dd','stat-val',value));dl.append(row);});
-    $('#footerVersion').textContent=BENCH.meta.version||'';
-    $('#footerUpdated').textContent=`Data snapshot · ${BENCH.meta.updated||'undated'}`;
     const url=safeURL(BENCH.meta.github);if(url)$('#navGithub').href=url;else $('#navGithub').remove();
-    if(!isSample){$('#dataBanner').hidden=true;$('#placeholderNote').hidden=true;}
+    if(!isSample){$('#dataBanner').hidden=true;}
     $$('[data-data-status]').forEach(n=>n.textContent=isSample?'Illustrative data':'Measured results');
   }
-  $$('a[href="#data-notes"]').forEach(n=>n.addEventListener('click',()=>{$('#dataNotesDisclosure').open=true;}));
 
   /* Aggregate matrix: fixed 0–100 scale, numeric labels, semantic HTML table. */
   function renderMatrix(){
@@ -247,7 +244,7 @@
     const thead=make('thead'),htr=make('tr');['Model','Harness',...t.splits,'Score'].forEach((label,i)=>{const h=make('th',i<2?'l':null,label);h.scope='col';htr.append(h);});thead.append(htr);table.append(thead);
     const body=make('tbody');sorted.forEach(m=>{const tr=make('tr'),label=make('th','l',m.name);label.scope='row';tr.append(label,make('td','l',m.harness));t.splits.forEach((_,i)=>tr.append(make('td','num',validScore(splitValues(t,m)[i])?pct(splitValues(t,m)[i]):'—')));tr.append(make('td','num lead',pct(familyScore(t,m))));body.append(tr);});table.append(body);scroll.append(table);details.append(scroll);result.append(details);host.append(result);
   }
-  addEventListener('hashchange',()=>{const id=taskFromURL();if(byId[id]){setTask(id);if(location.hash===`#${id}`)$('#tasks').scrollIntoView();}if(location.hash==='#data-notes')$('#dataNotesDisclosure').open=true;});
+  addEventListener('hashchange',()=>{const id=taskFromURL();if(byId[id]){setTask(id);if(location.hash===`#${id}`)$('#tasks').scrollIntoView();}});
   addEventListener('popstate',()=>{const id=taskFromURL();if(byId[id])setTask(id);});
 
   /* Cost model: preserves the supplied suite costs and explicitly labels family estimates. */
@@ -326,7 +323,7 @@
     const dots=pts.map(p=>({...p,cx:X(p.cost),cy:Y(p.score*100)}));
     const labels=[];
     if(showNames){
-      const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d');ctx.font='10.5px '+css('--ui');
+      const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d');ctx.font='12px '+css('--serif');
       const occupied=dots.map(p=>({x:p.cx-12,y:p.cy-12,w:24,h:24}));
       const intersects=(a,b)=>a.x<b.x+b.w+4&&a.x+a.w+4>b.x&&a.y<b.y+b.h+3&&a.y+a.h+3>b.y;
       dots.slice().sort((a,b)=>a.cy-b.cy).forEach(p=>{
@@ -396,6 +393,5 @@
   renderMeta();
   activeTask=byId[taskFromURL()]?taskFromURL():tasks[0].id;
   renderTaskTabs();setTask(activeTask);renderCostTable();setTheme(theme());
-  if(location.hash==='#data-notes')$('#dataNotesDisclosure').open=true;
   if(byId[location.hash.slice(1)])requestAnimationFrame(()=>$('#tasks').scrollIntoView());
 })();
