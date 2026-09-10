@@ -1,0 +1,41 @@
+.harness-figure {
+  --harness-l1: #477cc4;
+  --harness-l2: #288d85;
+  --harness-l3: #bc812b;
+  scroll-margin-top: 90px;
+}
+[data-theme="dark"] .harness-figure {
+  --harness-l1: #79a5e5;
+  --harness-l2: #68bab0;
+  --harness-l3: #dfb16a;
+}
+.harness-intro { padding: 25px 24px 8px; }
+.research-page .harness-intro h3 { margin: 0 0 16px; font-size: 25px; font-weight: 500; letter-spacing: -.02em; }
+.harness-legend { display: flex; flex-wrap: wrap; gap: 10px 25px; }
+.harness-legend > span { display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); font: 12px/1.7 var(--mono); }
+.harness-legend i { width: 18px; height: 6px; border-radius: 1px; background: var(--level-color); }
+.harness-legend b { color: var(--text-primary); font-weight: 500; }
+.harness-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 14px 10px 0; }
+.harness-panel + .harness-panel { border-left: 1px solid var(--grid); }
+.harness-panel { min-width: 0; }
+.harness-panel .zoom-image { background: var(--surface-1); }
+.research-page .harness-panel .harness-chart-dark { display: none; }
+[data-theme="dark"] .research-page .harness-panel .harness-chart-light { display: none; }
+[data-theme="dark"] .research-page .harness-panel .harness-chart-dark { display: block; }
+.harness-chart-links { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.research-page .harness-note { margin: 0; padding: 12px 24px 20px; color: var(--text-muted); font: 11px/1.7 var(--mono); }
+@media (max-width: 760px) {
+  .harness-panels { grid-template-columns: 1fr; padding: 12px 4px 0; }
+  .harness-panel + .harness-panel { border-left: 0; border-top: 1px solid var(--grid); padding-top: 20px; }
+  .harness-intro { padding: 22px 18px 8px; }
+  .research-page .harness-intro h3 { font-size: 23px; }
+  .harness-legend { flex-direction: column; gap: 5px; }
+  .research-page .harness-note { padding: 12px 18px 18px; }
+}
+@media print {
+  .research-page .harness-panel .harness-chart-dark { display: none !important; }
+  .research-page .harness-panel .harness-chart-light { display: block !important; }
+  .harness-figure { --harness-l1: #477cc4; --harness-l2: #288d85; --harness-l3: #bc812b; }
+  .harness-panels { display: block; }
+  .harness-panel { break-inside: avoid; border: 0; }
+}
