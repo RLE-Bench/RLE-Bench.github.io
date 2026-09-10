@@ -14,7 +14,7 @@
   const preciseUSD = v => Number.isFinite(v) ? '$'+v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}) : '—';
   const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(typeof BENCH==='undefined' || !Array.isArray(BENCH.tasks) || !Array.isArray(BENCH.models)) {
-    $('#indexGrid').textContent='Leaderboard data could not be loaded. Please check the local data.js file.';
+    $('#indexGrid').textContent='Results are temporarily unavailable. Reload the page to try again.';
     return;
   }
   const taskOrder=BENCH.presentation?.taskOrder || ['task01','task02','task05','task04','task03','task06','task08','task09'];
@@ -23,20 +23,11 @@
     const ia=taskOrder.indexOf(a.id),ib=taskOrder.indexOf(b.id);
     return (ia<0?taskOrder.length+originalOrder.get(a.id):ia)-(ib<0?taskOrder.length+originalOrder.get(b.id):ib);
   });
+  const snapshotTasks=tasks.filter(t=>BENCH.presentation.snapshotTaskIds.includes(t.id));
   const models=BENCH.models.filter(m=>!m.baseline);
   const byId=Object.fromEntries(tasks.map(t=>[t.id,t]));
   const isSample=BENCH.meta.dataStatus!=='measured';
-  const abbreviated = {task01:'Design',task02:'Co-design',task03:'Learning',task04:'Harness',task05:'Pose',task06:'Clearing',task08:'Reasoning',task09:'Tracking'};
-  const briefText = {
-    task01:'Design a stable mobile-manipulator chassis from standard aluminum profiles. The same base is evaluated with Panda, UR5e, and xArm7 arms; the minimum score across the three arms determines the family score.',
-    task02:'Co-design printable GELLO-style lead arms and gravity-compensation software for three follower robots. Submitted designs are independently evaluated against hardware, mass, and servo constraints.',
-    task03:'Learn RoboCasa kitchen tasks through a metered simulator interface. Three harness levels share the same tasks, seeds, and scoring weights to evaluate the effect of available infrastructure.',
-    task04:'Develop a reusable harness of perception tools, controllers, and documentation. Independent agents use it with fresh context on held-out tasks; their average performance determines the score.',
-    task05:'Estimate object position, orientation, and shape under restricted sensing. Four subtasks vary the observation modalities, method requirements, and available compute.',
-    task06:'Develop a closed-loop policy for a magnet-equipped Panda arm to clear stamped brackets from a bin. Evaluation uses hidden pile configurations and checks policy validity, determinism, and safety.',
-    task08:'Solve five physical-reasoning tasks using a supplied skill library and privileged observations. Continuous scores evaluate tower height, cantilever construction, balance, stable packing, and fragile grasping.',
-    task09:'Develop a training pipeline for Unitree G1 whole-body motion tracking. Five independent motion clips share an evaluation contract, with tracking performance assessed across simulators.'
-  };
+  const abbreviated = {task01:'Design',task02:'Co-design',task03:'Control',task04:'Harness',task05:'Pose',task06:'Clearing',task08:'Reasoning',task09:'Tracking'};
   const splitValues=(t,m)=>(BENCH.scores[t.id]||{})[m.id]||[];
   const familyScore=(t,m)=>{
     const v=splitValues(t,m);
@@ -44,7 +35,7 @@
     return t.aggregate==='min' ? Math.min(...v) : v.reduce((a,b)=>a+b,0)/v.length;
   };
   const indexScore=m=>{
-    const v=tasks.map(t=>familyScore(t,m));
+    const v=snapshotTasks.map(t=>familyScore(t,m));
     return v.every(Number.isFinite) ? v.reduce((a,b)=>a+b,0)/v.length : null;
   };
   const agents=models.filter(m=>!m.baseline);
@@ -60,7 +51,7 @@
   }
   const scoreRanks=ranksOf(completeAgents,indexScore);
   const familyRanks=Object.fromEntries(tasks.map(t=>[t.id,ranksOf(agents,m=>familyScore(t,m))]));
-  const meanRank=m=>{const r=tasks.map(t=>familyRanks[t.id][m.id]);return r.every(Number.isFinite) ? r.reduce((a,b)=>a+b,0)/r.length:null;};
+  const meanRank=m=>{const r=snapshotTasks.map(t=>familyRanks[t.id][m.id]);return r.every(Number.isFinite) ? r.reduce((a,b)=>a+b,0)/r.length:null;};
   const rankFormat=v=>Number.isFinite(v)?(Number.isInteger(v)?String(v):v.toFixed(1)):'—';
   let metric='score';
   let activeTask=tasks[0].id;
@@ -134,12 +125,12 @@
   const splitTip=(m,t)=>{
     const values=splitValues(t,m);
     const rows=t.splits.map((name,i)=>`<div class="tt-line"><span>${escapeHTML(name)}</span><b>${validScore(values[i])?pct(values[i]):'—'}</b></div>`).join('');
-    return `<div class="tt-title">${escapeHTML(m.name)} · ${escapeHTML(t.name)}</div>${rows}<div class="tt-sub">${t.aggregate==='min'?'Minimum':'Mean'} across splits. ${isSample?'Illustrative data; not a measured result.':'Measured results.'}</div>`;
+    return `<div class="tt-title">${escapeHTML(m.name)} · ${escapeHTML(t.name)}</div>${rows}<div class="tt-sub">${t.splits.length?(t.aggregate==='min'?'Minimum':'Mean')+' across snapshot splits.':'Result not reported. Excluded from the snapshot mean.'} ${isSample?'Illustrative data; not a measured result.':'Measured results.'}</div>`;
   };
 
   /* Header, scope counts, and source status. */
   function renderMeta(){
-    const stats=[[tasks.length,'Task families','Distinct engineering evaluations'],[tasks.reduce((sum,t)=>sum+t.variants,0),'Harbor tasks','Containerized task instances'],[completeAgents.length,'Agents ranked','Model–harness configurations']];
+    const stats=[[tasks.length,'Engineering tasks','Task definitions follow the research overview'],[4,'Workflow families','Interactive control, policy learning, embodiment, and perception'],[agents.length,'Agents','Model and harness combinations in the development snapshot']];
     const dl=$('#heroStats');dl.replaceChildren();
     stats.forEach(([value,title,note])=>{const row=make('div','stat');const dt=make('dt','stat-key',title);row.title=note;row.append(dt,make('dd','stat-val',value));dl.append(row);});
     const url=safeURL(BENCH.meta.github);if(url)$('#navGithub').href=url;else $('#navGithub').remove();
@@ -151,8 +142,8 @@
     hideTip();
     const host=$('#indexGrid');host.replaceChildren();
     $('#indexBlurb').textContent=metric==='score'
-      ?`Mean score across ${tasks.length} task families, with equal weight per family. Scores range from 0 to 100.`
-      :'Average rank across task families. Lower values indicate stronger relative performance; tied scores receive average ranks.';
+      ?`Unweighted mean across the ${snapshotTasks.length} tasks in this development snapshot, on a 0–100 scale. The research overview reports a separate RLE Index with equal weighting across four capability families.`
+      :'Average rank across the eight tasks in this development snapshot. Lower values indicate stronger relative performance; ties receive average ranks.';
     const table=make('table','matrix');
     table.append(make('caption','sr-only',`RLE-Bench ${metric==='score'?'scores':'mean ranks'}. ${isSample?'All model results are illustrative placeholders.':''}`));
     const cg=make('colgroup');cg.append(make('col','col-rank'),make('col','col-model'));tasks.forEach(()=>cg.append(make('col','col-family')));cg.append(make('col','col-index'));table.append(cg);
@@ -160,7 +151,7 @@
     const th=(text,cls)=>{const x=make('th',cls,text);x.scope='col';return x;};
     hr.append(th('#','rank-th'),th('Model / harness','model-th'));
     tasks.forEach(t=>{const h=th(null,'family-th');const b=make('button','family-col-button');b.type='button';b.style.setProperty('--task-hue',taskHue(t));b.title=t.name;b.setAttribute('aria-label',`View task ${t.num}: ${t.name}`);b.append(make('span',null,t.num),make('span',null,abbreviated[t.id]||t.short));b.addEventListener('click',()=>{setTask(t.id,true);$('#tasks').scrollIntoView({behavior:reducedMotion()?'auto':'smooth'});$(`#tab-${t.id}`).focus({preventScroll:true});});h.append(b);hr.append(h);});
-    hr.append(th(metric==='score'?'RLE Index':'Mean rank','index-th'));thead.append(hr);table.append(thead);
+    hr.append(th(metric==='score'?'Mean score':'Mean rank','index-th'));thead.append(hr);table.append(thead);
     const value=m=>metric==='score'?indexScore(m):meanRank(m);
     const sorted=agents.slice().sort((a,b)=>{const x=value(a),y=value(b);if(x===null)return 1;if(y===null)return -1;return metric==='score'?y-x:x-y;});
     const rankPlace=metric==='score'?scoreRanks:ranksOf(completeAgents,m=>-meanRank(m));
@@ -184,7 +175,7 @@
     const body=make('tbody');sorted.forEach(m=>addRow(m,body));table.append(body);
     host.append(table);
     const legend=$('#indexLegend');legend.replaceChildren();const ramp=make('span','heat-legend');ramp.append(make('span',null,metric==='score'?'Score':'Rank'),make('span',null,metric==='score'?'0':String(agents.length)),make('span','legend-ramp'),make('span',null,metric==='score'?'100':'1'));
-    legend.append(ramp,make('span',null,metric==='score'?'Each task keeps its own hue; intensity follows the same 0–100 scale.':'Color intensity indicates relative placement within each task family.'));
+    legend.append(ramp,make('span',null,metric==='score'?'Color intensity represents score on a shared 0–100 scale. An em dash indicates an unreported result.':'Color intensity represents relative rank within each task. An em dash indicates an unreported result.'));
   }
   $$('[data-metric]').forEach(b=>b.addEventListener('click',()=>{metric=b.dataset.metric;$$('[data-metric]').forEach(n=>n.setAttribute('aria-pressed',String(n===b)));renderMatrix();}));
 
@@ -193,7 +184,7 @@
     const host=$('#taskTabs');host.replaceChildren();
     tasks.forEach(t=>{
       const b=make('button','tab');b.type='button';b.id=`tab-${t.id}`;b.dataset.task=t.id;b.role='tab';b.setAttribute('aria-controls','taskView');b.setAttribute('aria-selected',String(t.id===activeTask));b.tabIndex=t.id===activeTask?0:-1;
-      b.append(make('span','tab-num','TASK '+t.num),make('span','tab-name',t.short));b.addEventListener('click',()=>setTask(t.id,true));
+      b.append(make('span','tab-num','T'+t.num),make('span','tab-name',t.short));b.addEventListener('click',()=>setTask(t.id,true));
       b.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;e.preventDefault();let i=tasks.findIndex(x=>x.id===t.id);if(e.key==='Home')i=0;else if(e.key==='End')i=tasks.length-1;else i=(i+(e.key==='ArrowRight'?1:-1)+tasks.length)%tasks.length;setTask(tasks[i].id,true);$(`#tab-${tasks[i].id}`).focus({preventScroll:true});});host.append(b);
     });
   }
@@ -208,21 +199,22 @@
   function renderTask(){
     const t=byId[activeTask],host=$('#taskView');host.replaceChildren();
     const brief=make('aside','brief');
-    brief.append(make('div','brief-id','TASK '+t.num),make('h3',null,t.name),make('p','tagline',t.tagline),make('p','body',t.description));
+    brief.append(make('div','brief-id','T'+t.num),make('h3',null,t.name),make('p','tagline',t.tagline),make('p','body',t.description));
     const chips=make('div','chips');
     const chip=(label,value,cls='')=>{const n=make('span','chip'+(cls?' '+cls:''));n.append(label,make('b',null,value));return n;};
-    chips.append(chip('',t.variants+' '+(t.variants===1?'variant':'variants')),chip('agent ',t.agentLimit),chip('verifier ',t.verifierLimit),chip(t.gpu?'GPU ':'',t.gpu?(t.gpu===true?'required':t.gpu):'CPU only',t.gpu?'gpu':''));
+    chips.append(chip('Development ',t.development));if(t.compute)chips.append(chip('',t.compute));
     brief.append(chips);
-    const weights=make('div','weights');weights.append(make('div','weights-head','Reward composition'));
-    t.scoring.forEach(r=>{const row=make('div','weight-row');row.append(make('span','wl',r.label),make('span','wv',num(r.weight,2)));const track=make('div','weight-bar'),fill=make('i');track.setAttribute('aria-hidden','true');fill.style.width=r.weight*100+'%';track.append(fill);row.append(track);weights.append(row);});
-    brief.append(weights,make('p','brief-note',t.notes));host.append(brief);
-    const result=make('section','results');result.setAttribute('aria-label',t.name+' rankings');
-    const head=make('div','results-head');head.append(make('h4',null,'Ranking — '+t.name),make('span','agg',t.aggregate==='min'?`score = min over ${t.splits.length} ${t.splitLabel.toLowerCase()}s`:`score = mean over ${t.splits.length} splits`));result.append(head);
+    const criteria=make('div','weights');criteria.append(make('div','weights-head','Evaluation criteria'),make('p','body',t.evaluation));
+    brief.append(criteria,make('p','brief-note',t.notes));host.append(brief);
+    const result=make('section','results');result.setAttribute('aria-label',t.name+' results');
+    const head=make('div','results-head');head.append(make('h4',null,'Results — '+t.name),make('span','agg',t.splits.length?(t.aggregate==='min'?`Snapshot: minimum of ${t.splits.length} arms`:`Snapshot: mean of ${t.splits.length} splits`):'Not reported'));result.append(head);
+    if(!t.splits.length){result.append(make('p','body','Results for this task are not reported. The task is excluded from the mean score and cost comparison in this development snapshot.'));host.append(result);return;}
+    if(t.resultNote)result.append(make('p','task-coverage-note',t.resultNote));
     const sorted=agents.slice().sort((a,b)=>(familyScore(t,b)??-1)-(familyScore(t,a)??-1));
     const list=make('div','srow-list');list.role='list';
     sorted.forEach((m,idx)=>{
       const v=familyScore(t,m),p=familyRanks[t.id][m.id],row=make('div','srow');row.role='listitem';row.tabIndex=0;
-      row.setAttribute('aria-label',`Rank ${rankFormat(p)}: ${m.name}; family score ${pct(v)} out of 100.`);
+      row.setAttribute('aria-label',`Rank ${rankFormat(p)}: ${m.name}; task score ${pct(v)} out of 100.`);
       row.append(make('div','rank'+(p<=3?' is-top':''),rankFormat(p)));
       const who=make('div','who');who.append(make('div','who-name',m.name),make('div','who-meta',`${m.org} · ${m.harness}`));row.append(who);
       const track=make('div','track');track.setAttribute('aria-hidden','true');
@@ -235,9 +227,9 @@
       row.append(track,make('div','val',pct(v)));bindTip(row,()=>splitTip(m,t));list.append(row);
     });result.append(list);
     if(t.aggregate!=='min'){
-      const legend=make('div','split-legend');t.splits.forEach((label,i)=>{const pair=make('span'),swatch=make('i');swatch.style.background=`var(--cat-${i%5+1})`;pair.append(swatch,document.createTextNode(label));legend.append(pair);});legend.append(make('span','muted','· segments show contributions to the mean; total width uses 0–100.'));result.append(legend);
+      const legend=make('div','split-legend');t.splits.forEach((label,i)=>{const pair=make('span'),swatch=make('i');swatch.style.background=`var(--cat-${i%5+1})`;pair.append(swatch,document.createTextNode(label));legend.append(pair);});legend.append(make('span','muted','· Each segment contributes to the mean score on a 0–100 scale.'));result.append(legend);
     }
-    const details=make('details','splits');details.append(make('summary',null,`Full split table — ${t.splitLabel.toLowerCase()}`));
+    const details=make('details','splits');details.append(make('summary',null,`Detailed results — ${t.splitLabel.toLowerCase()}`));
     const scroll=make('div','table-wrap');scroll.tabIndex=0;scroll.role='region';scroll.setAttribute('aria-label','Split result table');
     const table=make('table');table.append(make('caption','sr-only',t.name+' split scores. '+(isSample?'Illustrative data.':'')));
     const thead=make('thead'),htr=make('tr');['Model','Harness',...t.splits,'Score'].forEach((label,i)=>{const h=make('th',i<2?'l':null,label);h.scope='col';htr.append(h);});thead.append(htr);table.append(thead);
@@ -249,14 +241,14 @@
   /* Cost model: preserves the supplied suite costs and explicitly labels family estimates. */
   const costRows=()=>agents.map(m=>{
     const score=costView==='overall'?indexScore(m):familyScore(byId[costView],m);
-    const cost=Number.isFinite(m.cost)?(costView==='overall'?m.cost:m.cost*byId[costView].costShare):null;
+    const cost=Number.isFinite(m.cost)?(costView==='overall'?m.cost:Number.isFinite(byId[costView].costShare)?m.cost*byId[costView].costShare:null):null;
     return {m,score,cost,perPoint:Number.isFinite(score)&&score>0&&Number.isFinite(cost)?cost/(score*100):null,hours:m.hours};
   });
   function costContext(){
     const overall=costView==='overall',t=byId[costView];
-    return {overall,scoreLabel:overall?'RLE Index':'Family score',costLabel:overall?'Suite API cost':'Estimated API cost',
-      title:overall?'Index vs. cost':`Task ${t.num} · ${abbreviated[t.id]||t.short}`,
-      xLabel:overall?'Suite API cost · USD (log)':'Estimated API cost · USD (log)'};
+    return {overall,scoreLabel:overall?'Mean task score':'Task score',costLabel:overall?'Snapshot API cost':'Estimated API cost',
+      title:overall?'Score vs. cost':`Task ${t.num} · ${abbreviated[t.id]||t.short}`,
+      xLabel:overall?'Snapshot API cost · USD (log)':'Estimated API cost · USD (log)'};
   }
   const costModelIds=Object.fromEntries(agents.slice().sort((a,b)=>(indexScore(b)??-1)-(indexScore(a)??-1)).map((m,i)=>[m.id,i+1]));
   const shortModelNames={opus5:'Opus 5',sonnet5:'Sonnet 5',gpt52:'GPT-5.2',gemini3:'Gemini 3 Pro',glm52:'GLM-5.2',ds4:'DeepSeek-V4',qwen3max:'Qwen3-Max',kimi25:'Kimi K2.5'};
@@ -292,10 +284,10 @@
   function renderScatter(){
     const host=$('#scatter');if(!host)return;host.replaceChildren();highlightCost(null);
     const meta=costContext();$('#costChartTitle').textContent=meta.title;
-    $('#costMetricLabel').textContent=`${isSample?'Illustrative data':'Measured results'} · ${meta.overall?'Full benchmark':'Family estimate'}`;
+    $('#costMetricLabel').textContent=`${isSample?'Illustrative data':'Measured results'} · ${meta.overall?'Development snapshot':'Task estimate'}`;
     const pts=costRows().filter(r=>Number.isFinite(r.score)&&Number.isFinite(r.cost)&&r.cost>0);
     const insight=$('#costInsights');insight.replaceChildren();
-    if(!pts.length){host.append(make('p','empty-plot','No complete score–cost pairs are available.'));$('#costChartNote').textContent='A positive API cost and a complete score are required to plot an agent.';return;}
+    if(!pts.length){host.append(make('p','empty-plot','Scores and API costs for this task are not reported.'));$('#costChartNote').textContent='The cost comparison is available when both task scores and API expenditure are reported.';return;}
     const W=Math.max(260,Math.round(host.clientWidth)),H=282,M={l:43,r:18,t:28,b:47};
     const showNames=W>=430;
     const values=pts.map(p=>p.score*100),minScore=Math.min(...values),maxScore=Math.max(...values);
@@ -343,12 +335,12 @@
     labels.forEach(({p,c,label})=>svg.append(text(label,{x:c.x,y:c.y+11,'data-label-for':p.m.id,'data-cost-model':p.m.id},'plot-label')));
     host.append(svg);
     const highest=pts.reduce((a,b)=>a.score>=b.score?a:b),cheapest=pts.reduce((a,b)=>a.cost<=b.cost?a:b);
-    [[meta.overall?'Highest index':'Highest score',pct(highest.score),highest.m.name],['Lowest API cost',usd(cheapest.cost),cheapest.m.name]].forEach(([label,value,name])=>{
+    [['Highest score',pct(highest.score),highest.m.name],['Lowest API cost',usd(cheapest.cost),cheapest.m.name]].forEach(([label,value,name])=>{
       const box=make('div','cost-insight');box.append(make('span','insight-label',label),make('strong','insight-value',value),make('span','insight-model',name));insight.append(box);
     });
     $('#costChartNote').textContent=meta.overall
-      ?`Score axis: ${yMin}–${yMax}. Cost uses a log scale. Point numbers match the table; focus or hover for details.`
-      :`Score axis: ${yMin}–${yMax}. Log cost axis. Family spend is allocated at ${(byId[costView].costShare*100).toFixed(0)}% of suite cost, not separately metered.`;
+      ?`Score axis: ${yMin}–${yMax}. API cost uses a logarithmic scale. Numbered points correspond to the configurations in the table.`
+      :`Score axis: ${yMin}–${yMax}. Log cost axis. Task expenditure is allocated at ${(byId[costView].costShare*100).toFixed(0)}% of snapshot API cost; it is not independently metered.`;
   }
   const sortedCostRows=()=>costRows().sort((a,b)=>{
     const av=a[costSort.key],bv=b[costSort.key];if(!Number.isFinite(av)&&!Number.isFinite(bv))return 0;if(!Number.isFinite(av))return 1;if(!Number.isFinite(bv))return -1;
@@ -357,14 +349,14 @@
   function renderCostTable(){
     const host=$('#costTable');host.replaceChildren();highlightCost(null);const meta=costContext();
     const sortNames={score:meta.scoreLabel,cost:'API cost',perPoint:'Cost per point',hours:'Median agent time'};
-    $('#costTableContext').textContent=`${sortNames[costSort.key]}, ${costSort.direction==='asc'?'low → high':'high → low'}`;
+    $('#costTableContext').textContent=`${sortNames[costSort.key]}, ${costSort.direction==='asc'?'ascending order':'descending order'}`;
     $('#costAccountingNote').textContent=meta.overall
-      ?'Time = median agent hours per task. API cost excludes simulator, GPU, and other infrastructure expenses.'
-      :`Family API cost = ${(byId[costView].costShare*100).toFixed(0)}% of suite spend. These are allocated estimates, not independently measured costs.`;
+      ?'Time denotes median agent runtime per task. API expenditure covers the retained eight-task snapshot and excludes simulation, GPU compute, and other infrastructure.'
+      :(Number.isFinite(byId[costView].costShare)?`Estimated task API cost is allocated as ${(byId[costView].costShare*100).toFixed(0)}% of snapshot expenditure; it is not independently metered.`:'API cost for this task is not reported.');
     const table=make('table','cost-table');table.append(make('caption','sr-only',`${meta.title}: costs and scores. ${isSample?'Illustrative data.':''} Point IDs remain fixed when sorting.`));
     const colgroup=make('colgroup');['model','score','cost','perPoint',...(meta.overall?['hours']:[])].forEach(key=>colgroup.append(make('col','cost-col-'+key)));table.append(colgroup);
     const th=make('thead'),hr=make('tr'),mh=make('th',null,'Model / harness');mh.scope='col';hr.append(mh);
-    const cols=[['score',meta.overall?'Index':'Score'],['cost','API cost'],['perPoint','$/point']];if(meta.overall)cols.push(['hours','Time']);
+    const cols=[['score','Score'],['cost','API cost'],['perPoint','$/point']];if(meta.overall)cols.push(['hours','Time']);
     cols.forEach(([key,label])=>{
       const h=make('th',key==='perPoint'?'metric-focus':'');h.scope='col';h.setAttribute('aria-sort',key===costSort.key?(costSort.direction==='asc'?'ascending':'descending'):'none');
       const b=make('button',null,label+' ');b.type='button';b.dataset.sort=key;b.title=key==='hours'?'Median agent hours per task':sortNames[key];b.setAttribute('aria-label',`Sort by ${sortNames[key]}`);
@@ -385,7 +377,7 @@
   $('#downloadCsv').addEventListener('click',()=>{
     const clean=v=>{let s=String(v??'');if(/^[=+\-@]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"';};
     const headers=['data_status','snapshot_date','scope','model_id','model','harness','score_0_100','api_cost_usd','usd_per_point','median_agent_hours','cost_basis'];
-    const rows=sortedCostRows().map(r=>[isSample?'illustrative_placeholder':'measured',BENCH.meta.updated,costView,r.m.id,r.m.name,r.m.harness,Number.isFinite(r.score)?(r.score*100).toFixed(6):'',Number.isFinite(r.cost)?r.cost.toFixed(6):'',Number.isFinite(r.perPoint)?r.perPoint.toFixed(6):'',costView==='overall'?r.hours:'',costView==='overall'?'suite_api_spend':'estimated_fixed_share_of_suite']);
+    const rows=sortedCostRows().map(r=>[isSample?'illustrative_placeholder':'measured',BENCH.meta.updated,costView,r.m.id,r.m.name,r.m.harness,Number.isFinite(r.score)?(r.score*100).toFixed(6):'',Number.isFinite(r.cost)?r.cost.toFixed(6):'',Number.isFinite(r.perPoint)?r.perPoint.toFixed(6):'',costView==='overall'?r.hours:'',costView==='overall'?'legacy_eight_task_snapshot_api_spend':'estimated_fixed_share_of_snapshot']);
     const csv='\uFEFF'+[headers,...rows].map(r=>r.map(clean).join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob);const a=make('a');a.href=url;a.download=`rle-bench-${costView}-${isSample?'illustrative':'results'}.csv`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
   });
   let resizeTimer;addEventListener('resize',()=>{hideTip();clearTimeout(resizeTimer);resizeTimer=setTimeout(renderScatter,120);});

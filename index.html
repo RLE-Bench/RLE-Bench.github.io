@@ -5,12 +5,12 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>RLE-Bench: A Qualifying Exam for Coding Agents as Robot Learning Engineers</title>
-<meta content="RLE-Bench evaluates coding agents on robot learning engineering. Explore aggregate scores, eight task families, and evaluation costs. Current leaderboard values are explicitly marked as illustrative." name="description"/>
-<link rel="stylesheet" href="styles.css?v=20260910-cost-style"/>
+<meta content="RLE-Bench evaluates coding agents through robot learning engineering tasks in interactive control, policy learning, embodiment, and perception. Explore task definitions, evaluation criteria, and API costs." name="description"/>
+<link rel="stylesheet" href="styles.css?v=20260910-editorial-r2"/>
 <link href="assets/favicon-64.png" rel="icon" sizes="64x64" type="image/png"/>
 <link href="assets/icon.png" rel="icon" sizes="512x512" type="image/png"/>
 <link href="assets/apple-touch-icon.png" rel="apple-touch-icon"/>
-<link rel="stylesheet" href="homepage.css?v=20260910-cost-style"/><meta content="#131615" name="theme-color"/><meta content="RLE-Bench | Robot Learning Engineering" property="og:title"/><meta content="A qualifying exam for coding agents as robot learning engineers. Explore the benchmark, task-level rankings, and evaluation costs." property="og:description"/><meta content="website" property="og:type"/><meta content="https://rle-bench.github.io/" property="og:url"/><meta content="https://rle-bench.github.io/assets/icon.png" property="og:image"/><link href="https://rle-bench.github.io/" rel="canonical"/><script>try{const t=localStorage.getItem('rlebench-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script><meta content="512" property="og:image:width"/><meta content="512" property="og:image:height"/><meta content="RLE-Bench: a llama operating a robot arm." property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><link rel="stylesheet" href="homepage-header.css?v=20260910-blog-align"/>
+<link rel="stylesheet" href="homepage.css?v=20260910-editorial-r2"/><meta content="#131615" name="theme-color"/><meta content="RLE-Bench | Robot Learning Engineering" property="og:title"/><meta content="A qualifying exam for coding agents as robot learning engineers. Explore the benchmark, task-level rankings, and evaluation costs." property="og:description"/><meta content="website" property="og:type"/><meta content="https://rle-bench.github.io/" property="og:url"/><meta content="https://rle-bench.github.io/assets/icon.png" property="og:image"/><link href="https://rle-bench.github.io/" rel="canonical"/><script>try{const t=localStorage.getItem('rlebench-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script><meta content="512" property="og:image:width"/><meta content="512" property="og:image:height"/><meta content="RLE-Bench: a llama operating a robot arm." property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><link rel="stylesheet" href="homepage-header.css?v=20260910-blog-align"/>
 </head>
 <body class="home-page classic-home"><a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header">
@@ -51,50 +51,51 @@
 <h1 id="hero-heading">A Qualifying Exam for Coding Agents<br/> <span class="grad">as Robot Learning Engineers</span></h1>
 </div>
 <p class="lede">
-        Not a puzzle set. Eight families of the work a robot learning engineer actually does — design a mobile
-        manipulator from stock parts, co-design teleop hardware, learn a policy through a metered simulator, build a
-        harness a stranger can use, estimate pose under adversarial sensing, ship a closed-loop controller, reason about
-        physical structure, train a whole-body tracking pipeline. Each one is a real engineering problem handed to the
-        agent inside a container, and each one is graded by a verifier the agent never sees.
+        RLE-Bench evaluates whether general-purpose coding agents can solve robot learning engineering problems
+        through observation, experimentation, and iterative development. The benchmark spans interactive control
+        and physical reasoning, policy learning and deployment, embodiment and co-design, and perception and
+        estimation. Agents develop solutions under task-specific time, interaction, and compute budgets;
+        independent evaluation measures performance under hidden physical conditions.
       </p>
 <div class="hero-utility">
 <dl aria-label="Benchmark scope" class="hero-stats" id="heroStats"></dl>
 <div class="hero-cta">
-<a class="btn btn-primary" href="#index"><span>See the rankings</span><svg aria-hidden="true" class="cta-arrow" fill="none" focusable="false" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 16 16" width="16"><path d="M8 3v10M4 9l4 4 4-4"></path></svg></a>
-<a class="btn btn-secondary" href="blog/"><span>Read the blog</span><svg aria-hidden="true" class="cta-arrow" fill="none" focusable="false" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 16 16" width="16"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+<a class="btn btn-primary" href="#index"><span>View task results</span><svg aria-hidden="true" class="cta-arrow" fill="none" focusable="false" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 16 16" width="16"><path d="M8 3v10M4 9l4 4 4-4"></path></svg></a>
+<a class="btn btn-secondary" href="blog/"><span>Research overview</span><svg aria-hidden="true" class="cta-arrow" fill="none" focusable="false" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 16 16" width="16"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
 </div>
 </div>
 </div>
 </section>
 <section aria-labelledby="index-heading" class="section" id="index">
 <div class="wrap">
-<div class="section-head"><div><h2 class="section-title" id="index-heading">RLE Index</h2><p class="section-sub" id="indexBlurb">Mean score across eight task families, with equal weight per family. Scores range from 0 to 100.</p></div>
+<div class="section-head"><div><h2 class="section-title" id="index-heading">RLE Index</h2><p class="section-sub" id="indexBlurb">Unweighted mean across the eight tasks in the development snapshot, on a 0–100 scale.</p></div>
 <div aria-label="Leaderboard metric" class="metric-switch" role="group"><button aria-pressed="true" data-metric="score" type="button">By score</button><button aria-pressed="false" data-metric="rank" type="button">By task rank</button></div>
 </div>
+<p class="snapshot-context">The retained scores and costs are illustrative development data. They are separate from the manuscript results in the <a href="blog/#results">research overview</a>; nanoVLA results are not reported.</p>
 <div class="data-panel index-panel">
 <p class="scroll-hint">Scroll horizontally to view all task scores →</p>
-<div aria-label="RLE Index leaderboard, horizontally scrollable on small screens" class="table-scroll" role="region" tabindex="0"><div id="indexGrid"></div></div>
+<div aria-label="Task score table, horizontally scrollable on small screens" class="table-scroll" role="region" tabindex="0"><div id="indexGrid"></div></div>
 <div class="matrix-footer" id="indexLegend"></div>
 </div>
 </div>
 </section>
 <section aria-labelledby="tasks-heading" class="section section-alt" id="tasks">
 <div class="wrap">
-<div class="section-head"><div><h2 class="section-title" id="tasks-heading">Task rankings</h2><p class="section-sub">Eight task families, each with its own engineering problem and independent ranking.</p></div></div>
-<div aria-label="Task families" class="tabs" id="taskTabs" role="tablist"></div>
+<div class="section-head"><div><h2 class="section-title" id="tasks-heading">Task breakdown</h2><p class="section-sub">Nine engineering tasks across four workflow families. Task numbering and definitions follow the research overview; result coverage is specified below.</p></div></div>
+<div aria-label="Engineering tasks" class="tabs" id="taskTabs" role="tablist"></div>
 <div class="task-view" id="taskView" role="tabpanel" tabindex="0"></div>
 </div>
 </section>
 <section aria-labelledby="cost-heading" class="home-section" id="cost">
 <div class="wrap">
-<div class="section-heading"><div><p class="section-kicker"><span>03</span>Evaluation efficiency</p><h2 id="cost-heading">Performance and cost</h2><p class="section-description">Performance alongside API spend for one complete evaluation. Compare the same agents in the plot and table.</p></div>
-<label class="scope-select"><span>Evaluation scope</span><select aria-label="Cost evaluation scope" id="costScope"><option value="overall">Full benchmark</option></select></label>
+<div class="section-heading"><div><p class="section-kicker"><span>03</span>Evaluation efficiency</p><h2 id="cost-heading">Performance and cost</h2><p class="section-description">Task performance and model API expenditure for the configurations shown below. Cost estimates exclude simulation, GPU compute, and other infrastructure.</p></div>
+<label class="scope-select"><span>Evaluation scope</span><select aria-label="Cost evaluation scope" id="costScope"><option value="overall">Development snapshot</option></select></label>
 </div>
 <div class="data-panel cost-workbench"><figure aria-describedby="costChartNote" aria-labelledby="costChartTitle" class="cost-figure">
-<div class="figure-topline"><div><p class="micro-label" id="costMetricLabel">RLE Index / API cost</p><h3 id="costChartTitle">Index vs. cost</h3></div></div>
-<div class="plot-tools"><div aria-label="Score axis range" class="axis-switch" role="group"><button aria-pressed="true" data-axis="focused" type="button">Focused range</button><button aria-pressed="false" data-axis="full" type="button">0–100</button></div><span class="plot-direction">Higher and left is better ↖</span></div><div aria-label="Interactive performance and API cost plot" class="chart-scroll" role="region"><div id="scatter"></div></div>
+<div class="figure-topline"><div><p class="micro-label" id="costMetricLabel">Mean task score / API cost</p><h3 id="costChartTitle">Score vs. cost</h3></div></div>
+<div class="plot-tools"><div aria-label="Score axis range" class="axis-switch" role="group"><button aria-pressed="true" data-axis="focused" type="button">Focused range</button><button aria-pressed="false" data-axis="full" type="button">0–100</button></div><span class="plot-direction">Higher score · Lower cost ↖</span></div><div aria-label="Interactive performance and API cost plot" class="chart-scroll" role="region"><div id="scatter"></div></div>
 <div aria-label="Cost comparison highlights" class="cost-insights" id="costInsights"></div><figcaption id="costChartNote">API cost uses a log scale. Focused range is labeled on the score axis. Hover or focus a point for exact values.</figcaption>
-</figure><div class="cost-table-panel"><div class="panel-topline cost-table-topline"><div><h3 class="table-heading">Cost breakdown</h3><p class="table-context" id="costTableContext">Ordered by API cost per index point.</p></div><button aria-label="Download full cost breakdown as CSV" class="text-button" id="downloadCsv" type="button">CSV <span aria-hidden="true">↓</span></button></div><p class="scroll-hint">Scroll horizontally to view all cost metrics →</p>
+</figure><div class="cost-table-panel"><div class="panel-topline cost-table-topline"><div><h3 class="table-heading">Cost breakdown</h3><p class="table-context" id="costTableContext">Ordered by API cost per score point.</p></div><button aria-label="Download full cost breakdown as CSV" class="text-button" id="downloadCsv" type="button">CSV <span aria-hidden="true">↓</span></button></div><p class="scroll-hint">Scroll horizontally to view all cost metrics →</p>
 <div aria-label="Evaluation costs table, horizontally scrollable on small screens" class="table-scroll" id="costTable" role="region" tabindex="0"></div>
 <p class="cost-accounting-note" id="costAccountingNote">API costs exclude simulator, GPU, and other infrastructure expenses.</p>
 </div></div>
@@ -104,7 +105,7 @@
 </main>
 <footer class="site-footer"><div class="wrap footer-inner"><div><div class="footer-brand"><img alt="" class="brand-mark" height="26" src="assets/icon.png" width="26"/><span class="brand-text small">RLE<span class="brand-dim">-Bench</span></span></div><p class="muted">A qualifying exam for coding agents as robot learning engineers.</p></div><div class="footer-meta"><a href="blog/">Research blog</a><span>Manuscript companion · September 2026</span></div></div></footer>
 <div class="tooltip" hidden="" id="tooltip" role="tooltip"></div>
-<script src="data.js?v=20260910-cost-style"></script>
-<script src="app.js?v=20260910-cost-style"></script>
+<script src="data.js?v=20260910-editorial-r2"></script>
+<script src="app.js?v=20260910-editorial-r2"></script>
 </body>
 </html>

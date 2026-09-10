@@ -20,27 +20,30 @@ even after a clip has downloaded. GitHub Pages already supports range requests.
 | `styles.css` | shared base design tokens and styles |
 | `homepage.css` | the polished v3 homepage layout, themes, and responsive overrides |
 | `app.js` | scoring, the index, the charts, tabs, tooltips |
-| `data.js` | **the only file you edit to publish new results** |
+| `data.js` | current task descriptions and display numbering, plus the retained development result snapshot |
 | `blog/` | the research article, served directly at `/blog/` |
 | `assets/` | the project icon — favicon, apple-touch icon, header and hero mark |
 
-The homepage follows `RLE-Bench-homepage-polished-v3.html`, with its styles and
-application code extracted into local files. Existing logo assets are reused,
-all Blog links go directly to `/blog/`, and `data.js` retains the original
-scores and reference records. The Blog is self-contained and unchanged.
+The homepage preserves the existing visual layout and numerical development
+snapshot. Its task descriptions and T01–T09 display numbering follow the
+research article. The Blog remains self-contained and unchanged.
+
+The task catalog contains nine tasks; the retained result snapshot contains
+eight. nanoVLA recipe engineering has no reported scores or costs. The current
+physical-reasoning description covers six problems, while the retained sample
+scores cover five scenarios. These coverage differences are stated in the UI.
 
 ## Updating results
 
 `data.js` is the single source of truth:
 
-- `presentation` — homepage task order and displayed task numbers, independent of source task IDs and results.
+- `presentation` — task order and public T01–T09 numbers, independent of legacy result IDs. `snapshotTaskIds` explicitly lists the eight tasks included in the unchanged snapshot mean.
 - `meta` — version string, updated date, header links (`github`, `arxiv`,
   `contact`), and `dataStatus`. An empty `arxiv` renders the nav item greyed
   out rather than pointing nowhere; an empty `contact` or `github` drops that
   item entirely. `contact` accepts a `mailto:` just as happily as a URL.
-  Setting
-  `dataStatus` to anything other than `"placeholder"` removes the orange
-  sample-data banner at the top of the page.
+  `dataStatus` controls the source-status labels in charts and exports. The
+  removed top-of-page banner is not restored.
 - `models` — one entry per evaluated agent, including the `harness` it was
   driven with (the scaffold, e.g. Claude Code or Codex CLI) — shown under the
   model name everywhere and as its own table column. `baseline: true` keeps a
@@ -52,29 +55,43 @@ scores and reference records. The Blog is self-contained and unchanged.
 renders; replace them with real `reward.json` aggregates before this goes
 anywhere public.
 
-A family's score aggregates its splits the way its verifier does:
+The retained per-task snapshot scores aggregate their original splits:
 
-- `aggregate: "mean"` — the mean of the splits (every family but task01).
-- `aggregate: "min"` — the minimum (task01, whose checkpoints reduce by
-  minimum across the three canonical arms).
+- `aggregate: "mean"` — the unweighted mean of the original split values.
+- `aggregate: "min"` — the minimum for the mobile-base result record.
 
-The **RLE Index** is the unweighted mean of the eight family scores, ×100.
+The homepage retains the **RLE Index** section title. Its displayed snapshot
+metric is the unweighted mean over `presentation.snapshotTaskIds`, reported on
+a 0–100 scale. The explanatory text distinguishes this existing eight-task
+development metric from the manuscript RLE Index, which averages four
+capability families equally. The task catalog is titled **Task breakdown**. Adding an unreported task to the catalog does not add a zero to the
+snapshot mean. Existing values, model records, and cost allocations are retained.
 
-Per-family spend is `model.cost × task.costShare` — each family carries a fixed
-share of the suite bill, so the cost view needs only one number per model. The
-cost section is tabbed the same way the rankings are: **ALL** plots the RLE
-Index against the suite bill, and each family tab plots that family's score
-against its share of the bill, with a matching table underneath.
+Task API cost is `model.cost × task.costShare`. These are fixed allocations of
+the older snapshot's API bill, not independently metered task costs. A null
+cost share, as for nanoVLA, means unreported rather than free.
 
 ## Task metadata
 
-The `tasks` array mirrors the benchmark repo: budgets, variant counts, GPU
-requirements, split names and reward weights are read from the task READMEs,
-`manifest.toml` files and build scripts. If a task's timeouts or weights change
-upstream, update the matching entry here.
+`description`, `development`, `compute`, `evaluation`, and `notes` follow the
+visible research article. Legacy numeric reward weights and verifier budgets
+are omitted because the article does not establish them as current. The
+snapshot's `splits`, `aggregate`, and `costShare` retain their original meaning.
 
-Note the suite ships **eight** families — `task01`–`task06`, `task08` and
-`task09`. There is no `task07`.
+| Public task | Current task | Legacy result ID |
+|---|---|---|
+| T01 | Agentic control | `task03` |
+| T02 | Harness engineering | `task04` |
+| T03 | Physical reasoning | `task08` |
+| T04 | Whole-body motion tracking | `task09` |
+| T05 | nanoVLA recipe engineering | `nanovla` (unreported) |
+| T06 | Universal mobile-manipulator base | `task01` |
+| T07 | Lead arm gravity compensation design | `task02` |
+| T08 | Blind pose estimation | `task05` |
+| T09 | Contact-rich bin clearing | `task06` |
+
+The original result IDs remain stable for existing deep links. Public numbering
+is resolved through `presentation.taskNumbers` everywhere in the interface.
 
 ## The index grid
 
