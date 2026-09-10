@@ -1,0 +1,37 @@
+/* Shared navigation for the leaderboard and research blog. */
+.site-header.unified-header .header-inner { height: 62px; gap: 24px; }
+.site-header.unified-header .site-nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+.site-header.unified-header .site-nav a,
+.site-header.unified-header #navGithub,
+.site-header.unified-header #navArxiv,
+.site-header.unified-header #navContact {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 11px; border-radius: 7px;
+  font: 400 15px/1.6 "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  color: var(--text-secondary); white-space: nowrap; text-decoration: none;
+}
+.site-header.unified-header .site-nav a::after { display: none; }
+.site-header.unified-header .site-nav a:hover,
+.site-header.unified-header .site-nav a[aria-current="page"] {
+  color: var(--text-primary); background: var(--surface-2);
+}
+.site-header.unified-header #navArxiv[aria-disabled="true"] {
+  color: var(--text-muted); background: transparent; cursor: default;
+}
+.site-header.unified-header .header-actions { gap: 10px; }
+.site-header.unified-header .menu-button { display: none; }
+@media (max-width: 760px) {
+  .site-header.unified-header .header-inner { gap: 14px; }
+  .site-header.unified-header .header-actions { margin-left: auto; }
+  .site-header.unified-header .menu-button { display: grid; }
+  .site-header.unified-header .site-nav {
+    display: none; position: absolute; top: 61px; left: 0; width: 100%;
+    padding: 12px 22px 18px; background: var(--surface-1);
+    border-bottom: 1px solid var(--border); z-index: 50;
+  }
+  .site-header.unified-header .site-nav.is-open { display: flex; flex-direction: column; align-items: stretch; }
+  .site-header.unified-header .site-nav a,
+  .site-header.unified-header #navGithub,
+  .site-header.unified-header #navArxiv,
+  .site-header.unified-header #navContact { padding: 10px 12px; margin-left: 0; }
+}

@@ -12,6 +12,11 @@
  * ------------------------------------------------------------------------- */
 
 const BENCH = {
+  // Homepage v3 display order and labels; source task IDs and scores are retained.
+  presentation: {
+    taskOrder: ["task01", "task02", "task05", "task04", "task03", "task06", "task08", "task09"],
+    taskNumbers: {task05: "03", task03: "05"},
+  },
   meta: {
     name: "RLE-Bench",
     subtitle: "A full-stack robotics engineering benchmark for coding agents",

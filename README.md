@@ -5,24 +5,35 @@ engineering benchmark (`~/Codes/RLE-Bench-dev`). No build step, no network
 calls — open `index.html` or serve the folder.
 
 ```bash
-python3 -m http.server 8000   # then http://localhost:8000
+python3 scripts/serve.py --port 8000   # then http://127.0.0.1:8000
 ```
+
+The preview server supports HTTP byte ranges, which browsers need for video
+seeking. Plain `python3 -m http.server` may report a zero-length seekable range
+even after a clip has downloaded. GitHub Pages already supports range requests.
 
 ## Files
 
 | file | what it holds |
 |---|---|
 | `index.html` | page structure only — every number is rendered by `app.js` |
-| `styles.css` | design tokens, light + dark themes, all layout |
+| `styles.css` | shared base design tokens and styles |
+| `homepage.css` | the polished v3 homepage layout, themes, and responsive overrides |
 | `app.js` | scoring, the index, the charts, tabs, tooltips |
 | `data.js` | **the only file you edit to publish new results** |
 | `blog/` | the research article, served directly at `/blog/` |
 | `assets/` | the project icon — favicon, apple-touch icon, header and hero mark |
 
+The homepage follows `RLE-Bench-homepage-polished-v3.html`, with its styles and
+application code extracted into local files. Existing logo assets are reused,
+all Blog links go directly to `/blog/`, and `data.js` retains the original
+scores and reference records. The Blog is self-contained and unchanged.
+
 ## Updating results
 
-`data.js` is the single source of truth. It has three parts:
+`data.js` is the single source of truth:
 
+- `presentation` — homepage task order and displayed task numbers, independent of source task IDs and results.
 - `meta` — version string, updated date, header links (`github`, `arxiv`,
   `contact`), and `dataStatus`. An empty `arxiv` renders the nav item greyed
   out rather than pointing nowhere; an empty `contact` or `github` drops that
@@ -33,8 +44,7 @@ python3 -m http.server 8000   # then http://localhost:8000
 - `models` — one entry per evaluated agent, including the `harness` it was
   driven with (the scaffold, e.g. Claude Code or Codex CLI) — shown under the
   model name everywhere and as its own table column. `baseline: true` keeps a
-  row out of the ranking (that is how the Oracle reference is shown without
-  competing).
+  reference record out of the homepage rankings and cost comparison.
 - `scores[taskId][modelId]` — an array of per-split scores in `[0, 1]`, aligned
   positionally with that task's `splits` array.
 
@@ -119,6 +129,42 @@ To update this page, edit `blog/index.html` and its supporting assets. Keep arti
 homepage's placeholder leaderboard data remains managed in `data.js`;
 this article carries the provided manuscript's separate results and
 coverage notes.
+
+### Curated task demos
+
+The article embeds four complete, silent simulation recordings and a three-image
+GELLO design study from the September 9 demo snapshot:
+
+| Location | Selected media | Source |
+|---|---|---|
+| Interactive control / T05 | Hidden-center-of-mass interaction, 36.6 s | GPT-5.6 Sol, v0.8.0, evaluation recording |
+| Policy learning / T04 | Fall-and-get-up motion, 20 s | GPT-6 Astra, v1.0.0, evaluation recording |
+| Embodiment / T07 | Franka, UR5e, and xArm7 GELLO assemblies | GPT-6 Astra, v1.1.2, development artifacts |
+| Perception / T08 | Method-agnostic pose estimation, 6 s | Gemini 3.7 Flash High, v1.3.0, evaluation recording |
+| Development and evaluation / T09 | Camera views and force feedback, 29.5 s | GPT-6 Astra, v1.0.1, development preview |
+
+`blog/demos.css` extends the article's family colors, type, and figure styling.
+`blog/demos.js` progressively enhances the videos with a compact translucent play
+strip in the corner of the poster and a theme-aware control bar below the image: play/pause, a thin seek
+slider, elapsed/total time, fullscreen, and an icon-only download link. The
+controls support keyboard seeking, replay, loading/error states, and seeking
+before metadata arrives. Pointer dragging pauses playback and previews the
+chosen time without the playhead moving the thumb; releasing commits the seek
+and resumes only if the clip was already playing. Only one demo plays at a time, and switching tabs
+pauses playback. The original native controls remain the no-JavaScript fallback.
+Videos retain inline mobile playback, explicit poster dimensions, and
+`preload="none"`; they never autoplay. Posters are frames from the actual
+recordings and are also used for printing. Short captions separate the visual
+description from secondary notes about evaluation scope.
+
+The videos retain the source resolution, frame rate, complete timeline, and
+encoded video packets, with MP4 metadata moved to the front for streaming.
+GELLO images use lossless WebP. The selected media total approximately 5.24 MB;
+the original 3.3 GB archive, logs, and unselected material are not published.
+`assets/blog/demos/sources.json` records source archive paths, task versions,
+models, hashes, and poster timestamps. These individual examples do not update
+or stand in for the manuscript's aggregate results; development material is
+labeled separately from evaluation recordings.
 
 ## Design notes
 

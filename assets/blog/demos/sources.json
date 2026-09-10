@@ -70,6 +70,48 @@
       "version": "1.0.1",
       "model": "gpt-6-astra",
       "kind": "artifact"
+    },
+    {
+      "file": "gello-franka.webp",
+      "dimensions": [
+        640,
+        480
+      ],
+      "source_path": "demo/tasks/task07/1.1.2/gpt-6-astra/216/codex-gpt_6_astra-20260905T143413-cad_141a9b6/task07__nsLg8L9/artifacts/logs/artifacts/franka/assembly.png",
+      "source_sha256": "8a3efa83bcb6b87695fbced687fe4b4e791eceaaad3f6a6f171577143fdff9ed",
+      "published_sha256": "dd4d596dac8c13e7ce3a591c235728cc2a655c17b1fd6ddd5620c7f27fdc41e8",
+      "task": "task07",
+      "version": "1.1.2",
+      "model": "gpt-6-astra",
+      "kind": "artifact"
+    },
+    {
+      "file": "gello-ur5e.webp",
+      "dimensions": [
+        640,
+        480
+      ],
+      "source_path": "demo/tasks/task07/1.1.2/gpt-6-astra/216/codex-gpt_6_astra-20260905T143413-cad_141a9b6/task07__nsLg8L9/artifacts/logs/artifacts/ur5e/assembly.png",
+      "source_sha256": "28a66a4508e0f7942453a70cabb0177af9e7248621be9cd308470dfc4fa16638",
+      "published_sha256": "5d98d95815747548036724a771210315e291f2cba2da0b5c25f4ad841ba711f2",
+      "task": "task07",
+      "version": "1.1.2",
+      "model": "gpt-6-astra",
+      "kind": "artifact"
+    },
+    {
+      "file": "gello-xarm7.webp",
+      "dimensions": [
+        640,
+        480
+      ],
+      "source_path": "demo/tasks/task07/1.1.2/gpt-6-astra/216/codex-gpt_6_astra-20260905T143413-cad_141a9b6/task07__nsLg8L9/artifacts/logs/artifacts/xarm7/assembly.png",
+      "source_sha256": "c5b860172e5713a701f3f0487c8ac0fcb391cb838eb31e21f4b620e00e740ab7",
+      "published_sha256": "9851423ae1358b86d15d2e2821309c7ad2415f65821d8fe833eadb64e1a3c18d",
+      "task": "task07",
+      "version": "1.1.2",
+      "model": "gpt-6-astra",
+      "kind": "artifact"
     }
   ],
   "imported_from": "ade333a7b4430867b196a01d925ac5606ccb4497"
