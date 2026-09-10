@@ -124,7 +124,7 @@
     node.addEventListener('click',e=>{e.stopPropagation();showTip(node,html(),e);});
   }
   document.addEventListener('click',hideTip);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){hideTip();closeMenu();}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){hideTip();}});
   document.addEventListener('scroll',()=>{
     if(tipTarget && document.activeElement===tipTarget){
       const r=tipTarget.getBoundingClientRect();
@@ -142,19 +142,12 @@
     const stats=[[tasks.length,'Task families','Distinct engineering evaluations'],[tasks.reduce((sum,t)=>sum+t.variants,0),'Harbor tasks','Containerized task instances'],[completeAgents.length,'Agents ranked','Model–harness configurations']];
     const dl=$('#heroStats');dl.replaceChildren();
     stats.forEach(([value,title,note])=>{const row=make('div','stat');const dt=make('dt','stat-key',title);row.title=note;row.append(dt,make('dd','stat-val',value));dl.append(row);});
-    $('#versionPill').textContent=BENCH.meta.version||'';
     $('#footerVersion').textContent=BENCH.meta.version||'';
     $('#footerUpdated').textContent=`Data snapshot · ${BENCH.meta.updated||'undated'}`;
     const url=safeURL(BENCH.meta.github);if(url)$('#navGithub').href=url;else $('#navGithub').remove();
     if(!isSample){$('#dataBanner').hidden=true;$('#placeholderNote').hidden=true;}
     $$('[data-data-status]').forEach(n=>n.textContent=isSample?'Illustrative data':'Measured results');
   }
-  const menu=$('#siteNav'), menuBtn=$('#menuToggle');
-  function closeMenu(){const open=menuBtn.getAttribute('aria-expanded')==='true';menu.classList.remove('is-open');menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label','Open navigation');if(open&&menu.contains(document.activeElement))menuBtn.focus();}
-  menuBtn.addEventListener('click',e=>{e.stopPropagation();const open=menuBtn.getAttribute('aria-expanded')==='true';menu.classList.toggle('is-open',!open);menuBtn.setAttribute('aria-expanded',String(!open));menuBtn.setAttribute('aria-label',open?'Open navigation':'Close navigation');});
-  menu.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu();});
-  document.addEventListener('click',e=>{if(!menu.contains(e.target)&&!menuBtn.contains(e.target))closeMenu();});
-  document.addEventListener('focusin',e=>{if(menuBtn.getAttribute('aria-expanded')==='true'&&!menu.contains(e.target)&&!menuBtn.contains(e.target))closeMenu();});
   $$('a[href="#data-notes"]').forEach(n=>n.addEventListener('click',()=>{$('#dataNotesDisclosure').open=true;}));
 
   /* Aggregate matrix: fixed 0–100 scale, numeric labels, semantic HTML table. */
@@ -399,7 +392,7 @@
     const rows=sortedCostRows().map(r=>[isSample?'illustrative_placeholder':'measured',BENCH.meta.updated,costView,r.m.id,r.m.name,r.m.harness,Number.isFinite(r.score)?(r.score*100).toFixed(6):'',Number.isFinite(r.cost)?r.cost.toFixed(6):'',Number.isFinite(r.perPoint)?r.perPoint.toFixed(6):'',costView==='overall'?r.hours:'',costView==='overall'?'suite_api_spend':'estimated_fixed_share_of_suite']);
     const csv='\uFEFF'+[headers,...rows].map(r=>r.map(clean).join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob);const a=make('a');a.href=url;a.download=`rle-bench-${costView}-${isSample?'illustrative':'results'}.csv`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
   });
-  let resizeTimer;addEventListener('resize',()=>{hideTip();clearTimeout(resizeTimer);resizeTimer=setTimeout(renderScatter,120);if(innerWidth>760)closeMenu();});
+  let resizeTimer;addEventListener('resize',()=>{hideTip();clearTimeout(resizeTimer);resizeTimer=setTimeout(renderScatter,120);});
   renderMeta();
   activeTask=byId[taskFromURL()]?taskFromURL():tasks[0].id;
   renderTaskTabs();setTask(activeTask);renderCostTable();setTheme(theme());
