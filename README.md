@@ -205,3 +205,22 @@ loading; the chart then falls back to the original image. Publish the JSON with
 the page for online updates. Its two SVG panels animate once as they enter view,
 respect reduced-motion settings, and show exact values on hover or keyboard focus.
 Update matching narrative claims in both HTML and Markdown if the results change.
+
+
+## T04 development timeline
+
+`blog/hillclimb.js` and `blog/hillclimb.css` render the native SVG timeline from
+`assets/blog/t04-hillclimb.json`. The view separates evaluation cohorts, shows
+the complete four-hour run, and lets readers select chart markers to view
+source timestamps and excerpts. Curves have distinct colors and shading to the
+visible axis baseline. Scores are displayed out of 100. A marked axis break separates the 60–95 main
+range from a compressed 0–60 region containing the early scores. Unscored failures are shown in a separate event
+strip. The no-JavaScript fallback preserves the summary. Hovering over a marker
+updates its explanation. The Final policy link opens a video dialog showing
+the original sprint recording from 00:07 to 00:20 (13 seconds).
+
+Regenerate the curated data with `python3 scripts/extract_t04_timeline.py /path/to/harbor/trial`. This exports selected status reports from
+`agent/trajectory.json`; it is not an exhaustive checkpoint parser. Scores are
+rounded as reported, and timestamps indicate when the report was logged. The
+final metric is cross-checked against `artifacts/logs/artifacts/selection.json`.
+The downloaded Harbor trial remains local and is excluded from Git.
