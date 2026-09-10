@@ -17,16 +17,23 @@ even after a clip has downloaded. GitHub Pages already supports range requests.
 | file | what it holds |
 |---|---|
 | `index.html` | page structure only — every number is rendered by `app.js` |
-| `styles.css` | design tokens, light + dark themes, all layout |
+| `styles.css` | shared base design tokens and styles |
+| `homepage.css` | the polished v3 homepage layout, themes, and responsive overrides |
 | `app.js` | scoring, the index, the charts, tabs, tooltips |
 | `data.js` | **the only file you edit to publish new results** |
 | `blog/` | the research article, served directly at `/blog/` |
 | `assets/` | the project icon — favicon, apple-touch icon, header and hero mark |
 
+The homepage follows `RLE-Bench-homepage-polished-v3.html`, with its styles and
+application code extracted into local files. Existing logo assets are reused,
+all Blog links go directly to `/blog/`, and `data.js` retains the original
+scores and reference records. The Blog is self-contained and unchanged.
+
 ## Updating results
 
-`data.js` is the single source of truth. It has three parts:
+`data.js` is the single source of truth:
 
+- `presentation` — homepage task order and displayed task numbers, independent of source task IDs and results.
 - `meta` — version string, updated date, header links (`github`, `arxiv`,
   `contact`), and `dataStatus`. An empty `arxiv` renders the nav item greyed
   out rather than pointing nowhere; an empty `contact` or `github` drops that
@@ -37,8 +44,7 @@ even after a clip has downloaded. GitHub Pages already supports range requests.
 - `models` — one entry per evaluated agent, including the `harness` it was
   driven with (the scaffold, e.g. Claude Code or Codex CLI) — shown under the
   model name everywhere and as its own table column. `baseline: true` keeps a
-  row out of the ranking (that is how the Oracle reference is shown without
-  competing).
+  reference record out of the homepage rankings and cost comparison.
 - `scores[taskId][modelId]` — an array of per-split scores in `[0, 1]`, aligned
   positionally with that task's `splits` array.
 
