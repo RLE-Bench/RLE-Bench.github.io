@@ -1,0 +1,305 @@
+{
+  "archive": "RLE-Bench_Task05_Editable_Project_v2.zip",
+  "imported_media": [
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/t05_libero_open.mp4",
+      "bytes": 434345,
+      "sha256": "e835a670d170480d45734cf65d64410acc8e2f2f21c896011fcb26bd59b80b4d",
+      "matches": [],
+      "destination": "assets/social/film-clips/t05_libero_open.mp4"
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/t05_libero_robust.mp4",
+      "bytes": 482687,
+      "sha256": "20a0df6ee49e86d2c77fd25a88930a786f8c4ec295a9aad8a46745840ff76c32",
+      "matches": [],
+      "destination": "assets/social/film-clips/t05_libero_robust.mp4"
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/t05_lift_view1.mp4",
+      "bytes": 402740,
+      "sha256": "6a49688de42b3b4d207d7ab9174b2951108e51d57148294830abcc8385b49013",
+      "matches": [],
+      "destination": "assets/social/film-clips/t05_lift_view1.mp4"
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/t05_lift_view2.mp4",
+      "bytes": 390412,
+      "sha256": "7ae8c0dc720cab21c4690438244953d48bbd5d200fa790e890f97a2c82111d90",
+      "matches": [],
+      "destination": "assets/social/film-clips/t05_lift_view2.mp4"
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/originals/task05/01-libero-open-design/gpt-6-astra/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it__0.mp4",
+      "bytes": 246349,
+      "sha256": "312a88a22f43b804c7b4ca2fc16ab951a9953077681ad94b3380ecf704fdc5e2",
+      "matches": [],
+      "destination": "assets/social/film-clips/originals/task05/01-libero-open-design/gpt-6-astra/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it__0.mp4"
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/originals/task05/02-libero-robustness/gpt-6-astra/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it__0.mp4",
+      "bytes": 280785,
+      "sha256": "fcabf7d9e82493e792a6116a883ec4b29298ae6b7ca1a4e4a0d4bdc09585ca32",
+      "matches": [],
+      "destination": "assets/social/film-clips/originals/task05/02-libero-robustness/gpt-6-astra/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it__0.mp4"
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/originals/task05/03-robotwin-open-design/gpt-6-astra/lift_pot__0.mp4",
+      "bytes": 88601,
+      "sha256": "491374166a2054da9eed936c222ca85e3def65bedc555e0466937b9ec0a92010",
+      "matches": [],
+      "destination": "assets/social/film-clips/originals/task05/03-robotwin-open-design/gpt-6-astra/lift_pot__0.mp4"
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/score-main.wav",
+      "bytes": 12480078,
+      "sha256": "7fcf875a6f862e07d4f1a6df0f3d5d51a34855bed7bab81a48fa7cd0f5e218d9",
+      "matches": [],
+      "destination": "assets/social/film-clips/task05-v2/score-main.wav"
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/score-teaser.wav",
+      "bytes": 5376078,
+      "sha256": "a108329fe3902954e4dfbebac4af7418d3570f5b38898b14da20563169cc73db",
+      "matches": [],
+      "destination": "assets/social/film-clips/task05-v2/score-teaser.wav"
+    }
+  ],
+  "unchanged_media": [
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/base.mp4",
+      "bytes": 480999,
+      "sha256": "433d1a7c5f5b48db9b506aab49597a8818b68390c090a8b52e40a115ec294943",
+      "matches": [
+        "assets/social/film-clips/base.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/base_tile.mp4",
+      "bytes": 758554,
+      "sha256": "a5a829c11d882aa8a47d0850abfc834f6e3ae9863ede8020cd5864195744466c",
+      "matches": [
+        "assets/social/film-clips/base_tile.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/bin_hero.mp4",
+      "bytes": 2593274,
+      "sha256": "9d851f8ae35c0db7d406ca96295a20e424a782b64fb95e5cdc97bd629f6847de",
+      "matches": [
+        "assets/social/film-clips/bin_hero.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/bin_tile.mp4",
+      "bytes": 1338927,
+      "sha256": "c33fef6deacce3c591c23ebeac9a27df732bb8a4d09c47ee09cae35ed43ca5d6",
+      "matches": [
+        "assets/social/film-clips/bin_tile.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/bin_wide.mp4",
+      "bytes": 2681913,
+      "sha256": "bbed7e8f490e7142c16b91055cab217328f1e31c86600be3f411f6ff340a59a0",
+      "matches": [
+        "assets/social/film-clips/bin_wide.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/control.mp4",
+      "bytes": 5685806,
+      "sha256": "d6ebcdfce74bc389054524f9a9c81fdcb57ca37de5381ef874349a1d227911e0",
+      "matches": [
+        "assets/social/film-clips/control.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/control_tile.mp4",
+      "bytes": 2030173,
+      "sha256": "ed286d22d3d997bd90da41b3396cf68d84bcdea178b4b96310b64e88d1d6abfd",
+      "matches": [
+        "assets/social/film-clips/control_tile.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/cube.mp4",
+      "bytes": 801048,
+      "sha256": "076e1ff9cc31eb019a28eed250bf459093714becf9a0276cfc2e8d68e56266f9",
+      "matches": [
+        "assets/social/film-clips/cube.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/cube_short.mp4",
+      "bytes": 440324,
+      "sha256": "93b799b458f6673ff38a0a969cdf53fe446c0be463a8be18a65262e0e03aef98",
+      "matches": [
+        "assets/social/film-clips/cube_short.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/dance.mp4",
+      "bytes": 4478519,
+      "sha256": "ab07d4a09443c98751ff9820d4bc6c389bceb0f5f5f01f41bbb1bafc48bb9810",
+      "matches": [
+        "assets/social/film-clips/dance.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/dance_tile.mp4",
+      "bytes": 2436027,
+      "sha256": "06d90bda3088c6c3bf2b833972e43f1e88eeeb224901d3f33f24ad377f9684aa",
+      "matches": [
+        "assets/social/film-clips/dance_tile.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/failure.mp4",
+      "bytes": 436937,
+      "sha256": "983c5b6a862e60157af0b0108a61ae3f9cdf07b88a60e579584ea6f34d528253",
+      "matches": [
+        "assets/social/film-clips/failure.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/gello.mp4",
+      "bytes": 1195965,
+      "sha256": "8a08638c48c45fdcf990135ce348490caa053615c1d1453d84cfbbe29f05028f",
+      "matches": [
+        "assets/social/film-clips/gello.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/harness.mp4",
+      "bytes": 4881300,
+      "sha256": "ffb0d585cc255daa5bee555ac38c44a8dc65f5903b9ae06d4b2314f08ea85ea3",
+      "matches": [
+        "assets/social/film-clips/harness.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/pose.mp4",
+      "bytes": 2451307,
+      "sha256": "b8bc269f30870d426764d7fdccacae6584d3260a30a9dfb996202b50e3d142bd",
+      "matches": [
+        "assets/social/film-clips/pose.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/reason.mp4",
+      "bytes": 584323,
+      "sha256": "a19797aba88b209050852baf78a506642e06dc347c20838d94101045bc0ee319",
+      "matches": [
+        "assets/social/film-clips/reason.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/clips/sprint.mp4",
+      "bytes": 1921127,
+      "sha256": "3414b4e4f9557600807031e89dc9312b2a8653062bbc106493d3822df064cb37",
+      "matches": [
+        "assets/social/film-clips/sprint.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/logo.png",
+      "bytes": 213820,
+      "sha256": "05a09d8c17d59262a0e1babd24f8c12d0131fa7ba5aae52a853556915a5144e9",
+      "matches": [
+        "assets/icon.png"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/originals/astra-cube-loop.en.mp4",
+      "bytes": 1029650,
+      "sha256": "e3a6f993ad8284eab0c53630bfb8396c0d4879e4ab42d9a23b70dce7651109e9",
+      "matches": [
+        "assets/blog/demos/astra-cube-loop.en.mp4",
+        "assets/blog/demos/section_3/astra-cube-loop.en.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/originals/astra_dance.mp4",
+      "bytes": 15536886,
+      "sha256": "70ba85a75d19966dbbd690e6716f378ec02f3b1502e6c7b6dff55c79c772f88f",
+      "matches": [
+        "assets/blog/demos/astra_dance.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/originals/base-showcase-and-shelf-reach-1080p.mp4",
+      "bytes": 4872995,
+      "sha256": "86cf3678e31752e77945242069644ca148d359c9eadb69a71bd1b79d70bd5877",
+      "matches": [
+        "assets/blog/demos/base-showcase-and-shelf-reach-1080p.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/originals/gello-design-showcase-1080p-4x.mp4",
+      "bytes": 1688481,
+      "sha256": "885805ed567c9db0e3831851b8e765c9db04836b822b70b40380aa0737d7ad53",
+      "matches": [
+        "assets/blog/demos/section_3/gello-design-showcase-1080p-4x.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/originals/hidden-center-of-mass-2x.mp4",
+      "bytes": 1057762,
+      "sha256": "b9ac180717a667d16f5636fa490acc154a6dc314d86f340f511bbc05008c0930",
+      "matches": [
+        "assets/blog/demos/hidden-center-of-mass-2x.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/originals/pose-under-occlusion.mp4",
+      "bytes": 1019036,
+      "sha256": "e10442a42988d8771599b7dffbc86c4d20f29dcb450f598d2bd27d5981d64787",
+      "matches": [
+        "assets/blog/demos/pose-under-occlusion.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/originals/stability-failures-panda-only-1080p.mp4",
+      "bytes": 1654727,
+      "sha256": "edf3bee87a845ec8d4e46fc4eb95531f44031c8efef587e80d2857430bb773ff",
+      "matches": [
+        "assets/blog/demos/section_3/stability-failures-panda-only-1080p.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/originals/t04-final-sprint.mp4",
+      "bytes": 745921,
+      "sha256": "1228ef208482bdf03c9b7b59bd14eba89d9c3fa912a8455f4a5d553b337bc8d3",
+      "matches": [
+        "assets/blog/demos/t04-final-sprint.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/originals/task01-6x.mp4",
+      "bytes": 2480001,
+      "sha256": "6660a4f3f7d5a7cf8eff3064bf716b804f3488f0b1dc8507c00978d8226dbd85",
+      "matches": [
+        "assets/blog/demos/task01-6x.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/originals/task02-4x.mp4",
+      "bytes": 2000473,
+      "sha256": "7776486801c7bfd0e872560fb39e0aea85bef3fc6ecf1b70c2b5c4ed7af7a706",
+      "matches": [
+        "assets/blog/demos/task02-4x.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film-Task05-v2/assets/originals/task09-1080p50-10x.mp4",
+      "bytes": 6278461,
+      "sha256": "552f5846b6bc38a4a0e15c78340641d30a87d4c85498f7144729fbf3675b7b85",
+      "matches": [
+        "assets/blog/demos/task09-1080p50-10x.mp4",
+        "assets/social/task09-1080p50-10x.mp4"
+      ]
+    }
+  ],
+  "note": "Supporting source and edit metadata is preserved as supplied. Its assets/originals paths map to film-clips/originals. Check destination fields for repository paths. Archive validation reports are supplied provenance, not new render or decode tests."
+}

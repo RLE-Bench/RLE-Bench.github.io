@@ -1,0 +1,17 @@
+{
+  "archive": "video.zip",
+  "readable_mp4_count": 311,
+  "non_compilation_clip_count": 304,
+  "selection_method": "Visual review of representative task/model storyboards, then candidate take comparison and detailed checks of selected rollouts. This is editorial selection, not a statistical evaluation.",
+  "extraction_warning": "RoboTwin central directory lists 108 Claude-model entries whose local headers/payloads are absent. 47 GPT-6 Astra MP4 files extract normally. Selected RoboTwin footage is from the intact group.",
+  "reviewed_sections": [
+    "LIBERO open design",
+    "LIBERO robustness",
+    "RoboTwin open design"
+  ],
+  "selected_clip_ids": [
+    "t05_libero_open",
+    "t05_libero_robust",
+    "t05_robotwin_lift"
+  ]
+}

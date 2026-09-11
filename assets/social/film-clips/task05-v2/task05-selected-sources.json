@@ -1,0 +1,41 @@
+[
+  {
+    "id": "t05_libero_open",
+    "source_archive": "task0501liberoopendesigngpt6astravideos.zip",
+    "original_relative_path": "assets/originals/task05/01-libero-open-design/gpt-6-astra/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it__0.mp4",
+    "original_filename": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it__0.mp4",
+    "subtask": "01-libero-open-design",
+    "agent_folder": "gpt-6-astra",
+    "width": 640,
+    "height": 480,
+    "source_fps": "10/1",
+    "source_duration_seconds": 10.9,
+    "editorial_rationale": "Visible multi-step stove activation and moka-pot placement; uncluttered framing."
+  },
+  {
+    "id": "t05_libero_robust",
+    "source_archive": "task0502liberorobustnessgpt6astravideos.zip",
+    "original_relative_path": "assets/originals/task05/02-libero-robustness/gpt-6-astra/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it__0.mp4",
+    "original_filename": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it__0.mp4",
+    "subtask": "02-libero-robustness",
+    "agent_folder": "gpt-6-astra",
+    "width": 640,
+    "height": 480,
+    "source_fps": "10/1",
+    "source_duration_seconds": 13.1,
+    "editorial_rationale": "Same task with visible added distractors; selected as a distinct illustrative robustness rollout, not a before/after experiment."
+  },
+  {
+    "id": "t05_robotwin_lift",
+    "source_archive": "task0503robotwinopendesignvideos.zip",
+    "original_relative_path": "assets/originals/task05/03-robotwin-open-design/gpt-6-astra/lift_pot__0.mp4",
+    "original_filename": "lift_pot__0.mp4",
+    "subtask": "03-robotwin-open-design",
+    "agent_folder": "gpt-6-astra",
+    "width": 640,
+    "height": 240,
+    "source_fps": "10/1",
+    "source_duration_seconds": 3.7,
+    "editorial_rationale": "Clear coordinated dual-arm grip and pot lift in 3.7 source seconds; two synchronized views and minimal visual clutter."
+  }
+]

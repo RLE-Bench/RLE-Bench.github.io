@@ -1,0 +1,64 @@
+{
+  "t05_libero_open": {
+    "original": "assets/originals/task05/01-libero-open-design/gpt-6-astra/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it__0.mp4",
+    "original_duration_seconds": 10.9,
+    "start_seconds": 0.6,
+    "duration_seconds": 5.0,
+    "source_playback_multiplier": 2.5,
+    "crop_xywh": null,
+    "output_wh": [
+      824,
+      618
+    ],
+    "end_hold": "Last recorded frame held only to finish the edit; no loop or synthesized action."
+  },
+  "t05_libero_robust": {
+    "original": "assets/originals/task05/02-libero-robustness/gpt-6-astra/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it__0.mp4",
+    "original_duration_seconds": 13.1,
+    "start_seconds": 0.6,
+    "duration_seconds": 5.0,
+    "source_playback_multiplier": 2.5,
+    "crop_xywh": null,
+    "output_wh": [
+      824,
+      618
+    ],
+    "end_hold": "Last recorded frame held only to finish the edit; no loop or synthesized action."
+  },
+  "t05_lift_view1": {
+    "original": "assets/originals/task05/03-robotwin-open-design/gpt-6-astra/lift_pot__0.mp4",
+    "original_duration_seconds": 3.7,
+    "start_seconds": 0,
+    "duration_seconds": 4.0,
+    "source_playback_multiplier": 1.0,
+    "crop_xywh": [
+      0,
+      0,
+      320,
+      240
+    ],
+    "output_wh": [
+      824,
+      618
+    ],
+    "end_hold": "Last recorded frame held only to finish the edit; no loop or synthesized action."
+  },
+  "t05_lift_view2": {
+    "original": "assets/originals/task05/03-robotwin-open-design/gpt-6-astra/lift_pot__0.mp4",
+    "original_duration_seconds": 3.7,
+    "start_seconds": 0,
+    "duration_seconds": 4.0,
+    "source_playback_multiplier": 1.0,
+    "crop_xywh": [
+      320,
+      0,
+      320,
+      240
+    ],
+    "output_wh": [
+      960,
+      720
+    ],
+    "end_hold": "Last recorded frame held only to finish the edit; no loop or synthesized action."
+  }
+}
