@@ -1509,7 +1509,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 <div><span class="level-tag">L2</span><h3>Reusable robotics tools</h3><p>The same observations are supplemented by perception models, coordinate transforms, geometry utilities, and motion primitives.</p></div>
 <div><span class="level-tag">L3</span><h3>Privileged scene state</h3><p>The complete L2 interface is supplemented by task-relevant object and fixture poses and additional simulator state.</p></div>
 </div>
-<figure class="harness-figure figure-card" id="harness-comparison" data-source="../assets/data/leaderboard.json" data-task="task03">
+<figure class="harness-figure figure-card" id="harness-comparison" data-source="../assets/data/leaderboard.json" data-task="task01">
 <div class="figure-top"><span class="figure-label">03 / T01 interface comparison</span><a class="download-link" href="../assets/data/leaderboard.json" download>Data JSON <span aria-hidden="true">↘</span></a></div>
 <div class="harness-panels" hidden></div>
 <div class="harness-fallback"><a aria-label="Enlarge the paper’s harness comparison figure" class="zoom-image paper-chart-image" data-caption="Task success and cost across the three T01 interface levels. This task-specific study includes an additional system beyond the main results table and does not report uncertainty intervals." data-zoom="" href="../assets/blog/harness-comparison.webp"><img alt="Original manuscript chart comparing L1, L2 and L3 harnesses. Success generally rises and cost often falls for several systems, while GPT-6 Astra has high L1 success and no improvement from added scaffolding." decoding="async" height="767" loading="lazy" src="../assets/blog/harness-comparison.webp" width="2034"/></a></div>
@@ -1607,8 +1607,8 @@ const BENCH = {
   /* --- the task families -------------------------------------------------- */
   tasks: [
     {
-      id: "task01",
-      num: "01",
+      id: "task06",
+      num: "06",
       name: "Mobile Base Design",
       short: "Mobile Base Design",
       costShare: 0.06,
@@ -1631,8 +1631,8 @@ const BENCH = {
       notes: "Soft targets: 0.56 m footprint, 60 kg assembled mass, 12 m of profile. Reference chassis measures 33.5 kg submitted base.",
     },
     {
-      id: "task02",
-      num: "02",
+      id: "task07",
+      num: "07",
       name: "Gravity Compensation for Gello",
       short: "Gravity Compensation for Gello",
       costShare: 0.09,
@@ -1655,8 +1655,8 @@ const BENCH = {
       notes: "Transfer test: shared checkpoint weights and reward curves, with absolute bars calibrated per follower.",
     },
     {
-      id: "task03",
-      num: "03",
+      id: "task01",
+      num: "01",
       name: "Agentic Control",
       short: "Agentic Control",
       costShare: 0.22,
@@ -1677,8 +1677,8 @@ const BENCH = {
       notes: "reward = 0.80 × success_rate + 0.20 × success_rate × (1 − dev_steps / budget). No participation credit: an unsealed ledger scores zero.",
     },
     {
-      id: "task04",
-      num: "04",
+      id: "task02",
+      num: "02",
       name: "Harness Engineering",
       short: "Harness Engineering",
       costShare: 0.24,
@@ -1698,8 +1698,8 @@ const BENCH = {
       notes: "The HARD band is doors and enclosed cavities — kept in the suite because a benchmark needs a floor that is known to be uncleared.",
     },
     {
-      id: "task05",
-      num: "05",
+      id: "task08",
+      num: "08",
       name: "Pose Estimation",
       short: "Pose Estimation",
       costShare: 0.07,
@@ -1722,8 +1722,8 @@ const BENCH = {
       notes: "Meshes and canonical assets live in robobench/; the agent's build context is generated, never committed.",
     },
     {
-      id: "task06",
-      num: "06",
+      id: "task09",
+      num: "09",
       name: "Bin Clearing",
       short: "Bin Clearing",
       costShare: 0.11,
@@ -1746,8 +1746,8 @@ const BENCH = {
       notes: "The policy's RNG seed is derived with a verifier-only key, so an evaluation pile cannot be reconstructed.",
     },
     {
-      id: "task08",
-      num: "08",
+      id: "task03",
+      num: "03",
       name: "Embodied Reasoning",
       short: "Embodied Reasoning",
       costShare: 0.12,
@@ -1767,8 +1767,8 @@ const BENCH = {
       notes: "Scores are continuous, not pass/fail — settled tower height, overhang past the edge, weighings used, items surviving the shake.",
     },
     {
-      id: "task09",
-      num: "09",
+      id: "task04",
+      num: "04",
       name: "Whole-Body Motion Tracking",
       short: "Whole-Body Motion Tracking",
       costShare: 0.09,
@@ -1792,56 +1792,56 @@ const BENCH = {
 
   /* --- PLACEHOLDER scores, per split, 0.00–1.00 --------------------------- */
   scores: {
-    task01: {
+    task06: {
       opus5:   [0.78, 0.61, 0.74], sonnet5: [0.71, 0.54, 0.68],
       gpt52:   [0.75, 0.58, 0.71], gemini3: [0.72, 0.56, 0.70],
       glm52:   [0.58, 0.41, 0.55], ds4:     [0.55, 0.38, 0.52],
       qwen3max:[0.60, 0.44, 0.57], kimi25:  [0.49, 0.33, 0.47],
       oracle:  [0.83, 0.58, 0.81],
     },
-    task02: {
+    task07: {
       opus5:   [0.69, 0.64, 0.66], sonnet5: [0.58, 0.53, 0.55],
       gpt52:   [0.72, 0.66, 0.68], gemini3: [0.63, 0.59, 0.60],
       glm52:   [0.44, 0.40, 0.42], ds4:     [0.47, 0.42, 0.44],
       qwen3max:[0.41, 0.37, 0.39], kimi25:  [0.36, 0.31, 0.34],
       oracle:  [0.79, 0.74, 0.76],
     },
-    task03: {
+    task01: {
       opus5:   [0.31, 0.52, 0.68], sonnet5: [0.22, 0.41, 0.57],
       gpt52:   [0.28, 0.49, 0.64], gemini3: [0.26, 0.47, 0.63],
       glm52:   [0.12, 0.27, 0.41], ds4:     [0.15, 0.31, 0.44],
       qwen3max:[0.11, 0.25, 0.38], kimi25:  [0.08, 0.20, 0.33],
       oracle:  [0.40, 0.63, 0.79],
     },
-    task04: {
+    task02: {
       opus5:   [0.54, 0.33, 0.06], sonnet5: [0.42, 0.24, 0.03],
       gpt52:   [0.51, 0.30, 0.05], gemini3: [0.48, 0.29, 0.04],
       glm52:   [0.26, 0.13, 0.01], ds4:     [0.29, 0.15, 0.02],
       qwen3max:[0.24, 0.12, 0.01], kimi25:  [0.19, 0.09, 0.00],
       oracle:  [0.66, 0.44, 0.11],
     },
-    task05: {
+    task08: {
       opus5:   [0.57, 0.74, 0.66, 0.79], sonnet5: [0.48, 0.65, 0.55, 0.69],
       gpt52:   [0.61, 0.77, 0.71, 0.82], gemini3: [0.59, 0.75, 0.68, 0.80],
       glm52:   [0.34, 0.49, 0.41, 0.53], ds4:     [0.38, 0.53, 0.46, 0.58],
       qwen3max:[0.36, 0.51, 0.43, 0.55], kimi25:  [0.28, 0.42, 0.34, 0.46],
       oracle:  [0.68, 0.85, 0.80, 0.88],
     },
-    task06: {
+    task09: {
       opus5:   [0.66, 0.51, 0.34, 0.88], sonnet5: [0.55, 0.42, 0.22, 0.83],
       gpt52:   [0.62, 0.48, 0.29, 0.85], gemini3: [0.59, 0.45, 0.27, 0.86],
       glm52:   [0.37, 0.26, 0.09, 0.72], ds4:     [0.40, 0.29, 0.12, 0.74],
       qwen3max:[0.35, 0.24, 0.08, 0.70], kimi25:  [0.29, 0.19, 0.05, 0.66],
       oracle:  [0.78, 0.63, 0.46, 0.92],
     },
-    task08: {
+    task03: {
       opus5:   [0.62, 0.48, 0.71, 0.55, 0.44], sonnet5: [0.51, 0.38, 0.62, 0.45, 0.35],
       gpt52:   [0.58, 0.51, 0.74, 0.52, 0.40], gemini3: [0.60, 0.46, 0.69, 0.53, 0.42],
       glm52:   [0.33, 0.24, 0.45, 0.29, 0.21], ds4:     [0.36, 0.27, 0.49, 0.32, 0.24],
       qwen3max:[0.31, 0.22, 0.43, 0.28, 0.20], kimi25:  [0.25, 0.17, 0.36, 0.22, 0.15],
       oracle:  [0.74, 0.61, 0.84, 0.68, 0.57],
     },
-    task09: {
+    task04: {
       opus5:   [0.58, 0.21, 0.29, 0.47, 0.38], sonnet5: [0.47, 0.14, 0.21, 0.38, 0.29],
       gpt52:   [0.54, 0.19, 0.26, 0.44, 0.35], gemini3: [0.56, 0.20, 0.27, 0.45, 0.36],
       glm52:   [0.31, 0.07, 0.11, 0.24, 0.17], ds4:     [0.34, 0.09, 0.13, 0.27, 0.19],

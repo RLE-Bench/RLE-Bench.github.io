@@ -44,7 +44,7 @@
     $('#indexGrid').textContent='Results are temporarily unavailable. Serve the site over HTTP so assets/data/leaderboard.json can load, then reload the page.';
     return;
   }
-  const taskOrder=BENCH.presentation?.taskOrder || ['task01','task02','task05','task04','task03','task06','task08','task09'];
+  const taskOrder=BENCH.presentation?.taskOrder || ['task06','task07','task08','task02','task01','task09','task03','task04'];
   const originalOrder=new Map(BENCH.tasks.map((t,i)=>[t.id,i]));
   const tasks=BENCH.tasks.map(t=>({...t,num:BENCH.presentation?.taskNumbers?.[t.id] || t.num})).sort((a,b)=>{
     const ia=taskOrder.indexOf(a.id),ib=taskOrder.indexOf(b.id);
@@ -58,7 +58,7 @@
   const models=BENCH.models.filter(m=>!m.baseline);
   const byId=Object.fromEntries(tasks.map(t=>[t.id,t]));
   const isSample=BENCH.meta.dataStatus!=='measured';
-  const abbreviated = {task01:'Design',task02:'Co-Design',task03:'Control',task04:'Harness',task05:'Pose',task06:'Clearing',task08:'Reasoning',task09:'Tracking',nanovla:'NanoVLA'};
+  const abbreviated = {task06:'Design',task07:'Co-Design',task01:'Control',task02:'Harness',task08:'Pose',task09:'Clearing',task03:'Reasoning',task04:'Tracking',task05:'NanoVLA'};
   const splitValues=(t,m)=>(BENCH.scores[t.id]||{})[m.id]||[];
   const familyScore=(t,m)=>{
     // The exported task score (mean verifier reward, gates included) wins; split aggregation is the fallback.
@@ -116,10 +116,10 @@
 
   // Original task-color identities, keyed by task ID instead of display position.
   const taskHues={
-    light:{task01:'#2a78d6',task02:'#eb6834',task03:'#1baf7a',task04:'#eda100',task05:'#e87ba4',task06:'#008300',task08:'#4a3aa7',task09:'#e34948'},
-    dark:{task01:'#3987e5',task02:'#d95926',task03:'#199e70',task04:'#c98500',task05:'#d55181',task06:'#008300',task08:'#9085e9',task09:'#e66767'}
+    light:{task06:'#2a78d6',task07:'#eb6834',task01:'#1baf7a',task02:'#eda100',task08:'#e87ba4',task09:'#008300',task03:'#4a3aa7',task04:'#e34948'},
+    dark:{task06:'#3987e5',task07:'#d95926',task01:'#199e70',task02:'#c98500',task08:'#d55181',task09:'#008300',task03:'#9085e9',task04:'#e66767'}
   };
-  const taskHue=t=>taskHues[theme()][t.id]||taskHues[theme()].task01;
+  const taskHue=t=>taskHues[theme()][t.id]||taskHues[theme()].task06;
   function classicHeat(t,v){
     const value=Math.max(0,Math.min(1,v)),hue=taskHue(t),dark=theme()==='dark',pivot=.62;
     return value<=pivot?blend(dark?'#1a1a19':'#fcfcfb',hue,(dark?.24:.10)+(dark?.76:.90)*(value/pivot))

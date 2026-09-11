@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
   "status": "measured",
-  "generated_at": "2026-09-11T02:53:09Z",
+  "generated_at": "2026-09-11T03:06:27Z",
   "generator": "assets/data/export.py",
   "source": {
-    "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId]: cost = API cost in USD summed over the task's subtask runs, hours = median agent wall-clock hours per run, input/cached/output tokens = sums over runs; Context Length on the homepage is input_tokens minus cached_tokens. Missing API cost or token counts stay null. Task ids are the legacy result ids used by data.js; tasks[taskId].public is the public number.",
+    "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId]: cost = API cost in USD summed over the task's subtask runs, hours = median agent wall-clock hours per run, input/cached/output tokens = sums over runs; Context Length on the homepage is input_tokens minus cached_tokens. Missing API cost or token counts stay null. Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc.",
     "options": {
       "allow_partial": false,
       "completed_only": false,
@@ -12,30 +12,44 @@
       "compact": false
     },
     "files": {
-      "task03": {
+      "task01": {
         "file": "task01.json",
         "root": "jobs/task01",
         "schema_version": 1,
         "runs": 120,
         "runs_skipped": 0
       },
-      "task04": {
+      "task02": {
         "file": "task02.json",
         "root": "jobs/task02",
         "schema_version": 1,
         "runs": 105,
         "runs_skipped": 0
       },
-      "task09": {
+      "task04": {
         "file": "task04.json",
         "root": "jobs/task04",
         "schema_version": 1,
         "runs": 40,
         "runs_skipped": 0
       },
-      "task01": {
+      "task05": {
+        "file": "task05.json",
+        "root": "jobs/task05",
+        "schema_version": 1,
+        "runs": 30,
+        "runs_skipped": 0
+      },
+      "task06": {
         "file": "task06.json",
-        "root": "jobs/task06-v100-cleanup",
+        "root": "jobs/task06",
+        "schema_version": 1,
+        "runs": 8,
+        "runs_skipped": 0
+      },
+      "task09": {
+        "file": "task09.json",
+        "root": "jobs/task09",
         "schema_version": 1,
         "runs": 8,
         "runs_skipped": 0
@@ -51,10 +65,12 @@
       "open": false,
       "harness": "Codex",
       "tasks": [
-        "task03",
+        "task01",
+        "task02",
         "task04",
-        "task09",
-        "task01"
+        "task05",
+        "task06",
+        "task09"
       ]
     },
     {
@@ -65,10 +81,12 @@
       "open": false,
       "harness": "Claude Code",
       "tasks": [
-        "task03",
+        "task01",
+        "task02",
         "task04",
-        "task09",
-        "task01"
+        "task05",
+        "task06",
+        "task09"
       ]
     },
     {
@@ -79,10 +97,12 @@
       "open": false,
       "harness": "Codex",
       "tasks": [
-        "task03",
+        "task01",
+        "task02",
         "task04",
-        "task09",
-        "task01"
+        "task05",
+        "task06",
+        "task09"
       ]
     },
     {
@@ -93,23 +113,12 @@
       "open": true,
       "harness": "Claude Code",
       "tasks": [
-        "task03",
+        "task01",
+        "task02",
         "task04",
-        "task09",
-        "task01"
-      ]
-    },
-    {
-      "id": "gemini37flash",
-      "name": "Gemini 3.7 Flash",
-      "short": "Gemini 3.7",
-      "org": "Google",
-      "open": false,
-      "harness": "Antigravity CLI",
-      "tasks": [
-        "task03",
-        "task09",
-        "task01"
+        "task05",
+        "task06",
+        "task09"
       ]
     },
     {
@@ -120,10 +129,12 @@
       "open": false,
       "harness": "Codex",
       "tasks": [
-        "task03",
+        "task01",
+        "task02",
         "task04",
-        "task09",
-        "task01"
+        "task05",
+        "task06",
+        "task09"
       ]
     },
     {
@@ -134,10 +145,26 @@
       "open": false,
       "harness": "Claude Code",
       "tasks": [
-        "task03",
+        "task01",
+        "task02",
         "task04",
-        "task09",
-        "task01"
+        "task05",
+        "task06",
+        "task09"
+      ]
+    },
+    {
+      "id": "gemini37flash",
+      "name": "Gemini 3.7 Flash",
+      "short": "Gemini 3.7",
+      "org": "Google",
+      "open": false,
+      "harness": "Antigravity CLI",
+      "tasks": [
+        "task01",
+        "task04",
+        "task06",
+        "task09"
       ]
     },
     {
@@ -148,16 +175,18 @@
       "open": false,
       "harness": "Codex",
       "tasks": [
-        "task03",
+        "task01",
+        "task02",
         "task04",
-        "task09",
-        "task01"
+        "task05",
+        "task06",
+        "task09"
       ]
     }
   ],
   "tasks": {
-    "task03": {
-      "id": "task03",
+    "task01": {
+      "id": "task01",
       "public": "T01",
       "number": "01",
       "name": "Agentic Control",
@@ -308,8 +337,8 @@
         "opus5"
       ]
     },
-    "task04": {
-      "id": "task04",
+    "task02": {
+      "id": "task02",
       "public": "T02",
       "number": "02",
       "name": "Harness Engineering",
@@ -459,8 +488,8 @@
         "opus5"
       ]
     },
-    "task09": {
-      "id": "task09",
+    "task04": {
+      "id": "task04",
       "public": "T04",
       "number": "04",
       "name": "Whole-Body Motion Tracking",
@@ -543,13 +572,86 @@
         "opus5"
       ]
     },
-    "task01": {
-      "id": "task01",
+    "task05": {
+      "id": "task05",
+      "public": "T05",
+      "number": "05",
+      "name": "NanoVLA Recipe",
+      "file": "task05.json",
+      "root": "jobs/task05",
+      "score_metric": "reward",
+      "score_note": "reward = hidden-set success rate of the trained policy (500 LIBERO-10 or 300 RoboTwin episodes); task score is the mean over four tracks.",
+      "aggregate": "mean",
+      "splitLabel": "Track",
+      "splits": [
+        {
+          "id": "01-libero-open-design",
+          "label": "LIBERO · open design",
+          "subtasks": [
+            "01-libero-open-design"
+          ]
+        },
+        {
+          "id": "02-libero-robustness",
+          "label": "LIBERO · robustness",
+          "subtasks": [
+            "02-libero-robustness"
+          ]
+        },
+        {
+          "id": "03-robotwin-open-design",
+          "label": "RoboTwin · open design",
+          "subtasks": [
+            "03-robotwin-open-design"
+          ]
+        },
+        {
+          "id": "04-robotwin-robustness",
+          "label": "RoboTwin · robustness",
+          "subtasks": [
+            "04-robotwin-robustness"
+          ]
+        }
+      ],
+      "weights": null,
+      "subtasks": [
+        {
+          "id": "01-libero-open-design",
+          "label": "LIBERO · open design"
+        },
+        {
+          "id": "02-libero-robustness",
+          "label": "LIBERO · robustness"
+        },
+        {
+          "id": "03-robotwin-open-design",
+          "label": "RoboTwin · open design"
+        },
+        {
+          "id": "04-robotwin-robustness",
+          "label": "RoboTwin · robustness"
+        }
+      ],
+      "n_runs": 30,
+      "n_runs_skipped": 0,
+      "models": [
+        "gemini37flash",
+        "glm53flash",
+        "gpt56luna",
+        "gpt56sol",
+        "gpt56terra",
+        "gpt6astra",
+        "opus48",
+        "opus5"
+      ]
+    },
+    "task06": {
+      "id": "task06",
       "public": "T06",
       "number": "06",
       "name": "Mobile Base Design",
       "file": "task06.json",
-      "root": "jobs/task06-v100-cleanup",
+      "root": "jobs/task06",
       "score_metric": "reward",
       "score_note": "reward = sum of weighted stage checkpoints, each the minimum over the Panda, UR5e and xArm7 arms; a failed gate caps the reward at 0.15. Split values are stage credit divided by stage weight.",
       "aggregate": "weighted",
@@ -611,10 +713,58 @@
         "opus48",
         "opus5"
       ]
+    },
+    "task09": {
+      "id": "task09",
+      "public": "T09",
+      "number": "09",
+      "name": "Bin Clearing",
+      "file": "task09.json",
+      "root": "jobs/task09",
+      "score_metric": "reward",
+      "score_note": "episode = 0.3 × perfect + 0.35 × clear_curve(clear_frac) + 0.2 × min(tp/10, 1) + 0.15 × perfect × min(tp/15, 1) − 0.03 × floor_drops − 0.05 × damage − 0.05 × bin_hits, mean over eight hidden episodes; a failed gate caps it at 0.1. Split values are the episode-mean clearance fraction and speed merit.",
+      "aggregate": "weighted",
+      "splitLabel": "Reward Component",
+      "splits": [
+        {
+          "id": "clearance",
+          "label": "Clearance (fraction of bin cleared)",
+          "metric": "clear_frac",
+          "weight": 1.0
+        },
+        {
+          "id": "throughput",
+          "label": "Throughput (speed merit)",
+          "metric": "speed_merit",
+          "weight": 1.0
+        }
+      ],
+      "weights": [
+        1.0,
+        1.0
+      ],
+      "subtasks": [
+        {
+          "id": "bin-clearing",
+          "label": "Bin clearing"
+        }
+      ],
+      "n_runs": 8,
+      "n_runs_skipped": 0,
+      "models": [
+        "gemini37flash",
+        "glm53flash",
+        "gpt56luna",
+        "gpt56sol",
+        "gpt56terra",
+        "gpt6astra",
+        "opus48",
+        "opus5"
+      ]
     }
   },
   "scores": {
-    "task03": {
+    "task01": {
       "gpt6astra": [
         0.908218,
         0.779514,
@@ -656,7 +806,7 @@
         0.078679
       ]
     },
-    "task04": {
+    "task02": {
       "gpt6astra": [
         0.98,
         0.94,
@@ -693,7 +843,7 @@
         0.04
       ]
     },
-    "task09": {
+    "task04": {
       "gemini37flash": [
         0.3023,
         0.4766,
@@ -751,7 +901,57 @@
         0.261
       ]
     },
-    "task01": {
+    "task05": {
+      "opus5": [
+        0.898,
+        0.61,
+        0.74,
+        0.373333
+      ],
+      "opus48": [
+        0.8,
+        0.734,
+        0.686667,
+        0.08
+      ],
+      "gpt6astra": [
+        0.868,
+        0.822,
+        0.673333,
+        0.275556
+      ],
+      "gpt56sol": [
+        0.818,
+        0.804,
+        0.61,
+        0.182222
+      ],
+      "gpt56terra": [
+        0.512,
+        0.168,
+        0.436667,
+        0.04
+      ],
+      "gpt56luna": [
+        0.436,
+        0.1,
+        0.1101,
+        0.0
+      ],
+      "glm53flash": [
+        0.854,
+        0.778,
+        0.333333,
+        0.053333
+      ],
+      "gemini37flash": [
+        null,
+        null,
+        0.61,
+        0.066667
+      ]
+    },
+    "task06": {
       "gemini37flash": [
         0.85,
         0.595714,
@@ -808,10 +1008,44 @@
         0.564,
         0.916667
       ]
+    },
+    "task09": {
+      "gemini37flash": [
+        0.2732,
+        0.2205
+      ],
+      "opus48": [
+        0.5274,
+        0.2533
+      ],
+      "opus5": [
+        0.7869,
+        0.41
+      ],
+      "glm53flash": [
+        0.0,
+        0.0
+      ],
+      "gpt56luna": [
+        0.907,
+        0.4667
+      ],
+      "gpt56sol": [
+        0.9669,
+        0.5483
+      ],
+      "gpt56terra": [
+        0.2933,
+        0.1637
+      ],
+      "gpt6astra": [
+        1.0,
+        0.5991
+      ]
     }
   },
   "costs": {
-    "task03": {
+    "task01": {
       "gpt6astra": {
         "cost": 617.022564,
         "cost_mean": 41.134838,
@@ -901,7 +1135,7 @@
         "n_subtasks": 15
       }
     },
-    "task04": {
+    "task02": {
       "gpt6astra": {
         "cost": 2697.34547,
         "cost_mean": 179.823031,
@@ -980,7 +1214,7 @@
         "n_subtasks": 15
       }
     },
-    "task09": {
+    "task04": {
       "gemini37flash": {
         "cost": null,
         "cost_mean": null,
@@ -1070,7 +1304,97 @@
         "n_subtasks": 5
       }
     },
-    "task01": {
+    "task05": {
+      "opus5": {
+        "cost": 26.485568,
+        "cost_mean": 6.621392,
+        "hours": 4.3501,
+        "hours_total": null,
+        "input_tokens": 27635328,
+        "cached_tokens": 27140536,
+        "output_tokens": 318818,
+        "n_runs": 4,
+        "n_subtasks": 4
+      },
+      "opus48": {
+        "cost": 32.429073,
+        "cost_mean": 8.107268,
+        "hours": 3.8691,
+        "hours_total": null,
+        "input_tokens": 38506150,
+        "cached_tokens": 38010295,
+        "output_tokens": 338787,
+        "n_runs": 4,
+        "n_subtasks": 4
+      },
+      "gpt6astra": {
+        "cost": 173.285374,
+        "cost_mean": 43.321343,
+        "hours": 5.0375,
+        "hours_total": null,
+        "input_tokens": 107469056,
+        "cached_tokens": 105028864,
+        "output_tokens": 868282,
+        "n_runs": 4,
+        "n_subtasks": 4
+      },
+      "gpt56sol": {
+        "cost": 57.45455,
+        "cost_mean": 14.363637,
+        "hours": 3.2434,
+        "hours_total": null,
+        "input_tokens": 121647085,
+        "cached_tokens": 120472064,
+        "output_tokens": 228282,
+        "n_runs": 4,
+        "n_subtasks": 4
+      },
+      "gpt56terra": {
+        "cost": 4.358981,
+        "cost_mean": 1.089745,
+        "hours": 1.9861,
+        "hours_total": 7.7519,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
+        "n_runs": 4,
+        "n_subtasks": 4
+      },
+      "gpt56luna": {
+        "cost": 1.669528,
+        "cost_mean": 0.417382,
+        "hours": 1.6941,
+        "hours_total": null,
+        "input_tokens": 63034264,
+        "cached_tokens": 61828224,
+        "output_tokens": 159796,
+        "n_runs": 4,
+        "n_subtasks": 4
+      },
+      "glm53flash": {
+        "cost": 2.462283,
+        "cost_mean": 0.615571,
+        "hours": 2.3215,
+        "hours_total": 9.3502,
+        "input_tokens": 65967094,
+        "cached_tokens": 64494720,
+        "output_tokens": 613170,
+        "n_runs": 4,
+        "n_subtasks": 4
+      },
+      "gemini37flash": {
+        "cost": null,
+        "cost_mean": null,
+        "hours": 4.6511,
+        "hours_total": null,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
+        "n_runs": 2,
+        "n_subtasks": 4
+      }
+    },
+    "task06": {
       "gemini37flash": {
         "cost": null,
         "cost_mean": null,
@@ -1159,10 +1483,100 @@
         "n_runs": 1,
         "n_subtasks": 1
       }
+    },
+    "task09": {
+      "gemini37flash": {
+        "cost": null,
+        "cost_mean": null,
+        "hours": 5.097,
+        "hours_total": 5.097,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "opus48": {
+        "cost": 34.177156,
+        "cost_mean": 34.177156,
+        "hours": 4.2304,
+        "hours_total": 4.2304,
+        "input_tokens": 52147120,
+        "cached_tokens": 51822162,
+        "output_tokens": 200765,
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "opus5": {
+        "cost": 12.11349,
+        "cost_mean": 12.11349,
+        "hours": 2.9814,
+        "hours_total": 2.9814,
+        "input_tokens": 14209513,
+        "cached_tokens": 13991639,
+        "output_tokens": 117598,
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "glm53flash": {
+        "cost": null,
+        "cost_mean": null,
+        "hours": 5.1471,
+        "hours_total": 5.1471,
+        "input_tokens": 11195662,
+        "cached_tokens": 10789184,
+        "output_tokens": 166015,
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "gpt56luna": {
+        "cost": 0.426678,
+        "cost_mean": 0.426678,
+        "hours": 2.281,
+        "hours_total": 2.281,
+        "input_tokens": 15932031,
+        "cached_tokens": 15697408,
+        "output_tokens": 54838,
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "gpt56sol": {
+        "cost": 17.911936,
+        "cost_mean": 17.911936,
+        "hours": 3.7507,
+        "hours_total": 3.7507,
+        "input_tokens": 38228491,
+        "cached_tokens": 37908480,
+        "output_tokens": 73425,
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "gpt56terra": {
+        "cost": 2.022428,
+        "cost_mean": 2.022428,
+        "hours": 1.9056,
+        "hours_total": 1.9056,
+        "input_tokens": 6896398,
+        "cached_tokens": 6745600,
+        "output_tokens": 30976,
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "gpt6astra": {
+        "cost": 34.496174,
+        "cost_mean": 34.496174,
+        "hours": 2.2734,
+        "hours_total": 2.2734,
+        "input_tokens": 24106918,
+        "cached_tokens": 23577984,
+        "output_tokens": 112577,
+        "n_runs": 1,
+        "n_subtasks": 1
+      }
     }
   },
   "results": {
-    "task03": {
+    "task01": {
       "gpt6astra": {
         "score": 0.805234,
         "complete": true,
@@ -4620,7 +5034,7 @@
         }
       }
     },
-    "task04": {
+    "task02": {
       "gpt6astra": {
         "score": 0.862222,
         "complete": true,
@@ -8066,7 +8480,7 @@
         }
       }
     },
-    "task09": {
+    "task04": {
       "gemini37flash": {
         "score": 0.28858,
         "complete": true,
@@ -9924,7 +10338,1110 @@
         }
       }
     },
-    "task01": {
+    "task05": {
+      "opus5": {
+        "score": 0.655333,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-libero-open-design": {
+            "score": 0.898,
+            "reward": 0.898,
+            "success_rate": 0.898,
+            "cost_usd": 6.811493,
+            "cost_usd_mean": 6.811493,
+            "hours_median": 4.4614,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-libero-robustness": {
+            "score": 0.61,
+            "reward": 0.61,
+            "success_rate": 0.61,
+            "cost_usd": 6.610362,
+            "cost_usd_mean": 6.610362,
+            "hours_median": 4.3501,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-robotwin-open-design": {
+            "score": 0.74,
+            "reward": 0.74,
+            "success_rate": 0.74,
+            "cost_usd": 5.169189,
+            "cost_usd_mean": 5.169189,
+            "hours_median": 3.7654,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.373333,
+            "reward": 0.373333,
+            "success_rate": 0.373333,
+            "cost_usd": 7.894525,
+            "cost_usd_mean": 7.894525,
+            "hours_median": null,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.898,
+            "success_rate": 0.898,
+            "cost_usd": 6.811493,
+            "hours": 4.4614,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "claude-opus-5",
+            "job": "task03/t4-open-init/claude-code/claude-opus-5",
+            "started_at": "2026-09-09T05:04:50.802234Z",
+            "finished_at": "2026-09-09T09:32:31.958279Z",
+            "input_tokens": 6483650,
+            "cached_tokens": 6352795,
+            "output_tokens": 93091,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 220974642.0,
+              "replay_wall_s": 1703.787488,
+              "reward": 0.898,
+              "success_rate": 0.898
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.61,
+            "success_rate": 0.61,
+            "cost_usd": 6.610362,
+            "hours": 4.3501,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "claude-opus-5",
+            "job": "task03/t5-robustness/claude-code/claude-opus-5",
+            "started_at": "2026-09-09T07:22:58.237613Z",
+            "finished_at": "2026-09-09T11:43:58.736749Z",
+            "input_tokens": 7182460,
+            "cached_tokens": 7055903,
+            "output_tokens": 72704,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 44364588.0,
+              "replay_wall_s": 1392.192896,
+              "reward": 0.61,
+              "plus_success_rate": 0.61
+            }
+          },
+          "03-robotwin-open-design": {
+            "reward": 0.74,
+            "success_rate": 0.74,
+            "cost_usd": 5.169189,
+            "hours": 3.7654,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "claude-opus-5",
+            "job": "task03/t6-robotwin-open/claude-code/claude-opus-5",
+            "started_at": "2026-09-09T20:04:03.858416Z",
+            "finished_at": "2026-09-09T23:49:59.217018Z",
+            "input_tokens": 5586781,
+            "cached_tokens": 5492308,
+            "output_tokens": 59161,
+            "metrics": {
+              "episodes": 300.0,
+              "parameters": 109994510.0,
+              "replay_wall_s": 1723.976188,
+              "reward": 0.74,
+              "success_rate": 0.74
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.373333,
+            "success_rate": 0.373333,
+            "cost_usd": 7.894525,
+            "hours": null,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "claude-opus-5",
+            "job": "task03/t7-robotwin-robust/claude-code/claude-opus-5",
+            "started_at": null,
+            "finished_at": null,
+            "input_tokens": 8382437,
+            "cached_tokens": 8239530,
+            "output_tokens": 93862,
+            "metrics": {
+              "episodes": 225.0,
+              "reward": 0.373333,
+              "success_rate": 0.373333
+            }
+          }
+        }
+      },
+      "opus48": {
+        "score": 0.575167,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-libero-open-design": {
+            "score": 0.8,
+            "reward": 0.8,
+            "success_rate": 0.8,
+            "cost_usd": 11.217937,
+            "cost_usd_mean": 11.217937,
+            "hours_median": 2.9123,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-libero-robustness": {
+            "score": 0.734,
+            "reward": 0.734,
+            "success_rate": 0.734,
+            "cost_usd": 9.290972,
+            "cost_usd_mean": 9.290972,
+            "hours_median": 3.8691,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-robotwin-open-design": {
+            "score": 0.686667,
+            "reward": 0.686667,
+            "success_rate": 0.686667,
+            "cost_usd": 5.288716,
+            "cost_usd_mean": 5.288716,
+            "hours_median": 3.8919,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.08,
+            "reward": 0.08,
+            "success_rate": 0.08,
+            "cost_usd": 6.631448,
+            "cost_usd_mean": 6.631448,
+            "hours_median": null,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.8,
+            "success_rate": 0.8,
+            "cost_usd": 11.217937,
+            "hours": 2.9123,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "claude-opus-4-8",
+            "job": "task03/t4-open-init/claude-code/claude-opus-4-8",
+            "started_at": "2026-09-09T05:06:20.837099Z",
+            "finished_at": "2026-09-09T08:01:05.179025Z",
+            "input_tokens": 13961330,
+            "cached_tokens": 13806043,
+            "output_tokens": 110541,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 20414983.0,
+              "replay_wall_s": 538.70983,
+              "reward": 0.8,
+              "success_rate": 0.8
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.734,
+            "success_rate": 0.734,
+            "cost_usd": 9.290972,
+            "hours": 3.8691,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "claude-opus-4-8",
+            "job": "task03/t5-robustness/claude-code/claude-opus-4-8",
+            "started_at": "2026-09-09T08:01:28.780393Z",
+            "finished_at": "2026-09-09T11:53:37.555785Z",
+            "input_tokens": 11128084,
+            "cached_tokens": 10991543,
+            "output_tokens": 97236,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 38871589.0,
+              "replay_wall_s": 1613.712019,
+              "reward": 0.734,
+              "plus_success_rate": 0.734
+            }
+          },
+          "03-robotwin-open-design": {
+            "reward": 0.686667,
+            "success_rate": 0.686667,
+            "cost_usd": 5.288716,
+            "hours": 3.8919,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "claude-opus-4-8",
+            "job": "task03/t6-robotwin-open/claude-code/claude-opus-4-8",
+            "started_at": "2026-09-09T21:17:46.984361Z",
+            "finished_at": "2026-09-10T01:11:17.829611Z",
+            "input_tokens": 5983884,
+            "cached_tokens": 5892452,
+            "output_tokens": 57160,
+            "metrics": {
+              "episodes": 300.0,
+              "parameters": 8282186.0,
+              "replay_wall_s": 1620.270343,
+              "reward": 0.686667,
+              "success_rate": 0.686667
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.08,
+            "success_rate": 0.08,
+            "cost_usd": 6.631448,
+            "hours": null,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "claude-opus-4-8",
+            "job": "task03/t7-robotwin-robust/claude-code/claude-opus-4-8",
+            "started_at": null,
+            "finished_at": null,
+            "input_tokens": 7432852,
+            "cached_tokens": 7320257,
+            "output_tokens": 73850,
+            "metrics": {
+              "episodes": 225.0,
+              "parameters": 14380046.0,
+              "reward": 0.08,
+              "success_rate": 0.08
+            }
+          }
+        }
+      },
+      "gpt6astra": {
+        "score": 0.659722,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "01-libero-open-design": {
+            "score": 0.868,
+            "reward": 0.868,
+            "success_rate": 0.868,
+            "cost_usd": 38.194088,
+            "cost_usd_mean": 38.194088,
+            "hours_median": 4.2535,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-libero-robustness": {
+            "score": 0.822,
+            "reward": 0.822,
+            "success_rate": 0.822,
+            "cost_usd": 41.560816,
+            "cost_usd_mean": 41.560816,
+            "hours_median": 5.0375,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-robotwin-open-design": {
+            "score": 0.673333,
+            "reward": 0.673333,
+            "success_rate": 0.673333,
+            "cost_usd": 44.014004,
+            "cost_usd_mean": 44.014004,
+            "hours_median": 5.9983,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.275556,
+            "reward": 0.275556,
+            "success_rate": 0.275556,
+            "cost_usd": 49.516466,
+            "cost_usd_mean": 49.516466,
+            "hours_median": null,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.868,
+            "success_rate": 0.868,
+            "cost_usd": 38.194088,
+            "hours": 4.2535,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-6-astra",
+            "job": "task03/t4-open-init/codex/gpt-6-astra",
+            "started_at": "2026-09-10T02:55:38.142220Z",
+            "finished_at": "2026-09-10T07:10:50.586282Z",
+            "input_tokens": 23307567,
+            "cached_tokens": 22760448,
+            "output_tokens": 199249,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 68820814.0,
+              "replay_wall_s": 653.162445,
+              "reward": 0.868,
+              "success_rate": 0.868
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.822,
+            "success_rate": 0.822,
+            "cost_usd": 41.560816,
+            "hours": 5.0375,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-6-astra",
+            "job": "task03/t5-robustness/codex/gpt-6-astra",
+            "started_at": "2026-09-10T07:11:07.483928Z",
+            "finished_at": "2026-09-10T12:13:22.471518Z",
+            "input_tokens": 24034174,
+            "cached_tokens": 23393408,
+            "output_tokens": 233238,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 16587699.0,
+              "replay_wall_s": 1636.880314,
+              "reward": 0.822,
+              "plus_success_rate": 0.822
+            }
+          },
+          "03-robotwin-open-design": {
+            "reward": 0.673333,
+            "success_rate": 0.673333,
+            "cost_usd": 44.014004,
+            "hours": 5.9983,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-6-astra",
+            "job": "task03/t6-robotwin-open/codex/gpt-6-astra",
+            "started_at": "2026-09-10T02:36:05.117032Z",
+            "finished_at": "2026-09-10T08:35:58.838938Z",
+            "input_tokens": 28518133,
+            "cached_tokens": 27899264,
+            "output_tokens": 198521,
+            "metrics": {
+              "episodes": 300.0,
+              "parameters": 64432188.0,
+              "replay_wall_s": 752.847138,
+              "reward": 0.673333,
+              "success_rate": 0.673333
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.275556,
+            "success_rate": 0.275556,
+            "cost_usd": 49.516466,
+            "hours": null,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-6-astra",
+            "job": "task03/t7-robotwin-robust/codex/gpt-6-astra",
+            "started_at": null,
+            "finished_at": null,
+            "input_tokens": 31609182,
+            "cached_tokens": 30975744,
+            "output_tokens": 237274,
+            "metrics": {
+              "episodes": 225.0,
+              "parameters": 4823520.0,
+              "reward": 0.275556,
+              "success_rate": 0.275556
+            }
+          }
+        }
+      },
+      "gpt56sol": {
+        "score": 0.603556,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "01-libero-open-design": {
+            "score": 0.818,
+            "reward": 0.818,
+            "success_rate": 0.818,
+            "cost_usd": 9.611515,
+            "cost_usd_mean": 9.611515,
+            "hours_median": 2.9274,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-libero-robustness": {
+            "score": 0.804,
+            "reward": 0.804,
+            "success_rate": 0.804,
+            "cost_usd": 10.184087,
+            "cost_usd_mean": 10.184087,
+            "hours_median": 3.2434,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-robotwin-open-design": {
+            "score": 0.61,
+            "reward": 0.61,
+            "success_rate": 0.61,
+            "cost_usd": 21.482207,
+            "cost_usd_mean": 21.482207,
+            "hours_median": 5.2984,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.182222,
+            "reward": 0.182222,
+            "success_rate": 0.182222,
+            "cost_usd": 16.17674,
+            "cost_usd_mean": 16.17674,
+            "hours_median": null,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.818,
+            "success_rate": 0.818,
+            "cost_usd": 9.611515,
+            "hours": 2.9274,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-5.6-sol",
+            "job": "task03/t4-open-init/codex/gpt-5.6-sol",
+            "started_at": "2026-09-09T05:04:50.806199Z",
+            "finished_at": "2026-09-09T08:00:29.454030Z",
+            "input_tokens": 19454081,
+            "cached_tokens": 19179008,
+            "output_tokens": 41981,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 46074645.0,
+              "replay_wall_s": 907.709826,
+              "reward": 0.818,
+              "success_rate": 0.818
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.804,
+            "success_rate": 0.804,
+            "cost_usd": 10.184087,
+            "hours": 3.2434,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-5.6-sol",
+            "job": "task03/t5-robustness/codex/gpt-5.6-sol",
+            "started_at": "2026-09-09T07:12:29.020405Z",
+            "finished_at": "2026-09-09T10:27:05.150385Z",
+            "input_tokens": 21264958,
+            "cached_tokens": 21031168,
+            "output_tokens": 41823,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 8018695.0,
+              "replay_wall_s": 1233.375016,
+              "reward": 0.804,
+              "plus_success_rate": 0.804
+            }
+          },
+          "03-robotwin-open-design": {
+            "reward": 0.61,
+            "success_rate": 0.61,
+            "cost_usd": 21.482207,
+            "hours": 5.2984,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-5.6-sol",
+            "job": "task03/t6-robotwin-open/codex/gpt-5.6-sol",
+            "started_at": "2026-09-10T15:50:09.666078Z",
+            "finished_at": "2026-09-10T21:08:04.067749Z",
+            "input_tokens": 46221427,
+            "cached_tokens": 45817728,
+            "output_tokens": 77016,
+            "metrics": {
+              "episodes": 300.0,
+              "parameters": 13173212.0,
+              "replay_wall_s": 938.613833,
+              "reward": 0.61,
+              "success_rate": 0.61
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.182222,
+            "success_rate": 0.182222,
+            "cost_usd": 16.17674,
+            "hours": null,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-5.6-sol",
+            "job": "task03/t7-robotwin-robust/codex/gpt-5.6-sol",
+            "started_at": null,
+            "finished_at": null,
+            "input_tokens": 34706619,
+            "cached_tokens": 34444160,
+            "output_tokens": 67462,
+            "metrics": {
+              "episodes": 225.0,
+              "parameters": 225728361.0,
+              "reward": 0.182222,
+              "success_rate": 0.182222
+            }
+          }
+        }
+      },
+      "gpt56terra": {
+        "score": 0.289167,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "01-libero-open-design": {
+            "score": 0.512,
+            "reward": 0.512,
+            "success_rate": 0.512,
+            "cost_usd": 1.803484,
+            "cost_usd_mean": 1.803484,
+            "hours_median": 1.3347,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-libero-robustness": {
+            "score": 0.168,
+            "reward": 0.168,
+            "success_rate": 0.168,
+            "cost_usd": 0.874519,
+            "cost_usd_mean": 0.874519,
+            "hours_median": 1.1204,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-robotwin-open-design": {
+            "score": 0.436667,
+            "reward": 0.436667,
+            "success_rate": 0.436667,
+            "cost_usd": 0.840978,
+            "cost_usd_mean": 0.840978,
+            "hours_median": 2.6594,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.04,
+            "reward": 0.04,
+            "success_rate": 0.04,
+            "cost_usd": 0.84,
+            "cost_usd_mean": 0.84,
+            "hours_median": 2.6374,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.512,
+            "success_rate": 0.512,
+            "cost_usd": 1.803484,
+            "hours": 1.3347,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-5.6-terra",
+            "job": "task03/t4-open-init/codex/gpt-5.6-terra",
+            "started_at": "2026-09-09T05:51:58.063618Z",
+            "finished_at": "2026-09-09T07:12:03.038226Z",
+            "input_tokens": 5890465,
+            "cached_tokens": 5699072,
+            "output_tokens": 23407,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 4936008.0,
+              "replay_wall_s": 208.546261,
+              "reward": 0.512,
+              "success_rate": 0.512
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.168,
+            "success_rate": 0.168,
+            "cost_usd": 0.874519,
+            "hours": 1.1204,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-5.6-terra",
+            "job": "task03/t5-robustness/codex/gpt-5.6-terra",
+            "started_at": "2026-09-09T08:53:59.773731Z",
+            "finished_at": "2026-09-09T10:01:13.168190Z",
+            "input_tokens": 2423724,
+            "cached_tokens": 2314496,
+            "output_tokens": 16097,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 1368636.0,
+              "replay_wall_s": 63.605147,
+              "reward": 0.168,
+              "plus_success_rate": 0.168
+            }
+          },
+          "03-robotwin-open-design": {
+            "reward": 0.436667,
+            "success_rate": 0.436667,
+            "cost_usd": 0.840978,
+            "hours": 2.6594,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-5.6-terra",
+            "job": "task03/t6-robotwin-open/codex/gpt-5.6-terra",
+            "started_at": "2026-09-10T02:38:35.999936Z",
+            "finished_at": "2026-09-10T05:18:09.820388Z",
+            "input_tokens": 2451376,
+            "cached_tokens": 2364928,
+            "output_tokens": 16258,
+            "metrics": {
+              "episodes": 300.0,
+              "parameters": 5407483.0,
+              "replay_wall_s": 89.245673,
+              "reward": 0.436667,
+              "success_rate": 0.436667
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.04,
+            "success_rate": 0.04,
+            "cost_usd": 0.84,
+            "hours": 2.6374,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-5.6-terra",
+            "job": "task03/t7-robotwin-robust/codex/gpt-5.6-terra",
+            "started_at": "2026-09-10T20:10:40.578631Z",
+            "finished_at": "2026-09-10T22:48:55.256180Z",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "episodes": 225.0,
+              "parameters": 4506300.0,
+              "replay_wall_s": 0.0,
+              "reward": 0.04,
+              "success_rate": 0.04
+            }
+          }
+        }
+      },
+      "gpt56luna": {
+        "score": 0.161525,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "01-libero-open-design": {
+            "score": 0.436,
+            "reward": 0.436,
+            "success_rate": 0.436,
+            "cost_usd": 0.503065,
+            "cost_usd_mean": 0.503065,
+            "hours_median": 1.352,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-libero-robustness": {
+            "score": 0.1,
+            "reward": 0.1,
+            "success_rate": 0.1,
+            "cost_usd": 0.592289,
+            "cost_usd_mean": 0.592289,
+            "hours_median": 2.0363,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-robotwin-open-design": {
+            "score": 0.1101,
+            "reward": 0.1101,
+            "success_rate": 0.1101,
+            "cost_usd": 0.327534,
+            "cost_usd_mean": 0.327534,
+            "hours_median": null,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.24664,
+            "cost_usd_mean": 0.24664,
+            "hours_median": null,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.436,
+            "success_rate": 0.436,
+            "cost_usd": 0.503065,
+            "hours": 1.352,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-5.6-luna",
+            "job": "task03/t4-open-init/codex/gpt-5.6-luna",
+            "started_at": "2026-09-09T05:04:50.806244Z",
+            "finished_at": "2026-09-09T06:25:57.877612Z",
+            "input_tokens": 19696456,
+            "cached_tokens": 19339008,
+            "output_tokens": 37329,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 843704.0,
+              "replay_wall_s": 258.581685,
+              "reward": 0.436,
+              "success_rate": 0.436
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.1,
+            "success_rate": 0.1,
+            "cost_usd": 0.592289,
+            "hours": 2.0363,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-5.6-luna",
+            "job": "task03/t5-robustness/codex/gpt-5.6-luna",
+            "started_at": "2026-09-09T07:55:58.409866Z",
+            "finished_at": "2026-09-09T09:58:08.962234Z",
+            "input_tokens": 22021068,
+            "cached_tokens": 21552384,
+            "output_tokens": 56254,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 3882320.0,
+              "replay_wall_s": 136.930192,
+              "reward": 0.1,
+              "plus_success_rate": 0.1
+            }
+          },
+          "03-robotwin-open-design": {
+            "reward": 0.1101,
+            "success_rate": 0.1101,
+            "cost_usd": 0.327534,
+            "hours": null,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-5.6-luna",
+            "job": "task03/t6-robotwin-open/codex/gpt-5.6-luna",
+            "started_at": null,
+            "finished_at": null,
+            "input_tokens": 12379623,
+            "cached_tokens": 12174336,
+            "output_tokens": 35825,
+            "metrics": {
+              "episodes": 300.0,
+              "parameters": 565108535.0,
+              "reward": 0.1101,
+              "success_rate": 0.1101
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.24664,
+            "hours": null,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-5.6-luna",
+            "job": "task03/t7-robotwin-robust/codex/gpt-5.6-luna",
+            "started_at": null,
+            "finished_at": null,
+            "input_tokens": 8937117,
+            "cached_tokens": 8762496,
+            "output_tokens": 30388,
+            "metrics": {
+              "episodes": 225.0,
+              "parameters": 3785764.0,
+              "reward": 0.0,
+              "success_rate": 0.0
+            }
+          }
+        }
+      },
+      "glm53flash": {
+        "score": 0.504667,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-libero-open-design": {
+            "score": 0.854,
+            "reward": 0.854,
+            "success_rate": 0.854,
+            "cost_usd": 0.308703,
+            "cost_usd_mean": 0.308703,
+            "hours_median": 2.848,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-libero-robustness": {
+            "score": 0.778,
+            "reward": 0.778,
+            "success_rate": 0.778,
+            "cost_usd": 0.497142,
+            "cost_usd_mean": 0.497142,
+            "hours_median": 3.8693,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-robotwin-open-design": {
+            "score": 0.333333,
+            "reward": 0.333333,
+            "success_rate": 0.333333,
+            "cost_usd": 0.891985,
+            "cost_usd_mean": 0.891985,
+            "hours_median": 1.795,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.053333,
+            "reward": 0.053333,
+            "success_rate": 0.053333,
+            "cost_usd": 0.764452,
+            "cost_usd_mean": 0.764452,
+            "hours_median": 0.8378,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.854,
+            "success_rate": 0.854,
+            "cost_usd": 0.308703,
+            "hours": 2.848,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "glm-5.3-flash",
+            "job": "task03/t4-open-init/claude-code/glm-5.3-flash",
+            "started_at": "2026-09-09T05:04:50.803557Z",
+            "finished_at": "2026-09-09T07:55:43.749281Z",
+            "input_tokens": 8520517,
+            "cached_tokens": 8396992,
+            "output_tokens": 76529,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 11184421.0,
+              "replay_wall_s": 1350.699146,
+              "reward": 0.854,
+              "success_rate": 0.854
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.778,
+            "success_rate": 0.778,
+            "cost_usd": 0.497142,
+            "hours": 3.8693,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "glm-5.3-flash",
+            "job": "task03/t5-robustness/claude-code/glm-5.3-flash",
+            "started_at": "2026-09-09T08:00:58.348489Z",
+            "finished_at": "2026-09-09T11:53:07.810261Z",
+            "input_tokens": 12228741,
+            "cached_tokens": 11714240,
+            "output_tokens": 137080,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 20583943.0,
+              "replay_wall_s": 1723.073866,
+              "reward": 0.778,
+              "plus_success_rate": 0.778
+            }
+          },
+          "03-robotwin-open-design": {
+            "reward": 0.333333,
+            "success_rate": 0.333333,
+            "cost_usd": 0.891985,
+            "hours": 1.795,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "glm-5.3-flash",
+            "job": "task03/t6-robotwin-open/claude-code/glm-5.3-flash",
+            "started_at": "2026-09-10T11:10:38.625115Z",
+            "finished_at": "2026-09-10T12:58:20.733530Z",
+            "input_tokens": 23734792,
+            "cached_tokens": 23253504,
+            "output_tokens": 244374,
+            "metrics": {
+              "episodes": 300.0,
+              "parameters": 28406617.0,
+              "replay_wall_s": 1254.222374,
+              "reward": 0.333333,
+              "success_rate": 0.333333
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.053333,
+            "success_rate": 0.053333,
+            "cost_usd": 0.764452,
+            "hours": 0.8378,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "glm-5.3-flash",
+            "job": "task03/t7-robotwin-robust/claude-code/glm-5.3-flash",
+            "started_at": "2026-09-10T20:09:40.537404Z",
+            "finished_at": "2026-09-10T20:59:56.643833Z",
+            "input_tokens": 21483044,
+            "cached_tokens": 21129984,
+            "output_tokens": 155187,
+            "metrics": {
+              "episodes": 225.0,
+              "parameters": 13224038.0,
+              "replay_wall_s": 0.0,
+              "reward": 0.053333,
+              "success_rate": 0.053333
+            }
+          }
+        }
+      },
+      "gemini37flash": {
+        "score": null,
+        "complete": false,
+        "n_runs": 2,
+        "n_subtasks": 4,
+        "missing": [
+          "01-libero-open-design",
+          "02-libero-robustness"
+        ],
+        "harness": "Antigravity CLI",
+        "splits": {
+          "01-libero-open-design": {
+            "score": null,
+            "reward": null,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": null,
+            "n_runs": 0,
+            "complete": false
+          },
+          "02-libero-robustness": {
+            "score": null,
+            "reward": null,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": null,
+            "n_runs": 0,
+            "complete": false
+          },
+          "03-robotwin-open-design": {
+            "score": 0.61,
+            "reward": 0.61,
+            "success_rate": 0.61,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 4.6511,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.066667,
+            "reward": 0.066667,
+            "success_rate": 0.066667,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": null,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "03-robotwin-open-design": {
+            "reward": 0.61,
+            "success_rate": 0.61,
+            "cost_usd": null,
+            "hours": 4.6511,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "scripts.entrypoints.closed_book_agents:GoogleApiAntigravityCli",
+            "model": "google/gemini-3.7-flash",
+            "job": "task03/t6-robotwin-open/antigravity-cli/google/gemini-3.7-flash",
+            "started_at": "2026-09-10T11:10:38.653726Z",
+            "finished_at": "2026-09-10T15:49:42.595844Z",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "episodes": 300.0,
+              "parameters": 32851982.0,
+              "replay_wall_s": 985.057461,
+              "reward": 0.61,
+              "success_rate": 0.61
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.066667,
+            "success_rate": 0.066667,
+            "cost_usd": null,
+            "hours": null,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "scripts.entrypoints.closed_book_agents:GoogleApiAntigravityCli",
+            "model": "google/gemini-3.7-flash",
+            "job": "task03/t7-robotwin-robust/antigravity-cli/google/gemini-3.7-flash",
+            "started_at": null,
+            "finished_at": null,
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "episodes": 225.0,
+              "parameters": 32962637.0,
+              "reward": 0.066667,
+              "success_rate": 0.066667
+            }
+          }
+        }
+      }
+    },
+    "task06": {
       "gemini37flash": {
         "score": 0.376,
         "complete": true,
@@ -10825,6 +12342,535 @@
               "stage_integration": 0.1375,
               "stage_static": 0.0,
               "stage_validity": 0.15
+            }
+          }
+        }
+      }
+    },
+    "task09": {
+      "gemini37flash": {
+        "score": 0.0441,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Antigravity CLI",
+        "splits": {
+          "clearance": {
+            "score": 0.2732,
+            "metric": "clear_frac",
+            "weight": 1.0,
+            "credit": 0.2732,
+            "n_runs": 1,
+            "complete": true
+          },
+          "throughput": {
+            "score": 0.2205,
+            "metric": "speed_merit",
+            "weight": 1.0,
+            "credit": 0.2205,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "bin-clearing": {
+            "reward": 0.0441,
+            "success_rate": null,
+            "cost_usd": null,
+            "hours": 5.097,
+            "status": "failed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:GoogleSubscriptionAntigravityCli",
+            "model": "google/gemini-3.7-flash",
+            "job": "antigravity_cli-gemini_37_flash-20260910T134006-policy_isolation_auth_retry",
+            "started_at": "2026-09-10T13:40:06.992323",
+            "finished_at": "2026-09-10T18:45:56.156052",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "bin_hits": 0.0,
+              "clear_frac": 0.2732,
+              "damage_events": 0.0,
+              "episode_wall_s_total": 3798.357,
+              "floor_drops": 5.0,
+              "gate_contract": 1.0,
+              "gate_determinism": 1.0,
+              "gate_load": 1.0,
+              "gate_stable": 1.0,
+              "gated": 0.0,
+              "harness_wall_s_total": 3704.0714,
+              "makespan_s": 32.4286,
+              "n_parts": 112.0,
+              "parts_cleared": 30.0,
+              "policy_faults": 0.0,
+              "policy_wall_s_total": 94.2856,
+              "raw_total": 0.0441,
+              "reward": 0.0441,
+              "speed_merit": 0.2205,
+              "throughput_ppm": 10.6193
+            }
+          }
+        }
+      },
+      "opus48": {
+        "score": 0.1006,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "clearance": {
+            "score": 0.5274,
+            "metric": "clear_frac",
+            "weight": 1.0,
+            "credit": 0.5274,
+            "n_runs": 1,
+            "complete": true
+          },
+          "throughput": {
+            "score": 0.2533,
+            "metric": "speed_merit",
+            "weight": 1.0,
+            "credit": 0.2533,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "bin-clearing": {
+            "reward": 0.1006,
+            "success_rate": null,
+            "cost_usd": 34.177156,
+            "hours": 4.2304,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-opus-4-8",
+            "job": "claude_code-claude_opus_48-20260910T133654-policy_isolation",
+            "started_at": "2026-09-10T13:36:54.453896",
+            "finished_at": "2026-09-10T17:50:43.922214",
+            "input_tokens": 52147120,
+            "cached_tokens": 51822162,
+            "output_tokens": 200765,
+            "metrics": {
+              "bin_hits": 0.0,
+              "clear_frac": 0.5274,
+              "damage_events": 0.0,
+              "episode_wall_s_total": 3892.7035,
+              "floor_drops": 1.0,
+              "gate_contract": 1.0,
+              "gate_determinism": 1.0,
+              "gate_load": 1.0,
+              "gate_stable": 1.0,
+              "gated": 0.0,
+              "harness_wall_s_total": 3841.2678,
+              "makespan_s": 112.6312,
+              "n_parts": 112.0,
+              "parts_cleared": 59.0,
+              "policy_faults": 0.0,
+              "policy_wall_s_total": 51.4357,
+              "raw_total": 0.1006,
+              "reward": 0.1006,
+              "speed_merit": 0.2533,
+              "throughput_ppm": 3.9159
+            }
+          }
+        }
+      },
+      "opus5": {
+        "score": 0.3689,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "clearance": {
+            "score": 0.7869,
+            "metric": "clear_frac",
+            "weight": 1.0,
+            "credit": 0.7869,
+            "n_runs": 1,
+            "complete": true
+          },
+          "throughput": {
+            "score": 0.41,
+            "metric": "speed_merit",
+            "weight": 1.0,
+            "credit": 0.41,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "bin-clearing": {
+            "reward": 0.3689,
+            "success_rate": null,
+            "cost_usd": 12.11349,
+            "hours": 2.9814,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-opus-5",
+            "job": "claude_code-claude_opus_5-20260910T133902-policy_isolation_startup_retry",
+            "started_at": "2026-09-10T13:39:02.790814",
+            "finished_at": "2026-09-10T16:37:55.932405",
+            "input_tokens": 14209513,
+            "cached_tokens": 13991639,
+            "output_tokens": 117598,
+            "metrics": {
+              "bin_hits": 0.0,
+              "clear_frac": 0.7869,
+              "damage_events": 0.0,
+              "episode_wall_s_total": 3985.2381,
+              "floor_drops": 1.0,
+              "gate_contract": 1.0,
+              "gate_determinism": 1.0,
+              "gate_load": 1.0,
+              "gate_stable": 1.0,
+              "gated": 0.0,
+              "harness_wall_s_total": 3902.3828,
+              "makespan_s": 107.3812,
+              "n_parts": 112.0,
+              "parts_cleared": 87.0,
+              "policy_faults": 0.0,
+              "policy_wall_s_total": 82.8553,
+              "raw_total": 0.3689,
+              "reward": 0.3689,
+              "speed_merit": 0.41,
+              "throughput_ppm": 6.0229
+            }
+          }
+        }
+      },
+      "glm53flash": {
+        "score": 0.0,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "clearance": {
+            "score": 0.0,
+            "metric": "clear_frac",
+            "weight": 1.0,
+            "credit": 0.0,
+            "n_runs": 1,
+            "complete": true
+          },
+          "throughput": {
+            "score": 0.0,
+            "metric": "speed_merit",
+            "weight": 1.0,
+            "credit": 0.0,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "bin-clearing": {
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": null,
+            "hours": 5.1471,
+            "status": "failed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "glm-5.3-flash",
+            "job": "claude_code-glm_5_3_flash-20260910T133902-policy_isolation_startup_retry",
+            "started_at": "2026-09-10T13:39:02.779466",
+            "finished_at": "2026-09-10T18:47:52.363051",
+            "input_tokens": 11195662,
+            "cached_tokens": 10789184,
+            "output_tokens": 166015,
+            "metrics": {
+              "bin_hits": 0.0,
+              "clear_frac": 0.0,
+              "damage_events": 0.0,
+              "episode_wall_s_total": 3931.5317,
+              "floor_drops": 0.0,
+              "gate_contract": 1.0,
+              "gate_determinism": 1.0,
+              "gate_load": 1.0,
+              "gate_stable": 1.0,
+              "gated": 0.0,
+              "harness_wall_s_total": 3858.9343,
+              "n_parts": 112.0,
+              "parts_cleared": 0.0,
+              "policy_faults": 0.0,
+              "policy_wall_s_total": 72.5974,
+              "raw_total": 0.0,
+              "reward": 0.0,
+              "speed_merit": 0.0,
+              "throughput_ppm": 0.0
+            }
+          }
+        }
+      },
+      "gpt56luna": {
+        "score": 0.4148,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "clearance": {
+            "score": 0.907,
+            "metric": "clear_frac",
+            "weight": 1.0,
+            "credit": 0.907,
+            "n_runs": 1,
+            "complete": true
+          },
+          "throughput": {
+            "score": 0.4667,
+            "metric": "speed_merit",
+            "weight": 1.0,
+            "credit": 0.4667,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "bin-clearing": {
+            "reward": 0.4148,
+            "success_rate": null,
+            "cost_usd": 0.426678,
+            "hours": 2.281,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-5.6-luna",
+            "job": "codex-gpt_56_luna-20260910T133654-policy_isolation",
+            "started_at": "2026-09-10T13:36:54.510856",
+            "finished_at": "2026-09-10T15:53:46.171734",
+            "input_tokens": 15932031,
+            "cached_tokens": 15697408,
+            "output_tokens": 54838,
+            "metrics": {
+              "bin_hits": 0.0,
+              "clear_frac": 0.907,
+              "damage_events": 0.0,
+              "episode_wall_s_total": 4245.5396,
+              "floor_drops": 2.0,
+              "gate_contract": 1.0,
+              "gate_determinism": 1.0,
+              "gate_load": 1.0,
+              "gate_stable": 1.0,
+              "gated": 0.0,
+              "harness_wall_s_total": 4152.5659,
+              "makespan_s": 111.3937,
+              "n_parts": 112.0,
+              "parts_cleared": 101.0,
+              "policy_faults": 0.0,
+              "policy_wall_s_total": 92.9738,
+              "raw_total": 0.4148,
+              "reward": 0.4148,
+              "speed_merit": 0.4667,
+              "throughput_ppm": 6.805
+            }
+          }
+        }
+      },
+      "gpt56sol": {
+        "score": 0.6817,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "clearance": {
+            "score": 0.9669,
+            "metric": "clear_frac",
+            "weight": 1.0,
+            "credit": 0.9669,
+            "n_runs": 1,
+            "complete": true
+          },
+          "throughput": {
+            "score": 0.5483,
+            "metric": "speed_merit",
+            "weight": 1.0,
+            "credit": 0.5483,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "bin-clearing": {
+            "reward": 0.6817,
+            "success_rate": null,
+            "cost_usd": 17.911936,
+            "hours": 3.7507,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-5.6-sol",
+            "job": "codex-gpt_56_sol-20260910T133654-policy_isolation",
+            "started_at": "2026-09-10T13:36:54.493532",
+            "finished_at": "2026-09-10T17:21:57.190059",
+            "input_tokens": 38228491,
+            "cached_tokens": 37908480,
+            "output_tokens": 73425,
+            "metrics": {
+              "bin_hits": 0.0,
+              "clear_frac": 0.9669,
+              "damage_events": 0.0,
+              "episode_wall_s_total": 3407.9338,
+              "floor_drops": 2.0,
+              "gate_contract": 1.0,
+              "gate_determinism": 1.0,
+              "gate_load": 1.0,
+              "gate_stable": 1.0,
+              "gated": 0.0,
+              "harness_wall_s_total": 3354.2617,
+              "makespan_s": 97.9125,
+              "n_parts": 112.0,
+              "parts_cleared": 108.0,
+              "policy_faults": 0.0,
+              "policy_wall_s_total": 53.6721,
+              "raw_total": 0.6817,
+              "reward": 0.6817,
+              "speed_merit": 0.5483,
+              "throughput_ppm": 8.3506
+            }
+          }
+        }
+      },
+      "gpt56terra": {
+        "score": 0.0277,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "clearance": {
+            "score": 0.2933,
+            "metric": "clear_frac",
+            "weight": 1.0,
+            "credit": 0.2933,
+            "n_runs": 1,
+            "complete": true
+          },
+          "throughput": {
+            "score": 0.1637,
+            "metric": "speed_merit",
+            "weight": 1.0,
+            "credit": 0.1637,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "bin-clearing": {
+            "reward": 0.0277,
+            "success_rate": null,
+            "cost_usd": 2.022428,
+            "hours": 1.9056,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-5.6-terra",
+            "job": "codex-gpt_56_terra-20260910T133654-policy_isolation",
+            "started_at": "2026-09-10T13:36:54.454276",
+            "finished_at": "2026-09-10T15:31:14.675259",
+            "input_tokens": 6896398,
+            "cached_tokens": 6745600,
+            "output_tokens": 30976,
+            "metrics": {
+              "bin_hits": 0.0,
+              "clear_frac": 0.2933,
+              "damage_events": 1.0,
+              "episode_wall_s_total": 4398.5894,
+              "floor_drops": 10.0,
+              "gate_contract": 1.0,
+              "gate_determinism": 1.0,
+              "gate_load": 1.0,
+              "gate_stable": 1.0,
+              "gated": 0.0,
+              "harness_wall_s_total": 4318.3534,
+              "makespan_s": 60.4214,
+              "n_parts": 112.0,
+              "parts_cleared": 33.0,
+              "policy_faults": 0.0,
+              "policy_wall_s_total": 80.236,
+              "raw_total": 0.0277,
+              "reward": 0.0277,
+              "speed_merit": 0.1637,
+              "throughput_ppm": 4.0766
+            }
+          }
+        }
+      },
+      "gpt6astra": {
+        "score": 0.9259,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "clearance": {
+            "score": 1.0,
+            "metric": "clear_frac",
+            "weight": 1.0,
+            "credit": 1.0,
+            "n_runs": 1,
+            "complete": true
+          },
+          "throughput": {
+            "score": 0.5991,
+            "metric": "speed_merit",
+            "weight": 1.0,
+            "credit": 0.5991,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "bin-clearing": {
+            "reward": 0.9259,
+            "success_rate": null,
+            "cost_usd": 34.496174,
+            "hours": 2.2734,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-astra",
+            "job": "codex-gpt_6_astra-20260910T133902-policy_isolation_startup_retry",
+            "started_at": "2026-09-10T13:39:02.779945",
+            "finished_at": "2026-09-10T15:55:26.957613",
+            "input_tokens": 24106918,
+            "cached_tokens": 23577984,
+            "output_tokens": 112577,
+            "metrics": {
+              "bin_hits": 0.0,
+              "clear_frac": 1.0,
+              "damage_events": 0.0,
+              "episode_wall_s_total": 3303.0885,
+              "floor_drops": 0.0,
+              "gate_contract": 1.0,
+              "gate_determinism": 1.0,
+              "gate_load": 1.0,
+              "gate_stable": 1.0,
+              "gated": 0.0,
+              "harness_wall_s_total": 3237.7389,
+              "makespan_s": 91.725,
+              "n_parts": 112.0,
+              "parts_cleared": 112.0,
+              "policy_faults": 0.0,
+              "policy_wall_s_total": 65.3497,
+              "raw_total": 0.9259,
+              "reward": 0.9259,
+              "speed_merit": 0.5991,
+              "throughput_ppm": 9.2239
             }
           }
         }

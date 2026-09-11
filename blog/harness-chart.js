@@ -14,11 +14,11 @@
     return node;
   };
   /* The figure reads assets/data/leaderboard.json (from assets/data/export.py) and picks the task named by
-     data-task (default task03 = T01). Its per-level score is the mean verifier reward over the five kitchen
+     data-task (default task01 = T01). Its per-level score is the mean verifier reward over the five kitchen
      tasks and its cost the mean API cost per run. A stand-alone {levels, models} file still works unchanged. */
   const adapt = data => {
     if (Array.isArray(data.levels)) return data;
-    const taskId = figure.dataset.task || 'task03';
+    const taskId = figure.dataset.task || 'task01';
     const task = data.tasks?.[taskId], results = data.results?.[taskId] || {};
     if (!task || !Array.isArray(task.splits) || !Array.isArray(data.models)) throw new Error('Task missing from leaderboard data');
     const pick = (model, key) => Object.fromEntries(task.splits.map(split => {

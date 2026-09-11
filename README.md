@@ -47,7 +47,7 @@ over HTTP (for example `python3 -m http.server 8000`) rather than opened via
 
 In `data.js`:
 
-- `presentation` — task order and public T01–T09 numbers, independent of legacy result IDs. `snapshotTaskIds` lists the tasks eligible for the index; `app.js` intersects it with the tasks reported in the leaderboard JSON. `workflows` defines the two-level task breakdown: each workflow (interactive control, policy development, mechanical design, perception and estimation) lists the task IDs it groups, in display order; any task left out lands in a trailing "Other tasks" group. The homepage shows the workflows as a first tab row and only the selected workflow's tasks as a second row; deep links such as `?task=task09` select the matching workflow automatically.
+- `presentation` — task order and public T01–T09 numbers (task IDs equal the public numbers). `snapshotTaskIds` lists the tasks eligible for the index; `app.js` intersects it with the tasks reported in the leaderboard JSON. `workflows` defines the two-level task breakdown: each workflow (interactive control, policy development, mechanical design, perception and estimation) lists the task IDs it groups, in display order; any task left out lands in a trailing "Other tasks" group. The homepage shows the workflows as a first tab row and only the selected workflow's tasks as a second row; deep links such as `?task=task04` select the matching workflow automatically.
 - `meta` — version string, updated date, header links (`github`, `arxiv`,
   `contact`), and `dataStatus`. An empty `arxiv` renders the nav item greyed
   out rather than pointing nowhere; an empty `contact` or `github` drops that
@@ -59,7 +59,8 @@ In `data.js`:
 the per-task run dump for a public task into `assets/data/taskNN.json` (`NN` is
 the public number: `task01.json` is T01 Agentic Control, `task02.json` T02
 Harness Engineering, `task04.json` T04 Whole-Body Motion Tracking,
-`task06.json` T06 Mobile Base Design) and rebuild:
+`task05.json` T05 NanoVLA Recipe, `task06.json` T06 Mobile Base Design,
+`task09.json` T09 Bin Clearing) and rebuild:
 
 ```
 python3 assets/data/export.py            # rebuild assets/data/leaderboard.json
@@ -97,7 +98,7 @@ writes:
 - `status` — `"measured"`; `app.js` copies it into `meta.dataStatus`, which
   drives the illustrative/measured labels.
 
-Task ids are the legacy result ids from the table below (`task03` = T01);
+Task ids equal the public task numbers in the table below (`task01` = T01);
 `tasks[taskId].public` carries the public number. A model/task pair with a
 missing subtask run gets no score unless `--allow-partial` is passed; a run
 whose `status` is not `completed` is kept if it reports a reward (the export
@@ -105,7 +106,7 @@ warns) unless `--completed-only` is passed; when a model has several runs for
 one subtask the latest `finished_at` wins (`--dedupe best|first` to change).
 
 The blog's T01 interface-comparison figure reads the same file
-(`blog/harness-chart.js`, `data-task="task03"`): per-level score is the mean
+(`blog/harness-chart.js`, `data-task="task01"`): per-level score is the mean
 reward over the five kitchen tasks and per-level cost the mean API cost per
 run. `assets/blog/harness-comparison.json` is the earlier transcription of the
 manuscript figure and is no longer referenced.
@@ -144,20 +145,20 @@ are omitted because the article does not establish them as current. Each
 task's `splits` and `aggregate` in `data.js` are fallbacks; the exported
 `tasks[taskId]` catalog in the leaderboard JSON overrides them at load time.
 
-| Public task | Current task | Legacy result ID |
+| Public task | Current task | Task ID |
 |---|---|---|
-| T01 | Agentic Control | `task03` |
-| T02 | Harness Engineering | `task04` |
-| T03 | Embodied Reasoning | `task08` |
-| T04 | Whole-Body Motion Tracking | `task09` |
-| T05 | NanoVLA Recipe | `nanovla` (unreported) |
-| T06 | Mobile Base Design | `task01` |
-| T07 | Gravity Compensation for Gello | `task02` |
-| T08 | Pose Estimation | `task05` |
-| T09 | Bin Clearing | `task06` |
+| T01 | Agentic Control | `task01` |
+| T02 | Harness Engineering | `task02` |
+| T03 | Embodied Reasoning | `task03` |
+| T04 | Whole-Body Motion Tracking | `task04` |
+| T05 | NanoVLA Recipe | `task05` (unreported) |
+| T06 | Mobile Base Design | `task06` |
+| T07 | Gravity Compensation for Gello | `task07` |
+| T08 | Pose Estimation | `task08` |
+| T09 | Bin Clearing | `task09` |
 
-The original result IDs remain stable for existing deep links. Public numbering
-is resolved through `presentation.taskNumbers` everywhere in the interface.
+Task IDs match the public numbers, so deep links such as `?task=task06` name
+the public task directly. `presentation.taskNumbers` is now an identity map.
 
 ## The index grid
 
@@ -258,9 +259,9 @@ labeled separately from evaluation recordings.
 - Prose is set in a serif; every number, axis tick and micro-label stays in a
   monospace so columns line up.
 - Stacked bars on a task ranking show each split's *contribution to the mean*,
-  so the segments sum to exactly the family score. Task01 uses a plain bar
+  so the segments sum to exactly the family score. Task06 uses a plain bar
   instead, because a minimum cannot honestly be stacked.
-- `#task03` (or `?task=task03`) deep-links straight to a family's ranking.
+- `#task01` (or `?task=task01`) deep-links straight to a family's ranking.
 - Scatter labels are placed greedily around every point and avoid both other
   labels and other dots, with a leader line when a label has to move.
 - The theme toggle persists in `localStorage`; the page defaults to dark.

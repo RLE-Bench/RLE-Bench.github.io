@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "root": "jobs/task06-v100-cleanup",
+  "root": "jobs/task06",
   "runs": [
     {
       "agent": "scripts.entrypoints.closed_book_agents:HarvardAntigravityCli",

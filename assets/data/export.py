@@ -25,9 +25,9 @@ Output layout (all scores are on a 0-1 scale)::
     costs[taskId][modelId]           cost (USD, sum), hours (median per run), tokens (sums)
     results[taskId][modelId]         task score plus per-split and per-subtask detail
 
-``taskId`` is the legacy result id that ``data.js`` and ``app.js`` key on
-(``task03`` = T01 Agentic Control, ...); ``tasks[taskId].public`` carries the
-public number. Only the tasks listed in ``TASKS`` below are exported; add a
+``taskId`` equals the public task number that ``data.js`` and ``app.js`` key on
+(``task01`` = T01 Agentic Control, ...); ``tasks[taskId].public`` carries the
+same number as ``T01``. Only the tasks listed in ``TASKS`` below are exported; add a
 ``TaskSpec`` there when a new dump lands.
 """
 
@@ -108,7 +108,7 @@ class Split:
 
 @dataclass(frozen=True)
 class TaskSpec:
-    id: str  # legacy result id used by data.js / app.js
+    id: str  # task id used by data.js / app.js (equals the public number, e.g. task01 = T01)
     public: str  # public task number shown on the site (T01...)
     name: str
     file: str  # dump in assets/data/
@@ -174,6 +174,36 @@ MOBILE_BASE_STAGES = (
     ("integration", "Integration", "stage_integration", 0.15),
 )
 
+# tasks/task05/README.md in RLE-Bench-dev: four tracks (two LIBERO-10, two RoboTwin 2.0); reward = hidden-set success rate.
+NANOVLA_SUBTASKS = {
+    "01-libero-open-design": "LIBERO · open design",
+    "02-libero-robustness": "LIBERO · robustness",
+    "03-robotwin-open-design": "RoboTwin · open design",
+    "04-robotwin-robustness": "RoboTwin · robustness",
+}
+# Job paths in task05.json still use the pre-rename track slugs.
+NANOVLA_ALIASES = {
+    "t4-open-init": "01-libero-open-design",
+    "t5-robustness": "02-libero-robustness",
+    "t6-robotwin-open": "03-robotwin-open-design",
+    "t7-robotwin-robust": "04-robotwin-robustness",
+}
+
+
+def nanovla_subtask(job: str) -> str:
+    parts = job.split("/")
+    raw = parts[1] if len(parts) > 1 else job
+    return NANOVLA_ALIASES.get(raw, raw)
+
+
+# tasks/task09/README.md in RLE-Bench-dev: per-episode score = 0.3 × perfect + 0.35 × clear_curve(clear_frac)
+# + 0.2 × min(tp/10, 1) + 0.15 × perfect × min(tp/15, 1) − penalties, mean over eight hidden episodes.
+# The dump reports episode-mean components; the two on a 0-1 scale are shown as splits.
+BIN_CLEARING_COMPONENTS = (
+    ("clearance", "Clearance (fraction of bin cleared)", "clear_frac"),
+    ("throughput", "Throughput (speed merit)", "speed_merit"),
+)
+
 
 def slug_label(slug: str) -> str:
     return re.sub(r"^\d+-", "", slug).replace("-", " ").capitalize()
@@ -181,7 +211,7 @@ def slug_label(slug: str) -> str:
 
 TASKS: tuple[TaskSpec, ...] = (
     TaskSpec(
-        id="task03",
+        id="task01",
         public="T01",
         name="Agentic Control",
         file="task01.json",
@@ -200,7 +230,7 @@ TASKS: tuple[TaskSpec, ...] = (
         score_note="reward = 0.80 × success_rate + 0.20 × success_rate × (1 − dev_steps / budget); task score is the mean reward over 15 level × kitchen-task cells.",
     ),
     TaskSpec(
-        id="task04",
+        id="task02",
         public="T02",
         name="Harness Engineering",
         file="task02.json",
@@ -218,7 +248,7 @@ TASKS: tuple[TaskSpec, ...] = (
         score_note="Stage-credit reward of fresh agents on the held-out member of each activity group; task score is the mean over 15 groups.",
     ),
     TaskSpec(
-        id="task09",
+        id="task04",
         public="T04",
         name="Whole-Body Motion Tracking",
         file="task04.json",
@@ -230,7 +260,19 @@ TASKS: tuple[TaskSpec, ...] = (
         score_note="episode = 0.7 × tracking_multi + 0.3 × survival, averaged over hidden seeds; task score is the mean over five clips.",
     ),
     TaskSpec(
-        id="task01",
+        id="task05",
+        public="T05",
+        name="NanoVLA Recipe",
+        file="task05.json",
+        split_label="Track",
+        aggregate="mean",
+        splits=tuple(Split(slug, label, subtasks=(slug,)) for slug, label in NANOVLA_SUBTASKS.items()),
+        subtasks={slug: {"label": label} for slug, label in NANOVLA_SUBTASKS.items()},
+        subtask_of=nanovla_subtask,
+        score_note="reward = hidden-set success rate of the trained policy (500 LIBERO-10 or 300 RoboTwin episodes); task score is the mean over four tracks.",
+    ),
+    TaskSpec(
+        id="task06",
         public="T06",
         name="Mobile Base Design",
         file="task06.json",
@@ -240,6 +282,18 @@ TASKS: tuple[TaskSpec, ...] = (
         subtasks={"mobile-base": {"label": "Mobile base"}},
         subtask_of=lambda job: "mobile-base",
         score_note="reward = sum of weighted stage checkpoints, each the minimum over the Panda, UR5e and xArm7 arms; a failed gate caps the reward at 0.15. Split values are stage credit divided by stage weight.",
+    ),
+    TaskSpec(
+        id="task09",
+        public="T09",
+        name="Bin Clearing",
+        file="task09.json",
+        split_label="Reward Component",
+        aggregate="weighted",
+        splits=tuple(Split(sid, label, metric=metric) for sid, label, metric in BIN_CLEARING_COMPONENTS),
+        subtasks={"bin-clearing": {"label": "Bin clearing"}},
+        subtask_of=lambda job: "bin-clearing",
+        score_note="episode = 0.3 × perfect + 0.35 × clear_curve(clear_frac) + 0.2 × min(tp/10, 1) + 0.15 × perfect × min(tp/15, 1) − 0.03 × floor_drops − 0.05 × damage − 0.05 × bin_hits, mean over eight hidden episodes; a failed gate caps it at 0.1. Split values are the episode-mean clearance fraction and speed merit.",
     ),
 )
 
@@ -631,7 +685,7 @@ def build(args: argparse.Namespace) -> dict:
                 "costs[taskId][modelId]: cost = API cost in USD summed over the task's subtask runs, hours = median "
                 "agent wall-clock hours per run, input/cached/output tokens = sums over runs; Context Length on the "
                 "homepage is input_tokens minus cached_tokens. Missing API cost or token counts stay null. "
-                "Task ids are the legacy result ids used by data.js; tasks[taskId].public is the public number."
+                "Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc."
             ),
             "options": {
                 "allow_partial": args.allow_partial,
