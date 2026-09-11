@@ -1,9 +1,20 @@
 /* Shared responsive navigation; desktop retains each page's existing header. */
 #siteHeader #menuToggle { display: none; }
-#menuToggle .menu-close-icon { display: none; }
-#menuToggle[aria-expanded="true"] .menu-open-icon { display: none; }
-#menuToggle[aria-expanded="true"] .menu-close-icon { display: block; }
 #siteHeader :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Both glyphs live in one svg box, so they cross-fade and rotate through each
+   other in place rather than snapping between display: none and block. */
+#menuToggle .menu-open-icon,
+#menuToggle .menu-close-icon {
+  transform-box: fill-box; transform-origin: center;
+  transition: opacity .16s ease, transform .22s cubic-bezier(.2, .7, .3, 1);
+}
+#menuToggle .menu-close-icon { opacity: 0; transform: rotate(-70deg) scale(.7); }
+#menuToggle[aria-expanded="true"] .menu-open-icon { opacity: 0; transform: rotate(70deg) scale(.7); }
+#menuToggle[aria-expanded="true"] .menu-close-icon { opacity: 1; transform: none; }
+#siteHeader #menuToggle[aria-expanded="true"] { color: var(--text-primary); border-color: var(--border-strong); }
+#siteHeader .icon-btn { transition: color .15s ease, border-color .15s ease, background-color .15s ease, transform .12s ease; }
+#siteHeader .icon-btn:active { transform: scale(.93); }
 
 @media (max-width: 900px), (orientation: portrait) {
   #siteHeader .header-inner {
@@ -30,10 +41,28 @@
     max-height: calc(100dvh - 80px); overflow-y: auto;
     background: var(--surface-1); border: 1px solid var(--border-strong);
     border-radius: 10px; box-shadow: var(--shadow); z-index: 70;
+    /* allow-discrete keeps the panel painted through the closing fade; browsers
+       without it simply snap, which is the pre-animation behaviour. */
+    opacity: 0; transform: translateY(-6px) scale(.985); transform-origin: top right;
+    transition: opacity .16s ease, transform .2s cubic-bezier(.2, .7, .3, 1), display .2s allow-discrete;
   }
-  #siteHeader.navigation-ready #siteNav.is-open { display: flex; flex-direction: column; align-items: stretch; }
+  #siteHeader.navigation-ready #siteNav.is-open {
+    display: flex; flex-direction: column; align-items: stretch;
+    opacity: 1; transform: none;
+  }
+  @starting-style {
+    #siteHeader.navigation-ready #siteNav.is-open { opacity: 0; transform: translateY(-6px) scale(.985); }
+  }
+  #siteHeader #siteNav a { transition: background-color .15s ease, color .15s ease; }
   #siteHeader #siteNav a:hover,
   #siteHeader #siteNav a[aria-current="page"] { background: var(--surface-2); color: var(--text-primary); }
   #siteHeader #siteNav a[aria-disabled="true"] { color: var(--text-muted); background: transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #siteHeader.navigation-ready #siteNav,
+  #siteHeader .icon-btn,
+  #menuToggle .menu-open-icon,
+  #menuToggle .menu-close-icon { transition: none; }
+  #siteHeader.navigation-ready #siteNav { transform: none; }
 }
 @media print { #siteHeader { display: none; } }
