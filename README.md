@@ -34,7 +34,7 @@ T01 interface-comparison figure, which reads the same JSON.
 
 The task catalog contains nine tasks; the leaderboard JSON reports the ones
 whose run dumps are present in `assets/data/` (currently T01, T02, T04 and
-T06). Tasks without a dump show as unreported rather than as zero, and the
+T08). Tasks without a dump show as unreported rather than as zero, and the
 index averages only reported tasks. These coverage differences are stated in
 the UI.
 
@@ -48,7 +48,7 @@ over HTTP (for example `python3 -m http.server 8000`) rather than opened via
 
 In `data.js`:
 
-- `presentation` — task order and public T01–T09 numbers (task IDs equal the public numbers). `snapshotTaskIds` lists the tasks eligible for the index; `app.js` intersects it with the tasks reported in the leaderboard JSON. `workflows` defines the two-level task breakdown: each workflow (interactive control, policy development, mechanical design, perception and estimation) lists the task IDs it groups, in display order; any task left out lands in a trailing "Other tasks" group. The homepage shows the workflows as a first tab row and only the selected workflow's tasks as a second row; deep links such as `?task=task04` select the matching workflow automatically.
+- `presentation` — task order and public T01–T09 numbers (task IDs equal the public numbers). `snapshotTaskIds` lists the tasks eligible for the index; `app.js` intersects it with the tasks reported in the leaderboard JSON. `workflows` defines the two-level task breakdown: each workflow (interactive control, policy development, perception and estimation, mechanical design) lists the task IDs it groups, in display order; any task left out lands in a trailing "Other tasks" group. The homepage shows the workflows as a first tab row and only the selected workflow's tasks as a second row; deep links such as `?task=task04` select the matching workflow automatically.
 - `meta` — version string, updated date, header links (`github`, `arxiv`,
   `contact`), and `dataStatus`. An empty `arxiv` renders the nav item greyed
   out rather than pointing nowhere; an empty `contact` or `github` drops that
@@ -60,8 +60,8 @@ In `data.js`:
 the per-task run dump for a public task into `assets/data/taskNN.json` (`NN` is
 the public number: `task01.json` is T01 Agentic Control, `task02.json` T02
 Harness Engineering, `task04.json` T04 Whole-Body Motion Tracking,
-`task05.json` T05 NanoVLA Recipe, `task06.json` T06 Mobile Base Design,
-`task09.json` T09 Bin Clearing) and rebuild:
+`task05.json` T05 NanoVLA Recipe, `task08.json` T08 Mobile Base Design,
+`task07.json` T07 Bin Clearing) and rebuild:
 
 ```
 python3 assets/data/export.py            # rebuild assets/data/leaderboard.json
@@ -179,13 +179,18 @@ task's `splits` and `aggregate` in `data.js` are fallbacks; the exported
 | T03 | Embodied Reasoning | `task03` |
 | T04 | Whole-Body Motion Tracking | `task04` |
 | T05 | NanoVLA Recipe | `task05` (unreported) |
-| T06 | Mobile Base Design | `task06` |
-| T07 | Gravity Compensation for Gello | `task07` |
-| T08 | Pose Estimation | `task08` |
-| T09 | Bin Clearing | `task09` |
+| T06 | Pose Estimation | `task06` |
+| T07 | Bin Clearing | `task07` |
+| T08 | Mobile Base Design | `task08` |
+| T09 | Gravity Compensation for Gello | `task09` |
 
-Task IDs match the public numbers, so deep links such as `?task=task06` name
+Task IDs match the public numbers, so deep links such as `?task=task08` name
 the public task directly. `presentation.taskNumbers` is now an identity map.
+
+Task numbering is T06 Pose Estimation, T07 Bin Clearing, T08 Mobile Base Design,
+and T09 Gravity Compensation for Gello. Dump filenames use these public IDs;
+original job roots, source paths, and existing media filenames retain their
+historical IDs for provenance.
 
 ## The index grid
 
@@ -251,9 +256,9 @@ GELLO design study from the September 9 demo snapshot:
 |---|---|---|
 | Interactive control / T03 | Hidden-center-of-mass interaction, 36.6 s | GPT-5.6 Sol, v0.8.0, evaluation recording |
 | Policy learning / T04 | Fall-and-get-up motion, 20 s | GPT-6 Astra, v1.0.0, evaluation recording |
-| Embodiment / T07 | Franka, UR5e, and xArm7 GELLO assemblies | GPT-6 Astra, v1.1.2, development artifacts |
-| Perception / T08 | Method-agnostic pose estimation, 6 s | Gemini 3.7 Flash High, v1.3.0, evaluation recording |
-| Development and evaluation / T09 | Camera views and force feedback, 29.5 s | GPT-6 Astra, v1.0.1, development preview |
+| Embodiment / T09 | Franka, UR5e, and xArm7 GELLO assemblies | GPT-6 Astra, v1.1.2, development artifacts |
+| Perception / T06 | Method-agnostic pose estimation, 6 s | Gemini 3.7 Flash High, v1.3.0, evaluation recording |
+| Development and evaluation / T07 | Camera views and force feedback, 29.5 s | GPT-6 Astra, v1.0.1, development preview |
 
 `blog/demos.css` extends the article's family colors, type, and figure styling.
 `blog/demos.js` progressively enhances the videos with a compact translucent play
@@ -341,4 +346,4 @@ The downloaded Harbor trial remains local and is excluded from Git.
 
 `run/index.html` is the benchmark execution guide at `/run/`, linked from the homepage and blog. Its commands follow the benchmark repository’s [master README](https://github.com/RLE-Bench/RLE-Bench-dev/blob/master/README.md), using the `rlebench` CLI for setup checks, task preparation, evaluation, and result inspection. Keep it synchronized when benchmark setup changes. `run/run.css` extends the existing serif/monospace theme; `run/run.js` handles command copying and the shared theme preference. No build step is required.
 
-The Run page’s provider examples, except the user-supplied Gemini command, are checked against `rlebench/providers.py` and `rlebench/runner.py` on the benchmark’s master branch. The Gemini example uses the user-supplied `.venv/bin/rlebench run task07 -a agy -c gemini/api -m gemini-3.7-flash` command. Codex subscription setup links to the official credential-storage documentation. These are command examples, not executed evaluations.
+The Run page’s provider examples, except the user-supplied Gemini command, are checked against `rlebench/providers.py` and `rlebench/runner.py` on the benchmark’s master branch. The Gemini example uses the user-supplied `.venv/bin/rlebench run task09 -a agy -c gemini/api -m gemini-3.7-flash` command. Codex subscription setup links to the official credential-storage documentation. These are command examples, not executed evaluations.

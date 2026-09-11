@@ -118,7 +118,7 @@ def main():
                 else:
                     im.paste(clip(3,local,980,550),(50,361))
                     txt(im,(73,382),'GELLO / GRAVITY-COMPENSATED LEADER ARM',22,COLORS[3],True)
-                notes=['INTERACTIVE CONTROL  /  CUBE MANIPULATION  /  6x PLAYBACK','T04  /  PPO TRAINING + SPRINT ROLLOUT  /  1.4x PLAYBACK','T09  /  CONTACT-RICH BIN CLEARING  /  10x PLAYBACK','T07  /  CAD DESIGN  /  GUIDED VISUALIZATION'][i]
+                notes=['INTERACTIVE CONTROL  /  CUBE MANIPULATION  /  6x PLAYBACK','T04  /  PPO TRAINING + SPRINT ROLLOUT  /  1.4x PLAYBACK','T07  /  CONTACT-RICH BIN CLEARING  /  10x PLAYBACK','T09  /  CAD DESIGN  /  GUIDED VISUALIZATION'][i]
                 txt(im,(48,938),notes,23,MUTED,mono=True)
                 for j,c in enumerate(COLORS):
                     txt(im,(48+j*250,989),['Interactive control','Learning recipe','Perception','Mech. design'][j],24,c if i==j else MUTED,bold=i==j)

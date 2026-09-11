@@ -18,10 +18,10 @@
     "T03": {
       "goal": "Probe the sealed box with the robot and use its physical response to identify which marked quadrant—A, B, C, or D—contains the hidden ballast."
     },
-    "T08": {
+    "T06": {
       "goal": "Estimate the red object’s position on the tabletop and its orientation as it moves and the robot partially blocks the camera view."
     },
-    "T09": {
+    "T07": {
       "goal": "Pick the steel brackets out of the cluttered bin and place them onto the conveyor, clearing the bin while avoiding drops, damage, and excessive impacts."
     }
   }

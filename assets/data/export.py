@@ -217,7 +217,7 @@ AGENTIC_LEVELS = (
     ("L3", "L3 — + privileged state"),
 )
 
-# tasks/task02/README.md in RLE-Bench-dev: band, slug, held-out task.
+# Historical source: tasks/task02/README.md in RLE-Bench-dev: band, slug, held-out task.
 HARNESS_SUBTASKS = (
     ("EASY", "01-washing-dishes", "DumpLeftovers"),
     ("EASY", "02-sauteing-vegetables", "PlaceVegetablesEvenly"),
@@ -237,7 +237,7 @@ HARNESS_SUBTASKS = (
 )
 HARNESS_BANDS = (("EASY", "EASY (5 groups)"), ("MEDIUM", "MEDIUM (5 groups)"), ("HARD", "HARD (5 groups)"))
 
-# tasks/task03/README.md in RLE-Bench-dev: five scenarios; the job name ends in the scenario slug.
+# Historical source: tasks/task03/README.md in RLE-Bench-dev: five scenarios; the job name ends in the scenario slug.
 REASONING_SUBTASKS = {
     "01-tower-max-height": "Tower Max Height",
     "02-cantilever-overhang": "Cantilever Overhang",
@@ -261,7 +261,7 @@ TRACKING_SUBTASKS = {
     "05-sprint": "Sprint",
 }
 
-# tasks/task06/README.md in RLE-Bench-dev: stage weights; gates cap the reward at 0.15.
+# Historical source: tasks/task06/README.md in RLE-Bench-dev: stage weights; gates cap the reward at 0.15.
 MOBILE_BASE_STAGES = (
     ("validity", "Validity", "stage_validity", 0.15),
     ("design", "Design", "stage_design", 0.35),
@@ -270,7 +270,7 @@ MOBILE_BASE_STAGES = (
     ("integration", "Integration", "stage_integration", 0.15),
 )
 
-# tasks/task07/README.md in RLE-Bench-dev: one co-design per follower arm; the run reward is the
+# Historical source: tasks/task07/README.md in RLE-Bench-dev: one co-design per follower arm; the run reward is the
 # mean of the three per-arm rewards. The dump also breaks each arm into validity/hardware/software/
 # co-design stage credit, but the stage weights are not recoverable from it, so only the arms split.
 GELLO_ARMS = (
@@ -279,7 +279,7 @@ GELLO_ARMS = (
     ("xarm7", "xArm7 (7 DoF)", "xarm7_reward"),
 )
 
-# tasks/task08/README.md in RLE-Bench-dev: four estimator variants, one run each.
+# Historical source: tasks/task08/README.md in RLE-Bench-dev: four estimator variants, one run each.
 POSE_SUBTASKS = (
     ("01-rgb-only", "RGB only", "rgb_only"),
     ("02-rgb-depth", "RGB + depth", "rgb_depth"),
@@ -299,7 +299,7 @@ def pose_subtask(job: str) -> str:
     return job
 
 
-# tasks/task05/README.md in RLE-Bench-dev: four tracks (two LIBERO-10, two RoboTwin 2.0); reward = hidden-set success rate.
+# Historical source: tasks/task05/README.md in RLE-Bench-dev: four tracks (two LIBERO-10, two RoboTwin 2.0); reward = hidden-set success rate.
 NANOVLA_SUBTASKS = {
     "01-libero-open-design": "LIBERO · open design",
     "02-libero-robustness": "LIBERO · robustness",
@@ -321,7 +321,7 @@ def nanovla_subtask(job: str) -> str:
     return NANOVLA_ALIASES.get(raw, raw)
 
 
-# tasks/task09/README.md in RLE-Bench-dev: per-episode score = 0.3 × perfect + 0.35 × clear_curve(clear_frac)
+# Historical source: tasks/task09/README.md in RLE-Bench-dev: per-episode score = 0.3 × perfect + 0.35 × clear_curve(clear_frac)
 # + 0.2 × min(tp/10, 1) + 0.15 × perfect × min(tp/15, 1) − penalties, mean over eight hidden episodes.
 # The dump reports episode-mean components; the two on a 0-1 scale are shown as splits.
 BIN_CLEARING_COMPONENTS = (
@@ -411,32 +411,8 @@ TASKS: tuple[TaskSpec, ...] = (
     TaskSpec(
         id="task06",
         public="T06",
-        name="Mobile Base Design",
-        file="task06.json",
-        split_label="Scoring Stage",
-        aggregate="weighted",
-        splits=tuple(Split(sid, label, metric=metric, weight=w) for sid, label, metric, w in MOBILE_BASE_STAGES),
-        subtasks={"mobile-base": {"label": "Mobile base"}},
-        subtask_of=lambda job: "mobile-base",
-        score_note="reward = sum of weighted stage checkpoints, each the minimum over the Panda, UR5e and xArm7 arms; a failed gate caps the reward at 0.15. Split values are stage credit divided by stage weight.",
-    ),
-    TaskSpec(
-        id="task07",
-        public="T07",
-        name="Gravity Compensation for Gello",
-        file="task07.json",
-        split_label="Follower Arm",
-        aggregate="mean",
-        splits=tuple(Split(arm, label, metric=metric) for arm, label, metric in GELLO_ARMS),
-        subtasks={"gello": {"label": "Gravity compensation"}},
-        subtask_of=lambda job: "gello",
-        score_note="Task score is the mean of the per-arm rewards over the Franka, UR5e and xArm7 leader arms; split values are those per-arm rewards.",
-    ),
-    TaskSpec(
-        id="task08",
-        public="T08",
         name="Pose Estimation",
-        file="task08.json",
+        file="task06.json",
         split_label="Subtask",
         aggregate="mean",
         splits=tuple(Split(sid, label, subtasks=(sid,)) for sid, label, _ in POSE_SUBTASKS),
@@ -445,16 +421,40 @@ TASKS: tuple[TaskSpec, ...] = (
         score_note="reward = 0.30 × stage A pose credit (100 static frames) + 0.70 × stage B pose credit (ten push episodes), less an inference-speed deduction; a wrong shape identification or a failed gate zeroes the run. Task score is the mean over the four estimator variants.",
     ),
     TaskSpec(
-        id="task09",
-        public="T09",
+        id="task07",
+        public="T07",
         name="Bin Clearing",
-        file="task09.json",
+        file="task07.json",
         split_label="Reward Component",
         aggregate="weighted",
         splits=tuple(Split(sid, label, metric=metric) for sid, label, metric in BIN_CLEARING_COMPONENTS),
         subtasks={"bin-clearing": {"label": "Bin clearing"}},
         subtask_of=lambda job: "bin-clearing",
         score_note="episode = 0.3 × perfect + 0.35 × clear_curve(clear_frac) + 0.2 × min(tp/10, 1) + 0.15 × perfect × min(tp/15, 1) − 0.03 × floor_drops − 0.05 × damage − 0.05 × bin_hits, mean over eight hidden episodes; a failed gate caps it at 0.1. Split values are the episode-mean clearance fraction and speed merit.",
+    ),
+    TaskSpec(
+        id="task08",
+        public="T08",
+        name="Mobile Base Design",
+        file="task08.json",
+        split_label="Scoring Stage",
+        aggregate="weighted",
+        splits=tuple(Split(sid, label, metric=metric, weight=w) for sid, label, metric, w in MOBILE_BASE_STAGES),
+        subtasks={"mobile-base": {"label": "Mobile base"}},
+        subtask_of=lambda job: "mobile-base",
+        score_note="reward = sum of weighted stage checkpoints, each the minimum over the Panda, UR5e and xArm7 arms; a failed gate caps the reward at 0.15. Split values are stage credit divided by stage weight.",
+    ),
+    TaskSpec(
+        id="task09",
+        public="T09",
+        name="Gravity Compensation for Gello",
+        file="task09.json",
+        split_label="Follower Arm",
+        aggregate="mean",
+        splits=tuple(Split(arm, label, metric=metric) for arm, label, metric in GELLO_ARMS),
+        subtasks={"gello": {"label": "Gravity compensation"}},
+        subtask_of=lambda job: "gello",
+        score_note="Task score is the mean of the per-arm rewards over the Franka, UR5e and xArm7 leader arms; split values are those per-arm rewards.",
     ),
 )
 

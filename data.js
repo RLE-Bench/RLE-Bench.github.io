@@ -24,8 +24,8 @@ const BENCH = {
     workflows: [
       { id: "control",    name: "Interactive Control",       tasks: ["task01", "task02", "task03"] },
       { id: "policy",     name: "Policy Development",        tasks: ["task04", "task05"] },
-      { id: "design",     name: "Mechanical Design",         tasks: ["task06", "task07"] },
-      { id: "perception", name: "Perception and Estimation", tasks: ["task08", "task09"] },
+      { id: "perception", name: "Perception and Estimation", tasks: ["task06", "task07"] },
+      { id: "design",     name: "Mechanical Design",         tasks: ["task08", "task09"] },
     ],
   },
   meta: {
@@ -56,8 +56,8 @@ const BENCH = {
   /* --- the task families -------------------------------------------------- */
   tasks: [
     {
-      id: "task06",
-      num: "06",
+      id: "task08",
+      num: "08",
       name: "Mobile Base Design",
       short: "Mobile Base Design",
       tagline: "One mobile base and controller for three robot arms",
@@ -73,8 +73,8 @@ const BENCH = {
       evaluation: "Worst-case performance across the three arms under different shelf targets, payloads, and static and dynamic checks.",
     },
     {
-      id: "task07",
-      num: "07",
+      id: "task09",
+      num: "09",
       name: "Gravity Compensation for Gello",
       short: "Gravity Compensation for Gello",
       tagline: "Passive gravity compensation and adaptive control for leader arms",
@@ -118,8 +118,8 @@ const BENCH = {
       evaluation: "Success rate of a fresh agent solving a new held-out task with the produced harness, over five trials.",
     },
     {
-      id: "task08",
-      num: "08",
+      id: "task06",
+      num: "06",
       name: "Pose Estimation",
       short: "Pose Estimation",
       tagline: "Planar object pose under motion and occlusion",
@@ -133,8 +133,8 @@ const BENCH = {
       evaluation: "A hidden battery of 100 static frames and ten push episodes in which the arm crosses the line of sight, scored by translation and rotation error. A wrong shape identification zeroes the group, and inference slower than 10 Hz on CPU is penalized.",
     },
     {
-      id: "task09",
-      num: "09",
+      id: "task07",
+      num: "07",
       name: "Bin Clearing",
       short: "Bin Clearing",
       tagline: "Closed-loop manipulation with visual and force feedback",
