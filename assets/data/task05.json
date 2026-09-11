@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "root": "jobs/task05",
+  "root": "/data/rqiang6/robobench-final-0830/RLE-Bench-v2/jobs/task03-v4",
   "runs": [
     {
       "agent": "claude-code",
@@ -311,6 +311,50 @@
       }
     },
     {
+      "agent": "scripts.entrypoints.closed_book_agents:GoogleApiAntigravityCli",
+      "model": "google/gemini-3.7-flash",
+      "job": "task03/t4-open-init/antigravity-cli/google/gemini-3.7-flash",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.844,
+      "success_rate": 0.844,
+      "metrics": {
+        "episodes": 500.0,
+        "parameters": 22066567.0,
+        "replay_wall_s": 1106.0584263239998,
+        "reward": 0.844,
+        "success_rate": 0.844
+      },
+      "extra": {
+        "started_at": "2026-09-11T03:57:52.531428Z",
+        "finished_at": "2026-09-11T05:22:13.660221Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "t4-open-init__qp72rdS",
+            "rewards": {
+              "episodes": 500.0,
+              "parameters": 22066567.0,
+              "replay_wall_s": 1106.0584263239998,
+              "reward": 0.844,
+              "success_rate": 0.844
+            }
+          }
+        ]
+      }
+    },
+    {
       "agent": "claude-code",
       "model": "claude-opus-5",
       "job": "task03/t5-robustness/claude-code/claude-opus-5",
@@ -613,6 +657,50 @@
               "replay_wall_s": 1723.0738664770033,
               "reward": 0.778,
               "plus_success_rate": 0.778
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "scripts.entrypoints.closed_book_agents:GoogleApiAntigravityCli",
+      "model": "google/gemini-3.7-flash",
+      "job": "task03/t5-robustness/antigravity-cli/google/gemini-3.7-flash",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.32,
+      "success_rate": 0.32,
+      "metrics": {
+        "episodes": 500.0,
+        "parameters": 17865991.0,
+        "replay_wall_s": 645.4473247819997,
+        "reward": 0.32,
+        "plus_success_rate": 0.32
+      },
+      "extra": {
+        "started_at": "2026-09-11T03:57:52.528897Z",
+        "finished_at": "2026-09-11T05:18:36.620627Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "t5-robustness__dBVGwCi",
+            "rewards": {
+              "episodes": 500.0,
+              "parameters": 17865991.0,
+              "replay_wall_s": 645.4473247819997,
+              "reward": 0.32,
+              "plus_success_rate": 0.32
             }
           }
         ]

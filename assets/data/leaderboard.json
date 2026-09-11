@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "measured",
-  "generated_at": "2026-09-11T05:36:46Z",
+  "generated_at": "2026-09-11T06:45:01Z",
   "generator": "assets/data/export.py",
   "source": {
     "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId] reports per-subtask means over the task's runs: cost = mean API cost in USD, hours = mean agent wall-clock hours, context_tokens = mean of input_tokens minus cached_tokens per run (the homepage's Context Length). cost_total, hours_total, hours_median and the input/cached/output token counts are the corresponding totals over runs. The homepage's overall figures average these per-task means within each workflow, then across workflows. Missing API cost or token counts stay null. Costs come from the run dumps except for the models listed under source.prices, whose cost is recomputed from token counts because their harness billed them against the wrong price sheet; costs[...].cost_sources and results[...].subtasks[...].cost_source say which applies. Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc.",
@@ -46,9 +46,9 @@
       },
       "task05": {
         "file": "task05.json",
-        "root": "jobs/task05",
+        "root": "/data/rqiang6/robobench-final-0830/RLE-Bench-v2/jobs/task03-v4",
         "schema_version": 1,
-        "runs": 30,
+        "runs": 32,
         "runs_skipped": 0
       },
       "task06": {
@@ -133,6 +133,22 @@
       ]
     },
     {
+      "id": "gemini37flash",
+      "name": "Gemini 3.7 Flash",
+      "short": "Gemini 3.7",
+      "org": "Google",
+      "open": false,
+      "harness": "Antigravity CLI",
+      "tasks": [
+        "task01",
+        "task02",
+        "task04",
+        "task05",
+        "task06",
+        "task09"
+      ]
+    },
+    {
       "id": "gpt56luna",
       "name": "GPT-5.6 Luna",
       "short": "Luna",
@@ -160,21 +176,6 @@
         "task02",
         "task04",
         "task05",
-        "task06",
-        "task09"
-      ]
-    },
-    {
-      "id": "gemini37flash",
-      "name": "Gemini 3.7 Flash",
-      "short": "Gemini 3.7",
-      "org": "Google",
-      "open": false,
-      "harness": "Antigravity CLI",
-      "tasks": [
-        "task01",
-        "task02",
-        "task04",
         "task06",
         "task09"
       ]
@@ -591,7 +592,7 @@
       "number": "05",
       "name": "NanoVLA Recipe",
       "file": "task05.json",
-      "root": "jobs/task05",
+      "root": "/data/rqiang6/robobench-final-0830/RLE-Bench-v2/jobs/task03-v4",
       "score_metric": "reward",
       "score_note": "reward = hidden-set success rate of the trained policy (500 LIBERO-10 or 300 RoboTwin episodes); task score is the mean over four tracks.",
       "aggregate": "mean",
@@ -645,7 +646,7 @@
           "label": "RoboTwin · robustness"
         }
       ],
-      "n_runs": 30,
+      "n_runs": 32,
       "n_runs_skipped": 0,
       "models": [
         "gemini37flash",
@@ -963,8 +964,8 @@
         0.053333
       ],
       "gemini37flash": [
-        null,
-        null,
+        0.844,
+        0.32,
         0.61,
         0.066667
       ]
@@ -1569,8 +1570,8 @@
       "gemini37flash": {
         "cost": null,
         "cost_total": null,
-        "hours": 4.6511,
-        "hours_median": 4.6511,
+        "hours": 2.4675,
+        "hours_median": 1.4059,
         "hours_total": null,
         "context_tokens": null,
         "input_tokens": null,
@@ -1579,7 +1580,7 @@
         "cost_sources": [
           "harness"
         ],
-        "n_runs": 2,
+        "n_runs": 4,
         "n_subtasks": 4
       }
     },
@@ -12410,35 +12411,32 @@
         }
       },
       "gemini37flash": {
-        "score": null,
-        "complete": false,
-        "n_runs": 2,
+        "score": 0.460167,
+        "complete": true,
+        "n_runs": 4,
         "n_subtasks": 4,
-        "missing": [
-          "01-libero-open-design",
-          "02-libero-robustness"
-        ],
+        "missing": [],
         "harness": "Antigravity CLI",
         "splits": {
           "01-libero-open-design": {
-            "score": null,
-            "reward": null,
-            "success_rate": null,
+            "score": 0.844,
+            "reward": 0.844,
+            "success_rate": 0.844,
             "cost_usd": null,
             "cost_usd_mean": null,
-            "hours_median": null,
-            "n_runs": 0,
-            "complete": false
+            "hours_median": 1.4059,
+            "n_runs": 1,
+            "complete": true
           },
           "02-libero-robustness": {
-            "score": null,
-            "reward": null,
-            "success_rate": null,
+            "score": 0.32,
+            "reward": 0.32,
+            "success_rate": 0.32,
             "cost_usd": null,
             "cost_usd_mean": null,
-            "hours_median": null,
-            "n_runs": 0,
-            "complete": false
+            "hours_median": 1.3456,
+            "n_runs": 1,
+            "complete": true
           },
           "03-robotwin-open-design": {
             "score": 0.61,
@@ -12462,6 +12460,54 @@
           }
         },
         "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.844,
+            "success_rate": 0.844,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 1.4059,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "scripts.entrypoints.closed_book_agents:GoogleApiAntigravityCli",
+            "model": "google/gemini-3.7-flash",
+            "job": "task03/t4-open-init/antigravity-cli/google/gemini-3.7-flash",
+            "started_at": "2026-09-11T03:57:52.531428Z",
+            "finished_at": "2026-09-11T05:22:13.660221Z",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 22066567.0,
+              "replay_wall_s": 1106.058426,
+              "reward": 0.844,
+              "success_rate": 0.844
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.32,
+            "success_rate": 0.32,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 1.3456,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "scripts.entrypoints.closed_book_agents:GoogleApiAntigravityCli",
+            "model": "google/gemini-3.7-flash",
+            "job": "task03/t5-robustness/antigravity-cli/google/gemini-3.7-flash",
+            "started_at": "2026-09-11T03:57:52.528897Z",
+            "finished_at": "2026-09-11T05:18:36.620627Z",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 17865991.0,
+              "replay_wall_s": 645.447325,
+              "reward": 0.32,
+              "plus_success_rate": 0.32
+            }
+          },
           "03-robotwin-open-design": {
             "reward": 0.61,
             "success_rate": 0.61,
