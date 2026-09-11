@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "status": "measured",
-  "generated_at": "2026-09-11T01:28:49Z",
+  "generated_at": "2026-09-11T02:36:55Z",
   "generator": "assets/data/export.py",
   "source": {
     "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId]: cost = API cost in USD summed over the task's subtask runs, hours = median agent wall-clock hours per run, input/cached/output tokens = sums over runs; Context Length on the homepage is input_tokens minus cached_tokens. Missing API cost or token counts stay null. Task ids are the legacy result ids used by data.js; tasks[taskId].public is the public number.",
