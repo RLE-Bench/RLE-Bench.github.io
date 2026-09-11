@@ -270,6 +270,35 @@ MOBILE_BASE_STAGES = (
     ("integration", "Integration", "stage_integration", 0.15),
 )
 
+# tasks/task07/README.md in RLE-Bench-dev: one co-design per follower arm; the run reward is the
+# mean of the three per-arm rewards. The dump also breaks each arm into validity/hardware/software/
+# co-design stage credit, but the stage weights are not recoverable from it, so only the arms split.
+GELLO_ARMS = (
+    ("franka", "Franka (7 DoF)", "franka_reward"),
+    ("ur5e", "UR5e (6 DoF)", "ur5e_reward"),
+    ("xarm7", "xArm7 (7 DoF)", "xarm7_reward"),
+)
+
+# tasks/task08/README.md in RLE-Bench-dev: four estimator variants, one run each.
+POSE_SUBTASKS = (
+    ("01-rgb-only", "RGB only", "rgb_only"),
+    ("02-rgb-depth", "RGB + depth", "rgb_depth"),
+    ("03-model-training", "Model training", "rgb_depth_model_training"),
+    ("04-method-agnostic", "Method agnostic", "method_agnostic"),
+)
+
+
+def pose_subtask(job: str) -> str:
+    """The variant is spelled into the job name, but every harness spells it differently
+    (``...-rgb_depth_cpu-source_...``, ``...-rgb-depth``, ``217--glm-5.3-flash--method-agnostic__x``),
+    so match on the slug. Longest first, or ``rgb_depth`` would swallow ``rgb_depth_model_training``."""
+    key = job.lower().replace("-", "_")
+    for sid, _, slug in sorted(POSE_SUBTASKS, key=lambda entry: -len(entry[2])):
+        if slug in key:
+            return sid
+    return job
+
+
 # tasks/task05/README.md in RLE-Bench-dev: four tracks (two LIBERO-10, two RoboTwin 2.0); reward = hidden-set success rate.
 NANOVLA_SUBTASKS = {
     "01-libero-open-design": "LIBERO · open design",
@@ -390,6 +419,30 @@ TASKS: tuple[TaskSpec, ...] = (
         subtasks={"mobile-base": {"label": "Mobile base"}},
         subtask_of=lambda job: "mobile-base",
         score_note="reward = sum of weighted stage checkpoints, each the minimum over the Panda, UR5e and xArm7 arms; a failed gate caps the reward at 0.15. Split values are stage credit divided by stage weight.",
+    ),
+    TaskSpec(
+        id="task07",
+        public="T07",
+        name="Gravity Compensation for Gello",
+        file="task07.json",
+        split_label="Follower Arm",
+        aggregate="mean",
+        splits=tuple(Split(arm, label, metric=metric) for arm, label, metric in GELLO_ARMS),
+        subtasks={"gello": {"label": "Gravity compensation"}},
+        subtask_of=lambda job: "gello",
+        score_note="Task score is the mean of the per-arm rewards over the Franka, UR5e and xArm7 leader arms; split values are those per-arm rewards.",
+    ),
+    TaskSpec(
+        id="task08",
+        public="T08",
+        name="Pose Estimation",
+        file="task08.json",
+        split_label="Subtask",
+        aggregate="mean",
+        splits=tuple(Split(sid, label, subtasks=(sid,)) for sid, label, _ in POSE_SUBTASKS),
+        subtasks={sid: {"label": label} for sid, label, _ in POSE_SUBTASKS},
+        subtask_of=pose_subtask,
+        score_note="reward = 0.30 × stage A pose credit (100 static frames) + 0.70 × stage B pose credit (ten push episodes), less an inference-speed deduction; a wrong shape identification or a failed gate zeroes the run. Task score is the mean over the four estimator variants.",
     ),
     TaskSpec(
         id="task09",
