@@ -6091,6 +6091,876 @@
           }
         ]
       }
+    },
+    {
+      "agent": "scripts.entrypoints.harvard_agents:HarvardAntigravityCli",
+      "model": "google/gemini-3.7-flash",
+      "job": "01-washing-dishes/antigravity-cli/google_gemini-3.7-flash",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.5,
+      "success_rate": 0.2,
+      "metrics": {
+        "dev_episodes": 15.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 2722.0,
+        "planned_trials": 5.0,
+        "reward": 0.5,
+        "success_rate": 0.2,
+        "successes": 1.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-03T10:45:30.416636",
+        "finished_at": "2026-09-03T13:20:44.415197",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "01-washing-dishes__FgVxbEY",
+            "rewards": {
+              "dev_episodes": 15,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 2722,
+              "planned_trials": 5,
+              "reward": 0.5,
+              "success_rate": 0.2,
+              "successes": 1,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "scripts.entrypoints.harvard_agents:HarvardAntigravityCli",
+      "model": "google/gemini-3.7-flash",
+      "job": "02-sauteing-vegetables/antigravity-cli/google_gemini-3.7-flash",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 5.0,
+        "dev_successes": 1.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 2236.0,
+        "planned_trials": 5.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-03T13:20:50.461175",
+        "finished_at": "2026-09-03T15:53:24.942551",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "02-sauteing-vegetables__9Tm28vo",
+            "rewards": {
+              "dev_episodes": 5,
+              "dev_successes": 1,
+              "interaction_budget": 75000,
+              "interaction_steps": 2236,
+              "planned_trials": 5,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 1,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "agy_login_agent:AntigravityCliLogin",
+      "model": "google/gemini-3.7-flash-high",
+      "job": "03-baking/antigravity-cli/google_gemini-3.7-flash-high",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.2,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 53.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 15150.0,
+        "planned_trials": 5.0,
+        "reward": 0.2,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-06T16:27:52.174378",
+        "finished_at": "2026-09-06T19:01:09.188932",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "03-baking__78EJZsq",
+            "rewards": {
+              "dev_episodes": 53,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 15150,
+              "planned_trials": 5,
+              "reward": 0.2,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "agy_login_agent:AntigravityCliLogin",
+      "model": "google/gemini-3.7-flash-high",
+      "job": "04-reheating-food/antigravity-cli/google_gemini-3.7-flash-high",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.3,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 85.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 18792.0,
+        "planned_trials": 5.0,
+        "reward": 0.3,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-06T16:27:52.170585",
+        "finished_at": "2026-09-06T18:13:45.239845",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "04-reheating-food__PZuFsPB",
+            "rewards": {
+              "dev_episodes": 85,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 18792,
+              "planned_trials": 5,
+              "reward": 0.3,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "agy_login_agent:AntigravityCliLogin",
+      "model": "google/gemini-3.7-flash-high",
+      "job": "05-chopping-food/antigravity-cli/google_gemini-3.7-flash-high",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.2,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 28.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 15422.0,
+        "planned_trials": 5.0,
+        "reward": 0.2,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-06T18:13:48.013015",
+        "finished_at": "2026-09-06T20:20:27.142953",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "05-chopping-food__wZpYEcs",
+            "rewards": {
+              "dev_episodes": 28,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 15422,
+              "planned_trials": 5,
+              "reward": 0.2,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "agy_login_agent:AntigravityCliLogin",
+      "model": "google/gemini-3.7-flash-high",
+      "job": "06-setting-the-table/antigravity-cli/google_gemini-3.7-flash-high",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.5,
+      "success_rate": 0.2,
+      "metrics": {
+        "dev_episodes": 91.0,
+        "dev_successes": 1.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 53778.0,
+        "planned_trials": 5.0,
+        "reward": 0.5,
+        "success_rate": 0.2,
+        "successes": 1.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-08T10:05:29.662186",
+        "finished_at": "2026-09-08T12:18:01.839941",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "06-setting-the-table__fJ6UvC5",
+            "rewards": {
+              "dev_episodes": 91,
+              "dev_successes": 1,
+              "interaction_budget": 75000,
+              "interaction_steps": 53778,
+              "planned_trials": 5,
+              "reward": 0.5,
+              "success_rate": 0.2,
+              "successes": 1,
+              "tasks_practised": 3,
+              "train_tasks_solved": 1,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "agy_login_agent:AntigravityCliLogin",
+      "model": "google/gemini-3.7-flash-high",
+      "job": "07-portioning-meals/antigravity-cli/google_gemini-3.7-flash-high",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.4,
+      "success_rate": 0.2,
+      "metrics": {
+        "dev_episodes": 18.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 3988.0,
+        "planned_trials": 5.0,
+        "reward": 0.4,
+        "success_rate": 0.2,
+        "successes": 1.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-06T19:01:12.021268",
+        "finished_at": "2026-09-06T20:33:42.829136",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "07-portioning-meals__UBX3E5A",
+            "rewards": {
+              "dev_episodes": 18,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 3988,
+              "planned_trials": 5,
+              "reward": 0.4,
+              "success_rate": 0.2,
+              "successes": 1,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "agy_login_agent:AntigravityCliLogin",
+      "model": "google/gemini-3.7-flash-high",
+      "job": "08-defrosting-food/antigravity-cli/google_gemini-3.7-flash-high",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.15,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 15.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 7170.0,
+        "planned_trials": 5.0,
+        "reward": 0.15,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-07T16:17:40.878720",
+        "finished_at": "2026-09-07T18:05:15.530358",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "08-defrosting-food__KSffFi9",
+            "rewards": {
+              "dev_episodes": 15,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 7170,
+              "planned_trials": 5,
+              "reward": 0.15,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "agy_login_agent:AntigravityCliLogin",
+      "model": "google/gemini-3.7-flash-high",
+      "job": "09-arranging-buffet/antigravity-cli/google_gemini-3.7-flash-high",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.166667,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 42.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 2575.0,
+        "planned_trials": 5.0,
+        "reward": 0.166667,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-07T16:17:40.866565",
+        "finished_at": "2026-09-07T18:26:37.159370",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "09-arranging-buffet__hTXxtKo",
+            "rewards": {
+              "dev_episodes": 42,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 2575,
+              "planned_trials": 5,
+              "reward": 0.166667,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "agy_login_agent:AntigravityCliLogin",
+      "model": "google/gemini-3.7-flash-high",
+      "job": "10-serving-beverages/antigravity-cli/google_gemini-3.7-flash-high",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.133333,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 18.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 10294.0,
+        "planned_trials": 5.0,
+        "reward": 0.133333,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-06T22:07:21.279277",
+        "finished_at": "2026-09-07T00:35:08.768474",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "10-serving-beverages__wCnZb4S",
+            "rewards": {
+              "dev_episodes": 18,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 10294,
+              "planned_trials": 5,
+              "reward": 0.133333,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "agy_login_agent:AntigravityCliLogin",
+      "model": "google/gemini-3.7-flash-high",
+      "job": "11-loading-fridge/antigravity-cli/google_gemini-3.7-flash-high",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.266667,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 11.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 2205.0,
+        "planned_trials": 5.0,
+        "reward": 0.266667,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-06T22:07:21.455080",
+        "finished_at": "2026-09-07T00:37:04.279068",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "11-loading-fridge__aHCdngF",
+            "rewards": {
+              "dev_episodes": 11,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 2205,
+              "planned_trials": 5,
+              "reward": 0.266667,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "agy_login_agent:AntigravityCliLogin",
+      "model": "google/gemini-3.7-flash-high",
+      "job": "12-managing-freezer-space/antigravity-cli/google_gemini-3.7-flash-high",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 29.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 3347.0,
+        "planned_trials": 5.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-07T03:21:11.338932",
+        "finished_at": "2026-09-07T05:52:43.178594",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "12-managing-freezer-space__V7Fjnfi",
+            "rewards": {
+              "dev_episodes": 29,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 3347,
+              "planned_trials": 5,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "agy_login_agent:AntigravityCliLogin",
+      "model": "google/gemini-3.7-flash-high",
+      "job": "13-clearing-table/antigravity-cli/google_gemini-3.7-flash-high",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 11.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 4801.0,
+        "planned_trials": 5.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-07T03:21:11.338591",
+        "finished_at": "2026-09-07T06:33:12.359120",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "13-clearing-table__NTj8rJF",
+            "rewards": {
+              "dev_episodes": 11,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 4801,
+              "planned_trials": 5,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "agy_login_agent:AntigravityCliLogin",
+      "model": "google/gemini-3.7-flash-high",
+      "job": "14-microwaving-food/antigravity-cli/google_gemini-3.7-flash-high",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 31.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 7388.0,
+        "planned_trials": 5.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-07T11:13:52.193018",
+        "finished_at": "2026-09-07T13:46:13.990047",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "14-microwaving-food__qp2Jucm",
+            "rewards": {
+              "dev_episodes": 31,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 7388,
+              "planned_trials": 5,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "agy_login_agent:AntigravityCliLogin",
+      "model": "google/gemini-3.7-flash-high",
+      "job": "15-storing-leftovers/antigravity-cli/google_gemini-3.7-flash-high",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.333333,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 7.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 1950.0,
+        "planned_trials": 5.0,
+        "reward": 0.333333,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-07T11:13:52.187936",
+        "finished_at": "2026-09-07T14:44:05.524010",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "15-storing-leftovers__7ySvGKx",
+            "rewards": {
+              "dev_episodes": 7,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 1950,
+              "planned_trials": 5,
+              "reward": 0.333333,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
     }
   ]
 }

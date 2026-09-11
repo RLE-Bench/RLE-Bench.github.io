@@ -88,16 +88,42 @@ writes:
 - `results[taskId][modelId]` — `score` (the task score: mean verifier reward
   over the task's subtasks), `complete`, `missing`, per-split detail (`score`,
   `reward`, `success_rate`, `cost_usd`, `cost_usd_mean`, `hours_median`), and
-  per-subtask detail (`reward`, `success_rate`, `cost_usd`, `hours`, `status`,
-  tokens, `job`, and the raw verifier `metrics` unless `--compact`).
-- `costs[taskId][modelId]` — `cost` (API cost in USD summed over the task's
-  subtask runs), `cost_mean` (per run), `hours` (median agent wall-clock hours
-  per run), `hours_total`, and `input_tokens` / `cached_tokens` /
-  `output_tokens` (sums). Missing cost or token counts stay `null` rather than
-  becoming zero; the cost table's Context Length column shows
-  `input_tokens - cached_tokens`.
+  per-subtask detail (`reward`, `success_rate`, `cost_usd`, `cost_source`,
+  `hours`, `status`, tokens, `job`, and the raw verifier `metrics` unless
+  `--compact`).
+- `costs[taskId][modelId]` — per-subtask means over the task's runs: `cost`
+  (mean API cost in USD), `hours` (mean agent wall-clock hours) and
+  `context_tokens` (mean of `input_tokens - cached_tokens` per run, the cost
+  table's Context Length column). The totals sit alongside them as `cost_total`,
+  `hours_total`, `hours_median` and `input_tokens` / `cached_tokens` /
+  `output_tokens`; `cost_sources` says where the cost came from. Missing cost or
+  token counts stay `null` rather than becoming zero. The homepage's overall
+  figures average these per-task means within each workflow, then across
+  workflows.
 - `status` — `"measured"`; `app.js` copies it into `meta.dataStatus`, which
   drives the illustrative/measured labels.
+
+### API cost and `assets/data/price/`
+
+A run's `cost_usd` in the dump is whatever its harness billed, and a harness
+that cannot identify the model bills it against the wrong price sheet — Claude
+Code does this with `glm-5.3-flash`, charging Anthropic rates and overstating
+the cost by more than 10x. So for every model priced in `assets/data/price/`,
+`export.py` ignores the dump's `cost_usd` and recomputes the cost from the run's
+token counts:
+
+```
+cost = ((n_input_tokens - n_cache_tokens) * input
+        + n_cache_tokens * cached_input
+        + n_output_tokens * output) / 1e6
+```
+
+Models with no file there keep the cost from their dump. `cost_source` on each
+run (and `cost_sources` on each `costs` entry) says which applies: `"harness"`,
+`"price/<file>:<rate>"`, or `"unpriced"` when a priced model's dump has no token
+counts and the cost had to be dropped. `source.prices` in `leaderboard.json`
+records the rates that were applied. See `assets/data/price/README.md` for the
+file format and how to switch the rate in force.
 
 Task ids equal the public task numbers in the table below (`task01` = T01);
 `tasks[taskId].public` carries the public number. A model/task pair with a

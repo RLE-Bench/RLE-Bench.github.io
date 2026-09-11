@@ -1,0 +1,29 @@
+{
+  "model": "glm-5.3-flash",
+  "display_name": "GLM-5.3 Flash",
+  "provider": "Z.ai",
+  "aliases": [
+    "glm-5.3-flash",
+    "glm-5-3-flash",
+    "z-ai/glm-5.3-flash",
+    "zai/glm-5.3-flash"
+  ],
+  "currency": "USD",
+  "unit": "per_1m_tokens",
+  "rate": "list",
+  "rates": {
+    "list": {
+      "input": 0.15,
+      "cached_input": 0.03,
+      "output": 0.5,
+      "note": "Z.ai published list price; the launch promo that halved these expired 2026-09-09."
+    }
+  },
+  "note": "Claude Code cannot identify this model and bills it against an Anthropic price sheet, so cost_usd in the dumps is wrong; export.py recomputes it from the token counts. 'input' applies to uncached input tokens (n_input_tokens - n_cache_tokens), 'cached_input' to n_cache_tokens, 'output' to n_output_tokens. No context-length tiering.",
+  "sources": [
+    "https://openrouter.ai/z-ai/glm-5.3-flash",
+    "https://llm-stats.com/models/glm-5.3-flash",
+    "https://developer.puter.com/tutorials/zai-glm-api-pricing/"
+  ],
+  "updated": "2026-09-11"
+}

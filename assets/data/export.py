@@ -22,13 +22,18 @@ Output layout (all scores are on a 0-1 scale)::
     models[]                         id, name, short, org, open, harness, tasks
     tasks[taskId]                    public number, split catalog, subtask catalog
     scores[taskId][modelId]          per-split scores aligned with tasks[taskId].splits
-    costs[taskId][modelId]           cost (USD, sum), hours (median per run), tokens (sums)
+    costs[taskId][modelId]           cost (USD), hours and context_tokens, each a mean per subtask
     results[taskId][modelId]         task score plus per-split and per-subtask detail
 
 ``taskId`` equals the public task number that ``data.js`` and ``app.js`` key on
 (``task01`` = T01 Agentic Control, ...); ``tasks[taskId].public`` carries the
 same number as ``T01``. Only the tasks listed in ``TASKS`` below are exported; add a
 ``TaskSpec`` there when a new dump lands.
+
+API costs come from the dumps except for models priced in ``assets/data/price/``,
+whose cost is recomputed from the run's token counts — a harness can bill a model
+it does not recognise against the wrong price sheet (Claude Code does this with
+``glm-5.3-flash``). See ``price/README.md`` for the file format.
 """
 
 from __future__ import annotations
@@ -45,7 +50,7 @@ from typing import Callable, Iterable
 
 HERE = Path(__file__).resolve().parent
 DEFAULT_OUTPUT = HERE / "leaderboard.json"
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 # --------------------------------------------------------------------------
 # Model registry: raw model strings in the dumps -> stable ids used on the site.
@@ -84,6 +89,81 @@ HARNESSES: tuple[tuple[str, str], ...] = (
     ("claude_code", "Claude Code"),
     ("antigravity", "Antigravity CLI"),
 )
+
+# --------------------------------------------------------------------------
+# Price registry: assets/data/price/*.json. A harness that cannot identify a
+# model bills it against the wrong price sheet (Claude Code does this with
+# glm-5.3-flash, charging Anthropic rates), so ``cost_usd`` in the dump is
+# unusable. For every model priced here the cost is recomputed from the run's
+# token counts instead; every other model keeps the cost from its dump.
+# --------------------------------------------------------------------------
+
+PRICE_DIR = HERE / "price"
+
+
+@dataclass(frozen=True)
+class PriceSpec:
+    """One model's token prices, in USD per million tokens."""
+
+    model: str
+    file: str
+    rate: str  # which entry of the file's ``rates`` table is in force
+    input: float  # uncached input tokens (n_input_tokens - n_cache_tokens)
+    cached_input: float  # cached input tokens (n_cache_tokens)
+    output: float  # output tokens (n_output_tokens)
+
+    def cost(self, input_tokens, cached_tokens, output_tokens) -> float | None:
+        """USD for one run, or None when the dump is missing a token count."""
+        if input_tokens is None or cached_tokens is None or output_tokens is None:
+            return None
+        uncached = max(0.0, input_tokens - cached_tokens)
+        millions = (uncached * self.input + cached_tokens * self.cached_input + output_tokens * self.output)
+        return millions / 1_000_000
+
+
+def load_prices() -> dict[str, PriceSpec]:
+    """Read price/*.json into a {normalised model slug: PriceSpec} lookup."""
+    prices: dict[str, PriceSpec] = {}
+    if not PRICE_DIR.is_dir():
+        return prices
+    for path in sorted(PRICE_DIR.glob("*.json")):
+        try:
+            entry = json.loads(path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError) as exc:
+            warn(f"price/{path.name}: unreadable ({exc}); ignored")
+            continue
+        if entry.get("unit") != "per_1m_tokens" or entry.get("currency") != "USD":
+            warn(f"price/{path.name}: expected currency 'USD' and unit 'per_1m_tokens'; ignored")
+            continue
+        rate = entry.get("rate")
+        rates = entry.get("rates") or {}
+        table = rates.get(rate)
+        if not isinstance(table, dict):
+            warn(f"price/{path.name}: rate {rate!r} is not in 'rates' {sorted(rates)}; ignored")
+            continue
+        input_rate, output_rate = num(table.get("input")), num(table.get("output"))
+        if input_rate is None or output_rate is None:
+            warn(f"price/{path.name}: rate {rate!r} needs numeric 'input' and 'output'; ignored")
+            continue
+        cached_rate = num(table.get("cached_input"))
+        spec = PriceSpec(
+            model=str(entry.get("model") or path.stem),
+            file=path.name,
+            rate=str(rate),
+            input=input_rate,
+            cached_input=input_rate if cached_rate is None else cached_rate,
+            output=output_rate,
+        )
+        for alias in entry.get("aliases") or [spec.model]:
+            # Several aliases of one model normalise to the same slug; only a
+            # clash between two price files is worth reporting.
+            slug = normalise_model(str(alias))
+            if slug in prices and prices[slug].file != spec.file:
+                warn(f"price/{path.name}: alias {alias!r} is already priced by price/{prices[slug].file}; keeping the first")
+                continue
+            prices[slug] = spec
+    return prices
+
 
 # --------------------------------------------------------------------------
 # Task catalog: how each dump's runs map to subtasks and splits.
@@ -402,7 +482,7 @@ def resolve_subtask(spec: TaskSpec, raw: str) -> str | None:
 # --------------------------------------------------------------------------
 
 
-def run_record(run: dict) -> dict:
+def run_record(run: dict, prices: dict[str, PriceSpec]) -> dict:
     extra = run.get("extra") or {}
     progress = extra.get("progress") or {}
     started, finished = parse_ts(extra.get("started_at")), parse_ts(extra.get("finished_at"))
@@ -410,6 +490,21 @@ def run_record(run: dict) -> dict:
     if hours is not None and hours < 0:
         hours = None
     metrics = {k: num(v) for k, v in (run.get("metrics") or {}).items()}
+    tokens = (
+        num(progress.get("n_input_tokens")),
+        num(progress.get("n_cache_tokens")),
+        num(progress.get("n_output_tokens")),
+    )
+    cost_usd, cost_source = num(run.get("cost_usd")), "harness"
+    price = prices.get(normalise_model(run.get("model") or ""))
+    if price is not None:
+        # The dump's cost_usd used the harness's price sheet, which is wrong for
+        # this model; drop it either way rather than mix the two conventions.
+        cost_usd = price.cost(*tokens)
+        cost_source = f"price/{price.file}:{price.rate}"
+        if cost_usd is None:
+            warn(f"run {run.get('job')!r}: {price.model} is priced in price/{price.file} but the dump has no token counts; cost dropped")
+            cost_source = "unpriced"
     return {
         "job": run.get("job"),
         "agent": run.get("agent"),
@@ -417,13 +512,14 @@ def run_record(run: dict) -> dict:
         "status": run.get("status"),
         "reward": num(run.get("reward")),
         "success_rate": num(run.get("success_rate")),
-        "cost_usd": num(run.get("cost_usd")),
+        "cost_usd": cost_usd,
+        "cost_source": cost_source,
         "hours": hours,
         "started_at": extra.get("started_at"),
         "finished_at": extra.get("finished_at"),
-        "input_tokens": num(progress.get("n_input_tokens")),
-        "cached_tokens": num(progress.get("n_cache_tokens")),
-        "output_tokens": num(progress.get("n_output_tokens")),
+        "input_tokens": tokens[0],
+        "cached_tokens": tokens[1],
+        "output_tokens": tokens[2],
         "metrics": metrics,
     }
 
@@ -441,7 +537,7 @@ def pick_run(spec: TaskSpec, key: tuple[str, str], runs: list[dict], policy: str
     return chosen
 
 
-def load_task(spec: TaskSpec, args: argparse.Namespace) -> dict:
+def load_task(spec: TaskSpec, args: argparse.Namespace, prices: dict[str, PriceSpec]) -> dict:
     path = HERE / spec.file
     dump = json.loads(path.read_text(encoding="utf-8"))
     runs = dump.get("runs") or []
@@ -450,7 +546,7 @@ def load_task(spec: TaskSpec, args: argparse.Namespace) -> dict:
     models: dict[str, ModelSpec] = {}
     skipped = 0
     for run in runs:
-        record = run_record(run)
+        record = run_record(run, prices)
         if args.completed_only and record["status"] != "completed":
             skipped += 1
             continue
@@ -541,14 +637,24 @@ def aggregate_model(spec: TaskSpec, subtasks: dict[str, dict], harnesses: dict[s
     if len(harnesses) > 1:
         warn(f"{spec.file}: model runs use several harnesses {sorted(harnesses)}; reporting {harness!r}")
 
+    # The site reports cost, time and context length per subtask: `cost`, `hours` and
+    # `context_tokens` are means over this model's runs on the task, so a task with more
+    # subtasks does not look more expensive. Totals stay alongside them for reference.
+    context_per_run = [
+        None if r["input_tokens"] is None or r["cached_tokens"] is None else r["input_tokens"] - r["cached_tokens"]
+        for r in runs
+    ]
     cost = {
-        "cost": rnd(total(r["cost_usd"] for r in runs)) if scoreable else None,
-        "cost_mean": rnd(mean(r["cost_usd"] for r in runs)),
-        "hours": rnd(median(r["hours"] for r in runs), 4),
+        "cost": rnd(mean(r["cost_usd"] for r in runs)) if scoreable else None,
+        "cost_total": rnd(total(r["cost_usd"] for r in runs)),
+        "hours": rnd(mean(r["hours"] for r in runs), 4),
+        "hours_median": rnd(median(r["hours"] for r in runs), 4),
         "hours_total": rnd(total(r["hours"] for r in runs), 4),
+        "context_tokens": rnd(mean(context_per_run), 1) if scoreable else None,
         "input_tokens": total(r["input_tokens"] for r in runs) if scoreable else None,
         "cached_tokens": total(r["cached_tokens"] for r in runs) if scoreable else None,
         "output_tokens": total(r["output_tokens"] for r in runs) if scoreable else None,
+        "cost_sources": sorted({r["cost_source"] for r in runs}),
         "n_runs": len(runs),
         "n_subtasks": len(expected),
     }
@@ -563,6 +669,7 @@ def aggregate_model(spec: TaskSpec, subtasks: dict[str, dict], harnesses: dict[s
             "reward": rnd(r["reward"]),
             "success_rate": rnd(r["success_rate"]),
             "cost_usd": rnd(r["cost_usd"]),
+            "cost_source": r["cost_source"],
             "hours": rnd(r["hours"], 4),
             "status": r["status"],
             "harness": r["harness"],
@@ -599,12 +706,13 @@ def aggregate_model(spec: TaskSpec, subtasks: dict[str, dict], harnesses: dict[s
 
 
 def build(args: argparse.Namespace) -> dict:
+    prices = load_prices()
     loaded = []
     for spec in TASKS:
         if not (HERE / spec.file).exists():
             warn(f"{spec.file} not found; task {spec.id} ({spec.public}) left out")
             continue
-        loaded.append(load_task(spec, args))
+        loaded.append(load_task(spec, args, prices))
 
     registry: dict[str, ModelSpec] = {}
     harness_votes: dict[str, dict[str, int]] = {}
@@ -682,9 +790,15 @@ def build(args: argparse.Namespace) -> dict:
                 "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). "
                 "scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; "
                 "results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). "
-                "costs[taskId][modelId]: cost = API cost in USD summed over the task's subtask runs, hours = median "
-                "agent wall-clock hours per run, input/cached/output tokens = sums over runs; Context Length on the "
-                "homepage is input_tokens minus cached_tokens. Missing API cost or token counts stay null. "
+                "costs[taskId][modelId] reports per-subtask means over the task's runs: cost = mean API cost in "
+                "USD, hours = mean agent wall-clock hours, context_tokens = mean of input_tokens minus cached_tokens "
+                "per run (the homepage's Context Length). cost_total, hours_total, hours_median and the "
+                "input/cached/output token counts are the corresponding totals over runs. The homepage's overall "
+                "figures average these per-task means within each workflow, then across workflows. "
+                "Missing API cost or token counts stay null. "
+                "Costs come from the run dumps except for the models listed under source.prices, whose cost is "
+                "recomputed from token counts because their harness billed them against the wrong price sheet; "
+                "costs[...].cost_sources and results[...].subtasks[...].cost_source say which applies. "
                 "Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc."
             ),
             "options": {
@@ -692,6 +806,18 @@ def build(args: argparse.Namespace) -> dict:
                 "completed_only": args.completed_only,
                 "dedupe": args.dedupe,
                 "compact": args.compact,
+            },
+            "prices": {
+                spec.model: {
+                    "file": f"price/{spec.file}",
+                    "rate": spec.rate,
+                    "currency": "USD",
+                    "unit": "per_1m_tokens",
+                    "input": spec.input,
+                    "cached_input": spec.cached_input,
+                    "output": spec.output,
+                }
+                for spec in {id(s): s for s in prices.values()}.values()
             },
             "files": {
                 task["spec"].id: {

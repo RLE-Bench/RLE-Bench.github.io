@@ -10,7 +10,7 @@
 <link href="assets/favicon-64.png" rel="icon" sizes="64x64" type="image/png"/>
 <link href="assets/icon.png" rel="icon" sizes="512x512" type="image/png"/>
 <link href="assets/apple-touch-icon.png" rel="apple-touch-icon"/>
-<link rel="stylesheet" href="homepage.css?v=20260910-cost-fill"/><meta content="#131615" name="theme-color"/><meta content="RLE-Bench | Robot Learning Engineering" property="og:title"/><meta content="A qualifying exam for coding agents as robot learning engineers. Explore the benchmark, task-level rankings, and evaluation costs." property="og:description"/><meta content="website" property="og:type"/><meta content="https://rle-bench.github.io/" property="og:url"/><meta content="https://rle-bench.github.io/assets/icon.png" property="og:image"/><link href="https://rle-bench.github.io/" rel="canonical"/><script>try{const t=localStorage.getItem('rlebench-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script><meta content="512" property="og:image:width"/><meta content="512" property="og:image:height"/><meta content="RLE-Bench: a llama operating a robot arm." property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><link rel="stylesheet" href="homepage-header.css?v=20260910-blog-align"/>
+<link rel="stylesheet" href="homepage.css?v=20260911-index-head"/><meta content="#131615" name="theme-color"/><meta content="RLE-Bench | Robot Learning Engineering" property="og:title"/><meta content="A qualifying exam for coding agents as robot learning engineers. Explore the benchmark, task-level rankings, and evaluation costs." property="og:description"/><meta content="website" property="og:type"/><meta content="https://rle-bench.github.io/" property="og:url"/><meta content="https://rle-bench.github.io/assets/icon.png" property="og:image"/><link href="https://rle-bench.github.io/" rel="canonical"/><script>try{const t=localStorage.getItem('rlebench-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script><meta content="512" property="og:image:width"/><meta content="512" property="og:image:height"/><meta content="RLE-Bench: a llama operating a robot arm." property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><link rel="stylesheet" href="homepage-header.css?v=20260910-blog-align"/>
 <link rel="stylesheet" href="navigation.css?v=20260911-menu"/>
 <script src="navigation.js?v=20260911-menu" defer></script>
 </head>
@@ -93,7 +93,7 @@
 </section>
 <section aria-labelledby="cost-heading" class="home-section" id="cost">
 <div class="wrap">
-<div class="section-heading"><div><h2 id="cost-heading">Performance and Cost</h2><p class="section-description">Task scores, API cost, agent time, and context length, averaged within each workflow and then across workflows. Cost excludes simulation, GPU compute, and other infrastructure.</p></div>
+<div class="section-heading"><div><h2 id="cost-heading">Performance and Cost</h2><p class="section-description">Task scores, API cost, agent time, and context length, averaged over a task's subtasks, then within each workflow, then across workflows. Cost excludes simulation, GPU compute, and other infrastructure.</p></div>
 <label class="scope-select"><span>Evaluation Scope</span><select aria-label="Cost evaluation scope" id="costScope"><option value="overall">Overall</option></select></label>
 </div>
 <div class="data-panel cost-workbench"><figure aria-describedby="costChartNote" aria-labelledby="costChartTitle" class="cost-figure">

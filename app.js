@@ -300,18 +300,19 @@
   addEventListener('hashchange',()=>{const id=taskFromURL();if(byId[id]){setTask(id);if(location.hash===`#${id}`)$('#tasks').scrollIntoView();}});
   addEventListener('popstate',()=>{const id=taskFromURL();if(byId[id])setTask(id);});
 
-  /* Cost model: per-task API cost, agent hours and context length come from costs[taskId][modelId];
-     the overall view averages each within workflows, then across workflows, exactly like the RLE Index. */
+  /* Cost model: costs[taskId][modelId] already holds per-subtask means (API cost, agent hours and
+     context length averaged over the task's runs); the overall view averages those within workflows,
+     then across workflows, exactly like the RLE Index. */
   const taskCostField=(t,m,key)=>{const c=BENCH.costs?.[t.id]?.[m.id];if(!c)return null;
-    if(key==='context')return Number.isFinite(c.input_tokens)&&Number.isFinite(c.cached_tokens)?c.input_tokens-c.cached_tokens:null;
+    if(key==='context')return Number.isFinite(c.context_tokens)?c.context_tokens:null;
     return Number.isFinite(c[key])?c[key]:null;};
   const costMetric=(m,key)=>costView==='overall'?hierarchical(m,(t,x)=>taskCostField(t,x,key)):taskCostField(byId[costView],m,key);
   const costRows=()=>agents.map(m=>({m,score:costView==='overall'?indexScore(m):familyScore(byId[costView],m),cost:costMetric(m,'cost'),hours:costMetric(m,'hours'),context:costMetric(m,'context')}));
   function costContext(){
     const overall=costView==='overall',t=byId[costView];
-    return {overall,scoreLabel:overall?'Mean Task Score':'Task Score',costLabel:overall?'Mean API Cost':'API Cost',
+    return {overall,scoreLabel:overall?'Mean Task Score':'Task Score',costLabel:'Mean API Cost',
       title:overall?'Score vs. Cost':`Task ${t.num} · ${abbreviated[t.id]||t.short}`,
-      xLabel:overall?'Mean API cost per task · USD (log)':'API cost · USD (log)'};
+      xLabel:'Mean API cost per subtask · USD (log)'};
   }
   const costModelIds=Object.fromEntries(agents.slice().sort((a,b)=>(indexScore(b)??-1)-(indexScore(a)??-1)).map((m,i)=>[m.id,i+1]));
   // Plot labels: the export supplies `short` per model; the map covers older snapshots without it.
@@ -322,7 +323,7 @@
   }
   function costTip(r){
     const meta=costContext();
-    return `<div class="tt-title">${escapeHTML(r.m.name)}</div><div class="tt-line"><span>${meta.scoreLabel}</span><b>${pct(r.score)}</b></div><div class="tt-line"><span>${meta.costLabel}</span><b>${preciseUSD(r.cost)}</b></div><div class="tt-line"><span>${meta.overall?'Mean agent time':'Agent time'}</span><b>${num(r.hours)} h</b></div><div class="tt-line"><span>Context length</span><b>${tokens(r.context)}</b></div><div class="tt-sub">${escapeHTML(r.m.org)} · ${escapeHTML(r.m.harness)}${isSample?' · Illustrative data':''}</div>`;
+    return `<div class="tt-title">${escapeHTML(r.m.name)}</div><div class="tt-line"><span>${meta.scoreLabel}</span><b>${pct(r.score)}</b></div><div class="tt-line"><span>${meta.costLabel}</span><b>${preciseUSD(r.cost)}</b></div><div class="tt-line"><span>Mean agent time</span><b>${num(r.hours)} h</b></div><div class="tt-line"><span>Mean context length</span><b>${tokens(r.context)}</b></div><div class="tt-sub">${escapeHTML(r.m.org)} · ${escapeHTML(r.m.harness)}${isSample?' · Illustrative data':''}</div>`;
   }
   function linkCost(node,row){
     node.dataset.costModel=row.m.id;bindTip(node,()=>costTip(row));
@@ -407,7 +408,7 @@
     const cols=[['cost','API Cost'],['hours','Time'],['context','Context Length']];
     cols.forEach(([key,label])=>{
       const h=make('th');h.scope='col';h.setAttribute('aria-sort',key===costSort.key?(costSort.direction==='asc'?'ascending':'descending'):'none');
-      const b=make('button',null,label+' ');b.type='button';b.dataset.sort=key;b.title=key==='hours'?'Median agent hours':key==='context'?'Input tokens minus cached tokens':sortNames[key];b.setAttribute('aria-label',`Sort by ${sortNames[key]}`);
+      const b=make('button',null,label+' ');b.type='button';b.dataset.sort=key;b.title=key==='hours'?'Mean agent hours per subtask':key==='context'?'Mean input tokens minus cached tokens per subtask':sortNames[key];b.setAttribute('aria-label',`Sort by ${sortNames[key]}`);
       b.append(make('span',null,key===costSort.key?(costSort.direction==='asc'?'↑':'↓'):'↕'));
       b.addEventListener('click',()=>{costSort={key,direction:costSort.key===key?(costSort.direction==='asc'?'desc':'asc'):'asc'};hideTip();renderCostTable();$(`[data-sort="${key}"]`)?.focus({preventScroll:true});});h.append(b);hr.append(h);
     });th.append(hr);table.append(th);const body=make('tbody');
@@ -424,7 +425,7 @@
   $('#downloadCsv').addEventListener('click',()=>{
     const clean=v=>{let s=String(v??'');if(/^[=+\-@]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"';};
     const headers=['data_status','snapshot_date','scope','model_id','model','harness','score_0_100','api_cost_usd','agent_hours','context_tokens','aggregation'];
-    const rows=sortedCostRows().map(r=>[isSample?'illustrative_placeholder':'measured',BENCH.meta.updated,costView,r.m.id,r.m.name,r.m.harness,Number.isFinite(r.score)?(r.score*100).toFixed(6):'',Number.isFinite(r.cost)?r.cost.toFixed(6):'',Number.isFinite(r.hours)?r.hours.toFixed(4):'',Number.isFinite(r.context)?Math.round(r.context):'',costView==='overall'?'workflow_mean_then_overall_mean':'single_task']);
+    const rows=sortedCostRows().map(r=>[isSample?'illustrative_placeholder':'measured',BENCH.meta.updated,costView,r.m.id,r.m.name,r.m.harness,Number.isFinite(r.score)?(r.score*100).toFixed(6):'',Number.isFinite(r.cost)?r.cost.toFixed(6):'',Number.isFinite(r.hours)?r.hours.toFixed(4):'',Number.isFinite(r.context)?Math.round(r.context):'',costView==='overall'?'subtask_mean_then_workflow_mean_then_overall_mean':'subtask_mean']);
     const csv='\uFEFF'+[headers,...rows].map(r=>r.map(clean).join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob);const a=make('a');a.href=url;a.download=`rle-bench-${costView}-${isSample?'illustrative':'results'}.csv`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
   });
   let resizeTimer;addEventListener('resize',()=>{hideTip();clearTimeout(resizeTimer);resizeTimer=setTimeout(renderScatter,120);});

@@ -47,10 +47,11 @@ const BENCH = {
    * Loaded at runtime from assets/data/leaderboard.json (see app.js).
    * That file holds `models` (id, name, org, harness, open, baseline),
    * `scores[taskId][modelId]` (arrays aligned to each task's `splits`) and
-   * `costs[taskId][modelId]` ({cost, hours, input_tokens, cached_tokens}).
-   * Only evaluated model/harness combinations are listed there. Overall cost
-   * figures are averaged within each workflow, then across workflows; Context
-   * Length is input_tokens minus cached_tokens.
+   * `costs[taskId][modelId]` ({cost, hours, context_tokens, ...}), each a mean
+   * over the task's subtask runs. Only evaluated model/harness combinations are
+   * listed there. Overall cost figures average those per-task means within each
+   * workflow, then across workflows; Context Length is the mean of input_tokens
+   * minus cached_tokens per run.
    */
   /* --- the task families -------------------------------------------------- */
   tasks: [
