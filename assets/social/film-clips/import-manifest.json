@@ -1,0 +1,464 @@
+{
+  "archive": "RLE-Bench_Editable_Project.zip",
+  "imported_videos": [
+    {
+      "path": "RLE-Bench-Film/assets/clips/base.mp4",
+      "bytes": 480999,
+      "matches": [],
+      "destination": "assets/social/film-clips/base.mp4",
+      "sha256": "433d1a7c5f5b48db9b506aab49597a8818b68390c090a8b52e40a115ec294943"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/base_tile.mp4",
+      "bytes": 758554,
+      "matches": [],
+      "destination": "assets/social/film-clips/base_tile.mp4",
+      "sha256": "a5a829c11d882aa8a47d0850abfc834f6e3ae9863ede8020cd5864195744466c"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/bin_hero.mp4",
+      "bytes": 2593274,
+      "matches": [],
+      "destination": "assets/social/film-clips/bin_hero.mp4",
+      "sha256": "9d851f8ae35c0db7d406ca96295a20e424a782b64fb95e5cdc97bd629f6847de"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/bin_tile.mp4",
+      "bytes": 1338927,
+      "matches": [],
+      "destination": "assets/social/film-clips/bin_tile.mp4",
+      "sha256": "c33fef6deacce3c591c23ebeac9a27df732bb8a4d09c47ee09cae35ed43ca5d6"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/bin_wide.mp4",
+      "bytes": 2681913,
+      "matches": [],
+      "destination": "assets/social/film-clips/bin_wide.mp4",
+      "sha256": "bbed7e8f490e7142c16b91055cab217328f1e31c86600be3f411f6ff340a59a0"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/control.mp4",
+      "bytes": 5685806,
+      "matches": [],
+      "destination": "assets/social/film-clips/control.mp4",
+      "sha256": "d6ebcdfce74bc389054524f9a9c81fdcb57ca37de5381ef874349a1d227911e0"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/control_tile.mp4",
+      "bytes": 2030173,
+      "matches": [],
+      "destination": "assets/social/film-clips/control_tile.mp4",
+      "sha256": "ed286d22d3d997bd90da41b3396cf68d84bcdea178b4b96310b64e88d1d6abfd"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/cube.mp4",
+      "bytes": 801048,
+      "matches": [],
+      "destination": "assets/social/film-clips/cube.mp4",
+      "sha256": "076e1ff9cc31eb019a28eed250bf459093714becf9a0276cfc2e8d68e56266f9"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/cube_short.mp4",
+      "bytes": 440324,
+      "matches": [],
+      "destination": "assets/social/film-clips/cube_short.mp4",
+      "sha256": "93b799b458f6673ff38a0a969cdf53fe446c0be463a8be18a65262e0e03aef98"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/dance.mp4",
+      "bytes": 4478519,
+      "matches": [],
+      "destination": "assets/social/film-clips/dance.mp4",
+      "sha256": "ab07d4a09443c98751ff9820d4bc6c389bceb0f5f5f01f41bbb1bafc48bb9810"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/dance_tile.mp4",
+      "bytes": 2436027,
+      "matches": [],
+      "destination": "assets/social/film-clips/dance_tile.mp4",
+      "sha256": "06d90bda3088c6c3bf2b833972e43f1e88eeeb224901d3f33f24ad377f9684aa"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/failure.mp4",
+      "bytes": 436937,
+      "matches": [],
+      "destination": "assets/social/film-clips/failure.mp4",
+      "sha256": "983c5b6a862e60157af0b0108a61ae3f9cdf07b88a60e579584ea6f34d528253"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/gello.mp4",
+      "bytes": 1195965,
+      "matches": [],
+      "destination": "assets/social/film-clips/gello.mp4",
+      "sha256": "8a08638c48c45fdcf990135ce348490caa053615c1d1453d84cfbbe29f05028f"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/harness.mp4",
+      "bytes": 4881300,
+      "matches": [],
+      "destination": "assets/social/film-clips/harness.mp4",
+      "sha256": "ffb0d585cc255daa5bee555ac38c44a8dc65f5903b9ae06d4b2314f08ea85ea3"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/pose.mp4",
+      "bytes": 2451307,
+      "matches": [],
+      "destination": "assets/social/film-clips/pose.mp4",
+      "sha256": "b8bc269f30870d426764d7fdccacae6584d3260a30a9dfb996202b50e3d142bd"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/reason.mp4",
+      "bytes": 584323,
+      "matches": [],
+      "destination": "assets/social/film-clips/reason.mp4",
+      "sha256": "a19797aba88b209050852baf78a506642e06dc347c20838d94101045bc0ee319"
+    },
+    {
+      "path": "RLE-Bench-Film/assets/clips/sprint.mp4",
+      "bytes": 1921127,
+      "matches": [],
+      "destination": "assets/social/film-clips/sprint.mp4",
+      "sha256": "3414b4e4f9557600807031e89dc9312b2a8653062bbc106493d3822df064cb37"
+    }
+  ],
+  "existing_originals": [
+    {
+      "path": "RLE-Bench-Film/assets/originals/astra-cube-loop.en.mp4",
+      "bytes": 1029650,
+      "matches": [
+        "assets/blog/demos/astra-cube-loop.en.mp4",
+        "assets/blog/demos/section_3/astra-cube-loop.en.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film/assets/originals/astra_dance.mp4",
+      "bytes": 15536886,
+      "matches": [
+        "assets/blog/demos/astra_dance.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film/assets/originals/base-showcase-and-shelf-reach-1080p.mp4",
+      "bytes": 4872995,
+      "matches": [
+        "assets/blog/demos/base-showcase-and-shelf-reach-1080p.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film/assets/originals/gello-design-showcase-1080p-4x.mp4",
+      "bytes": 1688481,
+      "matches": [
+        "assets/blog/demos/section_3/gello-design-showcase-1080p-4x.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film/assets/originals/hidden-center-of-mass-2x.mp4",
+      "bytes": 1057762,
+      "matches": [
+        "assets/blog/demos/hidden-center-of-mass-2x.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film/assets/originals/pose-under-occlusion.mp4",
+      "bytes": 1019036,
+      "matches": [
+        "assets/blog/demos/pose-under-occlusion.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film/assets/originals/stability-failures-panda-only-1080p.mp4",
+      "bytes": 1654727,
+      "matches": [
+        "assets/blog/demos/section_3/stability-failures-panda-only-1080p.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film/assets/originals/t04-final-sprint.mp4",
+      "bytes": 745921,
+      "matches": [
+        "assets/blog/demos/t04-final-sprint.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film/assets/originals/task01-6x.mp4",
+      "bytes": 2480001,
+      "matches": [
+        "assets/blog/demos/task01-6x.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film/assets/originals/task02-4x.mp4",
+      "bytes": 2000473,
+      "matches": [
+        "assets/blog/demos/task02-4x.mp4"
+      ]
+    },
+    {
+      "path": "RLE-Bench-Film/assets/originals/task09-1080p50-10x.mp4",
+      "bytes": 6278461,
+      "matches": [
+        "assets/blog/demos/task09-1080p50-10x.mp4",
+        "assets/social/task09-1080p50-10x.mp4"
+      ]
+    }
+  ],
+  "source_edit_manifest": {
+    "bin_hero": {
+      "original": "task09-1080p50-10x.mp4",
+      "start_seconds": 0,
+      "duration_seconds": 12,
+      "published_clip_speed_multiplier": 1,
+      "crop_xywh": [
+        150,
+        65,
+        1450,
+        965
+      ],
+      "output_wh": [
+        1200,
+        800
+      ]
+    },
+    "bin_wide": {
+      "original": "task09-1080p50-10x.mp4",
+      "start_seconds": 0,
+      "duration_seconds": 12,
+      "published_clip_speed_multiplier": 1,
+      "crop_xywh": [
+        0,
+        80,
+        1920,
+        720
+      ],
+      "output_wh": [
+        1740,
+        652
+      ]
+    },
+    "bin_tile": {
+      "original": "task09-1080p50-10x.mp4",
+      "start_seconds": 0,
+      "duration_seconds": 12,
+      "published_clip_speed_multiplier": 1,
+      "crop_xywh": [
+        290,
+        85,
+        1370,
+        920
+      ],
+      "output_wh": [
+        800,
+        536
+      ]
+    },
+    "control": {
+      "original": "task01-6x.mp4",
+      "start_seconds": 3,
+      "duration_seconds": 10,
+      "published_clip_speed_multiplier": 1,
+      "crop_xywh": null,
+      "output_wh": [
+        1740,
+        580
+      ]
+    },
+    "control_tile": {
+      "original": "task01-6x.mp4",
+      "start_seconds": 3,
+      "duration_seconds": 10,
+      "published_clip_speed_multiplier": 1,
+      "crop_xywh": [
+        0,
+        0,
+        512,
+        256
+      ],
+      "output_wh": [
+        800,
+        400
+      ]
+    },
+    "harness": {
+      "original": "task02-4x.mp4",
+      "start_seconds": 3,
+      "duration_seconds": 10,
+      "published_clip_speed_multiplier": 1,
+      "crop_xywh": null,
+      "output_wh": [
+        1740,
+        580
+      ]
+    },
+    "reason": {
+      "original": "hidden-center-of-mass-2x.mp4",
+      "start_seconds": 5,
+      "duration_seconds": 8,
+      "published_clip_speed_multiplier": 1,
+      "crop_xywh": [
+        0,
+        60,
+        1024,
+        510
+      ],
+      "output_wh": [
+        1080,
+        538
+      ]
+    },
+    "dance": {
+      "original": "astra_dance.mp4",
+      "start_seconds": 1,
+      "duration_seconds": 12,
+      "published_clip_speed_multiplier": 1,
+      "crop_xywh": [
+        380,
+        0,
+        1160,
+        1080
+      ],
+      "output_wh": [
+        1000,
+        932
+      ]
+    },
+    "dance_tile": {
+      "original": "astra_dance.mp4",
+      "start_seconds": 1,
+      "duration_seconds": 12,
+      "published_clip_speed_multiplier": 1,
+      "crop_xywh": [
+        270,
+        80,
+        1340,
+        920
+      ],
+      "output_wh": [
+        800,
+        550
+      ]
+    },
+    "sprint": {
+      "original": "t04-final-sprint.mp4",
+      "start_seconds": 1,
+      "duration_seconds": 10,
+      "published_clip_speed_multiplier": 1,
+      "crop_xywh": [
+        100,
+        0,
+        500,
+        350
+      ],
+      "output_wh": [
+        1050,
+        736
+      ]
+    },
+    "base": {
+      "original": "base-showcase-and-shelf-reach-1080p.mp4",
+      "start_seconds": 1,
+      "duration_seconds": 7,
+      "published_clip_speed_multiplier": 1,
+      "crop_xywh": [
+        120,
+        120,
+        1680,
+        840
+      ],
+      "output_wh": [
+        820,
+        410
+      ]
+    },
+    "base_tile": {
+      "original": "base-showcase-and-shelf-reach-1080p.mp4",
+      "start_seconds": 1,
+      "duration_seconds": 7,
+      "published_clip_speed_multiplier": 1,
+      "crop_xywh": [
+        400,
+        110,
+        1140,
+        850
+      ],
+      "output_wh": [
+        800,
+        596
+      ]
+    },
+    "gello": {
+      "original": "gello-design-showcase-1080p-4x.mp4",
+      "start_seconds": 0.25,
+      "duration_seconds": 10,
+      "published_clip_speed_multiplier": 1,
+      "crop_xywh": [
+        500,
+        150,
+        960,
+        790
+      ],
+      "output_wh": [
+        820,
+        676
+      ]
+    },
+    "pose": {
+      "original": "pose-under-occlusion.mp4",
+      "start_seconds": 0,
+      "duration_seconds": 6,
+      "published_clip_speed_multiplier": 1,
+      "crop_xywh": null,
+      "output_wh": [
+        1740,
+        652
+      ]
+    },
+    "cube": {
+      "original": "astra-cube-loop.en.mp4",
+      "start_seconds": 0,
+      "duration_seconds": 7,
+      "published_clip_speed_multiplier": 1.5,
+      "crop_xywh": [
+        30,
+        156,
+        720,
+        480
+      ],
+      "output_wh": [
+        1050,
+        700
+      ]
+    },
+    "cube_short": {
+      "original": "astra-cube-loop.en.mp4",
+      "start_seconds": 0,
+      "duration_seconds": 3,
+      "published_clip_speed_multiplier": 3.5,
+      "crop_xywh": [
+        30,
+        156,
+        720,
+        480
+      ],
+      "output_wh": [
+        960,
+        640
+      ]
+    },
+    "failure": {
+      "original": "stability-failures-panda-only-1080p.mp4",
+      "start_seconds": 8.1,
+      "duration_seconds": 4,
+      "published_clip_speed_multiplier": 1.5,
+      "crop_xywh": [
+        300,
+        160,
+        1400,
+        820
+      ],
+      "output_wh": [
+        1120,
+        656
+      ]
+    }
+  }
+}
