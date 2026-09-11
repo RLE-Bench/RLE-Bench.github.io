@@ -285,3 +285,10 @@
 #task-video-carousel .atlas-caption .family-dot { flex-shrink: 0; margin-left: 0; }
 
 #task-video-carousel .atlas-strip.is-auto-scrolling { scroll-snap-type: none; scroll-behavior: auto; }
+
+/* A continuous loop has no meaningful scrollbar start or end. */
+#task-video-carousel .atlas-strip.is-auto-scrolling { scrollbar-width: none; }
+#task-video-carousel .atlas-strip.is-auto-scrolling::-webkit-scrollbar { display: none; }
+@media print {
+  #task-video-carousel .atlas-copy { display: none; }
+}
