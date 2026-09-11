@@ -41,7 +41,7 @@
   const tokens = v => Number.isFinite(v) ? (v>=1e9 ? (v/1e9).toFixed(2)+'B' : v>=1e6 ? (v/1e6).toFixed(1)+'M' : v>=1e3 ? (v/1e3).toFixed(0)+'K' : String(Math.round(v))) : '—';
   const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(typeof BENCH==='undefined' || !Array.isArray(BENCH.tasks) || !Array.isArray(BENCH.models) || !BENCH.scores) {
-    $('#indexGrid').textContent='Results are temporarily unavailable. Serve the site over HTTP so assets/data/leaderboard.json can load, then reload the page.';
+    $('#familyIndexGrid').textContent='Results are temporarily unavailable. Serve the site over HTTP so assets/data/leaderboard.json can load, then reload the page.';
     return;
   }
   const taskOrder=BENCH.presentation?.taskOrder || ['task06','task07','task08','task02','task01','task09','task03','task04'];
@@ -173,15 +173,21 @@
     return `<div class="tt-title">${escapeHTML(m.name)} · ${escapeHTML(t.name)}</div>${rows}<div class="tt-sub">${t.splits.length?how:'Result not reported. Excluded from the snapshot mean.'} ${isSample?'Illustrative data; not a measured result.':'Measured results.'}</div>`;
   };
 
+  // Reuse the lower table's red, yellow, blue, and green task colors.
+  const workflowHue = w => {
+    const hue = taskHue({id: ({control:'task04', policy:'task02', design:'task06', perception:'task09'})[w?.id] || 'task06'});
+    return blend(hue, '#ffffff', w?.id === 'perception' ? .25 : .15);
+  };
+
   // Family segments are contributions to the same hierarchical mean as the original table.
-  function renderFamilyMatrix(original, sorted) {
+  function renderFamilyMatrix(sorted, rankPlace) {
     const host = $('#familyIndexGrid');
     if (!host) return;
     host.replaceChildren();
     const included = workflows.filter(w => w.tasks.some(t => snapshotIds.has(t.id)));
     const legend = make('div', 'family-bar-legend');
     included.forEach(w => {
-      const item = make('span'), dot = make('i'); dot.style.background = taskHue(w.tasks[0]);
+      const item = make('span'), dot = make('i'); dot.style.background = workflowHue(w);
       item.append(dot, document.createTextNode(w.name)); legend.append(item);
     });
     const table = make('table', 'matrix family-matrix');
@@ -200,7 +206,7 @@
           taskLabels.style.gridTemplateColumns = `repeat(${tasks.length}, minmax(0, 1fr))`;
           tasks.forEach(t => {
             const label = make('span', null, t.num); label.title = t.name;
-            label.style.borderColor = taskHue(workflowOf[t.id]?.tasks[0] || t);
+            label.style.borderColor = workflowHue(workflowOf[t.id]);
             taskLabels.append(label);
           });
           cell.append(taskLabels);
@@ -211,9 +217,12 @@
     head.append(labels); table.append(head);
     const taskDetails = (w, m) => `<div class="tt-title">${escapeHTML(w.name)}</div>` + w.tasks.map(t => `<div class="tt-line"><span>T${escapeHTML(t.num)} · ${escapeHTML(t.name)}</span><b>${pct(familyScore(t, m))}</b></div>`).join('');
     const body = make('tbody');
-    sorted.forEach((m, i) => {
+    sorted.forEach(m => {
       const row = make('tr');
-      [...original.tBodies[0].rows[i].children].slice(0, 2).forEach(cell => row.append(cell.cloneNode(true)));
+      row.append(make('td', 'place-cell', rankFormat(rankPlace[m.id])));
+      const name = make('th'); name.scope = 'row';
+      name.append(make('div', 'model-label', m.name), make('span', 'model-meta', `${m.org} · ${m.harness}`));
+      row.append(name);
       const total = metric === 'score' ? indexScore(m) : meanRank(m);
       const cell = make('td', 'stack-cell'), bar = make('div', metric === 'rank' ? 'family-stack family-rank-grid' : 'family-stack');
       if (metric === 'rank') {
@@ -223,12 +232,12 @@
           const button = make('button', 'family-rank-cell', rankFormat(value)); button.type = 'button';
           if (Number.isFinite(value)) {
             const strength = 1 - (value - 1) / Math.max(1, agents.length - 1);
-            const hue = taskHue(workflowOf[t.id]?.tasks[0] || t);
+            const hue = workflowHue(workflowOf[t.id]);
             const bg = blend(theme() === 'dark' ? '#1a1a19' : '#fcfcfb', hue, .15 + .85 * Math.max(0, Math.min(1, strength)));
             button.style.background = bg; button.style.color = heatInk(bg);
           }
-          button.setAttribute('aria-label', `${m.name}, T${t.num} ${t.name}: rank ${rankFormat(value)}. Show task score.`);
-          bindTip(button, () => `<div class="tt-title">${escapeHTML(m.name)} · T${escapeHTML(t.num)} ${escapeHTML(t.name)}</div><div class="tt-line"><span>Task rank</span><b>${rankFormat(value)}</b></div><div class="tt-line"><span>Score</span><b>${pct(familyScore(t, m))}</b></div><div class="tt-sub">Rank 1 is best. Missing results are not zero.</div>`);
+          button.setAttribute('aria-label', `${m.name}, T${t.num} ${t.name}: rank ${rankFormat(value)}. Show split details.`);
+          bindTip(button, () => splitTip(m, t));
           bar.append(button);
         });
       } else if (Number.isFinite(total)) {
@@ -238,7 +247,7 @@
           const contribution = value / included.length;
           const segment = make('button', 'family-segment'); segment.type = 'button';
           segment.style.width = (contribution / (metric === 'score' ? 1 : agents.length) * 100) + '%';
-          segment.style.background = taskHue(w.tasks[0]);
+          segment.style.background = workflowHue(w);
           segment.setAttribute('aria-label', `${m.name}, ${w.name}: ${metric === 'score' ? pct(value) : num(value, 2)}. Show task scores.`);
           bindTip(segment, () => `<div class="tt-title">${escapeHTML(m.name)}</div>${taskDetails(w, m)}<div class="tt-sub">Family mean: ${metric === 'score' ? pct(value) : num(value, 2)}. Contribution to overall mean: ${metric === 'score' ? pct(contribution) : num(contribution, 2)}. Task scores out of 100; ${eligible.length} of ${w.tasks.length} tasks included.</div>`);
           bar.append(segment);
@@ -268,42 +277,13 @@
   /* Aggregate matrix: fixed 0–100 scale, numeric labels, semantic HTML table. */
   function renderMatrix(){
     hideTip();
-    const host=$('#indexGrid');host.replaceChildren();
     $('#indexBlurb').textContent=metric==='score'
       ?'Task scores are averaged within each workflow, then across workflows, on a 0–100 scale.'
       :'Per-task ranks are averaged within each workflow, then across workflows. Lower is better.';
-    const table=make('table','matrix');
-    table.append(make('caption','sr-only',`RLE-Bench ${metric==='score'?'scores':'mean ranks'}. ${isSample?'All model results are illustrative placeholders.':''}`));
-    const cg=make('colgroup');cg.append(make('col','col-rank'),make('col','col-model'),make('col','col-index'));tasks.forEach(()=>cg.append(make('col','col-family')));table.append(cg);
-    const thead=make('thead'),hr=make('tr');
-    const th=(text,cls)=>{const x=make('th',cls,text);x.scope='col';return x;};
-    hr.append(th('#','rank-th'),th('Model / Harness','model-th'),th(metric==='score'?'Mean Score':'Mean Rank','index-th'));
-    tasks.forEach(t=>{const h=th(null,'family-th');const b=make('button','family-col-button');b.type='button';b.style.setProperty('--task-hue',taskHue(t));b.title=t.name;b.setAttribute('aria-label',`View task ${t.num}: ${t.name}`);b.append(make('span',null,t.num),make('span',null,abbreviated[t.id]||t.short));b.addEventListener('click',()=>{setTask(t.id,true);$('#tasks').scrollIntoView({behavior:reducedMotion()?'auto':'smooth'});$(`#tab-${t.id}`).focus({preventScroll:true});});h.append(b);hr.append(h);});
-    thead.append(hr);table.append(thead);
     const value=m=>metric==='score'?indexScore(m):meanRank(m);
     const sorted=agents.slice().sort((a,b)=>{const x=value(a),y=value(b);if(x===null)return 1;if(y===null)return -1;return metric==='score'?y-x:x-y;});
     const rankPlace=metric==='score'?scoreRanks:ranksOf(completeAgents,m=>-meanRank(m));
-    function addRow(m,parent){
-      const tr=make('tr');
-      tr.append(make('td','place-cell',rankFormat(rankPlace[m.id])));
-      const name=make('th');name.scope='row';name.append(make('div','model-label',m.name),make('span','model-meta',`${m.org} · ${m.harness}`));tr.append(name);
-      {const td=make('td','index-td'),wrap=make('div','index-value'),track=make('span','index-track');track.setAttribute('aria-hidden','true');
-        const v=value(m),fill=make('i');fill.style.width=(v===null?0:metric==='score'?v*100:(1-(v-1)/Math.max(1,agents.length-1))*100)+'%';track.append(fill);
-        wrap.append(make('span','index-number',metric==='score'?pct(v):num(v,2)),track);td.append(wrap);tr.append(td);}
-      tasks.forEach(t=>{
-        const score=familyScore(t,m),rank=familyRanks[t.id][m.id];
-        const td=make('td','score-td');const missing=!Number.isFinite(score);
-        const label=metric==='score'?pct(score):rankFormat(rank);
-        const button=make('button','heat-cell'+(missing?' missing':''),label);button.type='button';
-        button.setAttribute('aria-label',`${m.name}, ${t.name}: ${metric==='score'?'score':'rank'} ${label}. Show split details.`);
-        if(!missing){const v=metric==='score'?score:1-(rank-1)/Math.max(1,agents.length-1);const bg=classicHeat(t,v);button.style.background=bg;button.style.color=heatInk(bg);}
-        bindTip(button,()=>splitTip(m,t));td.append(button);tr.append(td);
-      });
-      parent.append(tr);
-    }
-    const body=make('tbody');sorted.forEach(m=>addRow(m,body));table.append(body);
-    host.append(table);
-    renderFamilyMatrix(table, sorted);
+    renderFamilyMatrix(sorted, rankPlace);
   }
   $$('[data-metric]').forEach(b=>b.addEventListener('click',()=>{metric=b.dataset.metric;$$('[data-metric]').forEach(n=>n.setAttribute('aria-pressed',String(n===b)));renderMatrix();}));
 
