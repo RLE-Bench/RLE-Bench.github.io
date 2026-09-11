@@ -173,6 +173,89 @@
     return `<div class="tt-title">${escapeHTML(m.name)} · ${escapeHTML(t.name)}</div>${rows}<div class="tt-sub">${t.splits.length?how:'Result not reported. Excluded from the snapshot mean.'} ${isSample?'Illustrative data; not a measured result.':'Measured results.'}</div>`;
   };
 
+  // Family segments are contributions to the same hierarchical mean as the original table.
+  function renderFamilyMatrix(original, sorted) {
+    const host = $('#familyIndexGrid');
+    if (!host) return;
+    host.replaceChildren();
+    const included = workflows.filter(w => w.tasks.some(t => snapshotIds.has(t.id)));
+    const legend = make('div', 'family-bar-legend');
+    included.forEach(w => {
+      const item = make('span'), dot = make('i'); dot.style.background = taskHue(w.tasks[0]);
+      item.append(dot, document.createTextNode(w.name)); legend.append(item);
+    });
+    const table = make('table', 'matrix family-matrix');
+    table.append(make('caption', 'sr-only', metric === 'score' ? 'Family contributions to the mean. Each segment is a family mean divided by the number of included families.' : 'Per-task ranks in equal-width cells. Rank 1 is best; stronger colors indicate better ranks.'));
+    const cols = make('colgroup');
+    ['col-rank', 'col-model', 'col-index', 'col-stack'].forEach(cls => cols.append(make('col', cls)));
+    table.append(cols);
+    const head = make('thead'), labels = make('tr');
+    [['#', 'rank-th'], ['Model / Harness', 'model-th'], [metric === 'score' ? 'RLE Index' : 'Mean Rank', 'index-th'], ['Workflow', 'stack-heading']].forEach(([text, cls]) => {
+      const cell = make('th', cls); cell.scope = 'col';
+      if (cls === 'stack-heading') {
+        const heading = make('div', 'family-heading-inline');
+        heading.append(make('span', 'family-heading-label', text), legend); cell.append(heading);
+        if (metric === 'rank') {
+          const taskLabels = make('div', 'family-task-labels');
+          taskLabels.style.gridTemplateColumns = `repeat(${tasks.length}, minmax(0, 1fr))`;
+          tasks.forEach(t => {
+            const label = make('span', null, t.num); label.title = t.name;
+            label.style.borderColor = taskHue(workflowOf[t.id]?.tasks[0] || t);
+            taskLabels.append(label);
+          });
+          cell.append(taskLabels);
+        }
+      } else cell.textContent = text;
+      labels.append(cell);
+    });
+    head.append(labels); table.append(head);
+    const taskDetails = (w, m) => `<div class="tt-title">${escapeHTML(w.name)}</div>` + w.tasks.map(t => `<div class="tt-line"><span>T${escapeHTML(t.num)} · ${escapeHTML(t.name)}</span><b>${pct(familyScore(t, m))}</b></div>`).join('');
+    const body = make('tbody');
+    sorted.forEach((m, i) => {
+      const row = make('tr');
+      [...original.tBodies[0].rows[i].children].slice(0, 2).forEach(cell => row.append(cell.cloneNode(true)));
+      const total = metric === 'score' ? indexScore(m) : meanRank(m);
+      const cell = make('td', 'stack-cell'), bar = make('div', metric === 'rank' ? 'family-stack family-rank-grid' : 'family-stack');
+      if (metric === 'rank') {
+        bar.style.gridTemplateColumns = `repeat(${tasks.length}, minmax(0, 1fr))`;
+        tasks.forEach(t => {
+          const value = familyRanks[t.id][m.id];
+          const button = make('button', 'family-rank-cell', rankFormat(value)); button.type = 'button';
+          if (Number.isFinite(value)) {
+            const strength = 1 - (value - 1) / Math.max(1, agents.length - 1);
+            const hue = taskHue(workflowOf[t.id]?.tasks[0] || t);
+            const bg = blend(theme() === 'dark' ? '#1a1a19' : '#fcfcfb', hue, .15 + .85 * Math.max(0, Math.min(1, strength)));
+            button.style.background = bg; button.style.color = heatInk(bg);
+          }
+          button.setAttribute('aria-label', `${m.name}, T${t.num} ${t.name}: rank ${rankFormat(value)}. Show task score.`);
+          bindTip(button, () => `<div class="tt-title">${escapeHTML(m.name)} · T${escapeHTML(t.num)} ${escapeHTML(t.name)}</div><div class="tt-line"><span>Task rank</span><b>${rankFormat(value)}</b></div><div class="tt-line"><span>Score</span><b>${pct(familyScore(t, m))}</b></div><div class="tt-sub">Rank 1 is best. Missing results are not zero.</div>`);
+          bar.append(button);
+        });
+      } else if (Number.isFinite(total)) {
+        included.forEach(w => {
+          const eligible = w.tasks.filter(t => snapshotIds.has(t.id));
+          const value = mean(eligible.map(t => metric === 'score' ? familyScore(t, m) : familyRanks[t.id][m.id]));
+          const contribution = value / included.length;
+          const segment = make('button', 'family-segment'); segment.type = 'button';
+          segment.style.width = (contribution / (metric === 'score' ? 1 : agents.length) * 100) + '%';
+          segment.style.background = taskHue(w.tasks[0]);
+          segment.setAttribute('aria-label', `${m.name}, ${w.name}: ${metric === 'score' ? pct(value) : num(value, 2)}. Show task scores.`);
+          bindTip(segment, () => `<div class="tt-title">${escapeHTML(m.name)}</div>${taskDetails(w, m)}<div class="tt-sub">Family mean: ${metric === 'score' ? pct(value) : num(value, 2)}. Contribution to overall mean: ${metric === 'score' ? pct(contribution) : num(contribution, 2)}. Task scores out of 100; ${eligible.length} of ${w.tasks.length} tasks included.</div>`);
+          bar.append(segment);
+        });
+      } else {
+        const missing = make('button', 'family-incomplete', 'Incomplete'); missing.type = 'button';
+        bindTip(missing, () => included.map(w => taskDetails(w, m)).join('') + '<div class="tt-sub">Missing required task scores; no overall mean. Missing results are not zero.</div>');
+        bar.append(missing);
+      }
+      row.append(make('td', 'index-td', metric === 'score' ? pct(total) : num(total, 2)));
+      cell.append(bar); row.append(cell);
+      body.append(row);
+    });
+    table.append(body); host.append(table);
+    host.append(make('p', 'family-scale-note', metric === 'score' ? 'Each segment contributes one family’s share of the mean. Full width = 100 points.' : 'Each cell shows one task’s rank. Rank 1 is best; stronger colors indicate better ranks.'));
+  }
+
   /* Header, scope counts, and source status. */
   function renderMeta(){
     const stats=[[tasks.length,'Engineering Tasks','Task definitions follow the research overview'],[workflows.length,'Workflows',workflows.map(w=>w.name).join(', ')],[agents.length,'Agents','Model and harness combinations in the development snapshot']];
@@ -220,6 +303,7 @@
     }
     const body=make('tbody');sorted.forEach(m=>addRow(m,body));table.append(body);
     host.append(table);
+    renderFamilyMatrix(table, sorted);
   }
   $$('[data-metric]').forEach(b=>b.addEventListener('click',()=>{metric=b.dataset.metric;$$('[data-metric]').forEach(n=>n.setAttribute('aria-pressed',String(n===b)));renderMatrix();}));
 
