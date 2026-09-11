@@ -1036,3 +1036,63 @@ font-family:var(--serif);}
   .classic-home .stat { flex-direction: column; gap: 4px; padding: 10px 6px; }
   .classic-home .stat-key { max-width: none; text-align: center; font-size: 11px; }
 }
+
+/* Family comparison above the preserved task matrix. */
+.classic-home #index .comparison-title { font:600 18px/1.3 var(--serif); margin:0 0 12px; }
+.classic-home #index .comparison-note { color:var(--text-secondary); font-size:16px; margin:0 0 12px; }
+.classic-home #index .family-comparison { width:100%; margin-bottom:26px; }
+.classic-home #index .family-matrix { min-width:660px; width:100%; }
+.classic-home #index .family-matrix .col-rank { width:30px; }
+.classic-home #index .family-matrix .col-model { width:190px; }
+.classic-home #index .family-matrix .col-index { width:90px; }
+.classic-home #index .family-matrix thead .index-th { font-size:12px; text-align:right; padding-inline:10px; border:0; }
+.classic-home #index .family-matrix .stack-heading { text-align:left; padding-left:14px; font-size:12px; }
+.classic-home #index .family-matrix thead th:is(.rank-th, .model-th, .stack-heading, .index-th) {
+  font:400 15px/1.3 var(--serif);
+  letter-spacing:normal;
+  text-transform:none;
+  color:var(--text-secondary);
+  vertical-align:middle;
+}
+.classic-home #index .family-matrix .index-td { padding-inline:10px; border:0; text-align:right; font:600 16px/1 var(--mono); }
+.classic-home #index .family-matrix tbody th,
+.classic-home #index .family-matrix tbody td { height:48px; }
+.classic-home #index .family-matrix .stack-cell { padding-inline:14px; }
+.classic-home #index .family-matrix .model-label { font-size:15px; white-space:nowrap; }
+.classic-home #index .family-matrix .model-meta { display:block; font-size:11px; }
+.family-stack { display:flex; align-items:center; width:100%; height:30px; }
+.family-segment { display:block; flex:0 0 auto; min-width:0; height:26px; padding:0; border:0; border-radius:4px; box-shadow:inset -2px 0 var(--surface-1); cursor:pointer; }
+.family-segment:hover { filter:brightness(1.12); }
+.family-segment:focus-visible { outline:2px solid var(--text-primary); outline-offset:2px; z-index:1; }
+.family-incomplete { background:transparent; color:var(--text-muted); border:1px dashed var(--border-strong); border-radius:4px; padding:4px 12px; font:13px var(--mono); cursor:pointer; }
+.family-heading-inline { display:flex; align-items:center; gap:16px; }
+.family-heading-label { flex-shrink:0; white-space:nowrap; }
+.family-bar-legend { display:flex; flex-wrap:wrap; gap:5px 12px; margin:0; font:400 13px/1.35 var(--serif); text-transform:none; letter-spacing:0; color:var(--text-secondary); }
+.family-bar-legend span { display:inline-flex; align-items:center; gap:5px; }
+.family-bar-legend i { flex:0 0 8px; width:8px; height:8px; border-radius:2px; }
+.family-scale-note { font-size:14px; color:var(--text-muted); margin:12px 0 0; }
+@media (max-width:760px) {
+  .classic-home #index .family-matrix .place-cell,
+  .classic-home #index .family-matrix tbody th,
+  .classic-home #index .family-matrix .index-td,
+  .classic-home #index .family-matrix thead th { position:static; }
+  .classic-home #index .family-matrix .col-model { width:160px; }
+}
+
+.family-rank-grid { display:grid; gap:4px; height:34px; }
+.family-rank-cell { width:100%; height:34px; min-width:0; padding:0; border:0; border-radius:5px; background:transparent; color:var(--text-muted); font:500 14px/1 var(--mono); cursor:pointer; }
+.family-rank-cell:focus-visible { outline:2px solid var(--text-primary); outline-offset:2px; }
+
+/* Keep all ranking numerals in the first table in its serif typeface. */
+.classic-home #index .family-matrix .place-cell,
+.classic-home #index .family-matrix .index-td,
+.classic-home #index .family-matrix .family-rank-cell {
+  font-family:var(--serif);
+  font-variant-numeric:tabular-nums lining-nums;
+}
+
+.classic-home #index .family-matrix .place-cell { font-size:18px; }
+
+.classic-home #index .family-matrix .stack-heading { padding-inline:14px; }
+.family-task-labels { display:grid; gap:4px; margin-top:12px; }
+.family-task-labels span { text-align:center; font:400 13px/1.3 var(--serif); padding-bottom:6px; border-bottom:2px solid; }
