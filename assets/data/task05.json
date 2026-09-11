@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "root": "/data/rqiang6/robobench-final-0830/RLE-Bench-v2/jobs/task03-v4",
+  "root": "jobs/task05",
   "runs": [
     {
       "agent": "claude-code",
@@ -359,19 +359,19 @@
       "model": "claude-opus-5",
       "job": "task03/t5-robustness/claude-code/claude-opus-5",
       "status": "completed",
-      "cost_usd": 6.6103615000000016,
-      "reward": 0.61,
-      "success_rate": 0.61,
+      "cost_usd": 5.155953499999999,
+      "reward": 0.684,
+      "success_rate": 0.684,
       "metrics": {
         "episodes": 500.0,
-        "parameters": 44364588.0,
-        "replay_wall_s": 1392.1928958871868,
-        "reward": 0.61,
-        "plus_success_rate": 0.61
+        "parameters": 20200229.0,
+        "replay_wall_s": 1009.4185653749992,
+        "reward": 0.684,
+        "plus_success_rate": 0.684
       },
       "extra": {
-        "started_at": "2026-09-09T07:22:58.237613Z",
-        "finished_at": "2026-09-09T11:43:58.736749Z",
+        "started_at": "2026-09-11T04:27:49.598505Z",
+        "finished_at": "2026-09-11T07:14:15.911694Z",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
@@ -380,19 +380,19 @@
           "n_pending_trials": 0,
           "n_cancelled_trials": 0,
           "n_retries": 0,
-          "n_input_tokens": 7182460,
-          "n_cache_tokens": 7055903,
-          "n_output_tokens": 72704
+          "n_input_tokens": 5035898,
+          "n_cache_tokens": 4933747,
+          "n_output_tokens": 66728
         },
         "trials": [
           {
-            "trial": "t5-robustness__fzUze5o",
+            "trial": "t5-robustness__zg3Y3e7",
             "rewards": {
               "episodes": 500.0,
-              "parameters": 44364588.0,
-              "replay_wall_s": 1392.1928958871868,
-              "reward": 0.61,
-              "plus_success_rate": 0.61
+              "parameters": 20200229.0,
+              "replay_wall_s": 1009.4185653749992,
+              "reward": 0.684,
+              "plus_success_rate": 0.684
             }
           }
         ]
@@ -403,19 +403,19 @@
       "model": "claude-opus-4-8",
       "job": "task03/t5-robustness/claude-code/claude-opus-4-8",
       "status": "completed",
-      "cost_usd": 9.290971500000001,
-      "reward": 0.734,
-      "success_rate": 0.734,
+      "cost_usd": 9.248421999999998,
+      "reward": 0.71,
+      "success_rate": 0.71,
       "metrics": {
         "episodes": 500.0,
-        "parameters": 38871589.0,
-        "replay_wall_s": 1613.7120189038105,
-        "reward": 0.734,
-        "plus_success_rate": 0.734
+        "parameters": 7562119.0,
+        "replay_wall_s": 497.8597250950006,
+        "reward": 0.71,
+        "plus_success_rate": 0.71
       },
       "extra": {
-        "started_at": "2026-09-09T08:01:28.780393Z",
-        "finished_at": "2026-09-09T11:53:37.555785Z",
+        "started_at": "2026-09-11T04:28:49.320920Z",
+        "finished_at": "2026-09-11T08:00:07.935465Z",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
@@ -424,19 +424,19 @@
           "n_pending_trials": 0,
           "n_cancelled_trials": 0,
           "n_retries": 0,
-          "n_input_tokens": 11128084,
-          "n_cache_tokens": 10991543,
-          "n_output_tokens": 97236
+          "n_input_tokens": 12314294,
+          "n_cache_tokens": 12198744,
+          "n_output_tokens": 79800
         },
         "trials": [
           {
-            "trial": "t5-robustness__cSucDHg",
+            "trial": "t5-robustness__K7JWX9g",
             "rewards": {
               "episodes": 500.0,
-              "parameters": 38871589.0,
-              "replay_wall_s": 1613.7120189038105,
-              "reward": 0.734,
-              "plus_success_rate": 0.734
+              "parameters": 7562119.0,
+              "replay_wall_s": 497.8597250950006,
+              "reward": 0.71,
+              "plus_success_rate": 0.71
             }
           }
         ]
@@ -447,19 +447,19 @@
       "model": "gpt-6-astra",
       "job": "task03/t5-robustness/codex/gpt-6-astra",
       "status": "completed",
-      "cost_usd": 41.56081600000002,
-      "reward": 0.822,
-      "success_rate": 0.822,
+      "cost_usd": 56.44143400000002,
+      "reward": 0.828,
+      "success_rate": 0.828,
       "metrics": {
         "episodes": 500.0,
-        "parameters": 16587699.0,
-        "replay_wall_s": 1636.8803141259123,
-        "reward": 0.822,
-        "plus_success_rate": 0.822
+        "parameters": 107075550.0,
+        "replay_wall_s": 1178.634502918998,
+        "reward": 0.828,
+        "plus_success_rate": 0.828
       },
       "extra": {
-        "started_at": "2026-09-10T07:11:07.483928Z",
-        "finished_at": "2026-09-10T12:13:22.471518Z",
+        "started_at": "2026-09-11T04:06:48.324302Z",
+        "finished_at": "2026-09-11T08:44:56.209936Z",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
@@ -468,19 +468,19 @@
           "n_pending_trials": 0,
           "n_cancelled_trials": 0,
           "n_retries": 0,
-          "n_input_tokens": 24034174,
-          "n_cache_tokens": 23393408,
-          "n_output_tokens": 233238
+          "n_input_tokens": 39186613,
+          "n_cache_tokens": 38470144,
+          "n_output_tokens": 216132
         },
         "trials": [
           {
-            "trial": "t5-robustness__gDhzZYR",
+            "trial": "t5-robustness__kV3QuXs",
             "rewards": {
               "episodes": 500.0,
-              "parameters": 16587699.0,
-              "replay_wall_s": 1636.8803141259123,
-              "reward": 0.822,
-              "plus_success_rate": 0.822
+              "parameters": 107075550.0,
+              "replay_wall_s": 1178.634502918998,
+              "reward": 0.828,
+              "plus_success_rate": 0.828
             }
           }
         ]
@@ -491,19 +491,19 @@
       "model": "gpt-5.6-sol",
       "job": "task03/t5-robustness/codex/gpt-5.6-sol",
       "status": "completed",
-      "cost_usd": 10.184087199999999,
-      "reward": 0.804,
-      "success_rate": 0.804,
+      "cost_usd": 16.5990688,
+      "reward": 0.572,
+      "success_rate": 0.572,
       "metrics": {
         "episodes": 500.0,
-        "parameters": 8018695.0,
-        "replay_wall_s": 1233.375016096048,
-        "reward": 0.804,
-        "plus_success_rate": 0.804
+        "parameters": 8002341.0,
+        "replay_wall_s": 675.8482837219981,
+        "reward": 0.572,
+        "plus_success_rate": 0.572
       },
       "extra": {
-        "started_at": "2026-09-09T07:12:29.020405Z",
-        "finished_at": "2026-09-09T10:27:05.150385Z",
+        "started_at": "2026-09-11T04:09:19.802171Z",
+        "finished_at": "2026-09-11T08:31:12.977222Z",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
@@ -512,19 +512,19 @@
           "n_pending_trials": 0,
           "n_cancelled_trials": 0,
           "n_retries": 0,
-          "n_input_tokens": 21264958,
-          "n_cache_tokens": 21031168,
-          "n_output_tokens": 41823
+          "n_input_tokens": 35567067,
+          "n_cache_tokens": 35203200,
+          "n_output_tokens": 50688
         },
         "trials": [
           {
-            "trial": "t5-robustness__far6Moi",
+            "trial": "t5-robustness__rdtS9iP",
             "rewards": {
               "episodes": 500.0,
-              "parameters": 8018695.0,
-              "replay_wall_s": 1233.375016096048,
-              "reward": 0.804,
-              "plus_success_rate": 0.804
+              "parameters": 8002341.0,
+              "replay_wall_s": 675.8482837219981,
+              "reward": 0.572,
+              "plus_success_rate": 0.572
             }
           }
         ]
@@ -535,19 +535,19 @@
       "model": "gpt-5.6-terra",
       "job": "task03/t5-robustness/codex/gpt-5.6-terra",
       "status": "completed",
-      "cost_usd": 0.8745191999999998,
-      "reward": 0.168,
-      "success_rate": 0.168,
+      "cost_usd": 1.4080160000000004,
+      "reward": 0.198,
+      "success_rate": 0.198,
       "metrics": {
         "episodes": 500.0,
-        "parameters": 1368636.0,
-        "replay_wall_s": 63.6051467359066,
-        "reward": 0.168,
-        "plus_success_rate": 0.168
+        "parameters": 3808810.0,
+        "replay_wall_s": 356.9400531559986,
+        "reward": 0.198,
+        "plus_success_rate": 0.198
       },
       "extra": {
-        "started_at": "2026-09-09T08:53:59.773731Z",
-        "finished_at": "2026-09-09T10:01:13.168190Z",
+        "started_at": "2026-09-11T05:22:19.855596Z",
+        "finished_at": "2026-09-11T06:47:46.848391Z",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
@@ -556,19 +556,19 @@
           "n_pending_trials": 0,
           "n_cancelled_trials": 0,
           "n_retries": 0,
-          "n_input_tokens": 2423724,
-          "n_cache_tokens": 2314496,
-          "n_output_tokens": 16097
+          "n_input_tokens": 4272982,
+          "n_cache_tokens": 4089600,
+          "n_output_tokens": 18611
         },
         "trials": [
           {
-            "trial": "t5-robustness__NB6RM9N",
+            "trial": "t5-robustness__PRwoaEi",
             "rewards": {
               "episodes": 500.0,
-              "parameters": 1368636.0,
-              "replay_wall_s": 63.6051467359066,
-              "reward": 0.168,
-              "plus_success_rate": 0.168
+              "parameters": 3808810.0,
+              "replay_wall_s": 356.9400531559986,
+              "reward": 0.198,
+              "plus_success_rate": 0.198
             }
           }
         ]
@@ -579,19 +579,19 @@
       "model": "gpt-5.6-luna",
       "job": "task03/t5-robustness/codex/gpt-5.6-luna",
       "status": "completed",
-      "cost_usd": 0.5922892800000004,
-      "reward": 0.1,
-      "success_rate": 0.1,
+      "cost_usd": 0.4649475199999998,
+      "reward": 0.108,
+      "success_rate": 0.108,
       "metrics": {
         "episodes": 500.0,
-        "parameters": 3882320.0,
-        "replay_wall_s": 136.93019158905372,
-        "reward": 0.1,
-        "plus_success_rate": 0.1
+        "parameters": 34896187.0,
+        "replay_wall_s": 478.3460913079998,
+        "reward": 0.108,
+        "plus_success_rate": 0.108
       },
       "extra": {
-        "started_at": "2026-09-09T07:55:58.409866Z",
-        "finished_at": "2026-09-09T09:58:08.962234Z",
+        "started_at": "2026-09-11T05:23:19.961313Z",
+        "finished_at": "2026-09-11T07:53:37.040655Z",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
@@ -600,19 +600,19 @@
           "n_pending_trials": 0,
           "n_cancelled_trials": 0,
           "n_retries": 0,
-          "n_input_tokens": 22021068,
-          "n_cache_tokens": 21552384,
-          "n_output_tokens": 56254
+          "n_input_tokens": 17193238,
+          "n_cache_tokens": 16827136,
+          "n_output_tokens": 45987
         },
         "trials": [
           {
-            "trial": "t5-robustness__ExTE4gN",
+            "trial": "t5-robustness__E34pYHD",
             "rewards": {
               "episodes": 500.0,
-              "parameters": 3882320.0,
-              "replay_wall_s": 136.93019158905372,
-              "reward": 0.1,
-              "plus_success_rate": 0.1
+              "parameters": 34896187.0,
+              "replay_wall_s": 478.3460913079998,
+              "reward": 0.108,
+              "plus_success_rate": 0.108
             }
           }
         ]
@@ -623,19 +623,19 @@
       "model": "glm-5.3-flash",
       "job": "task03/t5-robustness/claude-code/glm-5.3-flash",
       "status": "completed",
-      "cost_usd": 0.49714234999999996,
-      "reward": 0.778,
-      "success_rate": 0.778,
+      "cost_usd": 0.72200125,
+      "reward": 0.716,
+      "success_rate": 0.716,
       "metrics": {
         "episodes": 500.0,
-        "parameters": 20583943.0,
-        "replay_wall_s": 1723.0738664770033,
-        "reward": 0.778,
-        "plus_success_rate": 0.778
+        "parameters": 19853861.0,
+        "replay_wall_s": 487.9453976859986,
+        "reward": 0.716,
+        "plus_success_rate": 0.716
       },
       "extra": {
-        "started_at": "2026-09-09T08:00:58.348489Z",
-        "finished_at": "2026-09-09T11:53:07.810261Z",
+        "started_at": "2026-09-11T04:46:19.663099Z",
+        "finished_at": "2026-09-11T08:57:30.008512Z",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
@@ -644,19 +644,19 @@
           "n_pending_trials": 0,
           "n_cancelled_trials": 0,
           "n_retries": 0,
-          "n_input_tokens": 12228741,
-          "n_cache_tokens": 11714240,
-          "n_output_tokens": 137080
+          "n_input_tokens": 21567859,
+          "n_cache_tokens": 21332480,
+          "n_output_tokens": 93440
         },
         "trials": [
           {
-            "trial": "t5-robustness__R9T4zf5",
+            "trial": "t5-robustness__BCC6jhz",
             "rewards": {
               "episodes": 500.0,
-              "parameters": 20583943.0,
-              "replay_wall_s": 1723.0738664770033,
-              "reward": 0.778,
-              "plus_success_rate": 0.778
+              "parameters": 19853861.0,
+              "replay_wall_s": 487.9453976859986,
+              "reward": 0.716,
+              "plus_success_rate": 0.716
             }
           }
         ]
@@ -668,18 +668,18 @@
       "job": "task03/t5-robustness/antigravity-cli/google/gemini-3.7-flash",
       "status": "completed",
       "cost_usd": null,
-      "reward": 0.32,
-      "success_rate": 0.32,
+      "reward": 0.62,
+      "success_rate": 0.62,
       "metrics": {
         "episodes": 500.0,
-        "parameters": 17865991.0,
-        "replay_wall_s": 645.4473247819997,
-        "reward": 0.32,
-        "plus_success_rate": 0.32
+        "parameters": 28277255.0,
+        "replay_wall_s": 658.5129776940012,
+        "reward": 0.62,
+        "plus_success_rate": 0.62
       },
       "extra": {
-        "started_at": "2026-09-11T03:57:52.528897Z",
-        "finished_at": "2026-09-11T05:18:36.620627Z",
+        "started_at": "2026-09-11T05:18:49.771740Z",
+        "finished_at": "2026-09-11T06:51:30.105157Z",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
@@ -694,13 +694,13 @@
         },
         "trials": [
           {
-            "trial": "t5-robustness__dBVGwCi",
+            "trial": "t5-robustness__ouNpavJ",
             "rewards": {
               "episodes": 500.0,
-              "parameters": 17865991.0,
-              "replay_wall_s": 645.4473247819997,
-              "reward": 0.32,
-              "plus_success_rate": 0.32
+              "parameters": 28277255.0,
+              "replay_wall_s": 658.5129776940012,
+              "reward": 0.62,
+              "plus_success_rate": 0.62
             }
           }
         ]
@@ -1051,30 +1051,43 @@
       "model": "claude-opus-5",
       "job": "task03/t7-robotwin-robust/claude-code/claude-opus-5",
       "status": "completed",
-      "cost_usd": 7.8945250000000025,
-      "reward": 0.373333,
-      "success_rate": 0.37333333333333335,
+      "cost_usd": 5.470155000000002,
+      "reward": 0.2,
+      "success_rate": 0.2,
       "metrics": {
         "episodes": 225.0,
-        "reward": 0.373333,
-        "success_rate": 0.37333333333333335
+        "parameters": 40183384.0,
+        "replay_wall_s": 1538.6128692619968,
+        "reward": 0.2,
+        "success_rate": 0.2
       },
       "extra": {
-        "started_at": null,
-        "finished_at": null,
+        "started_at": "2026-09-11T08:00:20.277835Z",
+        "finished_at": "2026-09-11T12:12:50.733429Z",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
-          "n_errored_trials": 1,
+          "n_errored_trials": 0,
           "n_running_trials": 0,
           "n_pending_trials": 0,
           "n_cancelled_trials": 0,
           "n_retries": 0,
-          "n_input_tokens": 8382437,
-          "n_cache_tokens": 8239530,
-          "n_output_tokens": 93862
+          "n_input_tokens": 6069258,
+          "n_cache_tokens": 5973410,
+          "n_output_tokens": 61030
         },
-        "trials": []
+        "trials": [
+          {
+            "trial": "t7-robotwin-robust__D8JtV6W",
+            "rewards": {
+              "episodes": 225.0,
+              "parameters": 40183384.0,
+              "replay_wall_s": 1538.6128692619968,
+              "reward": 0.2,
+              "success_rate": 0.2
+            }
+          }
+        ]
       }
     },
     {
@@ -1082,18 +1095,19 @@
       "model": "claude-opus-4-8",
       "job": "task03/t7-robotwin-robust/claude-code/claude-opus-4-8",
       "status": "completed",
-      "cost_usd": 6.6314484999999985,
-      "reward": 0.08,
-      "success_rate": 0.08,
+      "cost_usd": 6.115242499999999,
+      "reward": 0.088889,
+      "success_rate": 0.08888888888888889,
       "metrics": {
         "episodes": 225.0,
-        "parameters": 14380046.0,
-        "reward": 0.08,
-        "success_rate": 0.08
+        "parameters": 19556938.0,
+        "replay_wall_s": 1422.9590455699981,
+        "reward": 0.088889,
+        "success_rate": 0.08888888888888889
       },
       "extra": {
-        "started_at": null,
-        "finished_at": null,
+        "started_at": "2026-09-11T08:45:20.520168Z",
+        "finished_at": "2026-09-11T12:37:48.746490Z",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
@@ -1102,11 +1116,22 @@
           "n_pending_trials": 0,
           "n_cancelled_trials": 0,
           "n_retries": 0,
-          "n_input_tokens": 7432852,
-          "n_cache_tokens": 7320257,
-          "n_output_tokens": 73850
+          "n_input_tokens": 7184367,
+          "n_cache_tokens": 7084165,
+          "n_output_tokens": 62882
         },
-        "trials": []
+        "trials": [
+          {
+            "trial": "t7-robotwin-robust__7cbx5pA",
+            "rewards": {
+              "episodes": 225.0,
+              "parameters": 19556938.0,
+              "replay_wall_s": 1422.9590455699981,
+              "reward": 0.088889,
+              "success_rate": 0.08888888888888889
+            }
+          }
+        ]
       }
     },
     {
@@ -1114,83 +1139,19 @@
       "model": "gpt-6-astra",
       "job": "task03/t7-robotwin-robust/codex/gpt-6-astra",
       "status": "completed",
-      "cost_usd": 49.51646599999997,
-      "reward": 0.275556,
-      "success_rate": 0.27555555555555555,
+      "cost_usd": 57.21948999999998,
+      "reward": 0.186667,
+      "success_rate": 0.18666666666666668,
       "metrics": {
         "episodes": 225.0,
-        "parameters": 4823520.0,
-        "reward": 0.275556,
-        "success_rate": 0.27555555555555555
+        "parameters": 19333760.0,
+        "replay_wall_s": 1197.9051290640018,
+        "reward": 0.186667,
+        "success_rate": 0.18666666666666668
       },
       "extra": {
-        "started_at": null,
-        "finished_at": null,
-        "n_total_trials": 1,
-        "progress": {
-          "n_completed_trials": 1,
-          "n_errored_trials": 1,
-          "n_running_trials": 0,
-          "n_pending_trials": 0,
-          "n_cancelled_trials": 0,
-          "n_retries": 0,
-          "n_input_tokens": 31609182,
-          "n_cache_tokens": 30975744,
-          "n_output_tokens": 237274
-        },
-        "trials": []
-      }
-    },
-    {
-      "agent": "codex",
-      "model": "gpt-5.6-sol",
-      "job": "task03/t7-robotwin-robust/codex/gpt-5.6-sol",
-      "status": "completed",
-      "cost_usd": 16.176739999999995,
-      "reward": 0.182222,
-      "success_rate": 0.18222222222222223,
-      "metrics": {
-        "episodes": 225.0,
-        "parameters": 225728361.0,
-        "reward": 0.182222,
-        "success_rate": 0.18222222222222223
-      },
-      "extra": {
-        "started_at": null,
-        "finished_at": null,
-        "n_total_trials": 1,
-        "progress": {
-          "n_completed_trials": 1,
-          "n_errored_trials": 1,
-          "n_running_trials": 0,
-          "n_pending_trials": 0,
-          "n_cancelled_trials": 1,
-          "n_retries": 0,
-          "n_input_tokens": 34706619,
-          "n_cache_tokens": 34444160,
-          "n_output_tokens": 67462
-        },
-        "trials": []
-      }
-    },
-    {
-      "agent": "codex",
-      "model": "gpt-5.6-terra",
-      "job": "task03/t7-robotwin-robust/codex/gpt-5.6-terra",
-      "status": "completed",
-      "cost_usd": 0.84,
-      "reward": 0.04,
-      "success_rate": 0.04,
-      "metrics": {
-        "episodes": 225.0,
-        "parameters": 4506300.0,
-        "replay_wall_s": 0.0,
-        "reward": 0.04,
-        "success_rate": 0.04
-      },
-      "extra": {
-        "started_at": "2026-09-10T20:10:40.578631Z",
-        "finished_at": "2026-09-10T22:48:55.256180Z",
+        "started_at": "2026-09-11T07:53:50.316738Z",
+        "finished_at": "2026-09-11T13:16:59.842537Z",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
@@ -1199,19 +1160,105 @@
           "n_pending_trials": 0,
           "n_cancelled_trials": 0,
           "n_retries": 0,
-          "n_input_tokens": null,
-          "n_cache_tokens": null,
-          "n_output_tokens": null
+          "n_input_tokens": 33706061,
+          "n_cache_tokens": 32661504,
+          "n_output_tokens": 280432
         },
         "trials": [
           {
-            "trial": "t7-terra__yVtveAe",
+            "trial": "t7-robotwin-robust__iYAGwZa",
             "rewards": {
               "episodes": 225.0,
-              "parameters": 4506300.0,
-              "replay_wall_s": 0.0,
-              "reward": 0.04,
-              "success_rate": 0.04
+              "parameters": 19333760.0,
+              "replay_wall_s": 1197.9051290640018,
+              "reward": 0.186667,
+              "success_rate": 0.18666666666666668
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "gpt-5.6-sol",
+      "job": "task03/t7-robotwin-robust/codex/gpt-5.6-sol",
+      "status": "completed",
+      "cost_usd": 21.608642400000008,
+      "reward": 0.088889,
+      "success_rate": 0.08888888888888889,
+      "metrics": {
+        "episodes": 225.0,
+        "parameters": 7911257.0,
+        "replay_wall_s": 609.2337431550004,
+        "reward": 0.088889,
+        "success_rate": 0.08888888888888889
+      },
+      "extra": {
+        "started_at": "2026-09-11T07:13:20.230586Z",
+        "finished_at": "2026-09-11T12:57:26.860677Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 1,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 48710309,
+          "n_cache_tokens": 48491776,
+          "n_output_tokens": 66890
+        },
+        "trials": [
+          {
+            "trial": "t7-robotwin-robust__9WqUjEZ",
+            "rewards": {
+              "episodes": 225.0,
+              "parameters": 7911257.0,
+              "replay_wall_s": 609.2337431550004,
+              "reward": 0.088889,
+              "success_rate": 0.08888888888888889
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "gpt-5.6-terra",
+      "job": "task03/t7-robotwin-robust/codex/gpt-5.6-terra",
+      "status": "completed",
+      "cost_usd": 0.9614968000000002,
+      "reward": 0.0067,
+      "success_rate": 0.0067,
+      "metrics": {
+        "episodes": 225.0,
+        "parameters": 941644.0,
+        "reward": 0.0067,
+        "success_rate": 0.0067
+      },
+      "extra": {
+        "started_at": "2026-09-11T08:31:20.408022Z",
+        "finished_at": "2026-09-11T14:37:00.151581Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 2873364,
+          "n_cache_tokens": 2785792,
+          "n_output_tokens": 18313
+        },
+        "trials": [
+          {
+            "trial": "t7-robotwin-robust__82zSwd2",
+            "rewards": {
+              "episodes": 225.0,
+              "parameters": 941644.0,
+              "reward": 0.0067,
+              "success_rate": 0.0067
             }
           }
         ]
@@ -1222,51 +1269,19 @@
       "model": "gpt-5.6-luna",
       "job": "task03/t7-robotwin-robust/codex/gpt-5.6-luna",
       "status": "completed",
-      "cost_usd": 0.24663971999999992,
+      "cost_usd": 0.3183460400000002,
       "reward": 0.0,
       "success_rate": 0.0,
       "metrics": {
         "episodes": 225.0,
-        "parameters": 3785764.0,
+        "parameters": 120920785.0,
+        "replay_wall_s": 143.0606376020005,
         "reward": 0.0,
         "success_rate": 0.0
       },
       "extra": {
-        "started_at": null,
-        "finished_at": null,
-        "n_total_trials": 1,
-        "progress": {
-          "n_completed_trials": 1,
-          "n_errored_trials": 1,
-          "n_running_trials": 0,
-          "n_pending_trials": 0,
-          "n_cancelled_trials": 1,
-          "n_retries": 0,
-          "n_input_tokens": 8937117,
-          "n_cache_tokens": 8762496,
-          "n_output_tokens": 30388
-        },
-        "trials": []
-      }
-    },
-    {
-      "agent": "claude-code",
-      "model": "glm-5.3-flash",
-      "job": "task03/t7-robotwin-robust/claude-code/glm-5.3-flash",
-      "status": "completed",
-      "cost_usd": 0.76445202,
-      "reward": 0.053333,
-      "success_rate": 0.05333333333333334,
-      "metrics": {
-        "episodes": 225.0,
-        "parameters": 13224038.0,
-        "replay_wall_s": 0.0,
-        "reward": 0.053333,
-        "success_rate": 0.05333333333333334
-      },
-      "extra": {
-        "started_at": "2026-09-10T20:09:40.537404Z",
-        "finished_at": "2026-09-10T20:59:56.643833Z",
+        "started_at": "2026-09-11T07:15:20.433726Z",
+        "finished_at": "2026-09-11T13:48:07.247437Z",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
@@ -1275,19 +1290,63 @@
           "n_pending_trials": 0,
           "n_cancelled_trials": 0,
           "n_retries": 0,
-          "n_input_tokens": 21483044,
-          "n_cache_tokens": 21129984,
-          "n_output_tokens": 155187
+          "n_input_tokens": 11711533,
+          "n_cache_tokens": 11524352,
+          "n_output_tokens": 42019
         },
         "trials": [
           {
-            "trial": "t7-glm-5.3-flash__GoYAdzj",
+            "trial": "t7-robotwin-robust__YvPJXgd",
             "rewards": {
               "episodes": 225.0,
-              "parameters": 13224038.0,
-              "replay_wall_s": 0.0,
-              "reward": 0.053333,
-              "success_rate": 0.05333333333333334
+              "parameters": 120920785.0,
+              "replay_wall_s": 143.0606376020005,
+              "reward": 0.0,
+              "success_rate": 0.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "glm-5.3-flash",
+      "job": "task03/t7-robotwin-robust/claude-code/glm-5.3-flash",
+      "status": "completed",
+      "cost_usd": 0.76035237,
+      "reward": 0.031111,
+      "success_rate": 0.03111111111111111,
+      "metrics": {
+        "episodes": 225.0,
+        "parameters": 23205966.0,
+        "replay_wall_s": 868.6454314329967,
+        "reward": 0.031111,
+        "success_rate": 0.03111111111111111
+      },
+      "extra": {
+        "started_at": "2026-09-11T12:38:20.688078Z",
+        "finished_at": "2026-09-11T13:57:13.157326Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 21503721,
+          "n_cache_tokens": 21154944,
+          "n_output_tokens": 146775
+        },
+        "trials": [
+          {
+            "trial": "t7-robotwin-robust__QZmHLYV",
+            "rewards": {
+              "episodes": 225.0,
+              "parameters": 23205966.0,
+              "replay_wall_s": 868.6454314329967,
+              "reward": 0.031111,
+              "success_rate": 0.03111111111111111
             }
           }
         ]
@@ -1299,30 +1358,42 @@
       "job": "task03/t7-robotwin-robust/antigravity-cli/google/gemini-3.7-flash",
       "status": "completed",
       "cost_usd": null,
-      "reward": 0.066667,
-      "success_rate": 0.06666666666666667,
+      "reward": 0.146667,
+      "success_rate": 0.14666666666666667,
       "metrics": {
         "episodes": 225.0,
-        "parameters": 32962637.0,
-        "reward": 0.066667,
-        "success_rate": 0.06666666666666667
+        "parameters": 31288846.0,
+        "replay_wall_s": 1116.8831182030026,
+        "reward": 0.146667,
+        "success_rate": 0.14666666666666667
       },
       "extra": {
-        "started_at": null,
-        "finished_at": null,
+        "started_at": "2026-09-11T07:08:20.165343Z",
+        "finished_at": "2026-09-11T11:17:33.980662Z",
         "n_total_trials": 1,
         "progress": {
-          "n_completed_trials": null,
-          "n_errored_trials": null,
-          "n_running_trials": null,
-          "n_pending_trials": null,
-          "n_cancelled_trials": null,
-          "n_retries": null,
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
           "n_input_tokens": null,
           "n_cache_tokens": null,
           "n_output_tokens": null
         },
-        "trials": []
+        "trials": [
+          {
+            "trial": "t7-robotwin-robust__XdyRKcY",
+            "rewards": {
+              "episodes": 225.0,
+              "parameters": 31288846.0,
+              "replay_wall_s": 1116.8831182030026,
+              "reward": 0.146667,
+              "success_rate": 0.14666666666666667
+            }
+          }
+        ]
       }
     }
   ]

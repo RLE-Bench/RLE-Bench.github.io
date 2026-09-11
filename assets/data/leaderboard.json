@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "measured",
-  "generated_at": "2026-09-11T15:34:58Z",
+  "generated_at": "2026-09-11T15:48:14Z",
   "generator": "assets/data/export.py",
   "source": {
     "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId] reports per-subtask means over the task's runs: cost = mean API cost in USD, hours = mean agent wall-clock hours, context_tokens = mean of input_tokens minus cached_tokens per run (the homepage's Context Length). cost_total, hours_total, hours_median and the input/cached/output token counts are the corresponding totals over runs. The homepage's overall figures average these per-task means within each workflow, then across workflows. Missing API cost or token counts stay null. Costs come from the run dumps except for the models listed under source.prices, whose cost is recomputed from token counts because their harness billed them against the wrong price sheet; costs[...].cost_sources and results[...].subtasks[...].cost_source say which applies. Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc.",
@@ -53,7 +53,7 @@
       },
       "task05": {
         "file": "task05.json",
-        "root": "/data/rqiang6/robobench-final-0830/RLE-Bench-v2/jobs/task03-v4",
+        "root": "jobs/task05",
         "schema_version": 1,
         "runs": 32,
         "runs_skipped": 0
@@ -721,7 +721,7 @@
       "number": "05",
       "name": "NanoVLA Recipe",
       "file": "task05.json",
-      "root": "/data/rqiang6/robobench-final-0830/RLE-Bench-v2/jobs/task03-v4",
+      "root": "jobs/task05",
       "score_metric": "reward",
       "score_note": "reward = hidden-set success rate of the trained policy (500 LIBERO-10 or 300 RoboTwin episodes); task score is the mean over four tracks.",
       "aggregate": "mean",
@@ -1234,51 +1234,51 @@
     "task05": {
       "opus5": [
         0.898,
-        0.61,
+        0.684,
         0.74,
-        0.373333
+        0.2
       ],
       "opus48": [
         0.8,
-        0.734,
+        0.71,
         0.686667,
-        0.08
+        0.088889
       ],
       "gpt6astra": [
         0.868,
-        0.822,
+        0.828,
         0.673333,
-        0.275556
+        0.186667
       ],
       "gpt56sol": [
         0.818,
-        0.804,
+        0.572,
         0.61,
-        0.182222
+        0.088889
       ],
       "gpt56terra": [
         0.512,
-        0.168,
+        0.198,
         0.436667,
-        0.04
+        0.0067
       ],
       "gpt56luna": [
         0.436,
-        0.1,
+        0.108,
         0.1101,
         0.0
       ],
       "glm53flash": [
         0.854,
-        0.778,
+        0.716,
         0.333333,
-        0.053333
+        0.031111
       ],
       "gemini37flash": [
         0.844,
-        0.32,
+        0.62,
         0.61,
-        0.066667
+        0.146667
       ]
     },
     "task06": {
@@ -1989,15 +1989,15 @@
     },
     "task05": {
       "opus5": {
-        "cost": 6.621392,
-        "cost_total": 26.485568,
-        "hours": 4.1923,
-        "hours_median": 4.3501,
-        "hours_total": null,
-        "context_tokens": 123698.0,
-        "input_tokens": 27635328,
-        "cached_tokens": 27140536,
-        "output_tokens": 318818,
+        "cost": 5.651698,
+        "cost_total": 22.60679,
+        "hours": 3.8023,
+        "hours_median": 3.9869,
+        "hours_total": 15.2092,
+        "context_tokens": 105831.8,
+        "input_tokens": 23175587,
+        "cached_tokens": 22752260,
+        "output_tokens": 280010,
         "cost_sources": [
           "harness"
         ],
@@ -2005,15 +2005,15 @@
         "n_subtasks": 4
       },
       "opus48": {
-        "cost": 8.107268,
-        "cost_total": 32.429073,
-        "hours": 3.5578,
-        "hours_median": 3.8691,
-        "hours_total": null,
-        "context_tokens": 123963.8,
-        "input_tokens": 38506150,
-        "cached_tokens": 38010295,
-        "output_tokens": 338787,
+        "cost": 7.967579,
+        "cost_total": 31.870317,
+        "hours": 3.5501,
+        "hours_median": 3.6982,
+        "hours_total": 14.2006,
+        "context_tokens": 115617.8,
+        "input_tokens": 39443875,
+        "cached_tokens": 38981404,
+        "output_tokens": 310383,
         "cost_sources": [
           "harness"
         ],
@@ -2021,15 +2021,15 @@
         "n_subtasks": 4
       },
       "gpt6astra": {
-        "cost": 43.321343,
-        "cost_total": 173.285374,
-        "hours": 5.0964,
-        "hours_median": 5.0375,
-        "hours_total": null,
-        "context_tokens": 610048.0,
-        "input_tokens": 107469056,
-        "cached_tokens": 105028864,
-        "output_tokens": 868282,
+        "cost": 48.967254,
+        "cost_total": 195.869016,
+        "hours": 5.0683,
+        "hours_median": 5.0108,
+        "hours_total": 20.2732,
+        "context_tokens": 731753.5,
+        "input_tokens": 124718374,
+        "cached_tokens": 121791360,
+        "output_tokens": 894334,
         "cost_sources": [
           "harness"
         ],
@@ -2037,15 +2037,15 @@
         "n_subtasks": 4
       },
       "gpt56sol": {
-        "cost": 14.363637,
-        "cost_total": 57.45455,
-        "hours": 3.8231,
-        "hours_median": 3.2434,
-        "hours_total": null,
-        "context_tokens": 293755.2,
-        "input_tokens": 121647085,
-        "cached_tokens": 120472064,
-        "output_tokens": 228282,
+        "cost": 17.325358,
+        "cost_total": 69.301434,
+        "hours": 4.5814,
+        "hours_median": 4.8316,
+        "hours_total": 18.3258,
+        "context_tokens": 315293.0,
+        "input_tokens": 149952884,
+        "cached_tokens": 148691712,
+        "output_tokens": 236575,
         "cost_sources": [
           "harness"
         ],
@@ -2053,15 +2053,15 @@
         "n_subtasks": 4
       },
       "gpt56terra": {
-        "cost": 1.089745,
-        "cost_total": 4.358981,
-        "hours": 1.938,
-        "hours_median": 1.9861,
-        "hours_total": 7.7519,
-        "context_tokens": 129023.0,
-        "input_tokens": null,
-        "cached_tokens": null,
-        "output_tokens": null,
+        "cost": 1.253494,
+        "cost_total": 5.013975,
+        "hours": 2.8782,
+        "hours_median": 2.0418,
+        "hours_total": 11.5126,
+        "context_tokens": 137198.8,
+        "input_tokens": 15488187,
+        "cached_tokens": 14939392,
+        "output_tokens": 76589,
         "cost_sources": [
           "harness"
         ],
@@ -2069,15 +2069,15 @@
         "n_subtasks": 4
       },
       "gpt56luna": {
-        "cost": 0.417382,
-        "cost_total": 1.669528,
-        "hours": 1.6941,
-        "hours_median": 1.6941,
+        "cost": 0.403473,
+        "cost_total": 1.613892,
+        "hours": 3.4677,
+        "hours_median": 2.5047,
         "hours_total": null,
-        "context_tokens": 301510.0,
-        "input_tokens": 63034264,
-        "cached_tokens": 61828224,
-        "output_tokens": 159796,
+        "context_tokens": 279004.5,
+        "input_tokens": 60980850,
+        "cached_tokens": 59864832,
+        "output_tokens": 161160,
         "cost_sources": [
           "harness"
         ],
@@ -2085,15 +2085,15 @@
         "n_subtasks": 4
       },
       "glm53flash": {
-        "cost": 0.615571,
-        "cost_total": 2.462283,
-        "hours": 2.3375,
+        "cost": 0.67076,
+        "cost_total": 2.683042,
+        "hours": 2.536,
         "hours_median": 2.3215,
-        "hours_total": 9.3502,
-        "context_tokens": 368093.5,
-        "input_tokens": 65967094,
-        "cached_tokens": 64494720,
-        "output_tokens": 613170,
+        "hours_total": 10.1439,
+        "context_tokens": 297242.2,
+        "input_tokens": 75326889,
+        "cached_tokens": 74137920,
+        "output_tokens": 561118,
         "cost_sources": [
           "price/glm-5.3-flash.json:list"
         ],
@@ -2103,9 +2103,9 @@
       "gemini37flash": {
         "cost": null,
         "cost_total": null,
-        "hours": 2.4675,
-        "hours_median": 1.4059,
-        "hours_total": null,
+        "hours": 2.9388,
+        "hours_median": 2.8492,
+        "hours_total": 11.7553,
         "context_tokens": null,
         "input_tokens": null,
         "cached_tokens": null,
@@ -13881,7 +13881,7 @@
     },
     "task05": {
       "opus5": {
-        "score": 0.655333,
+        "score": 0.6305,
         "complete": true,
         "n_runs": 4,
         "n_subtasks": 4,
@@ -13899,12 +13899,12 @@
             "complete": true
           },
           "02-libero-robustness": {
-            "score": 0.61,
-            "reward": 0.61,
-            "success_rate": 0.61,
-            "cost_usd": 6.610362,
-            "cost_usd_mean": 6.610362,
-            "hours_median": 4.3501,
+            "score": 0.684,
+            "reward": 0.684,
+            "success_rate": 0.684,
+            "cost_usd": 5.155953,
+            "cost_usd_mean": 5.155953,
+            "hours_median": 2.774,
             "n_runs": 1,
             "complete": true
           },
@@ -13919,12 +13919,12 @@
             "complete": true
           },
           "04-robotwin-robustness": {
-            "score": 0.373333,
-            "reward": 0.373333,
-            "success_rate": 0.373333,
-            "cost_usd": 7.894525,
-            "cost_usd_mean": 7.894525,
-            "hours_median": null,
+            "score": 0.2,
+            "reward": 0.2,
+            "success_rate": 0.2,
+            "cost_usd": 5.470155,
+            "cost_usd_mean": 5.470155,
+            "hours_median": 4.2085,
             "n_runs": 1,
             "complete": true
           }
@@ -13955,27 +13955,27 @@
             }
           },
           "02-libero-robustness": {
-            "reward": 0.61,
-            "success_rate": 0.61,
-            "cost_usd": 6.610362,
+            "reward": 0.684,
+            "success_rate": 0.684,
+            "cost_usd": 5.155953,
             "cost_source": "harness",
-            "hours": 4.3501,
+            "hours": 2.774,
             "status": "completed",
             "harness": "Claude Code",
             "agent": "claude-code",
             "model": "claude-opus-5",
             "job": "task03/t5-robustness/claude-code/claude-opus-5",
-            "started_at": "2026-09-09T07:22:58.237613Z",
-            "finished_at": "2026-09-09T11:43:58.736749Z",
-            "input_tokens": 7182460,
-            "cached_tokens": 7055903,
-            "output_tokens": 72704,
+            "started_at": "2026-09-11T04:27:49.598505Z",
+            "finished_at": "2026-09-11T07:14:15.911694Z",
+            "input_tokens": 5035898,
+            "cached_tokens": 4933747,
+            "output_tokens": 66728,
             "metrics": {
               "episodes": 500.0,
-              "parameters": 44364588.0,
-              "replay_wall_s": 1392.192896,
-              "reward": 0.61,
-              "plus_success_rate": 0.61
+              "parameters": 20200229.0,
+              "replay_wall_s": 1009.418565,
+              "reward": 0.684,
+              "plus_success_rate": 0.684
             }
           },
           "03-robotwin-open-design": {
@@ -14003,31 +14003,33 @@
             }
           },
           "04-robotwin-robustness": {
-            "reward": 0.373333,
-            "success_rate": 0.373333,
-            "cost_usd": 7.894525,
+            "reward": 0.2,
+            "success_rate": 0.2,
+            "cost_usd": 5.470155,
             "cost_source": "harness",
-            "hours": null,
+            "hours": 4.2085,
             "status": "completed",
             "harness": "Claude Code",
             "agent": "claude-code",
             "model": "claude-opus-5",
             "job": "task03/t7-robotwin-robust/claude-code/claude-opus-5",
-            "started_at": null,
-            "finished_at": null,
-            "input_tokens": 8382437,
-            "cached_tokens": 8239530,
-            "output_tokens": 93862,
+            "started_at": "2026-09-11T08:00:20.277835Z",
+            "finished_at": "2026-09-11T12:12:50.733429Z",
+            "input_tokens": 6069258,
+            "cached_tokens": 5973410,
+            "output_tokens": 61030,
             "metrics": {
               "episodes": 225.0,
-              "reward": 0.373333,
-              "success_rate": 0.373333
+              "parameters": 40183384.0,
+              "replay_wall_s": 1538.612869,
+              "reward": 0.2,
+              "success_rate": 0.2
             }
           }
         }
       },
       "opus48": {
-        "score": 0.575167,
+        "score": 0.571389,
         "complete": true,
         "n_runs": 4,
         "n_subtasks": 4,
@@ -14045,12 +14047,12 @@
             "complete": true
           },
           "02-libero-robustness": {
-            "score": 0.734,
-            "reward": 0.734,
-            "success_rate": 0.734,
-            "cost_usd": 9.290972,
-            "cost_usd_mean": 9.290972,
-            "hours_median": 3.8691,
+            "score": 0.71,
+            "reward": 0.71,
+            "success_rate": 0.71,
+            "cost_usd": 9.248422,
+            "cost_usd_mean": 9.248422,
+            "hours_median": 3.5218,
             "n_runs": 1,
             "complete": true
           },
@@ -14065,12 +14067,12 @@
             "complete": true
           },
           "04-robotwin-robustness": {
-            "score": 0.08,
-            "reward": 0.08,
-            "success_rate": 0.08,
-            "cost_usd": 6.631448,
-            "cost_usd_mean": 6.631448,
-            "hours_median": null,
+            "score": 0.088889,
+            "reward": 0.088889,
+            "success_rate": 0.088889,
+            "cost_usd": 6.115242,
+            "cost_usd_mean": 6.115242,
+            "hours_median": 3.8745,
             "n_runs": 1,
             "complete": true
           }
@@ -14101,27 +14103,27 @@
             }
           },
           "02-libero-robustness": {
-            "reward": 0.734,
-            "success_rate": 0.734,
-            "cost_usd": 9.290972,
+            "reward": 0.71,
+            "success_rate": 0.71,
+            "cost_usd": 9.248422,
             "cost_source": "harness",
-            "hours": 3.8691,
+            "hours": 3.5218,
             "status": "completed",
             "harness": "Claude Code",
             "agent": "claude-code",
             "model": "claude-opus-4-8",
             "job": "task03/t5-robustness/claude-code/claude-opus-4-8",
-            "started_at": "2026-09-09T08:01:28.780393Z",
-            "finished_at": "2026-09-09T11:53:37.555785Z",
-            "input_tokens": 11128084,
-            "cached_tokens": 10991543,
-            "output_tokens": 97236,
+            "started_at": "2026-09-11T04:28:49.320920Z",
+            "finished_at": "2026-09-11T08:00:07.935465Z",
+            "input_tokens": 12314294,
+            "cached_tokens": 12198744,
+            "output_tokens": 79800,
             "metrics": {
               "episodes": 500.0,
-              "parameters": 38871589.0,
-              "replay_wall_s": 1613.712019,
-              "reward": 0.734,
-              "plus_success_rate": 0.734
+              "parameters": 7562119.0,
+              "replay_wall_s": 497.859725,
+              "reward": 0.71,
+              "plus_success_rate": 0.71
             }
           },
           "03-robotwin-open-design": {
@@ -14149,32 +14151,33 @@
             }
           },
           "04-robotwin-robustness": {
-            "reward": 0.08,
-            "success_rate": 0.08,
-            "cost_usd": 6.631448,
+            "reward": 0.088889,
+            "success_rate": 0.088889,
+            "cost_usd": 6.115242,
             "cost_source": "harness",
-            "hours": null,
+            "hours": 3.8745,
             "status": "completed",
             "harness": "Claude Code",
             "agent": "claude-code",
             "model": "claude-opus-4-8",
             "job": "task03/t7-robotwin-robust/claude-code/claude-opus-4-8",
-            "started_at": null,
-            "finished_at": null,
-            "input_tokens": 7432852,
-            "cached_tokens": 7320257,
-            "output_tokens": 73850,
+            "started_at": "2026-09-11T08:45:20.520168Z",
+            "finished_at": "2026-09-11T12:37:48.746490Z",
+            "input_tokens": 7184367,
+            "cached_tokens": 7084165,
+            "output_tokens": 62882,
             "metrics": {
               "episodes": 225.0,
-              "parameters": 14380046.0,
-              "reward": 0.08,
-              "success_rate": 0.08
+              "parameters": 19556938.0,
+              "replay_wall_s": 1422.959046,
+              "reward": 0.088889,
+              "success_rate": 0.088889
             }
           }
         }
       },
       "gpt6astra": {
-        "score": 0.659722,
+        "score": 0.639,
         "complete": true,
         "n_runs": 4,
         "n_subtasks": 4,
@@ -14192,12 +14195,12 @@
             "complete": true
           },
           "02-libero-robustness": {
-            "score": 0.822,
-            "reward": 0.822,
-            "success_rate": 0.822,
-            "cost_usd": 41.560816,
-            "cost_usd_mean": 41.560816,
-            "hours_median": 5.0375,
+            "score": 0.828,
+            "reward": 0.828,
+            "success_rate": 0.828,
+            "cost_usd": 56.441434,
+            "cost_usd_mean": 56.441434,
+            "hours_median": 4.6355,
             "n_runs": 1,
             "complete": true
           },
@@ -14212,12 +14215,12 @@
             "complete": true
           },
           "04-robotwin-robustness": {
-            "score": 0.275556,
-            "reward": 0.275556,
-            "success_rate": 0.275556,
-            "cost_usd": 49.516466,
-            "cost_usd_mean": 49.516466,
-            "hours_median": null,
+            "score": 0.186667,
+            "reward": 0.186667,
+            "success_rate": 0.186667,
+            "cost_usd": 57.21949,
+            "cost_usd_mean": 57.21949,
+            "hours_median": 5.386,
             "n_runs": 1,
             "complete": true
           }
@@ -14248,27 +14251,27 @@
             }
           },
           "02-libero-robustness": {
-            "reward": 0.822,
-            "success_rate": 0.822,
-            "cost_usd": 41.560816,
+            "reward": 0.828,
+            "success_rate": 0.828,
+            "cost_usd": 56.441434,
             "cost_source": "harness",
-            "hours": 5.0375,
+            "hours": 4.6355,
             "status": "completed",
             "harness": "Codex",
             "agent": "codex",
             "model": "gpt-6-astra",
             "job": "task03/t5-robustness/codex/gpt-6-astra",
-            "started_at": "2026-09-10T07:11:07.483928Z",
-            "finished_at": "2026-09-10T12:13:22.471518Z",
-            "input_tokens": 24034174,
-            "cached_tokens": 23393408,
-            "output_tokens": 233238,
+            "started_at": "2026-09-11T04:06:48.324302Z",
+            "finished_at": "2026-09-11T08:44:56.209936Z",
+            "input_tokens": 39186613,
+            "cached_tokens": 38470144,
+            "output_tokens": 216132,
             "metrics": {
               "episodes": 500.0,
-              "parameters": 16587699.0,
-              "replay_wall_s": 1636.880314,
-              "reward": 0.822,
-              "plus_success_rate": 0.822
+              "parameters": 107075550.0,
+              "replay_wall_s": 1178.634503,
+              "reward": 0.828,
+              "plus_success_rate": 0.828
             }
           },
           "03-robotwin-open-design": {
@@ -14296,32 +14299,33 @@
             }
           },
           "04-robotwin-robustness": {
-            "reward": 0.275556,
-            "success_rate": 0.275556,
-            "cost_usd": 49.516466,
+            "reward": 0.186667,
+            "success_rate": 0.186667,
+            "cost_usd": 57.21949,
             "cost_source": "harness",
-            "hours": null,
+            "hours": 5.386,
             "status": "completed",
             "harness": "Codex",
             "agent": "codex",
             "model": "gpt-6-astra",
             "job": "task03/t7-robotwin-robust/codex/gpt-6-astra",
-            "started_at": null,
-            "finished_at": null,
-            "input_tokens": 31609182,
-            "cached_tokens": 30975744,
-            "output_tokens": 237274,
+            "started_at": "2026-09-11T07:53:50.316738Z",
+            "finished_at": "2026-09-11T13:16:59.842537Z",
+            "input_tokens": 33706061,
+            "cached_tokens": 32661504,
+            "output_tokens": 280432,
             "metrics": {
               "episodes": 225.0,
-              "parameters": 4823520.0,
-              "reward": 0.275556,
-              "success_rate": 0.275556
+              "parameters": 19333760.0,
+              "replay_wall_s": 1197.905129,
+              "reward": 0.186667,
+              "success_rate": 0.186667
             }
           }
         }
       },
       "gpt56sol": {
-        "score": 0.603556,
+        "score": 0.522222,
         "complete": true,
         "n_runs": 4,
         "n_subtasks": 4,
@@ -14339,12 +14343,12 @@
             "complete": true
           },
           "02-libero-robustness": {
-            "score": 0.804,
-            "reward": 0.804,
-            "success_rate": 0.804,
-            "cost_usd": 10.184087,
-            "cost_usd_mean": 10.184087,
-            "hours_median": 3.2434,
+            "score": 0.572,
+            "reward": 0.572,
+            "success_rate": 0.572,
+            "cost_usd": 16.599069,
+            "cost_usd_mean": 16.599069,
+            "hours_median": 4.3648,
             "n_runs": 1,
             "complete": true
           },
@@ -14359,12 +14363,12 @@
             "complete": true
           },
           "04-robotwin-robustness": {
-            "score": 0.182222,
-            "reward": 0.182222,
-            "success_rate": 0.182222,
-            "cost_usd": 16.17674,
-            "cost_usd_mean": 16.17674,
-            "hours_median": null,
+            "score": 0.088889,
+            "reward": 0.088889,
+            "success_rate": 0.088889,
+            "cost_usd": 21.608642,
+            "cost_usd_mean": 21.608642,
+            "hours_median": 5.7352,
             "n_runs": 1,
             "complete": true
           }
@@ -14395,27 +14399,27 @@
             }
           },
           "02-libero-robustness": {
-            "reward": 0.804,
-            "success_rate": 0.804,
-            "cost_usd": 10.184087,
+            "reward": 0.572,
+            "success_rate": 0.572,
+            "cost_usd": 16.599069,
             "cost_source": "harness",
-            "hours": 3.2434,
+            "hours": 4.3648,
             "status": "completed",
             "harness": "Codex",
             "agent": "codex",
             "model": "gpt-5.6-sol",
             "job": "task03/t5-robustness/codex/gpt-5.6-sol",
-            "started_at": "2026-09-09T07:12:29.020405Z",
-            "finished_at": "2026-09-09T10:27:05.150385Z",
-            "input_tokens": 21264958,
-            "cached_tokens": 21031168,
-            "output_tokens": 41823,
+            "started_at": "2026-09-11T04:09:19.802171Z",
+            "finished_at": "2026-09-11T08:31:12.977222Z",
+            "input_tokens": 35567067,
+            "cached_tokens": 35203200,
+            "output_tokens": 50688,
             "metrics": {
               "episodes": 500.0,
-              "parameters": 8018695.0,
-              "replay_wall_s": 1233.375016,
-              "reward": 0.804,
-              "plus_success_rate": 0.804
+              "parameters": 8002341.0,
+              "replay_wall_s": 675.848284,
+              "reward": 0.572,
+              "plus_success_rate": 0.572
             }
           },
           "03-robotwin-open-design": {
@@ -14443,32 +14447,33 @@
             }
           },
           "04-robotwin-robustness": {
-            "reward": 0.182222,
-            "success_rate": 0.182222,
-            "cost_usd": 16.17674,
+            "reward": 0.088889,
+            "success_rate": 0.088889,
+            "cost_usd": 21.608642,
             "cost_source": "harness",
-            "hours": null,
+            "hours": 5.7352,
             "status": "completed",
             "harness": "Codex",
             "agent": "codex",
             "model": "gpt-5.6-sol",
             "job": "task03/t7-robotwin-robust/codex/gpt-5.6-sol",
-            "started_at": null,
-            "finished_at": null,
-            "input_tokens": 34706619,
-            "cached_tokens": 34444160,
-            "output_tokens": 67462,
+            "started_at": "2026-09-11T07:13:20.230586Z",
+            "finished_at": "2026-09-11T12:57:26.860677Z",
+            "input_tokens": 48710309,
+            "cached_tokens": 48491776,
+            "output_tokens": 66890,
             "metrics": {
               "episodes": 225.0,
-              "parameters": 225728361.0,
-              "reward": 0.182222,
-              "success_rate": 0.182222
+              "parameters": 7911257.0,
+              "replay_wall_s": 609.233743,
+              "reward": 0.088889,
+              "success_rate": 0.088889
             }
           }
         }
       },
       "gpt56terra": {
-        "score": 0.289167,
+        "score": 0.288342,
         "complete": true,
         "n_runs": 4,
         "n_subtasks": 4,
@@ -14486,12 +14491,12 @@
             "complete": true
           },
           "02-libero-robustness": {
-            "score": 0.168,
-            "reward": 0.168,
-            "success_rate": 0.168,
-            "cost_usd": 0.874519,
-            "cost_usd_mean": 0.874519,
-            "hours_median": 1.1204,
+            "score": 0.198,
+            "reward": 0.198,
+            "success_rate": 0.198,
+            "cost_usd": 1.408016,
+            "cost_usd_mean": 1.408016,
+            "hours_median": 1.4242,
             "n_runs": 1,
             "complete": true
           },
@@ -14506,12 +14511,12 @@
             "complete": true
           },
           "04-robotwin-robustness": {
-            "score": 0.04,
-            "reward": 0.04,
-            "success_rate": 0.04,
-            "cost_usd": 0.84,
-            "cost_usd_mean": 0.84,
-            "hours_median": 2.6374,
+            "score": 0.0067,
+            "reward": 0.0067,
+            "success_rate": 0.0067,
+            "cost_usd": 0.961497,
+            "cost_usd_mean": 0.961497,
+            "hours_median": 6.0944,
             "n_runs": 1,
             "complete": true
           }
@@ -14542,27 +14547,27 @@
             }
           },
           "02-libero-robustness": {
-            "reward": 0.168,
-            "success_rate": 0.168,
-            "cost_usd": 0.874519,
+            "reward": 0.198,
+            "success_rate": 0.198,
+            "cost_usd": 1.408016,
             "cost_source": "harness",
-            "hours": 1.1204,
+            "hours": 1.4242,
             "status": "completed",
             "harness": "Codex",
             "agent": "codex",
             "model": "gpt-5.6-terra",
             "job": "task03/t5-robustness/codex/gpt-5.6-terra",
-            "started_at": "2026-09-09T08:53:59.773731Z",
-            "finished_at": "2026-09-09T10:01:13.168190Z",
-            "input_tokens": 2423724,
-            "cached_tokens": 2314496,
-            "output_tokens": 16097,
+            "started_at": "2026-09-11T05:22:19.855596Z",
+            "finished_at": "2026-09-11T06:47:46.848391Z",
+            "input_tokens": 4272982,
+            "cached_tokens": 4089600,
+            "output_tokens": 18611,
             "metrics": {
               "episodes": 500.0,
-              "parameters": 1368636.0,
-              "replay_wall_s": 63.605147,
-              "reward": 0.168,
-              "plus_success_rate": 0.168
+              "parameters": 3808810.0,
+              "replay_wall_s": 356.940053,
+              "reward": 0.198,
+              "plus_success_rate": 0.198
             }
           },
           "03-robotwin-open-design": {
@@ -14590,33 +14595,32 @@
             }
           },
           "04-robotwin-robustness": {
-            "reward": 0.04,
-            "success_rate": 0.04,
-            "cost_usd": 0.84,
+            "reward": 0.0067,
+            "success_rate": 0.0067,
+            "cost_usd": 0.961497,
             "cost_source": "harness",
-            "hours": 2.6374,
+            "hours": 6.0944,
             "status": "completed",
             "harness": "Codex",
             "agent": "codex",
             "model": "gpt-5.6-terra",
             "job": "task03/t7-robotwin-robust/codex/gpt-5.6-terra",
-            "started_at": "2026-09-10T20:10:40.578631Z",
-            "finished_at": "2026-09-10T22:48:55.256180Z",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
+            "started_at": "2026-09-11T08:31:20.408022Z",
+            "finished_at": "2026-09-11T14:37:00.151581Z",
+            "input_tokens": 2873364,
+            "cached_tokens": 2785792,
+            "output_tokens": 18313,
             "metrics": {
               "episodes": 225.0,
-              "parameters": 4506300.0,
-              "replay_wall_s": 0.0,
-              "reward": 0.04,
-              "success_rate": 0.04
+              "parameters": 941644.0,
+              "reward": 0.0067,
+              "success_rate": 0.0067
             }
           }
         }
       },
       "gpt56luna": {
-        "score": 0.161525,
+        "score": 0.163525,
         "complete": true,
         "n_runs": 4,
         "n_subtasks": 4,
@@ -14634,12 +14638,12 @@
             "complete": true
           },
           "02-libero-robustness": {
-            "score": 0.1,
-            "reward": 0.1,
-            "success_rate": 0.1,
-            "cost_usd": 0.592289,
-            "cost_usd_mean": 0.592289,
-            "hours_median": 2.0363,
+            "score": 0.108,
+            "reward": 0.108,
+            "success_rate": 0.108,
+            "cost_usd": 0.464948,
+            "cost_usd_mean": 0.464948,
+            "hours_median": 2.5047,
             "n_runs": 1,
             "complete": true
           },
@@ -14657,9 +14661,9 @@
             "score": 0.0,
             "reward": 0.0,
             "success_rate": 0.0,
-            "cost_usd": 0.24664,
-            "cost_usd_mean": 0.24664,
-            "hours_median": null,
+            "cost_usd": 0.318346,
+            "cost_usd_mean": 0.318346,
+            "hours_median": 6.5463,
             "n_runs": 1,
             "complete": true
           }
@@ -14690,27 +14694,27 @@
             }
           },
           "02-libero-robustness": {
-            "reward": 0.1,
-            "success_rate": 0.1,
-            "cost_usd": 0.592289,
+            "reward": 0.108,
+            "success_rate": 0.108,
+            "cost_usd": 0.464948,
             "cost_source": "harness",
-            "hours": 2.0363,
+            "hours": 2.5047,
             "status": "completed",
             "harness": "Codex",
             "agent": "codex",
             "model": "gpt-5.6-luna",
             "job": "task03/t5-robustness/codex/gpt-5.6-luna",
-            "started_at": "2026-09-09T07:55:58.409866Z",
-            "finished_at": "2026-09-09T09:58:08.962234Z",
-            "input_tokens": 22021068,
-            "cached_tokens": 21552384,
-            "output_tokens": 56254,
+            "started_at": "2026-09-11T05:23:19.961313Z",
+            "finished_at": "2026-09-11T07:53:37.040655Z",
+            "input_tokens": 17193238,
+            "cached_tokens": 16827136,
+            "output_tokens": 45987,
             "metrics": {
               "episodes": 500.0,
-              "parameters": 3882320.0,
-              "replay_wall_s": 136.930192,
-              "reward": 0.1,
-              "plus_success_rate": 0.1
+              "parameters": 34896187.0,
+              "replay_wall_s": 478.346091,
+              "reward": 0.108,
+              "plus_success_rate": 0.108
             }
           },
           "03-robotwin-open-design": {
@@ -14739,22 +14743,23 @@
           "04-robotwin-robustness": {
             "reward": 0.0,
             "success_rate": 0.0,
-            "cost_usd": 0.24664,
+            "cost_usd": 0.318346,
             "cost_source": "harness",
-            "hours": null,
+            "hours": 6.5463,
             "status": "completed",
             "harness": "Codex",
             "agent": "codex",
             "model": "gpt-5.6-luna",
             "job": "task03/t7-robotwin-robust/codex/gpt-5.6-luna",
-            "started_at": null,
-            "finished_at": null,
-            "input_tokens": 8937117,
-            "cached_tokens": 8762496,
-            "output_tokens": 30388,
+            "started_at": "2026-09-11T07:15:20.433726Z",
+            "finished_at": "2026-09-11T13:48:07.247437Z",
+            "input_tokens": 11711533,
+            "cached_tokens": 11524352,
+            "output_tokens": 42019,
             "metrics": {
               "episodes": 225.0,
-              "parameters": 3785764.0,
+              "parameters": 120920785.0,
+              "replay_wall_s": 143.060638,
               "reward": 0.0,
               "success_rate": 0.0
             }
@@ -14762,7 +14767,7 @@
         }
       },
       "glm53flash": {
-        "score": 0.504667,
+        "score": 0.483611,
         "complete": true,
         "n_runs": 4,
         "n_subtasks": 4,
@@ -14780,12 +14785,12 @@
             "complete": true
           },
           "02-libero-robustness": {
-            "score": 0.778,
-            "reward": 0.778,
-            "success_rate": 0.778,
-            "cost_usd": 0.497142,
-            "cost_usd_mean": 0.497142,
-            "hours_median": 3.8693,
+            "score": 0.716,
+            "reward": 0.716,
+            "success_rate": 0.716,
+            "cost_usd": 0.722001,
+            "cost_usd_mean": 0.722001,
+            "hours_median": 4.1862,
             "n_runs": 1,
             "complete": true
           },
@@ -14800,12 +14805,12 @@
             "complete": true
           },
           "04-robotwin-robustness": {
-            "score": 0.053333,
-            "reward": 0.053333,
-            "success_rate": 0.053333,
-            "cost_usd": 0.764452,
-            "cost_usd_mean": 0.764452,
-            "hours_median": 0.8378,
+            "score": 0.031111,
+            "reward": 0.031111,
+            "success_rate": 0.031111,
+            "cost_usd": 0.760352,
+            "cost_usd_mean": 0.760352,
+            "hours_median": 1.3146,
             "n_runs": 1,
             "complete": true
           }
@@ -14836,27 +14841,27 @@
             }
           },
           "02-libero-robustness": {
-            "reward": 0.778,
-            "success_rate": 0.778,
-            "cost_usd": 0.497142,
+            "reward": 0.716,
+            "success_rate": 0.716,
+            "cost_usd": 0.722001,
             "cost_source": "price/glm-5.3-flash.json:list",
-            "hours": 3.8693,
+            "hours": 4.1862,
             "status": "completed",
             "harness": "Claude Code",
             "agent": "claude-code",
             "model": "glm-5.3-flash",
             "job": "task03/t5-robustness/claude-code/glm-5.3-flash",
-            "started_at": "2026-09-09T08:00:58.348489Z",
-            "finished_at": "2026-09-09T11:53:07.810261Z",
-            "input_tokens": 12228741,
-            "cached_tokens": 11714240,
-            "output_tokens": 137080,
+            "started_at": "2026-09-11T04:46:19.663099Z",
+            "finished_at": "2026-09-11T08:57:30.008512Z",
+            "input_tokens": 21567859,
+            "cached_tokens": 21332480,
+            "output_tokens": 93440,
             "metrics": {
               "episodes": 500.0,
-              "parameters": 20583943.0,
-              "replay_wall_s": 1723.073866,
-              "reward": 0.778,
-              "plus_success_rate": 0.778
+              "parameters": 19853861.0,
+              "replay_wall_s": 487.945398,
+              "reward": 0.716,
+              "plus_success_rate": 0.716
             }
           },
           "03-robotwin-open-design": {
@@ -14884,33 +14889,33 @@
             }
           },
           "04-robotwin-robustness": {
-            "reward": 0.053333,
-            "success_rate": 0.053333,
-            "cost_usd": 0.764452,
+            "reward": 0.031111,
+            "success_rate": 0.031111,
+            "cost_usd": 0.760352,
             "cost_source": "price/glm-5.3-flash.json:list",
-            "hours": 0.8378,
+            "hours": 1.3146,
             "status": "completed",
             "harness": "Claude Code",
             "agent": "claude-code",
             "model": "glm-5.3-flash",
             "job": "task03/t7-robotwin-robust/claude-code/glm-5.3-flash",
-            "started_at": "2026-09-10T20:09:40.537404Z",
-            "finished_at": "2026-09-10T20:59:56.643833Z",
-            "input_tokens": 21483044,
-            "cached_tokens": 21129984,
-            "output_tokens": 155187,
+            "started_at": "2026-09-11T12:38:20.688078Z",
+            "finished_at": "2026-09-11T13:57:13.157326Z",
+            "input_tokens": 21503721,
+            "cached_tokens": 21154944,
+            "output_tokens": 146775,
             "metrics": {
               "episodes": 225.0,
-              "parameters": 13224038.0,
-              "replay_wall_s": 0.0,
-              "reward": 0.053333,
-              "success_rate": 0.053333
+              "parameters": 23205966.0,
+              "replay_wall_s": 868.645431,
+              "reward": 0.031111,
+              "success_rate": 0.031111
             }
           }
         }
       },
       "gemini37flash": {
-        "score": 0.460167,
+        "score": 0.555167,
         "complete": true,
         "n_runs": 4,
         "n_subtasks": 4,
@@ -14928,12 +14933,12 @@
             "complete": true
           },
           "02-libero-robustness": {
-            "score": 0.32,
-            "reward": 0.32,
-            "success_rate": 0.32,
+            "score": 0.62,
+            "reward": 0.62,
+            "success_rate": 0.62,
             "cost_usd": null,
             "cost_usd_mean": null,
-            "hours_median": 1.3456,
+            "hours_median": 1.5445,
             "n_runs": 1,
             "complete": true
           },
@@ -14948,12 +14953,12 @@
             "complete": true
           },
           "04-robotwin-robustness": {
-            "score": 0.066667,
-            "reward": 0.066667,
-            "success_rate": 0.066667,
+            "score": 0.146667,
+            "reward": 0.146667,
+            "success_rate": 0.146667,
             "cost_usd": null,
             "cost_usd_mean": null,
-            "hours_median": null,
+            "hours_median": 4.1538,
             "n_runs": 1,
             "complete": true
           }
@@ -14984,27 +14989,27 @@
             }
           },
           "02-libero-robustness": {
-            "reward": 0.32,
-            "success_rate": 0.32,
+            "reward": 0.62,
+            "success_rate": 0.62,
             "cost_usd": null,
             "cost_source": "harness",
-            "hours": 1.3456,
+            "hours": 1.5445,
             "status": "completed",
             "harness": "Antigravity CLI",
             "agent": "scripts.entrypoints.closed_book_agents:GoogleApiAntigravityCli",
             "model": "google/gemini-3.7-flash",
             "job": "task03/t5-robustness/antigravity-cli/google/gemini-3.7-flash",
-            "started_at": "2026-09-11T03:57:52.528897Z",
-            "finished_at": "2026-09-11T05:18:36.620627Z",
+            "started_at": "2026-09-11T05:18:49.771740Z",
+            "finished_at": "2026-09-11T06:51:30.105157Z",
             "input_tokens": null,
             "cached_tokens": null,
             "output_tokens": null,
             "metrics": {
               "episodes": 500.0,
-              "parameters": 17865991.0,
-              "replay_wall_s": 645.447325,
-              "reward": 0.32,
-              "plus_success_rate": 0.32
+              "parameters": 28277255.0,
+              "replay_wall_s": 658.512978,
+              "reward": 0.62,
+              "plus_success_rate": 0.62
             }
           },
           "03-robotwin-open-design": {
@@ -15032,26 +15037,27 @@
             }
           },
           "04-robotwin-robustness": {
-            "reward": 0.066667,
-            "success_rate": 0.066667,
+            "reward": 0.146667,
+            "success_rate": 0.146667,
             "cost_usd": null,
             "cost_source": "harness",
-            "hours": null,
+            "hours": 4.1538,
             "status": "completed",
             "harness": "Antigravity CLI",
             "agent": "scripts.entrypoints.closed_book_agents:GoogleApiAntigravityCli",
             "model": "google/gemini-3.7-flash",
             "job": "task03/t7-robotwin-robust/antigravity-cli/google/gemini-3.7-flash",
-            "started_at": null,
-            "finished_at": null,
+            "started_at": "2026-09-11T07:08:20.165343Z",
+            "finished_at": "2026-09-11T11:17:33.980662Z",
             "input_tokens": null,
             "cached_tokens": null,
             "output_tokens": null,
             "metrics": {
               "episodes": 225.0,
-              "parameters": 32962637.0,
-              "reward": 0.066667,
-              "success_rate": 0.066667
+              "parameters": 31288846.0,
+              "replay_wall_s": 1116.883118,
+              "reward": 0.146667,
+              "success_rate": 0.146667
             }
           }
         }
