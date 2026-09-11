@@ -23,6 +23,7 @@ even after a clip has downloaded. GitHub Pages already supports range requests.
 | `data.js` | current task descriptions, display numbering, and header metadata |
 | `assets/data/leaderboard.json` | generated: evaluated model/harness combinations with per-task, per-split and per-subtask results and costs |
 | `assets/data/export.py` | builds `leaderboard.json` from the per-task run dumps `assets/data/taskNN.json` |
+| `run/` | README-based benchmark setup and execution guide at `/run/` |
 | `blog/` | the research article, served directly at `/blog/` |
 | `assets/` | the project icon — favicon, apple-touch icon, header and hero mark — plus `data/` for leaderboard results |
 
@@ -309,3 +310,9 @@ Regenerate the curated data with `python3 scripts/extract_t04_timeline.py /path/
 rounded as reported, and timestamps indicate when the report was logged. The
 final metric is cross-checked against `artifacts/logs/artifacts/selection.json`.
 The downloaded Harbor trial remains local and is excluded from Git.
+
+## Run documentation
+
+`run/index.html` is the benchmark execution guide at `/run/`, linked from the homepage and blog. Its commands follow the benchmark repository’s [master README](https://github.com/RLE-Bench/RLE-Bench-dev/blob/master/README.md), using the `rlebench` CLI for setup checks, task preparation, evaluation, and result inspection. Keep it synchronized when benchmark setup changes. `run/run.css` extends the existing serif/monospace theme; `run/run.js` handles command copying and the shared theme preference. No build step is required.
+
+The Run page’s provider examples, except the user-supplied Gemini command, are checked against `rlebench/providers.py` and `rlebench/runner.py` on the benchmark’s master branch. The Gemini example uses the user-supplied `.venv/bin/rlebench run task07 -a agy -c gemini/api -m gemini-3.7-flash` command. Codex subscription setup links to the official credential-storage documentation. These are command examples, not executed evaluations.

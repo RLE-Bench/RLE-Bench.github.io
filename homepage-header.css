@@ -48,3 +48,7 @@
 }
 @media (max-width: 480px) { .home-page.classic-home .site-header #navGithub { display: none; } }
 @media (max-width: 360px) { .home-page.classic-home .site-header .header-inner { width: calc(100% - 28px); } }
+
+@media (max-width: 780px) {
+  .home-page.classic-home .site-header .site-nav a[href="run/"] { display: inline-flex; }
+}
