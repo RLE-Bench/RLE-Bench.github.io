@@ -1,37 +1,39 @@
-/* Shared navigation for the leaderboard and research blog. */
-.site-header.unified-header .header-inner { height: 62px; gap: 24px; }
-.site-header.unified-header .site-nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
-.site-header.unified-header .site-nav a,
-.site-header.unified-header #navGithub,
-.site-header.unified-header #navArxiv,
-.site-header.unified-header #navContact {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 11px; border-radius: 7px;
-  font: 400 15px/1.6 "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-  color: var(--text-secondary); white-space: nowrap; text-decoration: none;
-}
-.site-header.unified-header .site-nav a::after { display: none; }
-.site-header.unified-header .site-nav a:hover,
-.site-header.unified-header .site-nav a[aria-current="page"] {
-  color: var(--text-primary); background: var(--surface-2);
-}
-.site-header.unified-header #navArxiv[aria-disabled="true"] {
-  color: var(--text-muted); background: transparent; cursor: default;
-}
-.site-header.unified-header .header-actions { gap: 10px; }
-.site-header.unified-header .menu-button { display: none; }
-@media (max-width: 760px) {
-  .site-header.unified-header .header-inner { gap: 14px; }
-  .site-header.unified-header .header-actions { margin-left: auto; }
-  .site-header.unified-header .menu-button { display: grid; }
-  .site-header.unified-header .site-nav {
-    display: none; position: absolute; top: 61px; left: 0; width: 100%;
-    padding: 12px 22px 18px; background: var(--surface-1);
-    border-bottom: 1px solid var(--border); z-index: 50;
+/* Shared responsive navigation; desktop retains each page's existing header. */
+#siteHeader #menuToggle { display: none; }
+#menuToggle .menu-close-icon { display: none; }
+#menuToggle[aria-expanded="true"] .menu-open-icon { display: none; }
+#menuToggle[aria-expanded="true"] .menu-close-icon { display: block; }
+#siteHeader :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+@media (max-width: 900px), (orientation: portrait) {
+  #siteHeader .header-inner {
+    height: auto; min-height: 62px; padding-block: 9px;
+    flex-wrap: wrap; gap: 12px;
   }
-  .site-header.unified-header .site-nav.is-open { display: flex; flex-direction: column; align-items: stretch; }
-  .site-header.unified-header .site-nav a,
-  .site-header.unified-header #navGithub,
-  .site-header.unified-header #navArxiv,
-  .site-header.unified-header #navContact { padding: 10px 12px; margin-left: 0; }
+  #siteHeader .brand { margin-right: auto; }
+  #siteHeader .header-actions { margin-left: auto; gap: 8px; }
+  #siteHeader .icon-btn { width: 44px; height: 44px; }
+  #siteHeader #siteNav {
+    display: flex; flex-wrap: wrap; order: 3; width: 100%; margin: 0;
+    padding: 8px 0; gap: 4px; position: static;
+  }
+  #siteHeader #siteNav a {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin: 0; padding: 10px 14px; min-height: 44px;
+    font-size: 1rem; text-decoration: none;
+  }
+  #siteHeader.navigation-ready .header-inner { height: 62px; flex-wrap: nowrap; padding-block: 0; }
+  #siteHeader.navigation-ready #menuToggle { display: grid; }
+  #siteHeader.navigation-ready #siteNav {
+    display: none; position: absolute; top: 100%; right: 18px; left: auto;
+    width: min(300px, calc(100vw - 36px)); padding: 8px;
+    max-height: calc(100dvh - 80px); overflow-y: auto;
+    background: var(--surface-1); border: 1px solid var(--border-strong);
+    border-radius: 10px; box-shadow: var(--shadow); z-index: 70;
+  }
+  #siteHeader.navigation-ready #siteNav.is-open { display: flex; flex-direction: column; align-items: stretch; }
+  #siteHeader #siteNav a:hover,
+  #siteHeader #siteNav a[aria-current="page"] { background: var(--surface-2); color: var(--text-primary); }
+  #siteHeader #siteNav a[aria-disabled="true"] { color: var(--text-muted); background: transparent; }
 }
+@media print { #siteHeader { display: none; } }
