@@ -781,8 +781,6 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 .research-layout .toc li a::before { content: counter(item, decimal-leading-zero); color: var(--text-muted); font: 9px/1.9 var(--mono); }
 .research-layout .toc a.is-here { color: var(--text-primary); background: color-mix(in srgb, var(--accent) 5%, transparent); }
 .research-layout .toc .toc-back { display: block; margin-top: 24px; padding-left: 10px; font-size: 9px; line-height: 1.5; }
-.toc-footnote { margin: 32px 10px 0; padding-top: 16px; border-top: 1px solid var(--grid); color: var(--text-muted); font: 9px/1.9 var(--mono); }
-.toc-footnote .status-dot { margin-right: 4px; }
 .mobile-toc { display: none; }
 .research-page .post-body { max-width: none; font-size: 18px; line-height: 1.65; }
 .research-page .post-body > p { max-width: none; margin-bottom: 23px; }
@@ -834,9 +832,6 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 .task-toggle { flex: 0 0 18px; text-align: center; color: var(--family); font: 23px/1 var(--mono); transition: transform .18s; }
 .task-row[open] > summary .task-toggle { transform: rotate(45deg); }
 .task-title { font-size: 17px; line-height: 1.4; font-weight: 500; color: var(--text-primary); }
-.review-flag { margin-left: auto; flex: 0 0 auto; font: 10.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cat-2); border: 1px solid var(--cat-2); border-radius: 999px; padding: 5px 9px; }
-.task-description .review-note { margin: 0 0 19px; padding: 12px 16px; }
-.task-description .review-note p { font-size: 14px; }
 .task-row-content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 28px; padding: 22px 24px 24px; border-top: 1px solid var(--grid); }
 .task-description, .task-demo { min-width: 0; }
 .research-page .task-description > p { margin: 0 0 19px; }
@@ -1284,7 +1279,7 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 </div>
 </header>
 <div class="wrap post-layout research-layout">
-<aside aria-label="Article contents" class="toc"><div class="toc-head">In this article</div><nav id="toc"></nav><a class="toc-back" href="../#index">← Leaderboard</a><div class="toc-footnote"><span class="status-dot"></span> Research overview<br/>Initial evaluation results</div></aside>
+<aside aria-label="Article contents" class="toc"><div class="toc-head">In this article</div><nav id="toc"></nav><a class="toc-back" href="../#index">← Leaderboard</a></aside>
 <article class="post">
 <details class="mobile-toc"><summary>In this article <span aria-hidden="true">⌄</span></summary><nav aria-label="Article contents" id="mobileContents"></nav></details>
 <div class="post-body" id="article-content">
@@ -1308,12 +1303,12 @@ RLEs design robots, control them to interact with the world, collect data, write
 
 </p>
 <h2 id="tasks">Complementary views of physically grounded agent capability</h2>
-<div class="callout is-warn review-note"><div class="callout-key">Review note · Bo</div><p>We need some justification or motivation about each angle, especially the policy learning &amp; deployment.</p><p>We need to first briefly justify why we care about that ability.</p></div>
-<p>A capable physical-world agent needs more than a good controller. 
-  RLE-Bench looks at these abilities from four complementary angles: 
-  
+<p>A capable physical-world agent needs more than a good controller.
+  The work of a robot learning engineer runs from operating a robot directly, to training policies that outlive any single session, to designing the hardware those policies run on, to building the perception that every decision depends on.
+  A weakness at any one of these stages caps what the agent can deliver at the others, so a single score on a single task would hide more than it reveals.
+  RLE-Bench therefore looks at these abilities from four complementary angles, and each is motivated below before its tasks are described.
 </p>
-<section aria-labelledby="heading-interactive" class="workflow family-interactive" id="family-interactive"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-interactive">Interactive Control</h3><span class="workflow-count">03 TASKS</span></div><p class="workflow-intro">In these tasks, agent directly interact with the world to achieve given goals.</p><div class="task-grid"><details class="task-card task-row" id="task-t01">
+<section aria-labelledby="heading-interactive" class="workflow family-interactive" id="family-interactive"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-interactive">Interactive Control</h3><span class="workflow-count">03 TASKS</span></div><p class="workflow-intro">Before an agent can build anything for a robot, it has to be able to operate one. Direct interaction is where physical grounding is most exposed: observations are partial, actions cannot be undone, and progress depends on reading multimodal feedback correctly. In these tasks the agent interacts with the world directly to achieve given goals, whether by controlling the robot itself, by building the tools that let another agent do so, or by acting to gather the evidence a decision needs.</p><div class="task-grid"><details class="task-card task-row" id="task-t01">
 <summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T01</span><span class="task-title">Agentic Control</span></summary>
 <div class="task-row-content">
 <div class="task-description"><p>Agent-in-the-loop control for five kitchen tasks. The agent works under one of three harness levels and must solve each task in as few interaction steps as possible.</p><ul>
@@ -1331,10 +1326,9 @@ RLEs design robots, control them to interact with the world, collect data, write
 <p class="task-video-note" id="video-note-t01">GPT-6 Astra · 6× speed · <span class="task-demo-source">RoboCasa · <a href="https://github.com/robocasa/robocasa/blob/4f8a2980def75a55dff96b990745b83540425f09/robocasa/environments/kitchen/composite/defrosting_food/defrost_by_category.py" rel="noopener">DefrostByCategory</a></span><br/><span id="video-goal-t01">Demo goal: Put the potato and corn into the bowl on the counter, and move the orange and banana into the sink to defrost the fruit under running water.</span></p></div>
 </div>
 </details><details class="task-card task-row" id="task-t02">
-<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T02</span><span class="task-title">Harness Engineering</span><span class="review-flag">naming note</span></summary>
+<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T02</span><span class="task-title">Harness Engineering</span></summary>
 <div class="task-row-content">
-<div class="task-description"><div class="callout is-warn review-note"><div class="callout-key">Review note · Bo</div><p>How about we change a name for this, e.g., skill acquisition, self-tooling, etc.</p></div>
-<p>The agent builds its own harness, including perception tools, controllers, and a manual, so that an independent agent can reuse it to solve a new held-out task zero-shot.</p><dl><div><dt>Work product</dt><dd>Perception tools, controllers, and a manual</dd></div>
+<div class="task-description"><p>The agent builds its own harness: the layer of perception tools, controllers, and documentation that sits between a coding agent and the robot. The harness is then handed to an independent agent, which must reuse it to solve a new held-out task zero-shot.</p><dl><div><dt>Work product</dt><dd>Perception tools, controllers, and a manual</dd></div>
       <div><dt>Development</dt><dd>8 h · 75,000 steps · 8 CPUs · 1 GPU</dd></div>
       <div><dt>Evaluation</dt><dd>Success rate of a fresh agent solving a new held-out task with the produced harness, over five trials</dd></div></dl></div>
 <div class="task-demo"><video data-autoplay="true" class="task-video demo-video" data-duration="17.366667" controls muted playsinline preload="none" width="768" height="256" poster="../assets/blog/demos/task02-4x.webp" aria-label="T02 task demonstration" aria-describedby="video-note-t02">
@@ -1355,7 +1349,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 <a class="demo-download" href="../assets/blog/demos/hidden-center-of-mass-2x.mp4" download>Download video</a>
 <p class="task-video-note" id="video-note-t03">GPT-5.6 Sol · 2× speed<br/><span id="video-goal-t03">Demo goal: Probe the sealed box with the robot and use its physical response to identify which marked quadrant—A, B, C, or D—contains the hidden ballast.</span></p></div>
 </div>
-</details></div></section><section aria-labelledby="heading-learning" class="workflow family-learning" id="family-learning"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-learning">Policy Development</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">These tasks evaluate the training and deployment procedures that determine a policy’s capability, efficiency, and robustness.</p><div class="task-grid"><details class="task-card task-row" id="task-t04">
+</details></div></section><section aria-labelledby="heading-learning" class="workflow family-learning" id="family-learning"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-learning">Policy Development</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">Direct control does not scale. Most robot behaviour is ultimately delivered as a learned policy, and how well that policy works is decided long before deployment, by the choices an engineer makes about data, rewards, curricula, and transfer. We care about this ability because it is what turns one solved instance into durable, reusable capability. These tasks evaluate the training and deployment procedures that determine a policy’s capability, efficiency, and robustness, with the resulting policy or recipe tested under conditions the agent never saw.</p><div class="task-grid"><details class="task-card task-row" id="task-t04">
 <summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T04</span><span class="task-title">Whole-Body Motion Tracking</span></summary>
 <div class="task-row-content">
 <div class="task-description"><p>Agents train a humanoid motion-tracking policy to follow reference motions while maintaining stability under various deployment conditions.</p><dl><div><dt>Work product</dt><dd>An exported ONNX-format tracking policy</dd></div><div><dt>Development</dt><dd>4 h · 8 CPUs · 1 RTX 5090 GPU</dd></div><div><dt>Evaluation</dt><dd>Sim-to-sim transfer from MuJoCo-Warp to MuJoCo-C under hidden perturbations</dd></div></dl></div>
@@ -1372,7 +1366,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 <div class="task-description"><p>Agents develop vision-language-action (VLA) models in LIBERO and RoboTwin across six tracks covering capacity and robustness.</p><dl><div><dt>Work product</dt><dd>One training recipe per subtask</dd></div><div><dt>Development</dt><dd>4 h · 1 H100 GPU</dd></div><div><dt>Evaluation</dt><dd>The delivered recipe is used to train a VLA model, which is then evaluated under different circumstances. Each subtask is scored by the success rate of that VLA model</dd></div></dl></div>
 <div class="task-demo"><div class="task-video-placeholder" role="img" aria-label="T05 demo video not yet available"><span aria-hidden="true">▷</span><span>Video coming soon</span></div></div>
 </div>
-</details></div></section><section aria-labelledby="heading-embodiment" class="workflow family-embodiment" id="family-embodiment"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-embodiment">Mechanical Design</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">These tasks evaluate mechanical design and its supporting control software as a coupled system.</p><div class="task-grid"><details class="task-card task-row" id="task-t06">
+</details></div></section><section aria-labelledby="heading-embodiment" class="workflow family-embodiment" id="family-embodiment"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-embodiment">Mechanical Design</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">Hardware bounds what any controller can achieve. An under-powered base or an uncompensated arm cannot be fixed in software, so an engineer has to reason about mass, torque, geometry, and cost together with the control that will run on them. These tasks evaluate mechanical design and its supporting control software as a coupled system, scored on physical instances the agent did not see during development.</p><div class="task-grid"><details class="task-card task-row" id="task-t06">
 <summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T06</span><span class="task-title">Mobile Base Design</span></summary>
 <div class="task-row-content">
 <div class="task-description"><p>The agent designs a common mobile base and controller for three types of arms, Panda, UR5e, and xArm7, subject to physical and resource constraints.</p><dl><div><dt>Work product</dt><dd>MJCF model of the mobile base and controller code</dd></div><div><dt>Development</dt><dd>2 h · 4 CPUs</dd></div><div><dt>Evaluation</dt><dd>Worst-case performance across the three arms under different shelf targets, payloads, and static and dynamic checks</dd></div></dl></div>
@@ -1394,7 +1388,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 <a class="demo-download" href="../assets/blog/demos/section_3/gello-design-showcase-1080p-4x.mp4" download>Download video</a>
 <p class="task-video-note" id="video-note-t07">4× source-video speed<br/><span id="video-goal-t07">Demo goal: Design gravity-compensated GELLO leader arms for Panda, UR5e, and xArm7. The video shows the submitted mechanisms from multiple angles and along prescribed joint-motion paths; motion is guided for visualization.</span></p></div>
 </div>
-</details></div></section><section aria-labelledby="heading-perception" class="workflow family-perception" id="family-perception"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-perception">Perception &amp; Estimation</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">These tasks evaluate state estimation and the integration of visual and force feedback under sensing and computational constraints.</p><div class="task-grid"><details class="task-card task-row" id="task-t08">
+</details></div></section><section aria-labelledby="heading-perception" class="workflow family-perception" id="family-perception"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-perception">Perception &amp; Estimation</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">Every downstream decision is only as good as the state it is made from. Real sensing is noisy, occluded, and rate-limited, and an estimator has to run within the compute a robot actually has. These tasks evaluate state estimation and the integration of visual and force feedback under sensing and computational constraints.</p><div class="task-grid"><details class="task-card task-row" id="task-t08">
 <summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T08</span><span class="task-title">Pose Estimation</span></summary>
 <div class="task-row-content">
 <div class="task-description"><p>The agent develops an estimator that identifies asymmetric objects and recovers their planar position and orientation during motion and partial occlusion, across four variants that differ in sensing modality and allowed methods.</p><dl><div><dt>Work product</dt><dd>An estimator or trained TorchScript model</dd></div><div><dt>Development</dt><dd>2 h · Subtask-specific</dd></div><div><dt>Evaluation</dt><dd>A hidden battery of 100 static frames and ten push episodes in which the arm crosses the line of sight, scored by translation and rotation error. A wrong shape identification zeroes the group, and inference slower than 10 Hz on CPU is penalized</dd></div></dl></div>
@@ -1452,13 +1446,13 @@ RLEs design robots, control them to interact with the world, collect data, write
 <p class="chart-context" data-chart-part="chartContext">T08 · Pose Estimation · Matched task coverage</p>
 <div aria-label="Perception scores on a zero to one hundred scale" class="capability-chart family-perception" data-chart-part="capabilityChart" role="group">
 <!-- BEGIN PERCEPTION BARS -->
-<div class="bar-row" data-system="astra"><div class="bar-label"><strong>GPT-6 Astra</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:72.06%"></span></div><span class="bar-value">72.06</span></div>
+<div class="bar-row" data-system="astra"><div class="bar-label"><strong>GPT-6 Astra</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:72.06%"></span></div><span class="bar-value">72.06</span></div>
 <div class="bar-row" data-system="opus5"><div class="bar-label"><strong>Claude Opus 5</strong><span>Claude Code</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:42.87%"></span></div><span class="bar-value">42.87</span></div>
-<div class="bar-row" data-system="sol"><div class="bar-label"><strong>GPT-5.6 Sol</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:14.52%"></span></div><span class="bar-value">14.52</span></div>
+<div class="bar-row" data-system="sol"><div class="bar-label"><strong>GPT-5.6 Sol</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:14.52%"></span></div><span class="bar-value">14.52</span></div>
 <div class="bar-row" data-system="gemini"><div class="bar-label"><strong>Gemini 3.7 Flash</strong><span>Antigravity CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:11.15%"></span></div><span class="bar-value">11.15</span></div>
 <div class="bar-row" data-system="opus48"><div class="bar-label"><strong>Claude Opus 4.8</strong><span>Claude Code</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:7.33%"></span></div><span class="bar-value">7.33</span></div>
-<div class="bar-row" data-system="luna"><div class="bar-label"><strong>GPT-5.6 Luna</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:6.56%"></span></div><span class="bar-value">6.56</span></div>
-<div class="bar-row" data-system="terra"><div class="bar-label"><strong>GPT-5.6 Terra</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:7.48%"></span></div><span class="bar-value">7.48</span></div>
+<div class="bar-row" data-system="luna"><div class="bar-label"><strong>GPT-5.6 Luna</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:6.56%"></span></div><span class="bar-value">6.56</span></div>
+<div class="bar-row" data-system="terra"><div class="bar-label"><strong>GPT-5.6 Terra</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:7.48%"></span></div><span class="bar-value">7.48</span></div>
 <!-- END PERCEPTION BARS --><div aria-hidden="true" class="chart-axis"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div><p aria-live="polite" class="chart-live visually-hidden" data-chart-part="chartAnnouncement"></p></figure>
 <h3>Policy learning shows a narrower gap</h3>
 <p>Astra, Opus 5, and GPT-5.6 Sol score <strong data-result="astra.learning">80.56</strong>, <strong data-result="opus5.learning">78.70</strong>, and <strong data-result="sol.learning">71.52</strong> on the current learning evaluation. Their closer results suggest that training and deploying a motion-tracking policy may be a more established capability for these systems. This finding is limited to T04; the broader recipe-engineering task, T05, is still pending.</p>
@@ -1467,13 +1461,13 @@ RLEs design robots, control them to interact with the world, collect data, write
 <p class="chart-context" data-chart-part="chartContext">T04 · Whole-Body Motion Tracking · T05 pending for all systems</p>
 <div aria-label="Learning scores on a zero to one hundred scale" class="capability-chart family-learning" data-chart-part="capabilityChart" role="group">
 <!-- BEGIN LEARNING BARS -->
-<div class="bar-row" data-system="astra"><div class="bar-label"><strong>GPT-6 Astra</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:80.56%"></span></div><span class="bar-value">80.56</span></div>
+<div class="bar-row" data-system="astra"><div class="bar-label"><strong>GPT-6 Astra</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:80.56%"></span></div><span class="bar-value">80.56</span></div>
 <div class="bar-row" data-system="opus5"><div class="bar-label"><strong>Claude Opus 5</strong><span>Claude Code</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:78.7%"></span></div><span class="bar-value">78.70</span></div>
-<div class="bar-row" data-system="sol"><div class="bar-label"><strong>GPT-5.6 Sol</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:71.52%"></span></div><span class="bar-value">71.52</span></div>
+<div class="bar-row" data-system="sol"><div class="bar-label"><strong>GPT-5.6 Sol</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:71.52%"></span></div><span class="bar-value">71.52</span></div>
 <div class="bar-row" data-system="gemini"><div class="bar-label"><strong>Gemini 3.7 Flash</strong><span>Antigravity CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:28.86%"></span></div><span class="bar-value">28.86</span></div>
 <div class="bar-row" data-system="opus48"><div class="bar-label"><strong>Claude Opus 4.8</strong><span>Claude Code</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:33.7%"></span></div><span class="bar-value">33.70</span></div>
-<div class="bar-row" data-system="luna"><div class="bar-label"><strong>GPT-5.6 Luna</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:24.47%"></span></div><span class="bar-value">24.47</span></div>
-<div class="bar-row" data-system="terra"><div class="bar-label"><strong>GPT-5.6 Terra</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:8.46%"></span></div><span class="bar-value">8.46</span></div>
+<div class="bar-row" data-system="luna"><div class="bar-label"><strong>GPT-5.6 Luna</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:24.47%"></span></div><span class="bar-value">24.47</span></div>
+<div class="bar-row" data-system="terra"><div class="bar-label"><strong>GPT-5.6 Terra</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:8.46%"></span></div><span class="bar-value">8.46</span></div>
 <!-- END LEARNING BARS --><div aria-hidden="true" class="chart-axis"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div><p aria-live="polite" class="chart-live visually-hidden" data-chart-part="chartAnnouncement"></p></figure>
 <h3>Physical design remains hard</h3>
 <p>A design can achieve its visible objective and still fail the physics around it. In the T06 case study, Astra’s mobile base earns full credit for shelf access and payload margin, yet scores zero on static stability and lateral/turning checks. Reaching a target is only part of the problem: the agent must also anticipate how its design behaves under load and motion.</p>
@@ -1482,13 +1476,13 @@ RLEs design robots, control them to interact with the world, collect data, write
 <p class="chart-context" data-chart-part="chartContext">T06 + T07 · Embodiment and co-design · Matched task coverage</p>
 <div aria-label="Embodiment scores on a zero to one hundred scale" class="capability-chart family-embodiment" data-chart-part="capabilityChart" role="group">
 <!-- BEGIN EMBODIMENT BARS -->
-<div class="bar-row" data-system="astra"><div class="bar-label"><strong>GPT-6 Astra</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:57.12%"></span></div><span class="bar-value">57.12</span></div>
+<div class="bar-row" data-system="astra"><div class="bar-label"><strong>GPT-6 Astra</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:57.12%"></span></div><span class="bar-value">57.12</span></div>
 <div class="bar-row" data-system="opus5"><div class="bar-label"><strong>Claude Opus 5</strong><span>Claude Code</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:53.64%"></span></div><span class="bar-value">53.64</span></div>
-<div class="bar-row" data-system="sol"><div class="bar-label"><strong>GPT-5.6 Sol</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:51.37%"></span></div><span class="bar-value">51.37</span></div>
+<div class="bar-row" data-system="sol"><div class="bar-label"><strong>GPT-5.6 Sol</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:51.37%"></span></div><span class="bar-value">51.37</span></div>
 <div class="bar-row" data-system="gemini"><div class="bar-label"><strong>Gemini 3.7 Flash</strong><span>Antigravity CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:45.7%"></span></div><span class="bar-value">45.70</span></div>
 <div class="bar-row" data-system="opus48"><div class="bar-label"><strong>Claude Opus 4.8</strong><span>Claude Code</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:47.75%"></span></div><span class="bar-value">47.75</span></div>
-<div class="bar-row" data-system="luna"><div class="bar-label"><strong>GPT-5.6 Luna</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:38.66%"></span></div><span class="bar-value">38.66</span></div>
-<div class="bar-row" data-system="terra"><div class="bar-label"><strong>GPT-5.6 Terra</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:25.38%"></span></div><span class="bar-value">25.38</span></div>
+<div class="bar-row" data-system="luna"><div class="bar-label"><strong>GPT-5.6 Luna</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:38.66%"></span></div><span class="bar-value">38.66</span></div>
+<div class="bar-row" data-system="terra"><div class="bar-label"><strong>GPT-5.6 Terra</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:25.38%"></span></div><span class="bar-value">25.38</span></div>
 <!-- END EMBODIMENT BARS --><div aria-hidden="true" class="chart-axis"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div><p aria-live="polite" class="chart-live visually-hidden" data-chart-part="chartAnnouncement"></p></figure>
 <h3 id="scoring">One score, four different capabilities</h3>
 <p>Each task produces a normalized score. We aggregate tasks within each capability family, then average the four families equally into the <strong>RLE Index</strong>, reported on a 0–100 scale. But the family profile often tells us more than the final number. The family charts above and the overall scores below show both.</p>
@@ -1538,7 +1532,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 <p>The decisive step is a reliability tradeoff. A smoothed candidate passes 345 development episodes at a reported 0.9137, then falls twice in a fresh 200-seed audit. Astra revisits the robustness continuation and selects an average of three checkpoints: the final policy is evaluated with 545 different random seeds, each specifying a randomized test condition for one 20-second episode. All 545 episodes finish without a fall, with an exact pooled tracking_multi mean of 0.912364. Here, 545 is the number of development evaluation runs—not the number of training steps or checkpoints. This development result is separate from the hidden-test reward and the aggregate benchmark results above.</p>
 <h2 id="grounding">Design is difficult under physical constraints</h2>
 <p>Consider these two mobile-base submissions from T06. Each is meant to support robot arms while reaching shelves and carrying payloads. The agent should use less materials and design base with less weight, but preserving static and dynamical stability.</p>
-<figure class="design-figure figure-card"><div class="figure-top"><span class="figure-label">Mobile-base design examples in T06</span></div><div class="design-comparison"><div><a aria-label="Enlarge GPT-6 Astra’s mobile-base design" class="zoom-image" data-caption="GPT-6 Astra’s mobile-base submission. The accompanying case analysis reports strong shelf access and payload performance, but failures on static-stability and lateral/turning checks." data-zoom="" href="../assets/blog/astra-mobile-manipulator.webp"><img alt="GPT-6 Astra’s simulated robot arm mounted on a connected wheeled chassis beside a shelf." decoding="async" height="960" loading="lazy" src="../assets/blog/astra-mobile-manipulator.webp" width="1280"/></a><div class="design-label"><span>GPT-6 Astra</span><span>· Codex CLI</span></div></div><div><a aria-label="Enlarge GPT-5.6 Luna’s mobile-base design" class="zoom-image" data-caption="GPT-5.6 Luna’s mobile-base submission. The paper identifies disconnected frame elements despite an explicit connected-frame requirement." data-zoom="" href="../assets/blog/luna-mobile-base.webp"><img alt="GPT-5.6 Luna’s simulated mobile-base submission, which the manuscript identifies as having disconnected frame elements." decoding="async" height="960" loading="lazy" src="../assets/blog/luna-mobile-base.webp" width="1280"/></a><div class="design-label"><span>GPT-5.6 Luna</span><span>· Codex CLI</span></div></div></div><figcaption>The Luna design contains disconnected frame elements despite an explicit connected-frame requirement. These images illustrate individual submissions rather than failure frequencies.</figcaption></figure>
+<figure class="design-figure figure-card"><div class="figure-top"><span class="figure-label">Mobile-base design examples in T06</span></div><div class="design-comparison"><div><a aria-label="Enlarge GPT-6 Astra’s mobile-base design" class="zoom-image" data-caption="GPT-6 Astra’s mobile-base submission. The accompanying case analysis reports strong shelf access and payload performance, but failures on static-stability and lateral/turning checks." data-zoom="" href="../assets/blog/astra-mobile-manipulator.webp"><img alt="GPT-6 Astra’s simulated robot arm mounted on a connected wheeled chassis beside a shelf." decoding="async" height="960" loading="lazy" src="../assets/blog/astra-mobile-manipulator.webp" width="1280"/></a><div class="design-label"><span>GPT-6 Astra</span><span>· Codex</span></div></div><div><a aria-label="Enlarge GPT-5.6 Luna’s mobile-base design" class="zoom-image" data-caption="GPT-5.6 Luna’s mobile-base submission. The paper identifies disconnected frame elements despite an explicit connected-frame requirement." data-zoom="" href="../assets/blog/luna-mobile-base.webp"><img alt="GPT-5.6 Luna’s simulated mobile-base submission, which the manuscript identifies as having disconnected frame elements." decoding="async" height="960" loading="lazy" src="../assets/blog/luna-mobile-base.webp" width="1280"/></a><div class="design-label"><span>GPT-5.6 Luna</span><span>· Codex</span></div></div></div><figcaption>The Luna design contains disconnected frame elements despite an explicit connected-frame requirement. These images illustrate individual submissions rather than failure frequencies.</figcaption></figure>
 <p>Astra’s design reaches the shelves and carries the payloads: it earns full credit for shelf access and payload margin in the reported case. <strong>However</strong>, it fails a few stability tests.</p>
 <figure class="demo-figure figure-card family-embodiment" id="demo-astra-stability">
 <video class="demo-video" data-autoplay="true" data-duration="17.8" controls muted playsinline preload="none" width="1920" height="1080" poster="../assets/blog/demos/section_3/stability-failures-panda-only-1080p.webp" aria-label="GPT-6 Astra mobile-base stability failures with Panda" aria-describedby="caption-astra-stability">
@@ -1601,7 +1595,7 @@ const BENCH = {
   models: [
     { id: "opus5",    name: "Claude Opus 5",   org: "Anthropic", cost: 412, hours: 3.9, open: false , harness: "Claude Code" },
     { id: "sonnet5",  name: "Claude Sonnet 5", org: "Anthropic", cost: 138, hours: 3.6, open: false , harness: "Claude Code" },
-    { id: "gpt52",    name: "GPT-5.2",         org: "OpenAI",    cost: 356, hours: 4.1, open: false , harness: "Codex CLI" },
+    { id: "gpt52",    name: "GPT-5.2",         org: "OpenAI",    cost: 356, hours: 4.1, open: false , harness: "Codex" },
     { id: "gemini3",  name: "Gemini 3 Pro",    org: "Google",    cost: 291, hours: 3.8, open: false , harness: "Gemini CLI" },
     { id: "glm52",    name: "GLM-5.2",         org: "Z.ai",      cost:  74, hours: 4.4, open: true  , harness: "Claude Code" },
     { id: "ds4",      name: "DeepSeek-V4",     org: "DeepSeek",  cost:  61, hours: 4.3, open: true  , harness: "Claude Code" },
@@ -1865,7 +1859,6 @@ const POSTS = [
     "slug": "introducing-rle-bench",
     "file": "./",
     "title": "Introducing RLE-Bench",
-    "kicker": "Research overview",
     "date": "2026-09-09",
     "dateLabel": "Updated",
     "readingTime": "13 min",
@@ -1955,7 +1948,7 @@ if (typeof module !== "undefined") module.exports = POSTS;
       const rail = make('div', 'postcard-rail');
       rail.append(make('div', 'postcard-num', String(POSTS.length - index).padStart(2, '0')), make('div', 'postcard-date', longDate(post.date)), make('div', 'postcard-date', post.readingTime));
       const content = make('div', 'postcard-main');
-      content.append(make('div', 'postcard-kicker', post.kicker), make('h2', 'postcard-title', post.title), make('p', 'postcard-sum', post.summary));
+      content.append(make('h2', 'postcard-title', post.title), make('p', 'postcard-sum', post.summary));
       const tags = make('div', 'tagrow'); post.tags.forEach(tag => tags.append(make('span', 'tag', tag))); content.append(tags);
       card.append(rail, content); list.append(card);
     });
@@ -2058,7 +2051,7 @@ const MANUSCRIPT_RESULTS = {
     {
       "id": "astra",
       "name": "GPT-6 Astra",
-      "harness": "Codex CLI",
+      "harness": "Codex",
       "index": 73.89,
       "embodiment": 57.12,
       "perception": 72.06,
@@ -2080,7 +2073,7 @@ const MANUSCRIPT_RESULTS = {
     {
       "id": "sol",
       "name": "GPT-5.6 Sol",
-      "harness": "Codex CLI",
+      "harness": "Codex",
       "index": 45.33,
       "embodiment": 51.37,
       "perception": 14.52,
@@ -2113,7 +2106,7 @@ const MANUSCRIPT_RESULTS = {
     {
       "id": "luna",
       "name": "GPT-5.6 Luna",
-      "harness": "Codex CLI",
+      "harness": "Codex",
       "index": 18.97,
       "embodiment": 38.66,
       "perception": 6.56,
@@ -2124,7 +2117,7 @@ const MANUSCRIPT_RESULTS = {
     {
       "id": "terra",
       "name": "GPT-5.6 Terra",
-      "harness": "Codex CLI",
+      "harness": "Codex",
       "index": 13.15,
       "embodiment": 25.38,
       "perception": 7.48,

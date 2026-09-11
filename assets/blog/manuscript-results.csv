@@ -1,8 +1,8 @@
 status,system,coding_agent_harness,reported_index_0_100,embodiment_0_100,perception_0_100,interactive_0_100,learning_0_100,interactive_coverage,global_pending,source
-PROVISIONAL,GPT-6 Astra,Codex CLI,73.89,57.12,72.06,85.81,80.56,T09 only,T03; T05,Manuscript Table tab:leaderboard; unequal coverage; not a final ranking
+PROVISIONAL,GPT-6 Astra,Codex,73.89,57.12,72.06,85.81,80.56,T09 only,T03; T05,Manuscript Table tab:leaderboard; unequal coverage; not a final ranking
 PROVISIONAL,Claude Opus 5,Claude Code,57.23,53.64,42.87,53.70,78.70,"T01, T02, T09",T03; T05,Manuscript Table tab:leaderboard; unequal coverage; not a final ranking
-PROVISIONAL,GPT-5.6 Sol,Codex CLI,45.33,51.37,14.52,43.89,71.52,"T01, T02, T09",T03; T05,Manuscript Table tab:leaderboard; unequal coverage; not a final ranking
+PROVISIONAL,GPT-5.6 Sol,Codex,45.33,51.37,14.52,43.89,71.52,"T01, T02, T09",T03; T05,Manuscript Table tab:leaderboard; unequal coverage; not a final ranking
 PROVISIONAL,Gemini 3.7 Flash,Antigravity CLI,27.08,45.70,11.15,22.62,28.86,"T01, T02, T09",T03; T05,Manuscript Table tab:leaderboard; unequal coverage; not a final ranking
 PROVISIONAL,Claude Opus 4.8,Claude Code,25.82,47.75,7.33,14.49,33.70,"T01, T02, T09",T03; T05,Manuscript Table tab:leaderboard; unequal coverage; not a final ranking
-PROVISIONAL,GPT-5.6 Luna,Codex CLI,18.97,38.66,6.56,6.19,24.47,"T01, T02, T09",T03; T05,Manuscript Table tab:leaderboard; unequal coverage; not a final ranking
-PROVISIONAL,GPT-5.6 Terra,Codex CLI,13.15,25.38,7.48,11.29,8.46,"T01, T02, T09",T03; T05,Manuscript Table tab:leaderboard; unequal coverage; not a final ranking
+PROVISIONAL,GPT-5.6 Luna,Codex,18.97,38.66,6.56,6.19,24.47,"T01, T02, T09",T03; T05,Manuscript Table tab:leaderboard; unequal coverage; not a final ranking
+PROVISIONAL,GPT-5.6 Terra,Codex,13.15,25.38,7.48,11.29,8.46,"T01, T02, T09",T03; T05,Manuscript Table tab:leaderboard; unequal coverage; not a final ranking

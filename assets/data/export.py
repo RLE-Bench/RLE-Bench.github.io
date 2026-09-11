@@ -79,7 +79,7 @@ EFFORT_SUFFIXES = ("-xhigh", "-high", "-medium", "-low", "-minimal")
 
 # Harness detection from the ``agent`` field of a run. First match wins.
 HARNESSES: tuple[tuple[str, str], ...] = (
-    ("codex", "Codex CLI"),
+    ("codex", "Codex"),
     ("claude-code", "Claude Code"),
     ("claude_code", "Claude Code"),
     ("antigravity", "Antigravity CLI"),
