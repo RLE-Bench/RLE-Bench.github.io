@@ -23,6 +23,11 @@
     },
     "T07": {
       "goal": "Pick the steel brackets out of the cluttered bin and place them onto the conveyor, clearing the bin while avoiding drops, damage, and excessive impacts."
+    },
+    "T05": {
+      "goal": "Turn on the stove and place the moka pot on the burner in a scene with additional objects.",
+      "matched_task": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+      "source": "../../social/film-clips/task05-v2/task05-selected-sources.json"
     }
   }
 }
