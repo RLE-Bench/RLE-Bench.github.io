@@ -1,8 +1,34 @@
 /* RLE-Bench homepage. Vanilla JS; all results are read from the original BENCH.
    Data schema and numerical values are not changed by this presentation layer.
    Missing results never become zero, and incomplete agents receive no overall rank. */
-(() => {
+(async () => {
   'use strict';
+  // Evaluated agents and their results are published separately from the task catalog.
+  try {
+    const res = await fetch('assets/data/leaderboard.json', {cache: 'no-cache'});
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    if (Array.isArray(data.models) && data.scores && typeof data.scores === 'object') {
+      BENCH.models = data.models;
+      BENCH.scores = data.scores;
+      BENCH.costs = data.costs || {};
+      BENCH.results = data.results || {};
+      // The export (assets/data/export.py) is the authority on how a task is split; the catalog in data.js is the fallback.
+      if (data.tasks && typeof data.tasks === 'object') BENCH.tasks.forEach(t => {
+        const x = data.tasks[t.id];
+        if (!x || !Array.isArray(x.splits)) return;
+        t.splits = x.splits.map(s => typeof s === 'string' ? s : s.label);
+        if (x.splitLabel) t.splitLabel = x.splitLabel;
+        if (x.aggregate) t.aggregate = x.aggregate;
+        t.weights = Array.isArray(x.weights) ? x.weights : null;
+      });
+      // The snapshot mean covers exactly the tasks the export reports.
+      if (BENCH.presentation) BENCH.presentation.snapshotTaskIds = BENCH.tasks.filter(t => data.scores[t.id]).map(t => t.id);
+      if (typeof data.status === 'string') BENCH.meta.dataStatus = data.status;
+    }
+  } catch (err) {
+    console.error('RLE-Bench: could not load assets/data/leaderboard.json', err);
+  }
   const $ = (s,r=document) => r.querySelector(s);
   const $$ = (s,r=document) => [...r.querySelectorAll(s)];
   const make = (tag, cls, text) => { const n=document.createElement(tag); if(cls)n.className=cls; if(text!=null)n.textContent=text; return n; };
@@ -12,9 +38,10 @@
   const pct = (v,d=1) => Number.isFinite(v) ? (v*100).toFixed(d) : '—';
   const usd = v => Number.isFinite(v) ? '$'+v.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:v<10?2:0}) : '—';
   const preciseUSD = v => Number.isFinite(v) ? '$'+v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}) : '—';
+  const tokens = v => Number.isFinite(v) ? (v>=1e9 ? (v/1e9).toFixed(2)+'B' : v>=1e6 ? (v/1e6).toFixed(1)+'M' : v>=1e3 ? (v/1e3).toFixed(0)+'K' : String(Math.round(v))) : '—';
   const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(typeof BENCH==='undefined' || !Array.isArray(BENCH.tasks) || !Array.isArray(BENCH.models)) {
-    $('#indexGrid').textContent='Results are temporarily unavailable. Reload the page to try again.';
+  if(typeof BENCH==='undefined' || !Array.isArray(BENCH.tasks) || !Array.isArray(BENCH.models) || !BENCH.scores) {
+    $('#indexGrid').textContent='Results are temporarily unavailable. Serve the site over HTTP so assets/data/leaderboard.json can load, then reload the page.';
     return;
   }
   const taskOrder=BENCH.presentation?.taskOrder || ['task01','task02','task05','task04','task03','task06','task08','task09'];
@@ -24,40 +51,57 @@
     return (ia<0?taskOrder.length+originalOrder.get(a.id):ia)-(ib<0?taskOrder.length+originalOrder.get(b.id):ib);
   });
   const snapshotTasks=tasks.filter(t=>BENCH.presentation.snapshotTaskIds.includes(t.id));
+  // Two-level breakdown: workflows own tasks; any task missing from the list falls into a trailing group.
+  const workflows=(BENCH.presentation?.workflows||[]).map(w=>({...w,tasks:w.tasks.map(id=>tasks.find(t=>t.id===id)).filter(Boolean)})).filter(w=>w.tasks.length);
+  {const placed=new Set(workflows.flatMap(w=>w.tasks.map(t=>t.id)));const rest=tasks.filter(t=>!placed.has(t.id));if(rest.length)workflows.push({id:'other',name:'Other tasks',tasks:rest});}
+  const workflowOf=Object.fromEntries(workflows.flatMap(w=>w.tasks.map(t=>[t.id,w])));
   const models=BENCH.models.filter(m=>!m.baseline);
   const byId=Object.fromEntries(tasks.map(t=>[t.id,t]));
   const isSample=BENCH.meta.dataStatus!=='measured';
-  const abbreviated = {task01:'Design',task02:'Co-design',task03:'Control',task04:'Harness',task05:'Pose',task06:'Clearing',task08:'Reasoning',task09:'Tracking'};
+  const abbreviated = {task01:'Design',task02:'Co-Design',task03:'Control',task04:'Harness',task05:'Pose',task06:'Clearing',task08:'Reasoning',task09:'Tracking',nanovla:'NanoVLA'};
   const splitValues=(t,m)=>(BENCH.scores[t.id]||{})[m.id]||[];
   const familyScore=(t,m)=>{
+    // The exported task score (mean verifier reward, gates included) wins; split aggregation is the fallback.
+    const reported=BENCH.results?.[t.id]?.[m.id]?.score;
+    if(validScore(reported))return reported;
     const v=splitValues(t,m);
     if(!v.length || v.length!==t.splits.length || !v.every(validScore))return null;
-    return t.aggregate==='min' ? Math.min(...v) : v.reduce((a,b)=>a+b,0)/v.length;
+    if(t.aggregate==='min')return Math.min(...v);
+    if(t.aggregate==='weighted'&&Array.isArray(t.weights)&&t.weights.length===v.length){
+      const total=t.weights.reduce((a,b)=>a+b,0);
+      return total>0?v.reduce((a,x,i)=>a+x*t.weights[i],0)/total:null;
+    }
+    return v.reduce((a,b)=>a+b,0)/v.length;
   };
-  const indexScore=m=>{
-    const v=snapshotTasks.map(t=>familyScore(t,m));
-    return v.every(Number.isFinite) ? v.reduce((a,b)=>a+b,0)/v.length : null;
+  // RLE Index: tasks are averaged within each workflow, then the workflow means are averaged.
+  // Only tasks with reported results enter; a workflow with none is skipped. Any missing task score voids the index.
+  const snapshotIds=new Set(snapshotTasks.map(t=>t.id));
+  const workflowGroups=workflows.map(w=>w.tasks.filter(t=>snapshotIds.has(t.id))).filter(g=>g.length);
+  const mean=v=>v.reduce((a,b)=>a+b,0)/v.length;
+  const hierarchical=(m,value)=>{
+    const per=workflowGroups.map(g=>{const v=g.map(t=>value(t,m));return v.every(Number.isFinite)?mean(v):null;});
+    return per.length && per.every(Number.isFinite) ? mean(per) : null;
   };
+  const indexScore=m=>hierarchical(m,familyScore);
   const agents=models.filter(m=>!m.baseline);
 
   const completeAgents=agents.filter(m=>Number.isFinite(indexScore(m)));
-  // Average ranks for exact ties. The reference solution never enters the ranking population.
+  // Competition ranking: exact ties share the lower rank (1, 2, 2, 4). The reference solution never enters the ranking population.
   function ranksOf(list,value){
     const sorted=list.filter(m=>Number.isFinite(value(m))).sort((a,b)=>value(b)-value(a));
     const map={};
     for(let i=0;i<sorted.length;){let j=i+1;while(j<sorted.length && Math.abs(value(sorted[j])-value(sorted[i]))<1e-10)j++;
-      for(let k=i;k<j;k++)map[sorted[k].id]=(i+1+j)/2;i=j;}
+      for(let k=i;k<j;k++)map[sorted[k].id]=i+1;i=j;}
     return map;
   }
   const scoreRanks=ranksOf(completeAgents,indexScore);
   const familyRanks=Object.fromEntries(tasks.map(t=>[t.id,ranksOf(agents,m=>familyScore(t,m))]));
-  const meanRank=m=>{const r=snapshotTasks.map(t=>familyRanks[t.id][m.id]);return r.every(Number.isFinite) ? r.reduce((a,b)=>a+b,0)/r.length:null;};
+  const meanRank=m=>hierarchical(m,(t,x)=>familyRanks[t.id][x.id]);
   const rankFormat=v=>Number.isFinite(v)?(Number.isInteger(v)?String(v):v.toFixed(1)):'—';
   let metric='score';
   let activeTask=tasks[0].id;
   let costView='overall';
-  let costSort={key:'perPoint',direction:'asc'};
-  let axisMode='focused';
+  let costSort={key:'cost',direction:'asc'};
   let tipTarget=null;
   const theme=()=>document.documentElement.dataset.theme==='light'?'light':'dark';
   const css=key=>getComputedStyle($('#cost')).getPropertyValue(key).trim();
@@ -125,12 +169,13 @@
   const splitTip=(m,t)=>{
     const values=splitValues(t,m);
     const rows=t.splits.map((name,i)=>`<div class="tt-line"><span>${escapeHTML(name)}</span><b>${validScore(values[i])?pct(values[i]):'—'}</b></div>`).join('');
-    return `<div class="tt-title">${escapeHTML(m.name)} · ${escapeHTML(t.name)}</div>${rows}<div class="tt-sub">${t.splits.length?(t.aggregate==='min'?'Minimum':'Mean')+' across snapshot splits.':'Result not reported. Excluded from the snapshot mean.'} ${isSample?'Illustrative data; not a measured result.':'Measured results.'}</div>`;
+    const how=t.aggregate==='min'?'Minimum across splits.':t.aggregate==='weighted'?'Stage credit relative to each stage weight; the task score is the verifier reward, gates included.':'Mean across splits.';
+    return `<div class="tt-title">${escapeHTML(m.name)} · ${escapeHTML(t.name)}</div>${rows}<div class="tt-sub">${t.splits.length?how:'Result not reported. Excluded from the snapshot mean.'} ${isSample?'Illustrative data; not a measured result.':'Measured results.'}</div>`;
   };
 
   /* Header, scope counts, and source status. */
   function renderMeta(){
-    const stats=[[tasks.length,'Engineering tasks','Task definitions follow the research overview'],[4,'Workflow families','Interactive control, policy learning, embodiment, and perception'],[agents.length,'Agents','Model and harness combinations in the development snapshot']];
+    const stats=[[tasks.length,'Engineering Tasks','Task definitions follow the research overview'],[workflows.length,'Workflows',workflows.map(w=>w.name).join(', ')],[agents.length,'Agents','Model and harness combinations in the development snapshot']];
     const dl=$('#heroStats');dl.replaceChildren();
     stats.forEach(([value,title,note])=>{const row=make('div','stat');const dt=make('dt','stat-key',title);row.title=note;row.append(dt,make('dd','stat-val',value));dl.append(row);});
     const url=safeURL(BENCH.meta.github);if(url)$('#navGithub').href=url;else $('#navGithub').remove();
@@ -142,16 +187,16 @@
     hideTip();
     const host=$('#indexGrid');host.replaceChildren();
     $('#indexBlurb').textContent=metric==='score'
-      ?`Unweighted mean across the ${snapshotTasks.length} tasks in this development snapshot, on a 0–100 scale. The research overview reports a separate RLE Index with equal weighting across four capability families.`
-      :'Average rank across the eight tasks in this development snapshot. Lower values indicate stronger relative performance; ties receive average ranks.';
+      ?'Task scores are averaged within each workflow, then across workflows, on a 0–100 scale.'
+      :'Per-task ranks are averaged within each workflow, then across workflows. Lower is better.';
     const table=make('table','matrix');
     table.append(make('caption','sr-only',`RLE-Bench ${metric==='score'?'scores':'mean ranks'}. ${isSample?'All model results are illustrative placeholders.':''}`));
-    const cg=make('colgroup');cg.append(make('col','col-rank'),make('col','col-model'));tasks.forEach(()=>cg.append(make('col','col-family')));cg.append(make('col','col-index'));table.append(cg);
+    const cg=make('colgroup');cg.append(make('col','col-rank'),make('col','col-model'),make('col','col-index'));tasks.forEach(()=>cg.append(make('col','col-family')));table.append(cg);
     const thead=make('thead'),hr=make('tr');
     const th=(text,cls)=>{const x=make('th',cls,text);x.scope='col';return x;};
-    hr.append(th('#','rank-th'),th('Model / harness','model-th'));
+    hr.append(th('#','rank-th'),th('Model / Harness','model-th'),th(metric==='score'?'Mean Score':'Mean Rank','index-th'));
     tasks.forEach(t=>{const h=th(null,'family-th');const b=make('button','family-col-button');b.type='button';b.style.setProperty('--task-hue',taskHue(t));b.title=t.name;b.setAttribute('aria-label',`View task ${t.num}: ${t.name}`);b.append(make('span',null,t.num),make('span',null,abbreviated[t.id]||t.short));b.addEventListener('click',()=>{setTask(t.id,true);$('#tasks').scrollIntoView({behavior:reducedMotion()?'auto':'smooth'});$(`#tab-${t.id}`).focus({preventScroll:true});});h.append(b);hr.append(h);});
-    hr.append(th(metric==='score'?'Mean score':'Mean rank','index-th'));thead.append(hr);table.append(thead);
+    thead.append(hr);table.append(thead);
     const value=m=>metric==='score'?indexScore(m):meanRank(m);
     const sorted=agents.slice().sort((a,b)=>{const x=value(a),y=value(b);if(x===null)return 1;if(y===null)return -1;return metric==='score'?y-x:x-y;});
     const rankPlace=metric==='score'?scoreRanks:ranksOf(completeAgents,m=>-meanRank(m));
@@ -159,6 +204,9 @@
       const tr=make('tr');
       tr.append(make('td','place-cell',rankFormat(rankPlace[m.id])));
       const name=make('th');name.scope='row';name.append(make('div','model-label',m.name),make('span','model-meta',`${m.org} · ${m.harness}`));tr.append(name);
+      {const td=make('td','index-td'),wrap=make('div','index-value'),track=make('span','index-track');track.setAttribute('aria-hidden','true');
+        const v=value(m),fill=make('i');fill.style.width=(v===null?0:metric==='score'?v*100:(1-(v-1)/Math.max(1,agents.length-1))*100)+'%';track.append(fill);
+        wrap.append(make('span','index-number',metric==='score'?pct(v):num(v,2)),track);td.append(wrap);tr.append(td);}
       tasks.forEach(t=>{
         const score=familyScore(t,m),rank=familyRanks[t.id][m.id];
         const td=make('td','score-td');const missing=!Number.isFinite(score);
@@ -168,28 +216,46 @@
         if(!missing){const v=metric==='score'?score:1-(rank-1)/Math.max(1,agents.length-1);const bg=classicHeat(t,v);button.style.background=bg;button.style.color=heatInk(bg);}
         bindTip(button,()=>splitTip(m,t));td.append(button);tr.append(td);
       });
-      const td=make('td','index-td'),wrap=make('div','index-value'),track=make('span','index-track');track.setAttribute('aria-hidden','true');
-      const v=value(m),fill=make('i');fill.style.width=(v===null?0:metric==='score'?v*100:(1-(v-1)/Math.max(1,agents.length-1))*100)+'%';track.append(fill);
-      wrap.append(track,make('span','index-number',metric==='score'?pct(v):num(v,2)));td.append(wrap);tr.append(td);parent.append(tr);
+      parent.append(tr);
     }
     const body=make('tbody');sorted.forEach(m=>addRow(m,body));table.append(body);
     host.append(table);
-    const legend=$('#indexLegend');legend.replaceChildren();const ramp=make('span','heat-legend');ramp.append(make('span',null,metric==='score'?'Score':'Rank'),make('span',null,metric==='score'?'0':String(agents.length)),make('span','legend-ramp'),make('span',null,metric==='score'?'100':'1'));
-    legend.append(ramp,make('span',null,metric==='score'?'Color intensity represents score on a shared 0–100 scale. An em dash indicates an unreported result.':'Color intensity represents relative rank within each task. An em dash indicates an unreported result.'));
   }
   $$('[data-metric]').forEach(b=>b.addEventListener('click',()=>{metric=b.dataset.metric;$$('[data-metric]').forEach(n=>n.setAttribute('aria-pressed',String(n===b)));renderMatrix();}));
 
   /* Task panel and roving-focus tabs. */
-  function renderTaskTabs(){
-    const host=$('#taskTabs');host.replaceChildren();
-    tasks.forEach(t=>{
-      const b=make('button','tab');b.type='button';b.id=`tab-${t.id}`;b.dataset.task=t.id;b.role='tab';b.setAttribute('aria-controls','taskView');b.setAttribute('aria-selected',String(t.id===activeTask));b.tabIndex=t.id===activeTask?0:-1;
-      b.append(make('span','tab-num','T'+t.num),make('span','tab-name',t.short));b.addEventListener('click',()=>setTask(t.id,true));
-      b.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;e.preventDefault();let i=tasks.findIndex(x=>x.id===t.id);if(e.key==='Home')i=0;else if(e.key==='End')i=tasks.length-1;else i=(i+(e.key==='ArrowRight'?1:-1)+tasks.length)%tasks.length;setTask(tasks[i].id,true);$(`#tab-${tasks[i].id}`).focus({preventScroll:true});});host.append(b);
+  /* Two-level tabs: the workflow row is always visible; the task row lists only the selected workflow's tasks. */
+  const lastTaskIn={};
+  const activeWorkflow=()=>workflowOf[activeTask]||workflows[0];
+  const stepKey=(e,list,i)=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return -1;e.preventDefault();if(e.key==='Home')return 0;if(e.key==='End')return list.length-1;return (i+(e.key==='ArrowRight'?1:-1)+list.length)%list.length;};
+  function renderWorkflowTabs(){
+    const host=$('#workflowTabs');host.replaceChildren();
+    workflows.forEach((w,wi)=>{
+      const b=make('button','wf-tab');b.type='button';b.id=`wf-${w.id}`;b.dataset.workflow=w.id;b.role='tab';b.setAttribute('aria-controls','taskTabs');
+      b.append(make('span','wf-kicker',`Workflow ${String(wi+1).padStart(2,'0')}`),make('span','wf-name',w.name),make('span','wf-count',`${w.tasks.length} task${w.tasks.length===1?'':'s'}`));
+      b.addEventListener('click',()=>setWorkflow(w.id,true));
+      b.addEventListener('keydown',e=>{const i=stepKey(e,workflows,wi);if(i<0)return;setWorkflow(workflows[i].id,true);$(`#wf-${workflows[i].id}`).focus({preventScroll:true});});
+      host.append(b);
     });
+  }
+  function renderTaskTabs(){
+    const w=activeWorkflow(),host=$('#taskTabs');host.replaceChildren();host.style.setProperty('--n',w.tasks.length);host.setAttribute('aria-label',`${w.name} tasks`);
+    w.tasks.forEach((t,ti)=>{
+      const b=make('button','tab');b.type='button';b.id=`tab-${t.id}`;b.dataset.task=t.id;b.role='tab';b.setAttribute('aria-controls','taskView');b.setAttribute('aria-selected',String(t.id===activeTask));b.tabIndex=t.id===activeTask?0:-1;
+      b.append(make('span','tab-num','Task '+t.num),make('span','tab-name',t.short));b.addEventListener('click',()=>setTask(t.id,true));
+      b.addEventListener('keydown',e=>{const i=stepKey(e,w.tasks,ti);if(i<0)return;setTask(w.tasks[i].id,true);$(`#tab-${w.tasks[i].id}`).focus({preventScroll:true});});
+      host.append(b);
+    });
+  }
+  function setWorkflow(id,updateURL=false){
+    const w=workflows.find(x=>x.id===id);if(!w)return;
+    setTask(lastTaskIn[id]||w.tasks[0].id,updateURL);
   }
   function setTask(id,updateURL=false){
     if(!byId[id])return;activeTask=id;hideTip();
+    const w=activeWorkflow();lastTaskIn[w.id]=id;
+    $$('#workflowTabs button').forEach(b=>{const active=b.dataset.workflow===w.id;b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;});
+    if(!$(`#taskTabs [data-task="${id}"]`))renderTaskTabs();
     $$('#taskTabs button').forEach(b=>{const active=b.dataset.task===id;b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;});
     $('#taskView').setAttribute('aria-labelledby',`tab-${id}`);renderTask();
     if(updateURL){try{const u=new URL(location.href);u.searchParams.set('task',id);u.hash='tasks';history.replaceState(null,'',u);}catch(_){}}
@@ -199,17 +265,17 @@
   function renderTask(){
     const t=byId[activeTask],host=$('#taskView');host.replaceChildren();
     const brief=make('aside','brief');
-    brief.append(make('div','brief-id','T'+t.num),make('h3',null,t.name),make('p','tagline',t.tagline),make('p','body',t.description));
+    const ident=make('div','brief-id');ident.append(make('span',null,'Task '+t.num));if(workflowOf[t.id]){ident.append(make('span','brief-sep','·'),make('span','brief-workflow',workflowOf[t.id].name));}
+    brief.append(ident,make('h3',null,t.short),make('p','tagline',t.tagline),make('p','body',t.description));
     const chips=make('div','chips');
     const chip=(label,value,cls='')=>{const n=make('span','chip'+(cls?' '+cls:''));n.append(label,make('b',null,value));return n;};
     chips.append(chip('Development ',t.development));if(t.compute)chips.append(chip('',t.compute));
     brief.append(chips);
-    const criteria=make('div','weights');criteria.append(make('div','weights-head','Evaluation criteria'),make('p','body',t.evaluation));
-    brief.append(criteria,make('p','brief-note',t.notes));host.append(brief);
-    const result=make('section','results');result.setAttribute('aria-label',t.name+' results');
-    const head=make('div','results-head');head.append(make('h4',null,'Results — '+t.name),make('span','agg',t.splits.length?(t.aggregate==='min'?`Snapshot: minimum of ${t.splits.length} arms`:`Snapshot: mean of ${t.splits.length} splits`):'Not reported'));result.append(head);
-    if(!t.splits.length){result.append(make('p','body','Results for this task are not reported. The task is excluded from the mean score and cost comparison in this development snapshot.'));host.append(result);return;}
-    if(t.resultNote)result.append(make('p','task-coverage-note',t.resultNote));
+    const criteria=make('div','weights');if(t.product)criteria.append(make('div','weights-head','Work Product'),make('p','body',t.product));criteria.append(make('div','weights-head','Evaluation Criteria'),make('p','body',t.evaluation));
+    brief.append(criteria);host.append(brief);
+    const result=make('section','results');result.setAttribute('aria-label',t.short+' results');
+    const head=make('div','results-head');head.append(make('h4',null,'Results'));result.append(head);
+    if(!t.splits.length){result.append(make('p','body','Results for this task are not reported yet.'));host.append(result);return;}
     const sorted=agents.slice().sort((a,b)=>(familyScore(t,b)??-1)-(familyScore(t,a)??-1));
     const list=make('div','srow-list');list.role='list';
     sorted.forEach((m,idx)=>{
@@ -222,35 +288,33 @@
         const bar=make('div','bar');bar.style.width=(Number.isFinite(v)?v*100:0)+'%';bar.style.animationDelay=idx*35+'ms';track.append(bar);
       }else{
         const stack=make('div','stack');stack.style.width=(Number.isFinite(v)?v*100:0)+'%';
-        splitValues(t,m).forEach((value,i)=>{const segment=make('div','seg-mark');segment.style.flex=String(Math.max(value||0,.0001));segment.style.background=`var(--cat-${i%5+1})`;segment.style.animationDelay=(idx*35+i*25)+'ms';stack.append(segment);});track.style.background='transparent';track.append(stack);
+        splitValues(t,m).forEach((value,i)=>{const segment=make('div','seg-mark');segment.style.flex=String(Math.max((value||0)*(t.weights?.[i]??1),.0001));segment.style.background=`var(--cat-${i%5+1})`;segment.style.animationDelay=(idx*35+i*25)+'ms';stack.append(segment);});track.style.background='transparent';track.append(stack);
       }
       row.append(track,make('div','val',pct(v)));bindTip(row,()=>splitTip(m,t));list.append(row);
     });result.append(list);
     if(t.aggregate!=='min'){
-      const legend=make('div','split-legend');t.splits.forEach((label,i)=>{const pair=make('span'),swatch=make('i');swatch.style.background=`var(--cat-${i%5+1})`;pair.append(swatch,document.createTextNode(label));legend.append(pair);});legend.append(make('span','muted','· Each segment contributes to the mean score on a 0–100 scale.'));result.append(legend);
+      const legend=make('div','split-legend');t.splits.forEach((label,i)=>{const pair=make('span'),swatch=make('i');swatch.style.background=`var(--cat-${i%5+1})`;pair.append(swatch,document.createTextNode(label));legend.append(pair);});result.append(legend);
     }
-    const details=make('details','splits');details.append(make('summary',null,`Detailed results — ${t.splitLabel.toLowerCase()}`));
-    const scroll=make('div','table-wrap');scroll.tabIndex=0;scroll.role='region';scroll.setAttribute('aria-label','Split result table');
-    const table=make('table');table.append(make('caption','sr-only',t.name+' split scores. '+(isSample?'Illustrative data.':'')));
-    const thead=make('thead'),htr=make('tr');['Model','Harness',...t.splits,'Score'].forEach((label,i)=>{const h=make('th',i<2?'l':null,label);h.scope='col';htr.append(h);});thead.append(htr);table.append(thead);
-    const body=make('tbody');sorted.forEach(m=>{const tr=make('tr'),label=make('th','l',m.name);label.scope='row';tr.append(label,make('td','l',m.harness));t.splits.forEach((_,i)=>tr.append(make('td','num',validScore(splitValues(t,m)[i])?pct(splitValues(t,m)[i]):'—')));tr.append(make('td','num lead',pct(familyScore(t,m))));body.append(tr);});table.append(body);scroll.append(table);details.append(scroll);result.append(details);host.append(result);
+    host.append(result);
   }
   addEventListener('hashchange',()=>{const id=taskFromURL();if(byId[id]){setTask(id);if(location.hash===`#${id}`)$('#tasks').scrollIntoView();}});
   addEventListener('popstate',()=>{const id=taskFromURL();if(byId[id])setTask(id);});
 
-  /* Cost model: preserves the supplied suite costs and explicitly labels family estimates. */
-  const costRows=()=>agents.map(m=>{
-    const score=costView==='overall'?indexScore(m):familyScore(byId[costView],m);
-    const cost=Number.isFinite(m.cost)?(costView==='overall'?m.cost:Number.isFinite(byId[costView].costShare)?m.cost*byId[costView].costShare:null):null;
-    return {m,score,cost,perPoint:Number.isFinite(score)&&score>0&&Number.isFinite(cost)?cost/(score*100):null,hours:m.hours};
-  });
+  /* Cost model: per-task API cost, agent hours and context length come from costs[taskId][modelId];
+     the overall view averages each within workflows, then across workflows, exactly like the RLE Index. */
+  const taskCostField=(t,m,key)=>{const c=BENCH.costs?.[t.id]?.[m.id];if(!c)return null;
+    if(key==='context')return Number.isFinite(c.input_tokens)&&Number.isFinite(c.cached_tokens)?c.input_tokens-c.cached_tokens:null;
+    return Number.isFinite(c[key])?c[key]:null;};
+  const costMetric=(m,key)=>costView==='overall'?hierarchical(m,(t,x)=>taskCostField(t,x,key)):taskCostField(byId[costView],m,key);
+  const costRows=()=>agents.map(m=>({m,score:costView==='overall'?indexScore(m):familyScore(byId[costView],m),cost:costMetric(m,'cost'),hours:costMetric(m,'hours'),context:costMetric(m,'context')}));
   function costContext(){
     const overall=costView==='overall',t=byId[costView];
-    return {overall,scoreLabel:overall?'Mean task score':'Task score',costLabel:overall?'Snapshot API cost':'Estimated API cost',
-      title:overall?'Score vs. cost':`Task ${t.num} · ${abbreviated[t.id]||t.short}`,
-      xLabel:overall?'Snapshot API cost · USD (log)':'Estimated API cost · USD (log)'};
+    return {overall,scoreLabel:overall?'Mean Task Score':'Task Score',costLabel:overall?'Mean API Cost':'API Cost',
+      title:overall?'Score vs. Cost':`Task ${t.num} · ${abbreviated[t.id]||t.short}`,
+      xLabel:overall?'Mean API cost per task · USD (log)':'API cost · USD (log)'};
   }
   const costModelIds=Object.fromEntries(agents.slice().sort((a,b)=>(indexScore(b)??-1)-(indexScore(a)??-1)).map((m,i)=>[m.id,i+1]));
+  // Plot labels: the export supplies `short` per model; the map covers older snapshots without it.
   const shortModelNames={opus5:'Opus 5',sonnet5:'Sonnet 5',gpt52:'GPT-5.2',gemini3:'Gemini 3 Pro',glm52:'GLM-5.2',ds4:'DeepSeek-V4',qwen3max:'Qwen3-Max',kimi25:'Kimi K2.5'};
   function highlightCost(id){
     $('.cost-workbench').classList.toggle('has-highlight',!!id);
@@ -258,7 +322,7 @@
   }
   function costTip(r){
     const meta=costContext();
-    return `<div class="tt-title">${escapeHTML(r.m.name)}</div><div class="tt-line"><span>${meta.scoreLabel}</span><b>${pct(r.score)}</b></div><div class="tt-line"><span>${meta.costLabel}</span><b>${preciseUSD(r.cost)}</b></div><div class="tt-line"><span>USD / point</span><b>${preciseUSD(r.perPoint)}</b></div>${meta.overall?`<div class="tt-line"><span>Median agent time</span><b>${num(r.hours)} h</b></div>`:''}<div class="tt-sub">${escapeHTML(r.m.org)} · ${escapeHTML(r.m.harness)}${isSample?' · Illustrative data':''}</div>`;
+    return `<div class="tt-title">${escapeHTML(r.m.name)}</div><div class="tt-line"><span>${meta.scoreLabel}</span><b>${pct(r.score)}</b></div><div class="tt-line"><span>${meta.costLabel}</span><b>${preciseUSD(r.cost)}</b></div><div class="tt-line"><span>${meta.overall?'Mean agent time':'Agent time'}</span><b>${num(r.hours)} h</b></div><div class="tt-line"><span>Context length</span><b>${tokens(r.context)}</b></div><div class="tt-sub">${escapeHTML(r.m.org)} · ${escapeHTML(r.m.harness)}${isSample?' · Illustrative data':''}</div>`;
   }
   function linkCost(node,row){
     node.dataset.costModel=row.m.id;bindTip(node,()=>costTip(row));
@@ -271,28 +335,22 @@
   tasks.forEach(t=>{const o=make('option',null,`${t.num} · ${t.short}`);o.value=t.id;costSelect.append(o);});
   costSelect.addEventListener('change',()=>{
     costView=costSelect.value;
-    if(costView!=='overall'&&costSort.key==='hours')costSort={key:'perPoint',direction:'asc'};
     hideTip();highlightCost(null);renderScatter();renderCostTable();
   });
-  $$('[data-axis]').forEach(b=>b.addEventListener('click',()=>{
-    axisMode=b.dataset.axis;$$('[data-axis]').forEach(n=>n.setAttribute('aria-pressed',String(n===b)));
-    hideTip();renderScatter();
-  }));
   function logTicks(min,max){
     const out=[];for(let e=Math.floor(Math.log10(min));e<=Math.ceil(Math.log10(max));e++)for(const v of [1,2,5]){const x=v*10**e;if(x>=min&&x<=max)out.push(x);}return out;
   }
   function renderScatter(){
     const host=$('#scatter');if(!host)return;host.replaceChildren();highlightCost(null);
     const meta=costContext();$('#costChartTitle').textContent=meta.title;
-    $('#costMetricLabel').textContent=`${isSample?'Illustrative data':'Measured results'} · ${meta.overall?'Development snapshot':'Task estimate'}`;
+    $('#costMetricLabel').textContent=`${isSample?'Illustrative data':'Measured results'} · ${meta.overall?'Overall':'Single task'}`;
     const pts=costRows().filter(r=>Number.isFinite(r.score)&&Number.isFinite(r.cost)&&r.cost>0);
-    const insight=$('#costInsights');insight.replaceChildren();
-    if(!pts.length){host.append(make('p','empty-plot','Scores and API costs for this task are not reported.'));$('#costChartNote').textContent='The cost comparison is available when both task scores and API expenditure are reported.';return;}
-    const W=Math.max(260,Math.round(host.clientWidth)),H=282,M={l:43,r:18,t:28,b:47};
+    if(!pts.length){host.append(make('p','empty-plot','Scores and API costs for this task are not reported.'));$('#costChartNote').textContent='API cost uses a logarithmic scale.';return;}
+    const W=Math.max(260,Math.round(host.clientWidth)),H=Math.max(282,Math.round(host.clientHeight)),M={l:43,r:18,t:28,b:47};
     const showNames=W>=430;
     const values=pts.map(p=>p.score*100),minScore=Math.min(...values),maxScore=Math.max(...values);
-    let yMin=axisMode==='full'?0:Math.max(0,Math.floor((minScore-2)/10)*10);
-    let yMax=axisMode==='full'?100:Math.min(100,Math.ceil((maxScore+2)/10)*10);
+    let yMin=Math.max(0,Math.floor((minScore-2)/10)*10);
+    let yMax=Math.min(100,Math.ceil((maxScore+2)/10)*10);
     if(yMax-yMin<10){yMin=Math.max(0,yMin-5);yMax=Math.min(100,yMin+10);}
     const minCost=Math.min(...pts.map(p=>p.cost)),maxCost=Math.max(...pts.map(p=>p.cost));
     const xMin=minCost*.78,xMax=Math.max(maxCost*1.26,minCost*2);
@@ -318,7 +376,7 @@
       const occupied=dots.map(p=>({x:p.cx-12,y:p.cy-12,w:24,h:24}));
       const intersects=(a,b)=>a.x<b.x+b.w+4&&a.x+a.w+4>b.x&&a.y<b.y+b.h+3&&a.y+a.h+3>b.y;
       dots.slice().sort((a,b)=>a.cy-b.cy).forEach(p=>{
-        const label=shortModelNames[p.m.id]||p.m.name,w=ctx.measureText(label).width+2,h=15,candidates=[];
+        const label=p.m.short||shortModelNames[p.m.id]||p.m.name,w=ctx.measureText(label).width+2,h=15,candidates=[];
         for(const dy of [0,-20,20,-38,38,-56,56,-74,74])for(const side of [1,-1])candidates.push({x:side===1?p.cx+16:p.cx-16-w,y:p.cy-7+dy,w,h,side});
         const inBounds=c=>c.x>M.l+2&&c.x+c.w<W-M.r&&c.y>=M.t-12&&c.y+c.h<H-M.b-2;
         const chosen=candidates.find(c=>inBounds(c)&&!occupied.some(o=>intersects(c,o)));
@@ -328,19 +386,13 @@
     }
     labels.forEach(({p,c})=>{if(Math.abs(c.y+7-p.cy)>2)svg.append(mk('line',{x1:p.cx,y1:p.cy,x2:c.side===1?c.x-4:c.x+c.w+4,y2:c.y+7},'plot-leader'));});
     dots.forEach(p=>{
-      const group=mk('g',{tabindex:0,role:'button','aria-label':`${p.m.name}: ${pct(p.score)} points; ${preciseUSD(p.cost)}${meta.overall?'':' estimated'}. Show details.`},'plot-point-group');
+      const group=mk('g',{tabindex:0,role:'button','aria-label':`${p.m.name}: ${pct(p.score)} points; ${preciseUSD(p.cost)}. Show details.`},'plot-point-group');
       group.append(mk('circle',{cx:p.cx,cy:p.cy,r:8.5},'plot-point'),text(costModelIds[p.m.id],{x:p.cx,y:p.cy+3,'text-anchor':'middle','aria-hidden':true},'plot-point-number'));
       linkCost(group,p);group.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showTip(group,costTip(p));}});svg.append(group);
     });
     labels.forEach(({p,c,label})=>svg.append(text(label,{x:c.x,y:c.y+11,'data-label-for':p.m.id,'data-cost-model':p.m.id},'plot-label')));
     host.append(svg);
-    const highest=pts.reduce((a,b)=>a.score>=b.score?a:b),cheapest=pts.reduce((a,b)=>a.cost<=b.cost?a:b);
-    [['Highest score',pct(highest.score),highest.m.name],['Lowest API cost',usd(cheapest.cost),cheapest.m.name]].forEach(([label,value,name])=>{
-      const box=make('div','cost-insight');box.append(make('span','insight-label',label),make('strong','insight-value',value),make('span','insight-model',name));insight.append(box);
-    });
-    $('#costChartNote').textContent=meta.overall
-      ?`Score axis: ${yMin}–${yMax}. API cost uses a logarithmic scale. Numbered points correspond to the configurations in the table.`
-      :`Score axis: ${yMin}–${yMax}. Log cost axis. Task expenditure is allocated at ${(byId[costView].costShare*100).toFixed(0)}% of snapshot API cost; it is not independently metered.`;
+    $('#costChartNote').textContent='API cost uses a logarithmic scale.';
   }
   const sortedCostRows=()=>costRows().sort((a,b)=>{
     const av=a[costSort.key],bv=b[costSort.key];if(!Number.isFinite(av)&&!Number.isFinite(bv))return 0;if(!Number.isFinite(av))return 1;if(!Number.isFinite(bv))return -1;
@@ -348,41 +400,36 @@
   });
   function renderCostTable(){
     const host=$('#costTable');host.replaceChildren();highlightCost(null);const meta=costContext();
-    const sortNames={score:meta.scoreLabel,cost:'API cost',perPoint:'Cost per point',hours:'Median agent time'};
-    $('#costTableContext').textContent=`${sortNames[costSort.key]}, ${costSort.direction==='asc'?'ascending order':'descending order'}`;
-    $('#costAccountingNote').textContent=meta.overall
-      ?'Time denotes median agent runtime per task. API expenditure covers the retained eight-task snapshot and excludes simulation, GPU compute, and other infrastructure.'
-      :(Number.isFinite(byId[costView].costShare)?`Estimated task API cost is allocated as ${(byId[costView].costShare*100).toFixed(0)}% of snapshot expenditure; it is not independently metered.`:'API cost for this task is not reported.');
+    const sortNames={cost:'API Cost',hours:'Agent Time',context:'Context Length'};
     const table=make('table','cost-table');table.append(make('caption','sr-only',`${meta.title}: costs and scores. ${isSample?'Illustrative data.':''} Point IDs remain fixed when sorting.`));
-    const colgroup=make('colgroup');['model','score','cost','perPoint',...(meta.overall?['hours']:[])].forEach(key=>colgroup.append(make('col','cost-col-'+key)));table.append(colgroup);
-    const th=make('thead'),hr=make('tr'),mh=make('th',null,'Model / harness');mh.scope='col';hr.append(mh);
-    const cols=[['score','Score'],['cost','API cost'],['perPoint','$/point']];if(meta.overall)cols.push(['hours','Time']);
+    const colgroup=make('colgroup');['model','cost','hours','context'].forEach(key=>colgroup.append(make('col','cost-col-'+key)));table.append(colgroup);
+    const th=make('thead'),hr=make('tr'),mh=make('th',null,'Model / Harness');mh.scope='col';hr.append(mh);
+    const cols=[['cost','API Cost'],['hours','Time'],['context','Context Length']];
     cols.forEach(([key,label])=>{
-      const h=make('th',key==='perPoint'?'metric-focus':'');h.scope='col';h.setAttribute('aria-sort',key===costSort.key?(costSort.direction==='asc'?'ascending':'descending'):'none');
-      const b=make('button',null,label+' ');b.type='button';b.dataset.sort=key;b.title=key==='hours'?'Median agent hours per task':sortNames[key];b.setAttribute('aria-label',`Sort by ${sortNames[key]}`);
+      const h=make('th');h.scope='col';h.setAttribute('aria-sort',key===costSort.key?(costSort.direction==='asc'?'ascending':'descending'):'none');
+      const b=make('button',null,label+' ');b.type='button';b.dataset.sort=key;b.title=key==='hours'?'Median agent hours':key==='context'?'Input tokens minus cached tokens':sortNames[key];b.setAttribute('aria-label',`Sort by ${sortNames[key]}`);
       b.append(make('span',null,key===costSort.key?(costSort.direction==='asc'?'↑':'↓'):'↕'));
-      b.addEventListener('click',()=>{costSort={key,direction:costSort.key===key?(costSort.direction==='asc'?'desc':'asc'):(key==='score'?'desc':'asc')};hideTip();renderCostTable();$(`[data-sort="${key}"]`)?.focus({preventScroll:true});});h.append(b);hr.append(h);
+      b.addEventListener('click',()=>{costSort={key,direction:costSort.key===key?(costSort.direction==='asc'?'desc':'asc'):'asc'};hideTip();renderCostTable();$(`[data-sort="${key}"]`)?.focus({preventScroll:true});});h.append(b);hr.append(h);
     });th.append(hr);table.append(th);const body=make('tbody');
     sortedCostRows().forEach(r=>{
       const tr=make('tr');tr.dataset.model=r.m.id;tr.tabIndex=0;
-      tr.setAttribute('aria-label',`${r.m.name}, ${r.m.harness}: ${pct(r.score)} points; API cost ${preciseUSD(r.cost)}; ${preciseUSD(r.perPoint)} per point.`);
+      tr.setAttribute('aria-label',`${r.m.name}, ${r.m.harness}: ${pct(r.score)} points; API cost ${preciseUSD(r.cost)}; ${num(r.hours)} hours; context ${tokens(r.context)}.`);
       const name=make('th');name.scope='row';const label=make('div','cost-model-name');const badge=make('span','model-id',costModelIds[r.m.id]);badge.setAttribute('aria-hidden','true');
       const who=make('span');who.append(make('span','model-label',r.m.name),make('span','model-meta',r.m.harness));label.append(badge,who);name.append(label);
-      tr.append(name,make('td',null,pct(r.score)),make('td',null,preciseUSD(r.cost)),make('td','metric-focus',preciseUSD(r.perPoint)));
-      if(meta.overall)tr.append(make('td','cost-hours',Number.isFinite(r.hours)?r.hours.toFixed(1)+' h':'—'));
+      tr.append(name,make('td',null,preciseUSD(r.cost)),make('td','cost-hours',Number.isFinite(r.hours)?r.hours.toFixed(1)+' h':'—'),make('td','cost-context',tokens(r.context)));
       linkCost(tr,r);body.append(tr);
     });table.append(body);host.append(table);
   }
   // CSV includes source status and cost basis so sample values cannot lose their qualification.
   $('#downloadCsv').addEventListener('click',()=>{
     const clean=v=>{let s=String(v??'');if(/^[=+\-@]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"';};
-    const headers=['data_status','snapshot_date','scope','model_id','model','harness','score_0_100','api_cost_usd','usd_per_point','median_agent_hours','cost_basis'];
-    const rows=sortedCostRows().map(r=>[isSample?'illustrative_placeholder':'measured',BENCH.meta.updated,costView,r.m.id,r.m.name,r.m.harness,Number.isFinite(r.score)?(r.score*100).toFixed(6):'',Number.isFinite(r.cost)?r.cost.toFixed(6):'',Number.isFinite(r.perPoint)?r.perPoint.toFixed(6):'',costView==='overall'?r.hours:'',costView==='overall'?'legacy_eight_task_snapshot_api_spend':'estimated_fixed_share_of_snapshot']);
+    const headers=['data_status','snapshot_date','scope','model_id','model','harness','score_0_100','api_cost_usd','agent_hours','context_tokens','aggregation'];
+    const rows=sortedCostRows().map(r=>[isSample?'illustrative_placeholder':'measured',BENCH.meta.updated,costView,r.m.id,r.m.name,r.m.harness,Number.isFinite(r.score)?(r.score*100).toFixed(6):'',Number.isFinite(r.cost)?r.cost.toFixed(6):'',Number.isFinite(r.hours)?r.hours.toFixed(4):'',Number.isFinite(r.context)?Math.round(r.context):'',costView==='overall'?'workflow_mean_then_overall_mean':'single_task']);
     const csv='\uFEFF'+[headers,...rows].map(r=>r.map(clean).join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob);const a=make('a');a.href=url;a.download=`rle-bench-${costView}-${isSample?'illustrative':'results'}.csv`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
   });
   let resizeTimer;addEventListener('resize',()=>{hideTip();clearTimeout(resizeTimer);resizeTimer=setTimeout(renderScatter,120);});
   renderMeta();
   activeTask=byId[taskFromURL()]?taskFromURL():tasks[0].id;
-  renderTaskTabs();setTask(activeTask);renderCostTable();setTheme(theme());
+  renderWorkflowTabs();renderTaskTabs();setTask(activeTask);renderCostTable();setTheme(theme());
   if(byId[location.hash.slice(1)])requestAnimationFrame(()=>$('#tasks').scrollIntoView());
 })();

@@ -20,75 +20,141 @@ even after a clip has downloaded. GitHub Pages already supports range requests.
 | `styles.css` | shared base design tokens and styles |
 | `homepage.css` | the polished v3 homepage layout, themes, and responsive overrides |
 | `app.js` | scoring, the index, the charts, tabs, tooltips |
-| `data.js` | current task descriptions and display numbering, plus the retained development result snapshot |
+| `data.js` | current task descriptions, display numbering, and header metadata |
+| `assets/data/leaderboard.json` | generated: evaluated model/harness combinations with per-task, per-split and per-subtask results and costs |
+| `assets/data/export.py` | builds `leaderboard.json` from the per-task run dumps `assets/data/taskNN.json` |
 | `blog/` | the research article, served directly at `/blog/` |
-| `assets/` | the project icon — favicon, apple-touch icon, header and hero mark |
+| `assets/` | the project icon — favicon, apple-touch icon, header and hero mark — plus `data/` for leaderboard results |
 
-The homepage preserves the existing visual layout and numerical development
-snapshot. Its task descriptions and T01–T09 display numbering follow the
-research article. The Blog remains self-contained and unchanged.
+The homepage preserves the existing visual layout. Its task descriptions and
+Task 01–09 display numbering follow the research article; its numbers come
+from the generated leaderboard JSON. The Blog is self-contained apart from the
+T01 interface-comparison figure, which reads the same JSON.
 
-The task catalog contains nine tasks; the retained result snapshot contains
-eight. nanoVLA recipe engineering has no reported scores or costs. The current
-physical-reasoning description covers six problems, while the retained sample
-scores cover five scenarios. These coverage differences are stated in the UI.
+The task catalog contains nine tasks; the leaderboard JSON reports the ones
+whose run dumps are present in `assets/data/` (currently T01, T02, T04 and
+T06). Tasks without a dump show as unreported rather than as zero, and the
+index averages only reported tasks. These coverage differences are stated in
+the UI.
 
 ## Updating results
 
-`data.js` is the single source of truth:
+`data.js` holds the task catalog and page metadata; `assets/data/leaderboard.json`
+holds the evaluated agents and their results. `app.js` fetches the JSON on page
+load and merges it into `BENCH` before rendering, so the homepage must be served
+over HTTP (for example `python3 -m http.server 8000`) rather than opened via
+`file://`.
 
-- `presentation` — task order and public T01–T09 numbers, independent of legacy result IDs. `snapshotTaskIds` explicitly lists the eight tasks included in the unchanged snapshot mean.
+In `data.js`:
+
+- `presentation` — task order and public T01–T09 numbers, independent of legacy result IDs. `snapshotTaskIds` lists the tasks eligible for the index; `app.js` intersects it with the tasks reported in the leaderboard JSON. `workflows` defines the two-level task breakdown: each workflow (interactive control, policy development, mechanical design, perception and estimation) lists the task IDs it groups, in display order; any task left out lands in a trailing "Other tasks" group. The homepage shows the workflows as a first tab row and only the selected workflow's tasks as a second row; deep links such as `?task=task09` select the matching workflow automatically.
 - `meta` — version string, updated date, header links (`github`, `arxiv`,
   `contact`), and `dataStatus`. An empty `arxiv` renders the nav item greyed
   out rather than pointing nowhere; an empty `contact` or `github` drops that
   item entirely. `contact` accepts a `mailto:` just as happily as a URL.
   `dataStatus` controls the source-status labels in charts and exports. The
   removed top-of-page banner is not restored.
-- `models` — one entry per evaluated agent, including the `harness` it was
-  driven with (the scaffold, e.g. Claude Code or Codex CLI) — shown under the
-  model name everywhere and as its own table column. `baseline: true` keeps a
-  reference record out of the homepage rankings and cost comparison.
-- `scores[taskId][modelId]` — an array of per-split scores in `[0, 1]`, aligned
-  positionally with that task's `splits` array.
 
-**The scores currently in the file are placeholders.** They exist so the page
-renders; replace them with real `reward.json` aggregates before this goes
-anywhere public.
+`assets/data/leaderboard.json` is **generated** — do not edit it by hand. Drop
+the per-task run dump for a public task into `assets/data/taskNN.json` (`NN` is
+the public number: `task01.json` is T01 Agentic Control, `task02.json` T02
+Harness Engineering, `task04.json` T04 Whole-Body Motion Tracking,
+`task06.json` T06 Mobile Base Design) and rebuild:
 
-The retained per-task snapshot scores aggregate their original splits:
+```
+python3 assets/data/export.py            # rebuild assets/data/leaderboard.json
+python3 assets/data/export.py --check    # exit 1 if the JSON is stale (CI)
+python3 assets/data/export.py --help     # --compact, --allow-partial, --completed-only, --dedupe
+```
 
-- `aggregate: "mean"` — the unweighted mean of the original split values.
-- `aggregate: "min"` — the minimum for the mobile-base result record.
+Each dump is `{"schema_version": 1, "root": ..., "runs": [...]}` with one run
+per model × subtask. `export.py` maps the raw `model` string onto a stable id
+(`MODELS`), the `agent` string onto a harness name, and the `job` path onto the
+task's subtask catalog (`TASKS`); it groups subtasks into the splits shown on
+the site (harness level, difficulty band, motion clip, scoring stage) and
+writes:
 
-The homepage retains the **RLE Index** section title. Its displayed snapshot
-metric is the unweighted mean over `presentation.snapshotTaskIds`, reported on
-a 0–100 scale. The explanatory text distinguishes this existing eight-task
-development metric from the manuscript RLE Index, which averages four
-capability families equally. The task catalog is titled **Task breakdown**. Adding an unreported task to the catalog does not add a zero to the
-snapshot mean. Existing values, model records, and cost allocations are retained.
+- `models` — one entry per evaluated model/harness combination: `id`, `name`,
+  `short` (plot label), `org`, `open`, `harness`, and `tasks` (the task ids with
+  a reported score). Ordered by mean task score.
+- `tasks[taskId]` — the public number, split catalog (`splits[].id/label`, and
+  the `subtasks` each split averages, or the verifier `metric` and `weight` it
+  reads), the subtask catalog, `aggregate`, `splitLabel`, and `weights` for
+  weighted tasks. `app.js` overrides the `data.js` catalog with this.
+- `scores[taskId][modelId]` — per-split scores in `[0, 1]`, aligned with
+  `tasks[taskId].splits`. `null` where a split has no complete result.
+- `results[taskId][modelId]` — `score` (the task score: mean verifier reward
+  over the task's subtasks), `complete`, `missing`, per-split detail (`score`,
+  `reward`, `success_rate`, `cost_usd`, `cost_usd_mean`, `hours_median`), and
+  per-subtask detail (`reward`, `success_rate`, `cost_usd`, `hours`, `status`,
+  tokens, `job`, and the raw verifier `metrics` unless `--compact`).
+- `costs[taskId][modelId]` — `cost` (API cost in USD summed over the task's
+  subtask runs), `cost_mean` (per run), `hours` (median agent wall-clock hours
+  per run), `hours_total`, and `input_tokens` / `cached_tokens` /
+  `output_tokens` (sums). Missing cost or token counts stay `null` rather than
+  becoming zero; the cost table's Context Length column shows
+  `input_tokens - cached_tokens`.
+- `status` — `"measured"`; `app.js` copies it into `meta.dataStatus`, which
+  drives the illustrative/measured labels.
 
-Task API cost is `model.cost × task.costShare`. These are fixed allocations of
-the older snapshot's API bill, not independently metered task costs. A null
-cost share, as for nanoVLA, means unreported rather than free.
+Task ids are the legacy result ids from the table below (`task03` = T01);
+`tasks[taskId].public` carries the public number. A model/task pair with a
+missing subtask run gets no score unless `--allow-partial` is passed; a run
+whose `status` is not `completed` is kept if it reports a reward (the export
+warns) unless `--completed-only` is passed; when a model has several runs for
+one subtask the latest `finished_at` wins (`--dedupe best|first` to change).
+
+The blog's T01 interface-comparison figure reads the same file
+(`blog/harness-chart.js`, `data-task="task03"`): per-level score is the mean
+reward over the five kitchen tasks and per-level cost the mean API cost per
+run. `assets/blog/harness-comparison.json` is the earlier transcription of the
+manuscript figure and is no longer referenced.
+
+How per-task split values combine on the homepage:
+
+- `aggregate: "mean"` — the unweighted mean of the split values.
+- `aggregate: "min"` — the minimum across splits.
+- `aggregate: "weighted"` — split values are stage credit divided by the stage
+  weight; the reported task score is the verifier reward itself, so a failed
+  gate (which caps the mobile-base reward at 0.15) is respected.
+
+Whenever the export reports a task score, the homepage uses it directly and
+only falls back to aggregating splits for files that lack `results`.
+
+The homepage retains the **RLE Index** section title. Its displayed metric
+averages task scores within each workflow and then across workflows, over the
+tasks in `presentation.snapshotTaskIds`, on a 0–100 scale. `app.js` narrows
+that list at load time to the tasks the export actually reports, so a task
+without a dump is neither a zero nor a column of numbers; a model that lacks a
+score for any reported task receives no overall index or rank. The manuscript
+RLE Index averages four capability families equally and is presented in the
+research overview. The task catalog is titled **Task breakdown**.
+
+Per-task API cost, agent hours, and prompt tokens live in
+`costs[taskId][modelId]` in the leaderboard JSON. The Performance and Cost
+section averages each of them within a workflow and then across workflows, the
+same aggregation the RLE Index uses; a task with no cost record, such as
+NanoVLA, is unreported rather than free.
 
 ## Task metadata
 
-`description`, `development`, `compute`, `evaluation`, and `notes` follow the
+`tagline`, `description`, `development`, `compute`, and `evaluation` follow the
 visible research article. Legacy numeric reward weights and verifier budgets
-are omitted because the article does not establish them as current. The
-snapshot's `splits`, `aggregate`, and `costShare` retain their original meaning.
+are omitted because the article does not establish them as current. Each
+task's `splits` and `aggregate` in `data.js` are fallbacks; the exported
+`tasks[taskId]` catalog in the leaderboard JSON overrides them at load time.
 
 | Public task | Current task | Legacy result ID |
 |---|---|---|
-| T01 | Agentic control | `task03` |
-| T02 | Harness engineering | `task04` |
-| T03 | Physical reasoning | `task08` |
-| T04 | Whole-body motion tracking | `task09` |
-| T05 | nanoVLA recipe engineering | `nanovla` (unreported) |
-| T06 | Universal mobile-manipulator base | `task01` |
-| T07 | Lead arm gravity compensation design | `task02` |
-| T08 | Blind pose estimation | `task05` |
-| T09 | Contact-rich bin clearing | `task06` |
+| T01 | Agentic Control | `task03` |
+| T02 | Harness Engineering | `task04` |
+| T03 | Embodied Reasoning | `task08` |
+| T04 | Whole-Body Motion Tracking | `task09` |
+| T05 | NanoVLA Recipe | `nanovla` (unreported) |
+| T06 | Mobile Base Design | `task01` |
+| T07 | Gravity Compensation for Gello | `task02` |
+| T08 | Pose Estimation | `task05` |
+| T09 | Bin Clearing | `task06` |
 
 The original result IDs remain stable for existing deep links. Public numbering
 is resolved through `presentation.taskNumbers` everywhere in the interface.
@@ -143,9 +209,10 @@ figure. The article's links back to the leaderboard are relative so they
 also work in a local preview.
 
 To update this page, edit `blog/index.html` and its supporting assets. If you maintain a local `blog/introducing-rle-bench.edit.md`, manually keep its article prose, headings, figure captions, and video descriptions synchronized with the page. This draft and `idea.md` are local editorial notes excluded from Git; preserve any source comments and editorial notes locally. The
-homepage's placeholder leaderboard data remains managed in `data.js`;
-this article carries the provided manuscript's separate results and
-coverage notes.
+homepage's leaderboard data is generated into `assets/data/leaderboard.json` by
+`assets/data/export.py`; apart from the T01 interface-comparison figure, which
+reads that file, this article carries the provided manuscript's separate
+results and coverage notes.
 
 ### Curated task demos
 

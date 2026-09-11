@@ -840,6 +840,8 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 .task-row-content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 28px; padding: 22px 24px 24px; border-top: 1px solid var(--grid); }
 .task-description, .task-demo { min-width: 0; }
 .research-page .task-description > p { margin: 0 0 19px; }
+.task-description ul { margin: -8px 0 19px; padding-left: 18px; font-size: 13.5px; line-height: 1.6; color: var(--text-secondary); }
+.task-description li + li { margin-top: 4px; }
 .task-description dl { margin: 0; }
 .task-description dl > div + div { margin-top: 13px; }
 .task-description dt { font: 9px/1.5 var(--mono); text-transform: uppercase; letter-spacing: .055em; color: var(--text-muted); }
@@ -1251,24 +1253,24 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 </div>
 <figure class="hero-atlas" id="task-video-carousel" aria-label="Task video carousel" aria-roledescription="carousel">
 <div class="atlas-strip" id="task-video-track" tabindex="0" role="group" aria-label="Task previews; scroll horizontally to browse Task 01 through Task 09">
-<a class="atlas-tile family-interactive" href="#task-t01" aria-label="Task 01 Agentic control: open task details">
-<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/task01-6x.webp" aria-label="Task 01 Agentic control preview"><source src="../assets/blog/demos/task01-6x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 01 · Agentic control</span></a>
-<a class="atlas-tile family-interactive" href="#task-t02" aria-label="Task 02 Harness engineering: open task details">
-<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/task02-4x.webp" aria-label="Task 02 Harness engineering preview"><source src="../assets/blog/demos/task02-4x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 02 · Harness engineering</span></a>
-<a class="atlas-tile family-interactive" href="#task-t03" aria-label="Task 03 Physical reasoning: open task details">
-<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/hidden-center-of-mass.webp" aria-label="Task 03 Physical reasoning preview"><source src="../assets/blog/demos/hidden-center-of-mass-2x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 03 · Physical reasoning</span></a>
-<a class="atlas-tile family-learning" href="#task-t04" aria-label="Task 04 Whole-body motion tracking: open task details">
-<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/astra_dance.webp" aria-label="Task 04 Whole-body motion tracking preview"><source src="../assets/blog/demos/astra_dance.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 04 · Whole-body motion tracking</span></a>
-<a class="atlas-tile family-learning" href="#task-t05" aria-label="Task 05 nanoVLA recipe engineering: open task details">
-<div class="atlas-placeholder"><span aria-hidden="true">▷</span><span>Video coming soon</span></div><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 05 · nanoVLA recipe engineering</span></a>
-<a class="atlas-tile family-embodiment" href="#task-t06" aria-label="Task 06 Universal mobile-manipulator base design: open task details">
-<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/base-showcase-and-shelf-reach-1080p.webp" aria-label="Task 06 Universal mobile-manipulator base design preview"><source src="../assets/blog/demos/base-showcase-and-shelf-reach-1080p.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 06 · Universal mobile-manipulator base design</span></a>
-<a class="atlas-tile family-embodiment" href="#task-t07" aria-label="Task 07 Lead arm gravity compensation design: open task details">
-<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/section_3/gello-design-showcase-1080p-4x.webp" aria-label="Task 07 Lead arm gravity compensation design preview"><source src="../assets/blog/demos/section_3/gello-design-showcase-1080p-4x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 07 · Lead arm gravity compensation design</span></a>
-<a class="atlas-tile family-perception" href="#task-t08" aria-label="Task 08 Blind pose estimation: open task details">
-<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/pose-under-occlusion.webp" aria-label="Task 08 Blind pose estimation preview"><source src="../assets/blog/demos/pose-under-occlusion.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 08 · Blind pose estimation</span></a>
-<a class="atlas-tile family-perception" href="#task-t09" aria-label="Task 09 Contact-rich bin clearing: open task details">
-<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/task09-1080p50-10x.webp" aria-label="Task 09 Contact-rich bin clearing preview"><source src="../assets/blog/demos/task09-1080p50-10x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 09 · Contact-rich bin clearing</span></a>
+<a class="atlas-tile family-interactive" href="#task-t01" aria-label="Task 01 Agentic Control: open task details">
+<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/task01-6x.webp" aria-label="Task 01 Agentic Control preview"><source src="../assets/blog/demos/task01-6x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 01 · Agentic Control</span></a>
+<a class="atlas-tile family-interactive" href="#task-t02" aria-label="Task 02 Harness Engineering: open task details">
+<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/task02-4x.webp" aria-label="Task 02 Harness Engineering preview"><source src="../assets/blog/demos/task02-4x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 02 · Harness Engineering</span></a>
+<a class="atlas-tile family-interactive" href="#task-t03" aria-label="Task 03 Embodied Reasoning: open task details">
+<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/hidden-center-of-mass.webp" aria-label="Task 03 Embodied Reasoning preview"><source src="../assets/blog/demos/hidden-center-of-mass-2x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 03 · Embodied Reasoning</span></a>
+<a class="atlas-tile family-learning" href="#task-t04" aria-label="Task 04 Whole-Body Motion Tracking: open task details">
+<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/astra_dance.webp" aria-label="Task 04 Whole-Body Motion Tracking preview"><source src="../assets/blog/demos/astra_dance.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 04 · Whole-Body Motion Tracking</span></a>
+<a class="atlas-tile family-learning" href="#task-t05" aria-label="Task 05 NanoVLA Recipe: open task details">
+<div class="atlas-placeholder"><span aria-hidden="true">▷</span><span>Video coming soon</span></div><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 05 · NanoVLA Recipe</span></a>
+<a class="atlas-tile family-embodiment" href="#task-t06" aria-label="Task 06 Mobile Base Design: open task details">
+<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/base-showcase-and-shelf-reach-1080p.webp" aria-label="Task 06 Mobile Base Design preview"><source src="../assets/blog/demos/base-showcase-and-shelf-reach-1080p.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 06 · Mobile Base Design</span></a>
+<a class="atlas-tile family-embodiment" href="#task-t07" aria-label="Task 07 Gravity Compensation for Gello: open task details">
+<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/section_3/gello-design-showcase-1080p-4x.webp" aria-label="Task 07 Gravity Compensation for Gello preview"><source src="../assets/blog/demos/section_3/gello-design-showcase-1080p-4x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 07 · Gravity Compensation for Gello</span></a>
+<a class="atlas-tile family-perception" href="#task-t08" aria-label="Task 08 Pose Estimation: open task details">
+<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/pose-under-occlusion.webp" aria-label="Task 08 Pose Estimation preview"><source src="../assets/blog/demos/pose-under-occlusion.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 08 · Pose Estimation</span></a>
+<a class="atlas-tile family-perception" href="#task-t09" aria-label="Task 09 Bin Clearing: open task details">
+<video class="atlas-video" muted loop playsinline preload="none" poster="../assets/blog/demos/task09-1080p50-10x.webp" aria-label="Task 09 Bin Clearing preview"><source src="../assets/blog/demos/task09-1080p50-10x.mp4" type="video/mp4"/></video><span class="atlas-caption"><span class="family-dot" aria-hidden="true"></span>Task 09 · Bin Clearing</span></a>
 </div>
 <figcaption class="atlas-footer">
 <span><span class="caption-label">Task demos</span> · Explore all nine tasks. Eight video previews are available; Task 05 is coming soon.</span>
@@ -1311,12 +1313,16 @@ RLEs design robots, control them to interact with the world, collect data, write
   RLE-Bench looks at these abilities from four complementary angles: 
   
 </p>
-<section aria-labelledby="heading-interactive" class="workflow family-interactive" id="family-interactive"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-interactive">Interactive control &amp; embodied reasoning</h3><span class="workflow-count">03 TASKS</span></div><p class="workflow-intro">In these tasks, agent directly interact with the world to achieve given goals.</p><div class="task-grid"><details class="task-card task-row" id="task-t01">
-<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T01</span><span class="task-title">Agentic control</span></summary>
+<section aria-labelledby="heading-interactive" class="workflow family-interactive" id="family-interactive"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-interactive">Interactive Control</h3><span class="workflow-count">03 TASKS</span></div><p class="workflow-intro">In these tasks, agent directly interact with the world to achieve given goals.</p><div class="task-grid"><details class="task-card task-row" id="task-t01">
+<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T01</span><span class="task-title">Agentic Control</span></summary>
 <div class="task-row-content">
-<div class="task-description"><p>Agent-in-the-loop control for ten kitchen tasks under three levels of perception and control support.</p><dl><div><dt>Work product</dt><dd>Agent context and workspace code</dd></div>
-    <div><dt>Development</dt><dd>8 h · 50,000 development steps</dd></div>
-    <div><dt>Evaluation</dt><dd>Success rate</dd></div></dl></div>
+<div class="task-description"><p>Agent-in-the-loop control for five kitchen tasks. The agent works under one of three harness levels and must solve each task in as few interaction steps as possible.</p><ul>
+      <li><strong>L1</strong> — bare action APIs</li>
+      <li><strong>L2</strong> — L1 plus camera calibration and learned models such as SAM 3 and Contact-GraspNet</li>
+      <li><strong>L3</strong> — L2 plus privileged object information</li>
+    </ul><dl><div><dt>Work product</dt><dd>Agent context and control experience</dd></div>
+    <div><dt>Development</dt><dd>8 h · 50,000 steps · 8 CPUs · 1 GPU</dd></div>
+    <div><dt>Evaluation</dt><dd>Success rate over five trials of the same task in held-out kitchen scenes</dd></div></dl></div>
 <div class="task-demo"><video data-autoplay="true" class="task-video demo-video" data-duration="17.166667" controls muted playsinline preload="none" width="768" height="256" poster="../assets/blog/demos/task01-6x.webp" aria-label="T01 task demonstration" aria-describedby="video-note-t01">
   <source src="../assets/blog/demos/task01-6x.mp4" type="video/mp4"/>
   <a href="../assets/blog/demos/task01-6x.mp4">Watch the T01 demonstration</a>
@@ -1325,12 +1331,12 @@ RLEs design robots, control them to interact with the world, collect data, write
 <p class="task-video-note" id="video-note-t01">GPT-6 Astra · 6× speed · <span class="task-demo-source">RoboCasa · <a href="https://github.com/robocasa/robocasa/blob/4f8a2980def75a55dff96b990745b83540425f09/robocasa/environments/kitchen/composite/defrosting_food/defrost_by_category.py" rel="noopener">DefrostByCategory</a></span><br/><span id="video-goal-t01">Demo goal: Put the potato and corn into the bowl on the counter, and move the orange and banana into the sink to defrost the fruit under running water.</span></p></div>
 </div>
 </details><details class="task-card task-row" id="task-t02">
-<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T02</span><span class="task-title">Harness engineering</span><span class="review-flag">naming note</span></summary>
+<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T02</span><span class="task-title">Harness Engineering</span><span class="review-flag">naming note</span></summary>
 <div class="task-row-content">
 <div class="task-description"><div class="callout is-warn review-note"><div class="callout-key">Review note · Bo</div><p>How about we change a name for this, e.g., skill acquisition, self-tooling, etc.</p></div>
-<p>Agents build tools (perception, control) and manuals for independent agents to reuse.</p><dl><div><dt>Work product</dt><dd>Tools (perception module, controller, etc.) and a manual</dd></div>
-      <div><dt>Development</dt><dd>8 h · 75,000 development steps</dd></div>
-      <div><dt>Evaluation</dt><dd>Success rate using fresh agents with the produced harness.</dd></div></dl></div>
+<p>The agent builds its own harness, including perception tools, controllers, and a manual, so that an independent agent can reuse it to solve a new held-out task zero-shot.</p><dl><div><dt>Work product</dt><dd>Perception tools, controllers, and a manual</dd></div>
+      <div><dt>Development</dt><dd>8 h · 75,000 steps · 8 CPUs · 1 GPU</dd></div>
+      <div><dt>Evaluation</dt><dd>Success rate of a fresh agent solving a new held-out task with the produced harness, over five trials</dd></div></dl></div>
 <div class="task-demo"><video data-autoplay="true" class="task-video demo-video" data-duration="17.366667" controls muted playsinline preload="none" width="768" height="256" poster="../assets/blog/demos/task02-4x.webp" aria-label="T02 task demonstration" aria-describedby="video-note-t02">
   <source src="../assets/blog/demos/task02-4x.mp4" type="video/mp4"/>
   <a href="../assets/blog/demos/task02-4x.mp4">Watch the T02 demonstration</a>
@@ -1339,9 +1345,9 @@ RLEs design robots, control them to interact with the world, collect data, write
 <p class="task-video-note" id="video-note-t02">GPT-6 Astra · 4× speed · <span class="task-demo-source">RoboCasa · <a href="https://github.com/robocasa/robocasa/blob/4f8a2980def75a55dff96b990745b83540425f09/robocasa/environments/kitchen/composite/storing_leftovers/store_leftovers_in_bowl.py" rel="noopener">StoreLeftoversInBowl</a></span><br/><span id="video-goal-t02">Demo goal: Transfer the chicken drumstick and the vegetable from their plates into the bowl, then carry the filled bowl to the fridge and place it inside.</span></p></div>
 </div>
 </details><details class="task-card task-row" id="task-t03">
-<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T03</span><span class="task-title">Physical reasoning</span></summary>
+<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T03</span><span class="task-title">Embodied Reasoning</span></summary>
 <div class="task-row-content">
-<div class="task-description"><p>Agents use interaction to solve problems involving balance, overhang, packing, fragility, and hidden centers of mass.</p><dl><div><dt>Work product</dt><dd>Task-specific interaction or answer</dd></div><div><dt>Development</dt><dd>Task-specific budgets</dd></div><div><dt>Evaluation</dt><dd>Six problems. Most use the L3 interface; the hidden-center-of-mass task deliberately withholds key physical state.</dd></div></dl></div>
+<div class="task-description"><p>The agent must interact with the simulator to gather further observations, then reason about the scene to decide how to solve the task or what the answer is. Unlike static visual question answering, these problems cannot be solved from a single observation; the agent has to act in the world.</p><dl><div><dt>Work product</dt><dd>Task-specific decision-making or answer</dd></div><div><dt>Development</dt><dd>Up to 9 h · 50,000 steps · 8 CPUs · 1 GPU</dd></div><div><dt>Evaluation</dt><dd>Average success rate or performance over five subtasks</dd></div></dl></div>
 <div class="task-demo"><video data-autoplay="true" class="task-video demo-video" data-duration="18.3" controls muted playsinline preload="none" width="1024" height="576" poster="../assets/blog/demos/hidden-center-of-mass.webp" aria-label="T03 task demonstration" aria-describedby="video-note-t03">
   <source src="../assets/blog/demos/hidden-center-of-mass-2x.mp4" type="video/mp4"/>
   <a href="../assets/blog/demos/hidden-center-of-mass-2x.mp4">Watch the T03 demonstration</a>
@@ -1349,16 +1355,10 @@ RLEs design robots, control them to interact with the world, collect data, write
 <a class="demo-download" href="../assets/blog/demos/hidden-center-of-mass-2x.mp4" download>Download video</a>
 <p class="task-video-note" id="video-note-t03">GPT-5.6 Sol · 2× speed<br/><span id="video-goal-t03">Demo goal: Probe the sealed box with the robot and use its physical response to identify which marked quadrant—A, B, C, or D—contains the hidden ballast.</span></p></div>
 </div>
-</details></div></section><section aria-labelledby="heading-learning" class="workflow family-learning" id="family-learning"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-learning">Policy learning &amp; deployment</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">These tasks evaluate the training and deployment procedures that determine a policy’s capability, efficiency, and robustness.</p><div class="task-grid"><details class="task-card task-row" id="task-t05">
-<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T05</span><span class="task-title">nanoVLA recipe engineering</span></summary>
+</details></div></section><section aria-labelledby="heading-learning" class="workflow family-learning" id="family-learning"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-learning">Policy Development</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">These tasks evaluate the training and deployment procedures that determine a policy’s capability, efficiency, and robustness.</p><div class="task-grid"><details class="task-card task-row" id="task-t04">
+<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T04</span><span class="task-title">Whole-Body Motion Tracking</span></summary>
 <div class="task-row-content">
-<div class="task-description"><p>Agents develop vision-language-action training or serving recipes across six tracks covering capability, efficiency, initialization, and robustness.</p><dl><div><dt>Work product</dt><dd>One executable solution.py recipe</dd></div><div><dt>Development</dt><dd>4 h of exploration per track</dd></div><div><dt>Evaluation</dt><dd>A separate verifier replays the recipe in a fresh environment, then evaluates it on private LIBERO episodes.</dd></div></dl></div>
-<div class="task-demo"><div class="task-video-placeholder" role="img" aria-label="T05 demo video not yet available"><span aria-hidden="true">▷</span><span>Video coming soon</span></div></div>
-</div>
-</details><details class="task-card task-row" id="task-t04">
-<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T04</span><span class="task-title">Whole-body motion tracking</span></summary>
-<div class="task-row-content">
-<div class="task-description"><p>Agents train a humanoid policy to follow reference motions while maintaining stability under changes in deployment conditions.</p><dl><div><dt>Work product</dt><dd>An exported ONNX policy</dd></div><div><dt>Development</dt><dd>4 h · 1 GPU</dd></div><div><dt>Evaluation</dt><dd>Five motion clips. Policies move from MuJoCo-Warp training to MuJoCo-C evaluation under hidden perturbations; motion calibration remains provisional.</dd></div></dl></div>
+<div class="task-description"><p>Agents train a humanoid motion-tracking policy to follow reference motions while maintaining stability under various deployment conditions.</p><dl><div><dt>Work product</dt><dd>An exported ONNX-format tracking policy</dd></div><div><dt>Development</dt><dd>4 h · 8 CPUs · 1 RTX 5090 GPU</dd></div><div><dt>Evaluation</dt><dd>Sim-to-sim transfer from MuJoCo-Warp to MuJoCo-C under hidden perturbations</dd></div></dl></div>
 <div class="task-demo"><video class="task-video demo-video" data-duration="17.0" data-autoplay="true" controls muted playsinline preload="none" width="1920" height="1080" poster="../assets/blog/demos/astra_dance.webp" aria-label="T04 task demonstration" aria-describedby="video-note-t04">
   <source src="../assets/blog/demos/astra_dance.mp4" type="video/mp4"/>
   <a href="../assets/blog/demos/astra_dance.mp4">Watch the T04 demonstration</a>
@@ -1366,10 +1366,16 @@ RLEs design robots, control them to interact with the world, collect data, write
 <a class="demo-download" href="../assets/blog/demos/astra_dance.mp4" download>Download video</a>
 <p class="task-video-note" id="video-note-t04">GPT-6 Astra<br/><span id="video-goal-t04">Demo goal: Make the humanoid follow the reference dance, coordinating its arms, legs, and torso while maintaining balance.</span></p></div>
 </div>
-</details></div></section><section aria-labelledby="heading-embodiment" class="workflow family-embodiment" id="family-embodiment"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-embodiment">Embodiment &amp; co-design</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">These tasks evaluate mechanical design and its supporting control software as a coupled system.</p><div class="task-grid"><details class="task-card task-row" id="task-t06">
-<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T06</span><span class="task-title">Universal mobile-manipulator base</span></summary>
+</details><details class="task-card task-row" id="task-t05">
+<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T05</span><span class="task-title">NanoVLA Recipe</span></summary>
 <div class="task-row-content">
-<div class="task-description"><p>Agents design a common mobile base and controller for Panda, UR5e, and xArm7 arms, subject to physical and resource constraints.</p><dl><div><dt>Work product</dt><dd>MJCF design and controller code</dd></div><div><dt>Development</dt><dd>2 h · CPU development</dd></div><div><dt>Evaluation</dt><dd>Trusted arm models, shelf targets, payload tests, and static and dynamic checks. Each checkpoint is reduced by the worst arm.</dd></div></dl></div>
+<div class="task-description"><p>Agents develop vision-language-action (VLA) models in LIBERO and RoboTwin across six tracks covering capacity and robustness.</p><dl><div><dt>Work product</dt><dd>One training recipe per subtask</dd></div><div><dt>Development</dt><dd>4 h · 1 H100 GPU</dd></div><div><dt>Evaluation</dt><dd>The delivered recipe is used to train a VLA model, which is then evaluated under different circumstances. Each subtask is scored by the success rate of that VLA model</dd></div></dl></div>
+<div class="task-demo"><div class="task-video-placeholder" role="img" aria-label="T05 demo video not yet available"><span aria-hidden="true">▷</span><span>Video coming soon</span></div></div>
+</div>
+</details></div></section><section aria-labelledby="heading-embodiment" class="workflow family-embodiment" id="family-embodiment"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-embodiment">Mechanical Design</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">These tasks evaluate mechanical design and its supporting control software as a coupled system.</p><div class="task-grid"><details class="task-card task-row" id="task-t06">
+<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T06</span><span class="task-title">Mobile Base Design</span></summary>
+<div class="task-row-content">
+<div class="task-description"><p>The agent designs a common mobile base and controller for three types of arms, Panda, UR5e, and xArm7, subject to physical and resource constraints.</p><dl><div><dt>Work product</dt><dd>MJCF model of the mobile base and controller code</dd></div><div><dt>Development</dt><dd>2 h · 4 CPUs</dd></div><div><dt>Evaluation</dt><dd>Worst-case performance across the three arms under different shelf targets, payloads, and static and dynamic checks</dd></div></dl></div>
 <div class="task-demo"><video data-autoplay="true" class="task-video demo-video" data-duration="32.88" controls muted playsinline preload="none" width="1920" height="1080" poster="../assets/blog/demos/base-showcase-and-shelf-reach-1080p.webp" aria-label="T06 base design and shelf-reach demonstration" aria-describedby="video-note-t06">
   <source src="../assets/blog/demos/base-showcase-and-shelf-reach-1080p.mp4" type="video/mp4"/>
   <a href="../assets/blog/demos/base-showcase-and-shelf-reach-1080p.mp4">Watch the T06 demonstration</a>
@@ -1378,9 +1384,9 @@ RLEs design robots, control them to interact with the world, collect data, write
 <p class="task-video-note" id="video-note-t06">2× speed in shelf-reach trials<br/><span id="video-goal-t06">Demo goal: Use the submitted mobile base and controller to move the Panda arm’s end effector to the marked shelf targets at different heights and depths while carrying a 1 kg payload.</span></p></div>
 </div>
 </details><details class="task-card task-row" id="task-t07">
-<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T07</span><span class="task-title">Lead arm gravity compensation design</span></summary>
+<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T07</span><span class="task-title">Gravity Compensation for Gello</span></summary>
 <div class="task-row-content">
-<div class="task-description"><p>Agents co-design passive gravity compensation and adaptive feedforward control for three GELLO leader arms used in teleoperation.</p><dl><div><dt>Work product</dt><dd>Mechanical designs and calibration programs</dd></div><div><dt>Development</dt><dd>3 h · CPU development</dd></div><div><dt>Evaluation</dt><dd>Unseen physical instances, poses, and payloads test holding, backdrivability, torque headroom, and recovery.</dd></div></dl></div>
+<div class="task-description"><p>The agent co-designs passive gravity compensation and adaptive feedforward control for GELLO leader arms, covering three different arm types used in teleoperation.</p><dl><div><dt>Work product</dt><dd>Mechanical designs and calibration programs</dd></div><div><dt>Development</dt><dd>3 h · 4 CPUs</dd></div><div><dt>Evaluation</dt><dd>Unseen physical instances, poses, and payloads test holding, backdrivability, torque headroom, and recovery</dd></div></dl></div>
 <div class="task-demo"><video data-autoplay="true" class="task-video demo-video" data-duration="12.066667" controls muted playsinline preload="none" width="1920" height="1080" poster="../assets/blog/demos/section_3/gello-design-showcase-1080p-4x.webp" aria-label="T07 GELLO design showcase" aria-describedby="video-note-t07">
 <source src="../assets/blog/demos/section_3/gello-design-showcase-1080p-4x.mp4" type="video/mp4"/>
 <a href="../assets/blog/demos/section_3/gello-design-showcase-1080p-4x.mp4">Watch the T07 demonstration</a>
@@ -1388,10 +1394,10 @@ RLEs design robots, control them to interact with the world, collect data, write
 <a class="demo-download" href="../assets/blog/demos/section_3/gello-design-showcase-1080p-4x.mp4" download>Download video</a>
 <p class="task-video-note" id="video-note-t07">4× source-video speed<br/><span id="video-goal-t07">Demo goal: Design gravity-compensated GELLO leader arms for Panda, UR5e, and xArm7. The video shows the submitted mechanisms from multiple angles and along prescribed joint-motion paths; motion is guided for visualization.</span></p></div>
 </div>
-</details></div></section><section aria-labelledby="heading-perception" class="workflow family-perception" id="family-perception"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-perception">Perception &amp; estimation</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">These tasks evaluate state estimation and the integration of visual and force feedback under sensing and computational constraints.</p><div class="task-grid"><details class="task-card task-row" id="task-t08">
-<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T08</span><span class="task-title">Blind pose estimation</span></summary>
+</details></div></section><section aria-labelledby="heading-perception" class="workflow family-perception" id="family-perception"><div class="workflow-heading"><span aria-hidden="true" class="family-dot"></span><h3 id="heading-perception">Perception &amp; Estimation</h3><span class="workflow-count">02 TASKS</span></div><p class="workflow-intro">These tasks evaluate state estimation and the integration of visual and force feedback under sensing and computational constraints.</p><div class="task-grid"><details class="task-card task-row" id="task-t08">
+<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T08</span><span class="task-title">Pose Estimation</span></summary>
 <div class="task-row-content">
-<div class="task-description"><p>Agents develop an estimator that identifies asymmetric objects and recovers their planar position and orientation during motion and partial occlusion.</p><dl><div><dt>Work product</dt><dd>An estimator or trained TorchScript model</dd></div><div><dt>Development</dt><dd>2 h · variant-specific CPU/GPU access</dd></div><div><dt>Evaluation</dt><dd>Four sensing and method variants. Hidden frames and push trajectories test robust pose estimation; all inference runs on CPU.</dd></div></dl></div>
+<div class="task-description"><p>The agent develops an estimator that identifies asymmetric objects and recovers their planar position and orientation during motion and partial occlusion, across four variants that differ in sensing modality and allowed methods.</p><dl><div><dt>Work product</dt><dd>An estimator or trained TorchScript model</dd></div><div><dt>Development</dt><dd>2 h · Subtask-specific</dd></div><div><dt>Evaluation</dt><dd>A hidden battery of 100 static frames and ten push episodes in which the arm crosses the line of sight, scored by translation and rotation error. A wrong shape identification zeroes the group, and inference slower than 10 Hz on CPU is penalized</dd></div></dl></div>
 <div class="task-demo"><video data-autoplay="true" class="task-video demo-video" data-duration="6.0" controls muted playsinline preload="none" width="1280" height="480" poster="../assets/blog/demos/pose-under-occlusion.webp" aria-label="T08 task demonstration" aria-describedby="video-note-t08">
   <source src="../assets/blog/demos/pose-under-occlusion.mp4" type="video/mp4"/>
   <a href="../assets/blog/demos/pose-under-occlusion.mp4">Watch the T08 demonstration</a>
@@ -1401,9 +1407,9 @@ RLEs design robots, control them to interact with the world, collect data, write
 </div>
 </details>
 <details class="task-card task-row" id="task-t09">
-<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T09</span><span class="task-title">Contact-rich bin clearing</span></summary>
+<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T09</span><span class="task-title">Bin Clearing</span></summary>
 <div class="task-row-content">
-<div class="task-description"><p>Agents integrate visual and force feedback into a policy that transfers steel brackets from a cluttered bin to a conveyor.</p><dl><div><dt>Work product</dt><dd>A standalone closed-loop policy package</dd></div><div><dt>Development</dt><dd>4 h · CPU development</dd></div><div><dt>Evaluation</dt><dd>Eight hidden piles. Clearance, throughput, and penalties for drops, damage, and impacts determine the score.</dd></div></dl></div>
+<div class="task-description"><p>Agents integrate visual and force feedback into a policy that transfers steel brackets from a cluttered bin to a conveyor.</p><dl><div><dt>Work product</dt><dd>A standalone closed-loop policy package</dd></div><div><dt>Development</dt><dd>4 h · 4 CPUs</dd></div><div><dt>Evaluation</dt><dd>Eight hidden piles. Clearance, throughput, and penalties for drops, damage, and impacts determine the score</dd></div></dl></div>
 <div class="task-demo"><video data-autoplay="true" class="task-video demo-video" data-duration="12.0" controls muted playsinline preload="none" width="1920" height="1080" poster="../assets/blog/demos/task09-1080p50-10x.webp" aria-label="T09 task demonstration" aria-describedby="video-note-t09">
   <source src="../assets/blog/demos/task09-1080p50-10x.mp4" type="video/mp4"/>
   <a href="../assets/blog/demos/task09-1080p50-10x.mp4">Watch the T09 demonstration</a>
@@ -1443,7 +1449,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 <div aria-label="Select a workflow family" class="metric-tabs" role="group">
 <button aria-pressed="true" class="family-perception" data-metric="perception" type="button">Perception</button><button aria-pressed="false" class="family-interactive" data-metric="interactive" type="button">Interactive</button>
 </div>
-<p class="chart-context" data-chart-part="chartContext">T08 · Blind pose estimation · Matched task coverage</p>
+<p class="chart-context" data-chart-part="chartContext">T08 · Pose Estimation · Matched task coverage</p>
 <div aria-label="Perception scores on a zero to one hundred scale" class="capability-chart family-perception" data-chart-part="capabilityChart" role="group">
 <!-- BEGIN PERCEPTION BARS -->
 <div class="bar-row" data-system="astra"><div class="bar-label"><strong>GPT-6 Astra</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:72.06%"></span></div><span class="bar-value">72.06</span></div>
@@ -1458,7 +1464,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 <p>Astra, Opus 5, and GPT-5.6 Sol score <strong data-result="astra.learning">80.56</strong>, <strong data-result="opus5.learning">78.70</strong>, and <strong data-result="sol.learning">71.52</strong> on the current learning evaluation. Their closer results suggest that training and deploying a motion-tracking policy may be a more established capability for these systems. This finding is limited to T04; the broader recipe-engineering task, T05, is still pending.</p>
 <figure class="capability-figure figure-card" id="learning-figure" data-initial-metric="learning">
 
-<p class="chart-context" data-chart-part="chartContext">T04 · Whole-body motion tracking · T05 pending for all systems</p>
+<p class="chart-context" data-chart-part="chartContext">T04 · Whole-Body Motion Tracking · T05 pending for all systems</p>
 <div aria-label="Learning scores on a zero to one hundred scale" class="capability-chart family-learning" data-chart-part="capabilityChart" role="group">
 <!-- BEGIN LEARNING BARS -->
 <div class="bar-row" data-system="astra"><div class="bar-label"><strong>GPT-6 Astra</strong><span>Codex CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:80.56%"></span></div><span class="bar-value">80.56</span></div>
@@ -1509,8 +1515,8 @@ RLEs design robots, control them to interact with the world, collect data, write
 <div><span class="level-tag">L2</span><h3>Reusable robotics tools</h3><p>The same observations are supplemented by perception models, coordinate transforms, geometry utilities, and motion primitives.</p></div>
 <div><span class="level-tag">L3</span><h3>Privileged scene state</h3><p>The complete L2 interface is supplemented by task-relevant object and fixture poses and additional simulator state.</p></div>
 </div>
-<figure class="harness-figure figure-card" id="harness-comparison" data-source="../assets/blog/harness-comparison.json">
-<div class="figure-top"><span class="figure-label">03 / T01 interface comparison</span><a class="download-link" href="../assets/blog/harness-comparison.json" download>Data JSON <span aria-hidden="true">↘</span></a></div>
+<figure class="harness-figure figure-card" id="harness-comparison" data-source="../assets/data/leaderboard.json" data-task="task03">
+<div class="figure-top"><span class="figure-label">03 / T01 interface comparison</span><a class="download-link" href="../assets/data/leaderboard.json" download>Data JSON <span aria-hidden="true">↘</span></a></div>
 <div class="harness-panels" hidden></div>
 <div class="harness-fallback"><a aria-label="Enlarge the paper’s harness comparison figure" class="zoom-image paper-chart-image" data-caption="Task success and cost across the three T01 interface levels. This task-specific study includes an additional system beyond the main results table and does not report uncertainty intervals." data-zoom="" href="../assets/blog/harness-comparison.webp"><img alt="Original manuscript chart comparing L1, L2 and L3 harnesses. Success generally rises and cost often falls for several systems, while GPT-6 Astra has high L1 success and no improvement from added scaffolding." decoding="async" height="767" loading="lazy" src="../assets/blog/harness-comparison.webp" width="2034"/></a></div>
 <p class="harness-status" role="status" hidden></p>
@@ -1609,8 +1615,8 @@ const BENCH = {
     {
       id: "task01",
       num: "01",
-      name: "Mobile Manipulator Design",
-      short: "Manipulator Design",
+      name: "Mobile Base Design",
+      short: "Mobile Base Design",
       costShare: 0.06,
       tagline: "Design and prove a stable mobile base from an aluminum-profile library",
       description:
@@ -1633,8 +1639,8 @@ const BENCH = {
     {
       id: "task02",
       num: "02",
-      name: "GELLO Lead-Arm Co-Design",
-      short: "GELLO Co-Design",
+      name: "Gravity Compensation for Gello",
+      short: "Gravity Compensation for Gello",
       costShare: 0.09,
       tagline: "Hardware/software co-design of teleop lead arms for three followers",
       description:
@@ -1657,8 +1663,8 @@ const BENCH = {
     {
       id: "task03",
       num: "03",
-      name: "RoboCasa Speed-Run",
-      short: "RoboCasa Speed-Run",
+      name: "Agentic Control",
+      short: "Agentic Control",
       costShare: 0.22,
       tagline: "Learn a kitchen subtask through a metered socket — capability first, sample efficiency second",
       description:
@@ -1700,7 +1706,7 @@ const BENCH = {
     {
       id: "task05",
       num: "05",
-      name: "Blind Pose Estimation",
+      name: "Pose Estimation",
       short: "Pose Estimation",
       costShare: 0.07,
       tagline: "Multi-shape 6-DoF pose under adversarial sensing",
@@ -1748,8 +1754,8 @@ const BENCH = {
     {
       id: "task08",
       num: "08",
-      name: "Tabletop Reasoning",
-      short: "Tabletop Reasoning",
+      name: "Embodied Reasoning",
+      short: "Embodied Reasoning",
       costShare: 0.12,
       tagline: "Five physical-reasoning problems with perception removed from the equation",
       description:
@@ -1769,8 +1775,8 @@ const BENCH = {
     {
       id: "task09",
       num: "09",
-      name: "Humanoid Motion Tracking",
-      short: "Motion Tracking",
+      name: "Whole-Body Motion Tracking",
+      short: "Whole-Body Motion Tracking",
       costShare: 0.09,
       tagline: "Write a whole-body tracking training pipeline, scored sim-to-sim",
       description:
@@ -2135,9 +2141,9 @@ const MANUSCRIPT_RESULTS = {
   'use strict';
 
   const labels = {
-    perception: {title: 'Perception', context: 'T08 · Blind pose estimation · Matched task coverage', coverage: 'T08 is available for all seven systems.'},
+    perception: {title: 'Perception', context: 'T08 · Pose Estimation · Matched task coverage', coverage: 'T08 is available for all seven systems.'},
     embodiment: {title: 'Embodiment', context: 'T06 + T07 · Embodiment and co-design · Matched task coverage', coverage: 'Both embodiment tasks are included in the reported family scores.'},
-    learning: {title: 'Learning', context: 'T04 · Whole-body motion tracking · T05 pending for all systems', coverage: 'Learning currently reflects T04. T05 is pending for all systems.'},
+    learning: {title: 'Learning', context: 'T04 · Whole-Body Motion Tracking · T05 pending for all systems', coverage: 'Learning currently reflects T04. T05 is pending for all systems.'},
     interactive: {title: 'Interactive', context: 'Interactive coverage varies: Astra covers T09; other systems cover T01, T02, and T09. T03 is pending.', coverage: '† Astra’s striped bar represents T09 only; Interactive scores have unequal task coverage.'}
   };
   const records = typeof MANUSCRIPT_RESULTS !== 'undefined' && Array.isArray(MANUSCRIPT_RESULTS.models) ? MANUSCRIPT_RESULTS.models : [];

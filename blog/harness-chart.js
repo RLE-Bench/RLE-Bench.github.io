@@ -13,6 +13,23 @@
     if (text !== undefined) node.textContent = text;
     return node;
   };
+  /* The figure reads assets/data/leaderboard.json (from assets/data/export.py) and picks the task named by
+     data-task (default task03 = T01). Its per-level score is the mean verifier reward over the five kitchen
+     tasks and its cost the mean API cost per run. A stand-alone {levels, models} file still works unchanged. */
+  const adapt = data => {
+    if (Array.isArray(data.levels)) return data;
+    const taskId = figure.dataset.task || 'task03';
+    const task = data.tasks?.[taskId], results = data.results?.[taskId] || {};
+    if (!task || !Array.isArray(task.splits) || !Array.isArray(data.models)) throw new Error('Task missing from leaderboard data');
+    const pick = (model, key) => Object.fromEntries(task.splits.map(split => {
+      const value = results[model.id]?.splits?.[split.id]?.[key];
+      return [split.id, Number.isFinite(value) ? value : null];
+    }));
+    return {
+      levels: task.splits.map(split => split.id),
+      models: data.models.filter(model => results[model.id]).map(model => ({name: model.name, success_rate: pick(model, 'score'), cost_usd: pick(model, 'cost_usd_mean')})),
+    };
+  };
   const validate = data => {
     if (JSON.stringify(data.levels) !== JSON.stringify(levels) || !Array.isArray(data.models) || !data.models.length) throw new Error('Invalid chart schema');
     const names = new Set();
@@ -91,7 +108,8 @@
   const reveal = () => figure.classList.add('is-revealed');
   fetch(figure.dataset.source, {cache: 'no-store'})
     .then(response => { if (!response.ok) throw new Error('Data unavailable'); return response.json(); })
-    .then(data => {
+    .then(raw => {
+      const data = adapt(raw);
       validate(data);
       const built = [buildPanel(data, 'success_rate', 'Task success'), buildPanel(data, 'cost_usd', 'Cost (USD)')];
       panels.replaceChildren(...built);
