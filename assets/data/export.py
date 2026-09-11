@@ -237,6 +237,22 @@ HARNESS_SUBTASKS = (
 )
 HARNESS_BANDS = (("EASY", "EASY (5 groups)"), ("MEDIUM", "MEDIUM (5 groups)"), ("HARD", "HARD (5 groups)"))
 
+# tasks/task03/README.md in RLE-Bench-dev: five scenarios; the job name ends in the scenario slug.
+REASONING_SUBTASKS = {
+    "01-tower-max-height": "Tower Max Height",
+    "02-cantilever-overhang": "Cantilever Overhang",
+    "03-balance-coins": "Balance Coins",
+    "04-rubik-cube": "Rubik Cube",
+    "05-hidden-center-of-mass": "Hidden Center of Mass",
+}
+
+
+def reasoning_subtask(job: str) -> str:
+    """``codex-gpt_6_astra-20260911T012050-03_balance_coins`` -> ``03-balance-coins``."""
+    match = re.search(r"-(\d+_[a-z0-9_]+)$", job)
+    return match.group(1).replace("_", "-") if match else job
+
+
 TRACKING_SUBTASKS = {
     "01-dance": "Dance",
     "02-fight": "Fight",
@@ -326,6 +342,18 @@ TASKS: tuple[TaskSpec, ...] = (
         },
         subtask_of=first_components(1),
         score_note="Stage-credit reward of fresh agents on the held-out member of each activity group; task score is the mean over 15 groups.",
+    ),
+    TaskSpec(
+        id="task03",
+        public="T03",
+        name="Embodied Reasoning",
+        file="task03.json",
+        split_label="Scenario",
+        aggregate="mean",
+        splits=tuple(Split(slug, label, subtasks=(slug,)) for slug, label in REASONING_SUBTASKS.items()),
+        subtasks={slug: {"label": label} for slug, label in REASONING_SUBTASKS.items()},
+        subtask_of=reasoning_subtask,
+        score_note="reward = the scenario's continuous outcome score (settled tower height, overhang past the edge, coins balanced, cube solved) for the four interaction scenarios and the fraction of correct answers over three trials for hidden center of mass; task score is the mean over five scenarios.",
     ),
     TaskSpec(
         id="task04",

@@ -1760,18 +1760,18 @@ const BENCH = {
       costShare: 0.12,
       tagline: "Five physical-reasoning problems with perception removed from the equation",
       description:
-        "Only the full L3 harness ships here — skill library, privileged poses, perception service — so perception is out of the problem and the reasoning is not. Five tabletop problems, from building the tallest stable tower to packing six items so they survive a shake.",
+        "Only the full L3 harness ships here — skill library, privileged poses, perception service — so perception is out of the problem and the reasoning is not. Five tabletop problems, from building the tallest stable tower to turning a scrambled cube back to solved.",
       aggregate: "mean",
       gpu: true,
       agentLimit: "8 h + 1 h",
       verifierLimit: "per step",
       variants: 5,
       splitLabel: "Scenario",
-      splits: ["Tower height", "Cantilever", "Balance coins", "Stability packing", "Fragile grasp"],
+      splits: ["Tower max height", "Cantilever overhang", "Balance coins", "Rubik cube", "Hidden center of mass"],
       scoring: [
         { label: "Continuous scenario score (mean over trials)", weight: 1.00 },
       ],
-      notes: "Scores are continuous, not pass/fail — settled tower height, overhang past the edge, weighings used, items surviving the shake.",
+      notes: "Scores are continuous, not pass/fail — settled tower height, overhang past the edge, coins balanced, quarter turns to a solved cube, hidden centers of mass identified.",
     },
     {
       id: "task04",

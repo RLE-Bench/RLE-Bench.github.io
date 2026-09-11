@@ -159,7 +159,7 @@ const BENCH = {
       product: "Task-specific decision-making or answer.",
       aggregate: "mean",
       splitLabel: "Scenario",
-      splits: ["Tower Height", "Cantilever", "Balance Coins", "Stability Packing", "Fragile Grasp"],
+      splits: ["Tower Max Height", "Cantilever Overhang", "Balance Coins", "Rubik Cube", "Hidden Center of Mass"],
       development: "Up to 9 h",
       compute: "50,000 steps · 8 CPUs · 1 GPU",
       evaluation: "Average success rate or performance over five subtasks.",
