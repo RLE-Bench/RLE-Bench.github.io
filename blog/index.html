@@ -676,6 +676,7 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
   color: var(--accent); margin-bottom: 9px;
 }
 .callout p { margin: 0; font-size: 15.5px; }
+.callout p + p { margin-top: 7px; }
 .callout.is-warn { border-left-color: var(--cat-2); background: color-mix(in srgb, var(--cat-2) 7%, var(--surface-1)); }
 .callout.is-warn .callout-key { color: var(--cat-2); }
 
@@ -833,6 +834,9 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 .task-toggle { flex: 0 0 18px; text-align: center; color: var(--family); font: 23px/1 var(--mono); transition: transform .18s; }
 .task-row[open] > summary .task-toggle { transform: rotate(45deg); }
 .task-title { font-size: 17px; line-height: 1.4; font-weight: 500; color: var(--text-primary); }
+.review-flag { margin-left: auto; flex: 0 0 auto; font: 10.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cat-2); border: 1px solid var(--cat-2); border-radius: 999px; padding: 5px 9px; }
+.task-description .review-note { margin: 0 0 19px; padding: 12px 16px; }
+.task-description .review-note p { font-size: 14px; }
 .task-row-content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 28px; padding: 22px 24px 24px; border-top: 1px solid var(--grid); }
 .task-description, .task-demo { min-width: 0; }
 .research-page .task-description > p { margin: 0 0 19px; }
@@ -1302,6 +1306,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 
 </p>
 <h2 id="tasks">Complementary views of physically grounded agent capability</h2>
+<div class="callout is-warn review-note"><div class="callout-key">Review note · Bo</div><p>We need some justification or motivation about each angle, especially the policy learning &amp; deployment.</p><p>We need to first briefly justify why we care about that ability.</p></div>
 <p>A capable physical-world agent needs more than a good controller. 
   RLE-Bench looks at these abilities from four complementary angles: 
   
@@ -1320,9 +1325,10 @@ RLEs design robots, control them to interact with the world, collect data, write
 <p class="task-video-note" id="video-note-t01">GPT-6 Astra · 6× speed · <span class="task-demo-source">RoboCasa · <a href="https://github.com/robocasa/robocasa/blob/4f8a2980def75a55dff96b990745b83540425f09/robocasa/environments/kitchen/composite/defrosting_food/defrost_by_category.py" rel="noopener">DefrostByCategory</a></span><br/><span id="video-goal-t01">Demo goal: Put the potato and corn into the bowl on the counter, and move the orange and banana into the sink to defrost the fruit under running water.</span></p></div>
 </div>
 </details><details class="task-card task-row" id="task-t02">
-<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T02</span><span class="task-title">Harness engineering</span></summary>
+<summary class="task-row-summary"><span class="task-toggle" aria-hidden="true">+</span><span class="task-id">T02</span><span class="task-title">Harness engineering</span><span class="review-flag">naming note</span></summary>
 <div class="task-row-content">
-<div class="task-description"><p>Agents build tools (perception, control) and manuals for independent agents to reuse.</p><dl><div><dt>Work product</dt><dd>Tools (perception module, controller, etc.) and a manual</dd></div>
+<div class="task-description"><div class="callout is-warn review-note"><div class="callout-key">Review note · Bo</div><p>How about we change a name for this, e.g., skill acquisition, self-tooling, etc.</p></div>
+<p>Agents build tools (perception, control) and manuals for independent agents to reuse.</p><dl><div><dt>Work product</dt><dd>Tools (perception module, controller, etc.) and a manual</dd></div>
       <div><dt>Development</dt><dd>8 h · 75,000 development steps</dd></div>
       <div><dt>Evaluation</dt><dd>Success rate using fresh agents with the produced harness.</dd></div></dl></div>
 <div class="task-demo"><video data-autoplay="true" class="task-video demo-video" data-duration="17.366667" controls muted playsinline preload="none" width="768" height="256" poster="../assets/blog/demos/task02-4x.webp" aria-label="T02 task demonstration" aria-describedby="video-note-t02">
