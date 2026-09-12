@@ -248,6 +248,10 @@
 .home-page .footer-meta { margin-left: auto; display: flex; gap: 16px; white-space: nowrap; font: 9px/1.6 var(--data); }
 .home-page .tooltip { position: fixed; z-index: 90; max-width: min(345px,calc(100vw - 24px)); padding: 16px 18px; background: var(--surface-1); color: var(--text-primary); border: 1px solid var(--axis); border-radius: 5px; box-shadow: 0 10px 26px rgba(0,0,0,.12); pointer-events: none; font: 11px/1.8 var(--ui); }
 .home-page .tooltip .tt-title { margin-bottom: 9px; font: 500 12px/1.5 var(--ui); }
+.home-page .tooltip .tt-workflow-header { display:flex; justify-content:space-between; align-items:flex-start; gap:18px; margin-bottom:9px; }
+.home-page .tooltip .tt-workflow-score { flex-shrink:0; text-align:right; }
+.home-page .tooltip .tt-workflow-score span { display:block; color:var(--text-muted); font:10px/1.4 var(--ui); }
+.home-page .tooltip .tt-workflow-score strong { display:block; font:600 22px/1.3 var(--serif); font-variant-numeric:tabular-nums; }
 .home-page .tooltip .tt-line { display: flex; justify-content: space-between; gap: 24px; color: var(--text-secondary); }
 .home-page .tooltip .tt-line b { font: 11px/1.8 var(--data); color: var(--text-primary); }
 .home-page .tooltip .tt-sub { font: 10px/1.7 var(--ui); margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--border); color: var(--text-muted); }
@@ -1068,7 +1072,6 @@ font-family:var(--serif);}
 .family-segment:focus-visible { outline:2px solid var(--text-primary); outline-offset:2px; z-index:1; }
 .family-incomplete { background:transparent; color:var(--text-muted); border:1px dashed var(--border-strong); border-radius:4px; padding:4px 12px; font:13px var(--mono); cursor:pointer; }
 .family-heading-inline { display:flex; align-items:center; gap:16px; }
-.family-heading-label { flex-shrink:0; white-space:nowrap; }
 .family-bar-legend { display:flex; flex-wrap:wrap; gap:5px 12px; margin:0; font:400 13px/1.35 var(--serif); text-transform:none; letter-spacing:0; color:var(--text-secondary); }
 .family-bar-legend span { display:inline-flex; align-items:center; gap:5px; }
 .family-bar-legend i { flex:0 0 8px; width:8px; height:8px; border-radius:2px; }
@@ -1130,7 +1133,6 @@ font-family:var(--serif);}
   .classic-home #index .family-matrix .model-label { white-space:normal; overflow-wrap:anywhere; }
   .classic-home #index .family-matrix .model-meta { white-space:normal; overflow-wrap:anywhere; }
   .classic-home #index .family-heading-inline { display:block; }
-  .classic-home #index .family-heading-label { display:none; }
   .classic-home #index .family-bar-legend { gap:6px 12px; font-size:12px; }
   .classic-home #index .family-rank-grid { gap:3px; }
   .classic-home #index .family-task-labels { gap:3px; }

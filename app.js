@@ -200,7 +200,7 @@
       const cell = make('th', cls); cell.scope = 'col';
       if (cls === 'stack-heading') {
         const heading = make('div', 'family-heading-inline');
-        heading.append(make('span', 'family-heading-label', text), legend); cell.append(heading);
+        heading.append(legend); cell.append(heading);
         if (metric === 'rank') {
           const taskLabels = make('div', 'family-task-labels');
           taskLabels.style.gridTemplateColumns = `repeat(${tasks.length}, minmax(0, 1fr))`;
@@ -249,7 +249,7 @@
           segment.style.width = (contribution / (metric === 'score' ? 1 : agents.length) * 100) + '%';
           segment.style.background = workflowHue(w);
           segment.setAttribute('aria-label', `${m.name}, ${w.name}: ${metric === 'score' ? pct(value) : num(value, 2)}. Show task scores.`);
-          bindTip(segment, () => `<div class="tt-title">${escapeHTML(m.name)}</div>${taskDetails(w, m)}<div class="tt-sub">Family mean: ${metric === 'score' ? pct(value) : num(value, 2)}. Contribution to overall mean: ${metric === 'score' ? pct(contribution) : num(contribution, 2)}. Task scores out of 100; ${eligible.length} of ${w.tasks.length} tasks included.</div>`);
+          bindTip(segment, () => `<div class="tt-workflow-header"><div class="tt-title">${escapeHTML(m.name)}</div><div class="tt-workflow-score"><span>Workflow score</span><strong>${pct(value)}</strong></div></div>${taskDetails(w, m)}<div class="tt-sub">Workflow score is the mean of included task scores. Contribution to overall mean: ${pct(contribution)}. Task scores out of 100; ${eligible.length} of ${w.tasks.length} tasks included.</div>`);
           bar.append(segment);
         });
       } else {
