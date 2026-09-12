@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "root": "jobs/task08",
+  "root": "jobs/task06",
   "runs": [
     {
       "agent": "claude-code",

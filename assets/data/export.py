@@ -16,6 +16,7 @@ Usage::
     python3 assets/data/export.py --compact        # drop per-run raw verifier metrics
     python3 assets/data/export.py --allow-partial  # score model/task pairs missing subtasks
     python3 assets/data/export.py --completed-only # ignore runs whose status is not "completed"
+    python3 assets/data/export.py --keep-oracle    # keep oracle runs (dropped by default)
 
 Output layout (all scores are on a 0-1 scale)::
 
@@ -563,6 +564,11 @@ def resolve_subtask(spec: TaskSpec, raw: str) -> str | None:
 # --------------------------------------------------------------------------
 
 
+def is_oracle_run(run: dict) -> bool:
+    """Oracle runs are reference solutions, not agent submissions; they are dropped unless --keep-oracle."""
+    return any("oracle" in str(run.get(key) or "").lower() for key in ("agent", "model", "job"))
+
+
 def run_record(run: dict, prices: dict[str, PriceSpec]) -> dict:
     extra = run.get("extra") or {}
     progress = extra.get("progress") or {}
@@ -626,7 +632,12 @@ def load_task(spec: TaskSpec, args: argparse.Namespace, prices: dict[str, PriceS
     harness_of: dict[str, dict[str, int]] = {}
     models: dict[str, ModelSpec] = {}
     skipped = 0
+    oracle = 0
     for run in runs:
+        if not args.keep_oracle and is_oracle_run(run):
+            oracle += 1
+            skipped += 1
+            continue
         record = run_record(run, prices)
         if args.completed_only and record["status"] != "completed":
             skipped += 1
@@ -650,6 +661,8 @@ def load_task(spec: TaskSpec, args: argparse.Namespace, prices: dict[str, PriceS
         record["harness"] = harness
         grouped.setdefault((model.id, subtask), []).append(record)
 
+    if oracle:
+        warn(f"{spec.file}: {oracle} oracle run(s) dropped (use --keep-oracle to keep them)")
     chosen = {key: pick_run(spec, key, group, args.dedupe) for key, group in grouped.items()}
     per_model: dict[str, dict[str, dict]] = {}
     for (model_id, subtask), record in chosen.items():
@@ -885,6 +898,7 @@ def build(args: argparse.Namespace) -> dict:
             "options": {
                 "allow_partial": args.allow_partial,
                 "completed_only": args.completed_only,
+                "keep_oracle": args.keep_oracle,
                 "dedupe": args.dedupe,
                 "compact": args.compact,
             },
@@ -934,6 +948,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--compact", action="store_true", help="omit per-run raw verifier metrics from results[...].subtasks")
     parser.add_argument("--allow-partial", action="store_true", help="score a model/task pair even when some subtask runs are missing")
     parser.add_argument("--completed-only", action="store_true", help="drop runs whose status is not 'completed'")
+    parser.add_argument("--keep-oracle", action="store_true", help="keep oracle runs (agent, model or job name containing 'oracle'); dropped by default")
     parser.add_argument("--dedupe", choices=("latest", "best", "first"), default="latest", help="which run to keep when a model has several for one subtask (default: latest finished_at)")
     parser.add_argument("--stdout", action="store_true", help="print the JSON instead of writing the output file")
     args = parser.parse_args(argv)

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "root": "jobs/task06",
+  "root": "jobs/task08",
   "runs": [
     {
       "agent": "scripts.entrypoints.closed_book_agents:HarvardAntigravityCli",

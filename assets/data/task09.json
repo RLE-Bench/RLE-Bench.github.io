@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "root": "jobs/task07",
+  "root": "jobs/task09",
   "runs": [
     {
       "agent": "rlebench.agents.antigravity:GeminiApiAntigravityCli",

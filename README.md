@@ -66,7 +66,7 @@ Harness Engineering, `task04.json` T04 Whole-Body Motion Tracking,
 ```
 python3 assets/data/export.py            # rebuild assets/data/leaderboard.json
 python3 assets/data/export.py --check    # exit 1 if the JSON is stale (CI)
-python3 assets/data/export.py --help     # --compact, --allow-partial, --completed-only, --dedupe
+python3 assets/data/export.py --help     # --compact, --allow-partial, --completed-only, --keep-oracle, --dedupe
 ```
 
 Each dump is `{"schema_version": 1, "root": ..., "runs": [...]}` with one run
@@ -131,6 +131,9 @@ missing subtask run gets no score unless `--allow-partial` is passed; a run
 whose `status` is not `completed` is kept if it reports a reward (the export
 warns) unless `--completed-only` is passed; when a model has several runs for
 one subtask the latest `finished_at` wins (`--dedupe best|first` to change).
+Oracle runs (an `agent`, `model` or `job` string containing `oracle`) are
+reference solutions, not submissions, and are dropped unless `--keep-oracle`
+is passed; the export reports how many it dropped.
 
 The blog's T01 interface-comparison figure reads the same file
 (`blog/harness-chart.js`, `data-task="task01"`): per-level score is the mean
@@ -188,9 +191,10 @@ Task IDs match the public numbers, so deep links such as `?task=task08` name
 the public task directly. `presentation.taskNumbers` is now an identity map.
 
 Task numbering is T06 Pose Estimation, T07 Bin Clearing, T08 Mobile Base Design,
-and T09 Gravity Compensation for Gello. Dump filenames use these public IDs;
-original job roots, source paths, and existing media filenames retain their
-historical IDs for provenance.
+and T09 Gravity Compensation for Gello. Dump filenames and their `root` fields
+use these public IDs; job names inside the dumps, blog source paths, and
+existing media filenames (for example `task09-1080p50-10x.mp4`, the T07 clip)
+retain their historical IDs for provenance.
 
 ## The index grid
 
