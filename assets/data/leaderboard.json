@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "measured",
-  "generated_at": "2026-09-12T02:02:34Z",
+  "generated_at": "2026-09-12T04:08:07Z",
   "generator": "assets/data/export.py",
   "source": {
     "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId] reports per-subtask means over the task's runs: cost = mean API cost in USD, hours = mean agent wall-clock hours, context_tokens = mean of input_tokens minus cached_tokens per run (the homepage's Context Length). cost_total, hours_total, hours_median and the input/cached/output token counts are the corresponding totals over runs. The homepage's overall figures average these per-task means within each workflow, then across workflows. Missing API cost or token counts stay null. Costs come from the run dumps except for the models listed under source.prices, whose cost is recomputed from token counts because their harness billed them against the wrong price sheet; costs[...].cost_sources and results[...].subtasks[...].cost_source say which applies. Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc.",
@@ -42,7 +42,7 @@
         "file": "task03.json",
         "root": "jobs/task03",
         "schema_version": 1,
-        "runs": 40,
+        "runs": 45,
         "runs_skipped": 0
       },
       "task04": {
@@ -164,6 +164,17 @@
         "task07",
         "task08",
         "task09"
+      ]
+    },
+    {
+      "id": "grok-4-6",
+      "name": "Grok 4.6",
+      "short": "Grok 4.6",
+      "org": "xAI",
+      "open": false,
+      "harness": "Grok Build",
+      "tasks": [
+        "task03"
       ]
     },
     {
@@ -619,7 +630,7 @@
           "label": "Hidden Center of Mass"
         }
       ],
-      "n_runs": 40,
+      "n_runs": 45,
       "n_runs_skipped": 0,
       "models": [
         "gemini37flash",
@@ -628,6 +639,7 @@
         "gpt56sol",
         "gpt56terra",
         "gpt6astra",
+        "grok-4-6",
         "opus48",
         "opus5"
       ]
@@ -1172,6 +1184,13 @@
         1.0,
         0.388602,
         1.0
+      ],
+      "grok-4-6": [
+        0.173093,
+        0.0,
+        1.0,
+        0.0,
+        0.0
       ]
     },
     "task04": {
@@ -1851,6 +1870,22 @@
         "input_tokens": 44688289,
         "cached_tokens": 43661824,
         "output_tokens": 255112,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 5,
+        "n_subtasks": 5
+      },
+      "grok-4-6": {
+        "cost": null,
+        "cost_total": null,
+        "hours": 1.0807,
+        "hours_median": 1.2101,
+        "hours_total": 5.4036,
+        "context_tokens": null,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
         "cost_sources": [
           "harness"
         ],
@@ -11976,6 +12011,219 @@
               "trial_3_control_steps": 411.0,
               "trial_3_correct": 1.0,
               "trial_3_reward": 1.0,
+              "trial_3_submitted": 1.0
+            }
+          }
+        }
+      },
+      "grok-4-6": {
+        "score": 0.234619,
+        "complete": true,
+        "n_runs": 5,
+        "n_subtasks": 5,
+        "missing": [],
+        "harness": "Grok Build",
+        "splits": {
+          "01-tower-max-height": {
+            "score": 0.173093,
+            "reward": 0.173093,
+            "success_rate": 0.173093,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 1.5006,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-cantilever-overhang": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 1.2101,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-balance-coins": {
+            "score": 1.0,
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 0.3823,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-rubik-cube": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 1.5621,
+            "n_runs": 1,
+            "complete": true
+          },
+          "05-hidden-center-of-mass": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 0.7485,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-tower-max-height": {
+            "reward": 0.173093,
+            "success_rate": 0.173093,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 1.5006,
+            "status": "completed",
+            "harness": "Grok Build",
+            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+            "model": "xai/grok-4.6",
+            "job": "grok_build-grok_46-20260911T152840-c186b05a-01_tower_max_height_high_subscription",
+            "started_at": "2026-09-11T15:28:40.930828",
+            "finished_at": "2026-09-11T16:58:43.208026",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.173093,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 20982.0,
+              "reward": 0.173093,
+              "success_rate": 0.173093,
+              "task_score": 17.309289,
+              "trials_attempted": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "02-cantilever-overhang": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 1.2101,
+            "status": "completed",
+            "harness": "Grok Build",
+            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+            "model": "xai/grok-4.6",
+            "job": "grok_build-grok_46-20260911T153243-d9fb18a2-02_cantilever_overhang_high_subscription",
+            "started_at": "2026-09-11T15:32:43.942928",
+            "finished_at": "2026-09-11T16:45:20.352371",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 12501.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "task_score": 0.0,
+              "trials_attempted": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "03-balance-coins": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.3823,
+            "status": "completed",
+            "harness": "Grok Build",
+            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+            "model": "xai/grok-4.6",
+            "job": "grok_build-grok_46-20260911T152943-83e0f6b5-03_balance_coins_high_subscription",
+            "started_at": "2026-09-11T15:29:43.410444",
+            "finished_at": "2026-09-11T15:52:39.542479",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 1.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 11559.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "task_score": 100.0,
+              "trials_attempted": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "04-rubik-cube": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 1.5621,
+            "status": "completed",
+            "harness": "Grok Build",
+            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+            "model": "xai/grok-4.6",
+            "job": "grok_build-grok_46-20260911T153352-790c8c12-04_rubik_cube_high_subscription",
+            "started_at": "2026-09-11T15:33:53.026517",
+            "finished_at": "2026-09-11T17:07:36.511327",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "actual_qtm": 29.0,
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 24378.0,
+              "optimal_qtm": 11.0,
+              "recoveries": 38.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "task_score": 0.0,
+              "trials_attempted": 1.0,
+              "trials_total": 1.0,
+              "unclassified_transitions": 1.0
+            }
+          },
+          "05-hidden-center-of-mass": {
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.7485,
+            "status": "completed",
+            "harness": "Grok Build",
+            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+            "model": "xai/grok-4.6",
+            "job": "grok_build-grok_46-20260911T153107-36e477f1-05_hidden_center_of_mass_high_subscription",
+            "started_at": "2026-09-11T15:31:08.119384",
+            "finished_at": "2026-09-11T16:16:02.602163",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "control_steps": 5510.0,
+              "correct": 0.0,
+              "reward": 0.0,
+              "submitted": 3.0,
+              "trial_1_control_steps": 4432.0,
+              "trial_1_correct": 0.0,
+              "trial_1_reward": 0.0,
+              "trial_1_submitted": 1.0,
+              "trial_2_control_steps": 553.0,
+              "trial_2_correct": 0.0,
+              "trial_2_reward": 0.0,
+              "trial_2_submitted": 1.0,
+              "trial_3_control_steps": 525.0,
+              "trial_3_correct": 0.0,
+              "trial_3_reward": 0.0,
               "trial_3_submitted": 1.0
             }
           }

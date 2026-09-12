@@ -2257,6 +2257,288 @@
           }
         ]
       }
+    },
+    {
+      "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "grok_build-grok_46-20260911T152840-c186b05a-01_tower_max_height_high_subscription",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.173093,
+      "success_rate": 0.17309288738792522,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.17309288738792522,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 20982.0,
+        "reward": 0.173093,
+        "success_rate": 0.17309288738792522,
+        "task_score": 17.30928873879252,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T15:28:40.930828",
+        "finished_at": "2026-09-11T16:58:43.208026",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "01-tower-max-height__DyNhmiQ",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.17309288738792522,
+              "interaction_budget": 50000,
+              "interaction_steps": 20982,
+              "reward": 0.173093,
+              "success_rate": 0.17309288738792522,
+              "task_score": 17.30928873879252,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "grok_build-grok_46-20260911T152943-83e0f6b5-03_balance_coins_high_subscription",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 1.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 11559.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "task_score": 100.0,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T15:29:43.410444",
+        "finished_at": "2026-09-11T15:52:39.542479",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "03-balance-coins__d9yAAoe",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 1.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 11559,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "task_score": 100.0,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "grok_build-grok_46-20260911T153107-36e477f1-05_hidden_center_of_mass_high_subscription",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": null,
+      "metrics": {
+        "control_steps": 5510.0,
+        "correct": 0.0,
+        "reward": 0.0,
+        "submitted": 3.0,
+        "trial_1_control_steps": 4432.0,
+        "trial_1_correct": 0.0,
+        "trial_1_reward": 0.0,
+        "trial_1_submitted": 1.0,
+        "trial_2_control_steps": 553.0,
+        "trial_2_correct": 0.0,
+        "trial_2_reward": 0.0,
+        "trial_2_submitted": 1.0,
+        "trial_3_control_steps": 525.0,
+        "trial_3_correct": 0.0,
+        "trial_3_reward": 0.0,
+        "trial_3_submitted": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T15:31:08.119384",
+        "finished_at": "2026-09-11T16:16:02.602163",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "05-hidden-center-of-mass__RD2t2j4",
+            "rewards": {
+              "reward": 0.0,
+              "correct": 0,
+              "submitted": 3,
+              "control_steps": 5510,
+              "trial_1_reward": 0.0,
+              "trial_1_correct": 0,
+              "trial_1_submitted": 1,
+              "trial_1_control_steps": 4432,
+              "trial_2_reward": 0.0,
+              "trial_2_correct": 0,
+              "trial_2_submitted": 1,
+              "trial_2_control_steps": 553,
+              "trial_3_reward": 0.0,
+              "trial_3_correct": 0,
+              "trial_3_submitted": 1,
+              "trial_3_control_steps": 525
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "grok_build-grok_46-20260911T153243-d9fb18a2-02_cantilever_overhang_high_subscription",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 12501.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "task_score": 0.0,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T15:32:43.942928",
+        "finished_at": "2026-09-11T16:45:20.352371",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "02-cantilever-overhang__uidJnrw",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 12501,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "task_score": 0.0,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "grok_build-grok_46-20260911T153352-790c8c12-04_rubik_cube_high_subscription",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "actual_qtm": 29.0,
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 24378.0,
+        "optimal_qtm": 11.0,
+        "recoveries": 38.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "task_score": 0.0,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0,
+        "unclassified_transitions": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T15:33:53.026517",
+        "finished_at": "2026-09-11T17:07:36.511327",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "04-rubik-cube__vRKz9NX",
+            "rewards": {
+              "actual_qtm": 29,
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 24378,
+              "optimal_qtm": 11,
+              "recoveries": 38,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "task_score": 0.0,
+              "trials_attempted": 1,
+              "trials_total": 1,
+              "unclassified_transitions": 1
+            }
+          }
+        ]
+      }
     }
   ]
 }

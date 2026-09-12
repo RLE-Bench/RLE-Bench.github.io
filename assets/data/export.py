@@ -78,6 +78,7 @@ MODELS: tuple[ModelSpec, ...] = (
     ModelSpec("gpt56luna", "GPT-5.6 Luna", "Luna", "OpenAI", False, ("gpt-5-6-luna",)),
     ModelSpec("glm53flash", "GLM-5.3 Flash", "GLM-5.3", "Z.ai", True, ("glm-5-3-flash",)),
     ModelSpec("gpt56terra", "GPT-5.6 Terra", "Terra", "OpenAI", False, ("gpt-5-6-terra",)),
+    ModelSpec("grok-4-6", "Grok 4.6", "Grok 4.6", "xAI", False, ("grok-4-6",)),
 )
 
 # Reasoning-effort suffixes that some dumps append to the model string.
@@ -89,6 +90,7 @@ HARNESSES: tuple[tuple[str, str], ...] = (
     ("claude-code", "Claude Code"),
     ("claude_code", "Claude Code"),
     ("antigravity", "Antigravity CLI"),
+    ("grok_build", "Grok Build"),
 )
 
 # --------------------------------------------------------------------------
