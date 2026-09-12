@@ -208,7 +208,7 @@
 .home-page .plot-label { fill: var(--text-primary); font: 12px var(--ui); paint-order: stroke; stroke: var(--surface-1); stroke-width: 4px; stroke-linejoin: round; }
 .home-page .plot-axis-title { fill: var(--text-muted); font: 10px var(--ui); letter-spacing: .025em; }
 .home-page .plot-hint { fill: var(--text-muted); font: 10px var(--ui); }
-.home-page .plot-point { fill: var(--series-1); stroke: var(--surface-1); stroke-width: 2.5; transition: r .15s; cursor: help; }
+.home-page .plot-point { fill: var(--series-1); stroke: var(--surface-1); stroke-width: 2.5; transition: r .15s; cursor: default; }
 .home-page .plot-point:hover, .home-page .plot-point:focus-visible { r: 8; stroke: var(--text-primary); stroke-width: 1.5; outline: none; }
 .home-page .plot-leader { stroke: var(--axis); stroke-width: 1; }
 .home-page .cost-figure figcaption { margin: 0; padding: 17px 29px; border-top: 1px solid var(--border); color: var(--text-muted); font: 11px/1.75 var(--ui); }
@@ -518,7 +518,7 @@
 .home-page .plot-label { font-size:10.5px; stroke-width:4px; pointer-events:none; }
 .home-page .plot-point { fill:var(--series-1); stroke:var(--surface-1); stroke-width:2; }
 .home-page .plot-point-number { fill:var(--accent-ink); font:500 8px var(--data); pointer-events:none; }
-.home-page .plot-point-group { cursor:help; outline:none; }
+.home-page .plot-point-group { cursor:default; outline:none; }
 .home-page .plot-point-group:focus-visible .plot-point,.home-page .plot-point-group:hover .plot-point,.home-page .plot-point-group.is-highlighted .plot-point { stroke:var(--text-primary); stroke-width:1.5; r:10; }
 .home-page .plot-point:hover { r:8.5; }
 .home-page .plot-point-group:focus-visible .plot-point { stroke-dasharray:2 1; }
@@ -541,6 +541,7 @@
 .home-page .cost-table tbody tr.is-highlighted > *, .home-page .cost-table tbody tr:hover > * { background:var(--signal-soft); }
 .home-page .cost-table tbody tr:focus-visible { outline-offset:-2px; }
 .home-page .cost-model-name { display:flex; align-items:center; gap:9px; min-width:0; }
+.home-page .cost-model-name > span:last-child { min-width:0; }
 .home-page .model-id { flex:0 0 17px; height:17px; display:grid; place-items:center; border:1px solid var(--axis); border-radius:50%; color:var(--text-muted); font:9px/1 var(--data); }
 .home-page .is-highlighted .model-id { background:var(--series-1); color:var(--accent-ink); border-color:var(--series-1); }
 .home-page .cost-table .model-label { display:block; font:11.5px/1.35 var(--ui); letter-spacing:-.01em; white-space:nowrap; }
@@ -961,6 +962,7 @@ font-family:var(--serif);}
   font: 15px/1.25 var(--serif);
   letter-spacing: 0;
   white-space: normal;
+  overflow-wrap: anywhere;
 }
 .classic-home #cost .cost-table .model-meta {
   font: 9px/1.4 var(--mono);
@@ -1111,6 +1113,8 @@ font-family:var(--serif);}
     row-gap:8px;
   }
   .classic-home #index .family-matrix tbody tr { padding:14px 0; border-top:1px solid var(--border); }
+  .classic-home #index .family-matrix tbody tr > :is(th,td,.place-cell,.index-td),
+  .classic-home #index .family-matrix tbody tr:hover > * { background:transparent; }
   .classic-home #index .family-matrix tbody th,
   .classic-home #index .family-matrix tbody td,
   .classic-home #index .family-matrix thead th { position:static; height:auto; min-width:0; padding:0; }

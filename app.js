@@ -380,7 +380,6 @@
   }
   const costModelIds=Object.fromEntries(agents.slice().sort((a,b)=>(indexScore(b)??-1)-(indexScore(a)??-1)).map((m,i)=>[m.id,i+1]));
   // Plot labels: the export supplies `short` per model; the map covers older snapshots without it.
-  const shortModelNames={opus5:'Opus 5',sonnet5:'Sonnet 5',gpt52:'GPT-5.2',gemini3:'Gemini 3 Pro',glm52:'GLM-5.2',ds4:'DeepSeek-V4',qwen3max:'Qwen3-Max',kimi25:'Kimi K2.5'};
   function highlightCost(id){
     $('.cost-workbench').classList.toggle('has-highlight',!!id);
     $$('[data-cost-model]').forEach(n=>n.classList.toggle('is-highlighted',n.dataset.costModel===id));
@@ -441,7 +440,7 @@
       const occupied=dots.map(p=>({x:p.cx-12,y:p.cy-12,w:24,h:24}));
       const intersects=(a,b)=>a.x<b.x+b.w+4&&a.x+a.w+4>b.x&&a.y<b.y+b.h+3&&a.y+a.h+3>b.y;
       dots.slice().sort((a,b)=>a.cy-b.cy).forEach(p=>{
-        const label=p.m.short||shortModelNames[p.m.id]||p.m.name,w=ctx.measureText(label).width+2,h=15,candidates=[];
+        const label=p.m.name,w=ctx.measureText(label).width+2,h=15,candidates=[];
         for(const dy of [0,-20,20,-38,38,-56,56,-74,74])for(const side of [1,-1])candidates.push({x:side===1?p.cx+16:p.cx-16-w,y:p.cy-7+dy,w,h,side});
         const inBounds=c=>c.x>M.l+2&&c.x+c.w<W-M.r&&c.y>=M.t-12&&c.y+c.h<H-M.b-2;
         const chosen=candidates.find(c=>inBounds(c)&&!occupied.some(o=>intersects(c,o)));
