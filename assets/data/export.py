@@ -79,6 +79,7 @@ MODELS: tuple[ModelSpec, ...] = (
     ModelSpec("glm53flash", "GLM-5.3 Flash", "GLM-5.3", "Z.ai", True, ("glm-5-3-flash",)),
     ModelSpec("gpt56terra", "GPT-5.6 Terra", "Terra", "OpenAI", False, ("gpt-5-6-terra",)),
     ModelSpec("grok-4-6", "Grok 4.6", "Grok 4.6", "xAI", False, ("grok-4-6",)),
+    ModelSpec("deepseek-flash", "DeepSeek-V4.1-Flash", "DeepSeek-V4.1-Flash", "DeepSeek AI", False, ("deepseek-flash",)),
 )
 
 # Reasoning-effort suffixes that some dumps append to the model string.

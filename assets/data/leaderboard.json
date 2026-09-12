@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "measured",
-  "generated_at": "2026-09-12T04:08:07Z",
+  "generated_at": "2026-09-12T04:20:22Z",
   "generator": "assets/data/export.py",
   "source": {
     "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId] reports per-subtask means over the task's runs: cost = mean API cost in USD, hours = mean agent wall-clock hours, context_tokens = mean of input_tokens minus cached_tokens per run (the homepage's Context Length). cost_total, hours_total, hours_median and the input/cached/output token counts are the corresponding totals over runs. The homepage's overall figures average these per-task means within each workflow, then across workflows. Missing API cost or token counts stay null. Costs come from the run dumps except for the models listed under source.prices, whose cost is recomputed from token counts because their harness billed them against the wrong price sheet; costs[...].cost_sources and results[...].subtasks[...].cost_source say which applies. Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc.",
@@ -77,14 +77,14 @@
         "file": "task08.json",
         "root": "jobs/task08",
         "schema_version": 1,
-        "runs": 8,
+        "runs": 10,
         "runs_skipped": 0
       },
       "task09": {
         "file": "task09.json",
         "root": "jobs/task09",
         "schema_version": 1,
-        "runs": 8,
+        "runs": 10,
         "runs_skipped": 0
       }
     }
@@ -148,6 +148,31 @@
       ]
     },
     {
+      "id": "deepseek-flash",
+      "name": "DeepSeek-V4.1-Flash",
+      "short": "DeepSeek-V4.1-Flash",
+      "org": "DeepSeek AI",
+      "open": false,
+      "harness": "Claude Code",
+      "tasks": [
+        "task08",
+        "task09"
+      ]
+    },
+    {
+      "id": "grok-4-6",
+      "name": "Grok 4.6",
+      "short": "Grok 4.6",
+      "org": "xAI",
+      "open": false,
+      "harness": "Grok Build",
+      "tasks": [
+        "task03",
+        "task08",
+        "task09"
+      ]
+    },
+    {
       "id": "gemini37flash",
       "name": "Gemini 3.7 Flash",
       "short": "Gemini 3.7",
@@ -164,17 +189,6 @@
         "task07",
         "task08",
         "task09"
-      ]
-    },
-    {
-      "id": "grok-4-6",
-      "name": "Grok 4.6",
-      "short": "Grok 4.6",
-      "org": "xAI",
-      "open": false,
-      "harness": "Grok Build",
-      "tasks": [
-        "task03"
       ]
     },
     {
@@ -978,15 +992,17 @@
           "label": "Mobile base"
         }
       ],
-      "n_runs": 8,
+      "n_runs": 10,
       "n_runs_skipped": 0,
       "models": [
+        "deepseek-flash",
         "gemini37flash",
         "glm53flash",
         "gpt56luna",
         "gpt56sol",
         "gpt56terra",
         "gpt6astra",
+        "grok-4-6",
         "opus48",
         "opus5"
       ]
@@ -1029,15 +1045,17 @@
           "label": "Gravity compensation"
         }
       ],
-      "n_runs": 8,
+      "n_runs": 10,
       "n_runs_skipped": 0,
       "models": [
+        "deepseek-flash",
         "gemini37flash",
         "glm53flash",
         "gpt56luna",
         "gpt56sol",
         "gpt56terra",
         "gpt6astra",
+        "grok-4-6",
         "opus48",
         "opus5"
       ]
@@ -1441,6 +1459,20 @@
         0.0,
         0.564,
         0.916667
+      ],
+      "deepseek-flash": [
+        0.85,
+        0.558,
+        0.0,
+        0.2665,
+        0.083333
+      ],
+      "grok-4-6": [
+        1.0,
+        0.616,
+        0.0,
+        0.1805,
+        0.0
       ]
     },
     "task09": {
@@ -1483,6 +1515,16 @@
         0.5925,
         0.5298,
         0.5107
+      ],
+      "deepseek-flash": [
+        0.6524,
+        0.4444,
+        0.2767
+      ],
+      "grok-4-6": [
+        0.3219,
+        0.2227,
+        0.3208
       ]
     }
   },
@@ -1522,7 +1564,7 @@
       },
       "opus48": {
         "cost": 41.044558,
-        "cost_total": 615.668371,
+        "cost_total": 615.668372,
         "hours": 2.7428,
         "hours_median": 2.5607,
         "hours_total": 41.1426,
@@ -1927,8 +1969,8 @@
         "n_subtasks": 5
       },
       "opus5": {
-        "cost": 7.638135,
-        "cost_total": 38.190673,
+        "cost": 7.638134,
+        "cost_total": 38.190672,
         "hours": 3.4833,
         "hours_median": 3.4621,
         "hours_total": 17.4166,
@@ -2541,6 +2583,38 @@
         ],
         "n_runs": 1,
         "n_subtasks": 1
+      },
+      "deepseek-flash": {
+        "cost": 13.658404,
+        "cost_total": 13.658404,
+        "hours": 0.5296,
+        "hours_median": 0.5296,
+        "hours_total": 0.5296,
+        "context_tokens": 95165.0,
+        "input_tokens": 17642173,
+        "cached_tokens": 17547008,
+        "output_tokens": 176363,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "grok-4-6": {
+        "cost": null,
+        "cost_total": null,
+        "hours": 0.9821,
+        "hours_median": 0.9821,
+        "hours_total": 0.9821,
+        "context_tokens": null,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
       }
     },
     "task09": {
@@ -2666,6 +2740,38 @@
         "input_tokens": 5604801,
         "cached_tokens": 5426432,
         "output_tokens": 81219,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "deepseek-flash": {
+        "cost": 6.95888,
+        "cost_total": 6.95888,
+        "hours": 0.2422,
+        "hours_median": 0.2422,
+        "hours_total": 0.2422,
+        "context_tokens": 82834.0,
+        "input_tokens": 7390354,
+        "cached_tokens": 7307520,
+        "output_tokens": 115638,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "grok-4-6": {
+        "cost": null,
+        "cost_total": null,
+        "hours": 0.5058,
+        "hours_median": 0.5058,
+        "hours_total": 0.5058,
+        "context_tokens": null,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
         "cost_sources": [
           "harness"
         ],
@@ -18571,6 +18677,238 @@
             }
           }
         }
+      },
+      "deepseek-flash": {
+        "score": 0.3886,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "validity": {
+            "score": 0.85,
+            "metric": "stage_validity",
+            "weight": 0.15,
+            "credit": 0.1275,
+            "n_runs": 1,
+            "complete": true
+          },
+          "design": {
+            "score": 0.558,
+            "metric": "stage_design",
+            "weight": 0.35,
+            "credit": 0.1953,
+            "n_runs": 1,
+            "complete": true
+          },
+          "static": {
+            "score": 0.0,
+            "metric": "stage_static",
+            "weight": 0.15,
+            "credit": 0.0,
+            "n_runs": 1,
+            "complete": true
+          },
+          "dynamic": {
+            "score": 0.2665,
+            "metric": "stage_dynamic",
+            "weight": 0.2,
+            "credit": 0.0533,
+            "n_runs": 1,
+            "complete": true
+          },
+          "integration": {
+            "score": 0.083333,
+            "metric": "stage_integration",
+            "weight": 0.15,
+            "credit": 0.0125,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "mobile-base": {
+            "reward": 0.3886,
+            "success_rate": null,
+            "cost_usd": 13.658404,
+            "cost_source": "harness",
+            "hours": 0.5296,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "claude_code-deepseek_flash-20260911T192518-task08_context1m_high-0f0fc92b",
+            "started_at": "2026-09-11T19:25:19.072784",
+            "finished_at": "2026-09-11T19:57:05.714538",
+            "input_tokens": 17642173,
+            "cached_tokens": 17547008,
+            "output_tokens": 176363,
+            "metrics": {
+              "cp_S1.equilibrium": 1.0,
+              "cp_S1.inertia": 1.0,
+              "cp_S1.load": 1.0,
+              "cp_S1.mecanum": 0.25,
+              "cp_S1.structure": 1.0,
+              "cp_S3.battery_onboard": 1.0,
+              "cp_S3.design_efficiency": 0.4331,
+              "cp_S3.reach_beyond": 1.0,
+              "cp_S3.reach_preserved": 1.0,
+              "cp_S3.resource_constraints": 1.0,
+              "cp_S3.static_margin": 0.0,
+              "cp_S3.still_valid": 0.0,
+              "cp_S5.testB": 0.0,
+              "cp_S5.testC": 0.0,
+              "cp_S5.testD1": 0.3333,
+              "cp_S5.testD2": 1.0,
+              "cp_S5.testE": 0.0,
+              "cp_S7.payload_margin": 0.0833,
+              "cp_S7.pick_compat": 0.0833,
+              "design_base_mass_kg": 20.2284,
+              "design_footprint_area_headroom_fraction": 0.215286,
+              "design_footprint_area_headroom_m2": 0.067514,
+              "design_footprint_area_m2": 0.246086,
+              "design_footprint_x_headroom_m": 0.0,
+              "design_footprint_x_m": 0.56,
+              "design_footprint_y_headroom_m": 0.12056,
+              "design_footprint_y_m": 0.43944,
+              "design_mass_budget_kg": 38.0,
+              "design_mass_headroom_fraction": 0.467674,
+              "design_mass_headroom_kg": 17.7716,
+              "design_profile_length_headroom_fraction": 0.616333,
+              "design_profile_length_headroom_m": 7.396,
+              "design_profile_length_m": 4.604,
+              "design_score": 0.433098,
+              "design_total_mass_kg": 42.0983,
+              "dynamic_mean": 0.2667,
+              "dynamic_var": 0.19556,
+              "gated": 0.0,
+              "raw_total": 0.3886,
+              "reward": 0.3886,
+              "stage_design": 0.1953,
+              "stage_dynamic": 0.0533,
+              "stage_integration": 0.0125,
+              "stage_static": 0.0,
+              "stage_validity": 0.1275
+            }
+          }
+        }
+      },
+      "grok-4-6": {
+        "score": 0.4017,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Grok Build",
+        "splits": {
+          "validity": {
+            "score": 1.0,
+            "metric": "stage_validity",
+            "weight": 0.15,
+            "credit": 0.15,
+            "n_runs": 1,
+            "complete": true
+          },
+          "design": {
+            "score": 0.616,
+            "metric": "stage_design",
+            "weight": 0.35,
+            "credit": 0.2156,
+            "n_runs": 1,
+            "complete": true
+          },
+          "static": {
+            "score": 0.0,
+            "metric": "stage_static",
+            "weight": 0.15,
+            "credit": 0.0,
+            "n_runs": 1,
+            "complete": true
+          },
+          "dynamic": {
+            "score": 0.1805,
+            "metric": "stage_dynamic",
+            "weight": 0.2,
+            "credit": 0.0361,
+            "n_runs": 1,
+            "complete": true
+          },
+          "integration": {
+            "score": 0.0,
+            "metric": "stage_integration",
+            "weight": 0.15,
+            "credit": 0.0,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "mobile-base": {
+            "reward": 0.4017,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.9821,
+            "status": "completed",
+            "harness": "Grok Build",
+            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+            "model": "xai/grok-4.6",
+            "job": "grok_build-grok_46-20260911T101723-87f36c63-subscription",
+            "started_at": "2026-09-11T10:17:23.393873",
+            "finished_at": "2026-09-11T11:16:18.995141",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "cp_S1.equilibrium": 1.0,
+              "cp_S1.inertia": 1.0,
+              "cp_S1.load": 1.0,
+              "cp_S1.mecanum": 1.0,
+              "cp_S1.structure": 1.0,
+              "cp_S3.battery_onboard": 1.0,
+              "cp_S3.design_efficiency": 0.3892,
+              "cp_S3.reach_beyond": 1.0,
+              "cp_S3.reach_preserved": 1.0,
+              "cp_S3.resource_constraints": 1.0,
+              "cp_S3.static_margin": 0.0,
+              "cp_S3.still_valid": 1.0,
+              "cp_S5.testB": 0.2362,
+              "cp_S5.testC": 0.0,
+              "cp_S5.testD1": 0.6667,
+              "cp_S5.testD2": 0.0,
+              "cp_S5.testE": 0.0,
+              "cp_S7.payload_margin": 0.0,
+              "cp_S7.pick_compat": 0.0,
+              "design_base_mass_kg": 23.874,
+              "design_footprint_area_headroom_fraction": 0.18929,
+              "design_footprint_area_headroom_m2": 0.059361,
+              "design_footprint_area_m2": 0.254239,
+              "design_footprint_x_headroom_m": 0.006634,
+              "design_footprint_x_m": 0.553366,
+              "design_footprint_y_headroom_m": 0.10056,
+              "design_footprint_y_m": 0.45944,
+              "design_mass_budget_kg": 38.0,
+              "design_mass_headroom_fraction": 0.371737,
+              "design_mass_headroom_kg": 14.126,
+              "design_profile_length_headroom_fraction": 0.606667,
+              "design_profile_length_headroom_m": 7.28,
+              "design_profile_length_m": 4.72,
+              "design_score": 0.389231,
+              "design_total_mass_kg": 45.7439,
+              "dynamic_mean": 0.1724,
+              "dynamic_var": 0.1265,
+              "gated": 0.0,
+              "raw_total": 0.4017,
+              "reward": 0.4017,
+              "stage_design": 0.2156,
+              "stage_dynamic": 0.0361,
+              "stage_integration": 0.0,
+              "stage_static": 0.0,
+              "stage_validity": 0.15
+            }
+          }
+        }
       }
     },
     "task09": {
@@ -19786,6 +20124,310 @@
               "xarm7_stage_software": 0.1461,
               "xarm7_stage_validity": 0.0,
               "xarm7_validity_deduction": 0.0
+            }
+          }
+        }
+      },
+      "deepseek-flash": {
+        "score": 0.457833,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "franka": {
+            "score": 0.6524,
+            "metric": "franka_reward",
+            "weight": 1.0,
+            "credit": 0.6524,
+            "n_runs": 1,
+            "complete": true
+          },
+          "ur5e": {
+            "score": 0.4444,
+            "metric": "ur5e_reward",
+            "weight": 1.0,
+            "credit": 0.4444,
+            "n_runs": 1,
+            "complete": true
+          },
+          "xarm7": {
+            "score": 0.2767,
+            "metric": "xarm7_reward",
+            "weight": 1.0,
+            "credit": 0.2767,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "gello": {
+            "reward": 0.457833,
+            "success_rate": null,
+            "cost_usd": 6.95888,
+            "cost_source": "harness",
+            "hours": 0.2422,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "claude_code-deepseek_flash-20260911T192520-task09_context1m_high-0a30e072",
+            "started_at": "2026-09-11T19:25:20.340063",
+            "finished_at": "2026-09-11T19:39:52.259659",
+            "input_tokens": 7390354,
+            "cached_tokens": 7307520,
+            "output_tokens": 115638,
+            "metrics": {
+              "franka_cp_B1.combined_hold": 1.0,
+              "franka_cp_B2.combined_backdrive": 0.675,
+              "franka_cp_B3.headroom": 0.4284,
+              "franka_cp_B4.push_recovery": 1.0,
+              "franka_cp_C1.budget": 1.0,
+              "franka_cp_C1.buildable": 0.9667,
+              "franka_cp_C1.load": 1.0,
+              "franka_cp_C1.motion_clearance": 1.0,
+              "franka_cp_C1.printability": 1.0,
+              "franka_cp_C1.settle": 1.0,
+              "franka_cp_C1.springs_legal": 1.0,
+              "franka_cp_C1.structure": 1.0,
+              "franka_cp_H1.device_residual": 0.1908,
+              "franka_cp_H2.passive_hold": 0.2868,
+              "franka_cp_H3.passive_backdrive": 0.2848,
+              "franka_cp_S2.adapted_backdrive": 0.6602,
+              "franka_cp_S2.adapted_hold": 1.0,
+              "franka_deduction_C1.budget": 0.0,
+              "franka_deduction_C1.buildable": 0.000175,
+              "franka_deduction_C1.load": 0.0,
+              "franka_deduction_C1.printability": 0.0,
+              "franka_deduction_C1.settle": 0.0,
+              "franka_deduction_C1.springs_legal": 0.0,
+              "franka_deduction_C1.structure": 0.0,
+              "franka_gated": 0.0,
+              "franka_raw_total": 0.6524,
+              "franka_reward": 0.6524,
+              "franka_stage_codesign": 0.3103,
+              "franka_stage_hardware": 0.0762,
+              "franka_stage_software": 0.166,
+              "franka_stage_validity": 0.0998,
+              "franka_validity_deduction": 0.000175,
+              "reward": 0.457833,
+              "ur5e_cp_B1.combined_hold": 0.534,
+              "ur5e_cp_B2.combined_backdrive": 0.4411,
+              "ur5e_cp_B3.headroom": 0.0933,
+              "ur5e_cp_B4.push_recovery": 0.0194,
+              "ur5e_cp_C1.budget": 1.0,
+              "ur5e_cp_C1.buildable": 0.9615,
+              "ur5e_cp_C1.load": 1.0,
+              "ur5e_cp_C1.motion_clearance": 1.0,
+              "ur5e_cp_C1.printability": 1.0,
+              "ur5e_cp_C1.settle": 1.0,
+              "ur5e_cp_C1.springs_legal": 1.0,
+              "ur5e_cp_C1.structure": 1.0,
+              "ur5e_cp_H1.device_residual": 0.2715,
+              "ur5e_cp_H2.passive_hold": 0.2817,
+              "ur5e_cp_H3.passive_backdrive": 0.2435,
+              "ur5e_cp_S2.adapted_backdrive": 0.5616,
+              "ur5e_cp_S2.adapted_hold": 1.0,
+              "ur5e_deduction_C1.budget": 0.0,
+              "ur5e_deduction_C1.buildable": 0.000202,
+              "ur5e_deduction_C1.load": 0.0,
+              "ur5e_deduction_C1.printability": 0.0,
+              "ur5e_deduction_C1.settle": 0.0,
+              "ur5e_deduction_C1.springs_legal": 0.0,
+              "ur5e_deduction_C1.structure": 0.0,
+              "ur5e_gated": 0.0,
+              "ur5e_raw_total": 0.4444,
+              "ur5e_reward": 0.4444,
+              "ur5e_stage_codesign": 0.1088,
+              "ur5e_stage_hardware": 0.0797,
+              "ur5e_stage_software": 0.1562,
+              "ur5e_stage_validity": 0.0998,
+              "ur5e_validity_deduction": 0.000202,
+              "xarm7_cp_B1.combined_hold": 0.042,
+              "xarm7_cp_B2.combined_backdrive": 0.0701,
+              "xarm7_cp_B3.headroom": 0.0,
+              "xarm7_cp_B4.push_recovery": 0.0676,
+              "xarm7_cp_C1.budget": 1.0,
+              "xarm7_cp_C1.buildable": 0.9667,
+              "xarm7_cp_C1.load": 1.0,
+              "xarm7_cp_C1.motion_clearance": 1.0,
+              "xarm7_cp_C1.printability": 1.0,
+              "xarm7_cp_C1.settle": 1.0,
+              "xarm7_cp_C1.springs_legal": 1.0,
+              "xarm7_cp_C1.structure": 1.0,
+              "xarm7_cp_H1.device_residual": 0.1724,
+              "xarm7_cp_H2.passive_hold": 0.3014,
+              "xarm7_cp_H3.passive_backdrive": 0.2607,
+              "xarm7_cp_S2.adapted_backdrive": 0.3765,
+              "xarm7_cp_S2.adapted_hold": 0.478,
+              "xarm7_deduction_C1.budget": 0.0,
+              "xarm7_deduction_C1.buildable": 0.000175,
+              "xarm7_deduction_C1.load": 0.0,
+              "xarm7_deduction_C1.printability": 0.0,
+              "xarm7_deduction_C1.settle": 0.0,
+              "xarm7_deduction_C1.springs_legal": 0.0,
+              "xarm7_deduction_C1.structure": 0.0,
+              "xarm7_gated": 0.0,
+              "xarm7_raw_total": 0.2767,
+              "xarm7_reward": 0.2767,
+              "xarm7_stage_codesign": 0.018,
+              "xarm7_stage_hardware": 0.0734,
+              "xarm7_stage_software": 0.0854,
+              "xarm7_stage_validity": 0.0998,
+              "xarm7_validity_deduction": 0.000175
+            }
+          }
+        }
+      },
+      "grok-4-6": {
+        "score": 0.288467,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Grok Build",
+        "splits": {
+          "franka": {
+            "score": 0.3219,
+            "metric": "franka_reward",
+            "weight": 1.0,
+            "credit": 0.3219,
+            "n_runs": 1,
+            "complete": true
+          },
+          "ur5e": {
+            "score": 0.2227,
+            "metric": "ur5e_reward",
+            "weight": 1.0,
+            "credit": 0.2227,
+            "n_runs": 1,
+            "complete": true
+          },
+          "xarm7": {
+            "score": 0.3208,
+            "metric": "xarm7_reward",
+            "weight": 1.0,
+            "credit": 0.3208,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "gello": {
+            "reward": 0.288467,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.5058,
+            "status": "completed",
+            "harness": "Grok Build",
+            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+            "model": "xai/grok-4.6",
+            "job": "grok_build-grok_46-20260911T175732-9ee23f64-task09_high_subscription",
+            "started_at": "2026-09-11T17:57:33.280381",
+            "finished_at": "2026-09-11T18:27:54.221250",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "franka_cp_B1.combined_hold": 0.3991,
+              "franka_cp_B2.combined_backdrive": 0.3806,
+              "franka_cp_B3.headroom": 0.569,
+              "franka_cp_B4.push_recovery": 0.3616,
+              "franka_cp_C1.budget": 1.0,
+              "franka_cp_C1.buildable": 1.0,
+              "franka_cp_C1.load": 1.0,
+              "franka_cp_C1.motion_clearance": 0.0,
+              "franka_cp_C1.printability": 0.0,
+              "franka_cp_C1.settle": 1.0,
+              "franka_cp_C1.springs_legal": 1.0,
+              "franka_cp_C1.structure": 1.0,
+              "franka_cp_H1.device_residual": 0.226,
+              "franka_cp_H2.passive_hold": 0.3179,
+              "franka_cp_H3.passive_backdrive": 0.3271,
+              "franka_cp_S2.adapted_backdrive": 0.4055,
+              "franka_cp_S2.adapted_hold": 0.4423,
+              "franka_deduction_C1.budget": 0.0,
+              "franka_deduction_C1.buildable": 0.0,
+              "franka_deduction_C1.load": 0.0,
+              "franka_deduction_C1.printability": 0.021053,
+              "franka_deduction_C1.settle": 0.0,
+              "franka_deduction_C1.springs_legal": 0.0,
+              "franka_deduction_C1.structure": 0.0,
+              "franka_gated": 0.0,
+              "franka_raw_total": 0.3219,
+              "franka_reward": 0.3219,
+              "franka_stage_codesign": 0.171,
+              "franka_stage_hardware": 0.0871,
+              "franka_stage_software": 0.0848,
+              "franka_stage_validity": -0.0211,
+              "franka_validity_deduction": 0.021053,
+              "reward": 0.288467,
+              "ur5e_cp_B1.combined_hold": 0.2061,
+              "ur5e_cp_B2.combined_backdrive": 0.2906,
+              "ur5e_cp_B3.headroom": 0.279,
+              "ur5e_cp_B4.push_recovery": 0.2861,
+              "ur5e_cp_C1.budget": 1.0,
+              "ur5e_cp_C1.buildable": 1.0,
+              "ur5e_cp_C1.load": 1.0,
+              "ur5e_cp_C1.motion_clearance": 0.0,
+              "ur5e_cp_C1.printability": 0.0,
+              "ur5e_cp_C1.settle": 1.0,
+              "ur5e_cp_C1.springs_legal": 1.0,
+              "ur5e_cp_C1.structure": 1.0,
+              "ur5e_cp_H1.device_residual": 0.2467,
+              "ur5e_cp_H2.passive_hold": 0.3412,
+              "ur5e_cp_H3.passive_backdrive": 0.2748,
+              "ur5e_cp_S2.adapted_backdrive": 0.2902,
+              "ur5e_cp_S2.adapted_hold": 0.2231,
+              "ur5e_deduction_C1.budget": 0.0,
+              "ur5e_deduction_C1.buildable": 0.0,
+              "ur5e_deduction_C1.load": 0.0,
+              "ur5e_deduction_C1.printability": 0.021053,
+              "ur5e_deduction_C1.settle": 0.0,
+              "ur5e_deduction_C1.springs_legal": 0.0,
+              "ur5e_deduction_C1.structure": 0.0,
+              "ur5e_gated": 0.0,
+              "ur5e_raw_total": 0.2227,
+              "ur5e_reward": 0.2227,
+              "ur5e_stage_codesign": 0.1062,
+              "ur5e_stage_hardware": 0.0863,
+              "ur5e_stage_software": 0.0513,
+              "ur5e_stage_validity": -0.0211,
+              "ur5e_validity_deduction": 0.021053,
+              "xarm7_cp_B1.combined_hold": 0.1781,
+              "xarm7_cp_B2.combined_backdrive": 0.3357,
+              "xarm7_cp_B3.headroom": 0.5,
+              "xarm7_cp_B4.push_recovery": 0.0207,
+              "xarm7_cp_C1.budget": 1.0,
+              "xarm7_cp_C1.buildable": 1.0,
+              "xarm7_cp_C1.load": 1.0,
+              "xarm7_cp_C1.motion_clearance": 1.0,
+              "xarm7_cp_C1.printability": 0.0,
+              "xarm7_cp_C1.settle": 1.0,
+              "xarm7_cp_C1.springs_legal": 1.0,
+              "xarm7_cp_C1.structure": 1.0,
+              "xarm7_cp_H1.device_residual": 0.2086,
+              "xarm7_cp_H2.passive_hold": 0.3183,
+              "xarm7_cp_H3.passive_backdrive": 0.3184,
+              "xarm7_cp_S2.adapted_backdrive": 0.328,
+              "xarm7_cp_S2.adapted_hold": 0.2104,
+              "xarm7_deduction_C1.budget": 0.0,
+              "xarm7_deduction_C1.buildable": 0.0,
+              "xarm7_deduction_C1.load": 0.0,
+              "xarm7_deduction_C1.printability": 0.021053,
+              "xarm7_deduction_C1.settle": 0.0,
+              "xarm7_deduction_C1.springs_legal": 0.0,
+              "xarm7_deduction_C1.structure": 0.0,
+              "xarm7_gated": 0.0,
+              "xarm7_raw_total": 0.3208,
+              "xarm7_reward": 0.3208,
+              "xarm7_stage_codesign": 0.1034,
+              "xarm7_stage_hardware": 0.0845,
+              "xarm7_stage_software": 0.0538,
+              "xarm7_stage_validity": 0.0789,
+              "xarm7_validity_deduction": 0.021053
             }
           }
         }
