@@ -905,7 +905,7 @@
       "model": "glm-5.3-flash",
       "job": "claude_code-glm_5_3_flash-20260910T232527-01_tower_max_height",
       "status": "failed",
-      "cost_usd": null,
+      "cost_usd": 2.38522111,
       "reward": 0.174644,
       "success_rate": 0.17464417172309485,
       "metrics": {
@@ -1009,7 +1009,7 @@
       "model": "glm-5.3-flash",
       "job": "claude_code-glm_5_3_flash-20260911T062414-04_rubik_cube",
       "status": "failed",
-      "cost_usd": null,
+      "cost_usd": 0.84531536,
       "reward": 0.0,
       "success_rate": 0.0,
       "metrics": {
@@ -2535,6 +2535,288 @@
               "trials_attempted": 1,
               "trials_total": 1,
               "unclassified_transitions": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "claude_code-deepseek_flash-20260911T214901-task03_01_tower_max_height_context1m_high-d0d15045",
+      "status": "completed",
+      "cost_usd": 2.2552629999999994,
+      "reward": 0.264183,
+      "success_rate": 0.2641825036338026,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.2641825036338026,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 49999.0,
+        "reward": 0.264183,
+        "success_rate": 0.2641825036338026,
+        "task_score": 26.41825036338026,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T21:49:02.082626",
+        "finished_at": "2026-09-11T22:06:13.328636",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 1833770,
+          "n_cache_tokens": 1799936,
+          "n_output_tokens": 47445
+        },
+        "trials": [
+          {
+            "trial": "01-tower-max-height__DnGKAXg",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.2641825036338026,
+              "interaction_budget": 50000,
+              "interaction_steps": 49999,
+              "reward": 0.264183,
+              "success_rate": 0.2641825036338026,
+              "task_score": 26.41825036338026,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "claude_code-deepseek_flash-20260911T214905-task03_02_cantilever_overhang_context1m_high-079d6327",
+      "status": "completed",
+      "cost_usd": 16.431546000000008,
+      "reward": 0.241989,
+      "success_rate": 0.2419891453190504,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.2419891453190504,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 45648.0,
+        "reward": 0.241989,
+        "success_rate": 0.2419891453190504,
+        "task_score": 24.198914531905043,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T21:49:05.617973",
+        "finished_at": "2026-09-11T22:22:39.628654",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 21181316,
+          "n_cache_tokens": 21114752,
+          "n_output_tokens": 221654
+        },
+        "trials": [
+          {
+            "trial": "02-cantilever-overhang__xcrvbVs",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.2419891453190504,
+              "interaction_budget": 50000,
+              "interaction_steps": 45648,
+              "reward": 0.241989,
+              "success_rate": 0.2419891453190504,
+              "task_score": 24.198914531905043,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "claude_code-deepseek_flash-20260911T220657-task03_03_balance_coins_context1m_high-54b43f37",
+      "status": "completed",
+      "cost_usd": 8.807428000000002,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 1.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 49499.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "task_score": 100.0,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T22:06:57.748111",
+        "finished_at": "2026-09-11T22:47:04.611528",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 8907184,
+          "n_cache_tokens": 8853376,
+          "n_output_tokens": 164468
+        },
+        "trials": [
+          {
+            "trial": "03-balance-coins__f83BMkg",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 1.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 49499,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "task_score": 100.0,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "claude_code-deepseek_flash-20260911T222317-task03_04_rubik_cube_context1m_high-dee0daae",
+      "status": "completed",
+      "cost_usd": 17.176811000000004,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "actual_qtm": 12.0,
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 34214.0,
+        "optimal_qtm": 11.0,
+        "recoveries": 40.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "task_score": 0.0,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0,
+        "unclassified_transitions": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T22:23:18.115331",
+        "finished_at": "2026-09-11T22:54:33.926964",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 22317297,
+          "n_cache_tokens": 22243072,
+          "n_output_tokens": 227366
+        },
+        "trials": [
+          {
+            "trial": "04-rubik-cube__PhJhEJj",
+            "rewards": {
+              "actual_qtm": 12,
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 34214,
+              "optimal_qtm": 11,
+              "recoveries": 40,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "task_score": 0.0,
+              "trials_attempted": 1,
+              "trials_total": 1,
+              "unclassified_transitions": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "claude_code-deepseek_flash-20260911T224748-task03_05_hidden_center_of_mass_context1m_high-1cfced70",
+      "status": "completed",
+      "cost_usd": 10.357111000000002,
+      "reward": 0.6666666666666666,
+      "success_rate": null,
+      "metrics": {
+        "control_steps": 12465.0,
+        "correct": 2.0,
+        "reward": 0.6666666666666666,
+        "submitted": 3.0,
+        "trial_1_control_steps": 6115.0,
+        "trial_1_correct": 1.0,
+        "trial_1_reward": 1.0,
+        "trial_1_submitted": 1.0,
+        "trial_2_control_steps": 1800.0,
+        "trial_2_correct": 1.0,
+        "trial_2_reward": 1.0,
+        "trial_2_submitted": 1.0,
+        "trial_3_control_steps": 4550.0,
+        "trial_3_correct": 0.0,
+        "trial_3_reward": 0.0,
+        "trial_3_submitted": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T22:47:48.934448",
+        "finished_at": "2026-09-11T23:08:37.682516",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 10620282,
+          "n_cache_tokens": 10575872,
+          "n_output_tokens": 193885
+        },
+        "trials": [
+          {
+            "trial": "05-hidden-center-of-mass__Ds59arg",
+            "rewards": {
+              "reward": 0.6666666666666666,
+              "correct": 2,
+              "submitted": 3,
+              "control_steps": 12465,
+              "trial_1_reward": 1.0,
+              "trial_1_correct": 1,
+              "trial_1_submitted": 1,
+              "trial_1_control_steps": 6115,
+              "trial_2_reward": 1.0,
+              "trial_2_correct": 1,
+              "trial_2_submitted": 1,
+              "trial_2_control_steps": 1800,
+              "trial_3_reward": 0.0,
+              "trial_3_correct": 0,
+              "trial_3_submitted": 1,
+              "trial_3_control_steps": 4550
             }
           }
         ]

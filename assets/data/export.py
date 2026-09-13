@@ -76,7 +76,7 @@ MODELS: tuple[ModelSpec, ...] = (
     ModelSpec("gemini37flash", "Gemini 3.7 Flash", "Gemini 3.7", "Google", False, ("gemini-3-7-flash",)),
     ModelSpec("opus48", "Claude Opus 4.8", "Opus 4.8", "Anthropic", False, ("claude-opus-4-8",)),
     ModelSpec("gpt56luna", "GPT-5.6 Luna", "Luna", "OpenAI", False, ("gpt-5-6-luna",)),
-    ModelSpec("glm53flash", "GLM-5.3 Flash", "GLM-5.3", "Z.ai", True, ("glm-5-3-flash",)),
+    ModelSpec("glm53flash", "GLM-5.3 Flash", "GLM-5.3", "Z.ai", True, ("glm-5-3-flash", "glm-5-3-flash[1m]")),
     ModelSpec("gpt56terra", "GPT-5.6 Terra", "Terra", "OpenAI", False, ("gpt-5-6-terra",)),
     ModelSpec("grok-4-6", "Grok 4.6", "Grok 4.6", "xAI", False, ("grok-4-6",)),
     ModelSpec("deepseek-flash", "DeepSeek-V4.1-Flash", "DeepSeek-V4.1-Flash", "DeepSeek AI", False, ("deepseek-flash",)),
@@ -208,6 +208,13 @@ def first_components(n: int) -> Callable[[str], str]:
     return lambda job: "/".join(job.split("/")[:n])
 
 
+def catalog_job_subtask(job: str, catalog: dict[str, str]) -> str | None:
+    """Find a catalog slug in either a job path or a flat subscription job name."""
+    normalized = job.replace("_", "-")
+    matches = [slug for slug in catalog if re.search(r"(?:^|[-/])" + re.escape(slug) + r"(?=$|[-/])", normalized)]
+    return matches[0] if len(matches) == 1 else None
+
+
 AGENTIC_SUBTASKS = {
     "01-open-fridge": "Open fridge",
     "02-close-cabinet": "Close cabinet",
@@ -253,6 +260,9 @@ REASONING_SUBTASKS = {
 
 def reasoning_subtask(job: str) -> str:
     """``codex-gpt_6_astra-20260911T012050-03_balance_coins`` -> ``03-balance-coins``."""
+    slug = catalog_job_subtask(job, REASONING_SUBTASKS)
+    if slug is not None:
+        return slug
     match = re.search(r"-(\d+_[a-z0-9_]+)$", job)
     return match.group(1).replace("_", "-") if match else job
 
@@ -264,6 +274,10 @@ TRACKING_SUBTASKS = {
     "04-run": "Run",
     "05-sprint": "Sprint",
 }
+
+
+def tracking_subtask(job: str) -> str:
+    return catalog_job_subtask(job, TRACKING_SUBTASKS) or job.split("/")[0]
 
 # Historical source: tasks/task06/README.md in RLE-Bench-dev: stage weights; gates cap the reward at 0.15.
 MOBILE_BASE_STAGES = (
@@ -397,7 +411,7 @@ TASKS: tuple[TaskSpec, ...] = (
         aggregate="mean",
         splits=tuple(Split(slug, label, subtasks=(slug,)) for slug, label in TRACKING_SUBTASKS.items()),
         subtasks={slug: {"label": label} for slug, label in TRACKING_SUBTASKS.items()},
-        subtask_of=first_components(1),
+        subtask_of=tracking_subtask,
         score_note="episode = 0.7 × tracking_multi + 0.3 × survival, averaged over hidden seeds; task score is the mean over five clips.",
     ),
     TaskSpec(

@@ -2641,6 +2641,686 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "claude_code-deepseek_flash-20260911T192422-task04_01_dance_context1m_high-484a077c",
+      "status": "completed",
+      "cost_usd": 6.462739999999999,
+      "reward": 0.8032,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1149,
+        "anchor_pos_err_m": 0.7057,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.193,
+        "mpjpe_m": 0.0386,
+        "n_params": 826397.0,
+        "obs_history_length": 8.0,
+        "raw_total": 0.8032,
+        "reward": 0.8032,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.7994,
+        "tracking_score": 0.9822
+      },
+      "extra": {
+        "started_at": "2026-09-11T19:24:23.213222",
+        "finished_at": "2026-09-11T22:46:50.277744",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 7662772,
+          "n_cache_tokens": 7592960,
+          "n_output_tokens": 92688
+        },
+        "trials": [
+          {
+            "trial": "01-dance__w8t4Uwx",
+            "rewards": {
+              "reward": 0.8032,
+              "raw_total": 0.8032,
+              "gated": 0,
+              "tracking_score": 0.9822,
+              "tracking_multi": 0.7994,
+              "mpjpe_m": 0.0386,
+              "anchor_pos_err_m": 0.7057,
+              "joint_rmse_rad": 0.193,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1149,
+              "falls": 0.0,
+              "n_params": 826397.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 8.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "claude_code-deepseek_flash-20260911T201841-task04_04_run_context1m_high-9368dfa4",
+      "status": "completed",
+      "cost_usd": 9.674345000000002,
+      "reward": 0.8208,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1453,
+        "anchor_pos_err_m": 0.9781,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.109,
+        "mpjpe_m": 0.0323,
+        "n_params": 1485405.0,
+        "obs_history_length": 5.0,
+        "raw_total": 0.8208,
+        "reward": 0.8208,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.846,
+        "tracking_score": 0.9869
+      },
+      "extra": {
+        "started_at": "2026-09-11T20:18:42.209859",
+        "finished_at": "2026-09-11T23:34:20.670365",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 12681323,
+          "n_cache_tokens": 12600960,
+          "n_output_tokens": 118882
+        },
+        "trials": [
+          {
+            "trial": "04-run__xE4aZPi",
+            "rewards": {
+              "reward": 0.8208,
+              "raw_total": 0.8208,
+              "gated": 0,
+              "tracking_score": 0.9869,
+              "tracking_multi": 0.846,
+              "mpjpe_m": 0.0323,
+              "anchor_pos_err_m": 0.9781,
+              "joint_rmse_rad": 0.109,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1453,
+              "falls": 0.0,
+              "n_params": 1485405.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 5.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "claude_code-deepseek_flash-20260911T224710-task04_02_fight_context1m_high-8ff34358",
+      "status": "completed",
+      "cost_usd": 12.161617999999999,
+      "reward": 0.7576,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1637,
+        "anchor_pos_err_m": 0.9992,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1953,
+        "mpjpe_m": 0.0431,
+        "n_params": 828826.0,
+        "obs_history_length": 1.0,
+        "raw_total": 0.7576,
+        "reward": 0.7576,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.7685,
+        "tracking_score": 0.9762
+      },
+      "extra": {
+        "started_at": "2026-09-11T22:47:10.624448",
+        "finished_at": "2026-09-12T02:28:28.851886",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 15908377,
+          "n_cache_tokens": 15803776,
+          "n_output_tokens": 149469
+        },
+        "trials": [
+          {
+            "trial": "02-fight__JtMKLCm",
+            "rewards": {
+              "reward": 0.7576,
+              "raw_total": 0.7576,
+              "gated": 0,
+              "tracking_score": 0.9762,
+              "tracking_multi": 0.7685,
+              "mpjpe_m": 0.0431,
+              "anchor_pos_err_m": 0.9992,
+              "joint_rmse_rad": 0.1953,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1637,
+              "falls": 0.0,
+              "n_params": 828826.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 1.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "claude_code-deepseek_flash-20260911T231709-task04_03_fall_and_get_up_context1m_high-a67068ef",
+      "status": "completed",
+      "cost_usd": 34.03885500000003,
+      "reward": 0.4147,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.3445,
+        "anchor_pos_err_m": 1.0726,
+        "falls": 5.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.2796,
+        "mpjpe_m": 0.0459,
+        "n_params": 1980542.0,
+        "obs_history_length": 8.0,
+        "raw_total": 0.4147,
+        "reward": 0.4147,
+        "survival": 0.6981,
+        "survived_s": 13.962,
+        "tracking_multi": 0.5332,
+        "tracking_score": 0.6783
+      },
+      "extra": {
+        "started_at": "2026-09-11T23:17:09.958381",
+        "finished_at": "2026-09-12T02:57:35.689542",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 56121086,
+          "n_cache_tokens": 55984000,
+          "n_output_tokens": 214457
+        },
+        "trials": [
+          {
+            "trial": "03-fall-and-get-up__kF4Q4pm",
+            "rewards": {
+              "reward": 0.4147,
+              "raw_total": 0.4147,
+              "gated": 0,
+              "tracking_score": 0.6783,
+              "tracking_multi": 0.5332,
+              "mpjpe_m": 0.0459,
+              "anchor_pos_err_m": 1.0726,
+              "joint_rmse_rad": 0.2796,
+              "survival": 0.6981,
+              "survived_s": 13.962,
+              "action_jerk": 0.3445,
+              "falls": 5.0,
+              "n_params": 1980542.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 8.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "claude_code-deepseek_flash-20260911T233430-task04_05_sprint_context1m_high-210dd7c4",
+      "status": "completed",
+      "cost_usd": 13.03203999999999,
+      "reward": 0.6032,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.133,
+        "anchor_pos_err_m": 2.2967,
+        "falls": 2.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.206,
+        "mpjpe_m": 0.0577,
+        "n_params": 661919.0,
+        "obs_history_length": 6.0,
+        "raw_total": 0.6032,
+        "reward": 0.6032,
+        "survival": 0.8726,
+        "survived_s": 17.453,
+        "tracking_multi": 0.5989,
+        "tracking_score": 0.8287
+      },
+      "extra": {
+        "started_at": "2026-09-11T23:34:31.045984",
+        "finished_at": "2026-09-12T02:55:40.886047",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 17703181,
+          "n_cache_tokens": 17608320,
+          "n_output_tokens": 150143
+        },
+        "trials": [
+          {
+            "trial": "05-sprint__Y9UjVKU",
+            "rewards": {
+              "reward": 0.6032,
+              "raw_total": 0.6032,
+              "gated": 0,
+              "tracking_score": 0.8287,
+              "tracking_multi": 0.5989,
+              "mpjpe_m": 0.0577,
+              "anchor_pos_err_m": 2.2967,
+              "joint_rmse_rad": 0.206,
+              "survival": 0.8726,
+              "survived_s": 17.453,
+              "action_jerk": 0.133,
+              "falls": 2.0,
+              "n_params": 661919.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 6.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "grok_build-grok_46-20260911T170814-7ce1db91-01_dance_high_subscription",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.3631,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1453,
+        "anchor_pos_err_m": 0.383,
+        "falls": 8.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1637,
+        "mpjpe_m": 0.0436,
+        "n_params": 2248286.0,
+        "obs_history_length": 4.0,
+        "raw_total": 0.3631,
+        "reward": 0.3631,
+        "survival": 0.576,
+        "survived_s": 11.52,
+        "tracking_multi": 0.4452,
+        "tracking_score": 0.5601
+      },
+      "extra": {
+        "started_at": "2026-09-11T17:08:14.909511",
+        "finished_at": "2026-09-11T17:38:59.724550",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "01-dance__Vb7xTVn",
+            "rewards": {
+              "reward": 0.3631,
+              "raw_total": 0.3631,
+              "gated": 0,
+              "tracking_score": 0.5601,
+              "tracking_multi": 0.4452,
+              "mpjpe_m": 0.0436,
+              "anchor_pos_err_m": 0.383,
+              "joint_rmse_rad": 0.1637,
+              "survival": 0.576,
+              "survived_s": 11.52,
+              "action_jerk": 0.1453,
+              "falls": 8.0,
+              "n_params": 2248286.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 4.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "grok_build-grok_46-20260911T170854-517cd17d-02_fight_high_subscription",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0929,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1594,
+        "anchor_pos_err_m": 0.6964,
+        "falls": 8.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1411,
+        "mpjpe_m": 0.0618,
+        "n_params": 2248287.0,
+        "obs_history_length": 4.0,
+        "raw_total": 0.0929,
+        "reward": 0.0929,
+        "survival": 0.257,
+        "survived_s": 5.14,
+        "tracking_multi": 0.1738,
+        "tracking_score": 0.2438
+      },
+      "extra": {
+        "started_at": "2026-09-11T17:08:54.992053",
+        "finished_at": "2026-09-11T17:40:05.127548",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "02-fight__DMdeKSW",
+            "rewards": {
+              "reward": 0.0929,
+              "raw_total": 0.0929,
+              "gated": 0,
+              "tracking_score": 0.2438,
+              "tracking_multi": 0.1738,
+              "mpjpe_m": 0.0618,
+              "anchor_pos_err_m": 0.6964,
+              "joint_rmse_rad": 0.1411,
+              "survival": 0.257,
+              "survived_s": 5.14,
+              "action_jerk": 0.1594,
+              "falls": 8.0,
+              "n_params": 2248287.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 4.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "grok_build-grok_46-20260911T172618-935f2945-03_fall_and_get_up_high_subscription",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.5664,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.0865,
+        "anchor_pos_err_m": 0.5395,
+        "falls": 8.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.3573,
+        "mpjpe_m": 0.0703,
+        "n_params": 250717.0,
+        "obs_history_length": 1.0,
+        "raw_total": 0.5664,
+        "reward": 0.5664,
+        "survival": 0.8262,
+        "survived_s": 16.525,
+        "tracking_multi": 0.5872,
+        "tracking_score": 0.7494
+      },
+      "extra": {
+        "started_at": "2026-09-11T17:26:19.120500",
+        "finished_at": "2026-09-11T21:25:55.521289",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "03-fall-and-get-up__24BXGZY",
+            "rewards": {
+              "reward": 0.5664,
+              "raw_total": 0.5664,
+              "gated": 0,
+              "tracking_score": 0.7494,
+              "tracking_multi": 0.5872,
+              "mpjpe_m": 0.0703,
+              "anchor_pos_err_m": 0.5395,
+              "joint_rmse_rad": 0.3573,
+              "survival": 0.8262,
+              "survived_s": 16.525,
+              "action_jerk": 0.0865,
+              "falls": 8.0,
+              "n_params": 250717.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 1.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "grok_build-grok_46-20260911T173925-b8927853-04_run_high_subscription",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1561,
+        "anchor_pos_err_m": 0.0743,
+        "falls": 8.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.15,
+        "mpjpe_m": 0.0938,
+        "n_params": 1326172.0,
+        "obs_history_length": 4.0,
+        "raw_total": 0.0,
+        "reward": 0.0,
+        "survival": 0.0189,
+        "survived_s": 0.378,
+        "tracking_multi": 0.0095,
+        "tracking_score": 0.0169
+      },
+      "extra": {
+        "started_at": "2026-09-11T17:39:25.720171",
+        "finished_at": "2026-09-11T18:00:46.697838",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "04-run__gA4fQXC",
+            "rewards": {
+              "reward": 0.0,
+              "raw_total": 0.0,
+              "gated": 0,
+              "tracking_score": 0.0169,
+              "tracking_multi": 0.0095,
+              "mpjpe_m": 0.0938,
+              "anchor_pos_err_m": 0.0743,
+              "joint_rmse_rad": 0.15,
+              "survival": 0.0189,
+              "survived_s": 0.378,
+              "action_jerk": 0.1561,
+              "falls": 8.0,
+              "n_params": 1326172.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 4.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "grok_build-grok_46-20260911T174018-6c0474c5-05_sprint_high_subscription",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.3527,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1464,
+        "anchor_pos_err_m": 0.6714,
+        "falls": 8.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1054,
+        "mpjpe_m": 0.0416,
+        "n_params": 2248284.0,
+        "obs_history_length": 4.0,
+        "raw_total": 0.3527,
+        "reward": 0.3527,
+        "survival": 0.5602,
+        "survived_s": 11.205,
+        "tracking_multi": 0.4379,
+        "tracking_score": 0.5441
+      },
+      "extra": {
+        "started_at": "2026-09-11T17:40:18.609437",
+        "finished_at": "2026-09-11T18:08:04.912428",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "05-sprint__cot4thm",
+            "rewards": {
+              "reward": 0.3527,
+              "raw_total": 0.3527,
+              "gated": 0,
+              "tracking_score": 0.5441,
+              "tracking_multi": 0.4379,
+              "mpjpe_m": 0.0416,
+              "anchor_pos_err_m": 0.6714,
+              "joint_rmse_rad": 0.1054,
+              "survival": 0.5602,
+              "survived_s": 11.205,
+              "action_jerk": 0.1464,
+              "falls": 8.0,
+              "n_params": 2248284.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 4.0
+            }
+          }
+        ]
+      }
     }
   ]
 }
