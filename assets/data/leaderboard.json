@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "measured",
-  "generated_at": "2026-09-12T22:43:54Z",
+  "generated_at": "2026-09-13T03:20:25Z",
   "generator": "assets/data/export.py",
   "source": {
     "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId] reports per-subtask means over the task's runs: cost = mean API cost in USD, hours = mean agent wall-clock hours, context_tokens = mean of input_tokens minus cached_tokens per run (the homepage's Context Length). cost_total, hours_total, hours_median and the input/cached/output token counts are the corresponding totals over runs. The homepage's overall figures average these per-task means within each workflow, then across workflows. Missing API cost or token counts stay null. Costs come from the run dumps except for the models listed under source.prices, whose cost is recomputed from token counts because their harness billed them against the wrong price sheet; costs[...].cost_sources and results[...].subtasks[...].cost_source say which applies. Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc.",
@@ -13,6 +13,15 @@
       "compact": false
     },
     "prices": {
+      "deepseek-flash": {
+        "file": "price/deepseek-flash.json",
+        "rate": "mean",
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "input": 0.225,
+        "cached_input": 0.0045,
+        "output": 0.9
+      },
       "glm-5.3-flash": {
         "file": "price/glm-5.3-flash.json",
         "rate": "list",
@@ -1990,8 +1999,8 @@
         "n_subtasks": 5
       },
       "deepseek-flash": {
-        "cost": 11.005632,
-        "cost_total": 55.028159,
+        "cost": 0.224273,
+        "cost_total": 1.121367,
         "hours": 0.4765,
         "hours_median": 0.5211,
         "hours_total": 2.3824,
@@ -2000,7 +2009,7 @@
         "cached_tokens": 64587008,
         "output_tokens": 854818,
         "cost_sources": [
-          "harness"
+          "price/deepseek-flash.json:mean"
         ],
         "n_runs": 5,
         "n_subtasks": 5
@@ -2136,8 +2145,8 @@
         "n_subtasks": 5
       },
       "deepseek-flash": {
-        "cost": 15.07392,
-        "cost_total": 75.369598,
+        "cost": 0.251149,
+        "cost_total": 1.255743,
         "hours": 3.47,
         "hours_median": 3.3742,
         "hours_total": 17.3498,
@@ -2146,7 +2155,7 @@
         "cached_tokens": 109590016,
         "output_tokens": 725639,
         "cost_sources": [
-          "harness"
+          "price/deepseek-flash.json:mean"
         ],
         "n_runs": 5,
         "n_subtasks": 5
@@ -2412,8 +2421,8 @@
         "n_subtasks": 4
       },
       "deepseek-flash": {
-        "cost": 18.380316,
-        "cost_total": 73.521265,
+        "cost": 0.310925,
+        "cost_total": 1.243698,
         "hours": 1.5519,
         "hours_median": 1.5594,
         "hours_total": 6.2077,
@@ -2422,7 +2431,7 @@
         "cached_tokens": 105205120,
         "output_tokens": 760295,
         "cost_sources": [
-          "harness"
+          "price/deepseek-flash.json:mean"
         ],
         "n_runs": 4,
         "n_subtasks": 4
@@ -2510,8 +2519,8 @@
         "n_subtasks": 1
       },
       "glm53flash": {
-        "cost": null,
-        "cost_total": null,
+        "cost": 0.603277,
+        "cost_total": 0.603277,
         "hours": 5.087,
         "hours_median": 5.087,
         "hours_total": 5.087,
@@ -2590,8 +2599,8 @@
         "n_subtasks": 1
       },
       "deepseek-flash": {
-        "cost": 25.000043,
-        "cost_total": 25.000043,
+        "cost": 0.396947,
+        "cost_total": 0.396947,
         "hours": 3.1909,
         "hours_median": 3.1909,
         "hours_total": 3.1909,
@@ -2600,7 +2609,7 @@
         "cached_tokens": 37771776,
         "output_tokens": 214056,
         "cost_sources": [
-          "harness"
+          "price/deepseek-flash.json:mean"
         ],
         "n_runs": 1,
         "n_subtasks": 1
@@ -2752,8 +2761,8 @@
         "n_subtasks": 1
       },
       "deepseek-flash": {
-        "cost": 13.658404,
-        "cost_total": 13.658404,
+        "cost": 0.2591,
+        "cost_total": 0.2591,
         "hours": 0.5296,
         "hours_median": 0.5296,
         "hours_total": 0.5296,
@@ -2762,7 +2771,7 @@
         "cached_tokens": 17547008,
         "output_tokens": 176363,
         "cost_sources": [
-          "harness"
+          "price/deepseek-flash.json:mean"
         ],
         "n_runs": 1,
         "n_subtasks": 1
@@ -2914,8 +2923,8 @@
         "n_subtasks": 1
       },
       "deepseek-flash": {
-        "cost": 6.95888,
-        "cost_total": 6.95888,
+        "cost": 0.155596,
+        "cost_total": 0.155596,
         "hours": 0.2422,
         "hours_median": 0.2422,
         "hours_total": 0.2422,
@@ -2924,7 +2933,7 @@
         "cached_tokens": 7307520,
         "output_tokens": 115638,
         "cost_sources": [
-          "harness"
+          "price/deepseek-flash.json:mean"
         ],
         "n_runs": 1,
         "n_subtasks": 1
@@ -12514,8 +12523,8 @@
             "score": 0.264183,
             "reward": 0.264183,
             "success_rate": 0.264183,
-            "cost_usd": 2.255263,
-            "cost_usd_mean": 2.255263,
+            "cost_usd": 0.058413,
+            "cost_usd_mean": 0.058413,
             "hours_median": 0.2865,
             "n_runs": 1,
             "complete": true
@@ -12524,8 +12533,8 @@
             "score": 0.241989,
             "reward": 0.241989,
             "success_rate": 0.241989,
-            "cost_usd": 16.431546,
-            "cost_usd_mean": 16.431546,
+            "cost_usd": 0.309482,
+            "cost_usd_mean": 0.309482,
             "hours_median": 0.5594,
             "n_runs": 1,
             "complete": true
@@ -12534,8 +12543,8 @@
             "score": 1.0,
             "reward": 1.0,
             "success_rate": 1.0,
-            "cost_usd": 8.807428,
-            "cost_usd_mean": 8.807428,
+            "cost_usd": 0.199968,
+            "cost_usd_mean": 0.199968,
             "hours_median": 0.6686,
             "n_runs": 1,
             "complete": true
@@ -12544,8 +12553,8 @@
             "score": 0.0,
             "reward": 0.0,
             "success_rate": 0.0,
-            "cost_usd": 17.176811,
-            "cost_usd_mean": 17.176811,
+            "cost_usd": 0.321424,
+            "cost_usd_mean": 0.321424,
             "hours_median": 0.5211,
             "n_runs": 1,
             "complete": true
@@ -12554,8 +12563,8 @@
             "score": 0.666667,
             "reward": 0.666667,
             "success_rate": null,
-            "cost_usd": 10.357111,
-            "cost_usd_mean": 10.357111,
+            "cost_usd": 0.23208,
+            "cost_usd_mean": 0.23208,
             "hours_median": 0.3469,
             "n_runs": 1,
             "complete": true
@@ -12565,8 +12574,8 @@
           "01-tower-max-height": {
             "reward": 0.264183,
             "success_rate": 0.264183,
-            "cost_usd": 2.255263,
-            "cost_source": "harness",
+            "cost_usd": 0.058413,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 0.2865,
             "status": "completed",
             "harness": "Claude Code",
@@ -12593,8 +12602,8 @@
           "02-cantilever-overhang": {
             "reward": 0.241989,
             "success_rate": 0.241989,
-            "cost_usd": 16.431546,
-            "cost_source": "harness",
+            "cost_usd": 0.309482,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 0.5594,
             "status": "completed",
             "harness": "Claude Code",
@@ -12621,8 +12630,8 @@
           "03-balance-coins": {
             "reward": 1.0,
             "success_rate": 1.0,
-            "cost_usd": 8.807428,
-            "cost_source": "harness",
+            "cost_usd": 0.199968,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 0.6686,
             "status": "completed",
             "harness": "Claude Code",
@@ -12649,8 +12658,8 @@
           "04-rubik-cube": {
             "reward": 0.0,
             "success_rate": 0.0,
-            "cost_usd": 17.176811,
-            "cost_source": "harness",
+            "cost_usd": 0.321424,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 0.5211,
             "status": "completed",
             "harness": "Claude Code",
@@ -12681,8 +12690,8 @@
           "05-hidden-center-of-mass": {
             "reward": 0.666667,
             "success_rate": null,
-            "cost_usd": 10.357111,
-            "cost_source": "harness",
+            "cost_usd": 0.23208,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 0.3469,
             "status": "completed",
             "harness": "Claude Code",
@@ -14625,8 +14634,8 @@
             "score": 0.8032,
             "reward": 0.8032,
             "success_rate": null,
-            "cost_usd": 6.46274,
-            "cost_usd_mean": 6.46274,
+            "cost_usd": 0.133295,
+            "cost_usd_mean": 0.133295,
             "hours_median": 3.3742,
             "n_runs": 1,
             "complete": true
@@ -14635,8 +14644,8 @@
             "score": 0.7576,
             "reward": 0.7576,
             "success_rate": null,
-            "cost_usd": 12.161618,
-            "cost_usd_mean": 12.161618,
+            "cost_usd": 0.229174,
+            "cost_usd_mean": 0.229174,
             "hours_median": 3.6884,
             "n_runs": 1,
             "complete": true
@@ -14645,8 +14654,8 @@
             "score": 0.4147,
             "reward": 0.4147,
             "success_rate": null,
-            "cost_usd": 34.038855,
-            "cost_usd_mean": 34.038855,
+            "cost_usd": 0.475784,
+            "cost_usd_mean": 0.475784,
             "hours_median": 3.6738,
             "n_runs": 1,
             "complete": true
@@ -14655,8 +14664,8 @@
             "score": 0.8208,
             "reward": 0.8208,
             "success_rate": null,
-            "cost_usd": 9.674345,
-            "cost_usd_mean": 9.674345,
+            "cost_usd": 0.18178,
+            "cost_usd_mean": 0.18178,
             "hours_median": 3.2607,
             "n_runs": 1,
             "complete": true
@@ -14665,8 +14674,8 @@
             "score": 0.6032,
             "reward": 0.6032,
             "success_rate": null,
-            "cost_usd": 13.03204,
-            "cost_usd_mean": 13.03204,
+            "cost_usd": 0.23571,
+            "cost_usd_mean": 0.23571,
             "hours_median": 3.3527,
             "n_runs": 1,
             "complete": true
@@ -14676,8 +14685,8 @@
           "01-dance": {
             "reward": 0.8032,
             "success_rate": null,
-            "cost_usd": 6.46274,
-            "cost_source": "harness",
+            "cost_usd": 0.133295,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 3.3742,
             "status": "completed",
             "harness": "Claude Code",
@@ -14712,8 +14721,8 @@
           "02-fight": {
             "reward": 0.7576,
             "success_rate": null,
-            "cost_usd": 12.161618,
-            "cost_source": "harness",
+            "cost_usd": 0.229174,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 3.6884,
             "status": "completed",
             "harness": "Claude Code",
@@ -14748,8 +14757,8 @@
           "03-fall-and-get-up": {
             "reward": 0.4147,
             "success_rate": null,
-            "cost_usd": 34.038855,
-            "cost_source": "harness",
+            "cost_usd": 0.475784,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 3.6738,
             "status": "completed",
             "harness": "Claude Code",
@@ -14784,8 +14793,8 @@
           "04-run": {
             "reward": 0.8208,
             "success_rate": null,
-            "cost_usd": 9.674345,
-            "cost_source": "harness",
+            "cost_usd": 0.18178,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 3.2607,
             "status": "completed",
             "harness": "Claude Code",
@@ -14820,8 +14829,8 @@
           "05-sprint": {
             "reward": 0.6032,
             "success_rate": null,
-            "cost_usd": 13.03204,
-            "cost_source": "harness",
+            "cost_usd": 0.23571,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 3.3527,
             "status": "completed",
             "harness": "Claude Code",
@@ -17891,8 +17900,8 @@
             "score": 0.3212,
             "reward": 0.3212,
             "success_rate": null,
-            "cost_usd": 12.40522,
-            "cost_usd_mean": 12.40522,
+            "cost_usd": 0.233792,
+            "cost_usd_mean": 0.233792,
             "hours_median": 1.241,
             "n_runs": 1,
             "complete": true
@@ -17901,8 +17910,8 @@
             "score": 0.2115,
             "reward": 0.2115,
             "success_rate": null,
-            "cost_usd": 15.858718,
-            "cost_usd_mean": 15.858718,
+            "cost_usd": 0.277004,
+            "cost_usd_mean": 0.277004,
             "hours_median": 1.3497,
             "n_runs": 1,
             "complete": true
@@ -17911,8 +17920,8 @@
             "score": 0.0,
             "reward": 0.0,
             "success_rate": null,
-            "cost_usd": 22.117331,
-            "cost_usd_mean": 22.117331,
+            "cost_usd": 0.354385,
+            "cost_usd_mean": 0.354385,
             "hours_median": 1.7692,
             "n_runs": 1,
             "complete": true
@@ -17921,8 +17930,8 @@
             "score": 0.085,
             "reward": 0.085,
             "success_rate": null,
-            "cost_usd": 23.139996,
-            "cost_usd_mean": 23.139996,
+            "cost_usd": 0.378518,
+            "cost_usd_mean": 0.378518,
             "hours_median": 1.8479,
             "n_runs": 1,
             "complete": true
@@ -17932,8 +17941,8 @@
           "01-rgb-only": {
             "reward": 0.3212,
             "success_rate": null,
-            "cost_usd": 12.40522,
-            "cost_source": "harness",
+            "cost_usd": 0.233792,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 1.241,
             "status": "completed",
             "harness": "Claude Code",
@@ -17977,8 +17986,8 @@
           "02-rgb-depth": {
             "reward": 0.2115,
             "success_rate": null,
-            "cost_usd": 15.858718,
-            "cost_source": "harness",
+            "cost_usd": 0.277004,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 1.3497,
             "status": "completed",
             "harness": "Claude Code",
@@ -18022,8 +18031,8 @@
           "03-model-training": {
             "reward": 0.0,
             "success_rate": null,
-            "cost_usd": 22.117331,
-            "cost_source": "harness",
+            "cost_usd": 0.354385,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 1.7692,
             "status": "completed",
             "harness": "Claude Code",
@@ -18067,8 +18076,8 @@
           "04-method-agnostic": {
             "reward": 0.085,
             "success_rate": null,
-            "cost_usd": 23.139996,
-            "cost_source": "harness",
+            "cost_usd": 0.378518,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 1.8479,
             "status": "completed",
             "harness": "Claude Code",
@@ -18775,7 +18784,7 @@
           "bin-clearing": {
             "reward": 0.1231,
             "success_rate": null,
-            "cost_usd": null,
+            "cost_usd": 0.603277,
             "cost_source": "harness",
             "hours": 5.087,
             "status": "failed",
@@ -19110,8 +19119,8 @@
           "bin-clearing": {
             "reward": 0.4604,
             "success_rate": null,
-            "cost_usd": 25.000043,
-            "cost_source": "harness",
+            "cost_usd": 0.396947,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 3.1909,
             "status": "completed",
             "harness": "Claude Code",
@@ -20182,8 +20191,8 @@
           "mobile-base": {
             "reward": 0.3886,
             "success_rate": null,
-            "cost_usd": 13.658404,
-            "cost_source": "harness",
+            "cost_usd": 0.2591,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 0.5296,
             "status": "completed",
             "harness": "Claude Code",
@@ -21616,8 +21625,8 @@
           "gello": {
             "reward": 0.457833,
             "success_rate": null,
-            "cost_usd": 6.95888,
-            "cost_source": "harness",
+            "cost_usd": 0.155596,
+            "cost_source": "price/deepseek-flash.json:mean",
             "hours": 0.2422,
             "status": "completed",
             "harness": "Claude Code",

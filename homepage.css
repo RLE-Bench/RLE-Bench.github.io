@@ -756,7 +756,7 @@ font-family:var(--serif);}
 /* Compact scope strip: proportional figures and readable sentence-case labels.
    These rules affect only the hero; the original headline and cost workbench stay intact. */
 .classic-home .hero-utility { display:flex; flex-wrap:wrap; align-items:center; gap:12px 24px; margin-top:25px; }
-.classic-home .hero-stats { display:grid; grid-template-columns:repeat(3,max-content); flex:0 0 auto; width:max-content; max-width:100%; margin:0; gap:0; border:1px solid var(--border-strong); background:color-mix(in srgb,var(--surface-1) 82%,var(--page)); border-radius:8px; overflow:hidden; }
+.classic-home .hero-stats { display:grid; grid-template-columns:repeat(4,max-content); flex:0 0 auto; width:max-content; max-width:100%; margin:0; gap:0; border:1px solid var(--border-strong); background:color-mix(in srgb,var(--surface-1) 82%,var(--page)); border-radius:8px; overflow:hidden; }
 .classic-home .stat { position:relative; display:flex; flex-direction:row; align-items:center; gap:9px; min-height:46px; min-width:0; padding:9px 14px; background:transparent; }
 .classic-home .stat + .stat::before { content:""; position:absolute; left:0; top:11px; bottom:11px; width:1px; background:var(--border-strong); }
 .classic-home .stat-val { order:-1; flex-shrink:0; margin:0; color:var(--text-primary); font:650 26px/1 var(--ui); font-variant-numeric:lining-nums tabular-nums; letter-spacing:-.055em; }
@@ -861,7 +861,7 @@ font-family:var(--serif);}
 }
 @media(max-width:760px) {
   .classic-home .hero-utility { flex-direction:column; align-items:stretch; width:min(440px,100%); gap:12px; margin-top:22px; }
-  .classic-home .hero-stats { width:100%; grid-template-columns:repeat(3,minmax(0,1fr)); flex:auto; }
+  .classic-home .hero-stats { width:100%; grid-template-columns:repeat(4,minmax(0,1fr)); flex:auto; }
   .classic-home .stat { justify-content:center; padding-inline:11px; }
   .classic-home .hero-cta { width:100%; }
   .classic-home .hero-cta .btn { flex:1; padding-inline:13px; }

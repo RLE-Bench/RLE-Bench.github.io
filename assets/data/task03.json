@@ -2545,7 +2545,7 @@
       "model": "deepseek-flash",
       "job": "claude_code-deepseek_flash-20260911T214901-task03_01_tower_max_height_context1m_high-d0d15045",
       "status": "completed",
-      "cost_usd": 2.2552629999999994,
+      "cost_usd": 0.058412862,
       "reward": 0.264183,
       "success_rate": 0.2641825036338026,
       "metrics": {
@@ -2597,7 +2597,7 @@
       "model": "deepseek-flash",
       "job": "claude_code-deepseek_flash-20260911T214905-task03_02_cantilever_overhang_context1m_high-079d6327",
       "status": "completed",
-      "cost_usd": 16.431546000000008,
+      "cost_usd": 0.309481884,
       "reward": 0.241989,
       "success_rate": 0.2419891453190504,
       "metrics": {
@@ -2649,7 +2649,7 @@
       "model": "deepseek-flash",
       "job": "claude_code-deepseek_flash-20260911T220657-task03_03_balance_coins_context1m_high-54b43f37",
       "status": "completed",
-      "cost_usd": 8.807428000000002,
+      "cost_usd": 0.199968192,
       "reward": 1.0,
       "success_rate": 1.0,
       "metrics": {
@@ -2701,7 +2701,7 @@
       "model": "deepseek-flash",
       "job": "claude_code-deepseek_flash-20260911T222317-task03_04_rubik_cube_context1m_high-dee0daae",
       "status": "completed",
-      "cost_usd": 17.176811000000004,
+      "cost_usd": 0.321423849,
       "reward": 0.0,
       "success_rate": 0.0,
       "metrics": {
@@ -2761,7 +2761,7 @@
       "model": "deepseek-flash",
       "job": "claude_code-deepseek_flash-20260911T224748-task03_05_hidden_center_of_mass_context1m_high-1cfced70",
       "status": "completed",
-      "cost_usd": 10.357111000000002,
+      "cost_usd": 0.232080174,
       "reward": 0.6666666666666666,
       "success_rate": null,
       "metrics": {

@@ -2647,7 +2647,7 @@
       "model": "deepseek-flash",
       "job": "claude_code-deepseek_flash-20260911T192422-task04_01_dance_context1m_high-484a077c",
       "status": "completed",
-      "cost_usd": 6.462739999999999,
+      "cost_usd": 0.13329522,
       "reward": 0.8032,
       "success_rate": null,
       "metrics": {
@@ -2715,7 +2715,7 @@
       "model": "deepseek-flash",
       "job": "claude_code-deepseek_flash-20260911T201841-task04_04_run_context1m_high-9368dfa4",
       "status": "completed",
-      "cost_usd": 9.674345000000002,
+      "cost_usd": 0.181779795,
       "reward": 0.8208,
       "success_rate": null,
       "metrics": {
@@ -2783,7 +2783,7 @@
       "model": "deepseek-flash",
       "job": "claude_code-deepseek_flash-20260911T224710-task04_02_fight_context1m_high-8ff34358",
       "status": "completed",
-      "cost_usd": 12.161617999999999,
+      "cost_usd": 0.229174317,
       "reward": 0.7576,
       "success_rate": null,
       "metrics": {
@@ -2851,7 +2851,7 @@
       "model": "deepseek-flash",
       "job": "claude_code-deepseek_flash-20260911T231709-task04_03_fall_and_get_up_context1m_high-a67068ef",
       "status": "completed",
-      "cost_usd": 34.03885500000003,
+      "cost_usd": 0.47578365,
       "reward": 0.4147,
       "success_rate": null,
       "metrics": {
@@ -2919,7 +2919,7 @@
       "model": "deepseek-flash",
       "job": "claude_code-deepseek_flash-20260911T233430-task04_05_sprint_context1m_high-210dd7c4",
       "status": "completed",
-      "cost_usd": 13.03203999999999,
+      "cost_usd": 0.235709865,
       "reward": 0.6032,
       "success_rate": null,
       "metrics": {

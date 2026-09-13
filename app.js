@@ -267,7 +267,7 @@
 
   /* Header, scope counts, and source status. */
   function renderMeta(){
-    const stats=[[tasks.length,'Engineering Tasks','Task definitions follow the research overview'],[workflows.length,'Workflows',workflows.map(w=>w.name).join(', ')],[agents.length,'Agents','Model and harness combinations in the development snapshot']];
+    const stats=[[tasks.length,'Families','Task families follow the research overview'],[workflows.length,'Workflows',workflows.map(w=>w.name).join(', ')],[48,'Tasks','Total tasks across all nine families'],[agents.length,'Agents','Model and harness combinations in the development snapshot']];
     const dl=$('#heroStats');dl.replaceChildren();
     stats.forEach(([value,title,note])=>{const row=make('div','stat');const dt=make('dt','stat-key',title);row.title=note;row.append(dt,make('dd','stat-val',value));dl.append(row);});
     const url=safeURL(BENCH.meta.github);if(url)$('#navGithub').href=url;else $('#navGithub').remove();

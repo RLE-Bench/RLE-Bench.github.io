@@ -1831,7 +1831,7 @@
       "model": "deepseek-flash",
       "job": "claude_code-deepseek_flash-20260911T192520-task09_context1m_high-0a30e072",
       "status": "completed",
-      "cost_usd": 6.958880000000001,
+      "cost_usd": 0.15559569,
       "reward": 0.4578333333333333,
       "success_rate": null,
       "metrics": {
