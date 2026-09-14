@@ -83,7 +83,7 @@
         svg.append(mark);
       });
       const label = svgNode('text', {x: center, y: bottom + 22, 'text-anchor': 'middle', class: 'harness-model'});
-      const words = model.name.split(' ');
+      const words = model.name.replace(/^DeepSeek-V4\.1-Flash$/, 'DeepSeek-V4.1 Flash').split(' ');
       const split = Math.ceil(words.length / 2);
       [words.slice(0, split).join(' '), words.slice(split).join(' ')].filter(Boolean).forEach((line, lineIndex) => label.append(svgNode('tspan', {x: center, dy: lineIndex ? 15 : 0}, line)));
       svg.append(label);
