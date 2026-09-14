@@ -1195,8 +1195,8 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 <link rel="stylesheet" href="demos.css"/>
 <link rel="stylesheet" href="harness-chart.css"/>
 <link rel="stylesheet" href="hillclimb.css"/>
-<link rel="stylesheet" href="../navigation.css?v=20260913-contribution-call"/>
-<script src="../navigation.js?v=20260911-menu" defer></script>
+<link rel="stylesheet" href="../navigation.css?v=20260914-contact"/>
+<script src="../navigation.js?v=20260914-contact" defer></script>
 </head>
 <body class="research-page" data-slug="introducing-rle-bench">
 <a class="skip-link" href="#article-content">Skip to article</a>
@@ -1211,19 +1211,19 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 <a href="../#index">Leaderboard</a>
 <a aria-current="page" class="is-active" href="./">Blog</a>
 <a href="../run/">Run</a>
-<a class="nav-ext" href="https://github.com/RLE-Bench/RLE-Bench-dev" id="navGithub" rel="noopener">
+<a class="nav-ext" href="https://github.com/RLE-Bench/RLE-Bench" id="navGithub" rel="noopener">
 <svg aria-hidden="true" fill="currentColor" height="14" viewbox="0 0 16 16" width="14"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path></svg>
         GitHub
       </a>
-<a aria-disabled="true" class="nav-ext is-pending" id="navArxiv" title="Public paper link not yet available">
+<a aria-disabled="true" class="nav-ext is-pending" id="navArxiv" title="Report (coming soon)">
 <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 16 16" width="14"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path><path d="M5.5 8h5M5.5 11h3"></path></svg>
-        Paper
+        <span class="nav-report-label">Report <span class="nav-report-note">(coming soon)</span></span>
       </a>
 <a class="nav-contribute" href="../contribute/"><span>RLE-Bench 2.0</span><span class="nav-contribute-note">Call for contributions</span></a>
-<a class="nav-ext" href="https://github.com/RLE-Bench/RLE-Bench-dev/issues" id="navContact" rel="noopener">
+<button class="nav-ext nav-contact" type="button" id="navContact" aria-haspopup="dialog" aria-controls="contactDialog">
 <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 16 16" width="14"><rect height="10" rx="1.5" width="13" x="1.5" y="3"></rect><path d="m2 4.5 6 4 6-4"></path></svg>
         Contact
-      </a>
+      </button>
 </nav>
 <div class="header-actions">
 <button aria-label="Toggle colour theme" class="icon-btn" id="themeToggle" type="button">
@@ -1534,7 +1534,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 <p>The next step is to understand how these capabilities emerge through experimentation: which feedback changes an agent’s approach, which abstractions transfer, and which physical failures it repeatedly overlooks. Completing the pending tasks and examining development trajectories, uncertainty, and resource use will help answer those questions.</p>
 <div class="closing-statement"><p>The next generation of coding agents may not simply write better robotics software. They may increasingly learn how the physical world responds to what they build.</p></div>
 </div>
-<footer class="post-foot article-end"><div><h3>Explore RLE-Bench</h3><p>Task interfaces, evaluation specifications, and benchmark implementation.</p></div><a class="btn" href="https://github.com/RLE-Bench/RLE-Bench-dev" id="repoCta" rel="noopener">GitHub <span aria-hidden="true">↗</span></a><p class="development-note">The leaderboard and performance charts above use the same current results as the main leaderboard. Task-specific case studies describe the runs discussed in the paper.</p></footer>
+<footer class="post-foot article-end"><div><h3>Explore RLE-Bench</h3><p>Task interfaces, evaluation specifications, and benchmark implementation.</p></div><a class="btn" href="https://github.com/RLE-Bench/RLE-Bench" id="repoCta" rel="noopener">GitHub <span aria-hidden="true">↗</span></a><p class="development-note">The leaderboard and performance charts above use the same current results as the main leaderboard. Task-specific case studies describe the runs discussed in the paper.</p></footer>
 </article></div></main>
 <footer class="site-footer"><div class="wrap footer-inner"><div><div class="footer-brand"><img alt="" class="brand-mark" height="26" src="../assets/icon.png" width="26"/><span class="brand-text small">RLE<span class="brand-dim">-Bench</span></span></div><p class="muted">A qualifying exam for coding agents as robot learning engineers.</p></div><div class="footer-meta"><a href="./">Research blog</a><span>Manuscript companion · September 2026</span></div></div></footer>
 <dialog class="hc-video-dialog" id="hc-video-dialog" aria-labelledby="hc-video-title">
@@ -1545,7 +1545,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 </video>
 </dialog>
 <dialog aria-label="Expanded paper figure" class="image-dialog" id="imageDialog"><form method="dialog"><button aria-label="Close expanded figure" class="dialog-close" type="submit">Close <span aria-hidden="true">×</span></button></form><img alt="" id="dialogImage"/><p id="dialogCaption"></p></dialog>
-<script src="../data.js?v=20260913-shared-results"></script>
+<script src="../data.js?v=20260914-links"></script>
 <script src="../leaderboard.js?v=20260913-shared-results"></script>
 <script>/* Publication metadata. The date records an editorial update. */
 const POSTS = [
@@ -1602,24 +1602,25 @@ if (typeof module !== "undefined") module.exports = POSTS;
     try { const u = new URL(value, location.href); return ['http:', 'https:', 'mailto:'].includes(u.protocol) ? value : null; } catch (_) { return null; }
   };
   if (typeof BENCH !== 'undefined' && BENCH.meta) {
-    [['#navGithub', BENCH.meta.github], ['#repoCta', BENCH.meta.github], ['#navContact', BENCH.meta.contact]].forEach(([selector, value]) => {
+    [['#navGithub', BENCH.meta.github], ['#repoCta', BENCH.meta.github]].forEach(([selector, value]) => {
       const link = $(selector), url = safeURL(value);
       if (link && url) link.href = url;
       else if (link) link.remove();
     });
-    const paper = $('#navArxiv');
-    if (paper) {
+    const report = $('#navArxiv');
+    if (report) {
       const url = safeURL(BENCH.meta.arxiv);
       if (url) {
-        paper.href = url;
-        paper.classList.remove('is-pending');
-        paper.removeAttribute('aria-disabled');
-        paper.title = 'Read the paper';
+        report.href = url;
+        report.classList.remove('is-pending');
+        report.removeAttribute('aria-disabled');
+        report.title = 'Read the report';
+        report.querySelector('.nav-report-note').hidden = true;
       } else {
-        paper.removeAttribute('href');
-        paper.classList.add('is-pending');
-        paper.setAttribute('aria-disabled', 'true');
-        paper.title = 'Public paper link not yet available';
+        report.removeAttribute('href');
+        report.classList.add('is-pending');
+        report.setAttribute('aria-disabled', 'true');
+        report.title = 'Report (coming soon)';
       }
     }
     // Older non-research posts may still use these site-version placeholders.

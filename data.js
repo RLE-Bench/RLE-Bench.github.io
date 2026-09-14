@@ -34,13 +34,10 @@ const BENCH = {
     version: "v1.0-dev",
     updated: "2026-09-02",
     dataStatus: "placeholder", // overridden by leaderboard.json `status` ("measured") once it loads
-    // Header links. Fill `arxiv` in when the paper is up — until then the
+    // Header links. Fill `arxiv` in when the report is up — until then the
     // nav shows the link greyed out rather than pointing nowhere.
-    github: "https://github.com/RLE-Bench/RLE-Bench-dev",
+    github: "https://github.com/RLE-Bench/RLE-Bench",
     arxiv: "",
-    // Where to reach the maintainers. A mailto: also works — e.g.
-    // "mailto:you@example.com" — swap it for whichever you want public.
-    contact: "https://github.com/RLE-Bench/RLE-Bench-dev/issues",
   },
 
   /* --- agents under evaluation and their scores ---------------------------

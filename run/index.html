@@ -12,8 +12,8 @@
 <link rel="stylesheet" href="run.css"/>
 <script>try{const t=localStorage.getItem('rlebench-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script>
 <script src="run.js" defer></script>
-<link rel="stylesheet" href="../navigation.css?v=20260913-contribution-call"/>
-<script src="../navigation.js?v=20260911-menu" defer></script>
+<link rel="stylesheet" href="../navigation.css?v=20260914-contact"/>
+<script src="../navigation.js?v=20260914-contact" defer></script>
 </head>
 <body class="home-page classic-home run-page">
 <a class="skip-link" href="#main">Skip to documentation</a>
@@ -27,19 +27,19 @@
 <a href="../#index">Leaderboard</a>
 <a href="../blog/">Blog</a>
 <a aria-current="page" class="is-active" href="./">Run</a>
-<a class="nav-ext" href="https://github.com/RLE-Bench/RLE-Bench-dev" id="navGithub" rel="noopener">
+<a class="nav-ext" href="https://github.com/RLE-Bench/RLE-Bench" id="navGithub" rel="noopener">
 <svg aria-hidden="true" fill="currentColor" height="14" viewbox="0 0 16 16" width="14"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path></svg>
         GitHub
       </a>
-<a aria-disabled="true" class="nav-ext is-pending" id="navArxiv" title="Public paper link not yet available">
+<a aria-disabled="true" class="nav-ext is-pending" id="navArxiv" title="Report (coming soon)">
 <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 16 16" width="14"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path><path d="M5.5 8h5M5.5 11h3"></path></svg>
-        Paper
+        <span class="nav-report-label">Report <span class="nav-report-note">(coming soon)</span></span>
       </a>
 <a class="nav-contribute" href="../contribute/"><span>RLE-Bench 2.0</span><span class="nav-contribute-note">Call for contributions</span></a>
-<a class="nav-ext" href="https://github.com/RLE-Bench/RLE-Bench-dev/issues" id="navContact" rel="noopener">
+<button class="nav-ext nav-contact" type="button" id="navContact" aria-haspopup="dialog" aria-controls="contactDialog">
 <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 16 16" width="14"><rect height="10" rx="1.5" width="13" x="1.5" y="3"></rect><path d="m2 4.5 6 4 6-4"></path></svg>
         Contact
-      </a>
+      </button>
 </nav>
 <div class="header-actions">
 <button aria-label="Toggle colour theme" class="icon-btn" id="themeToggle" type="button">
@@ -55,8 +55,8 @@
 <main class="docs-layout" id="main">
 <aside class="contents"><nav aria-label="On this page"><p>On this page</p><a href="#install">Install</a><a href="#reference">Check your setup</a><a href="#agent">Run an evaluation</a><a href="#bring-your-own-agent">Bring your own agent</a><a href="#results">View results</a></nav></aside>
 <article class="docs-content"><header class="docs-intro"><h1>Run RLE-Bench</h1><p class="intro">Install, evaluate, and inspect results with the RLE-Bench CLI.</p></header>
-<section id="install" aria-labelledby="install-heading"><h2 id="install-heading"><a href="#install"><span class="step">01</span>Install</a></h2><p>We test RLE-Bench on Linux with <a href="https://git-scm.com/">Git</a>, <a href="https://www.gnu.org/software/make/">Make</a>, <a href="https://docs.astral.sh/uv/">uv</a>, and <a href="https://docs.docker.com/engine/install/">Docker</a>. GPU tasks also require an NVIDIA GPU accessible from Docker.</p><div class="command"><div class="command-bar"><span>Shell</span><button class="copy-button" type="button" hidden>Copy</button></div><pre tabindex="0"><code>git clone https://github.com/RLE-Bench/RLE-Bench-dev.git
-cd RLE-Bench-dev
+<section id="install" aria-labelledby="install-heading"><h2 id="install-heading"><a href="#install"><span class="step">01</span>Install</a></h2><p>We test RLE-Bench on Linux with <a href="https://git-scm.com/">Git</a>, <a href="https://www.gnu.org/software/make/">Make</a>, <a href="https://docs.astral.sh/uv/">uv</a>, and <a href="https://docs.docker.com/engine/install/">Docker</a>. GPU tasks also require an NVIDIA GPU accessible from Docker.</p><div class="command"><div class="command-bar"><span>Shell</span><button class="copy-button" type="button" hidden>Copy</button></div><pre tabindex="0"><code>git clone https://github.com/RLE-Bench/RLE-Bench.git
+cd RLE-Bench
 make install
 source .venv/bin/activate</code></pre></div>
 <!-- <p>Installs Python 3.12, the benchmark CLI, and pinned dependencies. Run commands from the repository root.</p> -->
@@ -82,7 +82,7 @@ export CODEX_FORCE_AUTH_JSON=1</code></pre></div><div class="command"><div class
 </div>
 <details><summary>GPU example</summary><p>Prepare the Interactive Control task family.</p><div class="command"><div class="command-bar"><span>Shell</span><button class="copy-button" type="button" hidden>Copy</button></div><pre tabindex="0"><code>rlebench prepare task01</code></pre></div>
 <p>With Anthropic API credentials configured, run the open-fridge task on GPU 0.</p><div class="command"><div class="command-bar"><span>Shell</span><button class="copy-button" type="button" hidden>Copy</button></div><pre tabindex="0"><code>rlebench run task01/L1/01-open-fridge \
-  -a claude-code -e anthropic/api -m &quot;anthropic/MODEL_NAME&quot; --device cuda:0</code></pre></div></details><p>Use <code>rlebench run --help</code> for agents and options. Check <a href="https://github.com/RLE-Bench/RLE-Bench-dev/blob/master/README.md#-benchmark-tasks">task docs</a> for required datasets and weights.</p></section>
+  -a claude-code -e anthropic/api -m &quot;anthropic/MODEL_NAME&quot; --device cuda:0</code></pre></div></details><p>Use <code>rlebench run --help</code> for agents and options. Check <a href="https://github.com/RLE-Bench/RLE-Bench/blob/master/README.md#-benchmark-tasks">task docs</a> for required datasets and weights.</p></section>
 <section id="bring-your-own-agent" aria-labelledby="bring-your-own-agent-heading"><h2 id="bring-your-own-agent-heading"><a href="#bring-your-own-agent"><span class="step">04</span>Bring your own agent</a></h2>
 <p>You can use any <a href="https://www.harborframework.com/docs/agents">Harbor-supported agent and model</a>. Choose the agent with <code>-a</code> and the model with <code>-m</code>, then add Harbor configuration after <code>--</code>. RLE-Bench forwards everything after <code>--</code> directly to Harbor.</p>
 <div class="command"><div class="command-bar"><span>Shell</span><button class="copy-button" type="button" hidden>Copy</button></div><pre tabindex="0"><code>rlebench run task08 -a AGENT_NAME -m &quot;PROVIDER/MODEL_NAME&quot; \
@@ -91,6 +91,6 @@ export CODEX_FORCE_AUTH_JSON=1</code></pre></div><div class="command"><div class
 </section>
 <section id="results" aria-labelledby="results-heading"><h2 id="results-heading"><a href="#results"><span class="step">05</span>View results</a></h2><p>Generate reports with run statuses, rewards, and costs.</p><div class="command"><div class="command-bar"><span>Shell</span><button class="copy-button" type="button" hidden>Copy</button></div><pre tabindex="0"><code>rlebench summarize jobs</code></pre></div>
 <p>Open the viewer to explore trajectories, scores, and recordings.</p><div class="command"><div class="command-bar"><span>Shell</span><button class="copy-button" type="button" hidden>Copy</button></div><pre tabindex="0"><code>rlebench view jobs</code></pre></div></section>
-<footer class="docs-footer"><a href="https://github.com/RLE-Bench/RLE-Bench-dev/blob/master/README.md">Full documentation ↗</a><a href="https://github.com/RLE-Bench/RLE-Bench-dev/issues">Get help ↗</a></footer></article>
+<footer class="docs-footer"><a href="https://github.com/RLE-Bench/RLE-Bench/blob/master/README.md">Full documentation ↗</a><a href="https://github.com/RLE-Bench/RLE-Bench/issues">Get help ↗</a></footer></article>
 </main><p class="sr-only" id="copy-status" role="status"></p>
 </body></html>

@@ -33,4 +33,37 @@
   });
   const compact = matchMedia('(max-width: 900px), (orientation: portrait)');
   compact.addEventListener('change', () => setOpen(false));
+
+  const contact = document.getElementById('navContact');
+  if (contact) {
+    const dialog = document.createElement('dialog');
+    dialog.id = 'contactDialog';
+    dialog.className = 'contact-dialog';
+    dialog.setAttribute('aria-labelledby', 'contactTitle');
+    dialog.innerHTML = `
+      <div class="contact-dialog-header">
+        <h2 id="contactTitle">Contact</h2>
+        <form method="dialog">
+          <button class="contact-dialog-close" type="submit" aria-label="Close contact panel" autofocus>Close <span aria-hidden="true">×</span></button>
+        </form>
+      </div>
+      <dl class="contact-list">
+        <div><dt>Haitong Ma</dt><dd><a href="mailto:haitongma@g.harvard.edu">haitongma@g.harvard.edu</a></dd></div>
+        <div><dt>Chenxiao Gao</dt><dd><a href="mailto:cgao@gatech.edu">cgao@gatech.edu</a></dd></div>
+        <div><dt>Rushi Qiang</dt><dd><a href="mailto:rqiang6@gatech.edu">rqiang6@gatech.edu</a></dd></div>
+      </dl>`;
+    document.body.append(dialog);
+    contact.addEventListener('click', () => {
+      setOpen(false);
+      dialog.showModal();
+    });
+    dialog.addEventListener('click', event => {
+      if (event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+      (compact.matches ? button : contact).focus();
+    });
+  }
 })();

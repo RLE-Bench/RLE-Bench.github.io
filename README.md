@@ -73,10 +73,9 @@ over HTTP (for example `python3 -m http.server 8000`) rather than opened via
 In `data.js`:
 
 - `presentation` — task order and public T01–T09 numbers (task IDs equal the public numbers). `snapshotTaskIds` lists the tasks eligible for the index; `app.js` intersects it with the tasks reported in the leaderboard JSON. `workflows` defines the two-level task breakdown: each workflow (interactive control, policy development, perception and estimation, mechanical design) lists the task IDs it groups, in display order; any task left out lands in a trailing "Other tasks" group. The homepage shows the workflows as a first tab row and only the selected workflow's tasks as a second row; deep links such as `?task=task04` select the matching workflow automatically.
-- `meta` — version string, updated date, header links (`github`, `arxiv`,
-  `contact`), and `dataStatus`. An empty `arxiv` renders the nav item greyed
-  out rather than pointing nowhere; an empty `contact` or `github` drops that
-  item entirely. `contact` accepts a `mailto:` just as happily as a URL.
+- `meta` — version string, updated date, header links (`github`, `arxiv`), and `dataStatus`. An empty `arxiv` renders the nav item greyed
+  out rather than pointing nowhere; an empty `github` drops that item entirely.
+  The shared Contact panel and its email addresses live in `navigation.js`.
   `dataStatus` controls the source-status labels in charts and exports. The
   removed top-of-page banner is not restored.
 
@@ -386,6 +385,6 @@ The downloaded Harbor trial remains local and is excluded from Git.
 
 ## Run documentation
 
-`run/index.html` is the benchmark execution guide at `/run/`, linked from the homepage and blog. Its commands follow the benchmark repository’s [master README](https://github.com/RLE-Bench/RLE-Bench-dev/blob/master/README.md), using the `rlebench` CLI for setup checks, task preparation, evaluation, and result inspection. Keep it synchronized when benchmark setup changes. `run/run.css` extends the existing serif/monospace theme; `run/run.js` handles command copying and the shared theme preference. No build step is required.
+`run/index.html` is the benchmark execution guide at `/run/`, linked from the homepage and blog. Its commands follow the benchmark repository’s [master README](https://github.com/RLE-Bench/RLE-Bench/blob/master/README.md), using the `rlebench` CLI for setup checks, task preparation, evaluation, and result inspection. Keep it synchronized when benchmark setup changes. `run/run.css` extends the existing serif/monospace theme; `run/run.js` handles command copying and the shared theme preference. No build step is required.
 
 The Run page’s provider examples use `-e` for endpoints and `--device` for device selection, checked against `rlebench/cli.py`, `rlebench/providers.py`, and `rlebench/runner.py` on the benchmark’s master branch. The Gemini example uses `.venv/bin/rlebench run task09 -a agy -e gemini/api -m gemini-3.7-flash`. The “Bring your own agent” section covers Harbor-supported agents and models, with additional Harbor configuration passed after `--`. Codex subscription setup links to the official credential-storage documentation. These are command examples, not executed evaluations.
