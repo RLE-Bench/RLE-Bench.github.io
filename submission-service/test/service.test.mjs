@@ -251,7 +251,7 @@ test('scheduled cleanup expires sessions and OAuth state without deleting submis
 });
 
 function proposalFields(overrides = {}) {
-  return { title: 'Tactile slip recovery', domain: 'Robot manipulation', software: 'MuJoCo and Python', operating_system: 'Linux', licensing: 'Free / open source', description: 'Develop a tactile controller that can recover from slip with held-out friction settings.', evaluation: 'Measure successful recovery in at least 90 percent of 100 held-out simulation episodes.', contact: 'author@example.org', ...overrides };
+  return { title: 'Tactile slip recovery', domain: 'Robot manipulation', software: 'MuJoCo and Python', description: 'Develop a tactile controller that can recover from slip with held-out friction settings.', evaluation: 'Measure successful recovery in at least 90 percent of 100 held-out simulation episodes.', contact: 'author@example.org', ...overrides };
 }
 
 test('proposals support private drafts, independent submission, requested revisions and reviewer history', async t => {
@@ -299,7 +299,7 @@ test('proposal writes enforce authentication, CSRF, validation, quota and duplic
   for (const [path, method] of [['/api/proposals', 'GET'], ['/api/proposals', 'POST'], [`/api/proposals/${id}`, 'PUT'], [`/api/proposals/${id}/review`, 'POST']]) assert.equal((await s.request(path, { method })).status, 401);
   const data = { id, status: 'submitted', fields: proposalFields() };
   for (const headers of [{ Origin: 'https://evil.example' }, { 'X-CSRF-Token': '' }]) assert.equal((await s.request('/api/proposals', { user: owner, method: 'POST', data, headers })).status, 403);
-  for (const overrides of [{ description: 'Too short' }, { evaluation: 'Too short' }, { operating_system: 'unknown' }, { contact: 'invalid' }, { evidence_url: 'javascript:alert(1)' }, { reference_url: 'https://user:password@example.org' }, { materials_url: 'not-a-url' }, { title: 'x'.repeat(121) }]) {
+  for (const overrides of [{ description: 'Too short' }, { evaluation: 'Too short' }, { contact: 'invalid' }, { evidence_url: 'javascript:alert(1)' }, { reference_url: 'https://user:password@example.org' }, { materials_url: 'not-a-url' }, { title: 'x'.repeat(121) }]) {
     assert.equal((await s.request('/api/proposals', { user: owner, method: 'POST', data: { ...data, fields: proposalFields(overrides) } })).status, 400);
   }
   assert.equal((await s.request('/api/proposals', { user: owner, method: 'POST', data: { ...data, status: 'accepted' } })).status, 400);

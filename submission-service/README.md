@@ -117,7 +117,7 @@ is ready.
 - `/submit` collects finished task packages; `/propose` collects ideas before
   implementation. `/review` and `/review/proposals` have independent queues.
 - Proposals collect the task name, robotics domain, software and versions,
-  operating system, licensing category, description, evaluation plan, and email.
+  description, evaluation plan, and email.
   Input materials, reference output, HTTPS resource links, and a difficulty
   self-test are optional. Proposal supporting files use links in this version;
   proposals never need a ZIP and do not write to R2.

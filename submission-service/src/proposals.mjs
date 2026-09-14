@@ -1,8 +1,6 @@
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const STATUSES = ['submitted', 'in_review', 'changes_requested', 'accepted', 'declined'];
-const OS = ['Linux', 'Windows', 'macOS', 'Other', 'Not decided'];
-const LICENSES = ['Free / open source', 'Commercial', 'Internal / proprietary', 'Not decided'];
-const FIELDS = { title: 120, domain: 160, software: 500, operating_system: 40, licensing: 40, description: 4000, input_materials: 2000, materials_url: 2048, reference_output: 2000, reference_url: 2048, evaluation: 4000, contact: 320, self_test_model: 120, self_test_harness: 120, self_test_score: 120, evidence_url: 2048 };
+const FIELDS = { title: 120, domain: 160, software: 500, description: 4000, input_materials: 2000, materials_url: 2048, reference_output: 2000, reference_url: 2048, evaluation: 4000, contact: 320, self_test_model: 120, self_test_harness: 120, self_test_score: 120, evidence_url: 2048 };
 
 export function proposalRoutes({ authenticate, reviewer, bodyJson, field, limit, reject }) {
   const json = data => Response.json(data);
@@ -10,11 +8,9 @@ export function proposalRoutes({ authenticate, reviewer, bodyJson, field, limit,
     const result = {};
     for (const [key, maximum] of Object.entries(FIELDS)) result[key] = field({ [key]: data?.[key] ?? '' }, key, key === 'title' ? 3 : 0, maximum);
     if (submitted) {
-      for (const key of ['domain', 'software', 'operating_system', 'licensing', 'contact']) if (!result[key]) reject(400, `Complete the ${key.replaceAll('_', ' ')} field before submitting.`);
+      for (const key of ['domain', 'software', 'contact']) if (!result[key]) reject(400, `Complete the ${key.replaceAll('_', ' ')} field before submitting.`);
       for (const key of ['description', 'evaluation']) if (result[key].length < 30) reject(400, `Provide at least 30 characters for ${key}.`);
     }
-    if (result.operating_system && !OS.includes(result.operating_system)) reject(400, 'Select a supported operating system.');
-    if (result.licensing && !LICENSES.includes(result.licensing)) reject(400, 'Select a supported software license category.');
     if (result.contact && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(result.contact)) reject(400, 'Enter a contact email address.');
     for (const key of ['materials_url', 'reference_url', 'evidence_url']) {
       if (!result[key]) continue;
