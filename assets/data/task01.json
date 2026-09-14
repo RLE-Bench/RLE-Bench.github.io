@@ -6001,6 +6001,1756 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L1/01-open-fridge/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 31.848240750000006,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 38219.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T22:53:03.792947",
+        "finished_at": "2026-09-12T01:02:22.179308",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 57510477,
+          "n_cache_tokens": 56631670,
+          "n_output_tokens": 624789
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__zBLkYsc",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 38219,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L1/01-open-fridge/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 37.01804900000001,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 49925.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T11:02:55.789427",
+        "finished_at": "2026-09-12T14:01:55.868851",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 107204803,
+          "n_cache_tokens": 106963584,
+          "n_output_tokens": 613581
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__skP8UFC",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 49925,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L1/01-open-fridge/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 25706.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T20:56:07.163957",
+        "finished_at": "2026-09-12T11:01:02.135231",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__vmf9WTW",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 25706,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L1/02-close-cabinet/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 43.08502274999999,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 39737.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T01:02:25.740378",
+        "finished_at": "2026-09-12T03:24:52.825842",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 114427438,
+          "n_cache_tokens": 113355890,
+          "n_output_tokens": 708953
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__rK7boHk",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 39737,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L1/02-close-cabinet/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 28.32045,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 46213.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T22:53:06.611802",
+        "finished_at": "2026-09-12T00:29:40.084290",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 73721249,
+          "n_cache_tokens": 73523840,
+          "n_output_tokens": 599268
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__C2JFTvR",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 46213,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L1/02-close-cabinet/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 9551.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T11:02:06.040951",
+        "finished_at": "2026-09-12T13:31:50.790046",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__KGbK6Kt",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 9551,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L1/03-turn-on-stove/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 43.449111,
+      "reward": 0.355291,
+      "success_rate": 0.4,
+      "metrics": {
+        "component_efficiency": 0.0352912,
+        "component_outcome": 0.32000000000000006,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 27943.0,
+        "reward": 0.355291,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T03:24:57.024033",
+        "finished_at": "2026-09-12T05:36:18.798783",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 98207491,
+          "n_cache_tokens": 97026840,
+          "n_output_tokens": 731053
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__JQ3wA69",
+            "rewards": {
+              "component_efficiency": 0.0352912,
+              "component_outcome": 0.32000000000000006,
+              "interaction_budget": 50000,
+              "interaction_steps": 27943,
+              "reward": 0.355291,
+              "success_rate": 0.4,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L1/03-turn-on-stove/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 42.61309799999997,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 50000.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T00:29:43.966986",
+        "finished_at": "2026-09-12T02:21:00.503580",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 125332839,
+          "n_cache_tokens": 125079552,
+          "n_output_tokens": 570897
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__XgztrYb",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 50000,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L1/03-turn-on-stove/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 24355.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T00:12:08.066926",
+        "finished_at": "2026-09-12T01:52:26.546931",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__ADS4nEg",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 24355,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L1/04-pick-place-counter-to-drawer/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 31.109005749999994,
+      "reward": 0.567096,
+      "success_rate": 0.6,
+      "metrics": {
+        "component_efficiency": 0.08709599999999999,
+        "component_outcome": 0.48,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 13710.0,
+        "reward": 0.567096,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T11:08:01.264300",
+        "finished_at": "2026-09-12T12:30:58.465018",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 71357434,
+          "n_cache_tokens": 70504327,
+          "n_output_tokens": 477912
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__JAokvmq",
+            "rewards": {
+              "component_efficiency": 0.08709599999999999,
+              "component_outcome": 0.48,
+              "interaction_budget": 50000,
+              "interaction_steps": 13710,
+              "reward": 0.567096,
+              "success_rate": 0.6,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L1/04-pick-place-counter-to-drawer/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 39.63620099999999,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 47487.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T11:05:40.556055",
+        "finished_at": "2026-09-12T13:51:53.366161",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 120846500,
+          "n_cache_tokens": 120575616,
+          "n_output_tokens": 525124
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__sPxYq9v",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 47487,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L1/04-pick-place-counter-to-drawer/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 12295.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T01:52:30.650382",
+        "finished_at": "2026-09-12T03:29:05.594040",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__qVRDTe2",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 12295,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L1/05-pick-place-microwave-to-counter/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 51.59765949999997,
+      "reward": 0.173945,
+      "success_rate": 0.2,
+      "metrics": {
+        "component_efficiency": 0.013944800000000004,
+        "component_outcome": 0.16000000000000003,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 32569.0,
+        "reward": 0.173945,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T13:08:58.001154",
+        "finished_at": "2026-09-12T15:46:19.992725",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 128345990,
+          "n_cache_tokens": 126985862,
+          "n_output_tokens": 861559
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__4BvzQWH",
+            "rewards": {
+              "component_efficiency": 0.013944800000000004,
+              "component_outcome": 0.16000000000000003,
+              "interaction_budget": 50000,
+              "interaction_steps": 32569,
+              "reward": 0.173945,
+              "success_rate": 0.2,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L1/05-pick-place-microwave-to-counter/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 16.938333999999998,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 27754.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-13T00:53:47.237548",
+        "finished_at": "2026-09-13T02:30:17.862853",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 42474987,
+          "n_cache_tokens": 42292992,
+          "n_output_tokens": 363186
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__fHFWi2X",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 27754,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L1/05-pick-place-microwave-to-counter/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 25280.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T03:29:09.190414",
+        "finished_at": "2026-09-12T05:03:07.956019",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__e6RPKrr",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 25280,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L2/01-open-fridge/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 31.560244,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 50000.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T01:58:26.494804",
+        "finished_at": "2026-09-12T03:51:21.677787",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 83335358,
+          "n_cache_tokens": 83055232,
+          "n_output_tokens": 521532
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__9M27Vj7",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 50000,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L2/01-open-fridge/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 23448.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T01:53:59.985750",
+        "finished_at": "2026-09-12T03:07:17.236643",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__5uDVCBF",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 23448,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L2/02-close-cabinet/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 29.03479600000001,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 50000.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T03:51:25.186266",
+        "finished_at": "2026-09-12T05:47:53.925403",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 81257871,
+          "n_cache_tokens": 80987136,
+          "n_output_tokens": 500916
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__DvEor8X",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 50000,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L2/02-close-cabinet/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 39365.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T03:07:20.162992",
+        "finished_at": "2026-09-12T05:33:04.687514",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__aNXrWoP",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 39365,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L2/03-turn-on-stove/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 22.752153999999997,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 23591.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T05:47:57.687269",
+        "finished_at": "2026-09-12T06:45:18.999113",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 56862757,
+          "n_cache_tokens": 56633856,
+          "n_output_tokens": 471503
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__aChiwU2",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 23591,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L2/03-turn-on-stove/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.336414,
+      "success_rate": 0.4,
+      "metrics": {
+        "component_efficiency": 0.016414400000000006,
+        "component_outcome": 0.32000000000000006,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 39741.0,
+        "reward": 0.336414,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T05:33:08.255386",
+        "finished_at": "2026-09-12T06:55:50.374407",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__6hahS6D",
+            "rewards": {
+              "component_efficiency": 0.016414400000000006,
+              "component_outcome": 0.32000000000000006,
+              "interaction_budget": 50000,
+              "interaction_steps": 39741,
+              "reward": 0.336414,
+              "success_rate": 0.4,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L2/04-pick-place-counter-to-drawer/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 43.63897800000001,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 49812.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-13T02:30:22.103595",
+        "finished_at": "2026-09-13T05:07:10.502567",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 141825901,
+          "n_cache_tokens": 141477760,
+          "n_output_tokens": 479839
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__SfiATVq",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 49812,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L2/04-pick-place-counter-to-drawer/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.354894,
+      "success_rate": 0.4,
+      "metrics": {
+        "component_efficiency": 0.034894400000000006,
+        "component_outcome": 0.32000000000000006,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 28191.0,
+        "reward": 0.354894,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T06:55:54.135175",
+        "finished_at": "2026-09-12T08:24:14.050536",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__qzKXJRK",
+            "rewards": {
+              "component_efficiency": 0.034894400000000006,
+              "component_outcome": 0.32000000000000006,
+              "interaction_budget": 50000,
+              "interaction_steps": 28191,
+              "reward": 0.354894,
+              "success_rate": 0.4,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L2/05-pick-place-microwave-to-counter/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 40.306838000000006,
+      "reward": 0.16,
+      "success_rate": 0.2,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.16000000000000003,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 50000.0,
+        "reward": 0.16,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T07:49:58.188343",
+        "finished_at": "2026-09-12T10:12:07.766802",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 122358528,
+          "n_cache_tokens": 122018816,
+          "n_output_tokens": 502916
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__9hET7Do",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.16000000000000003,
+              "interaction_budget": 50000,
+              "interaction_steps": 50000,
+              "reward": 0.16,
+              "success_rate": 0.2,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L2/05-pick-place-microwave-to-counter/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.185233,
+      "success_rate": 0.2,
+      "metrics": {
+        "component_efficiency": 0.025232800000000003,
+        "component_outcome": 0.16000000000000003,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 18459.0,
+        "reward": 0.185233,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T08:24:17.752423",
+        "finished_at": "2026-09-12T10:03:46.197724",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__5XSYiP8",
+            "rewards": {
+              "component_efficiency": 0.025232800000000003,
+              "component_outcome": 0.16000000000000003,
+              "interaction_budget": 50000,
+              "interaction_steps": 18459,
+              "reward": 0.185233,
+              "success_rate": 0.2,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L3/01-open-fridge/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 23.669942,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 47165.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T15:32:39.153530",
+        "finished_at": "2026-09-12T17:17:35.917096",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 61405058,
+          "n_cache_tokens": 61131520,
+          "n_output_tokens": 455032
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__obQStHS",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 47165,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L3/01-open-fridge/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 20354.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T15:33:13.435533",
+        "finished_at": "2026-09-12T17:20:18.757546",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__LaPkRsQ",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 20354,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L3/02-close-cabinet/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 31.519052000000002,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 43102.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T17:17:39.491750",
+        "finished_at": "2026-09-12T19:04:55.987721",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 80251568,
+          "n_cache_tokens": 80026496,
+          "n_output_tokens": 716239
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__M8TeuAb",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 43102,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L3/02-close-cabinet/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.177643,
+      "success_rate": 0.2,
+      "metrics": {
+        "component_efficiency": 0.017643200000000005,
+        "component_outcome": 0.16000000000000003,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 27946.0,
+        "reward": 0.177643,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T17:20:22.289244",
+        "finished_at": "2026-09-12T18:55:01.277990",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__zyWqETd",
+            "rewards": {
+              "component_efficiency": 0.017643200000000005,
+              "component_outcome": 0.16000000000000003,
+              "interaction_budget": 50000,
+              "interaction_steps": 27946,
+              "reward": 0.177643,
+              "success_rate": 0.2,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L3/03-turn-on-stove/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 2.014895,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 49731.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T19:05:00.788685",
+        "finished_at": "2026-09-12T21:08:26.584912",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 73555850,
+          "n_cache_tokens": 73235072,
+          "n_output_tokens": 486065
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__4PKvgzK",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 49731,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L3/03-turn-on-stove/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 31633.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T21:01:20.167201",
+        "finished_at": "2026-09-12T22:35:23.906796",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__c4c6JG8",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 31633,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L3/04-pick-place-counter-to-drawer/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 16.884237000000002,
+      "reward": 0.160611,
+      "success_rate": 0.2,
+      "metrics": {
+        "component_efficiency": 0.0006111999999999985,
+        "component_outcome": 0.16000000000000003,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 49236.0,
+        "reward": 0.160611,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T21:08:27.790781",
+        "finished_at": "2026-09-12T22:43:46.386050",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 47260626,
+          "n_cache_tokens": 47045632,
+          "n_output_tokens": 319774
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__jfhAq4W",
+            "rewards": {
+              "component_efficiency": 0.0006111999999999985,
+              "component_outcome": 0.16000000000000003,
+              "interaction_budget": 50000,
+              "interaction_steps": 49236,
+              "reward": 0.160611,
+              "success_rate": 0.2,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L3/04-pick-place-counter-to-drawer/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.190728,
+      "success_rate": 0.2,
+      "metrics": {
+        "component_efficiency": 0.030728000000000005,
+        "component_outcome": 0.16000000000000003,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 11590.0,
+        "reward": 0.190728,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T22:35:27.773658",
+        "finished_at": "2026-09-12T23:59:15.698871",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__QGsRPrq",
+            "rewards": {
+              "component_efficiency": 0.030728000000000005,
+              "component_outcome": 0.16000000000000003,
+              "interaction_budget": 50000,
+              "interaction_steps": 11590,
+              "reward": 0.190728,
+              "success_rate": 0.2,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "L3/05-pick-place-microwave-to-counter/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 32.35945700000001,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 49605.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T22:43:50.002845",
+        "finished_at": "2026-09-13T00:53:24.453353",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 97912791,
+          "n_cache_tokens": 97612800,
+          "n_output_tokens": 454230
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__CpAGtRW",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 49605,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "L3/05-pick-place-microwave-to-counter/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.33911,
+      "success_rate": 0.4,
+      "metrics": {
+        "component_efficiency": 0.019110400000000003,
+        "component_outcome": 0.32000000000000006,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 38056.0,
+        "reward": 0.33911,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-13T01:29:12.923629",
+        "finished_at": "2026-09-13T03:15:57.448673",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__Dc9d8wc",
+            "rewards": {
+              "component_efficiency": 0.019110400000000003,
+              "component_outcome": 0.32000000000000006,
+              "interaction_budget": 50000,
+              "interaction_steps": 38056,
+              "reward": 0.33911,
+              "success_rate": 0.4,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
     }
   ]
 }

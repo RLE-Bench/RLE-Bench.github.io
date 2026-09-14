@@ -1395,6 +1395,874 @@
           }
         ]
       }
+    },
+    {
+      "agent": "oracle",
+      "model": "-",
+      "job": "task05/task1/oracle",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.726,
+      "success_rate": 0.726,
+      "metrics": {
+        "episodes": 500.0,
+        "parameters": 14520839.0,
+        "replay_wall_s": 1645.524047355866,
+        "reward": 0.726,
+        "success_rate": 0.726
+      },
+      "extra": {
+        "started_at": "2026-09-09T04:59:38.892027Z",
+        "finished_at": "2026-09-09T05:51:11.428392Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "t4-open-init__rtxmcng",
+            "rewards": {
+              "episodes": 500.0,
+              "parameters": 14520839.0,
+              "replay_wall_s": 1645.524047355866,
+              "reward": 0.726,
+              "success_rate": 0.726
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "oracle",
+      "model": "-",
+      "job": "task05/task2/oracle",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.65,
+      "success_rate": 0.65,
+      "metrics": {
+        "episodes": 500.0,
+        "parameters": 14520839.0,
+        "replay_wall_s": 1653.4877746668644,
+        "reward": 0.65,
+        "plus_success_rate": 0.65
+      },
+      "extra": {
+        "started_at": "2026-09-09T06:26:27.844441Z",
+        "finished_at": "2026-09-09T07:22:42.498042Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "t5-robustness__TyyBA5i",
+            "rewards": {
+              "episodes": 500.0,
+              "parameters": 14520839.0,
+              "replay_wall_s": 1653.4877746668644,
+              "reward": 0.65,
+              "plus_success_rate": 0.65
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "oracle",
+      "model": "-",
+      "job": "task05/task3/oracle",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.62,
+      "success_rate": 0.62,
+      "metrics": {
+        "episodes": 300.0,
+        "parameters": 14768142.0,
+        "replay_wall_s": 880.6287551340647,
+        "reward": 0.62,
+        "success_rate": 0.62
+      },
+      "extra": {
+        "started_at": "2026-09-09T19:59:03.907730Z",
+        "finished_at": "2026-09-09T21:17:27.523963Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "t6-robotwin-open__f9qsziZ",
+            "rewards": {
+              "episodes": 300.0,
+              "parameters": 14768142.0,
+              "replay_wall_s": 880.6287551340647,
+              "reward": 0.62,
+              "success_rate": 0.62
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "oracle",
+      "model": "-",
+      "job": "task05/task4/oracle",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.071111,
+      "success_rate": 0.07111111111111111,
+      "metrics": {
+        "episodes": 225.0,
+        "parameters": 14768142.0,
+        "reward": 0.071111,
+        "success_rate": 0.07111111111111111
+      },
+      "extra": {
+        "started_at": null,
+        "finished_at": null,
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": null,
+          "n_errored_trials": null,
+          "n_running_trials": null,
+          "n_pending_trials": null,
+          "n_cancelled_trials": null,
+          "n_retries": null,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": []
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "k3[1m]",
+      "job": "task05/task1/claude-code/kimi_k3[1m]",
+      "status": "completed",
+      "cost_usd": 2.278899,
+      "reward": 0.818,
+      "success_rate": 0.818,
+      "metrics": {
+        "reward": 0.818,
+        "success_rate": 0.818,
+        "episodes": 500.0,
+        "parameters": 37745957.0,
+        "replay_wall_s": 1305.4307730550063
+      },
+      "extra": {
+        "started_at": "2026-09-12T03:52:52.173802Z",
+        "finished_at": "2026-09-12T07:34:21.792558Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 4834660,
+          "n_cache_tokens": 4750080,
+          "n_output_tokens": 40009
+        },
+        "trials": [
+          {
+            "trial": "01-libero-open-design__fmxUaFL",
+            "rewards": {
+              "reward": 0.818,
+              "success_rate": 0.818,
+              "episodes": 500.0,
+              "parameters": 37745957.0,
+              "replay_wall_s": 1305.4307730550063
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "task05/task1/claude-code/deepseek-flash",
+      "status": "completed",
+      "cost_usd": 0.154589031,
+      "reward": 0.782,
+      "success_rate": 0.782,
+      "metrics": {
+        "reward": 0.782,
+        "success_rate": 0.782,
+        "episodes": 500.0,
+        "parameters": 61650474.0,
+        "replay_wall_s": 1663.7038790509978
+      },
+      "extra": {
+        "started_at": "2026-09-12T03:52:52.146344Z",
+        "finished_at": "2026-09-12T08:16:44.535156Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 11700151,
+          "n_cache_tokens": 11635968,
+          "n_output_tokens": 97540
+        },
+        "trials": [
+          {
+            "trial": "01-libero-open-design__RVBwtu9",
+            "rewards": {
+              "reward": 0.782,
+              "success_rate": 0.782,
+              "episodes": 500.0,
+              "parameters": 61650474.0,
+              "replay_wall_s": 1663.7038790509978
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:GeminiApiAntigravityCli",
+      "model": "google/gemini-3.8-flash",
+      "job": "task05/task1/antigravity-cli/google_gemini-3.8-flash",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.782,
+      "success_rate": 0.782,
+      "metrics": {
+        "reward": 0.782,
+        "success_rate": 0.782,
+        "episodes": 500.0,
+        "parameters": 36991495.0,
+        "replay_wall_s": 930.8640813480015
+      },
+      "extra": {
+        "started_at": "2026-09-12T00:25:23.055221Z",
+        "finished_at": "2026-09-12T02:23:40.569246Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "01-libero-open-design__HMLNgDK",
+            "rewards": {
+              "reward": 0.782,
+              "success_rate": 0.782,
+              "episodes": 500.0,
+              "parameters": 36991495.0,
+              "replay_wall_s": 930.8640813480015
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "task05/task1/grok-build/grok-4.6",
+      "status": "completed",
+      "cost_usd": 2.01380912,
+      "reward": 0.794,
+      "success_rate": 0.794,
+      "metrics": {
+        "reward": 0.794,
+        "success_rate": 0.794,
+        "episodes": 500.0,
+        "parameters": 22979397.0,
+        "replay_wall_s": 1723.273400717997
+      },
+      "extra": {
+        "started_at": "2026-09-11T17:40:51.497408Z",
+        "finished_at": "2026-09-11T22:05:47.396139Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "01-libero-open-design__AxUPran",
+            "rewards": {
+              "reward": 0.794,
+              "success_rate": 0.794,
+              "episodes": 500.0,
+              "parameters": 22979397.0,
+              "replay_wall_s": 1723.273400717997
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "k3[1m]",
+      "job": "task05/task2/claude-code/kimi_k3[1m]",
+      "status": "completed",
+      "cost_usd": 2.2752635999999997,
+      "reward": 0.754,
+      "success_rate": 0.754,
+      "metrics": {
+        "reward": 0.754,
+        "plus_success_rate": 0.754,
+        "episodes": 500.0,
+        "parameters": 39828524.0,
+        "replay_wall_s": 1581.8034949279972
+      },
+      "extra": {
+        "started_at": "2026-09-12T05:34:22.652800Z",
+        "finished_at": "2026-09-12T10:26:02.363154Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 5106735,
+          "n_cache_tokens": 5036032,
+          "n_output_tokens": 36823
+        },
+        "trials": [
+          {
+            "trial": "02-libero-robustness__XhsGoCq",
+            "rewards": {
+              "reward": 0.754,
+              "plus_success_rate": 0.754,
+              "episodes": 500.0,
+              "parameters": 39828524.0,
+              "replay_wall_s": 1581.8034949279972
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "task05/task2/claude-code/deepseek-flash",
+      "status": "completed",
+      "cost_usd": 0.148587831,
+      "reward": 0.712,
+      "success_rate": 0.712,
+      "metrics": {
+        "reward": 0.712,
+        "plus_success_rate": 0.712,
+        "episodes": 500.0,
+        "parameters": 107230477.0,
+        "replay_wall_s": 1520.1575902479963
+      },
+      "extra": {
+        "started_at": "2026-09-12T05:13:52.690200Z",
+        "finished_at": "2026-09-12T08:38:09.127849Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 12520531,
+          "n_cache_tokens": 12439168,
+          "n_output_tokens": 82561
+        },
+        "trials": [
+          {
+            "trial": "02-libero-robustness__bCiMwHE",
+            "rewards": {
+              "reward": 0.712,
+              "plus_success_rate": 0.712,
+              "episodes": 500.0,
+              "parameters": 107230477.0,
+              "replay_wall_s": 1520.1575902479963
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:GeminiApiAntigravityCli",
+      "model": "google/gemini-3.8-flash",
+      "job": "task05/task2/antigravity-cli/google_gemini-3.8-flash",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.564,
+      "success_rate": 0.564,
+      "metrics": {
+        "reward": 0.564,
+        "plus_success_rate": 0.564,
+        "episodes": 500.0,
+        "parameters": 12003109.0,
+        "replay_wall_s": 370.94542634600657
+      },
+      "extra": {
+        "started_at": "2026-09-12T05:59:52.783961Z",
+        "finished_at": "2026-09-12T07:10:16.816210Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "02-libero-robustness__mY5j6sL",
+            "rewards": {
+              "reward": 0.564,
+              "plus_success_rate": 0.564,
+              "episodes": 500.0,
+              "parameters": 12003109.0,
+              "replay_wall_s": 370.94542634600657
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "task05/task2/grok-build/grok-4.6",
+      "status": "completed",
+      "cost_usd": 1.75047504,
+      "reward": 0.642,
+      "success_rate": 0.642,
+      "metrics": {
+        "reward": 0.642,
+        "plus_success_rate": 0.642,
+        "episodes": 500.0,
+        "parameters": 12514966.0,
+        "replay_wall_s": 1392.6694181939965
+      },
+      "extra": {
+        "started_at": "2026-09-11T17:51:23.037042Z",
+        "finished_at": "2026-09-11T20:59:08.440376Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "02-libero-robustness__ijNu6YQ",
+            "rewards": {
+              "reward": 0.642,
+              "plus_success_rate": 0.642,
+              "episodes": 500.0,
+              "parameters": 12514966.0,
+              "replay_wall_s": 1392.6694181939965
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "k3[1m]",
+      "job": "task05/task3/claude-code/kimi_k3[1m]",
+      "status": "completed",
+      "cost_usd": 3.8865606,
+      "reward": 0.77,
+      "success_rate": 0.77,
+      "metrics": {
+        "reward": 0.77,
+        "success_rate": 0.77,
+        "episodes": 300.0,
+        "parameters": 20259658.0,
+        "replay_wall_s": 1354.2380377060035
+      },
+      "extra": {
+        "started_at": "2026-09-12T07:10:22.486305Z",
+        "finished_at": "2026-09-12T12:39:11.435956Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 8715625,
+          "n_cache_tokens": 8617472,
+          "n_output_tokens": 67124
+        },
+        "trials": [
+          {
+            "trial": "03-robotwin-open-design__CCZ7C4A",
+            "rewards": {
+              "reward": 0.77,
+              "success_rate": 0.77,
+              "episodes": 300.0,
+              "parameters": 20259658.0,
+              "replay_wall_s": 1354.2380377060035
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "task05/task3/claude-code/deepseek-flash",
+      "status": "completed",
+      "cost_usd": 0.20474025299999998,
+      "reward": 0.61,
+      "success_rate": 0.61,
+      "metrics": {
+        "reward": 0.61,
+        "success_rate": 0.61,
+        "episodes": 300.0,
+        "parameters": 106006576.0,
+        "replay_wall_s": 1603.346062593002
+      },
+      "extra": {
+        "started_at": "2026-09-12T06:48:22.445391Z",
+        "finished_at": "2026-09-12T12:41:19.190851Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 16122329,
+          "n_cache_tokens": 16013184,
+          "n_output_tokens": 120137
+        },
+        "trials": [
+          {
+            "trial": "03-robotwin-open-design__5ogJtmt",
+            "rewards": {
+              "reward": 0.61,
+              "success_rate": 0.61,
+              "episodes": 300.0,
+              "parameters": 106006576.0,
+              "replay_wall_s": 1603.346062593002
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:GeminiApiAntigravityCli",
+      "model": "google/gemini-3.8-flash",
+      "job": "task05/task3/antigravity-cli/google_gemini-3.8-flash",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.603333,
+      "success_rate": 0.6033333333333334,
+      "metrics": {
+        "reward": 0.603333,
+        "success_rate": 0.6033333333333334,
+        "episodes": 300.0,
+        "parameters": 32663069.0,
+        "replay_wall_s": 1433.2206923640042
+      },
+      "extra": {
+        "started_at": "2026-09-12T01:10:22.651169Z",
+        "finished_at": "2026-09-12T05:13:29.362034Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "03-robotwin-open-design__uhMMeCu",
+            "rewards": {
+              "reward": 0.603333,
+              "success_rate": 0.6033333333333334,
+              "episodes": 300.0,
+              "parameters": 32663069.0,
+              "replay_wall_s": 1433.2206923640042
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "task05/task3/grok-build/grok-4.6",
+      "status": "completed",
+      "cost_usd": 2.96868688,
+      "reward": 0.556667,
+      "success_rate": 0.5566666666666666,
+      "metrics": {
+        "reward": 0.556667,
+        "success_rate": 0.5566666666666666,
+        "episodes": 300.0,
+        "parameters": 56155817.0,
+        "replay_wall_s": 845.9824001739908
+      },
+      "extra": {
+        "started_at": "2026-09-12T07:05:22.576042Z",
+        "finished_at": "2026-09-12T13:15:25.696459Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "03-robotwin-open-design__yuD86Kp",
+            "rewards": {
+              "reward": 0.556667,
+              "success_rate": 0.5566666666666666,
+              "episodes": 300.0,
+              "parameters": 56155817.0,
+              "replay_wall_s": 845.9824001739908
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "k3[1m]",
+      "job": "task05/task4/claude-code/kimi_k3[1m]",
+      "status": "failed",
+      "cost_usd": 2.4907347,
+      "reward": 0.088889,
+      "success_rate": 0.08888888888888889,
+      "metrics": {
+        "reward": 0.088889,
+        "success_rate": 0.08888888888888889,
+        "episodes": 225.0,
+        "parameters": 20015206.0,
+        "replay_wall_s": 977.1964988399995
+      },
+      "extra": {
+        "started_at": "2026-09-12T08:38:23.015285Z",
+        "finished_at": "2026-09-12T16:04:00.988726Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 1,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 5347201,
+          "n_cache_tokens": 5267329,
+          "n_output_tokens": 44728
+        },
+        "trials": [
+          {
+            "trial": "04-robotwin-robustness__pQSkw7e",
+            "rewards": {
+              "reward": 0.088889,
+              "success_rate": 0.08888888888888889,
+              "episodes": 225.0,
+              "parameters": 20015206.0,
+              "replay_wall_s": 977.1964988399995
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "task05/task4/claude-code/deepseek-flash",
+      "status": "completed",
+      "cost_usd": 0.175911291,
+      "reward": 0.035556,
+      "success_rate": 0.035555555555555556,
+      "metrics": {
+        "reward": 0.035556,
+        "success_rate": 0.035555555555555556,
+        "episodes": 225.0,
+        "parameters": 22198286.0,
+        "replay_wall_s": 1708.5671682990069
+      },
+      "extra": {
+        "started_at": "2026-09-12T07:34:52.947831Z",
+        "finished_at": "2026-09-12T14:19:43.093116Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 12838139,
+          "n_cache_tokens": 12776448,
+          "n_output_tokens": 116152
+        },
+        "trials": [
+          {
+            "trial": "04-robotwin-robustness__aZCTBzp",
+            "rewards": {
+              "reward": 0.035556,
+              "success_rate": 0.035555555555555556,
+              "episodes": 225.0,
+              "parameters": 22198286.0,
+              "replay_wall_s": 1708.5671682990069
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:GeminiApiAntigravityCli",
+      "model": "google/gemini-3.8-flash",
+      "job": "task05/task4/antigravity-cli/google_gemini-3.8-flash",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.097778,
+      "success_rate": 0.09777777777777778,
+      "metrics": {
+        "reward": 0.097778,
+        "success_rate": 0.09777777777777778,
+        "episodes": 225.0,
+        "parameters": 20600424.0,
+        "replay_wall_s": 803.4504950279952
+      },
+      "extra": {
+        "started_at": "2026-09-12T01:53:52.642608Z",
+        "finished_at": "2026-09-12T05:59:29.792125Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "04-robotwin-robustness__Gx6RQ5r",
+            "rewards": {
+              "reward": 0.097778,
+              "success_rate": 0.09777777777777778,
+              "episodes": 225.0,
+              "parameters": 20600424.0,
+              "replay_wall_s": 803.4504950279952
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "task05/task4/grok-build/grok-4.6",
+      "status": "completed",
+      "cost_usd": 2.60733182,
+      "reward": 0.048889,
+      "success_rate": 0.04888888888888889,
+      "metrics": {
+        "reward": 0.048889,
+        "success_rate": 0.04888888888888889,
+        "episodes": 225.0,
+        "parameters": 33276942.0,
+        "replay_wall_s": 1703.1724636
+      },
+      "extra": {
+        "started_at": "2026-09-11T18:07:24.991805Z",
+        "finished_at": "2026-09-12T01:53:33.681691Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "04-robotwin-robustness__2Uca5sG",
+            "rewards": {
+              "reward": 0.048889,
+              "success_rate": 0.04888888888888889,
+              "episodes": 225.0,
+              "parameters": 33276942.0,
+              "replay_wall_s": 1703.1724636
+            }
+          }
+        ]
+      }
     }
   ]
 }

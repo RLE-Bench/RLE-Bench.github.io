@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "measured",
-  "generated_at": "2026-09-13T03:20:25Z",
+  "generated_at": "2026-09-14T14:22:39Z",
   "generator": "assets/data/export.py",
   "source": {
     "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId] reports per-subtask means over the task's runs: cost = mean API cost in USD, hours = mean agent wall-clock hours, context_tokens = mean of input_tokens minus cached_tokens per run (the homepage's Context Length). cost_total, hours_total, hours_median and the input/cached/output token counts are the corresponding totals over runs. The homepage's overall figures average these per-task means within each workflow, then across workflows. Missing API cost or token counts stay null. Costs come from the run dumps except for the models listed under source.prices, whose cost is recomputed from token counts because their harness billed them against the wrong price sheet; costs[...].cost_sources and results[...].subtasks[...].cost_source say which applies. Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc.",
@@ -10,7 +10,14 @@
       "completed_only": false,
       "keep_oracle": false,
       "dedupe": "latest",
-      "compact": false
+      "compact": false,
+      "excluded_model_prefixes": [
+        "grok",
+        "claude-fable",
+        "fable",
+        "k3",
+        "gemini-3-8-flash"
+      ]
     },
     "prices": {
       "deepseek-flash": {
@@ -37,64 +44,64 @@
         "file": "task01.json",
         "root": "jobs/task01",
         "schema_version": 1,
-        "runs": 120,
-        "runs_skipped": 0
+        "runs": 155,
+        "runs_skipped": 20
       },
       "task02": {
         "file": "task02.json",
         "root": "jobs/task02",
         "schema_version": 1,
-        "runs": 120,
-        "runs_skipped": 0
+        "runs": 144,
+        "runs_skipped": 9
       },
       "task03": {
         "file": "task03.json",
         "root": "jobs/task03",
         "schema_version": 1,
         "runs": 50,
-        "runs_skipped": 0
+        "runs_skipped": 5
       },
       "task04": {
         "file": "task04.json",
         "root": "jobs/task04",
         "schema_version": 1,
         "runs": 50,
-        "runs_skipped": 0
+        "runs_skipped": 5
       },
       "task05": {
         "file": "task05.json",
         "root": "jobs/task05",
         "schema_version": 1,
-        "runs": 32,
-        "runs_skipped": 0
+        "runs": 52,
+        "runs_skipped": 16
       },
       "task06": {
         "file": "task06.json",
         "root": "jobs/task06",
         "schema_version": 1,
         "runs": 40,
-        "runs_skipped": 0
+        "runs_skipped": 4
       },
       "task07": {
         "file": "task07.json",
         "root": "jobs/task07",
         "schema_version": 1,
         "runs": 10,
-        "runs_skipped": 0
+        "runs_skipped": 1
       },
       "task08": {
         "file": "task08.json",
         "root": "jobs/task08",
         "schema_version": 1,
         "runs": 10,
-        "runs_skipped": 0
+        "runs_skipped": 1
       },
       "task09": {
         "file": "task09.json",
         "root": "jobs/task09",
         "schema_version": 1,
         "runs": 10,
-        "runs_skipped": 0
+        "runs_skipped": 1
       }
     }
   },
@@ -164,8 +171,11 @@
       "open": false,
       "harness": "Claude Code",
       "tasks": [
+        "task01",
+        "task02",
         "task03",
         "task04",
+        "task05",
         "task06",
         "task07",
         "task08",
@@ -185,22 +195,6 @@
         "task03",
         "task04",
         "task05",
-        "task06",
-        "task07",
-        "task08",
-        "task09"
-      ]
-    },
-    {
-      "id": "grok-4-6",
-      "name": "Grok 4.6",
-      "short": "Grok 4.6",
-      "org": "xAI",
-      "open": false,
-      "harness": "Grok Build",
-      "tasks": [
-        "task03",
-        "task04",
         "task06",
         "task07",
         "task08",
@@ -424,9 +418,10 @@
           "kitchen_task": "05-pick-place-microwave-to-counter"
         }
       ],
-      "n_runs": 120,
-      "n_runs_skipped": 0,
+      "n_runs": 155,
+      "n_runs_skipped": 20,
       "models": [
+        "deepseek-flash",
         "gemini37flash",
         "glm53flash",
         "gpt56luna",
@@ -576,9 +571,10 @@
           "heldout_task": "StoreLeftoversInBowl"
         }
       ],
-      "n_runs": 120,
-      "n_runs_skipped": 0,
+      "n_runs": 144,
+      "n_runs_skipped": 9,
       "models": [
+        "deepseek-flash",
         "gemini37flash",
         "glm53flash",
         "gpt56luna",
@@ -661,7 +657,7 @@
         }
       ],
       "n_runs": 50,
-      "n_runs_skipped": 0,
+      "n_runs_skipped": 5,
       "models": [
         "deepseek-flash",
         "gemini37flash",
@@ -670,7 +666,6 @@
         "gpt56sol",
         "gpt56terra",
         "gpt6astra",
-        "grok-4-6",
         "opus48",
         "opus5"
       ]
@@ -747,7 +742,7 @@
         }
       ],
       "n_runs": 50,
-      "n_runs_skipped": 0,
+      "n_runs_skipped": 5,
       "models": [
         "deepseek-flash",
         "gemini37flash",
@@ -756,7 +751,6 @@
         "gpt56sol",
         "gpt56terra",
         "gpt6astra",
-        "grok-4-6",
         "opus48",
         "opus5"
       ]
@@ -821,9 +815,10 @@
           "label": "RoboTwin · robustness"
         }
       ],
-      "n_runs": 32,
-      "n_runs_skipped": 0,
+      "n_runs": 52,
+      "n_runs_skipped": 16,
       "models": [
+        "deepseek-flash",
         "gemini37flash",
         "glm53flash",
         "gpt56luna",
@@ -895,7 +890,7 @@
         }
       ],
       "n_runs": 40,
-      "n_runs_skipped": 0,
+      "n_runs_skipped": 4,
       "models": [
         "deepseek-flash",
         "gemini37flash",
@@ -904,7 +899,6 @@
         "gpt56sol",
         "gpt56terra",
         "gpt6astra",
-        "grok-4-6",
         "opus48",
         "opus5"
       ]
@@ -945,7 +939,7 @@
         }
       ],
       "n_runs": 10,
-      "n_runs_skipped": 0,
+      "n_runs_skipped": 1,
       "models": [
         "deepseek-flash",
         "gemini37flash",
@@ -954,7 +948,6 @@
         "gpt56sol",
         "gpt56terra",
         "gpt6astra",
-        "grok-4-6",
         "opus48",
         "opus5"
       ]
@@ -1016,7 +1009,7 @@
         }
       ],
       "n_runs": 10,
-      "n_runs_skipped": 0,
+      "n_runs_skipped": 1,
       "models": [
         "deepseek-flash",
         "gemini37flash",
@@ -1025,7 +1018,6 @@
         "gpt56sol",
         "gpt56terra",
         "gpt6astra",
-        "grok-4-6",
         "opus48",
         "opus5"
       ]
@@ -1069,7 +1061,7 @@
         }
       ],
       "n_runs": 10,
-      "n_runs_skipped": 0,
+      "n_runs_skipped": 1,
       "models": [
         "deepseek-flash",
         "gemini37flash",
@@ -1078,7 +1070,6 @@
         "gpt56sol",
         "gpt56terra",
         "gpt6astra",
-        "grok-4-6",
         "opus48",
         "opus5"
       ]
@@ -1125,6 +1116,11 @@
         0.0,
         0.039181,
         0.078679
+      ],
+      "deepseek-flash": [
+        0.0,
+        0.032,
+        0.032122
       ]
     },
     "task02": {
@@ -1167,6 +1163,11 @@
         0.24,
         0.27,
         0.12
+      ],
+      "deepseek-flash": [
+        0.433333,
+        0.043333,
+        0.106667
       ]
     },
     "task03": {
@@ -1225,13 +1226,6 @@
         1.0,
         0.388602,
         1.0
-      ],
-      "grok-4-6": [
-        0.173093,
-        0.0,
-        1.0,
-        0.0,
-        0.0
       ],
       "deepseek-flash": [
         0.264183,
@@ -1304,13 +1298,6 @@
         0.4147,
         0.8208,
         0.6032
-      ],
-      "grok-4-6": [
-        0.3631,
-        0.0929,
-        0.5664,
-        0.0,
-        0.3527
       ]
     },
     "task05": {
@@ -1361,6 +1348,12 @@
         0.62,
         0.61,
         0.146667
+      ],
+      "deepseek-flash": [
+        0.782,
+        0.712,
+        0.61,
+        0.035556
       ]
     },
     "task06": {
@@ -1417,12 +1410,6 @@
         0.0182,
         0.0,
         0.2933
-      ],
-      "grok-4-6": [
-        0.1529,
-        0.1476,
-        0.0,
-        0.3062
       ]
     },
     "task07": {
@@ -1461,10 +1448,6 @@
       "deepseek-flash": [
         0.8709,
         0.419
-      ],
-      "grok-4-6": [
-        0.7152,
-        0.3675
       ]
     },
     "task08": {
@@ -1530,13 +1513,6 @@
         0.0,
         0.2665,
         0.083333
-      ],
-      "grok-4-6": [
-        1.0,
-        0.616,
-        0.0,
-        0.1805,
-        0.0
       ]
     },
     "task09": {
@@ -1584,11 +1560,6 @@
         0.6524,
         0.4444,
         0.2767
-      ],
-      "grok-4-6": [
-        0.3219,
-        0.2227,
-        0.3208
       ]
     }
   },
@@ -1718,6 +1689,22 @@
         "output_tokens": 611335,
         "cost_sources": [
           "harness"
+        ],
+        "n_runs": 15,
+        "n_subtasks": 15
+      },
+      "deepseek-flash": {
+        "cost": 0.907506,
+        "cost_total": 13.612587,
+        "hours": 1.9953,
+        "hours_median": 1.882,
+        "hours_total": 29.9302,
+        "context_tokens": 263118.8,
+        "input_tokens": 1315606686,
+        "cached_tokens": 1311659904,
+        "output_tokens": 7580102,
+        "cost_sources": [
+          "price/deepseek-flash.json:mean"
         ],
         "n_runs": 15,
         "n_subtasks": 15
@@ -1851,6 +1838,22 @@
         ],
         "n_runs": 15,
         "n_subtasks": 15
+      },
+      "deepseek-flash": {
+        "cost": 1.374299,
+        "cost_total": 20.614481,
+        "hours": 4.1578,
+        "hours_median": 3.6613,
+        "hours_total": 62.3671,
+        "context_tokens": 615122.1,
+        "input_tokens": 1659781583,
+        "cached_tokens": 1650554752,
+        "output_tokens": 12345497,
+        "cost_sources": [
+          "price/deepseek-flash.json:mean"
+        ],
+        "n_runs": 15,
+        "n_subtasks": 15
       }
     },
     "task03": {
@@ -1976,22 +1979,6 @@
         "input_tokens": 44688289,
         "cached_tokens": 43661824,
         "output_tokens": 255112,
-        "cost_sources": [
-          "harness"
-        ],
-        "n_runs": 5,
-        "n_subtasks": 5
-      },
-      "grok-4-6": {
-        "cost": null,
-        "cost_total": null,
-        "hours": 1.0807,
-        "hours_median": 1.2101,
-        "hours_total": 5.4036,
-        "context_tokens": null,
-        "input_tokens": null,
-        "cached_tokens": null,
-        "output_tokens": null,
         "cost_sources": [
           "harness"
         ],
@@ -2159,22 +2146,6 @@
         ],
         "n_runs": 5,
         "n_subtasks": 5
-      },
-      "grok-4-6": {
-        "cost": null,
-        "cost_total": null,
-        "hours": 1.1688,
-        "hours_median": 0.5124,
-        "hours_total": 5.8441,
-        "context_tokens": null,
-        "input_tokens": null,
-        "cached_tokens": null,
-        "output_tokens": null,
-        "cost_sources": [
-          "harness"
-        ],
-        "n_runs": 5,
-        "n_subtasks": 5
       }
     },
     "task05": {
@@ -2302,6 +2273,22 @@
         "output_tokens": null,
         "cost_sources": [
           "harness"
+        ],
+        "n_runs": 4,
+        "n_subtasks": 4
+      },
+      "deepseek-flash": {
+        "cost": 0.170957,
+        "cost_total": 0.683828,
+        "hours": 5.108,
+        "hours_median": 5.1402,
+        "hours_total": 20.4321,
+        "context_tokens": 79095.5,
+        "input_tokens": 53181150,
+        "cached_tokens": 52864768,
+        "output_tokens": 416390,
+        "cost_sources": [
+          "price/deepseek-flash.json:mean"
         ],
         "n_runs": 4,
         "n_subtasks": 4
@@ -2451,22 +2438,6 @@
         ],
         "n_runs": 4,
         "n_subtasks": 4
-      },
-      "grok-4-6": {
-        "cost": null,
-        "cost_total": null,
-        "hours": 0.7063,
-        "hours_median": 0.7383,
-        "hours_total": 2.825,
-        "context_tokens": null,
-        "input_tokens": null,
-        "cached_tokens": null,
-        "output_tokens": null,
-        "cost_sources": [
-          "harness"
-        ],
-        "n_runs": 4,
-        "n_subtasks": 4
       }
     },
     "task07": {
@@ -2610,22 +2581,6 @@
         "output_tokens": 214056,
         "cost_sources": [
           "price/deepseek-flash.json:mean"
-        ],
-        "n_runs": 1,
-        "n_subtasks": 1
-      },
-      "grok-4-6": {
-        "cost": null,
-        "cost_total": null,
-        "hours": 2.6979,
-        "hours_median": 2.6979,
-        "hours_total": 2.6979,
-        "context_tokens": null,
-        "input_tokens": null,
-        "cached_tokens": null,
-        "output_tokens": null,
-        "cost_sources": [
-          "harness"
         ],
         "n_runs": 1,
         "n_subtasks": 1
@@ -2775,22 +2730,6 @@
         ],
         "n_runs": 1,
         "n_subtasks": 1
-      },
-      "grok-4-6": {
-        "cost": null,
-        "cost_total": null,
-        "hours": 0.9821,
-        "hours_median": 0.9821,
-        "hours_total": 0.9821,
-        "context_tokens": null,
-        "input_tokens": null,
-        "cached_tokens": null,
-        "output_tokens": null,
-        "cost_sources": [
-          "harness"
-        ],
-        "n_runs": 1,
-        "n_subtasks": 1
       }
     },
     "task09": {
@@ -2934,22 +2873,6 @@
         "output_tokens": 115638,
         "cost_sources": [
           "price/deepseek-flash.json:mean"
-        ],
-        "n_runs": 1,
-        "n_subtasks": 1
-      },
-      "grok-4-6": {
-        "cost": null,
-        "cost_total": null,
-        "hours": 0.5058,
-        "hours_median": 0.5058,
-        "hours_total": 0.5058,
-        "context_tokens": null,
-        "input_tokens": null,
-        "cached_tokens": null,
-        "output_tokens": null,
-        "cost_sources": [
-          "harness"
         ],
         "n_runs": 1,
         "n_subtasks": 1
@@ -6526,6 +6449,453 @@
               "component_outcome": 0.0,
               "interaction_budget": 50000.0,
               "interaction_steps": 2934.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          }
+        }
+      },
+      "deepseek-flash": {
+        "score": 0.021374,
+        "complete": true,
+        "n_runs": 15,
+        "n_subtasks": 15,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "L1": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 4.770389,
+            "cost_usd_mean": 0.954078,
+            "hours_median": 1.8546,
+            "n_runs": 5,
+            "complete": true
+          },
+          "L2": {
+            "score": 0.032,
+            "reward": 0.032,
+            "success_rate": 0.04,
+            "cost_usd": 4.738026,
+            "cost_usd_mean": 0.947605,
+            "hours_median": 1.9413,
+            "n_runs": 5,
+            "complete": true
+          },
+          "L3": {
+            "score": 0.032122,
+            "reward": 0.032122,
+            "success_rate": 0.04,
+            "cost_usd": 4.104172,
+            "cost_usd_mean": 0.820834,
+            "hours_median": 1.7879,
+            "n_runs": 5,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "L1/01-open-fridge": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.087833,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 2.9834,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L1/01-open-fridge/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T11:02:55.789427",
+            "finished_at": "2026-09-12T14:01:55.868851",
+            "input_tokens": 107204803,
+            "cached_tokens": 106963584,
+            "output_tokens": 613581,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 49925.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/02-close-cabinet": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.914616,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 1.6093,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L1/02-close-cabinet/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-11T22:53:06.611802",
+            "finished_at": "2026-09-12T00:29:40.084290",
+            "input_tokens": 73721249,
+            "cached_tokens": 73523840,
+            "output_tokens": 599268,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 46213.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/03-turn-on-stove": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.133655,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 1.8546,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L1/03-turn-on-stove/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T00:29:43.966986",
+            "finished_at": "2026-09-12T02:21:00.503580",
+            "input_tokens": 125332839,
+            "cached_tokens": 125079552,
+            "output_tokens": 570897,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 50000.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/04-pick-place-counter-to-drawer": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.076151,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 2.7702,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L1/04-pick-place-counter-to-drawer/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T11:05:40.556055",
+            "finished_at": "2026-09-12T13:51:53.366161",
+            "input_tokens": 120846500,
+            "cached_tokens": 120575616,
+            "output_tokens": 525124,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 47487.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/05-pick-place-microwave-to-counter": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.558135,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 1.6085,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L1/05-pick-place-microwave-to-counter/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-13T00:53:47.237548",
+            "finished_at": "2026-09-13T02:30:17.862853",
+            "input_tokens": 42474987,
+            "cached_tokens": 42292992,
+            "output_tokens": 363186,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 27754.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/01-open-fridge": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.906156,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 1.882,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L2/01-open-fridge/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T01:58:26.494804",
+            "finished_at": "2026-09-12T03:51:21.677787",
+            "input_tokens": 83335358,
+            "cached_tokens": 83055232,
+            "output_tokens": 521532,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 50000.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/02-close-cabinet": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.876182,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 1.9413,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L2/02-close-cabinet/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T03:51:25.186266",
+            "finished_at": "2026-09-12T05:47:53.925403",
+            "input_tokens": 81257871,
+            "cached_tokens": 80987136,
+            "output_tokens": 500916,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 50000.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/03-turn-on-stove": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.730708,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 0.9559,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L2/03-turn-on-stove/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T05:47:57.687269",
+            "finished_at": "2026-09-12T06:45:18.999113",
+            "input_tokens": 56862757,
+            "cached_tokens": 56633856,
+            "output_tokens": 471503,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 23591.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/04-pick-place-counter-to-drawer": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.146837,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 2.6134,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L2/04-pick-place-counter-to-drawer/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-13T02:30:22.103595",
+            "finished_at": "2026-09-13T05:07:10.502567",
+            "input_tokens": 141825901,
+            "cached_tokens": 141477760,
+            "output_tokens": 479839,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 49812.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/05-pick-place-microwave-to-counter": {
+            "reward": 0.16,
+            "success_rate": 0.2,
+            "cost_usd": 1.078144,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 2.3693,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L2/05-pick-place-microwave-to-counter/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T07:49:58.188343",
+            "finished_at": "2026-09-12T10:12:07.766802",
+            "input_tokens": 122358528,
+            "cached_tokens": 122018816,
+            "output_tokens": 502916,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.16,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 50000.0,
+              "reward": 0.16,
+              "success_rate": 0.2,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/01-open-fridge": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.746167,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 1.7491,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L3/01-open-fridge/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T15:32:39.153530",
+            "finished_at": "2026-09-12T17:17:35.917096",
+            "input_tokens": 61405058,
+            "cached_tokens": 61131520,
+            "output_tokens": 455032,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 47165.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/02-close-cabinet": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.055376,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 1.7879,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L3/02-close-cabinet/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T17:17:39.491750",
+            "finished_at": "2026-09-12T19:04:55.987721",
+            "input_tokens": 80251568,
+            "cached_tokens": 80026496,
+            "output_tokens": 716239,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 43102.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/03-turn-on-stove": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.839191,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 2.0572,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L3/03-turn-on-stove/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T19:05:00.788685",
+            "finished_at": "2026-09-12T21:08:26.584912",
+            "input_tokens": 73555850,
+            "cached_tokens": 73235072,
+            "output_tokens": 486065,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 49731.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/04-pick-place-counter-to-drawer": {
+            "reward": 0.160611,
+            "success_rate": 0.2,
+            "cost_usd": 0.547876,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 1.5885,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L3/04-pick-place-counter-to-drawer/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T21:08:27.790781",
+            "finished_at": "2026-09-12T22:43:46.386050",
+            "input_tokens": 47260626,
+            "cached_tokens": 47045632,
+            "output_tokens": 319774,
+            "metrics": {
+              "component_efficiency": 0.000611,
+              "component_outcome": 0.16,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 49236.0,
+              "reward": 0.160611,
+              "success_rate": 0.2,
+              "trials_attempted": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/05-pick-place-microwave-to-counter": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.915563,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 2.1596,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "L3/05-pick-place-microwave-to-counter/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T22:43:50.002845",
+            "finished_at": "2026-09-13T00:53:24.453353",
+            "input_tokens": 97912791,
+            "cached_tokens": 97612800,
+            "output_tokens": 454230,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 49605.0,
               "reward": 0.0,
               "success_rate": 0.0,
               "trials_attempted": 5.0,
@@ -10591,6 +10961,513 @@
             }
           }
         }
+      },
+      "deepseek-flash": {
+        "score": 0.194445,
+        "complete": true,
+        "n_runs": 15,
+        "n_subtasks": 15,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "EASY": {
+            "score": 0.433333,
+            "reward": 0.433333,
+            "success_rate": 0.24,
+            "cost_usd": 6.959221,
+            "cost_usd_mean": 1.391844,
+            "hours_median": 3.8258,
+            "n_runs": 5,
+            "complete": true
+          },
+          "MEDIUM": {
+            "score": 0.043333,
+            "reward": 0.043333,
+            "success_rate": 0.0,
+            "cost_usd": 6.616203,
+            "cost_usd_mean": 1.323241,
+            "hours_median": 3.2291,
+            "n_runs": 5,
+            "complete": true
+          },
+          "HARD": {
+            "score": 0.106667,
+            "reward": 0.106667,
+            "success_rate": 0.0,
+            "cost_usd": 7.039056,
+            "cost_usd_mean": 1.407811,
+            "hours_median": 3.8082,
+            "n_runs": 5,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-washing-dishes": {
+            "reward": 0.866667,
+            "success_rate": 0.6,
+            "cost_usd": 1.047583,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 2.1394,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "01-washing-dishes/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-11T21:37:21.369695",
+            "finished_at": "2026-09-11T23:45:43.235135",
+            "input_tokens": 56911744,
+            "cached_tokens": 56459776,
+            "output_tokens": 768690,
+            "metrics": {
+              "dev_episodes": 39.0,
+              "dev_successes": 0.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 13974.0,
+              "planned_trials": 5.0,
+              "reward": 0.866667,
+              "success_rate": 0.6,
+              "successes": 3.0,
+              "tasks_practised": 1.0,
+              "train_tasks_solved": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0
+            }
+          },
+          "02-sauteing-vegetables": {
+            "reward": 0.7,
+            "success_rate": 0.6,
+            "cost_usd": 1.438258,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 3.8258,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "02-sauteing-vegetables/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-11T23:45:46.795061",
+            "finished_at": "2026-09-12T03:35:19.564077",
+            "input_tokens": 127456398,
+            "cached_tokens": 126940288,
+            "output_tokens": 834336,
+            "metrics": {
+              "dev_episodes": 166.0,
+              "dev_successes": 5.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 44581.0,
+              "planned_trials": 5.0,
+              "reward": 0.7,
+              "success_rate": 0.6,
+              "successes": 3.0,
+              "tasks_practised": 3.0,
+              "train_tasks_solved": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0
+            }
+          },
+          "03-baking": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.378247,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 4.7156,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "03-baking/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-13T21:44:25.082189",
+            "finished_at": "2026-09-14T02:27:21.146513",
+            "input_tokens": 99767448,
+            "cached_tokens": 99148416,
+            "output_tokens": 880886,
+            "metrics": {
+              "dev_episodes": 89.0,
+              "dev_successes": 0.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 13585.0,
+              "planned_trials": 5.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "successes": 0.0,
+              "tasks_practised": 3.0,
+              "train_tasks_solved": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0
+            }
+          },
+          "04-reheating-food": {
+            "reward": 0.2,
+            "success_rate": 0.0,
+            "cost_usd": 1.367259,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 3.6613,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "04-reheating-food/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T08:21:23.255113",
+            "finished_at": "2026-09-12T12:01:03.824589",
+            "input_tokens": 106138804,
+            "cached_tokens": 105604096,
+            "output_tokens": 857479,
+            "metrics": {
+              "dev_episodes": 74.0,
+              "dev_successes": 0.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 68628.0,
+              "planned_trials": 5.0,
+              "reward": 0.2,
+              "success_rate": 0.0,
+              "successes": 0.0,
+              "tasks_practised": 3.0,
+              "train_tasks_solved": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0
+            }
+          },
+          "05-chopping-food": {
+            "reward": 0.4,
+            "success_rate": 0.0,
+            "cost_usd": 1.727874,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 7.5671,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "05-chopping-food/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T12:01:06.956063",
+            "finished_at": "2026-09-12T19:35:08.447948",
+            "input_tokens": 178443008,
+            "cached_tokens": 177824384,
+            "output_tokens": 876082,
+            "metrics": {
+              "dev_episodes": 77.0,
+              "dev_successes": 1.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 71265.0,
+              "planned_trials": 5.0,
+              "reward": 0.4,
+              "success_rate": 0.0,
+              "successes": 0.0,
+              "tasks_practised": 3.0,
+              "train_tasks_solved": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0
+            }
+          },
+          "06-setting-the-table": {
+            "reward": 0.1,
+            "success_rate": 0.0,
+            "cost_usd": 1.187168,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 2.7388,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "06-setting-the-table/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-13T21:44:25.080386",
+            "finished_at": "2026-09-14T00:28:44.774872",
+            "input_tokens": 86307469,
+            "cached_tokens": 85796352,
+            "output_tokens": 762314,
+            "metrics": {
+              "dev_episodes": 83.0,
+              "dev_successes": 5.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 25273.0,
+              "planned_trials": 5.0,
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "successes": 0.0,
+              "tasks_practised": 3.0,
+              "train_tasks_solved": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0
+            }
+          },
+          "07-portioning-meals": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.58945,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 4.2394,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "07-portioning-meals/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T23:05:11.716981",
+            "finished_at": "2026-09-13T03:19:33.725165",
+            "input_tokens": 135815158,
+            "cached_tokens": 135225088,
+            "output_tokens": 942413,
+            "metrics": {
+              "dev_episodes": 143.0,
+              "dev_successes": 0.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 50607.0,
+              "planned_trials": 5.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "successes": 0.0,
+              "tasks_practised": 3.0,
+              "train_tasks_solved": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0
+            }
+          },
+          "08-defrosting-food": {
+            "reward": 0.05,
+            "success_rate": 0.0,
+            "cost_usd": 1.126127,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 2.9531,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "08-defrosting-food/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-13T03:19:37.356323",
+            "finished_at": "2026-09-13T06:16:48.438695",
+            "input_tokens": 73962631,
+            "cached_tokens": 73473152,
+            "output_tokens": 761517,
+            "metrics": {
+              "dev_episodes": 81.0,
+              "dev_successes": 0.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 36212.0,
+              "planned_trials": 5.0,
+              "reward": 0.05,
+              "success_rate": 0.0,
+              "successes": 0.0,
+              "tasks_practised": 3.0,
+              "train_tasks_solved": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0
+            }
+          },
+          "09-arranging-buffet": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.545316,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 3.616,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "09-arranging-buffet/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-14T02:27:24.475559",
+            "finished_at": "2026-09-14T06:04:22.126116",
+            "input_tokens": 118451687,
+            "cached_tokens": 117837184,
+            "output_tokens": 974206,
+            "metrics": {
+              "dev_episodes": 77.0,
+              "dev_successes": 0.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 17611.0,
+              "planned_trials": 5.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "successes": 0.0,
+              "tasks_practised": 3.0,
+              "train_tasks_solved": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0
+            }
+          },
+          "10-serving-beverages": {
+            "reward": 0.066667,
+            "success_rate": 0.0,
+            "cost_usd": 1.168142,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 3.2291,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "10-serving-beverages/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-14T00:28:47.807270",
+            "finished_at": "2026-09-14T03:42:32.722985",
+            "input_tokens": 90948283,
+            "cached_tokens": 90382464,
+            "output_tokens": 704569,
+            "metrics": {
+              "dev_episodes": 105.0,
+              "dev_successes": 0.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 65914.0,
+              "planned_trials": 5.0,
+              "reward": 0.066667,
+              "success_rate": 0.0,
+              "successes": 0.0,
+              "tasks_practised": 3.0,
+              "train_tasks_solved": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0
+            }
+          },
+          "11-loading-fridge": {
+            "reward": 0.4,
+            "success_rate": 0.0,
+            "cost_usd": 1.129745,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 8.3051,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "11-loading-fridge/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-13T12:18:29.969639",
+            "finished_at": "2026-09-13T20:36:48.285854",
+            "input_tokens": 84782637,
+            "cached_tokens": 84315904,
+            "output_tokens": 717010,
+            "metrics": {
+              "dev_episodes": 114.0,
+              "dev_successes": 0.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 36638.0,
+              "planned_trials": 5.0,
+              "reward": 0.4,
+              "success_rate": 0.0,
+              "successes": 0.0,
+              "tasks_practised": 3.0,
+              "train_tasks_solved": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0
+            }
+          },
+          "12-managing-freezer-space": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.850191,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 6.5951,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "12-managing-freezer-space/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-13T01:34:02.979753",
+            "finished_at": "2026-09-13T08:09:45.274902",
+            "input_tokens": 168537102,
+            "cached_tokens": 167399552,
+            "output_tokens": 934383,
+            "metrics": {
+              "dev_episodes": 160.0,
+              "dev_successes": 0.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 47333.0,
+              "planned_trials": 5.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "successes": 0.0,
+              "tasks_practised": 1.0,
+              "train_tasks_solved": 0.0,
+              "trials_attempted": 3.0,
+              "trials_recorded": 3.0
+            }
+          },
+          "13-clearing-table": {
+            "reward": 0.066667,
+            "success_rate": 0.0,
+            "cost_usd": 1.704824,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 3.8082,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "13-clearing-table/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T21:41:03.257941",
+            "finished_at": "2026-09-13T01:29:32.920796",
+            "input_tokens": 154387823,
+            "cached_tokens": 153302784,
+            "output_tokens": 856475,
+            "metrics": {
+              "dev_episodes": 65.0,
+              "dev_successes": 0.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 75000.0,
+              "planned_trials": 5.0,
+              "reward": 0.066667,
+              "success_rate": 0.0,
+              "successes": 0.0,
+              "tasks_practised": 3.0,
+              "train_tasks_solved": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0
+            }
+          },
+          "14-microwaving-food": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.151397,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 2.3988,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "14-microwaving-food/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T19:00:51.222059",
+            "finished_at": "2026-09-12T21:24:46.796007",
+            "input_tokens": 82026844,
+            "cached_tokens": 81538176,
+            "output_tokens": 749472,
+            "metrics": {
+              "dev_episodes": 91.0,
+              "dev_successes": 0.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 18705.0,
+              "planned_trials": 5.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "successes": 0.0,
+              "tasks_practised": 3.0,
+              "train_tasks_solved": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0
+            }
+          },
+          "15-storing-leftovers": {
+            "reward": 0.066667,
+            "success_rate": 0.0,
+            "cost_usd": 1.202898,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 2.5743,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "15-storing-leftovers/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-09-12T15:48:38.580767",
+            "finished_at": "2026-09-12T18:23:06.030742",
+            "input_tokens": 95844547,
+            "cached_tokens": 95307136,
+            "output_tokens": 725665,
+            "metrics": {
+              "dev_episodes": 40.0,
+              "dev_successes": 0.0,
+              "interaction_budget": 75000.0,
+              "interaction_steps": 5095.0,
+              "planned_trials": 5.0,
+              "reward": 0.066667,
+              "success_rate": 0.0,
+              "successes": 0.0,
+              "tasks_practised": 3.0,
+              "train_tasks_solved": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0
+            }
+          }
+        }
       }
     },
     "task03": {
@@ -12293,219 +13170,6 @@
               "trial_3_control_steps": 411.0,
               "trial_3_correct": 1.0,
               "trial_3_reward": 1.0,
-              "trial_3_submitted": 1.0
-            }
-          }
-        }
-      },
-      "grok-4-6": {
-        "score": 0.234619,
-        "complete": true,
-        "n_runs": 5,
-        "n_subtasks": 5,
-        "missing": [],
-        "harness": "Grok Build",
-        "splits": {
-          "01-tower-max-height": {
-            "score": 0.173093,
-            "reward": 0.173093,
-            "success_rate": 0.173093,
-            "cost_usd": null,
-            "cost_usd_mean": null,
-            "hours_median": 1.5006,
-            "n_runs": 1,
-            "complete": true
-          },
-          "02-cantilever-overhang": {
-            "score": 0.0,
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": null,
-            "cost_usd_mean": null,
-            "hours_median": 1.2101,
-            "n_runs": 1,
-            "complete": true
-          },
-          "03-balance-coins": {
-            "score": 1.0,
-            "reward": 1.0,
-            "success_rate": 1.0,
-            "cost_usd": null,
-            "cost_usd_mean": null,
-            "hours_median": 0.3823,
-            "n_runs": 1,
-            "complete": true
-          },
-          "04-rubik-cube": {
-            "score": 0.0,
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": null,
-            "cost_usd_mean": null,
-            "hours_median": 1.5621,
-            "n_runs": 1,
-            "complete": true
-          },
-          "05-hidden-center-of-mass": {
-            "score": 0.0,
-            "reward": 0.0,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_usd_mean": null,
-            "hours_median": 0.7485,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "01-tower-max-height": {
-            "reward": 0.173093,
-            "success_rate": 0.173093,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 1.5006,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T152840-c186b05a-01_tower_max_height_high_subscription",
-            "started_at": "2026-09-11T15:28:40.930828",
-            "finished_at": "2026-09-11T16:58:43.208026",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.173093,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 20982.0,
-              "reward": 0.173093,
-              "success_rate": 0.173093,
-              "task_score": 17.309289,
-              "trials_attempted": 1.0,
-              "trials_total": 1.0
-            }
-          },
-          "02-cantilever-overhang": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 1.2101,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T153243-d9fb18a2-02_cantilever_overhang_high_subscription",
-            "started_at": "2026-09-11T15:32:43.942928",
-            "finished_at": "2026-09-11T16:45:20.352371",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 12501.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "task_score": 0.0,
-              "trials_attempted": 1.0,
-              "trials_total": 1.0
-            }
-          },
-          "03-balance-coins": {
-            "reward": 1.0,
-            "success_rate": 1.0,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 0.3823,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T152943-83e0f6b5-03_balance_coins_high_subscription",
-            "started_at": "2026-09-11T15:29:43.410444",
-            "finished_at": "2026-09-11T15:52:39.542479",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 1.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 11559.0,
-              "reward": 1.0,
-              "success_rate": 1.0,
-              "task_score": 100.0,
-              "trials_attempted": 1.0,
-              "trials_total": 1.0
-            }
-          },
-          "04-rubik-cube": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 1.5621,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T153352-790c8c12-04_rubik_cube_high_subscription",
-            "started_at": "2026-09-11T15:33:53.026517",
-            "finished_at": "2026-09-11T17:07:36.511327",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "actual_qtm": 29.0,
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 24378.0,
-              "optimal_qtm": 11.0,
-              "recoveries": 38.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "task_score": 0.0,
-              "trials_attempted": 1.0,
-              "trials_total": 1.0,
-              "unclassified_transitions": 1.0
-            }
-          },
-          "05-hidden-center-of-mass": {
-            "reward": 0.0,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 0.7485,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T153107-36e477f1-05_hidden_center_of_mass_high_subscription",
-            "started_at": "2026-09-11T15:31:08.119384",
-            "finished_at": "2026-09-11T16:16:02.602163",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "control_steps": 5510.0,
-              "correct": 0.0,
-              "reward": 0.0,
-              "submitted": 3.0,
-              "trial_1_control_steps": 4432.0,
-              "trial_1_correct": 0.0,
-              "trial_1_reward": 0.0,
-              "trial_1_submitted": 1.0,
-              "trial_2_control_steps": 553.0,
-              "trial_2_correct": 0.0,
-              "trial_2_reward": 0.0,
-              "trial_2_submitted": 1.0,
-              "trial_3_control_steps": 525.0,
-              "trial_3_correct": 0.0,
-              "trial_3_reward": 0.0,
               "trial_3_submitted": 1.0
             }
           }
@@ -14863,248 +15527,6 @@
             }
           }
         }
-      },
-      "grok-4-6": {
-        "score": 0.27502,
-        "complete": true,
-        "n_runs": 5,
-        "n_subtasks": 5,
-        "missing": [],
-        "harness": "Grok Build",
-        "splits": {
-          "01-dance": {
-            "score": 0.3631,
-            "reward": 0.3631,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_usd_mean": null,
-            "hours_median": 0.5124,
-            "n_runs": 1,
-            "complete": true
-          },
-          "02-fight": {
-            "score": 0.0929,
-            "reward": 0.0929,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_usd_mean": null,
-            "hours_median": 0.5195,
-            "n_runs": 1,
-            "complete": true
-          },
-          "03-fall-and-get-up": {
-            "score": 0.5664,
-            "reward": 0.5664,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_usd_mean": null,
-            "hours_median": 3.9934,
-            "n_runs": 1,
-            "complete": true
-          },
-          "04-run": {
-            "score": 0.0,
-            "reward": 0.0,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_usd_mean": null,
-            "hours_median": 0.3558,
-            "n_runs": 1,
-            "complete": true
-          },
-          "05-sprint": {
-            "score": 0.3527,
-            "reward": 0.3527,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_usd_mean": null,
-            "hours_median": 0.4629,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "01-dance": {
-            "reward": 0.3631,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 0.5124,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T170814-7ce1db91-01_dance_high_subscription",
-            "started_at": "2026-09-11T17:08:14.909511",
-            "finished_at": "2026-09-11T17:38:59.724550",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "action_jerk": 0.1453,
-              "anchor_pos_err_m": 0.383,
-              "falls": 8.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.1637,
-              "mpjpe_m": 0.0436,
-              "n_params": 2248286.0,
-              "obs_history_length": 4.0,
-              "raw_total": 0.3631,
-              "reward": 0.3631,
-              "survival": 0.576,
-              "survived_s": 11.52,
-              "tracking_multi": 0.4452,
-              "tracking_score": 0.5601
-            }
-          },
-          "02-fight": {
-            "reward": 0.0929,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 0.5195,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T170854-517cd17d-02_fight_high_subscription",
-            "started_at": "2026-09-11T17:08:54.992053",
-            "finished_at": "2026-09-11T17:40:05.127548",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "action_jerk": 0.1594,
-              "anchor_pos_err_m": 0.6964,
-              "falls": 8.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.1411,
-              "mpjpe_m": 0.0618,
-              "n_params": 2248287.0,
-              "obs_history_length": 4.0,
-              "raw_total": 0.0929,
-              "reward": 0.0929,
-              "survival": 0.257,
-              "survived_s": 5.14,
-              "tracking_multi": 0.1738,
-              "tracking_score": 0.2438
-            }
-          },
-          "03-fall-and-get-up": {
-            "reward": 0.5664,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 3.9934,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T172618-935f2945-03_fall_and_get_up_high_subscription",
-            "started_at": "2026-09-11T17:26:19.120500",
-            "finished_at": "2026-09-11T21:25:55.521289",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "action_jerk": 0.0865,
-              "anchor_pos_err_m": 0.5395,
-              "falls": 8.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.3573,
-              "mpjpe_m": 0.0703,
-              "n_params": 250717.0,
-              "obs_history_length": 1.0,
-              "raw_total": 0.5664,
-              "reward": 0.5664,
-              "survival": 0.8262,
-              "survived_s": 16.525,
-              "tracking_multi": 0.5872,
-              "tracking_score": 0.7494
-            }
-          },
-          "04-run": {
-            "reward": 0.0,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 0.3558,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T173925-b8927853-04_run_high_subscription",
-            "started_at": "2026-09-11T17:39:25.720171",
-            "finished_at": "2026-09-11T18:00:46.697838",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "action_jerk": 0.1561,
-              "anchor_pos_err_m": 0.0743,
-              "falls": 8.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.15,
-              "mpjpe_m": 0.0938,
-              "n_params": 1326172.0,
-              "obs_history_length": 4.0,
-              "raw_total": 0.0,
-              "reward": 0.0,
-              "survival": 0.0189,
-              "survived_s": 0.378,
-              "tracking_multi": 0.0095,
-              "tracking_score": 0.0169
-            }
-          },
-          "05-sprint": {
-            "reward": 0.3527,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 0.4629,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T174018-6c0474c5-05_sprint_high_subscription",
-            "started_at": "2026-09-11T17:40:18.609437",
-            "finished_at": "2026-09-11T18:08:04.912428",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "action_jerk": 0.1464,
-              "anchor_pos_err_m": 0.6714,
-              "falls": 8.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.1054,
-              "mpjpe_m": 0.0416,
-              "n_params": 2248284.0,
-              "obs_history_length": 4.0,
-              "raw_total": 0.3527,
-              "reward": 0.3527,
-              "survival": 0.5602,
-              "survived_s": 11.205,
-              "tracking_multi": 0.4379,
-              "tracking_score": 0.5441
-            }
-          }
-        }
       }
     },
     "task05": {
@@ -16286,6 +16708,154 @@
               "replay_wall_s": 1116.883118,
               "reward": 0.146667,
               "success_rate": 0.146667
+            }
+          }
+        }
+      },
+      "deepseek-flash": {
+        "score": 0.534889,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-libero-open-design": {
+            "score": 0.782,
+            "reward": 0.782,
+            "success_rate": 0.782,
+            "cost_usd": 0.154589,
+            "cost_usd_mean": 0.154589,
+            "hours_median": 4.3979,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-libero-robustness": {
+            "score": 0.712,
+            "reward": 0.712,
+            "success_rate": 0.712,
+            "cost_usd": 0.148588,
+            "cost_usd_mean": 0.148588,
+            "hours_median": 3.4046,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-robotwin-open-design": {
+            "score": 0.61,
+            "reward": 0.61,
+            "success_rate": 0.61,
+            "cost_usd": 0.20474,
+            "cost_usd_mean": 0.20474,
+            "hours_median": 5.8824,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.035556,
+            "reward": 0.035556,
+            "success_rate": 0.035556,
+            "cost_usd": 0.175911,
+            "cost_usd_mean": 0.175911,
+            "hours_median": 6.7473,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.782,
+            "success_rate": 0.782,
+            "cost_usd": 0.154589,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 4.3979,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "task05/task1/claude-code/deepseek-flash",
+            "started_at": "2026-09-12T03:52:52.146344Z",
+            "finished_at": "2026-09-12T08:16:44.535156Z",
+            "input_tokens": 11700151,
+            "cached_tokens": 11635968,
+            "output_tokens": 97540,
+            "metrics": {
+              "reward": 0.782,
+              "success_rate": 0.782,
+              "episodes": 500.0,
+              "parameters": 61650474.0,
+              "replay_wall_s": 1663.703879
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.712,
+            "success_rate": 0.712,
+            "cost_usd": 0.148588,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 3.4046,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "task05/task2/claude-code/deepseek-flash",
+            "started_at": "2026-09-12T05:13:52.690200Z",
+            "finished_at": "2026-09-12T08:38:09.127849Z",
+            "input_tokens": 12520531,
+            "cached_tokens": 12439168,
+            "output_tokens": 82561,
+            "metrics": {
+              "reward": 0.712,
+              "plus_success_rate": 0.712,
+              "episodes": 500.0,
+              "parameters": 107230477.0,
+              "replay_wall_s": 1520.15759
+            }
+          },
+          "03-robotwin-open-design": {
+            "reward": 0.61,
+            "success_rate": 0.61,
+            "cost_usd": 0.20474,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 5.8824,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "task05/task3/claude-code/deepseek-flash",
+            "started_at": "2026-09-12T06:48:22.445391Z",
+            "finished_at": "2026-09-12T12:41:19.190851Z",
+            "input_tokens": 16122329,
+            "cached_tokens": 16013184,
+            "output_tokens": 120137,
+            "metrics": {
+              "reward": 0.61,
+              "success_rate": 0.61,
+              "episodes": 300.0,
+              "parameters": 106006576.0,
+              "replay_wall_s": 1603.346063
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.035556,
+            "success_rate": 0.035556,
+            "cost_usd": 0.175911,
+            "cost_source": "price/deepseek-flash.json:mean",
+            "hours": 6.7473,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash",
+            "job": "task05/task4/claude-code/deepseek-flash",
+            "started_at": "2026-09-12T07:34:52.947831Z",
+            "finished_at": "2026-09-12T14:19:43.093116Z",
+            "input_tokens": 12838139,
+            "cached_tokens": 12776448,
+            "output_tokens": 116152,
+            "metrics": {
+              "reward": 0.035556,
+              "success_rate": 0.035556,
+              "episodes": 225.0,
+              "parameters": 22198286.0,
+              "replay_wall_s": 1708.567168
             }
           }
         }
@@ -18335,222 +18905,6 @@
             }
           }
         }
-      },
-      "grok-4-6": {
-        "score": 0.151675,
-        "complete": true,
-        "n_runs": 4,
-        "n_subtasks": 4,
-        "missing": [],
-        "harness": "Grok Build",
-        "splits": {
-          "01-rgb-only": {
-            "score": 0.1529,
-            "reward": 0.1529,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_usd_mean": null,
-            "hours_median": 0.853,
-            "n_runs": 1,
-            "complete": true
-          },
-          "02-rgb-depth": {
-            "score": 0.1476,
-            "reward": 0.1476,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_usd_mean": null,
-            "hours_median": 0.803,
-            "n_runs": 1,
-            "complete": true
-          },
-          "03-model-training": {
-            "score": 0.0,
-            "reward": 0.0,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_usd_mean": null,
-            "hours_median": 0.4954,
-            "n_runs": 1,
-            "complete": true
-          },
-          "04-method-agnostic": {
-            "score": 0.3062,
-            "reward": 0.3062,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_usd_mean": null,
-            "hours_median": 0.6737,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "01-rgb-only": {
-            "reward": 0.1529,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 0.853,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T133400-rgb_only_cpu_parallel4_subscription",
-            "started_at": "2026-09-11T13:34:00.816421",
-            "finished_at": "2026-09-11T14:25:11.723364",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "abs_median_rot_deg": 1.01,
-              "abs_median_trans_mm": 4.36,
-              "abs_occluded_trans_mm": 32.41,
-              "accuracy_reward": 0.152863,
-              "cp_A.pose": 0.5092,
-              "cp_B.pose": 0.0001,
-              "cp_G.load": 1.0,
-              "efficiency_deduction": 0.0,
-              "frame_time_s": 0.043903,
-              "gated": 0.0,
-              "inference_hz": 22.777683,
-              "inference_wall_s": 30.731835,
-              "merit": 0.1529,
-              "raw_total": 0.1529,
-              "reward": 0.1529,
-              "stage_a_frames": 100.0,
-              "stage_a_shape_accuracy": 0.97,
-              "stage_b_frames": 600.0,
-              "stage_b_median_rot_deg": 6.06,
-              "stage_b_median_trans_mm": 16.23,
-              "stage_b_occluded_fraction": 0.4733,
-              "stage_b_occluded_frames": 284.0,
-              "stage_b_shape_accuracy": 1.0,
-              "stage_gate": 0.0,
-              "stage_stage_a": 0.1528,
-              "stage_stage_b": 0.0001
-            }
-          },
-          "02-rgb-depth": {
-            "reward": 0.1476,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 0.803,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T133400-rgb_depth_cpu_parallel4_subscription",
-            "started_at": "2026-09-11T13:34:00.827403",
-            "finished_at": "2026-09-11T14:22:11.615475",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "abs_median_rot_deg": 1.43,
-              "abs_median_trans_mm": 7.74,
-              "abs_occluded_trans_mm": 28.32,
-              "accuracy_reward": 0.14756,
-              "cp_A.pose": 0.4913,
-              "cp_B.pose": 0.0003,
-              "cp_G.load": 1.0,
-              "efficiency_deduction": 0.0,
-              "frame_time_s": 0.088603,
-              "gated": 0.0,
-              "inference_hz": 11.286333,
-              "inference_wall_s": 62.021918,
-              "merit": 0.1476,
-              "raw_total": 0.1476,
-              "reward": 0.1476,
-              "stage_a_frames": 100.0,
-              "stage_a_shape_accuracy": 0.99,
-              "stage_b_frames": 600.0,
-              "stage_b_median_rot_deg": 2.66,
-              "stage_b_median_trans_mm": 14.62,
-              "stage_b_occluded_fraction": 0.4733,
-              "stage_b_occluded_frames": 284.0,
-              "stage_b_shape_accuracy": 1.0,
-              "stage_gate": 0.0,
-              "stage_stage_a": 0.1474,
-              "stage_stage_b": 0.0002
-            }
-          },
-          "03-model-training": {
-            "reward": 0.0,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 0.4954,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T133400-rgb_depth_model_training_gpu2_parallel4_subscription",
-            "started_at": "2026-09-11T13:34:00.826702",
-            "finished_at": "2026-09-11T14:03:44.123362",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "cp_A.pose": 0.0,
-              "cp_B.pose": 0.0,
-              "cp_G.load": 0.0,
-              "gated": 1.0,
-              "merit": 0.0,
-              "raw_total": 0.0,
-              "reward": 0.0,
-              "stage_gate": 0.0,
-              "stage_stage_a": 0.0,
-              "stage_stage_b": 0.0
-            }
-          },
-          "04-method-agnostic": {
-            "reward": 0.3062,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 0.6737,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T133400-method_agnostic_gpu3_parallel4_subscription",
-            "started_at": "2026-09-11T13:34:00.817443",
-            "finished_at": "2026-09-11T14:14:25.981153",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "abs_median_rot_deg": 0.69,
-              "abs_median_trans_mm": 6.25,
-              "abs_occluded_trans_mm": 18.3,
-              "accuracy_reward": 0.306221,
-              "cp_A.pose": 0.7459,
-              "cp_B.pose": 0.1178,
-              "cp_G.load": 1.0,
-              "efficiency_deduction": 0.0,
-              "frame_time_s": 0.0929,
-              "gated": 0.0,
-              "inference_hz": 10.764255,
-              "inference_wall_s": 65.030047,
-              "merit": 0.3062,
-              "raw_total": 0.3062,
-              "reward": 0.3062,
-              "stage_a_frames": 100.0,
-              "stage_a_shape_accuracy": 1.0,
-              "stage_b_frames": 600.0,
-              "stage_b_median_rot_deg": 1.58,
-              "stage_b_median_trans_mm": 9.86,
-              "stage_b_occluded_fraction": 0.4733,
-              "stage_b_occluded_frames": 284.0,
-              "stage_b_shape_accuracy": 1.0,
-              "stage_gate": 0.0,
-              "stage_stage_a": 0.2238,
-              "stage_stage_b": 0.0824
-            }
-          }
-        }
       }
     },
     "task07": {
@@ -19153,73 +19507,6 @@
               "reward": 0.4604,
               "speed_merit": 0.419,
               "throughput_ppm": 6.8153
-            }
-          }
-        }
-      },
-      "grok-4-6": {
-        "score": 0.1899,
-        "complete": true,
-        "n_runs": 1,
-        "n_subtasks": 1,
-        "missing": [],
-        "harness": "Grok Build",
-        "splits": {
-          "clearance": {
-            "score": 0.7152,
-            "metric": "clear_frac",
-            "weight": 1.0,
-            "credit": 0.7152,
-            "n_runs": 1,
-            "complete": true
-          },
-          "throughput": {
-            "score": 0.3675,
-            "metric": "speed_merit",
-            "weight": 1.0,
-            "credit": 0.3675,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "bin-clearing": {
-            "reward": 0.1899,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 2.6979,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T151623-510aea6f-task07_high_subscription",
-            "started_at": "2026-09-11T15:16:23.973103",
-            "finished_at": "2026-09-11T17:58:16.418769",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "bin_hits": 0.0,
-              "clear_frac": 0.7152,
-              "damage_events": 0.0,
-              "episode_wall_s_total": 3724.4633,
-              "floor_drops": 0.0,
-              "gate_contract": 1.0,
-              "gate_determinism": 1.0,
-              "gate_load": 1.0,
-              "gate_stable": 1.0,
-              "gated": 0.0,
-              "harness_wall_s_total": 3675.2732,
-              "makespan_s": 102.3312,
-              "n_parts": 112.0,
-              "parts_cleared": 80.0,
-              "policy_faults": 0.0,
-              "policy_wall_s_total": 49.1901,
-              "raw_total": 0.1899,
-              "reward": 0.1899,
-              "speed_merit": 0.3675,
-              "throughput_ppm": 5.8911
             }
           }
         }
@@ -20250,122 +20537,6 @@
               "stage_integration": 0.0125,
               "stage_static": 0.0,
               "stage_validity": 0.1275
-            }
-          }
-        }
-      },
-      "grok-4-6": {
-        "score": 0.4017,
-        "complete": true,
-        "n_runs": 1,
-        "n_subtasks": 1,
-        "missing": [],
-        "harness": "Grok Build",
-        "splits": {
-          "validity": {
-            "score": 1.0,
-            "metric": "stage_validity",
-            "weight": 0.15,
-            "credit": 0.15,
-            "n_runs": 1,
-            "complete": true
-          },
-          "design": {
-            "score": 0.616,
-            "metric": "stage_design",
-            "weight": 0.35,
-            "credit": 0.2156,
-            "n_runs": 1,
-            "complete": true
-          },
-          "static": {
-            "score": 0.0,
-            "metric": "stage_static",
-            "weight": 0.15,
-            "credit": 0.0,
-            "n_runs": 1,
-            "complete": true
-          },
-          "dynamic": {
-            "score": 0.1805,
-            "metric": "stage_dynamic",
-            "weight": 0.2,
-            "credit": 0.0361,
-            "n_runs": 1,
-            "complete": true
-          },
-          "integration": {
-            "score": 0.0,
-            "metric": "stage_integration",
-            "weight": 0.15,
-            "credit": 0.0,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "mobile-base": {
-            "reward": 0.4017,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 0.9821,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T101723-87f36c63-subscription",
-            "started_at": "2026-09-11T10:17:23.393873",
-            "finished_at": "2026-09-11T11:16:18.995141",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "cp_S1.equilibrium": 1.0,
-              "cp_S1.inertia": 1.0,
-              "cp_S1.load": 1.0,
-              "cp_S1.mecanum": 1.0,
-              "cp_S1.structure": 1.0,
-              "cp_S3.battery_onboard": 1.0,
-              "cp_S3.design_efficiency": 0.3892,
-              "cp_S3.reach_beyond": 1.0,
-              "cp_S3.reach_preserved": 1.0,
-              "cp_S3.resource_constraints": 1.0,
-              "cp_S3.static_margin": 0.0,
-              "cp_S3.still_valid": 1.0,
-              "cp_S5.testB": 0.2362,
-              "cp_S5.testC": 0.0,
-              "cp_S5.testD1": 0.6667,
-              "cp_S5.testD2": 0.0,
-              "cp_S5.testE": 0.0,
-              "cp_S7.payload_margin": 0.0,
-              "cp_S7.pick_compat": 0.0,
-              "design_base_mass_kg": 23.874,
-              "design_footprint_area_headroom_fraction": 0.18929,
-              "design_footprint_area_headroom_m2": 0.059361,
-              "design_footprint_area_m2": 0.254239,
-              "design_footprint_x_headroom_m": 0.006634,
-              "design_footprint_x_m": 0.553366,
-              "design_footprint_y_headroom_m": 0.10056,
-              "design_footprint_y_m": 0.45944,
-              "design_mass_budget_kg": 38.0,
-              "design_mass_headroom_fraction": 0.371737,
-              "design_mass_headroom_kg": 14.126,
-              "design_profile_length_headroom_fraction": 0.606667,
-              "design_profile_length_headroom_m": 7.28,
-              "design_profile_length_m": 4.72,
-              "design_score": 0.389231,
-              "design_total_mass_kg": 45.7439,
-              "dynamic_mean": 0.1724,
-              "dynamic_var": 0.1265,
-              "gated": 0.0,
-              "raw_total": 0.4017,
-              "reward": 0.4017,
-              "stage_design": 0.2156,
-              "stage_dynamic": 0.0361,
-              "stage_integration": 0.0,
-              "stage_static": 0.0,
-              "stage_validity": 0.15
             }
           }
         }
@@ -21736,158 +21907,6 @@
               "xarm7_stage_software": 0.0854,
               "xarm7_stage_validity": 0.0998,
               "xarm7_validity_deduction": 0.000175
-            }
-          }
-        }
-      },
-      "grok-4-6": {
-        "score": 0.288467,
-        "complete": true,
-        "n_runs": 1,
-        "n_subtasks": 1,
-        "missing": [],
-        "harness": "Grok Build",
-        "splits": {
-          "franka": {
-            "score": 0.3219,
-            "metric": "franka_reward",
-            "weight": 1.0,
-            "credit": 0.3219,
-            "n_runs": 1,
-            "complete": true
-          },
-          "ur5e": {
-            "score": 0.2227,
-            "metric": "ur5e_reward",
-            "weight": 1.0,
-            "credit": 0.2227,
-            "n_runs": 1,
-            "complete": true
-          },
-          "xarm7": {
-            "score": 0.3208,
-            "metric": "xarm7_reward",
-            "weight": 1.0,
-            "credit": 0.3208,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "gello": {
-            "reward": 0.288467,
-            "success_rate": null,
-            "cost_usd": null,
-            "cost_source": "harness",
-            "hours": 0.5058,
-            "status": "completed",
-            "harness": "Grok Build",
-            "agent": "rlebench.agents.grok_build:SubscriptionGrokBuild",
-            "model": "xai/grok-4.6",
-            "job": "grok_build-grok_46-20260911T175732-9ee23f64-task09_high_subscription",
-            "started_at": "2026-09-11T17:57:33.280381",
-            "finished_at": "2026-09-11T18:27:54.221250",
-            "input_tokens": null,
-            "cached_tokens": null,
-            "output_tokens": null,
-            "metrics": {
-              "franka_cp_B1.combined_hold": 0.3991,
-              "franka_cp_B2.combined_backdrive": 0.3806,
-              "franka_cp_B3.headroom": 0.569,
-              "franka_cp_B4.push_recovery": 0.3616,
-              "franka_cp_C1.budget": 1.0,
-              "franka_cp_C1.buildable": 1.0,
-              "franka_cp_C1.load": 1.0,
-              "franka_cp_C1.motion_clearance": 0.0,
-              "franka_cp_C1.printability": 0.0,
-              "franka_cp_C1.settle": 1.0,
-              "franka_cp_C1.springs_legal": 1.0,
-              "franka_cp_C1.structure": 1.0,
-              "franka_cp_H1.device_residual": 0.226,
-              "franka_cp_H2.passive_hold": 0.3179,
-              "franka_cp_H3.passive_backdrive": 0.3271,
-              "franka_cp_S2.adapted_backdrive": 0.4055,
-              "franka_cp_S2.adapted_hold": 0.4423,
-              "franka_deduction_C1.budget": 0.0,
-              "franka_deduction_C1.buildable": 0.0,
-              "franka_deduction_C1.load": 0.0,
-              "franka_deduction_C1.printability": 0.021053,
-              "franka_deduction_C1.settle": 0.0,
-              "franka_deduction_C1.springs_legal": 0.0,
-              "franka_deduction_C1.structure": 0.0,
-              "franka_gated": 0.0,
-              "franka_raw_total": 0.3219,
-              "franka_reward": 0.3219,
-              "franka_stage_codesign": 0.171,
-              "franka_stage_hardware": 0.0871,
-              "franka_stage_software": 0.0848,
-              "franka_stage_validity": -0.0211,
-              "franka_validity_deduction": 0.021053,
-              "reward": 0.288467,
-              "ur5e_cp_B1.combined_hold": 0.2061,
-              "ur5e_cp_B2.combined_backdrive": 0.2906,
-              "ur5e_cp_B3.headroom": 0.279,
-              "ur5e_cp_B4.push_recovery": 0.2861,
-              "ur5e_cp_C1.budget": 1.0,
-              "ur5e_cp_C1.buildable": 1.0,
-              "ur5e_cp_C1.load": 1.0,
-              "ur5e_cp_C1.motion_clearance": 0.0,
-              "ur5e_cp_C1.printability": 0.0,
-              "ur5e_cp_C1.settle": 1.0,
-              "ur5e_cp_C1.springs_legal": 1.0,
-              "ur5e_cp_C1.structure": 1.0,
-              "ur5e_cp_H1.device_residual": 0.2467,
-              "ur5e_cp_H2.passive_hold": 0.3412,
-              "ur5e_cp_H3.passive_backdrive": 0.2748,
-              "ur5e_cp_S2.adapted_backdrive": 0.2902,
-              "ur5e_cp_S2.adapted_hold": 0.2231,
-              "ur5e_deduction_C1.budget": 0.0,
-              "ur5e_deduction_C1.buildable": 0.0,
-              "ur5e_deduction_C1.load": 0.0,
-              "ur5e_deduction_C1.printability": 0.021053,
-              "ur5e_deduction_C1.settle": 0.0,
-              "ur5e_deduction_C1.springs_legal": 0.0,
-              "ur5e_deduction_C1.structure": 0.0,
-              "ur5e_gated": 0.0,
-              "ur5e_raw_total": 0.2227,
-              "ur5e_reward": 0.2227,
-              "ur5e_stage_codesign": 0.1062,
-              "ur5e_stage_hardware": 0.0863,
-              "ur5e_stage_software": 0.0513,
-              "ur5e_stage_validity": -0.0211,
-              "ur5e_validity_deduction": 0.021053,
-              "xarm7_cp_B1.combined_hold": 0.1781,
-              "xarm7_cp_B2.combined_backdrive": 0.3357,
-              "xarm7_cp_B3.headroom": 0.5,
-              "xarm7_cp_B4.push_recovery": 0.0207,
-              "xarm7_cp_C1.budget": 1.0,
-              "xarm7_cp_C1.buildable": 1.0,
-              "xarm7_cp_C1.load": 1.0,
-              "xarm7_cp_C1.motion_clearance": 1.0,
-              "xarm7_cp_C1.printability": 0.0,
-              "xarm7_cp_C1.settle": 1.0,
-              "xarm7_cp_C1.springs_legal": 1.0,
-              "xarm7_cp_C1.structure": 1.0,
-              "xarm7_cp_H1.device_residual": 0.2086,
-              "xarm7_cp_H2.passive_hold": 0.3183,
-              "xarm7_cp_H3.passive_backdrive": 0.3184,
-              "xarm7_cp_S2.adapted_backdrive": 0.328,
-              "xarm7_cp_S2.adapted_hold": 0.2104,
-              "xarm7_deduction_C1.budget": 0.0,
-              "xarm7_deduction_C1.buildable": 0.0,
-              "xarm7_deduction_C1.load": 0.0,
-              "xarm7_deduction_C1.printability": 0.021053,
-              "xarm7_deduction_C1.settle": 0.0,
-              "xarm7_deduction_C1.springs_legal": 0.0,
-              "xarm7_deduction_C1.structure": 0.0,
-              "xarm7_gated": 0.0,
-              "xarm7_raw_total": 0.3208,
-              "xarm7_reward": 0.3208,
-              "xarm7_stage_codesign": 0.1034,
-              "xarm7_stage_hardware": 0.0845,
-              "xarm7_stage_software": 0.0538,
-              "xarm7_stage_validity": 0.0789,
-              "xarm7_validity_deduction": 0.021053
             }
           }
         }

@@ -6961,6 +6961,1333 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "01-washing-dishes/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 49.70697800000001,
+      "reward": 0.866667,
+      "success_rate": 0.6,
+      "metrics": {
+        "dev_episodes": 39.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 13974.0,
+        "planned_trials": 5.0,
+        "reward": 0.866667,
+        "success_rate": 0.6,
+        "successes": 3.0,
+        "tasks_practised": 1.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T21:37:21.369695",
+        "finished_at": "2026-09-11T23:45:43.235135",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 56911744,
+          "n_cache_tokens": 56459776,
+          "n_output_tokens": 768690
+        },
+        "trials": [
+          {
+            "trial": "01-washing-dishes__LcR2Z6L",
+            "rewards": {
+              "dev_episodes": 39,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 13974,
+              "planned_trials": 5,
+              "reward": 0.866667,
+              "success_rate": 0.6,
+              "successes": 3,
+              "tasks_practised": 1,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "01-washing-dishes/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.8,
+      "success_rate": 0.4,
+      "metrics": {
+        "dev_episodes": 20.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 8923.0,
+        "planned_trials": 5.0,
+        "reward": 0.8,
+        "success_rate": 0.4,
+        "successes": 2.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T22:24:34.067832",
+        "finished_at": "2026-09-12T02:01:22.857487",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "01-washing-dishes__FQyMQMb",
+            "rewards": {
+              "dev_episodes": 20,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 8923,
+              "planned_trials": 5,
+              "reward": 0.8,
+              "success_rate": 0.4,
+              "successes": 2,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "02-sauteing-vegetables/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 86.90909400000007,
+      "reward": 0.7,
+      "success_rate": 0.6,
+      "metrics": {
+        "dev_episodes": 166.0,
+        "dev_successes": 5.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 44581.0,
+        "planned_trials": 5.0,
+        "reward": 0.7,
+        "success_rate": 0.6,
+        "successes": 3.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-11T23:45:46.795061",
+        "finished_at": "2026-09-12T03:35:19.564077",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 127456398,
+          "n_cache_tokens": 126940288,
+          "n_output_tokens": 834336
+        },
+        "trials": [
+          {
+            "trial": "02-sauteing-vegetables__gzuXpdn",
+            "rewards": {
+              "dev_episodes": 166,
+              "dev_successes": 5,
+              "interaction_budget": 75000,
+              "interaction_steps": 44581,
+              "planned_trials": 5,
+              "reward": 0.7,
+              "success_rate": 0.6,
+              "successes": 3,
+              "tasks_practised": 3,
+              "train_tasks_solved": 1,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "02-sauteing-vegetables/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.8,
+      "success_rate": 0.8,
+      "metrics": {
+        "dev_episodes": 54.0,
+        "dev_successes": 2.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 19797.0,
+        "planned_trials": 5.0,
+        "reward": 0.8,
+        "success_rate": 0.8,
+        "successes": 4.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T02:01:26.653516",
+        "finished_at": "2026-09-12T05:30:24.281099",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "02-sauteing-vegetables__ipbBbyG",
+            "rewards": {
+              "dev_episodes": 54,
+              "dev_successes": 2,
+              "interaction_budget": 75000,
+              "interaction_steps": 19797,
+              "planned_trials": 5,
+              "reward": 0.8,
+              "success_rate": 0.8,
+              "successes": 4,
+              "tasks_practised": 3,
+              "train_tasks_solved": 1,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "03-baking/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 74.69151799999996,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 89.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 13585.0,
+        "planned_trials": 5.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-13T21:44:25.082189",
+        "finished_at": "2026-09-14T02:27:21.146513",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 99767448,
+          "n_cache_tokens": 99148416,
+          "n_output_tokens": 880886
+        },
+        "trials": [
+          {
+            "trial": "03-baking__qn92DXh",
+            "rewards": {
+              "dev_episodes": 89,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 13585,
+              "planned_trials": 5,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "03-baking/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.1,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 8.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 10780.0,
+        "planned_trials": 5.0,
+        "reward": 0.1,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 4.0,
+        "trials_recorded": 4.0
+      },
+      "extra": {
+        "started_at": "2026-09-13T01:29:12.944406",
+        "finished_at": "2026-09-13T06:20:42.618113",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "03-baking__NrnEoxd",
+            "rewards": {
+              "dev_episodes": 8,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 10780,
+              "planned_trials": 5,
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 4,
+              "trials_recorded": 4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "04-reheating-food/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 76.912563,
+      "reward": 0.2,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 74.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 68628.0,
+        "planned_trials": 5.0,
+        "reward": 0.2,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T08:21:23.255113",
+        "finished_at": "2026-09-12T12:01:03.824589",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 106138804,
+          "n_cache_tokens": 105604096,
+          "n_output_tokens": 857479
+        },
+        "trials": [
+          {
+            "trial": "04-reheating-food__iUd9hR8",
+            "rewards": {
+              "dev_episodes": 74,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 68628,
+              "planned_trials": 5,
+              "reward": 0.2,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "04-reheating-food/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.6,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 14.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 8532.0,
+        "planned_trials": 5.0,
+        "reward": 0.6,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T10:51:44.869079",
+        "finished_at": "2026-09-12T16:32:59.078659",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "04-reheating-food__YU3gRxq",
+            "rewards": {
+              "dev_episodes": 14,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 8532,
+              "planned_trials": 5,
+              "reward": 0.6,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "05-chopping-food/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 113.90736199999994,
+      "reward": 0.4,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 77.0,
+        "dev_successes": 1.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 71265.0,
+        "planned_trials": 5.0,
+        "reward": 0.4,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T12:01:06.956063",
+        "finished_at": "2026-09-12T19:35:08.447948",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 178443008,
+          "n_cache_tokens": 177824384,
+          "n_output_tokens": 876082
+        },
+        "trials": [
+          {
+            "trial": "05-chopping-food__HZR2s6x",
+            "rewards": {}
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "05-chopping-food/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.933333,
+      "success_rate": 0.8,
+      "metrics": {
+        "dev_episodes": 8.0,
+        "dev_successes": 2.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 5379.0,
+        "planned_trials": 5.0,
+        "reward": 0.933333,
+        "success_rate": 0.8,
+        "successes": 4.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 2.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T16:33:02.586015",
+        "finished_at": "2026-09-12T18:56:18.610869",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "05-chopping-food__EGPaZPi",
+            "rewards": {
+              "dev_episodes": 8,
+              "dev_successes": 2,
+              "interaction_budget": 75000,
+              "interaction_steps": 5379,
+              "planned_trials": 5,
+              "reward": 0.933333,
+              "success_rate": 0.8,
+              "successes": 4,
+              "tasks_practised": 3,
+              "train_tasks_solved": 2,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "06-setting-the-table/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 64.51161099999997,
+      "reward": 0.1,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 83.0,
+        "dev_successes": 5.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 25273.0,
+        "planned_trials": 5.0,
+        "reward": 0.1,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-13T21:44:25.080386",
+        "finished_at": "2026-09-14T00:28:44.774872",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 86307469,
+          "n_cache_tokens": 85796352,
+          "n_output_tokens": 762314
+        },
+        "trials": [
+          {
+            "trial": "06-setting-the-table__BpXoPp7",
+            "rewards": {
+              "dev_episodes": 83,
+              "dev_successes": 5,
+              "interaction_budget": 75000,
+              "interaction_steps": 25273,
+              "planned_trials": 5,
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 1,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "06-setting-the-table/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.3,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 21.0,
+        "dev_successes": 1.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 8970.0,
+        "planned_trials": 5.0,
+        "reward": 0.3,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T18:56:23.440749",
+        "finished_at": "2026-09-13T00:29:48.189695",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "06-setting-the-table__zEdbGtn",
+            "rewards": {
+              "dev_episodes": 21,
+              "dev_successes": 1,
+              "interaction_budget": 75000,
+              "interaction_steps": 8970,
+              "planned_trials": 5,
+              "reward": 0.3,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 1,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "07-portioning-meals/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 94.51072300000004,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 143.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 50607.0,
+        "planned_trials": 5.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T23:05:11.716981",
+        "finished_at": "2026-09-13T03:19:33.725165",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 135815158,
+          "n_cache_tokens": 135225088,
+          "n_output_tokens": 942413
+        },
+        "trials": [
+          {
+            "trial": "07-portioning-meals__upHSJ2e",
+            "rewards": {
+              "dev_episodes": 143,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 50607,
+              "planned_trials": 5,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "07-portioning-meals/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.05,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 9.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 4523.0,
+        "planned_trials": 5.0,
+        "reward": 0.05,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 2.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-13T03:16:01.304798",
+        "finished_at": "2026-09-13T08:29:31.455448",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "07-portioning-meals__t6tMKFU",
+            "rewards": {
+              "dev_episodes": 9,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 4523,
+              "planned_trials": 5,
+              "reward": 0.05,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 2,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "08-defrosting-food/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 58.26398600000001,
+      "reward": 0.05,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 81.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 36212.0,
+        "planned_trials": 5.0,
+        "reward": 0.05,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-13T03:19:37.356323",
+        "finished_at": "2026-09-13T06:16:48.438695",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 73962631,
+          "n_cache_tokens": 73473152,
+          "n_output_tokens": 761517
+        },
+        "trials": [
+          {
+            "trial": "08-defrosting-food__3ZGzQJ3",
+            "rewards": {
+              "dev_episodes": 81,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 36212,
+              "planned_trials": 5,
+              "reward": 0.05,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "08-defrosting-food/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.266667,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 21.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 13622.0,
+        "planned_trials": 5.0,
+        "reward": 0.266667,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-13T22:11:22.636810",
+        "finished_at": "2026-09-14T03:17:25.296306",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "08-defrosting-food__MQxpoMC",
+            "rewards": {
+              "dev_episodes": 21,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 13622,
+              "planned_trials": 5,
+              "reward": 0.266667,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "09-arranging-buffet/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 86.34625699999998,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 77.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 17611.0,
+        "planned_trials": 5.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-14T02:27:24.475559",
+        "finished_at": "2026-09-14T06:04:22.126116",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 118451687,
+          "n_cache_tokens": 117837184,
+          "n_output_tokens": 974206
+        },
+        "trials": [
+          {
+            "trial": "09-arranging-buffet__vuDyHpp",
+            "rewards": {}
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "10-serving-beverages/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 65.63455199999999,
+      "reward": 0.066667,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 105.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 65914.0,
+        "planned_trials": 5.0,
+        "reward": 0.066667,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-14T00:28:47.807270",
+        "finished_at": "2026-09-14T03:42:32.722985",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 90948283,
+          "n_cache_tokens": 90382464,
+          "n_output_tokens": 704569
+        },
+        "trials": [
+          {
+            "trial": "10-serving-beverages__7VtrBUL",
+            "rewards": {
+              "dev_episodes": 105,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 65914,
+              "planned_trials": 5,
+              "reward": 0.066667,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "10-serving-beverages/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.066667,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 25.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 7310.0,
+        "planned_trials": 5.0,
+        "reward": 0.066667,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-13T10:38:43.914527",
+        "finished_at": "2026-09-14T04:16:41.319808",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "10-serving-beverages__tnaEAR6",
+            "rewards": {
+              "dev_episodes": 25,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 7310,
+              "planned_trials": 5,
+              "reward": 0.066667,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "11-loading-fridge/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 62.41686700000001,
+      "reward": 0.4,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 114.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 36638.0,
+        "planned_trials": 5.0,
+        "reward": 0.4,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-13T12:18:29.969639",
+        "finished_at": "2026-09-13T20:36:48.285854",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 84782637,
+          "n_cache_tokens": 84315904,
+          "n_output_tokens": 717010
+        },
+        "trials": [
+          {
+            "trial": "11-loading-fridge__sYFm52o",
+            "rewards": {}
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "12-managing-freezer-space/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 109.42664800000003,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 160.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 47333.0,
+        "planned_trials": 5.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 1.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 3.0,
+        "trials_recorded": 3.0
+      },
+      "extra": {
+        "started_at": "2026-09-13T01:34:02.979753",
+        "finished_at": "2026-09-13T08:09:45.274902",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 168537102,
+          "n_cache_tokens": 167399552,
+          "n_output_tokens": 934383
+        },
+        "trials": [
+          {
+            "trial": "12-managing-freezer-space__Ntsygpf",
+            "rewards": {}
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "13-clearing-table/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 103.53244800000002,
+      "reward": 0.066667,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 65.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 75000.0,
+        "planned_trials": 5.0,
+        "reward": 0.066667,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T21:41:03.257941",
+        "finished_at": "2026-09-13T01:29:32.920796",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 154387823,
+          "n_cache_tokens": 153302784,
+          "n_output_tokens": 856475
+        },
+        "trials": [
+          {
+            "trial": "13-clearing-table__9uB5LKR",
+            "rewards": {}
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "14-microwaving-food/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 56.786793,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 91.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 18705.0,
+        "planned_trials": 5.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T19:00:51.222059",
+        "finished_at": "2026-09-12T21:24:46.796007",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 82026844,
+          "n_cache_tokens": 81538176,
+          "n_output_tokens": 749472
+        },
+        "trials": [
+          {
+            "trial": "14-microwaving-food__56AGcSU",
+            "rewards": {
+              "dev_episodes": 91,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 18705,
+              "planned_trials": 5,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash",
+      "job": "15-storing-leftovers/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 68.57007399999999,
+      "reward": 0.066667,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 40.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 5095.0,
+        "planned_trials": 5.0,
+        "reward": 0.066667,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T15:48:38.580767",
+        "finished_at": "2026-09-12T18:23:06.030742",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 95844547,
+          "n_cache_tokens": 95307136,
+          "n_output_tokens": 725665
+        },
+        "trials": [
+          {
+            "trial": "15-storing-leftovers__FnbDc6d",
+            "rewards": {
+              "dev_episodes": 40,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 5095,
+              "planned_trials": 5,
+              "reward": 0.066667,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
     }
   ]
 }
