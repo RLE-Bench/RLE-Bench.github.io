@@ -1,0 +1,4 @@
+# Copy to .dev.vars for local development; never commit real credentials.
+# Add http://127.0.0.1:8787/auth/github/callback to your GitHub App callbacks.
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=

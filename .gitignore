@@ -11,3 +11,14 @@ Thumbs.db
 
 # Local Harbor source archive (curated public timeline is in assets/blog)
 /05-sprint__nEPZiiK/
+
+# Submission service dependencies, local state, and secrets
+/submission-service/node_modules/
+/submission-service/.wrangler/
+/submission-service/.dev.vars*
+!/submission-service/.dev.vars.example
+/submission-service/.env*
+/submission-service/public/icon.png
+/submission-service/public/rlebench-harbor-template.zip
+/submission-service/public/guide/
+/submission-service/public/guide-assets/
