@@ -215,7 +215,7 @@
   });
   function renderProposalDetail() {
     const fields = detail.fields, list = element('dl');
-    for (const [label, value] of [['Contributor', `@${detail.login}`], ['Domain', fields.domain], ['Software', fields.software], ['Operating system', fields.operating_system], ['Licensing', fields.licensing], ['Contact', fields.contact], ['Created', date(detail.created_at)], ['Reference', detail.id]]) {
+    for (const [label, value] of [['Contributor', `@${detail.login}`], ['Domain', fields.domain], ['Software', fields.software], ['Contact', fields.contact], ['Created', date(detail.created_at)], ['Reference', detail.id]]) {
       if (value) list.append(element('dt', label), element('dd', value));
     }
     $('detailContent').append(badge(detail.status), list);

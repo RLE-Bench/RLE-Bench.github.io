@@ -44,21 +44,17 @@
               <label for="proposalTitle">Task name</label><input id="proposalTitle" name="title" required minlength="3" maxlength="120" autocomplete="off" placeholder="e.g. Tactile slip recovery">
               <label for="proposalDomain">Robotics domain</label><input id="proposalDomain" name="domain" required maxlength="160" placeholder="e.g. Manipulation, locomotion, or robot design">
               <label for="proposalSoftware">Software and versions</label><input id="proposalSoftware" name="software" required maxlength="500" placeholder="e.g. MuJoCo 3.x, Python 3.12, PyTorch; note anything undecided">
-              <div class="field-row">
-                <div><label for="proposalOS">Operating system</label><select id="proposalOS" name="operating_system" required><option value="">Choose an OS</option><option>Linux</option><option>Windows</option><option>macOS</option><option>Other</option><option>Not decided</option></select></div>
-                <div><label for="proposalLicense">Software licensing</label><select id="proposalLicense" name="licensing" required><option value="">Choose a category</option><option>Free / open source</option><option>Commercial</option><option>Internal / proprietary</option><option>Not decided</option></select></div>
-              </div>
-              <p class="field-help">Open-source tools and a reproducible Linux environment are preferred for completed tasks.</p>
               <label for="proposalDescription">Task description</label><p class="field-help" id="proposalDescriptionHelp">Describe the objective, starting state, available inputs, constraints, and what the agent should deliver—as if assigning the work to a colleague.</p>
               <textarea id="proposalDescription" name="description" required minlength="30" maxlength="4000" rows="7" aria-describedby="proposalDescriptionHelp" placeholder="Example: Given a gripper model and tactile observations, develop a controller that recovers from object slip under held-out friction and mass settings."></textarea>
+              <label for="proposalEvaluation">How should we verify success?</label><textarea id="proposalEvaluation" name="evaluation" required minlength="30" maxlength="4000" rows="5" placeholder="Give objective metrics, pass criteria, held-out conditions, and how the final artifact will be evaluated."></textarea>
+              <label for="proposalContact">Contact email</label><input id="proposalContact" name="contact" type="email" required maxlength="320" autocomplete="email">
             </fieldset>
             <fieldset>
-              <legend>Materials and evaluation</legend>
+              <legend>Materials</legend>
               <label for="proposalInputs">Input materials <span class="optional">(optional)</span></label><textarea id="proposalInputs" name="input_materials" maxlength="2000" rows="3" placeholder="Describe available models, datasets, code, assets, and initial conditions. Note what still needs to be created."></textarea>
               <label for="proposalMaterialsUrl">Input materials link <span class="optional">(optional)</span></label><input id="proposalMaterialsUrl" name="materials_url" type="url" maxlength="2048" placeholder="https://github.com/… or a shared folder">
               <label for="proposalReference">Reference output <span class="optional">(optional)</span></label><textarea id="proposalReference" name="reference_output" maxlength="2000" rows="3" placeholder="Describe an expert solution, expected artifact, or baseline result, and any dependencies needed to check it."></textarea>
               <label for="proposalReferenceUrl">Reference output link <span class="optional">(optional)</span></label><input id="proposalReferenceUrl" name="reference_url" type="url" maxlength="2048" placeholder="https://…">
-              <label for="proposalEvaluation">How should we verify success?</label><textarea id="proposalEvaluation" name="evaluation" required minlength="30" maxlength="4000" rows="5" placeholder="Give objective metrics, pass criteria, held-out conditions, and how the final artifact will be evaluated."></textarea>
               <p class="field-help">Use links for supporting files at the proposal stage. Make sure the reviewers can access them.</p>
             </fieldset>
             <fieldset>
@@ -68,7 +64,6 @@
               <label for="proposalScore">Score or outcome</label><input id="proposalScore" name="self_test_score" maxlength="120" placeholder="e.g. 2 of 10 trials passed; failed to recover from slip">
               <label for="proposalEvidence">Evidence link</label><input id="proposalEvidence" name="evidence_url" type="url" maxlength="2048" placeholder="https://… (logs, screenshots, or a report)">
             </fieldset>
-            <label for="proposalContact">Contact email</label><input id="proposalContact" name="contact" type="email" required maxlength="320" autocomplete="email">
             <p class="privacy-note">Drafts are visible only to you. Submitted proposals and feedback are visible to you and designated RLE-Bench reviewers.</p>
             <p class="form-status" id="proposalStatus" role="status" aria-live="polite"></p>
             <div class="form-actions"><button class="button primary" id="proposalSubmit" type="submit" value="submitted">Submit proposal</button><button class="button" id="proposalSave" type="submit" value="draft" formnovalidate>Save draft</button><button class="quiet" id="proposalCancel" type="button" hidden>Close editor</button></div>
