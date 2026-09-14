@@ -1,0 +1,33 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "rlebench-submissions",
+  "main": "src/worker.mjs",
+  "account_id": "b8fb67ed42eed035686205a83734eabf",
+  "compatibility_date": "2026-09-13",
+  "workers_dev": true,
+  "preview_urls": false,
+  "keep_vars": true,
+  "observability": { "enabled": true, "logs": { "enabled": true, "invocation_logs": false } },
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "vars": {
+    "APP_ORIGIN": "https://rlebench-submissions.congharvard.workers.dev",
+    "MAX_UPLOAD_BYTES": "26214400",
+    "REVIEWER_IDS": "44082254,41679605,87316432",
+    "GITHUB_CLIENT_ID": "Iv23li9TQi8Pf7egdcUx"
+  },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "rlebench-submissions",
+    "database_id": "6ea08c49-df5c-4fb7-aba8-abb6a89200e4",
+    "migrations_dir": "migrations"
+  }],
+  "r2_buckets": [{
+    "binding": "SUBMISSIONS_BUCKET",
+    "bucket_name": "rlebench"
+  }],
+  "triggers": { "crons": ["17 4 * * *"] }
+}

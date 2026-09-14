@@ -1,0 +1,122 @@
+/* Contribution guide extends the Run page's shared editorial layout. */
+.contribute-page { --contribute-accent: #79b6ff; }
+:root[data-theme="light"] .contribute-page { --contribute-accent: #205fa8; }
+.contribute-page .docs-intro { padding-bottom: 36px; }
+.contribute-page .docs-intro .eyebrow { color: var(--contribute-accent); font-size: .875rem; letter-spacing: .065em; }
+.contribute-page .docs-intro h1 { max-width: 15ch; }
+.contribute-page .docs-intro .intro { max-width: 54ch; font-size: 1.25rem; }
+.contribute-page .docs-content h3 { font-size: 1.25rem; font-weight: 500; line-height: 1.4; }
+.contribute-page .docs-content li { color: var(--text-secondary); font-size: 1.0625rem; line-height: 1.7; }
+.contribute-page .docs-content li + li { margin-top: 10px; }
+.contribute-page .docs-content ul { padding-left: 24px; }
+.contribute-page .docs-content strong { color: var(--text-primary); font-weight: 600; }
+.contribute-page .docs-content .small-note { font-size: .9375rem; color: var(--text-muted); line-height: 1.65; }
+.contribute-page .docs-content .text-link { color: var(--contribute-accent); }
+
+.contribution-incentives {
+  --incentive-background: var(--surface-1);
+  --incentive-ink: var(--text-primary);
+  --incentive-muted: var(--text-secondary);
+  --incentive-label: var(--text-muted);
+  --incentive-button: var(--text-primary);
+  --incentive-button-ink: var(--page);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-top: 28px;
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--incentive-background);
+  box-shadow: var(--shadow);
+}
+:root[data-theme="light"] .contribution-incentives {
+  --incentive-background: #fff;
+  --incentive-ink: #1e293b;
+  --incentive-muted: #475b76;
+  --incentive-label: #607b9c;
+  --incentive-button: #10182d;
+  --incentive-button-ink: #fff;
+}
+.incentive-copy { flex: 1 1 360px; min-width: 0; }
+.contribute-page .incentive-heading { margin: 0 0 16px; font-size: .875rem; font-weight: 600; line-height: 1.5; letter-spacing: .055em; text-transform: uppercase; color: var(--incentive-label); }
+.contribute-page .docs-content .incentive-list { list-style: none; margin: 0; padding: 0; }
+.contribute-page .docs-content .incentive-list li { font-size: 1.125rem; line-height: 1.55; color: var(--incentive-muted); }
+.contribute-page .docs-content .incentive-list li + li { margin-top: 12px; }
+.contribute-page .incentive-list strong { color: var(--incentive-ink); }
+.incentive-cta { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; gap: 16px; max-width: 100%; min-height: 54px; padding: 14px 24px; border-radius: 999px; background: var(--incentive-button); color: var(--incentive-button-ink); font-size: 1.0625rem; font-weight: 600; line-height: 1.5; text-align: center; text-decoration: none; }
+.incentive-cta svg { flex-shrink: 0; }
+.incentive-cta:hover { opacity: .88; }
+.incentive-cta:focus-visible { outline: 2px solid var(--contribute-accent); outline-offset: 5px; }
+
+.template-download { margin-top: 28px; padding: 22px 24px; border: 1px solid var(--border-strong); border-left: 3px solid var(--contribute-accent); border-radius: 0 8px 8px 0; background: var(--surface-1); }
+.template-download .download-topline { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.template-download .download-label { display: block; margin-bottom: 4px; font: .875rem/1.5 var(--mono); color: var(--text-muted); }
+.template-download .download-title { font-size: 1.2rem; }
+.contribute-page .download-button { min-height: 46px; font-size: 1rem; justify-content: center; background: var(--text-primary); color: var(--page); border-color: var(--text-primary); }
+.contribute-page .download-button:hover { background: var(--text-secondary); border-color: var(--text-secondary); }
+.contribute-page .template-download p { margin: 14px 0 0; font-size: 1rem; }
+.contribute-page .intro-links { margin: 18px 0 0; font-size: 1rem; }
+
+.criteria { margin: 24px 0 28px; }
+.criterion { display: grid; grid-template-columns: 156px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+.criterion:first-child { border-top: 1px solid var(--border); }
+.criterion dt { font-size: 1.125rem; color: var(--text-primary); }
+.criterion dd { margin: 0; font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.7; }
+.contribute-page .examples-heading { margin: 30px 0 16px; }
+.task-examples { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; }
+.task-example { padding: 20px 0; border-top: 2px solid var(--family); }
+.task-example.control { --family: var(--accent); }
+.task-example.policy { --family: var(--cat-3); }
+.task-example.perception { --family: var(--accent-2); }
+.task-example.design { --family: var(--cat-2); }
+.contribute-page .task-example .example-label { margin: 0 0 10px; font: .875rem/1.6 var(--mono); color: var(--text-muted); }
+.contribute-page .task-example h4 { font-size: 1.125rem; font-weight: 500; line-height: 1.4; }
+.contribute-page .task-example p { font-size: 1rem; margin: 10px 0 0; }
+
+.evaluation-options { margin: 24px 0; border-top: 1px solid var(--border); }
+.evaluation-option { border-bottom: 1px solid var(--border); padding: 18px 0; }
+.evaluation-option summary { cursor: pointer; font-size: 1.125rem; font-weight: 500; line-height: 1.5; padding-right: 12px; }
+.evaluation-option summary::marker { color: var(--contribute-accent); }
+.contribute-page .evaluation-option p { margin: 14px 0 2px; }
+.contribute-page .evaluation-option .evaluation-example { color: var(--text-muted); font-size: 1rem; }
+
+.kit-files { margin: 24px 0; }
+.kit-files > div { display: grid; grid-template-columns: 218px minmax(0, 1fr); gap: 20px; padding: 15px 0; border-bottom: 1px solid var(--border); }
+.kit-files > div:first-child { border-top: 1px solid var(--border); }
+.kit-files dt { font-size: 1rem; }
+.kit-files dt code { padding: 0; border-radius: 0; background: transparent; color: var(--text-primary); font-size: .9375rem; }
+.kit-files dd { margin: 0; font-size: 1rem; line-height: 1.7; color: var(--text-secondary); }
+.contribute-page .note { border-color: var(--contribute-accent); }
+.contribute-page .command pre { font-size: .9375rem; }
+.contribute-page .preparation-list { margin: 22px 0 0; padding-left: 26px; }
+.contribute-page .preparation-list li { padding-left: 6px; }
+.preparation-list li::marker { color: var(--contribute-accent); font-family: var(--mono); }
+.contribute-page .next-step { margin-top: 26px; padding: 20px 24px; border: 1px solid var(--border-strong); background: var(--surface-1); border-radius: 8px; }
+.contribute-page .next-step p { margin: 8px 0 0; }
+.contribute-page #submit { scroll-margin-top: 100px; }
+.contribute-page .docs-footer { font-size: 1rem; }
+.contribute-page .attribution { margin: 24px 0 0; font-size: .875rem; color: var(--text-muted); }
+
+@media (max-width: 760px) {
+  .contribute-page .docs-intro h1 { max-width: none; }
+  .criterion { grid-template-columns: 130px minmax(0, 1fr); gap: 18px; }
+  .kit-files > div { grid-template-columns: 190px minmax(0, 1fr); gap: 18px; }
+}
+@media (max-width: 540px) {
+  .contribution-incentives { padding: 22px; gap: 22px; border-radius: 16px; }
+  .incentive-cta { width: 100%; }
+  .task-examples { grid-template-columns: 1fr; }
+  .criterion, .kit-files > div { grid-template-columns: 1fr; gap: 6px; }
+  .template-download { padding: 20px; }
+  .template-download .download-topline { align-items: stretch; flex-direction: column; gap: 16px; }
+  .contribute-page .docs-content h2 { font-size: 1.5rem; }
+  .contribute-page .step { margin-right: 10px; }
+}
+@media print {
+  .template-download { display: none; }
+  .contribute-page .docs-content { color: #000; }
+  .contribute-page .command pre { overflow-wrap: anywhere; }
+  .task-example, .kit-files > div, .criterion { break-inside: avoid; }
+}

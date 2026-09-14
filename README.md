@@ -26,6 +26,8 @@ even after a clip has downloaded. GitHub Pages already supports range requests.
 | `assets/data/leaderboard.json` | generated: evaluated model/harness combinations with per-task, per-split and per-subtask results and costs |
 | `assets/data/export.py` | builds `leaderboard.json` from the per-task run dumps `assets/data/taskNN.json` |
 | `run/` | README-based benchmark setup and execution guide at `/run/` |
+| `contribute/` | task contribution criteria, template download, and preparation guide at `/contribute/` |
+| `submission-service/` | separate Cloudflare Worker for GitHub sign-in, private ZIP uploads, and reviewer feedback; see its README for setup and deployment |
 | `blog/` | the research article, served directly at `/blog/` |
 | `assets/` | the project icon — favicon, apple-touch icon, header and hero mark — plus `data/` for leaderboard results |
 
