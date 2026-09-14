@@ -904,6 +904,9 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 .bar-track { height: 13px; background: var(--surface-3); border-radius: 2px; position: relative; }
 .bar-fill { display: block; height: 100%; background: var(--family); border-radius: 2px; transition: width .32s ease, background .25s; }
 .bar-row.is-partial .bar-fill { background: repeating-linear-gradient(130deg, var(--family) 0 4px, color-mix(in srgb, var(--family) 42%, var(--surface-1)) 4px 8px); }
+.bar-row.is-missing .bar-label strong, .bar-row.is-missing .bar-value { color: var(--text-muted); }
+.bar-row.is-missing .bar-track { background: repeating-linear-gradient(130deg, var(--surface-3) 0 4px, transparent 4px 8px); }
+.research-page .capability-chart .results-status { margin: 18px 0 14px; font: 11px/1.6 var(--mono); color: var(--text-muted); }
 .bar-value { font: 12px/1.5 var(--mono); color: var(--text-primary); text-align: right; }
 .chart-axis { margin: 13px calc(var(--bar-number-width) + var(--bar-gap)) 0 calc(var(--bar-label-width) + var(--bar-gap)); display: flex; justify-content: space-between; border-top: 1px solid var(--grid); padding-top: 8px; color: var(--text-muted); font: 9px/1.5 var(--mono); }
 .research-page .post-body .results-panel { margin: 28px 0 30px; border: 1px solid var(--border-strong); border-radius: 12px; overflow: hidden; background: var(--surface-1); }

@@ -318,23 +318,23 @@ labeled separately from evaluation recordings.
 
 ## Updating the T01 interface chart
 
-Edit `assets/blog/harness-comparison.json` to update the native success/cost chart.
-Each entry in `models` has a `name`, `success_rate`, and `cost_usd`; both metrics
-contain `L1`, `L2`, and `L3` values. Success rates use **0–1**, costs use **USD**,
-and **null means not reported**, not zero. Models appear in JSON order; adding
-or removing a model adjusts the chart automatically. Keep names unique.
+The blog's native T01 success/cost chart (`blog/harness-chart.js`) reads
+`assets/data/leaderboard.json`, the same export the leaderboards use, so
+regenerating that file with `assets/data/export.py` updates the chart as well.
+The figure's `data-task` attribute names the task (`task01`); each level's
+success value is the split score (mean verifier reward over the five kitchen
+tasks) and each level's cost is the split's mean API cost per run. A model
+appears once it has T01 results; a split with no cost record shows
+"Not reported" rather than zero. `assets/blog/harness-comparison.json` is the
+earlier transcription of the manuscript figure and is no longer read by the page.
 
-Success rates and costs are transcribed from the supplied T01 table screenshots
-(rows L1, L2, L3, with matching model columns). Kimi K3 and DeepSeek are excluded.
-Gemini's blank costs remain null. Update the JSON `source` note when replacing data.
-
-`blog/harness-chart.js` fetches the JSON on page load without a build step. Refresh
-an HTTP preview after editing (for example, `python3 -m http.server 8000` then
+The chart fetches the JSON on page load without a build step. Refresh an HTTP
+preview after regenerating (for example, `python3 -m http.server 8000` then
 `http://localhost:8000/blog/`). Opening the HTML with `file://` may block JSON
-loading; the chart then falls back to the original image. Publish the JSON with
-the page for online updates. Its two SVG panels animate once as they enter view,
-respect reduced-motion settings, and show exact values on hover or keyboard focus.
-Update matching narrative claims in both HTML and Markdown if the results change.
+loading; the chart then falls back to the original image. Its two SVG panels
+animate once as they enter view, respect reduced-motion settings, and show
+exact values on hover or keyboard focus. Update matching narrative claims in
+both HTML and Markdown if the results change.
 
 
 ## T04 development timeline

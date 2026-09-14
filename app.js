@@ -24,7 +24,7 @@
     $('#familyIndexGrid').textContent='Results are temporarily unavailable. Serve the site over HTTP so assets/data/leaderboard.json can load, then reload the page.';
     return;
   }
-  const {tasks, snapshotTasks, snapshotIds, workflows, models, splitValues, familyScore, hierarchical, indexScore} = RLELeaderboard.view(BENCH);
+  const {tasks, snapshotIds, workflows, models, splitValues, familyScore, hierarchical, indexScore} = RLELeaderboard.view(BENCH);
   const workflowOf=Object.fromEntries(workflows.flatMap(w=>w.tasks.map(t=>[t.id,w])));
   const byId=Object.fromEntries(tasks.map(t=>[t.id,t]));
   const isSample=BENCH.meta.dataStatus!=='measured';
