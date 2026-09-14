@@ -12,6 +12,24 @@ The preview server supports HTTP byte ranges, which browsers need for video
 seeking. Plain `python3 -m http.server` may report a zero-length seekable range
 even after a clip has downloaded. GitHub Pages already supports range requests.
 
+## Hugging Face Space
+
+The article is also published at [RLE-Bench/blog](https://huggingface.co/spaces/RLE-Bench/blog)
+as a Static HTML Space. Build an upload bundle in a new directory:
+
+```bash
+python3 scripts/build_hf_space.py /tmp/rle-bench-space
+hf upload RLE-Bench/blog /tmp/rle-bench-space . --repo-type space
+```
+
+The upload command requires `huggingface_hub` and an authenticated account with
+write access to the Space (`hf auth login` or `HF_TOKEN`). The builder copies
+only the article and its referenced assets, makes it the Space homepage, and
+keeps links to the main website. It preserves the original canonical URL.
+The Space is a snapshot; rerun the build into a fresh directory and upload to
+publish article or result updates. Space metadata lives in
+`deploy/huggingface/README.md`.
+
 ## Files
 
 | file | what it holds |
