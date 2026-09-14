@@ -1,6 +1,15 @@
 # local tooling state
 .omc/
 
+# Installed dependencies and local Cloudflare state
+node_modules/
+.wrangler/
+
+# Python bytecode caches
+__pycache__/
+*.pyc
+*.pyo
+
 # OS cruft
 .DS_Store
 Thumbs.db
