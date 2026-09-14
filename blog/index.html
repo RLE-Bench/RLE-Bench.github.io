@@ -1448,69 +1448,40 @@ RLEs design robots, control them to interact with the world, collect data, write
 <p>With limited time, interactions, and compute, agents must decide which experiments are worth running. Each trial is a chance to test a hypothesis, uncover a failure, or check whether a revision helped. Once development ends, the agent’s solution is evaluated under hidden physical conditions it cannot tune against directly.</p>
 <p class="small-note"><strong>Evaluation setup.</strong> Tasks run in Harbor environments with network access disabled by default and declared allowlists for model APIs where needed. Submissions are evaluated in task-specific sandboxes or constrained subprocesses; hidden conditions, reference assets, and scoring remain under verifier control.</p>
 <h2 id="results">The performance profiles</h2>
+<noscript><p>Enable JavaScript to load the current leaderboards, or <a href="../assets/data/leaderboard.json">download the results JSON</a>.</p></noscript>
 <p>The initial results reveal an uneven picture: some systems recover physical state from visual observations far more effectively, several are close on policy learning, and even capable agents produce designs that fail basic physical checks. Three findings help explain what these agents can do—and where their reasoning still breaks down.</p>
-<h3>Visual grounding shows the largest separation</h3>
-<p>On perception, GPT-6 Astra scores <strong data-result="astra.perception">72.06</strong>, compared with <strong data-result="opus5.perception">42.87</strong> for Claude Opus 5. Their embodiment and learning scores are much closer. Among the families with equal task coverage, the largest gap between these two systems appears in recovering physical state from visual observations. This is a key ingredient of agents that can use environmental feedback to guide action.</p>
+<h3>Visual grounding separates the systems</h3>
+<p>On perception, GPT-6 Astra scores <strong data-result="gpt6astra.perception">—</strong>, compared with <strong data-result="opus5.perception">—</strong> for Claude Opus 5. This workflow covers recovering physical state from observations and using feedback to clear a bin. This is a key ingredient of agents that can use environmental feedback to guide action.</p>
 <figure class="capability-figure figure-card" id="capability-figure" data-initial-metric="perception">
 <div aria-label="Select a workflow family" class="metric-tabs" role="group">
-<button aria-pressed="true" class="family-perception" data-metric="perception" type="button">Perception</button><button aria-pressed="false" class="family-interactive" data-metric="interactive" type="button">Interactive</button>
+<button aria-pressed="true" class="family-perception" data-metric="perception" type="button" disabled>Perception</button><button aria-pressed="false" class="family-interactive" data-metric="interactive" type="button" disabled>Interactive</button>
 </div>
-<p class="chart-context" data-chart-part="chartContext">T06 · Pose Estimation · Matched task coverage</p>
+<p class="chart-context" data-chart-part="chartContext">Loading task coverage…</p>
 <div aria-label="Perception scores on a zero to one hundred scale" class="capability-chart family-perception" data-chart-part="capabilityChart" role="group">
-<!-- BEGIN PERCEPTION BARS -->
-<div class="bar-row" data-system="astra"><div class="bar-label"><strong>GPT-6 Astra</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:72.06%"></span></div><span class="bar-value">72.06</span></div>
-<div class="bar-row" data-system="opus5"><div class="bar-label"><strong>Claude Opus 5</strong><span>Claude Code</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:42.87%"></span></div><span class="bar-value">42.87</span></div>
-<div class="bar-row" data-system="sol"><div class="bar-label"><strong>GPT-5.6 Sol</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:14.52%"></span></div><span class="bar-value">14.52</span></div>
-<div class="bar-row" data-system="gemini"><div class="bar-label"><strong>Gemini 3.7 Flash</strong><span>Antigravity CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:11.15%"></span></div><span class="bar-value">11.15</span></div>
-<div class="bar-row" data-system="opus48"><div class="bar-label"><strong>Claude Opus 4.8</strong><span>Claude Code</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:7.33%"></span></div><span class="bar-value">7.33</span></div>
-<div class="bar-row" data-system="luna"><div class="bar-label"><strong>GPT-5.6 Luna</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:6.56%"></span></div><span class="bar-value">6.56</span></div>
-<div class="bar-row" data-system="terra"><div class="bar-label"><strong>GPT-5.6 Terra</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:7.48%"></span></div><span class="bar-value">7.48</span></div>
-<!-- END PERCEPTION BARS --><div aria-hidden="true" class="chart-axis"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div><p aria-live="polite" class="chart-live visually-hidden" data-chart-part="chartAnnouncement"></p></figure>
+<p class="results-status" role="status">Loading results…</p><div aria-hidden="true" class="chart-axis"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div><p aria-live="polite" class="chart-live visually-hidden" data-chart-part="chartAnnouncement"></p></figure>
 <h3>Policy learning shows a narrower gap</h3>
-<p>Astra, Opus 5, and GPT-5.6 Sol score <strong data-result="astra.learning">80.56</strong>, <strong data-result="opus5.learning">78.70</strong>, and <strong data-result="sol.learning">71.52</strong> on the current learning evaluation. Their closer results suggest that training and deploying a motion-tracking policy may be a more established capability for these systems. This finding is limited to T04; the broader recipe-engineering task, T05, is still pending.</p>
+<p>Astra, Opus 5, and GPT-5.6 Sol score <strong data-result="gpt6astra.learning">—</strong>, <strong data-result="opus5.learning">—</strong>, and <strong data-result="gpt56sol.learning">—</strong> on the current learning evaluation. This workflow evaluates how agents train and deploy policies. <span data-workflow-coverage="learning">Current task coverage is shown below.</span></p>
 <figure class="capability-figure figure-card" id="learning-figure" data-initial-metric="learning">
 
-<p class="chart-context" data-chart-part="chartContext">T04 · Whole-Body Motion Tracking · T05 pending for all systems</p>
+<p class="chart-context" data-chart-part="chartContext">Loading task coverage…</p>
 <div aria-label="Learning scores on a zero to one hundred scale" class="capability-chart family-learning" data-chart-part="capabilityChart" role="group">
-<!-- BEGIN LEARNING BARS -->
-<div class="bar-row" data-system="astra"><div class="bar-label"><strong>GPT-6 Astra</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:80.56%"></span></div><span class="bar-value">80.56</span></div>
-<div class="bar-row" data-system="opus5"><div class="bar-label"><strong>Claude Opus 5</strong><span>Claude Code</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:78.7%"></span></div><span class="bar-value">78.70</span></div>
-<div class="bar-row" data-system="sol"><div class="bar-label"><strong>GPT-5.6 Sol</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:71.52%"></span></div><span class="bar-value">71.52</span></div>
-<div class="bar-row" data-system="gemini"><div class="bar-label"><strong>Gemini 3.7 Flash</strong><span>Antigravity CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:28.86%"></span></div><span class="bar-value">28.86</span></div>
-<div class="bar-row" data-system="opus48"><div class="bar-label"><strong>Claude Opus 4.8</strong><span>Claude Code</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:33.7%"></span></div><span class="bar-value">33.70</span></div>
-<div class="bar-row" data-system="luna"><div class="bar-label"><strong>GPT-5.6 Luna</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:24.47%"></span></div><span class="bar-value">24.47</span></div>
-<div class="bar-row" data-system="terra"><div class="bar-label"><strong>GPT-5.6 Terra</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:8.46%"></span></div><span class="bar-value">8.46</span></div>
-<!-- END LEARNING BARS --><div aria-hidden="true" class="chart-axis"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div><p aria-live="polite" class="chart-live visually-hidden" data-chart-part="chartAnnouncement"></p></figure>
+<p class="results-status" role="status">Loading results…</p><div aria-hidden="true" class="chart-axis"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div><p aria-live="polite" class="chart-live visually-hidden" data-chart-part="chartAnnouncement"></p></figure>
 <h3>Physical design remains hard</h3>
 <p>A design can achieve its visible objective and still fail the physics around it. In the T08 case study, Astra’s mobile base earns full credit for shelf access and payload margin, yet scores zero on static stability and lateral/turning checks. Reaching a target is only part of the problem: the agent must also anticipate how its design behaves under load and motion.</p>
 <figure class="capability-figure figure-card" id="embodiment-figure" data-initial-metric="embodiment">
 
-<p class="chart-context" data-chart-part="chartContext">T08 + T09 · Embodiment and co-design · Matched task coverage</p>
+<p class="chart-context" data-chart-part="chartContext">Loading task coverage…</p>
 <div aria-label="Embodiment scores on a zero to one hundred scale" class="capability-chart family-embodiment" data-chart-part="capabilityChart" role="group">
-<!-- BEGIN EMBODIMENT BARS -->
-<div class="bar-row" data-system="astra"><div class="bar-label"><strong>GPT-6 Astra</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:57.12%"></span></div><span class="bar-value">57.12</span></div>
-<div class="bar-row" data-system="opus5"><div class="bar-label"><strong>Claude Opus 5</strong><span>Claude Code</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:53.64%"></span></div><span class="bar-value">53.64</span></div>
-<div class="bar-row" data-system="sol"><div class="bar-label"><strong>GPT-5.6 Sol</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:51.37%"></span></div><span class="bar-value">51.37</span></div>
-<div class="bar-row" data-system="gemini"><div class="bar-label"><strong>Gemini 3.7 Flash</strong><span>Antigravity CLI</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:45.7%"></span></div><span class="bar-value">45.70</span></div>
-<div class="bar-row" data-system="opus48"><div class="bar-label"><strong>Claude Opus 4.8</strong><span>Claude Code</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:47.75%"></span></div><span class="bar-value">47.75</span></div>
-<div class="bar-row" data-system="luna"><div class="bar-label"><strong>GPT-5.6 Luna</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:38.66%"></span></div><span class="bar-value">38.66</span></div>
-<div class="bar-row" data-system="terra"><div class="bar-label"><strong>GPT-5.6 Terra</strong><span>Codex</span></div><div aria-hidden="true" class="bar-track"><span class="bar-fill" style="width:25.38%"></span></div><span class="bar-value">25.38</span></div>
-<!-- END EMBODIMENT BARS --><div aria-hidden="true" class="chart-axis"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div><p aria-live="polite" class="chart-live visually-hidden" data-chart-part="chartAnnouncement"></p></figure>
+<p class="results-status" role="status">Loading results…</p><div aria-hidden="true" class="chart-axis"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div><p aria-live="polite" class="chart-live visually-hidden" data-chart-part="chartAnnouncement"></p></figure>
 <h3 id="scoring">One score, four different capabilities</h3>
 <p>Each task produces a normalized score. We aggregate tasks within each capability family, then average the four families equally into the <strong>RLE Index</strong>, reported on a 0–100 scale. But the family profile often tells us more than the final number. The family charts above and the overall scores below show both.</p>
 
 <figure class="total-score-figure figure-card" id="total-score-figure" aria-label="Reported RLE Index scores">
 <div class="capability-chart" role="group" aria-label="RLE Index, zero to one hundred">
-<div class="bar-row" data-system="astra" aria-label="GPT-6 Astra: 73.89 out of 100"><div class="bar-label"><strong>GPT-6 Astra</strong></div><div class="bar-track" aria-hidden="true"><span class="bar-fill" style="width:73.89%"></span></div><span class="bar-value">73.89</span></div>
-<div class="bar-row" data-system="opus5" aria-label="Claude Opus 5: 57.23 out of 100"><div class="bar-label"><strong>Claude Opus 5</strong></div><div class="bar-track" aria-hidden="true"><span class="bar-fill" style="width:57.23%"></span></div><span class="bar-value">57.23</span></div>
-<div class="bar-row" data-system="sol" aria-label="GPT-5.6 Sol: 45.33 out of 100"><div class="bar-label"><strong>GPT-5.6 Sol</strong></div><div class="bar-track" aria-hidden="true"><span class="bar-fill" style="width:45.33%"></span></div><span class="bar-value">45.33</span></div>
-<div class="bar-row" data-system="gemini" aria-label="Gemini 3.7 Flash: 27.08 out of 100"><div class="bar-label"><strong>Gemini 3.7 Flash</strong></div><div class="bar-track" aria-hidden="true"><span class="bar-fill" style="width:27.08%"></span></div><span class="bar-value">27.08</span></div>
-<div class="bar-row" data-system="opus48" aria-label="Claude Opus 4.8: 25.82 out of 100"><div class="bar-label"><strong>Claude Opus 4.8</strong></div><div class="bar-track" aria-hidden="true"><span class="bar-fill" style="width:25.82%"></span></div><span class="bar-value">25.82</span></div>
-<div class="bar-row" data-system="luna" aria-label="GPT-5.6 Luna: 18.97 out of 100"><div class="bar-label"><strong>GPT-5.6 Luna</strong></div><div class="bar-track" aria-hidden="true"><span class="bar-fill" style="width:18.97%"></span></div><span class="bar-value">18.97</span></div>
-<div class="bar-row" data-system="terra" aria-label="GPT-5.6 Terra: 13.15 out of 100"><div class="bar-label"><strong>GPT-5.6 Terra</strong></div><div class="bar-track" aria-hidden="true"><span class="bar-fill" style="width:13.15%"></span></div><span class="bar-value">13.15</span></div>
+<p class="results-status" role="status">Loading results…</p>
 <div class="chart-axis" aria-hidden="true"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
 </div>
-<figcaption id="coverage-note">Reported RLE Index · 0–100. Task coverage differs across systems; scores are provisional.</figcaption>
+<figcaption id="coverage-note">RLE Index · 0–100. Loading current task coverage…</figcaption>
 </figure>
 <p>The next question is what helps agents close these gaps. The task studies below examine the tools they receive, the tools they build for others, and the physical consequences they miss.</p>
 <h2 id="harness">How much robotics knowledge does an agent need?</h2>
@@ -1526,7 +1497,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 <div class="harness-panels" hidden></div>
 <div class="harness-fallback"><a aria-label="Enlarge the paper’s harness comparison figure" class="zoom-image paper-chart-image" data-caption="Task success and cost across the three T01 interface levels. This task-specific study includes an additional system beyond the main results table and does not report uncertainty intervals." data-zoom="" href="../assets/blog/harness-comparison.webp"><img alt="Original manuscript chart comparing L1, L2 and L3 harnesses. Success generally rises and cost often falls for several systems, while GPT-6 Astra has high L1 success and no improvement from added scaffolding." decoding="async" height="767" loading="lazy" src="../assets/blog/harness-comparison.webp" width="2034"/></a></div>
 <p class="harness-status" role="status" hidden></p>
-<figcaption>Task success and cost across the three T01 interface levels. This study includes an additional system beyond the seven-system comparison; uncertainty intervals are not shown. Missing cost values are marked “Not reported”.</figcaption>
+<figcaption>Task success and cost across the three T01 interface levels. Models with reported T01 results are included; uncertainty intervals are not shown. Missing cost values are marked “Not reported”.</figcaption>
 </figure>
 <p>Most systems <strong>Other than GPT-6 Astra</strong> in this study achieve higher task success and often lower cost with richer interfaces. Systems that struggle with the low-level interface tend to gain more from robotics scaffolding, while the strongest L1 performer needs less help. However, <strong>adding additional harness hurts the capabilities of GPT-6 Astra.</strong></p>
 <h2 id="hillclimb">How an agent improves a policy through hill climbing</h2>
@@ -1559,7 +1530,7 @@ RLEs design robots, control them to interact with the world, collect data, write
 <p>The next step is to understand how these capabilities emerge through experimentation: which feedback changes an agent’s approach, which abstractions transfer, and which physical failures it repeatedly overlooks. Completing the pending tasks and examining development trajectories, uncertainty, and resource use will help answer those questions.</p>
 <div class="closing-statement"><p>The next generation of coding agents may not simply write better robotics software. They may increasingly learn how the physical world responds to what they build.</p></div>
 </div>
-<footer class="post-foot article-end"><div><h3>Explore RLE-Bench</h3><p>Task interfaces, evaluation specifications, and benchmark implementation.</p></div><a class="btn" href="https://github.com/RLE-Bench/RLE-Bench-dev" id="repoCta" rel="noopener">GitHub <span aria-hidden="true">↗</span></a><p class="development-note">The separate leaderboard is a development preview with illustrative data. The results presented here are drawn from the paper.</p></footer>
+<footer class="post-foot article-end"><div><h3>Explore RLE-Bench</h3><p>Task interfaces, evaluation specifications, and benchmark implementation.</p></div><a class="btn" href="https://github.com/RLE-Bench/RLE-Bench-dev" id="repoCta" rel="noopener">GitHub <span aria-hidden="true">↗</span></a><p class="development-note">The leaderboard and performance charts above use the same current results as the main leaderboard. Task-specific case studies describe the runs discussed in the paper.</p></footer>
 </article></div></main>
 <footer class="site-footer"><div class="wrap footer-inner"><div><div class="footer-brand"><img alt="" class="brand-mark" height="26" src="../assets/icon.png" width="26"/><span class="brand-text small">RLE<span class="brand-dim">-Bench</span></span></div><p class="muted">A qualifying exam for coding agents as robot learning engineers.</p></div><div class="footer-meta"><a href="./">Research blog</a><span>Manuscript companion · September 2026</span></div></div></footer>
 <dialog class="hc-video-dialog" id="hc-video-dialog" aria-labelledby="hc-video-title">
@@ -1570,301 +1541,8 @@ RLEs design robots, control them to interact with the world, collect data, write
 </video>
 </dialog>
 <dialog aria-label="Expanded paper figure" class="image-dialog" id="imageDialog"><form method="dialog"><button aria-label="Close expanded figure" class="dialog-close" type="submit">Close <span aria-hidden="true">×</span></button></form><img alt="" id="dialogImage"/><p id="dialogCaption"></p></dialog>
-<script>/* ---------------------------------------------------------------------------
- * RLE-Bench leaderboard data
- *
- * !!! PLACEHOLDER RESULTS !!!
- * The task metadata below (names, budgets, splits, scoring weights) is read
- * from the RLE-Bench-dev repository and is real. The per-model SCORES are
- * illustrative sample data so the page has something to render -- no runs have
- * been scored into this file yet. Replace `scores`, `models` and
- * `meta.dataStatus` with real `reward.json` aggregates before publishing.
- *
- * Each scores[taskId][modelId] is an array aligned to that task's `splits`.
- * ------------------------------------------------------------------------- */
-
-const BENCH = {
-  meta: {
-    name: "RLE-Bench",
-    subtitle: "A full-stack robotics engineering benchmark for coding agents",
-    version: "v1.0-dev",
-    updated: "2026-09-02",
-    dataStatus: "placeholder", // set to "measured" once real runs land
-    // Header links. Fill `arxiv` in when the paper is up — until then the
-    // nav shows the link greyed out rather than pointing nowhere.
-    github: "https://github.com/RLE-Bench/RLE-Bench-dev",
-    arxiv: "",
-    // Where to reach the maintainers. A mailto: also works — e.g.
-    // "mailto:you@example.com" — swap it for whichever you want public.
-    contact: "https://github.com/RLE-Bench/RLE-Bench-dev/issues",
-  },
-
-  /* --- agents under evaluation -------------------------------------------
-   * harness = the agent scaffold the model was driven with
-   * cost    = USD per full suite run (all families, all variants)
-   * hours   = median agent wall-clock hours per task
-   */
-  models: [
-    { id: "opus5",    name: "Claude Opus 5",   org: "Anthropic", cost: 412, hours: 3.9, open: false , harness: "Claude Code" },
-    { id: "sonnet5",  name: "Claude Sonnet 5", org: "Anthropic", cost: 138, hours: 3.6, open: false , harness: "Claude Code" },
-    { id: "gpt52",    name: "GPT-5.2",         org: "OpenAI",    cost: 356, hours: 4.1, open: false , harness: "Codex" },
-    { id: "gemini3",  name: "Gemini 3 Pro",    org: "Google",    cost: 291, hours: 3.8, open: false , harness: "Gemini CLI" },
-    { id: "glm52",    name: "GLM-5.2",         org: "Z.ai",      cost:  74, hours: 4.4, open: true  , harness: "Claude Code" },
-    { id: "ds4",      name: "DeepSeek-V4",     org: "DeepSeek",  cost:  61, hours: 4.3, open: true  , harness: "Claude Code" },
-    { id: "qwen3max", name: "Qwen3-Max",       org: "Alibaba",   cost:  88, hours: 4.2, open: true  , harness: "Qwen Code" },
-    { id: "kimi25",   name: "Kimi K2.5",       org: "Moonshot",  cost:  52, hours: 4.5, open: true  , harness: "Claude Code" },
-    { id: "oracle",   name: "Oracle reference", org: "RLE-Bench", cost: 0,  hours: 0.4, open: true, baseline: true , harness: "Reference solution" },
-  ],
-
-  /* --- the task families -------------------------------------------------- */
-  tasks: [
-    {
-      id: "task08",
-      num: "08",
-      name: "Mobile Base Design",
-      short: "Mobile Base Design",
-      costShare: 0.06,
-      tagline: "Design and prove a stable mobile base from an aluminum-profile library",
-      description:
-        "The agent designs a mobile-manipulator chassis from a stock aluminum-profile library and must prove it stable. One submitted base is verified against three canonical arms — Panda, UR5e, xArm7 — attached through a universal adapter, and checkpoints reduce by minimum: the weakest arm is the score.",
-      aggregate: "min",
-      gpu: false,
-      agentLimit: "2 h",
-      verifierLimit: "1.5 h",
-      variants: 1,
-      splitLabel: "Canonical arm",
-      splits: ["Panda", "UR5e", "xArm7"],
-      scoring: [
-        { label: "Validity & stability gates", weight: 0.30 },
-        { label: "Reach preservation (12 targets)", weight: 0.28 },
-        { label: "Design efficiency", weight: 0.22 },
-        { label: "Load & settling", weight: 0.18 },
-      ],
-      notes: "Soft targets: 0.56 m footprint, 60 kg assembled mass, 12 m of profile. Reference chassis measures 33.5 kg submitted base.",
-    },
-    {
-      id: "task09",
-      num: "09",
-      name: "Gravity Compensation for Gello",
-      short: "Gravity Compensation for Gello",
-      costShare: 0.09,
-      tagline: "Hardware/software co-design of teleop lead arms for three followers",
-      description:
-        "One three-hour session, three co-design problems: GELLO-style lead arms for Franka, UR5e and xArm7 followers, printable linkage plus a gravity-trim program, under one half-scale servo and mass budget. The verifier treats the submission as untrusted input and recomputes every physical quantity itself.",
-      aggregate: "mean",
-      gpu: false,
-      agentLimit: "3 h",
-      verifierLimit: "1 h",
-      variants: 3,
-      splitLabel: "Follower arm",
-      splits: ["Franka (7 DoF)", "UR5e (6 DoF)", "xArm7 (7 DoF)"],
-      scoring: [
-        { label: "Co-design (hold, backdrive, headroom, recovery)", weight: 0.35 },
-        { label: "Hardware (passive residual, hold, backdrive)", weight: 0.25 },
-        { label: "Validity gates", weight: 0.20 },
-        { label: "Software (nominal & adapted trim)", weight: 0.20 },
-      ],
-      notes: "Transfer test: shared checkpoint weights and reward curves, with absolute bars calibrated per follower.",
-    },
-    {
-      id: "task01",
-      num: "01",
-      name: "Agentic Control",
-      short: "Agentic Control",
-      costShare: 0.22,
-      tagline: "Learn a kitchen subtask through a metered socket — capability first, sample efficiency second",
-      description:
-        "Three harness levels × ten RoboCasa kitchen subtasks, reached only through a metered socket — every simulator step is charged to an interaction budget. The task, the seeds and the weights are identical at every level, so the gap between an L1 and an L3 score is exactly what the harness bought.",
-      aggregate: "mean",
-      gpu: true,
-      agentLimit: "8 h + 1 h",
-      verifierLimit: "per step",
-      variants: 30,
-      splitLabel: "Harness level",
-      splits: ["L1 — action API only", "L2 — + harness library", "L3 — + privileged state"],
-      scoring: [
-        { label: "Success rate on held seeds", weight: 0.80 },
-        { label: "Sample efficiency × success", weight: 0.20 },
-      ],
-      notes: "reward = 0.80 × success_rate + 0.20 × success_rate × (1 − dev_steps / budget). No participation credit: an unsealed ledger scores zero.",
-    },
-    {
-      id: "task02",
-      num: "02",
-      name: "Harness Engineering",
-      short: "Harness Engineering",
-      costShare: 0.24,
-      tagline: "Build a harness a different agent, with no shared context, can apply to a task neither has seen",
-      description:
-        "Agent A practises on an activity group and writes a harness — perception primitives, controllers, a manual. Independent agents then start with fresh context, read that manual, and get one shot each at a held-out task neither has seen; the reward is their mean.",
-      aggregate: "mean",
-      gpu: true,
-      agentLimit: "8 h + 5×1 h",
-      verifierLimit: "per step",
-      variants: 15,
-      splitLabel: "Difficulty band",
-      splits: ["EASY (5 groups)", "MEDIUM (5 groups)", "HARD (5 groups)"],
-      scoring: [
-        { label: "Held-out stage score (mean over trials)", weight: 1.00 },
-      ],
-      notes: "The HARD band is doors and enclosed cavities — kept in the suite because a benchmark needs a floor that is known to be uncleared.",
-    },
-    {
-      id: "task06",
-      num: "06",
-      name: "Pose Estimation",
-      short: "Pose Estimation",
-      costShare: 0.07,
-      tagline: "Multi-shape 6-DoF pose under adversarial sensing",
-      description:
-        "Four subtasks share one blind three-shape renderer the agent never sees, varying only the exposed modalities, the required method and the hardware — from RGB-only on CPU, through a mandatory trained TorchScript model, to an unrestricted method on GPU.",
-      aggregate: "mean",
-      gpu: "2 of 4",
-      agentLimit: "2 h",
-      verifierLimit: "0.5 h",
-      variants: 4,
-      splitLabel: "Subtask",
-      splits: ["rgb-only", "rgb-depth", "model-training", "method-agnostic"],
-      scoring: [
-        { label: "Translation accuracy", weight: 0.40 },
-        { label: "Rotation accuracy", weight: 0.35 },
-        { label: "Shape identification", weight: 0.15 },
-        { label: "Contract & determinism gates", weight: 0.10 },
-      ],
-      notes: "Meshes and canonical assets live in robobench/; the agent's build context is generated, never committed.",
-    },
-    {
-      id: "task07",
-      num: "07",
-      name: "Bin Clearing",
-      short: "Bin Clearing",
-      costShare: 0.11,
-      tagline: "Ship a closed-loop policy scored on hidden pile seeds",
-      description:
-        "A magnet-tipped Panda must singulate stamped brackets from a bin into a conveyor nest, from RGB-D, robot state, force-torque and magnet observations. The verifier reruns the submitted policy in sandboxed subprocesses on eight hidden piles, behind smoke episodes that gate loading, contract compliance and determinism.",
-      aggregate: "mean",
-      gpu: false,
-      agentLimit: "4 h",
-      verifierLimit: "2 h",
-      variants: 1,
-      splitLabel: "Reward component",
-      splits: ["Clearance", "Throughput", "Perfect clear", "Safety"],
-      scoring: [
-        { label: "Clearance (weighted to the last parts)", weight: 0.45 },
-        { label: "Throughput (parts / min)", weight: 0.25 },
-        { label: "Perfect clear bonus", weight: 0.15 },
-        { label: "Safety penalties avoided", weight: 0.15 },
-      ],
-      notes: "The policy's RNG seed is derived with a verifier-only key, so an evaluation pile cannot be reconstructed.",
-    },
-    {
-      id: "task03",
-      num: "03",
-      name: "Embodied Reasoning",
-      short: "Embodied Reasoning",
-      costShare: 0.12,
-      tagline: "Five physical-reasoning problems with perception removed from the equation",
-      description:
-        "Only the full L3 harness ships here — skill library, privileged poses, perception service — so perception is out of the problem and the reasoning is not. Five tabletop problems, from building the tallest stable tower to turning a scrambled cube back to solved.",
-      aggregate: "mean",
-      gpu: true,
-      agentLimit: "8 h + 1 h",
-      verifierLimit: "per step",
-      variants: 5,
-      splitLabel: "Scenario",
-      splits: ["Tower max height", "Cantilever overhang", "Balance coins", "Rubik cube", "Hidden center of mass"],
-      scoring: [
-        { label: "Continuous scenario score (mean over trials)", weight: 1.00 },
-      ],
-      notes: "Scores are continuous, not pass/fail — settled tower height, overhang past the edge, coins balanced, quarter turns to a solved cube, hidden centers of mass identified.",
-    },
-    {
-      id: "task04",
-      num: "04",
-      name: "Whole-Body Motion Tracking",
-      short: "Whole-Body Motion Tracking",
-      costShare: 0.09,
-      tagline: "Write a whole-body tracking training pipeline, scored sim-to-sim",
-      description:
-        "Five independent tasks, one per retargeted LAFAN1 clip, sharing one evaluation contract. The agent writes a training pipeline for a Unitree G1 whole-body tracking controller; the image ships a deliberately ordinary one-hour PPO recipe it may use, modify or ignore.",
-      aggregate: "mean",
-      gpu: true,
-      agentLimit: "4 h",
-      verifierLimit: "1 h",
-      variants: 5,
-      splitLabel: "Motion (20 s clip)",
-      splits: ["Dance", "Fight", "Fall & get up", "Run", "Sprint"],
-      scoring: [
-        { label: "Multi-scale tracking error", weight: 0.70 },
-        { label: "Survival & gate compliance", weight: 0.30 },
-      ],
-      notes: "Only the dance thresholds are calibrated today; the other four motions currently copy them with calibrated=false.",
-    },
-  ],
-
-  /* --- PLACEHOLDER scores, per split, 0.00–1.00 --------------------------- */
-  scores: {
-    task08: {
-      opus5:   [0.78, 0.61, 0.74], sonnet5: [0.71, 0.54, 0.68],
-      gpt52:   [0.75, 0.58, 0.71], gemini3: [0.72, 0.56, 0.70],
-      glm52:   [0.58, 0.41, 0.55], ds4:     [0.55, 0.38, 0.52],
-      qwen3max:[0.60, 0.44, 0.57], kimi25:  [0.49, 0.33, 0.47],
-      oracle:  [0.83, 0.58, 0.81],
-    },
-    task09: {
-      opus5:   [0.69, 0.64, 0.66], sonnet5: [0.58, 0.53, 0.55],
-      gpt52:   [0.72, 0.66, 0.68], gemini3: [0.63, 0.59, 0.60],
-      glm52:   [0.44, 0.40, 0.42], ds4:     [0.47, 0.42, 0.44],
-      qwen3max:[0.41, 0.37, 0.39], kimi25:  [0.36, 0.31, 0.34],
-      oracle:  [0.79, 0.74, 0.76],
-    },
-    task01: {
-      opus5:   [0.31, 0.52, 0.68], sonnet5: [0.22, 0.41, 0.57],
-      gpt52:   [0.28, 0.49, 0.64], gemini3: [0.26, 0.47, 0.63],
-      glm52:   [0.12, 0.27, 0.41], ds4:     [0.15, 0.31, 0.44],
-      qwen3max:[0.11, 0.25, 0.38], kimi25:  [0.08, 0.20, 0.33],
-      oracle:  [0.40, 0.63, 0.79],
-    },
-    task02: {
-      opus5:   [0.54, 0.33, 0.06], sonnet5: [0.42, 0.24, 0.03],
-      gpt52:   [0.51, 0.30, 0.05], gemini3: [0.48, 0.29, 0.04],
-      glm52:   [0.26, 0.13, 0.01], ds4:     [0.29, 0.15, 0.02],
-      qwen3max:[0.24, 0.12, 0.01], kimi25:  [0.19, 0.09, 0.00],
-      oracle:  [0.66, 0.44, 0.11],
-    },
-    task06: {
-      opus5:   [0.57, 0.74, 0.66, 0.79], sonnet5: [0.48, 0.65, 0.55, 0.69],
-      gpt52:   [0.61, 0.77, 0.71, 0.82], gemini3: [0.59, 0.75, 0.68, 0.80],
-      glm52:   [0.34, 0.49, 0.41, 0.53], ds4:     [0.38, 0.53, 0.46, 0.58],
-      qwen3max:[0.36, 0.51, 0.43, 0.55], kimi25:  [0.28, 0.42, 0.34, 0.46],
-      oracle:  [0.68, 0.85, 0.80, 0.88],
-    },
-    task07: {
-      opus5:   [0.66, 0.51, 0.34, 0.88], sonnet5: [0.55, 0.42, 0.22, 0.83],
-      gpt52:   [0.62, 0.48, 0.29, 0.85], gemini3: [0.59, 0.45, 0.27, 0.86],
-      glm52:   [0.37, 0.26, 0.09, 0.72], ds4:     [0.40, 0.29, 0.12, 0.74],
-      qwen3max:[0.35, 0.24, 0.08, 0.70], kimi25:  [0.29, 0.19, 0.05, 0.66],
-      oracle:  [0.78, 0.63, 0.46, 0.92],
-    },
-    task03: {
-      opus5:   [0.62, 0.48, 0.71, 0.55, 0.44], sonnet5: [0.51, 0.38, 0.62, 0.45, 0.35],
-      gpt52:   [0.58, 0.51, 0.74, 0.52, 0.40], gemini3: [0.60, 0.46, 0.69, 0.53, 0.42],
-      glm52:   [0.33, 0.24, 0.45, 0.29, 0.21], ds4:     [0.36, 0.27, 0.49, 0.32, 0.24],
-      qwen3max:[0.31, 0.22, 0.43, 0.28, 0.20], kimi25:  [0.25, 0.17, 0.36, 0.22, 0.15],
-      oracle:  [0.74, 0.61, 0.84, 0.68, 0.57],
-    },
-    task04: {
-      opus5:   [0.58, 0.21, 0.29, 0.47, 0.38], sonnet5: [0.47, 0.14, 0.21, 0.38, 0.29],
-      gpt52:   [0.54, 0.19, 0.26, 0.44, 0.35], gemini3: [0.56, 0.20, 0.27, 0.45, 0.36],
-      glm52:   [0.31, 0.07, 0.11, 0.24, 0.17], ds4:     [0.34, 0.09, 0.13, 0.27, 0.19],
-      qwen3max:[0.29, 0.06, 0.10, 0.23, 0.16], kimi25:  [0.23, 0.04, 0.07, 0.18, 0.12],
-      oracle:  [0.64, 0.18, 0.24, 0.52, 0.41],
-    },
-  },
-};
-
-if (typeof module !== "undefined") module.exports = BENCH;
-</script>
+<script src="../data.js?v=20260913-shared-results"></script>
+<script src="../leaderboard.js?v=20260913-shared-results"></script>
 <script>/* Publication metadata. The date records an editorial update. */
 const POSTS = [
   {
@@ -1885,7 +1563,7 @@ const POSTS = [
 if (typeof module !== "undefined") module.exports = POSTS;
 </script>
 <script>/* Shared blog shell. Progressive enhancement; the article and index are static.
-   BENCH is read only for site links, never for manuscript metrics or dates. */
+   The shell reads BENCH for site links; publication dates remain editorial metadata. */
 (() => {
   'use strict';
   const $ = (s, root = document) => root.querySelector(s);
@@ -2049,150 +1727,10 @@ if (typeof module !== "undefined") module.exports = POSTS;
   }
 })();
 </script>
-<script>/* Generated from manuscript-results.json. Do not edit this copy. */
-const MANUSCRIPT_RESULTS = {
-  "status": "provisional",
-  "source": "Provided manuscript: content/results.tex, Table tab:leaderboard; harnesses from content/evaluation_protocol.tex, Table tab:evaluated-systems.",
-  "units": "0–100, as reported in the manuscript. Family metrics are normalized task scores, not universal success rates.",
-  "pendingTasks": [
-    "T03",
-    "T05"
-  ],
-  "coverageNote": "GPT-6 Astra has only T07 in the Interactive family. T01 and T02 are also unavailable for this system in the reported table. Other reported systems average T01, T02 and T07 for Interactive. Learning currently covers T04 only. Scores have unequal coverage; the overall index is not a matched-coverage final ranking.",
-  "models": [
-    {
-      "id": "astra",
-      "name": "GPT-6 Astra",
-      "harness": "Codex",
-      "index": 73.89,
-      "embodiment": 57.12,
-      "perception": 72.06,
-      "interactive": 85.81,
-      "learning": 80.56,
-      "partialInteractive": true
-    },
-    {
-      "id": "opus5",
-      "name": "Claude Opus 5",
-      "harness": "Claude Code",
-      "index": 57.23,
-      "embodiment": 53.64,
-      "perception": 42.87,
-      "interactive": 53.7,
-      "learning": 78.7,
-      "partialInteractive": false
-    },
-    {
-      "id": "sol",
-      "name": "GPT-5.6 Sol",
-      "harness": "Codex",
-      "index": 45.33,
-      "embodiment": 51.37,
-      "perception": 14.52,
-      "interactive": 43.89,
-      "learning": 71.52,
-      "partialInteractive": false
-    },
-    {
-      "id": "gemini",
-      "name": "Gemini 3.7 Flash",
-      "harness": "Antigravity CLI",
-      "index": 27.08,
-      "embodiment": 45.7,
-      "perception": 11.15,
-      "interactive": 22.62,
-      "learning": 28.86,
-      "partialInteractive": false
-    },
-    {
-      "id": "opus48",
-      "name": "Claude Opus 4.8",
-      "harness": "Claude Code",
-      "index": 25.82,
-      "embodiment": 47.75,
-      "perception": 7.33,
-      "interactive": 14.49,
-      "learning": 33.7,
-      "partialInteractive": false
-    },
-    {
-      "id": "luna",
-      "name": "GPT-5.6 Luna",
-      "harness": "Codex",
-      "index": 18.97,
-      "embodiment": 38.66,
-      "perception": 6.56,
-      "interactive": 6.19,
-      "learning": 24.47,
-      "partialInteractive": false
-    },
-    {
-      "id": "terra",
-      "name": "GPT-5.6 Terra",
-      "harness": "Codex",
-      "index": 13.15,
-      "embodiment": 25.38,
-      "perception": 7.48,
-      "interactive": 11.29,
-      "learning": 8.46,
-      "partialInteractive": false
-    }
-  ]
-};
-</script>
-<script>/* Article-only enhancements. All text, default chart values, table values,
-   figures, citations, and fallbacks are present in the static HTML. */
+<script src="results.js?v=20260913-shared-results" defer></script>
+<script>/* Article image viewer. */
 (() => {
   'use strict';
-
-  const labels = {
-    perception: {title: 'Perception', context: 'T06 · Pose Estimation · Matched task coverage', coverage: 'T06 is available for all seven systems.'},
-    embodiment: {title: 'Embodiment', context: 'T08 + T09 · Embodiment and co-design · Matched task coverage', coverage: 'Both embodiment tasks are included in the reported family scores.'},
-    learning: {title: 'Learning', context: 'T04 · Whole-Body Motion Tracking · T05 pending for all systems', coverage: 'Learning currently reflects T04. T05 is pending for all systems.'},
-    interactive: {title: 'Interactive', context: 'Interactive coverage varies: Astra covers T07; other systems cover T01, T02, and T07. T03 is pending.', coverage: '† Astra’s striped bar represents T07 only; Interactive scores have unequal task coverage.'}
-  };
-  const records = typeof MANUSCRIPT_RESULTS !== 'undefined' && Array.isArray(MANUSCRIPT_RESULTS.models) ? MANUSCRIPT_RESULTS.models : [];
-  const valid = records.length === 7 && records.every(row => Object.keys(labels).every(key => Number.isFinite(row[key]) && row[key] >= 0 && row[key] <= 100));
-  document.querySelectorAll('.capability-figure').forEach(figure => {
-  const chart = figure.querySelector('.capability-chart');
-  const controls = Array.from(figure.querySelectorAll('[data-metric]'));
-  if (chart && valid) {
-    const setMetric = metric => {
-      if (!Object.hasOwn(labels, metric)) return;
-      const meta = labels[metric];
-      chart.className = `capability-chart family-${metric}`;
-      chart.setAttribute('aria-label', `${meta.title} family scores, zero to one hundred. ${meta.coverage}`);
-      records.forEach(record => {
-        const row = chart.querySelector(`[data-system="${record.id}"]`);
-        if (!row) return;
-        const partial = metric === 'interactive' && record.partialInteractive;
-        row.classList.toggle('is-partial', partial);
-        row.querySelector('.bar-fill').style.width = `${record[metric]}%`;
-        row.querySelector('.bar-value').textContent = record[metric].toFixed(2) + (partial ? '†' : '');
-        row.setAttribute('aria-label', `${record.name}, ${record.harness}: ${record[metric].toFixed(2)} out of 100${partial ? ', T07 only, partial family coverage' : ''}`);
-      });
-      controls.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.metric === metric)));
-      figure.querySelector('[data-chart-part="chartContext"]').textContent = meta.context;
-      const announcement = figure.querySelector('[data-chart-part="chartAnnouncement"]');
-      if (announcement) announcement.textContent = `${meta.title} selected. ${meta.context}`;
-    };
-    setMetric(figure.dataset.initialMetric);
-    controls.forEach(button => button.addEventListener('click', () => setMetric(button.dataset.metric)));
-    // Native buttons are tab-accessible; arrow keys are an additional convenience.
-    const group = figure.querySelector('.metric-tabs');
-    group?.addEventListener('keydown', event => {
-      if (!['ArrowRight','ArrowLeft','Home','End'].includes(event.key)) return;
-      const index = controls.indexOf(document.activeElement);
-      if (index < 0) return;
-      event.preventDefault();
-      const next = event.key === 'Home' ? 0 : event.key === 'End' ? controls.length-1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + controls.length) % controls.length;
-      controls[next].focus(); controls[next].click();
-    });
-  } else {
-    // A missing or invalid optional data script must not leave inactive controls.
-    const group = figure.querySelector('.metric-tabs'); if (group) group.hidden = true;
-  }
-  });
   const dialog = document.getElementById('imageDialog');
   if (dialog && typeof dialog.showModal === 'function') {
     const image = document.getElementById('dialogImage');

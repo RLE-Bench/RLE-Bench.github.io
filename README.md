@@ -19,7 +19,9 @@ even after a clip has downloaded. GitHub Pages already supports range requests.
 | `index.html` | page structure only — every number is rendered by `app.js` |
 | `styles.css` | shared base design tokens and styles |
 | `homepage.css` | the polished v3 homepage layout, themes, and responsive overrides |
-| `app.js` | scoring, the index, the charts, tabs, tooltips |
+| `app.js` | the homepage index, charts, tabs, and tooltips |
+| `leaderboard.js` | shared JSON loading, task scores, workflow means, and RLE Index calculations |
+| `blog/results.js` | JSON-backed blog leaderboards, family charts, and inline scores |
 | `data.js` | current task descriptions, display numbering, and header metadata |
 | `assets/data/leaderboard.json` | generated: evaluated model/harness combinations with per-task, per-split and per-subtask results and costs |
 | `assets/data/export.py` | builds `leaderboard.json` from the per-task run dumps `assets/data/taskNN.json` |
@@ -29,20 +31,22 @@ even after a clip has downloaded. GitHub Pages already supports range requests.
 
 The homepage preserves the existing visual layout. Its task descriptions and
 Task 01–09 display numbering follow the research article; its numbers come
-from the generated leaderboard JSON. The Blog is self-contained apart from the
-T01 interface-comparison figure, which reads the same JSON.
+from the generated leaderboard JSON. The blog leaderboards, family charts,
+inline scores, and T01 interface-comparison figure read the same JSON. Both pages share the task catalog and scoring logic;
+new model/harness combinations appear automatically on reload. Task-specific
+case studies remain descriptions of the manuscript runs.
 
 The task catalog contains nine tasks; the leaderboard JSON reports the ones
-whose run dumps are present in `assets/data/` (currently T01, T02, T04 and
-T08). Tasks without a dump show as unreported rather than as zero, and the
-index averages only reported tasks. These coverage differences are stated in
+whose run dumps are present in `assets/data/` (currently all nine tasks). Tasks
+without a dump show as unreported rather than as zero, and the index averages
+only reported tasks. These coverage differences are stated in
 the UI.
 
 ## Updating results
 
 `data.js` holds the task catalog and page metadata; `assets/data/leaderboard.json`
-holds the evaluated agents and their results. `app.js` fetches the JSON on page
-load and merges it into `BENCH` before rendering, so the homepage must be served
+holds the evaluated agents and their results. `leaderboard.js` fetches the JSON on page
+load and merges it into `BENCH` before rendering, so both pages must be served
 over HTTP (for example `python3 -m http.server 8000`) rather than opened via
 `file://`.
 
@@ -154,18 +158,23 @@ only falls back to aggregating splits for files that lack `results`.
 
 The homepage retains the **RLE Index** section title. Its displayed metric
 averages task scores within each workflow and then across workflows, over the
-tasks in `presentation.snapshotTaskIds`, on a 0–100 scale. `app.js` narrows
+tasks in `presentation.snapshotTaskIds`, on a 0–100 scale. `leaderboard.js` narrows
 that list at load time to the tasks the export actually reports, so a task
 without a dump is neither a zero nor a column of numbers; a model that lacks a
-score for any reported task receives no overall index or rank. The manuscript
-RLE Index averages four capability families equally and is presented in the
-research overview. The task catalog is titled **Task breakdown**.
+score for any reported task receives no overall index or rank. The research
+overview uses the same current workflow means and RLE Index.
+Incomplete model/workflow combinations show a dash, and a model missing any
+reported task has no overall index. Load failures show an unavailable message
+instead of older manuscript numbers. The task catalog is titled **Task breakdown**.
 
 Per-task API cost, agent hours, and prompt tokens live in
 `costs[taskId][modelId]` in the leaderboard JSON. The Performance and Cost
 section averages each of them within a workflow and then across workflows, the
-same aggregation the RLE Index uses; a task with no cost record, such as
-NanoVLA, is unreported rather than free.
+same aggregation the RLE Index uses; a task with no cost record is unreported
+rather than free.
+
+Run `node --test scripts/test-leaderboard.cjs` to check the shared scoring,
+task coverage, new models, and JSON loading behavior.
 
 ## Task metadata
 
@@ -181,7 +190,7 @@ task's `splits` and `aggregate` in `data.js` are fallbacks; the exported
 | T02 | Harness Engineering | `task02` |
 | T03 | Embodied Reasoning | `task03` |
 | T04 | Whole-Body Motion Tracking | `task04` |
-| T05 | NanoVLA Recipe | `task05` (unreported) |
+| T05 | NanoVLA Recipe | `task05` |
 | T06 | Pose Estimation | `task06` |
 | T07 | Bin Clearing | `task07` |
 | T08 | Mobile Base Design | `task08` |

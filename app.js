@@ -5,27 +5,7 @@
   'use strict';
   // Evaluated agents and their results are published separately from the task catalog.
   try {
-    const res = await fetch('assets/data/leaderboard.json', {cache: 'no-cache'});
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    if (Array.isArray(data.models) && data.scores && typeof data.scores === 'object') {
-      BENCH.models = data.models;
-      BENCH.scores = data.scores;
-      BENCH.costs = data.costs || {};
-      BENCH.results = data.results || {};
-      // The export (assets/data/export.py) is the authority on how a task is split; the catalog in data.js is the fallback.
-      if (data.tasks && typeof data.tasks === 'object') BENCH.tasks.forEach(t => {
-        const x = data.tasks[t.id];
-        if (!x || !Array.isArray(x.splits)) return;
-        t.splits = x.splits.map(s => typeof s === 'string' ? s : s.label);
-        if (x.splitLabel) t.splitLabel = x.splitLabel;
-        if (x.aggregate) t.aggregate = x.aggregate;
-        t.weights = Array.isArray(x.weights) ? x.weights : null;
-      });
-      // The snapshot mean covers exactly the tasks the export reports.
-      if (BENCH.presentation) BENCH.presentation.snapshotTaskIds = BENCH.tasks.filter(t => data.scores[t.id]).map(t => t.id);
-      if (typeof data.status === 'string') BENCH.meta.dataStatus = data.status;
-    }
+    await RLELeaderboard.load(BENCH, 'assets/data/leaderboard.json');
   } catch (err) {
     console.error('RLE-Bench: could not load assets/data/leaderboard.json', err);
   }
@@ -33,7 +13,7 @@
   const $$ = (s,r=document) => [...r.querySelectorAll(s)];
   const make = (tag, cls, text) => { const n=document.createElement(tag); if(cls)n.className=cls; if(text!=null)n.textContent=text; return n; };
   const escapeHTML = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const validScore = v => typeof v==='number' && Number.isFinite(v) && v>=0 && v<=1;
+  const {validScore, mean} = RLELeaderboard;
   const num = (v,d=1) => Number.isFinite(v) ? v.toFixed(d) : '—';
   const pct = (v,d=1) => Number.isFinite(v) ? (v*100).toFixed(d) : '—';
   const usd = v => Number.isFinite(v) ? '$'+v.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:v<10?2:0}) : '—';
@@ -44,45 +24,11 @@
     $('#familyIndexGrid').textContent='Results are temporarily unavailable. Serve the site over HTTP so assets/data/leaderboard.json can load, then reload the page.';
     return;
   }
-  const taskOrder=BENCH.presentation?.taskOrder || ['task01','task02','task03','task04','task05','task06','task07','task08','task09'];
-  const originalOrder=new Map(BENCH.tasks.map((t,i)=>[t.id,i]));
-  const tasks=BENCH.tasks.map(t=>({...t,num:BENCH.presentation?.taskNumbers?.[t.id] || t.num})).sort((a,b)=>{
-    const ia=taskOrder.indexOf(a.id),ib=taskOrder.indexOf(b.id);
-    return (ia<0?taskOrder.length+originalOrder.get(a.id):ia)-(ib<0?taskOrder.length+originalOrder.get(b.id):ib);
-  });
-  const snapshotTasks=tasks.filter(t=>BENCH.presentation.snapshotTaskIds.includes(t.id));
-  // Two-level breakdown: workflows own tasks; any task missing from the list falls into a trailing group.
-  const workflows=(BENCH.presentation?.workflows||[]).map(w=>({...w,tasks:w.tasks.map(id=>tasks.find(t=>t.id===id)).filter(Boolean)})).filter(w=>w.tasks.length);
-  {const placed=new Set(workflows.flatMap(w=>w.tasks.map(t=>t.id)));const rest=tasks.filter(t=>!placed.has(t.id));if(rest.length)workflows.push({id:'other',name:'Other tasks',tasks:rest});}
+  const {tasks, snapshotTasks, snapshotIds, workflows, models, splitValues, familyScore, hierarchical, indexScore} = RLELeaderboard.view(BENCH);
   const workflowOf=Object.fromEntries(workflows.flatMap(w=>w.tasks.map(t=>[t.id,w])));
-  const models=BENCH.models.filter(m=>!m.baseline);
   const byId=Object.fromEntries(tasks.map(t=>[t.id,t]));
   const isSample=BENCH.meta.dataStatus!=='measured';
   const abbreviated = {task08:'Design',task09:'Co-Design',task01:'Control',task02:'Harness',task06:'Pose',task07:'Clearing',task03:'Reasoning',task04:'Tracking',task05:'NanoVLA'};
-  const splitValues=(t,m)=>(BENCH.scores[t.id]||{})[m.id]||[];
-  const familyScore=(t,m)=>{
-    // The exported task score (mean verifier reward, gates included) wins; split aggregation is the fallback.
-    const reported=BENCH.results?.[t.id]?.[m.id]?.score;
-    if(validScore(reported))return reported;
-    const v=splitValues(t,m);
-    if(!v.length || v.length!==t.splits.length || !v.every(validScore))return null;
-    if(t.aggregate==='min')return Math.min(...v);
-    if(t.aggregate==='weighted'&&Array.isArray(t.weights)&&t.weights.length===v.length){
-      const total=t.weights.reduce((a,b)=>a+b,0);
-      return total>0?v.reduce((a,x,i)=>a+x*t.weights[i],0)/total:null;
-    }
-    return v.reduce((a,b)=>a+b,0)/v.length;
-  };
-  // RLE Index: tasks are averaged within each workflow, then the workflow means are averaged.
-  // Only tasks with reported results enter; a workflow with none is skipped. Any missing task score voids the index.
-  const snapshotIds=new Set(snapshotTasks.map(t=>t.id));
-  const workflowGroups=workflows.map(w=>w.tasks.filter(t=>snapshotIds.has(t.id))).filter(g=>g.length);
-  const mean=v=>v.reduce((a,b)=>a+b,0)/v.length;
-  const hierarchical=(m,value)=>{
-    const per=workflowGroups.map(g=>{const v=g.map(t=>value(t,m));return v.every(Number.isFinite)?mean(v):null;});
-    return per.length && per.every(Number.isFinite) ? mean(per) : null;
-  };
-  const indexScore=m=>hierarchical(m,familyScore);
   const agents=models.filter(m=>!m.baseline);
 
   const completeAgents=agents.filter(m=>Number.isFinite(indexScore(m)));
