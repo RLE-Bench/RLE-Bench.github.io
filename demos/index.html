@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <title>Coding agents in action | RLE-Bench</title>
+  <meta name="description" content="Short demonstrations of coding agents controlling robots, improving their programs, and designing robot hardware."/>
+  <meta name="theme-color" content="#131615"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Coding agents in action | RLE-Bench"/>
+  <meta property="og:description" content="Watch coding agents control robots, learn from failures, and design robot hardware."/>
+  <meta property="og:image" content="https://rle-bench.github.io/assets/blog/demos/RLE-Bench_v2_31s_1080p.webp"/>
+  <meta property="og:image:alt" content="RLE-Bench overview: Can coding agents engineer robots?"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="icon" href="../assets/favicon-64.png" sizes="64x64" type="image/png"/>
+  <link rel="stylesheet" href="demos.css?v=20260914-sections"/>
+  <script>try{const t=localStorage.getItem('rlebench-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+  <main aria-label="Robotics demos">
+    <figure id="benchmark-overview" aria-labelledby="benchmark-overview-title">
+      <h2 id="benchmark-overview-title">RLE-Bench overview</h2>
+      <video controls playsinline preload="metadata" width="1920" height="1080"
+        poster="../assets/blog/demos/RLE-Bench_v2_31s_1080p.webp"
+        aria-label="RLE-Bench benchmark overview"
+        aria-describedby="benchmark-overview-caption">
+        <source src="../assets/blog/demos/RLE-Bench_v2_31s_1080p.mp4" type="video/mp4"/>
+        <a href="../assets/blog/demos/RLE-Bench_v2_31s_1080p.mp4">Download the video</a>
+      </video>
+      <figcaption id="benchmark-overview-caption">RLE-Bench evaluates coding agents as robot learning engineers across robot control, policy learning, perception, and mechanical design.</figcaption>
+    </figure>
+    <section aria-labelledby="capabilities-title">
+      <h2 class="section-title" id="capabilities-title">The strong capabilities of coding agents</h2>
+      <figure id="cube-handoff" aria-labelledby="cube-handoff-title">
+        <h3 id="cube-handoff-title">Coding agents can reason about failures</h3>
+        <video controls playsinline preload="metadata" width="1280" height="720"
+          poster="../assets/blog/demos/section_3/astra-cube-loop.en.webp"
+          aria-label="GPT-6 Astra cube-handoff demo"
+          aria-describedby="cube-handoff-caption">
+          <source src="../assets/blog/demos/section_3/astra-cube-loop.en.mp4" type="video/mp4"/>
+          <a href="../assets/blog/demos/section_3/astra-cube-loop.en.mp4">Download the video</a>
+        </video>
+        <figcaption id="cube-handoff-caption">The coding agent is given the task of controlling a bimanual robot to solve a pocket cube. It writes and runs control code, observes a failed handoff between the grippers, then revises its program and retries.</figcaption>
+      </figure>
+      <figure id="finding-the-fridge" aria-labelledby="finding-the-fridge-title">
+        <h3 id="finding-the-fridge-title">Coding agents can actively seek information</h3>
+        <video controls playsinline preload="metadata" width="768" height="256"
+          poster="../assets/blog/demos/task02-4x.webp"
+          aria-label="A coding agent looks for the fridge before carrying a filled bowl to it"
+          aria-describedby="finding-the-fridge-caption">
+          <source src="../assets/blog/demos/task02-4x.mp4" type="video/mp4"/>
+          <a href="../assets/blog/demos/task02-4x.mp4">Download the video</a>
+        </video>
+        <figcaption id="finding-the-fridge-caption">The coding agent is asked to transfer the chicken drumstick and vegetable from their plates into a bowl, then place the filled bowl in the fridge. It initially does not know where the fridge is, so it turns around to find it before returning for the bowl and putting it inside.</figcaption>
+      </figure>
+    </section>
+    <section aria-labelledby="physics-title">
+      <h2 class="section-title" id="physics-title">Coding agents still get some physics wrong</h2>
+      <figure id="mobile-manipulator-base" aria-labelledby="mobile-manipulator-base-title">
+        <h3 id="mobile-manipulator-base-title">Coding agents’ designs still fail stability tests</h3>
+        <video controls playsinline preload="metadata" width="1920" height="1080"
+          poster="../assets/blog/demos/astra-shared-base-design-and-stability.webp"
+          aria-label="GPT-6 Astra shared-base assembly, shelf reaching, and stability failure demo"
+          aria-describedby="mobile-manipulator-base-caption">
+          <source src="../assets/blog/demos/astra-shared-base-design-and-stability.mp4" type="video/mp4"/>
+          <a href="../assets/blog/demos/astra-shared-base-design-and-stability.mp4">Download the video</a>
+        </video>
+        <figcaption id="mobile-manipulator-base-caption">The coding agent designs a universal mobile manipulator base from raw aluminium profiles for three robot arms. After assembly and shelf reaching, stability tests show its base tipping while the reference base stays upright.</figcaption>
+      </figure>
+    </section>
+  </main>
+</body>
+</html>
