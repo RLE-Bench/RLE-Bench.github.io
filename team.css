@@ -1,0 +1,153 @@
+/* Project leadership and people, scoped to the leaderboard homepage. */
+.home-page.classic-home .team-section {
+  padding-block: 30px 34px;
+  border-top: 1px solid var(--border);
+}
+
+.home-page.classic-home #team-heading {
+  color: var(--text-secondary);
+  font: 400 clamp(1.375rem, 2.3vw, 1.75rem)/1.35 var(--serif);
+  letter-spacing: -.012em;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.home-page.classic-home .team-institutions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.home-page.classic-home .team-institution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18rem;
+  max-width: 100%;
+  min-height: 7rem;
+  padding: 1.5rem;
+}
+
+.home-page.classic-home .team-institution img {
+  display: block;
+  width: 15rem;
+  max-width: 100%;
+  height: 4rem;
+  object-fit: contain;
+}
+
+.home-page.classic-home .team-institution .team-logo-dark,
+:root[data-theme="dark"] .home-page.classic-home .team-institution .team-logo-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .home-page.classic-home .team-institution .team-logo-dark {
+  display: block;
+}
+
+.home-page.classic-home .team-groups {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 2rem;
+  margin-top: 1.75rem;
+}
+
+.home-page.classic-home .team-group {
+  min-width: 0;
+}
+
+.home-page.classic-home .team-group + .team-group {
+  padding-inline-start: 2rem;
+  border-inline-start: 1px solid var(--border);
+}
+
+.home-page.classic-home .team-group h3 {
+  margin-bottom: 1.25rem;
+  color: var(--text-secondary);
+  font: 500 1rem/1.4 var(--ui);
+}
+
+.home-page.classic-home .team-people {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-page.classic-home .team-advisors {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.home-page.classic-home .team-person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  text-align: center;
+}
+
+.home-page.classic-home .team-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  max-width: 100%;
+  color: var(--text-primary);
+  font: 600 1.125rem/1.35 var(--serif);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.home-page.classic-home .team-photo {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  max-width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 30%;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--surface-2);
+}
+
+.home-page.classic-home .team-profile:hover .team-name {
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.home-page.classic-home .team-affiliation {
+  margin-top: .25rem;
+  color: var(--text-secondary);
+  font: 400 .875rem/1.5 var(--ui);
+}
+
+@media (max-width: 760px) {
+  .home-page.classic-home .team-groups {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .home-page.classic-home .team-group + .team-group {
+    padding-inline-start: 0;
+    padding-top: 1.5rem;
+    border-inline-start: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .home-page.classic-home .team-advisors {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .home-page.classic-home .team-people {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1.5rem;
+  }
+}

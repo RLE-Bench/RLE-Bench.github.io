@@ -37,6 +37,7 @@ publish article or result updates. Space metadata lives in
 | `index.html` | page structure only — every number is rendered by `app.js` |
 | `styles.css` | shared base design tokens and styles |
 | `homepage.css` | the polished v3 homepage layout, themes, and responsive overrides |
+| `team.css` | responsive co-leadership, university logos, and team section at the end of the leaderboard |
 | `app.js` | the homepage index, charts, tabs, and tooltips |
 | `leaderboard.js` | shared JSON loading, task scores, workflow means, and RLE Index calculations |
 | `blog/results.js` | JSON-backed blog leaderboards, family charts, and inline scores |
@@ -47,7 +48,7 @@ publish article or result updates. Space metadata lives in
 | `contribute/` | task contribution criteria, template download, and preparation guide at `/contribute/` |
 | `submission-service/` | separate Cloudflare Worker for GitHub sign-in, private ZIP uploads, and reviewer feedback; see its README for setup and deployment |
 | `blog/` | the research article, served directly at `/blog/` |
-| `assets/` | the project icon — favicon, apple-touch icon, header and hero mark — plus `data/` for leaderboard results |
+| `assets/` | the project icon — favicon, apple-touch icon, header and hero mark — plus `data/` for leaderboard results and `team/` for profile photos and university logos |
 
 The homepage preserves the existing visual layout. Its task descriptions and
 Task 01–09 display numbering follow the research article; its numbers come
@@ -55,6 +56,12 @@ from the generated leaderboard JSON. The blog leaderboards, family charts,
 inline scores, and T01 interface-comparison figure read the same JSON. Both pages share the task catalog and scoring logic;
 new model/harness combinations appear automatically on reload. Task-specific
 case studies remain descriptions of the manuscript runs.
+
+The co-leadership and team section sits at the end of the leaderboard, after
+Performance and Cost, with university logos above the portraits.
+Names, roles, affiliations, and profile links live in `index.html`; portrait
+and logo originals and their source information live in `assets/team/`. The
+section is static and uses local images, so it remains available without JavaScript.
 
 The task catalog contains nine tasks; the leaderboard JSON reports the ones
 whose run dumps are present in `assets/data/` (currently all nine tasks). Tasks

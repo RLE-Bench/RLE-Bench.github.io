@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Haitong Ma",
+    "filename": "haitong-ma.jpg",
+    "profile_url": "https://haitongma.scholars.harvard.edu/",
+    "source_page_url": "https://sites.harvard.edu/nsf-rl-workshop/committee/",
+    "image_url": "https://sites.harvard.edu/nsf-rl-workshop/files/2025/01/haitong-ma-edited.jpg",
+    "width": 783,
+    "height": 783,
+    "sha256": "19f38887bcd3bdf0c39b96fc9492c6af946c20479f226061cff96bd2b8ef8bd0",
+    "downloaded_at": "2026-09-14",
+    "modified": false,
+    "reuse_information": "Workshop source footer: Copyright © 2026 The President and Fellows of Harvard College. No photo-specific reuse license found. Download is unchanged from the source; edited is part of its original URL."
+  },
+  {
+    "name": "Chenxiao Gao",
+    "filename": "chenxiao-gao.jpg",
+    "profile_url": "https://about.gaocx.io/",
+    "source_page_url": "https://about.gaocx.io/",
+    "image_url": "https://about.gaocx.io/images/avatar.jpg",
+    "width": 842,
+    "height": 983,
+    "sha256": "c710461e71c813af2a36e61797bba9fbd27d500c2ed21749690b0e9ae4b46131",
+    "downloaded_at": "2026-09-14",
+    "modified": false,
+    "reuse_information": "No photo-specific credit or reuse license found on the source page."
+  },
+  {
+    "name": "Rushi Qiang",
+    "filename": "rushi-qiang.jpg",
+    "profile_url": "https://rushi-q.github.io/",
+    "source_page_url": "https://rushi-q.github.io/",
+    "image_url": "https://rushi-q.github.io/images/avatar.jpg",
+    "width": 500,
+    "height": 500,
+    "sha256": "8079b480d2d4cef54a71bafe418bcf4b236f4d34faf959466f5602681f878a7e",
+    "downloaded_at": "2026-09-14",
+    "modified": false,
+    "reuse_information": "No photo-specific credit or reuse license found on the source page."
+  },
+  {
+    "name": "Na Li",
+    "filename": "na-li.jpg",
+    "profile_url": "https://nali.seas.harvard.edu/",
+    "source_page_url": "https://www.cse.gatech.edu/events/2025/04/04/school-cse-seminar-series-na-li",
+    "image_url": "https://www.cse.gatech.edu/sites/default/files/images/events/2025-03/Na%2520Li.jpeg",
+    "width": 700,
+    "height": 700,
+    "sha256": "2824fe739e5caf13a2a8899d5df643753064ace78914b84144dada71f5cde3ed",
+    "downloaded_at": "2026-09-14",
+    "modified": false,
+    "reuse_information": "No photo-specific credit or reuse license found on this source page."
+  },
+  {
+    "name": "Bo Dai",
+    "filename": "bo-dai.jpg",
+    "profile_url": "https://bo-dai.github.io/",
+    "source_page_url": "https://bo-dai.github.io/",
+    "image_url": "https://bo-dai.github.io/images/bodai.jpg",
+    "width": 500,
+    "height": 600,
+    "sha256": "9c4ee4def5d11fe1a4f9363c06fae1222e9e56614a9343389020255695254264",
+    "downloaded_at": "2026-09-14",
+    "modified": false,
+    "reuse_information": "No photo-specific credit or reuse license found on the source page."
+  },
+  {
+    "name": "Harvard University",
+    "filename": "harvard-logo.svg",
+    "source_page_url": "https://www.harvard.edu/",
+    "image_url": "https://www.harvard.edu/wp-content/themes/core/assets/css/dist/theme/master.min.css",
+    "sha256": "ec101dd657f399624c09dad99e4510587183e0f438421cec32eaad527cf6fd89",
+    "downloaded_at": "2026-09-14",
+    "modified": false,
+    "view_box": "0 0 280.3 70.4",
+    "extraction": "Decoded the official .svgicon-logo-dark data URI; artwork unchanged."
+  },
+  {
+    "name": "Georgia Tech",
+    "filename": "georgia-tech-logo.png",
+    "source_page_url": "https://brand.gatech.edu/our-look/logos",
+    "image_url": "https://brand.gatech.edu/sites/default/files/inline-images/GeorgiaTech_RGB_1.png",
+    "sha256": "4959800815d251004e9d90611a7df8ea1f342c498f471dea8addd33ab29c70ee",
+    "downloaded_at": "2026-09-14",
+    "modified": false,
+    "width": 750,
+    "height": 266
+  },
+  {
+    "name": "Harvard University — dark theme",
+    "filename": "harvard-logo-dark.svg",
+    "source_page_url": "https://www.harvard.edu/",
+    "image_url": "https://www.harvard.edu/wp-content/themes/core/assets/css/dist/theme/master.min.css",
+    "view_box": "0 0 280.3 70.4",
+    "sha256": "35d77c0b30f7c7a7575279e7a265c665d48bbd561123b47b9b295fba571d3ebf",
+    "downloaded_at": "2026-09-14",
+    "modified": false,
+    "extraction": "Decoded the official .svgicon-logo-light data URI; artwork unchanged."
+  },
+  {
+    "name": "Georgia Tech — dark theme",
+    "filename": "georgia-tech-logo-dark.svg",
+    "source_page_url": "https://brand.gatech.edu/our-look/logos",
+    "image_url": "https://brand.gatech.edu/modules/contrib/gt_tools/images/gt-logo.svg",
+    "view_box": "0 0 681.82346 121.32001",
+    "sha256": "3a47afecfba1ff764e9bbb4a0bf74e10995150b73428f3b844db9da98253cb5d",
+    "downloaded_at": "2026-09-14",
+    "modified": false
+  }
+]
