@@ -12,6 +12,32 @@ The preview server supports HTTP byte ranges, which browsers need for video
 seeking. Plain `python3 -m http.server` may report a zero-length seekable range
 even after a clip has downloaded. GitHub Pages already supports range requests.
 
+## Search discovery
+
+The homepage identifies the site as **RLE-Bench**, with **rlebench** as its
+alternate name in `WebSite` structured data and the homepage meta description.
+`robots.txt` allows crawling and advertises `sitemap.xml`, which lists the
+four canonical public pages. When adding public pages, update the sitemap;
+omit redirects, previews, and pages with `noindex` (such as `/demos/`).
+
+After deploying these files to GitHub Pages:
+
+1. Add `https://rle-bench.github.io/` as a **URL-prefix** property in
+   [Google Search Console](https://search.google.com/search-console/).
+   Verify ownership using Google's HTML verification file at the repository
+   root or its supplied HTML meta tag in the homepage. Use the actual token
+   from Search Console.
+2. Submit `https://rle-bench.github.io/sitemap.xml` under **Sitemaps**.
+3. Inspect the homepage and `/blog/` using **URL Inspection**, run the live
+   test, and select **Request indexing**. Check Google's selected canonical
+   and the Page indexing report if a page remains excluded.
+4. Link to the homepage from the benchmark repository's About website field
+   and README, the Hugging Face project, and relevant research/profile pages.
+   Use the project name consistently in those links.
+
+Google controls indexing and ranking; these changes do not guarantee either.
+[Recrawling can take days to weeks](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl).
+
 ## Hugging Face Space
 
 The article is also published at [RLE-Bench/blog](https://huggingface.co/spaces/RLE-Bench/blog)
