@@ -1088,6 +1088,31 @@ font-family:var(--serif);}
 .family-rank-cell { width:100%; height:34px; min-width:0; padding:0; border:0; border-radius:5px; background:transparent; color:var(--text-muted); font:500 14px/1 var(--mono); cursor:pointer; }
 .family-rank-cell:focus-visible { outline:2px solid var(--text-primary); outline-offset:2px; }
 
+/* Call for contributions at the bottom of the homepage. */
+.classic-home .contribution-callout { padding-top:8px; padding-bottom:48px; }
+.classic-home .contribution-banner {
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  padding:24px 28px; border:1px solid var(--accent); border-left-width:4px;
+  border-radius:8px; background:color-mix(in srgb,var(--accent) 10%,var(--surface-1));
+}
+.classic-home .contribution-copy { min-width:0; }
+.classic-home .contribution-kicker {
+  margin:0 0 8px; color:var(--text-primary); font:700 12px/1.5 var(--ui);
+  letter-spacing:.07em; text-transform:uppercase;
+}
+.classic-home .contribution-copy h2 { margin:0; color:var(--text-primary); font:600 clamp(23px,2.5vw,30px)/1.2 var(--serif); }
+.classic-home .contribution-copy > p:last-child { max-width:70ch; margin:10px 0 0; color:var(--text-secondary); font:16px/1.6 var(--serif); }
+.classic-home .contribution-action {
+  display:inline-flex; align-items:center; justify-content:center; gap:14px; flex-shrink:0;
+  min-height:48px; padding:12px 20px; border:1px solid var(--text-primary); border-radius:6px;
+  background:var(--text-primary); color:var(--page); font:600 14px/1.4 var(--ui); text-decoration:none;
+}
+.classic-home .contribution-action:hover { background:var(--surface-1); color:var(--text-primary); }
+@media (max-width:760px) {
+  .classic-home .contribution-banner { flex-direction:column; align-items:stretch; gap:18px; padding:20px; }
+  .classic-home .contribution-action { align-self:flex-start; max-width:100%; }
+}
+
 /* Keep all ranking numerals in the first table in its serif typeface. */
 .classic-home #index .family-matrix .place-cell,
 .classic-home #index .family-matrix .index-td,

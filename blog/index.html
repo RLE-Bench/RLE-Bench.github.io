@@ -761,6 +761,9 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 .scope-link { display: flex; gap: 12px; text-decoration: none; font-size: 12px; line-height: 1.5; padding-top: 18px; color: var(--text-secondary); }
 .scope-link span { color: var(--accent); font-size: 18px; }
 .scope-link:hover { color: var(--text-primary); }
+.overview-video { margin: 32px 0; }
+.overview-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 1px solid var(--border-strong); border-radius: 9px; background: var(--surface-1); }
+.overview-video figcaption { margin-top: 11px; font-size: 12px; line-height: 1.7; color: var(--text-muted); }
 .hero-atlas { margin: 43px 0 0; }
 .atlas-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
 .atlas-tile { position: relative; min-width: 0; display: block; padding-bottom: 41px; text-decoration: none; border: 1px solid var(--border-strong); border-radius: 9px; overflow: hidden; background: var(--surface-1); }
@@ -1294,6 +1297,15 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 <article class="post">
 <details class="mobile-toc"><summary>In this article <span aria-hidden="true">⌄</span></summary><nav aria-label="Article contents" id="mobileContents"></nav></details>
 <div class="post-body" id="article-content">
+<figure class="overview-video" id="benchmark-overview" aria-label="RLE-Bench overview">
+<video controls playsinline preload="metadata" width="1920" height="1080"
+  poster="../assets/blog/demos/RLE-Bench_v2_31s_1080p.webp"
+  aria-label="RLE-Bench benchmark overview" aria-describedby="benchmark-overview-caption">
+<source src="../assets/blog/demos/RLE-Bench_v2_31s_1080p.mp4" type="video/mp4"/>
+<a href="../assets/blog/demos/RLE-Bench_v2_31s_1080p.mp4">Download the video</a>
+</video>
+<figcaption id="benchmark-overview-caption">RLE-Bench evaluates coding agents as robot learning engineers across robot control, policy learning, perception, and mechanical design.</figcaption>
+</figure>
 <h2 id="why">Coding agents beyond the digital world</h2>
 <p>
   Coding agents are rapidly becoming more autonomous. They can increasingly pursue complex goals over long trajectories, adapting their solutions as they encounter new information and failures. Most evaluations of these agents, however, remain confined to digital environments such as terminals.
