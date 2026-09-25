@@ -761,9 +761,6 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 .scope-link { display: flex; gap: 12px; text-decoration: none; font-size: 12px; line-height: 1.5; padding-top: 18px; color: var(--text-secondary); }
 .scope-link span { color: var(--accent); font-size: 18px; }
 .scope-link:hover { color: var(--text-primary); }
-.overview-video { margin: 32px 0; }
-.overview-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 1px solid var(--border-strong); border-radius: 9px; background: var(--surface-1); }
-.overview-video figcaption { margin-top: 11px; font-size: 12px; line-height: 1.7; color: var(--text-muted); }
 .hero-atlas { margin: 43px 0 0; }
 .atlas-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
 .atlas-tile { position: relative; min-width: 0; display: block; padding-bottom: 41px; text-decoration: none; border: 1px solid var(--border-strong); border-radius: 9px; overflow: hidden; background: var(--surface-1); }
@@ -1195,7 +1192,7 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 <link href="../assets/apple-touch-icon.png" rel="apple-touch-icon"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Introducing RLE-Bench: A Qualifying Exam for Coding Agents as Robot Learning Engineers","description":"RLE-Bench evaluates coding agents across robot learning workflows, with simulation-based development, independent physical evaluation, and capability profiles spanning control, learning, perception, and design.","inLanguage":"en","dateModified":"2026-09-09","author":{"@type":"Organization","name":"RLE-Bench team"}}</script>
 <noscript><style>.metric-tabs,.toc,.mobile-toc{display:none}.research-layout{grid-template-columns:1fr;max-width:920px}</style></noscript>
-<link rel="stylesheet" href="demos.css"/>
+<link rel="stylesheet" href="demos.css?v=20260925-overview-side-caption"/>
 <link rel="stylesheet" href="harness-chart.css"/>
 <link rel="stylesheet" href="hillclimb.css"/>
 <link rel="stylesheet" href="../navigation.css?v=20260914-contact"/>
@@ -1297,14 +1294,14 @@ details.splits summary { cursor: pointer; font-size: 13.5px; color: var(--text-s
 <article class="post">
 <details class="mobile-toc"><summary>In this article <span aria-hidden="true">⌄</span></summary><nav aria-label="Article contents" id="mobileContents"></nav></details>
 <div class="post-body" id="article-content">
-<figure class="overview-video" id="benchmark-overview" aria-label="RLE-Bench overview">
-<video controls playsinline preload="metadata" width="1920" height="1080"
+<figure class="demo-figure figure-card" id="benchmark-overview" aria-label="RLE-Bench overview">
+<video class="demo-video" data-duration="31" controls playsinline preload="none" width="1920" height="1080"
   poster="../assets/blog/demos/RLE-Bench_v2_31s_1080p.webp"
   aria-label="RLE-Bench benchmark overview" aria-describedby="benchmark-overview-caption">
 <source src="../assets/blog/demos/RLE-Bench_v2_31s_1080p.mp4" type="video/mp4"/>
 <a href="../assets/blog/demos/RLE-Bench_v2_31s_1080p.mp4">Download the video</a>
 </video>
-<figcaption id="benchmark-overview-caption">RLE-Bench evaluates coding agents as robot learning engineers across robot control, policy learning, perception, and mechanical design.</figcaption>
+<figcaption id="benchmark-overview-caption"><p>RLE-Bench evaluates coding agents as robot learning engineers across robot control, policy learning, perception, and mechanical design.</p><a class="demo-download" href="../assets/blog/demos/RLE-Bench_v2_31s_1080p.mp4" download>Download video</a></figcaption>
 </figure>
 <h2 id="why">Coding agents beyond the digital world</h2>
 <p>

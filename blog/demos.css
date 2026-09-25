@@ -215,28 +215,28 @@
   .research-page .task-demo .demo-control { width: 40px; height: 40px; }
 }
 
-/* A compact, centered learning-loop demo; expand on portrait screens. */
-.research-page .post-body :is(#demo-astra-cube-loop, #demo-astra-stability) {
+/* Compact, centered article demos; expand on portrait screens. */
+.research-page .post-body :is(#benchmark-overview, #demo-astra-cube-loop, #demo-astra-stability) {
   width: 60%;
   max-width: 100%;
   margin-inline: auto;
   container-type: inline-size;
 }
-:is(#demo-astra-cube-loop, #demo-astra-stability) .demo-controls { grid-template-columns: 40px minmax(0, 1fr) 40px 40px; gap: 0 5px; padding: 3px 8px 7px; }
-:is(#demo-astra-cube-loop, #demo-astra-stability) .demo-seek { grid-column: 1 / -1; grid-row: 1; height: 28px; }
-:is(#demo-astra-cube-loop, #demo-astra-stability) .demo-toggle { grid-column: 1; grid-row: 2; }
-:is(#demo-astra-cube-loop, #demo-astra-stability) .demo-clock { grid-column: 2; grid-row: 2; font-size: 11px; margin: 0 3px; gap: 4px; }
-:is(#demo-astra-cube-loop, #demo-astra-stability) .demo-fullscreen { grid-column: 3; grid-row: 2; }
-:is(#demo-astra-cube-loop, #demo-astra-stability) .demo-controls .demo-download { grid-column: 4; grid-row: 2; }
-.research-page :is(#demo-astra-cube-loop, #demo-astra-stability) .demo-control { width: 40px; height: 40px; }
-:is(#demo-astra-cube-loop, #demo-astra-stability) .demo-cover-play { left: 10px; bottom: 10px; min-height: 36px; }
-.research-page :is(#demo-astra-cube-loop, #demo-astra-stability) figcaption { padding: 12px 14px; }
-.research-page :is(#demo-astra-cube-loop, #demo-astra-stability) figcaption p { font-size: 12px; line-height: 1.6; }
+:is(#benchmark-overview, #demo-astra-cube-loop, #demo-astra-stability) .demo-controls { grid-template-columns: 40px minmax(0, 1fr) 40px 40px; gap: 0 5px; padding: 3px 8px 7px; }
+:is(#benchmark-overview, #demo-astra-cube-loop, #demo-astra-stability) .demo-seek { grid-column: 1 / -1; grid-row: 1; height: 28px; }
+:is(#benchmark-overview, #demo-astra-cube-loop, #demo-astra-stability) .demo-toggle { grid-column: 1; grid-row: 2; }
+:is(#benchmark-overview, #demo-astra-cube-loop, #demo-astra-stability) .demo-clock { grid-column: 2; grid-row: 2; font-size: 11px; margin: 0 3px; gap: 4px; }
+:is(#benchmark-overview, #demo-astra-cube-loop, #demo-astra-stability) .demo-fullscreen { grid-column: 3; grid-row: 2; }
+:is(#benchmark-overview, #demo-astra-cube-loop, #demo-astra-stability) .demo-controls .demo-download { grid-column: 4; grid-row: 2; }
+.research-page :is(#benchmark-overview, #demo-astra-cube-loop, #demo-astra-stability) .demo-control { width: 40px; height: 40px; }
+:is(#benchmark-overview, #demo-astra-cube-loop, #demo-astra-stability) .demo-cover-play { left: 10px; bottom: 10px; min-height: 36px; }
+.research-page :is(#benchmark-overview, #demo-astra-cube-loop, #demo-astra-stability) figcaption { padding: 12px 14px; }
+.research-page :is(#benchmark-overview, #demo-astra-cube-loop, #demo-astra-stability) figcaption p { font-size: 12px; line-height: 1.6; }
 @media (orientation: portrait) {
-  .research-page .post-body :is(#demo-astra-cube-loop, #demo-astra-stability) { width: 70%; }
+  .research-page .post-body :is(#benchmark-overview, #demo-astra-cube-loop, #demo-astra-stability) { width: 70%; }
 }
 @media (max-width: 680px) {
-  .research-page .post-body :is(#demo-astra-cube-loop, #demo-astra-stability) { width: 100%; }
+  .research-page .post-body :is(#benchmark-overview, #demo-astra-cube-loop, #demo-astra-stability) { width: 100%; }
 }
 
 /* Scrollable overview of every task, sharing the task-detail recordings. */
@@ -291,4 +291,31 @@
 #task-video-carousel .atlas-strip.is-auto-scrolling::-webkit-scrollbar { display: none; }
 @media print {
   #task-video-carousel .atlas-copy { display: none; }
+}
+
+/* Give the overview player 80% of the article width, with a side caption. */
+.research-page .post-body #benchmark-overview {
+  --family: var(--accent);
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 1fr);
+  width: 100%;
+}
+#benchmark-overview > .demo-player,
+#benchmark-overview > .demo-video { min-width: 0; }
+.research-page #benchmark-overview figcaption {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 0;
+  border-left: 1px solid var(--grid);
+  padding: 16px;
+}
+@media (max-width: 680px) {
+  .research-page .post-body #benchmark-overview { grid-template-columns: minmax(0, 1fr); }
+  .research-page #benchmark-overview figcaption {
+    border-left: 0;
+    border-top: 1px solid var(--grid);
+    padding: 12px 14px;
+  }
 }
