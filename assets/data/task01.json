@@ -7751,6 +7751,506 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L2/01-open-fridge/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 34.33594275,
+      "reward": 0.332539,
+      "success_rate": 0.4,
+      "metrics": {
+        "component_efficiency": 0.012539200000000002,
+        "component_outcome": 0.32000000000000006,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 42163.0,
+        "reward": 0.332539,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-15T17:23:33.935118",
+        "finished_at": "2026-09-15T20:04:51.626679",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 68267283,
+          "n_cache_tokens": 67319634,
+          "n_output_tokens": 626200
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__NaTDzp9",
+            "rewards": {
+              "component_efficiency": 0.012539200000000002,
+              "component_outcome": 0.32000000000000006,
+              "interaction_budget": 50000,
+              "interaction_steps": 42163,
+              "reward": 0.332539,
+              "success_rate": 0.4,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L2/02-close-cabinet/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 86.2211375,
+      "reward": 0.825168,
+      "success_rate": 1.0,
+      "metrics": {
+        "component_efficiency": 0.025167999999999992,
+        "component_outcome": 0.8,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 43708.0,
+        "reward": 0.825168,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-18T16:09:51.546324",
+        "finished_at": "2026-09-18T18:24:33.466345",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 116263552,
+          "n_cache_tokens": 115185230,
+          "n_output_tokens": 719437
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__YZP8ARS",
+            "rewards": {
+              "component_efficiency": 0.025167999999999992,
+              "component_outcome": 0.8,
+              "interaction_budget": 50000,
+              "interaction_steps": 43708,
+              "reward": 0.825168,
+              "success_rate": 1.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L2/03-turn-on-stove/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 53.74706074999999,
+      "reward": 0.717018,
+      "success_rate": 0.8,
+      "metrics": {
+        "component_efficiency": 0.07701760000000002,
+        "component_outcome": 0.6400000000000001,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 25932.0,
+        "reward": 0.717018,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-18T18:24:37.746731",
+        "finished_at": "2026-09-18T20:01:58.202198",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 56331295,
+          "n_cache_tokens": 55495083,
+          "n_output_tokens": 464491
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__dEzxhC5",
+            "rewards": {
+              "component_efficiency": 0.07701760000000002,
+              "component_outcome": 0.6400000000000001,
+              "interaction_budget": 50000,
+              "interaction_steps": 25932,
+              "reward": 0.717018,
+              "success_rate": 0.8,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L2/04-pick-place-counter-to-drawer/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 50.770770249999984,
+      "reward": 0.892448,
+      "success_rate": 1.0,
+      "metrics": {
+        "component_efficiency": 0.092448,
+        "component_outcome": 0.8,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 26888.0,
+        "reward": 0.892448,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-18T20:02:02.796332",
+        "finished_at": "2026-09-18T22:00:32.193470",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 67508642,
+          "n_cache_tokens": 66793801,
+          "n_output_tokens": 397536
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__4X2imkr",
+            "rewards": {
+              "component_efficiency": 0.092448,
+              "component_outcome": 0.8,
+              "interaction_budget": 50000,
+              "interaction_steps": 26888,
+              "reward": 0.892448,
+              "success_rate": 1.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L2/05-pick-place-microwave-to-counter/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 64.62400124999998,
+      "reward": 0.331832,
+      "success_rate": 0.4,
+      "metrics": {
+        "component_efficiency": 0.011832000000000004,
+        "component_outcome": 0.32000000000000006,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 42605.0,
+        "reward": 0.331832,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-18T22:00:35.780948",
+        "finished_at": "2026-09-19T01:28:05.843545",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 72422381,
+          "n_cache_tokens": 71545805,
+          "n_output_tokens": 585953
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__HibJym2",
+            "rewards": {
+              "component_efficiency": 0.011832000000000004,
+              "component_outcome": 0.32000000000000006,
+              "interaction_budget": 50000,
+              "interaction_steps": 42605,
+              "reward": 0.331832,
+              "success_rate": 0.4,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L3/01-open-fridge/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 29.636602999999997,
+      "reward": 0.899384,
+      "success_rate": 1.0,
+      "metrics": {
+        "component_efficiency": 0.09938400000000001,
+        "component_outcome": 0.8,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 25154.0,
+        "reward": 0.899384,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-18T02:21:59.042153",
+        "finished_at": "2026-09-18T03:57:25.254937",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 70970956,
+          "n_cache_tokens": 70161280,
+          "n_output_tokens": 490444
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__yb86ZGY",
+            "rewards": {
+              "component_efficiency": 0.09938400000000001,
+              "component_outcome": 0.8,
+              "interaction_budget": 50000,
+              "interaction_steps": 25154,
+              "reward": 0.899384,
+              "success_rate": 1.0,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L3/02-close-cabinet/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 33.48509124999999,
+      "reward": 0.503314,
+      "success_rate": 0.6,
+      "metrics": {
+        "component_efficiency": 0.0233136,
+        "component_outcome": 0.48,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 40286.0,
+        "reward": 0.503314,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-18T03:57:29.895234",
+        "finished_at": "2026-09-18T06:15:27.983877",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 50346803,
+          "n_cache_tokens": 49340466,
+          "n_output_tokens": 674272
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__zHXavnJ",
+            "rewards": {
+              "component_efficiency": 0.0233136,
+              "component_outcome": 0.48,
+              "interaction_budget": 50000,
+              "interaction_steps": 40286,
+              "reward": 0.503314,
+              "success_rate": 0.6,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L3/03-turn-on-stove/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 31.84940075,
+      "reward": 0.324739,
+      "success_rate": 0.4,
+      "metrics": {
+        "component_efficiency": 0.004739199999999998,
+        "component_outcome": 0.32000000000000006,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 47038.0,
+        "reward": 0.324739,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-18T06:15:32.589373",
+        "finished_at": "2026-09-18T08:27:21.260366",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 70556609,
+          "n_cache_tokens": 69692485,
+          "n_output_tokens": 568808
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__y9edmxx",
+            "rewards": {
+              "component_efficiency": 0.004739199999999998,
+              "component_outcome": 0.32000000000000006,
+              "interaction_budget": 50000,
+              "interaction_steps": 47038,
+              "reward": 0.324739,
+              "success_rate": 0.4,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L3/04-pick-place-counter-to-drawer/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 15.019535999999999,
+      "reward": 0.552886,
+      "success_rate": 0.6,
+      "metrics": {
+        "component_efficiency": 0.0728856,
+        "component_outcome": 0.48,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 19631.0,
+        "reward": 0.552886,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-18T08:27:25.876259",
+        "finished_at": "2026-09-18T09:39:08.437326",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 24165701,
+          "n_cache_tokens": 23699939,
+          "n_output_tokens": 278320
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__shAEBTa",
+            "rewards": {
+              "component_efficiency": 0.0728856,
+              "component_outcome": 0.48,
+              "interaction_budget": 50000,
+              "interaction_steps": 19631,
+              "reward": 0.552886,
+              "success_rate": 0.6,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "L3/05-pick-place-microwave-to-counter/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 25.03478074999999,
+      "reward": 0.654397,
+      "success_rate": 0.8,
+      "metrics": {
+        "component_efficiency": 0.014396799999999994,
+        "component_outcome": 0.6400000000000001,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 45501.0,
+        "reward": 0.654397,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-18T09:39:12.781115",
+        "finished_at": "2026-09-18T11:44:54.773968",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 40039429,
+          "n_cache_tokens": 39212573,
+          "n_output_tokens": 454910
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__tfDyqUQ",
+            "rewards": {
+              "component_efficiency": 0.014396799999999994,
+              "component_outcome": 0.6400000000000001,
+              "interaction_budget": 50000,
+              "interaction_steps": 45501,
+              "reward": 0.654397,
+              "success_rate": 0.8,
+              "trials_attempted": 5,
+              "trials_total": 5
+            }
+          }
+        ]
+      }
     }
   ]
 }

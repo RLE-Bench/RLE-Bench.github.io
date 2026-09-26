@@ -741,6 +741,80 @@
           }
         ]
       }
+    },
+    {
+      "agent": "native_claude_agent:NativeClaudeCode",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "claude_code-fable_5_1-20260924T052733-a9bbe8238018-task07_attempt_01",
+      "status": "completed",
+      "cost_usd": 14.114233249999998,
+      "reward": 0.6857,
+      "success_rate": null,
+      "metrics": {
+        "bin_hits": 0.0,
+        "clear_frac": 0.869,
+        "damage_events": 2.0,
+        "episode_wall_s_total": 2365.8088,
+        "floor_drops": 3.0,
+        "gate_contract": 1.0,
+        "gate_determinism": 1.0,
+        "gate_load": 1.0,
+        "gate_stable": 1.0,
+        "gated": 0.0,
+        "harness_wall_s_total": 2313.6398,
+        "makespan_s": 49.325,
+        "n_parts": 112.0,
+        "parts_cleared": 98.0,
+        "policy_faults": 0.0,
+        "policy_wall_s_total": 52.169,
+        "raw_total": 0.6857,
+        "reward": 0.6857,
+        "speed_merit": 0.6566,
+        "throughput_ppm": 14.5753
+      },
+      "extra": {
+        "started_at": "2026-09-24T05:27:33.484684",
+        "finished_at": "2026-09-24T08:37:04.760531",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 12632332,
+          "n_cache_tokens": 12409733,
+          "n_output_tokens": 131690
+        },
+        "trials": [
+          {
+            "trial": "task07__F4Q3s46",
+            "rewards": {
+              "reward": 0.6857,
+              "raw_total": 0.6857,
+              "gated": 0,
+              "clear_frac": 0.869,
+              "parts_cleared": 98.0,
+              "n_parts": 112.0,
+              "speed_merit": 0.6566,
+              "throughput_ppm": 14.5753,
+              "makespan_s": 49.325,
+              "floor_drops": 3.0,
+              "damage_events": 2.0,
+              "bin_hits": 0.0,
+              "policy_faults": 0.0,
+              "episode_wall_s_total": 2365.8088,
+              "policy_wall_s_total": 52.169,
+              "harness_wall_s_total": 2313.6398,
+              "gate_load": 1,
+              "gate_contract": 1,
+              "gate_stable": 1,
+              "gate_determinism": 1
+            }
+          }
+        ]
+      }
     }
   ]
 }

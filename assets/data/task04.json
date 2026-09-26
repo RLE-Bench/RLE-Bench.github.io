@@ -3321,6 +3321,336 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "claude_code-fable_5_1-20260913T143946-b10ef3e0-task04_01_dance_context1m_high_local_login",
+      "status": "completed",
+      "cost_usd": 6.922204250000002,
+      "reward": 0.7858,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.157,
+        "anchor_pos_err_m": 0.801,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1699,
+        "mpjpe_m": 0.0379,
+        "n_params": 828765.0,
+        "raw_total": 0.7858,
+        "reward": 0.7858,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.8041,
+        "tracking_score": 0.9822
+      },
+      "extra": {
+        "started_at": "2026-09-13T14:39:46.930506",
+        "finished_at": "2026-09-13T18:16:16.921769",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 6276177,
+          "n_cache_tokens": 6147377,
+          "n_output_tokens": 56610
+        },
+        "trials": [
+          {
+            "trial": "01-dance__QpxgJw2",
+            "rewards": {
+              "reward": 0.7858,
+              "raw_total": 0.7858,
+              "gated": 0,
+              "tracking_score": 0.9822,
+              "tracking_multi": 0.8041,
+              "mpjpe_m": 0.0379,
+              "anchor_pos_err_m": 0.801,
+              "joint_rmse_rad": 0.1699,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.157,
+              "falls": 0.0,
+              "n_params": 828765.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "claude_code-fable_5_1-20260913T144147-f6b8661d-task04_02_fight_context1m_high_local_login",
+      "status": "completed",
+      "cost_usd": 8.451503250000002,
+      "reward": 0.7503,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1488,
+        "anchor_pos_err_m": 1.2018,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.2365,
+        "mpjpe_m": 0.0457,
+        "n_params": 828765.0,
+        "raw_total": 0.7503,
+        "reward": 0.7503,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.7476,
+        "tracking_score": 0.9744
+      },
+      "extra": {
+        "started_at": "2026-09-13T14:41:47.768573",
+        "finished_at": "2026-09-13T18:16:50.631628",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 8331725,
+          "n_cache_tokens": 8191013,
+          "n_output_tokens": 72277
+        },
+        "trials": [
+          {
+            "trial": "02-fight__DEDFaBr",
+            "rewards": {
+              "reward": 0.7503,
+              "raw_total": 0.7503,
+              "gated": 0,
+              "tracking_score": 0.9744,
+              "tracking_multi": 0.7476,
+              "mpjpe_m": 0.0457,
+              "anchor_pos_err_m": 1.2018,
+              "joint_rmse_rad": 0.2365,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1488,
+              "falls": 0.0,
+              "n_params": 828765.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "claude_code-fable_5_1-20260913T181636-62ce9abd-task04_03_fall_and_get_up_context1m_high_local_login",
+      "status": "completed",
+      "cost_usd": 6.050631749999999,
+      "reward": 0.8598,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.0999,
+        "anchor_pos_err_m": 0.4156,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1284,
+        "mpjpe_m": 0.0285,
+        "n_params": 656477.0,
+        "raw_total": 0.8598,
+        "reward": 0.8598,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.8698,
+        "tracking_score": 0.9883
+      },
+      "extra": {
+        "started_at": "2026-09-13T18:16:36.382744",
+        "finished_at": "2026-09-13T22:10:01.557215",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 5408261,
+          "n_cache_tokens": 5300127,
+          "n_output_tokens": 51624
+        },
+        "trials": [
+          {
+            "trial": "03-fall-and-get-up__b7gibP9",
+            "rewards": {
+              "reward": 0.8598,
+              "raw_total": 0.8598,
+              "gated": 0,
+              "tracking_score": 0.9883,
+              "tracking_multi": 0.8698,
+              "mpjpe_m": 0.0285,
+              "anchor_pos_err_m": 0.4156,
+              "joint_rmse_rad": 0.1284,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.0999,
+              "falls": 0.0,
+              "n_params": 656477.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "claude_code-fable_5_1-20260913T181704-0d9e09d9-task04_04_run_context1m_high_local_login",
+      "status": "completed",
+      "cost_usd": 12.541166249999996,
+      "reward": 0.7441,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1479,
+        "anchor_pos_err_m": 1.3447,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1604,
+        "mpjpe_m": 0.0466,
+        "n_params": 1321245.0,
+        "raw_total": 0.7441,
+        "reward": 0.7441,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.7382,
+        "tracking_score": 0.9741
+      },
+      "extra": {
+        "started_at": "2026-09-13T18:17:05.018976",
+        "finished_at": "2026-09-13T21:50:08.055785",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 12191566,
+          "n_cache_tokens": 11997105,
+          "n_output_tokens": 113649
+        },
+        "trials": [
+          {
+            "trial": "04-run__ZaveY2F",
+            "rewards": {
+              "reward": 0.7441,
+              "raw_total": 0.7441,
+              "gated": 0,
+              "tracking_score": 0.9741,
+              "tracking_multi": 0.7382,
+              "mpjpe_m": 0.0466,
+              "anchor_pos_err_m": 1.3447,
+              "joint_rmse_rad": 0.1604,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1479,
+              "falls": 0.0,
+              "n_params": 1321245.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "native_claude_agent:NativeClaudeCode",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "claude_code-fable_5_1-20260924T074416-9c1b84734e4d-task04_05_sprint_attempt_01",
+      "status": "completed",
+      "cost_usd": 6.098442749999999,
+      "reward": 0.7417,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1946,
+        "anchor_pos_err_m": 2.7241,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.205,
+        "mpjpe_m": 0.0434,
+        "n_params": 497437.0,
+        "raw_total": 0.7417,
+        "reward": 0.7417,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.7675,
+        "tracking_score": 0.9748
+      },
+      "extra": {
+        "started_at": "2026-09-24T07:44:16.906170",
+        "finished_at": "2026-09-24T11:19:42.138079",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 5270338,
+          "n_cache_tokens": 5162371,
+          "n_output_tokens": 53355
+        },
+        "trials": [
+          {
+            "trial": "05-sprint__qKkQxRx",
+            "rewards": {
+              "reward": 0.7417,
+              "raw_total": 0.7417,
+              "gated": 0,
+              "tracking_score": 0.9748,
+              "tracking_multi": 0.7675,
+              "mpjpe_m": 0.0434,
+              "anchor_pos_err_m": 2.7241,
+              "joint_rmse_rad": 0.205,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1946,
+              "falls": 0.0,
+              "n_params": 497437.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1
+            }
+          }
+        ]
+      }
     }
   ]
 }

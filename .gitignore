@@ -31,3 +31,5 @@ Thumbs.db
 /submission-service/public/rlebench-harbor-template.zip
 /submission-service/public/guide/
 /submission-service/public/guide-assets/
+
+tmp/

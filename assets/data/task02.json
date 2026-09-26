@@ -7261,22 +7261,22 @@
       "reward": 0.1,
       "success_rate": 0.0,
       "metrics": {
-        "dev_episodes": 8.0,
+        "dev_episodes": 11.0,
         "dev_successes": 0.0,
         "interaction_budget": 75000.0,
-        "interaction_steps": 10780.0,
+        "interaction_steps": 18650.0,
         "planned_trials": 5.0,
         "reward": 0.1,
         "success_rate": 0.0,
         "successes": 0.0,
         "tasks_practised": 3.0,
         "train_tasks_solved": 0.0,
-        "trials_attempted": 4.0,
-        "trials_recorded": 4.0
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
       },
       "extra": {
-        "started_at": "2026-09-13T01:29:12.944406",
-        "finished_at": "2026-09-13T06:20:42.618113",
+        "started_at": "2026-09-19T21:49:04.639498",
+        "finished_at": "2026-09-20T02:04:00.928397",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
@@ -7291,20 +7291,20 @@
         },
         "trials": [
           {
-            "trial": "03-baking__NrnEoxd",
+            "trial": "03-baking__RWB53oU",
             "rewards": {
-              "dev_episodes": 8,
+              "dev_episodes": 11,
               "dev_successes": 0,
               "interaction_budget": 75000,
-              "interaction_steps": 10780,
+              "interaction_steps": 18650,
               "planned_trials": 5,
               "reward": 0.1,
               "success_rate": 0.0,
               "successes": 0,
               "tasks_practised": 3,
               "train_tasks_solved": 0,
-              "trials_attempted": 4,
-              "trials_recorded": 4
+              "trials_attempted": 5,
+              "trials_recorded": 5
             }
           }
         ]
@@ -7709,25 +7709,25 @@
       "job": "07-portioning-meals/grok-build/xai_grok-4.6",
       "status": "completed",
       "cost_usd": null,
-      "reward": 0.05,
-      "success_rate": 0.0,
+      "reward": 0.85,
+      "success_rate": 0.4,
       "metrics": {
-        "dev_episodes": 9.0,
+        "dev_episodes": 28.0,
         "dev_successes": 0.0,
         "interaction_budget": 75000.0,
-        "interaction_steps": 4523.0,
+        "interaction_steps": 9442.0,
         "planned_trials": 5.0,
-        "reward": 0.05,
-        "success_rate": 0.0,
-        "successes": 0.0,
+        "reward": 0.85,
+        "success_rate": 0.4,
+        "successes": 2.0,
         "tasks_practised": 3.0,
         "train_tasks_solved": 0.0,
-        "trials_attempted": 2.0,
+        "trials_attempted": 5.0,
         "trials_recorded": 5.0
       },
       "extra": {
-        "started_at": "2026-09-13T03:16:01.304798",
-        "finished_at": "2026-09-13T08:29:31.455448",
+        "started_at": "2026-09-21T12:51:39.915488",
+        "finished_at": "2026-09-21T17:28:46.991879",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
@@ -7742,19 +7742,19 @@
         },
         "trials": [
           {
-            "trial": "07-portioning-meals__t6tMKFU",
+            "trial": "07-portioning-meals__DxyTPEe",
             "rewards": {
-              "dev_episodes": 9,
+              "dev_episodes": 28,
               "dev_successes": 0,
               "interaction_budget": 75000,
-              "interaction_steps": 4523,
+              "interaction_steps": 9442,
               "planned_trials": 5,
-              "reward": 0.05,
-              "success_rate": 0.0,
-              "successes": 0,
+              "reward": 0.85,
+              "success_rate": 0.4,
+              "successes": 2,
               "tasks_practised": 3,
               "train_tasks_solved": 0,
-              "trials_attempted": 2,
+              "trials_attempted": 5,
               "trials_recorded": 5
             }
           }
@@ -7986,15 +7986,15 @@
       "job": "10-serving-beverages/grok-build/xai_grok-4.6",
       "status": "completed",
       "cost_usd": null,
-      "reward": 0.066667,
+      "reward": 0.166667,
       "success_rate": 0.0,
       "metrics": {
-        "dev_episodes": 25.0,
+        "dev_episodes": 11.0,
         "dev_successes": 0.0,
         "interaction_budget": 75000.0,
-        "interaction_steps": 7310.0,
+        "interaction_steps": 4915.0,
         "planned_trials": 5.0,
-        "reward": 0.066667,
+        "reward": 0.166667,
         "success_rate": 0.0,
         "successes": 0.0,
         "tasks_practised": 3.0,
@@ -8003,8 +8003,8 @@
         "trials_recorded": 5.0
       },
       "extra": {
-        "started_at": "2026-09-13T10:38:43.914527",
-        "finished_at": "2026-09-14T04:16:41.319808",
+        "started_at": "2026-09-20T11:30:34.722376",
+        "finished_at": "2026-09-20T15:36:44.357835",
         "n_total_trials": 1,
         "progress": {
           "n_completed_trials": 1,
@@ -8019,14 +8019,14 @@
         },
         "trials": [
           {
-            "trial": "10-serving-beverages__tnaEAR6",
+            "trial": "10-serving-beverages__Mj5Biwz",
             "rewards": {
-              "dev_episodes": 25,
+              "dev_episodes": 11,
               "dev_successes": 0,
               "interaction_budget": 75000,
-              "interaction_steps": 7310,
+              "interaction_steps": 4915,
               "planned_trials": 5,
-              "reward": 0.066667,
+              "reward": 0.166667,
               "success_rate": 0.0,
               "successes": 0,
               "tasks_practised": 3,
@@ -8278,6 +8278,1194 @@
               "interaction_steps": 5095,
               "planned_trials": 5,
               "reward": 0.066667,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "01-washing-dishes/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 67.89797450000002,
+      "reward": 0.8,
+      "success_rate": 0.8,
+      "metrics": {
+        "dev_episodes": 34.0,
+        "dev_successes": 11.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 62331.0,
+        "planned_trials": 5.0,
+        "reward": 0.8,
+        "success_rate": 0.8,
+        "successes": 4.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 2.0,
+        "trials_attempted": 4.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-19T03:18:46.202828",
+        "finished_at": "2026-09-19T07:35:11.722864",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 85926834,
+          "n_cache_tokens": 84926778,
+          "n_output_tokens": 535772
+        },
+        "trials": [
+          {
+            "trial": "01-washing-dishes__44hu7p3",
+            "rewards": {
+              "dev_episodes": 34,
+              "dev_successes": 11,
+              "interaction_budget": 75000,
+              "interaction_steps": 62331,
+              "planned_trials": 5,
+              "reward": 0.8,
+              "success_rate": 0.8,
+              "successes": 4,
+              "tasks_practised": 3,
+              "train_tasks_solved": 2,
+              "trials_attempted": 4,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "02-sauteing-vegetables/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 41.06402524999998,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "dev_episodes": 15.0,
+        "dev_successes": 2.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 41087.0,
+        "planned_trials": 5.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "successes": 5.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 2.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-19T07:35:15.454687",
+        "finished_at": "2026-09-19T09:50:51.608238",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 40728906,
+          "n_cache_tokens": 40079501,
+          "n_output_tokens": 362667
+        },
+        "trials": [
+          {
+            "trial": "02-sauteing-vegetables__dUnCZcZ",
+            "rewards": {
+              "dev_episodes": 15,
+              "dev_successes": 2,
+              "interaction_budget": 75000,
+              "interaction_steps": 41087,
+              "planned_trials": 5,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "successes": 5,
+              "tasks_practised": 3,
+              "train_tasks_solved": 2,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "03-baking/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 81.88987675,
+      "reward": 0.8,
+      "success_rate": 0.6,
+      "metrics": {
+        "dev_episodes": 42.0,
+        "dev_successes": 4.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 51900.0,
+        "planned_trials": 5.0,
+        "reward": 0.8,
+        "success_rate": 0.6,
+        "successes": 3.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-19T09:50:56.251864",
+        "finished_at": "2026-09-19T14:00:17.557328",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 77659498,
+          "n_cache_tokens": 76431627,
+          "n_output_tokens": 767579
+        },
+        "trials": [
+          {
+            "trial": "03-baking__282Zvy4",
+            "rewards": {
+              "dev_episodes": 42,
+              "dev_successes": 4,
+              "interaction_budget": 75000,
+              "interaction_steps": 51900,
+              "planned_trials": 5,
+              "reward": 0.8,
+              "success_rate": 0.6,
+              "successes": 3,
+              "tasks_practised": 3,
+              "train_tasks_solved": 1,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "04-reheating-food/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 89.75245075,
+      "reward": 0.95,
+      "success_rate": 0.8,
+      "metrics": {
+        "dev_episodes": 21.0,
+        "dev_successes": 6.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 46999.0,
+        "planned_trials": 5.0,
+        "reward": 0.95,
+        "success_rate": 0.8,
+        "successes": 4.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 3.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-19T22:29:37.454857",
+        "finished_at": "2026-09-20T02:49:36.509917",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 98292962,
+          "n_cache_tokens": 96912683,
+          "n_output_tokens": 761232
+        },
+        "trials": [
+          {
+            "trial": "04-reheating-food__bfRuFMF",
+            "rewards": {
+              "dev_episodes": 21,
+              "dev_successes": 6,
+              "interaction_budget": 75000,
+              "interaction_steps": 46999,
+              "planned_trials": 5,
+              "reward": 0.95,
+              "success_rate": 0.8,
+              "successes": 4,
+              "tasks_practised": 3,
+              "train_tasks_solved": 3,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "05-chopping-food/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 51.50702924999995,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "dev_episodes": 124.0,
+        "dev_successes": 80.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 49190.0,
+        "planned_trials": 5.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "successes": 5.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 2.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-20T02:49:41.021860",
+        "finished_at": "2026-09-20T05:31:06.237966",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 68039550,
+          "n_cache_tokens": 67302397,
+          "n_output_tokens": 400525
+        },
+        "trials": [
+          {
+            "trial": "05-chopping-food__6xFVUJK",
+            "rewards": {
+              "dev_episodes": 124,
+              "dev_successes": 80,
+              "interaction_budget": 75000,
+              "interaction_steps": 49190,
+              "planned_trials": 5,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "successes": 5,
+              "tasks_practised": 3,
+              "train_tasks_solved": 2,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "06-setting-the-table/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 85.14740975,
+      "reward": 0.8,
+      "success_rate": 0.6,
+      "metrics": {
+        "dev_episodes": 31.0,
+        "dev_successes": 2.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 66228.0,
+        "planned_trials": 5.0,
+        "reward": 0.8,
+        "success_rate": 0.6,
+        "successes": 3.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 2.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-21T01:48:54.118048",
+        "finished_at": "2026-09-21T06:10:05.851196",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 72381603,
+          "n_cache_tokens": 70957599,
+          "n_output_tokens": 781121
+        },
+        "trials": [
+          {
+            "trial": "06-setting-the-table__hBvEZJn",
+            "rewards": {
+              "dev_episodes": 31,
+              "dev_successes": 2,
+              "interaction_budget": 75000,
+              "interaction_steps": 66228,
+              "planned_trials": 5,
+              "reward": 0.8,
+              "success_rate": 0.6,
+              "successes": 3,
+              "tasks_practised": 3,
+              "train_tasks_solved": 2,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "07-portioning-meals/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 58.79692024999998,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "dev_episodes": 12.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 16536.0,
+        "planned_trials": 5.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "successes": 5.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-21T06:10:09.657193",
+        "finished_at": "2026-09-21T09:06:26.421330",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 44637542,
+          "n_cache_tokens": 43665361,
+          "n_output_tokens": 570988
+        },
+        "trials": [
+          {
+            "trial": "07-portioning-meals__TSj24hZ",
+            "rewards": {
+              "dev_episodes": 12,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 16536,
+              "planned_trials": 5,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "successes": 5,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "08-defrosting-food/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 84.21505475,
+      "reward": 0.8,
+      "success_rate": 0.4,
+      "metrics": {
+        "dev_episodes": 40.0,
+        "dev_successes": 1.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 57882.0,
+        "planned_trials": 5.0,
+        "reward": 0.8,
+        "success_rate": 0.4,
+        "successes": 2.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-21T09:06:30.210338",
+        "finished_at": "2026-09-21T13:27:42.586974",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 100171039,
+          "n_cache_tokens": 98986379,
+          "n_output_tokens": 719042
+        },
+        "trials": [
+          {
+            "trial": "08-defrosting-food__QiojAqj",
+            "rewards": {
+              "dev_episodes": 40,
+              "dev_successes": 1,
+              "interaction_budget": 75000,
+              "interaction_steps": 57882,
+              "planned_trials": 5,
+              "reward": 0.8,
+              "success_rate": 0.4,
+              "successes": 2,
+              "tasks_practised": 3,
+              "train_tasks_solved": 1,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "09-arranging-buffet/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 65.950227,
+      "reward": 0.666667,
+      "success_rate": 0.4,
+      "metrics": {
+        "dev_episodes": 9.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 13251.0,
+        "planned_trials": 5.0,
+        "reward": 0.666667,
+        "success_rate": 0.4,
+        "successes": 2.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-21T13:27:47.264513",
+        "finished_at": "2026-09-21T16:32:41.514789",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 63649539,
+          "n_cache_tokens": 62627868,
+          "n_output_tokens": 600272
+        },
+        "trials": [
+          {
+            "trial": "09-arranging-buffet__BPdnFnS",
+            "rewards": {
+              "dev_episodes": 9,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 13251,
+              "planned_trials": 5,
+              "reward": 0.666667,
+              "success_rate": 0.4,
+              "successes": 2,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "09-arranging-buffet/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.25,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 29.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 10894.0,
+        "planned_trials": 5.0,
+        "reward": 0.25,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-20T06:48:17.167163",
+        "finished_at": "2026-09-20T11:30:30.189572",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "09-arranging-buffet__tMcNqL6",
+            "rewards": {
+              "dev_episodes": 29,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 10894,
+              "planned_trials": 5,
+              "reward": 0.25,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "10-serving-beverages/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 72.10280075,
+      "reward": 0.8,
+      "success_rate": 0.8,
+      "metrics": {
+        "dev_episodes": 9.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 14434.0,
+        "planned_trials": 5.0,
+        "reward": 0.8,
+        "success_rate": 0.8,
+        "successes": 4.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-22T04:05:02.212653",
+        "finished_at": "2026-09-22T07:43:52.762001",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 71553900,
+          "n_cache_tokens": 70391243,
+          "n_output_tokens": 627773
+        },
+        "trials": [
+          {
+            "trial": "10-serving-beverages__kBDPzww",
+            "rewards": {
+              "dev_episodes": 9,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 14434,
+              "planned_trials": 5,
+              "reward": 0.8,
+              "success_rate": 0.8,
+              "successes": 4,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "11-loading-fridge/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 88.10913824999999,
+      "reward": 0.533333,
+      "success_rate": 0.4,
+      "metrics": {
+        "dev_episodes": 12.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 19125.0,
+        "planned_trials": 5.0,
+        "reward": 0.533333,
+        "success_rate": 0.4,
+        "successes": 2.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-22T19:15:14.119901",
+        "finished_at": "2026-09-22T23:23:24.655910",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 74594418,
+          "n_cache_tokens": 73228353,
+          "n_output_tokens": 852519
+        },
+        "trials": [
+          {
+            "trial": "11-loading-fridge__a6M85vr",
+            "rewards": {
+              "dev_episodes": 12,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 19125,
+              "planned_trials": 5,
+              "reward": 0.533333,
+              "success_rate": 0.4,
+              "successes": 2,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "11-loading-fridge/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.2,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 9940.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.2,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T13:25:32.909353",
+        "finished_at": "2026-09-25T17:11:18.619139",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "11-loading-fridge__cHxHowu",
+            "rewards": {
+              "reward": 0.2,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 9940,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "native_claude_agent:NativeClaudeCode",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "12-managing-freezer-space/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 93.96565849999999,
+      "reward": 0.1,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 23.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 72037.0,
+        "planned_trials": 5.0,
+        "reward": 0.1,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-24T13:20:39.812680",
+        "finished_at": "2026-09-24T17:49:03.988491",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 88747478,
+          "n_cache_tokens": 87281234,
+          "n_output_tokens": 859799
+        },
+        "trials": [
+          {
+            "trial": "12-managing-freezer-space__bKngiss",
+            "rewards": {
+              "dev_episodes": 23,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 72037,
+              "planned_trials": 5,
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "12-managing-freezer-space/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 19.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 4315.0,
+        "planned_trials": 5.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-22T22:35:53.401811",
+        "finished_at": "2026-09-23T04:26:29.993315",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "12-managing-freezer-space__7LUdK2c",
+            "rewards": {
+              "dev_episodes": 19,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 4315,
+              "planned_trials": 5,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "native_claude_agent:NativeClaudeCode",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "13-clearing-table/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 93.28620075,
+      "reward": 0.4,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 26.0,
+        "dev_successes": 1.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 67328.0,
+        "planned_trials": 5.0,
+        "reward": 0.4,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-24T18:04:30.568579",
+        "finished_at": "2026-09-24T22:35:01.408709",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 80409743,
+          "n_cache_tokens": 78951763,
+          "n_output_tokens": 890680
+        },
+        "trials": [
+          {
+            "trial": "13-clearing-table__BQ78hDu",
+            "rewards": {
+              "dev_episodes": 26,
+              "dev_successes": 1,
+              "interaction_budget": 75000,
+              "interaction_steps": 67328,
+              "planned_trials": 5,
+              "reward": 0.4,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 1,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "13-clearing-table/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.26666666666666666,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 8911.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.26666666666666666,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T13:25:21.243335",
+        "finished_at": "2026-09-25T17:37:54.758417",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "13-clearing-table__pDNQb4B",
+            "rewards": {
+              "reward": 0.26666666666666666,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 8911,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "native_claude_agent:NativeClaudeCode",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "14-microwaving-food/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 189.05989350000004,
+      "reward": 0.8666666666666666,
+      "success_rate": 0.6,
+      "metrics": {
+        "dev_episodes": 18.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 29129.0,
+        "planned_trials": 5.0,
+        "reward": 0.8666666666666666,
+        "success_rate": 0.6,
+        "successes": 3.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T12:59:18.252009",
+        "finished_at": "2026-09-26T01:40:00.554575Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 168514043,
+          "n_cache_tokens": 164139174,
+          "n_output_tokens": 1215282
+        },
+        "trials": [
+          {
+            "trial": "14-microwaving-food__HgCSGeN",
+            "rewards": {
+              "dev_episodes": 18,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 29129,
+              "planned_trials": 5,
+              "reward": 0.8666666666666666,
+              "success_rate": 0.6,
+              "successes": 3,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "14-microwaving-food/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.2,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 9106.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.2,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T17:40:58.381608",
+        "finished_at": "2026-09-25T22:17:01.656037",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "14-microwaving-food__9PGkKLP",
+            "rewards": {
+              "reward": 0.2,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 9106,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "native_claude_agent:NativeClaudeCode",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "15-storing-leftovers/claude-code/anthropic_claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 174.43411150000003,
+      "reward": 0.666667,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 28.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 50598.0,
+        "planned_trials": 5.0,
+        "reward": 0.666667,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T06:20:05.216307",
+        "finished_at": "2026-09-25T12:59:09.704431",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 175841875,
+          "n_cache_tokens": 172702822,
+          "n_output_tokens": 1372260
+        },
+        "trials": [
+          {
+            "trial": "15-storing-leftovers__UpJyAWU",
+            "rewards": {
+              "dev_episodes": 28,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 50598,
+              "planned_trials": 5,
+              "reward": 0.666667,
+              "success_rate": 0.0,
+              "successes": 0,
+              "tasks_practised": 3,
+              "train_tasks_solved": 0,
+              "trials_attempted": 5,
+              "trials_recorded": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.grok:SubscriptionGrokBuild",
+      "model": "xai/grok-4.6",
+      "job": "15-storing-leftovers/grok-build/xai_grok-4.6",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.533333,
+      "success_rate": 0.0,
+      "metrics": {
+        "dev_episodes": 12.0,
+        "dev_successes": 0.0,
+        "interaction_budget": 75000.0,
+        "interaction_steps": 12331.0,
+        "planned_trials": 5.0,
+        "reward": 0.533333,
+        "success_rate": 0.0,
+        "successes": 0.0,
+        "tasks_practised": 3.0,
+        "train_tasks_solved": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-22T07:21:11.471051",
+        "finished_at": "2026-09-22T12:33:21.971171",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "15-storing-leftovers__TU7HH6v",
+            "rewards": {
+              "dev_episodes": 12,
+              "dev_successes": 0,
+              "interaction_budget": 75000,
+              "interaction_steps": 12331,
+              "planned_trials": 5,
+              "reward": 0.533333,
               "success_rate": 0.0,
               "successes": 0,
               "tasks_practised": 3,

@@ -2821,6 +2821,288 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "claude_code-fable_5_1-20260912T153729-1e21ee14-task03_02_cantilever_overhang_context1m_high_local_login",
+      "status": "completed",
+      "cost_usd": 5.396219500000001,
+      "reward": 0.83986,
+      "success_rate": 0.839860440909592,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.839860440909592,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 5642.0,
+        "reward": 0.83986,
+        "success_rate": 0.839860440909592,
+        "task_score": 83.9860440909592,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T15:37:29.408138",
+        "finished_at": "2026-09-12T15:55:10.884063",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 2707812,
+          "n_cache_tokens": 2617878,
+          "n_output_tokens": 59137
+        },
+        "trials": [
+          {
+            "trial": "02-cantilever-overhang__uGGpL5q",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.839860440909592,
+              "interaction_budget": 50000,
+              "interaction_steps": 5642,
+              "reward": 0.83986,
+              "success_rate": 0.839860440909592,
+              "task_score": 83.9860440909592,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "claude_code-fable_5_1-20260912T153732-cf851798-task03_03_balance_coins_context1m_high_local_login",
+      "status": "completed",
+      "cost_usd": 4.78186025,
+      "reward": 0.5,
+      "success_rate": 0.5,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.5,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 6598.0,
+        "reward": 0.5,
+        "success_rate": 0.5,
+        "task_score": 50.0,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T15:37:32.804346",
+        "finished_at": "2026-09-12T15:57:02.951998",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 2225546,
+          "n_cache_tokens": 2148961,
+          "n_output_tokens": 54502
+        },
+        "trials": [
+          {
+            "trial": "03-balance-coins__Vs45SJP",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.5,
+              "interaction_budget": 50000,
+              "interaction_steps": 6598,
+              "reward": 0.5,
+              "success_rate": 0.5,
+              "task_score": 50.0,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "claude_code-fable_5_1-20260912T210732-4cf33751-task03_01_tower_max_height_context1m_high_local_login",
+      "status": "completed",
+      "cost_usd": 33.73918775,
+      "reward": 0.743968,
+      "success_rate": 0.7439681892259581,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.7439681892259581,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 13809.0,
+        "reward": 0.743968,
+        "success_rate": 0.7439681892259581,
+        "task_score": 74.39681892259581,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-12T21:07:32.694751",
+        "finished_at": "2026-09-12T21:33:50.813828",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 38731375,
+          "n_cache_tokens": 38127271,
+          "n_output_tokens": 243825
+        },
+        "trials": [
+          {
+            "trial": "01-tower-max-height__8Zzk6a3",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.7439681892259581,
+              "interaction_budget": 50000,
+              "interaction_steps": 13809,
+              "reward": 0.743968,
+              "success_rate": 0.7439681892259581,
+              "task_score": 74.39681892259581,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "claude_code-fable_5_1-20260913T020038-3203721d-task03_04_rubik_cube_context1m_high_local_login",
+      "status": "completed",
+      "cost_usd": 62.8006285,
+      "reward": 0.881591,
+      "success_rate": 1.0,
+      "metrics": {
+        "actual_qtm": 13.0,
+        "component_efficiency": 0.0,
+        "component_outcome": 0.8815912549960212,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 24928.0,
+        "optimal_qtm": 11.0,
+        "recoveries": 27.0,
+        "reward": 0.881591,
+        "success_rate": 1.0,
+        "task_score": 88.15912549960213,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0,
+        "unclassified_transitions": 0.0
+      },
+      "extra": {
+        "started_at": "2026-09-13T02:00:38.531422",
+        "finished_at": "2026-09-13T03:11:40.928888",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 59153423,
+          "n_cache_tokens": 58001994,
+          "n_output_tokens": 506495
+        },
+        "trials": [
+          {
+            "trial": "04-rubik-cube__DsZtUEZ",
+            "rewards": {
+              "actual_qtm": 13,
+              "component_efficiency": 0.0,
+              "component_outcome": 0.8815912549960212,
+              "interaction_budget": 50000,
+              "interaction_steps": 24928,
+              "optimal_qtm": 11,
+              "recoveries": 27,
+              "reward": 0.881591,
+              "success_rate": 1.0,
+              "task_score": 88.15912549960213,
+              "trials_attempted": 1,
+              "trials_total": 1,
+              "unclassified_transitions": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "native_claude_agent:NativeClaudeCode",
+      "model": "anthropic/claude-fable-5-1",
+      "job": "claude_code-fable_5_1-20260924T074345-0e104e8e40e3-task03_05_hidden_center_of_mass_attempt_01",
+      "status": "completed",
+      "cost_usd": 13.741171250000003,
+      "reward": 1.0,
+      "success_rate": null,
+      "metrics": {
+        "control_steps": 1633.0,
+        "correct": 3.0,
+        "reward": 1.0,
+        "submitted": 3.0,
+        "trial_1_control_steps": 1033.0,
+        "trial_1_correct": 1.0,
+        "trial_1_reward": 1.0,
+        "trial_1_submitted": 1.0,
+        "trial_2_control_steps": 190.0,
+        "trial_2_correct": 1.0,
+        "trial_2_reward": 1.0,
+        "trial_2_submitted": 1.0,
+        "trial_3_control_steps": 410.0,
+        "trial_3_correct": 1.0,
+        "trial_3_reward": 1.0,
+        "trial_3_submitted": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-24T07:43:45.708149",
+        "finished_at": "2026-09-24T08:20:17.959514",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 9623072,
+          "n_cache_tokens": 9421245,
+          "n_output_tokens": 147550
+        },
+        "trials": [
+          {
+            "trial": "05-hidden-center-of-mass__4YDGYYr",
+            "rewards": {
+              "reward": 1.0,
+              "correct": 3,
+              "submitted": 3,
+              "control_steps": 1633,
+              "trial_1_reward": 1.0,
+              "trial_1_correct": 1,
+              "trial_1_submitted": 1,
+              "trial_1_control_steps": 1033,
+              "trial_2_reward": 1.0,
+              "trial_2_correct": 1,
+              "trial_2_submitted": 1,
+              "trial_2_control_steps": 190,
+              "trial_3_reward": 1.0,
+              "trial_3_correct": 1,
+              "trial_3_submitted": 1,
+              "trial_3_control_steps": 410
+            }
+          }
+        ]
+      }
     }
   ]
 }

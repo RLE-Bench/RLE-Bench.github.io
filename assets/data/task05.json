@@ -2263,6 +2263,182 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "claude-fable-5-1",
+      "job": "task05/task1/claude-code/claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 5.520217249999999,
+      "reward": 0.894,
+      "success_rate": 0.894,
+      "metrics": {
+        "reward": 0.894,
+        "success_rate": 0.894,
+        "episodes": 500.0,
+        "parameters": 213077518.0,
+        "replay_wall_s": 1283.5471933520166
+      },
+      "extra": {
+        "started_at": "2026-09-20T02:04:16.965863Z",
+        "finished_at": "2026-09-20T06:06:17.436202Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 3368929,
+          "n_cache_tokens": 3279429,
+          "n_output_tokens": 58502
+        },
+        "trials": [
+          {
+            "trial": "01-libero-open-design__2ndxzTr",
+            "rewards": {
+              "reward": 0.894,
+              "success_rate": 0.894,
+              "episodes": 500.0,
+              "parameters": 213077518.0,
+              "replay_wall_s": 1283.5471933520166
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "claude-fable-5-1",
+      "job": "task05/task2/claude-code/claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 7.679688749999999,
+      "reward": 0.8,
+      "success_rate": 0.8,
+      "metrics": {
+        "reward": 0.8,
+        "plus_success_rate": 0.8,
+        "episodes": 500.0,
+        "parameters": 62200365.0,
+        "replay_wall_s": 973.8676719180075
+      },
+      "extra": {
+        "started_at": "2026-09-20T02:04:16.966998Z",
+        "finished_at": "2026-09-20T05:44:47.970701Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 5833068,
+          "n_cache_tokens": 5707435,
+          "n_output_tokens": 75169
+        },
+        "trials": [
+          {
+            "trial": "02-libero-robustness__xPJWaPC",
+            "rewards": {
+              "reward": 0.8,
+              "plus_success_rate": 0.8,
+              "episodes": 500.0,
+              "parameters": 62200365.0,
+              "replay_wall_s": 973.8676719180075
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "claude-fable-5-1",
+      "job": "task05/task3/claude-code/claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 10.731425500000006,
+      "reward": 0.783333,
+      "success_rate": 0.7833333333333333,
+      "metrics": {
+        "reward": 0.783333,
+        "success_rate": 0.7833333333333333,
+        "episodes": 300.0,
+        "parameters": 123241802.0,
+        "replay_wall_s": 1422.9593488530954
+      },
+      "extra": {
+        "started_at": "2026-09-20T02:04:16.965808Z",
+        "finished_at": "2026-09-20T06:52:53.604623Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 14064542,
+          "n_cache_tokens": 13921542,
+          "n_output_tokens": 88622
+        },
+        "trials": [
+          {
+            "trial": "03-robotwin-open-design__7hepSRz",
+            "rewards": {
+              "reward": 0.783333,
+              "success_rate": 0.7833333333333333,
+              "episodes": 300.0,
+              "parameters": 123241802.0,
+              "replay_wall_s": 1422.9593488530954
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "claude-fable-5-1",
+      "job": "task05/task4/claude-code/claude-fable-5-1",
+      "status": "completed",
+      "cost_usd": 7.156526,
+      "reward": 0.137778,
+      "success_rate": 0.13777777777777778,
+      "metrics": {
+        "reward": 0.137778,
+        "success_rate": 0.13777777777777778,
+        "episodes": 225.0,
+        "parameters": 19961165.0,
+        "replay_wall_s": 1122.7959239229094
+      },
+      "extra": {
+        "started_at": "2026-09-20T02:04:16.966449Z",
+        "finished_at": "2026-09-20T08:42:08.342589Z",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 5383091,
+          "n_cache_tokens": 5252664,
+          "n_output_tokens": 65006
+        },
+        "trials": [
+          {
+            "trial": "04-robotwin-robustness__hZdpdzD",
+            "rewards": {
+              "reward": 0.137778,
+              "success_rate": 0.13777777777777778,
+              "episodes": 225.0,
+              "parameters": 19961165.0,
+              "replay_wall_s": 1122.7959239229094
+            }
+          }
+        ]
+      }
     }
   ]
 }
