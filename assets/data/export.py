@@ -31,7 +31,7 @@ Output layout (all scores are on a 0-1 scale)::
 same number as ``T01``. Only the tasks listed in ``TASKS`` below are exported; add a
 ``TaskSpec`` there when a new dump lands.
 
-K3, Gemini 3.8 Flash and GPT-6 Luna runs stay in the source dumps but are excluded
+K3 and Gemini 3.8 Flash runs stay in the source dumps but are excluded
 from the public leaderboard across all tasks. Grok, Fable, DeepSeek and the other
 existing models are exported.
 
@@ -94,8 +94,7 @@ MODELS: tuple[ModelSpec, ...] = (
 EFFORT_SUFFIXES = ("-xhigh", "-high", "-medium", "-low", "-minimal")
 
 # Public display policy, applied before grouping or scoring any task's runs.
-# gpt-6-luna is hidden for now; its T01/T02 runs stay in the dumps.
-EXCLUDED_MODEL_PREFIXES = ("k3", "gemini-3-8-flash", "gpt-6-luna")
+EXCLUDED_MODEL_PREFIXES = ("k3", "gemini-3-8-flash")
 
 # Harness detection from the ``agent`` field of a run. First match wins.
 HARNESSES: tuple[tuple[str, str], ...] = (

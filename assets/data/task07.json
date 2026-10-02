@@ -963,6 +963,80 @@
           }
         ]
       }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "codex-gpt_6_luna-20260923T223636-455b1e0aa70e-task07",
+      "status": "completed",
+      "cost_usd": 0.15669064000000008,
+      "reward": 0.0476,
+      "success_rate": null,
+      "metrics": {
+        "bin_hits": 0.0,
+        "clear_frac": 0.4456,
+        "damage_events": 0.0,
+        "episode_wall_s_total": 3594.2151,
+        "floor_drops": 12.0,
+        "gate_contract": 1.0,
+        "gate_determinism": 1.0,
+        "gate_load": 1.0,
+        "gate_stable": 1.0,
+        "gated": 0.0,
+        "harness_wall_s_total": 3541.7713,
+        "makespan_s": 70.8438,
+        "n_parts": 112.0,
+        "parts_cleared": 50.0,
+        "policy_faults": 0.0,
+        "policy_wall_s_total": 52.4438,
+        "raw_total": 0.0476,
+        "reward": 0.0476,
+        "speed_merit": 0.3021,
+        "throughput_ppm": 6.6187
+      },
+      "extra": {
+        "started_at": "2026-09-23T22:36:36.710111",
+        "finished_at": "2026-09-24T00:33:06.582730",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 10245974,
+          "n_cache_tokens": 9912064,
+          "n_output_tokens": 48358
+        },
+        "trials": [
+          {
+            "trial": "task07__KmXigXr",
+            "rewards": {
+              "reward": 0.0476,
+              "raw_total": 0.0476,
+              "gated": 0,
+              "clear_frac": 0.4456,
+              "parts_cleared": 50.0,
+              "n_parts": 112.0,
+              "speed_merit": 0.3021,
+              "throughput_ppm": 6.6187,
+              "makespan_s": 70.8438,
+              "floor_drops": 12.0,
+              "damage_events": 0.0,
+              "bin_hits": 0.0,
+              "policy_faults": 0.0,
+              "episode_wall_s_total": 3594.2151,
+              "policy_wall_s_total": 52.4438,
+              "harness_wall_s_total": 3541.7713,
+              "gate_load": 1,
+              "gate_contract": 1,
+              "gate_stable": 1,
+              "gate_determinism": 1
+            }
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "measured",
-  "generated_at": "2026-10-02T16:24:38Z",
+  "generated_at": "2026-10-02T16:51:11Z",
   "generator": "assets/data/export.py",
   "source": {
     "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId] reports per-subtask means over the task's runs: cost = mean API cost in USD, hours = mean agent wall-clock hours, context_tokens = mean of input_tokens minus cached_tokens per run (the homepage's Context Length). cost_total, hours_total, hours_median and the input/cached/output token counts are the corresponding totals over runs. The homepage's overall figures average these per-task means within each workflow, then across workflows. Missing API cost or token counts stay null. Costs come from the run dumps except for the models listed under source.prices, whose cost is recomputed from token counts because their harness billed them against the wrong price sheet; costs[...].cost_sources and results[...].subtasks[...].cost_source say which applies. Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc.",
@@ -13,8 +13,7 @@
       "compact": false,
       "excluded_model_prefixes": [
         "k3",
-        "gemini-3-8-flash",
-        "gpt-6-luna"
+        "gemini-3-8-flash"
       ]
     },
     "prices": {
@@ -43,27 +42,27 @@
         "root": "jobs/task01",
         "schema_version": 1,
         "runs": 210,
-        "runs_skipped": 15
+        "runs_skipped": 0
       },
       "task02": {
         "file": "task02.json",
         "root": "jobs/task02",
         "schema_version": 1,
         "runs": 210,
-        "runs_skipped": 15
+        "runs_skipped": 0
       },
       "task03": {
         "file": "task03.json",
         "root": "jobs/task03",
         "schema_version": 1,
-        "runs": 65,
+        "runs": 70,
         "runs_skipped": 0
       },
       "task04": {
         "file": "task04.json",
         "root": "jobs/task04",
         "schema_version": 1,
-        "runs": 65,
+        "runs": 70,
         "runs_skipped": 0
       },
       "task05": {
@@ -71,34 +70,34 @@
         "root": "jobs/task05",
         "schema_version": 1,
         "runs": 68,
-        "runs_skipped": 16
+        "runs_skipped": 12
       },
       "task06": {
         "file": "task06.json",
         "root": "jobs/task06",
         "schema_version": 1,
-        "runs": 52,
+        "runs": 56,
         "runs_skipped": 0
       },
       "task07": {
         "file": "task07.json",
         "root": "jobs/task07",
         "schema_version": 1,
-        "runs": 13,
+        "runs": 14,
         "runs_skipped": 0
       },
       "task08": {
         "file": "task08.json",
         "root": "jobs/task08",
         "schema_version": 1,
-        "runs": 13,
+        "runs": 14,
         "runs_skipped": 0
       },
       "task09": {
         "file": "task09.json",
         "root": "jobs/task09",
         "schema_version": 1,
-        "runs": 13,
+        "runs": 14,
         "runs_skipped": 0
       }
     }
@@ -333,6 +332,25 @@
       ]
     },
     {
+      "id": "gpt6luna",
+      "name": "GPT-6 Luna",
+      "short": "GPT-6 Luna",
+      "org": "OpenAI",
+      "open": false,
+      "harness": "Codex",
+      "tasks": [
+        "task01",
+        "task02",
+        "task03",
+        "task04",
+        "task05",
+        "task06",
+        "task07",
+        "task08",
+        "task09"
+      ]
+    },
+    {
       "id": "gpt56terra",
       "name": "GPT-5.6 Terra",
       "short": "Terra",
@@ -493,7 +511,7 @@
         }
       ],
       "n_runs": 210,
-      "n_runs_skipped": 15,
+      "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
@@ -504,6 +522,7 @@
         "gpt56terra",
         "gpt61sol",
         "gpt6astra",
+        "gpt6luna",
         "grok-4-6",
         "opus48",
         "opus5",
@@ -650,7 +669,7 @@
         }
       ],
       "n_runs": 210,
-      "n_runs_skipped": 15,
+      "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
@@ -661,6 +680,7 @@
         "gpt56terra",
         "gpt61sol",
         "gpt6astra",
+        "gpt6luna",
         "grok-4-6",
         "opus48",
         "opus5",
@@ -738,7 +758,7 @@
           "label": "Hidden Center of Mass"
         }
       ],
-      "n_runs": 65,
+      "n_runs": 70,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
@@ -750,6 +770,7 @@
         "gpt56terra",
         "gpt61sol",
         "gpt6astra",
+        "gpt6luna",
         "grok-4-6",
         "opus48",
         "opus5",
@@ -827,7 +848,7 @@
           "label": "Sprint"
         }
       ],
-      "n_runs": 65,
+      "n_runs": 70,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
@@ -839,6 +860,7 @@
         "gpt56terra",
         "gpt61sol",
         "gpt6astra",
+        "gpt6luna",
         "grok-4-6",
         "opus48",
         "opus5",
@@ -906,7 +928,7 @@
         }
       ],
       "n_runs": 68,
-      "n_runs_skipped": 16,
+      "n_runs_skipped": 12,
       "models": [
         "deepseek-flash",
         "fable51",
@@ -917,6 +939,7 @@
         "gpt56terra",
         "gpt61sol",
         "gpt6astra",
+        "gpt6luna",
         "grok-4-6",
         "opus48",
         "opus5",
@@ -983,7 +1006,7 @@
           "label": "Method agnostic"
         }
       ],
-      "n_runs": 52,
+      "n_runs": 56,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
@@ -995,6 +1018,7 @@
         "gpt56terra",
         "gpt61sol",
         "gpt6astra",
+        "gpt6luna",
         "grok-4-6",
         "opus48",
         "opus5",
@@ -1036,7 +1060,7 @@
           "label": "Bin clearing"
         }
       ],
-      "n_runs": 13,
+      "n_runs": 14,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
@@ -1048,6 +1072,7 @@
         "gpt56terra",
         "gpt61sol",
         "gpt6astra",
+        "gpt6luna",
         "grok-4-6",
         "opus48",
         "opus5",
@@ -1110,7 +1135,7 @@
           "label": "Mobile base"
         }
       ],
-      "n_runs": 13,
+      "n_runs": 14,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
@@ -1122,6 +1147,7 @@
         "gpt56terra",
         "gpt61sol",
         "gpt6astra",
+        "gpt6luna",
         "grok-4-6",
         "opus48",
         "opus5",
@@ -1166,7 +1192,7 @@
           "label": "Gravity compensation"
         }
       ],
-      "n_runs": 13,
+      "n_runs": 14,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
@@ -1178,6 +1204,7 @@
         "gpt56terra",
         "gpt61sol",
         "gpt6astra",
+        "gpt6luna",
         "grok-4-6",
         "opus48",
         "opus5",
@@ -1247,6 +1274,11 @@
         0.557617,
         0.746855
       ],
+      "gpt6luna": [
+        0.0,
+        0.039123,
+        0.078583
+      ],
       "gpt61sol": [
         0.830165,
         0.621567,
@@ -1313,6 +1345,11 @@
         1.0,
         0.803333,
         0.533333
+      ],
+      "gpt6luna": [
+        0.36,
+        0.083333,
+        0.04
       ],
       "gpt61sol": [
         0.946667,
@@ -1411,6 +1448,13 @@
         1.0,
         0.0,
         1.0
+      ],
+      "gpt6luna": [
+        0.264202,
+        0.0,
+        1.0,
+        0.0,
+        0.0
       ]
     },
     "task04": {
@@ -1504,6 +1548,13 @@
         0.8567,
         0.7395,
         0.7904
+      ],
+      "gpt6luna": [
+        0.2165,
+        0.1701,
+        0.0,
+        0.123,
+        0.3302
       ]
     },
     "task05": {
@@ -1584,6 +1635,12 @@
         0.66,
         0.706667,
         0.097778
+      ],
+      "gpt6luna": [
+        0.736,
+        0.23,
+        0.256667,
+        0.026667
       ]
     },
     "task06": {
@@ -1664,6 +1721,12 @@
         0.9606,
         0.491,
         0.9092
+      ],
+      "gpt6luna": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
       ]
     },
     "task07": {
@@ -1718,6 +1781,10 @@
       "gpt61sol": [
         0.9712,
         0.6003
+      ],
+      "gpt6luna": [
+        0.4456,
+        0.3021
       ]
     },
     "task08": {
@@ -1811,6 +1878,13 @@
         0.0,
         0.4,
         0.833333
+      ],
+      "gpt6luna": [
+        0.8,
+        0.619143,
+        0.0,
+        0.2,
+        0.0
       ]
     },
     "task09": {
@@ -1878,6 +1952,11 @@
         0.5385,
         0.4959,
         0.4361
+      ],
+      "gpt6luna": [
+        0.2253,
+        0.1943,
+        0.2156
       ]
     }
   },
@@ -2069,6 +2148,22 @@
         "input_tokens": 362670112,
         "cached_tokens": 358491681,
         "output_tokens": 2280293,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 15,
+        "n_subtasks": 15
+      },
+      "gpt6luna": {
+        "cost": 0.308894,
+        "cost_total": 4.633413,
+        "hours": 1.0037,
+        "hours_median": 1.0568,
+        "hours_total": 15.0548,
+        "context_tokens": 381085.9,
+        "input_tokens": 323486528,
+        "cached_tokens": 317770240,
+        "output_tokens": 1768164,
         "cost_sources": [
           "harness"
         ],
@@ -2279,6 +2374,22 @@
         "input_tokens": 1761916911,
         "cached_tokens": 1740621762,
         "output_tokens": 7925242,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 15,
+        "n_subtasks": 15
+      },
+      "gpt6luna": {
+        "cost": 2.012231,
+        "cost_total": 30.183463,
+        "hours": 6.6087,
+        "hours_median": 5.9947,
+        "hours_total": 99.13,
+        "context_tokens": 2217128.9,
+        "input_tokens": 2183345125,
+        "cached_tokens": 2150088192,
+        "output_tokens": 10713776,
         "cost_sources": [
           "harness"
         ],
@@ -2510,6 +2621,22 @@
         ],
         "n_runs": 5,
         "n_subtasks": 5
+      },
+      "gpt6luna": {
+        "cost": 0.147256,
+        "cost_total": 0.736282,
+        "hours": 0.4961,
+        "hours_median": 0.5097,
+        "hours_total": 2.4804,
+        "context_tokens": 232522.4,
+        "input_tokens": 46691316,
+        "cached_tokens": 45528704,
+        "output_tokens": 326713,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 5,
+        "n_subtasks": 5
       }
     },
     "task04": {
@@ -2715,6 +2842,22 @@
         "input_tokens": 103591665,
         "cached_tokens": 100417408,
         "output_tokens": 803324,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 5,
+        "n_subtasks": 5
+      },
+      "gpt6luna": {
+        "cost": 0.701228,
+        "cost_total": 3.506141,
+        "hours": 3.9535,
+        "hours_median": 3.9624,
+        "hours_total": 19.7676,
+        "context_tokens": 645352.0,
+        "input_tokens": 304987528,
+        "cached_tokens": 301760768,
+        "output_tokens": 296521,
         "cost_sources": [
           "harness"
         ],
@@ -2930,6 +3073,22 @@
         ],
         "n_runs": 4,
         "n_subtasks": 4
+      },
+      "gpt6luna": {
+        "cost": 0.458863,
+        "cost_total": 1.835454,
+        "hours": 5.8621,
+        "hours_median": 5.4733,
+        "hours_total": 23.4484,
+        "context_tokens": 500944.8,
+        "input_tokens": 150953539,
+        "cached_tokens": 148949760,
+        "output_tokens": 291156,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 4,
+        "n_subtasks": 4
       }
     },
     "task06": {
@@ -3135,6 +3294,22 @@
         "input_tokens": 11938719,
         "cached_tokens": 11439232,
         "output_tokens": 148240,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 4,
+        "n_subtasks": 4
+      },
+      "gpt6luna": {
+        "cost": 0.049348,
+        "cost_total": 0.197392,
+        "hours": 0.5394,
+        "hours_median": 0.4215,
+        "hours_total": 2.1576,
+        "context_tokens": 93338.2,
+        "input_tokens": 10192873,
+        "cached_tokens": 9819520,
+        "output_tokens": 123724,
         "cost_sources": [
           "harness"
         ],
@@ -3350,6 +3525,22 @@
         ],
         "n_runs": 1,
         "n_subtasks": 1
+      },
+      "gpt6luna": {
+        "cost": 0.156691,
+        "cost_total": 0.156691,
+        "hours": 1.9416,
+        "hours_median": 1.9416,
+        "hours_total": 1.9416,
+        "context_tokens": 333910.0,
+        "input_tokens": 10245974,
+        "cached_tokens": 9912064,
+        "output_tokens": 48358,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
       }
     },
     "task08": {
@@ -3560,6 +3751,22 @@
         ],
         "n_runs": 1,
         "n_subtasks": 1
+      },
+      "gpt6luna": {
+        "cost": 0.021916,
+        "cost_total": 0.021916,
+        "hours": 0.27,
+        "hours_median": 0.27,
+        "hours_total": 0.27,
+        "context_tokens": 51832.0,
+        "input_tokens": 692344,
+        "cached_tokens": 640512,
+        "output_tokens": 20656,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
       }
     },
     "task09": {
@@ -3765,6 +3972,22 @@
         "input_tokens": 3075331,
         "cached_tokens": 2951168,
         "output_tokens": 63652,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "gpt6luna": {
+        "cost": 0.018995,
+        "cost_total": 0.018995,
+        "hours": 0.1272,
+        "hours_median": 0.1272,
+        "hours_total": 0.1272,
+        "context_tokens": 51738.0,
+        "input_tokens": 592410,
+        "cached_tokens": 540672,
+        "output_tokens": 16829,
         "cost_sources": [
           "harness"
         ],
@@ -9117,6 +9340,438 @@
               "infrastructure_failures": 0.0,
               "reward": 0.491628,
               "success_rate": 0.6,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          }
+        }
+      },
+      "gpt6luna": {
+        "score": 0.039235,
+        "complete": true,
+        "n_runs": 15,
+        "n_subtasks": 15,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "L1": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.850099,
+            "cost_usd_mean": 0.37002,
+            "hours_median": 0.9493,
+            "n_runs": 5,
+            "complete": true
+          },
+          "L2": {
+            "score": 0.039123,
+            "reward": 0.039123,
+            "success_rate": 0.04,
+            "cost_usd": 1.242691,
+            "cost_usd_mean": 0.248538,
+            "hours_median": 0.7985,
+            "n_runs": 5,
+            "complete": true
+          },
+          "L3": {
+            "score": 0.078583,
+            "reward": 0.078583,
+            "success_rate": 0.08,
+            "cost_usd": 1.540623,
+            "cost_usd_mean": 0.308125,
+            "hours_median": 1.1043,
+            "n_runs": 5,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "L1/01-open-fridge": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.477792,
+            "cost_source": "harness",
+            "hours": 1.0979,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L1/01-open-fridge/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-24T21:48:44.929480",
+            "finished_at": "2026-09-24T22:54:37.478471",
+            "input_tokens": 35421853,
+            "cached_tokens": 34742528,
+            "output_tokens": 124869,
+            "metrics": {
+              "development_steps": 3348.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/02-close-cabinet": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.312253,
+            "cost_source": "harness",
+            "hours": 0.9493,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L1/02-close-cabinet/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-24T22:54:39.031940",
+            "finished_at": "2026-09-24T23:51:36.642117",
+            "input_tokens": 23762831,
+            "cached_tokens": 23469312,
+            "output_tokens": 96415,
+            "metrics": {
+              "development_steps": 1192.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/03-turn-on-stove": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.201291,
+            "cost_source": "harness",
+            "hours": 0.5927,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L1/03-turn-on-stove/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-24T23:51:37.798626",
+            "finished_at": "2026-09-25T00:27:11.377122",
+            "input_tokens": 13664772,
+            "cached_tokens": 13382272,
+            "output_tokens": 78437,
+            "metrics": {
+              "development_steps": 616.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/04-pick-place-counter-to-drawer": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.226565,
+            "cost_source": "harness",
+            "hours": 0.6031,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L1/04-pick-place-counter-to-drawer/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T00:27:12.566989",
+            "finished_at": "2026-09-25T01:03:23.711731",
+            "input_tokens": 16843042,
+            "cached_tokens": 16587008,
+            "output_tokens": 70183,
+            "metrics": {
+              "development_steps": 558.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/05-pick-place-microwave-to-counter": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.632198,
+            "cost_source": "harness",
+            "hours": 1.4705,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L1/05-pick-place-microwave-to-counter/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T11:47:13.724053",
+            "finished_at": "2026-09-25T13:15:27.389333",
+            "input_tokens": 51245378,
+            "cached_tokens": 50621440,
+            "output_tokens": 127179,
+            "metrics": {
+              "development_steps": 1289.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/01-open-fridge": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.210393,
+            "cost_source": "harness",
+            "hours": 0.7985,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L2/01-open-fridge/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T01:26:33.070999",
+            "finished_at": "2026-09-25T02:14:27.742949",
+            "input_tokens": 14295727,
+            "cached_tokens": 14047744,
+            "output_tokens": 90235,
+            "metrics": {
+              "development_steps": 10278.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/02-close-cabinet": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.174309,
+            "cost_source": "harness",
+            "hours": 0.6871,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L2/02-close-cabinet/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T02:14:28.914975",
+            "finished_at": "2026-09-25T02:55:42.550845",
+            "input_tokens": 11335686,
+            "cached_tokens": 11126784,
+            "output_tokens": 84301,
+            "metrics": {
+              "development_steps": 2136.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/03-turn-on-stove": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.066541,
+            "cost_source": "harness",
+            "hours": 0.3556,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L2/03-turn-on-stove/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T02:55:43.815110",
+            "finished_at": "2026-09-25T03:17:03.865242",
+            "input_tokens": 3052446,
+            "cached_tokens": 2940288,
+            "output_tokens": 51845,
+            "metrics": {
+              "development_steps": 809.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 2.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/04-pick-place-counter-to-drawer": {
+            "reward": 0.195616,
+            "success_rate": 0.2,
+            "cost_usd": 0.405397,
+            "cost_source": "harness",
+            "hours": 1.205,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L2/04-pick-place-counter-to-drawer/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T03:17:05.067851",
+            "finished_at": "2026-09-25T04:29:23.088881",
+            "input_tokens": 29026577,
+            "cached_tokens": 28520064,
+            "output_tokens": 139091,
+            "metrics": {
+              "development_steps": 5480.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.195616,
+              "success_rate": 0.2,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/05-pick-place-microwave-to-counter": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.386051,
+            "cost_source": "harness",
+            "hours": 1.7301,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L2/05-pick-place-microwave-to-counter/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T04:29:24.247904",
+            "finished_at": "2026-09-25T06:13:12.711262",
+            "input_tokens": 26130278,
+            "cached_tokens": 25718656,
+            "output_tokens": 175404,
+            "metrics": {
+              "development_steps": 4394.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/01-open-fridge": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.275099,
+            "cost_source": "harness",
+            "hours": 1.1168,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L3/01-open-fridge/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T06:13:14.035074",
+            "finished_at": "2026-09-25T07:20:14.666965",
+            "input_tokens": 17884359,
+            "cached_tokens": 17522176,
+            "output_tokens": 127318,
+            "metrics": {
+              "development_steps": 4964.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/02-close-cabinet": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.344814,
+            "cost_source": "harness",
+            "hours": 1.0568,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L3/02-close-cabinet/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T07:20:15.810265",
+            "finished_at": "2026-09-25T08:23:40.351635",
+            "input_tokens": 23332434,
+            "cached_tokens": 22895360,
+            "output_tokens": 144307,
+            "metrics": {
+              "development_steps": 4279.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/03-turn-on-stove": {
+            "reward": 0.19755,
+            "success_rate": 0.2,
+            "cost_usd": 0.274455,
+            "cost_source": "harness",
+            "hours": 0.9805,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L3/03-turn-on-stove/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T08:23:41.452282",
+            "finished_at": "2026-09-25T09:22:31.081471",
+            "input_tokens": 18418096,
+            "cached_tokens": 18096768,
+            "output_tokens": 122710,
+            "metrics": {
+              "development_steps": 3062.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.19755,
+              "success_rate": 0.2,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/04-pick-place-counter-to-drawer": {
+            "reward": 0.195363,
+            "success_rate": 0.2,
+            "cost_usd": 0.326691,
+            "cost_source": "harness",
+            "hours": 1.1043,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L3/04-pick-place-counter-to-drawer/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T09:22:32.255198",
+            "finished_at": "2026-09-25T10:28:47.646805",
+            "input_tokens": 19987097,
+            "cached_tokens": 19492608,
+            "output_tokens": 164632,
+            "metrics": {
+              "development_steps": 5796.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.195363,
+              "success_rate": 0.2,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/05-pick-place-microwave-to-counter": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.319563,
+            "cost_source": "harness",
+            "hours": 1.3066,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "L3/05-pick-place-microwave-to-counter/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T10:28:48.901932",
+            "finished_at": "2026-09-25T11:47:12.719195",
+            "input_tokens": 19085952,
+            "cached_tokens": 18607232,
+            "output_tokens": 171238,
+            "metrics": {
+              "development_steps": 12547.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
               "trials_attempted": 5.0,
               "trials_recorded": 5.0,
               "trials_total": 5.0
@@ -15552,6 +16207,438 @@
           }
         }
       },
+      "gpt6luna": {
+        "score": 0.161111,
+        "complete": true,
+        "n_runs": 15,
+        "n_subtasks": 15,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "EASY": {
+            "score": 0.36,
+            "reward": 0.36,
+            "success_rate": 0.2,
+            "cost_usd": 9.604126,
+            "cost_usd_mean": 1.920825,
+            "hours_median": 5.9947,
+            "n_runs": 5,
+            "complete": true
+          },
+          "MEDIUM": {
+            "score": 0.083333,
+            "reward": 0.083333,
+            "success_rate": 0.0,
+            "cost_usd": 11.624953,
+            "cost_usd_mean": 2.324991,
+            "hours_median": 7.4813,
+            "n_runs": 5,
+            "complete": true
+          },
+          "HARD": {
+            "score": 0.04,
+            "reward": 0.04,
+            "success_rate": 0.0,
+            "cost_usd": 8.954385,
+            "cost_usd_mean": 1.790877,
+            "hours_median": 5.5501,
+            "n_runs": 5,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-washing-dishes": {
+            "reward": 0.6,
+            "success_rate": 0.2,
+            "cost_usd": 1.337143,
+            "cost_source": "harness",
+            "hours": 4.5647,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "01-washing-dishes/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-24T21:49:16.052730",
+            "finished_at": "2026-09-25T02:23:09.117214",
+            "input_tokens": 95010243,
+            "cached_tokens": 93353728,
+            "output_tokens": 475908,
+            "metrics": {
+              "development_steps": 3114.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.6,
+              "success_rate": 0.2,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "02-sauteing-vegetables": {
+            "reward": 0.5,
+            "success_rate": 0.4,
+            "cost_usd": 1.721543,
+            "cost_source": "harness",
+            "hours": 5.9947,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "02-sauteing-vegetables/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T02:23:10.760303",
+            "finished_at": "2026-09-25T08:22:51.726668",
+            "input_tokens": 118727191,
+            "cached_tokens": 116767744,
+            "output_tokens": 715841,
+            "metrics": {
+              "development_steps": 14834.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.5,
+              "success_rate": 0.4,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "03-baking": {
+            "reward": 0.2,
+            "success_rate": 0.2,
+            "cost_usd": 2.318372,
+            "cost_source": "harness",
+            "hours": 7.549,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "03-baking/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T08:22:52.948600",
+            "finished_at": "2026-09-25T15:55:49.426873",
+            "input_tokens": 170568650,
+            "cached_tokens": 168183808,
+            "output_tokens": 796100,
+            "metrics": {
+              "development_steps": 17688.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.2,
+              "success_rate": 0.2,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "04-reheating-food": {
+            "reward": 0.3,
+            "success_rate": 0.0,
+            "cost_usd": 2.744306,
+            "cost_source": "harness",
+            "hours": 7.9269,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "04-reheating-food/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-26T03:50:45.910521",
+            "finished_at": "2026-09-26T11:46:22.902882",
+            "input_tokens": 198604876,
+            "cached_tokens": 195814016,
+            "output_tokens": 1014160,
+            "metrics": {
+              "development_steps": 73505.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.3,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "05-chopping-food": {
+            "reward": 0.2,
+            "success_rate": 0.2,
+            "cost_usd": 1.482762,
+            "cost_source": "harness",
+            "hours": 4.707,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "05-chopping-food/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-26T11:46:24.476678",
+            "finished_at": "2026-09-26T16:28:49.661605",
+            "input_tokens": 104953735,
+            "cached_tokens": 103306112,
+            "output_tokens": 569877,
+            "metrics": {
+              "development_steps": 24142.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.2,
+              "success_rate": 0.2,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "06-setting-the-table": {
+            "reward": 0.05,
+            "success_rate": 0.0,
+            "cost_usd": 1.190313,
+            "cost_source": "harness",
+            "hours": 3.804,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "06-setting-the-table/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-26T16:28:50.962328",
+            "finished_at": "2026-09-26T20:17:05.514647",
+            "input_tokens": 82005795,
+            "cached_tokens": 80610304,
+            "output_tokens": 489321,
+            "metrics": {
+              "development_steps": 5196.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.05,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "07-portioning-meals": {
+            "reward": 0.1,
+            "success_rate": 0.0,
+            "cost_usd": 2.810129,
+            "cost_source": "harness",
+            "hours": 11.1648,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "07-portioning-meals/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-26T20:17:07.201323",
+            "finished_at": "2026-09-27T07:27:00.381213",
+            "input_tokens": 210811872,
+            "cached_tokens": 207800576,
+            "output_tokens": 861987,
+            "metrics": {
+              "development_steps": 40947.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "08-defrosting-food": {
+            "reward": 0.1,
+            "success_rate": 0.0,
+            "cost_usd": 4.0137,
+            "cost_source": "harness",
+            "hours": 11.7921,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "08-defrosting-food/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-27T07:27:01.603522",
+            "finished_at": "2026-09-27T19:14:33.195082",
+            "input_tokens": 298166122,
+            "cached_tokens": 294236416,
+            "output_tokens": 1356731,
+            "metrics": {
+              "development_steps": 31095.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "09-arranging-buffet": {
+            "reward": 0.1,
+            "success_rate": 0.0,
+            "cost_usd": 1.429476,
+            "cost_source": "harness",
+            "hours": 4.9525,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "09-arranging-buffet/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-27T19:14:34.772430",
+            "finished_at": "2026-09-28T00:11:43.656323",
+            "input_tokens": 95762152,
+            "cached_tokens": 93887232,
+            "output_tokens": 606223,
+            "metrics": {
+              "development_steps": 2586.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "10-serving-beverages": {
+            "reward": 0.066667,
+            "success_rate": 0.0,
+            "cost_usd": 2.181335,
+            "cost_source": "harness",
+            "hours": 7.4813,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "10-serving-beverages/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-28T00:11:45.220844",
+            "finished_at": "2026-09-28T07:40:37.911261",
+            "input_tokens": 159907913,
+            "cached_tokens": 157341696,
+            "output_tokens": 702593,
+            "metrics": {
+              "development_steps": 27680.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.066667,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "11-loading-fridge": {
+            "reward": 0.133333,
+            "success_rate": 0.0,
+            "cost_usd": 1.712056,
+            "cost_source": "harness",
+            "hours": 5.5501,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "11-loading-fridge/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-28T07:40:39.438836",
+            "finished_at": "2026-09-28T13:13:39.686868",
+            "input_tokens": 125608198,
+            "cached_tokens": 123684096,
+            "output_tokens": 565609,
+            "metrics": {
+              "development_steps": 9216.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.133333,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "12-managing-freezer-space": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 2.088124,
+            "cost_source": "harness",
+            "hours": 7.1655,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "12-managing-freezer-space/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-28T13:13:40.985605",
+            "finished_at": "2026-09-28T20:23:36.713278",
+            "input_tokens": 149703602,
+            "cached_tokens": 147374976,
+            "output_tokens": 763023,
+            "metrics": {
+              "development_steps": 6984.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "13-clearing-table": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 2.660128,
+            "cost_source": "harness",
+            "hours": 7.0773,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "13-clearing-table/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-28T20:23:37.973035",
+            "finished_at": "2026-09-29T03:28:16.086265",
+            "input_tokens": 202432871,
+            "cached_tokens": 199827712,
+            "output_tokens": 802670,
+            "metrics": {
+              "development_steps": 7325.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "14-microwaving-food": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.420954,
+            "cost_source": "harness",
+            "hours": 5.0767,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "14-microwaving-food/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-29T03:28:17.760721",
+            "finished_at": "2026-09-29T08:32:53.839215",
+            "input_tokens": 98840196,
+            "cached_tokens": 97197312,
+            "output_tokens": 569384,
+            "metrics": {
+              "development_steps": 10238.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "15-storing-leftovers": {
+            "reward": 0.066667,
+            "success_rate": 0.0,
+            "cost_usd": 1.073124,
+            "cost_source": "harness",
+            "hours": 4.3234,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "15-storing-leftovers/codex/openai_gpt-6-luna",
+            "started_at": "2026-09-25T21:43:29.626753",
+            "finished_at": "2026-09-26T02:02:53.916942",
+            "input_tokens": 72241709,
+            "cached_tokens": 70702464,
+            "output_tokens": 424349,
+            "metrics": {
+              "development_steps": 2856.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.066667,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          }
+        }
+      },
       "gpt61sol": {
         "score": 0.768889,
         "complete": true,
@@ -18752,6 +19839,219 @@
             }
           }
         }
+      },
+      "gpt6luna": {
+        "score": 0.25284,
+        "complete": true,
+        "n_runs": 5,
+        "n_subtasks": 5,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "01-tower-max-height": {
+            "score": 0.264202,
+            "reward": 0.264202,
+            "success_rate": 0.264202,
+            "cost_usd": 0.222427,
+            "cost_usd_mean": 0.222427,
+            "hours_median": 0.7446,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-cantilever-overhang": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.137938,
+            "cost_usd_mean": 0.137938,
+            "hours_median": 0.4273,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-balance-coins": {
+            "score": 1.0,
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 0.11033,
+            "cost_usd_mean": 0.11033,
+            "hours_median": 0.5097,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-rubik-cube": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.234807,
+            "cost_usd_mean": 0.234807,
+            "hours_median": 0.6151,
+            "n_runs": 1,
+            "complete": true
+          },
+          "05-hidden-center-of-mass": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.03078,
+            "cost_usd_mean": 0.03078,
+            "hours_median": 0.1838,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-tower-max-height": {
+            "reward": 0.264202,
+            "success_rate": 0.264202,
+            "cost_usd": 0.222427,
+            "cost_source": "harness",
+            "hours": 0.7446,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260923T221848-c8c65963e5bb-01_tower_max_height",
+            "started_at": "2026-09-23T22:18:48.806629",
+            "finished_at": "2026-09-23T23:03:29.245398",
+            "input_tokens": 14901196,
+            "cached_tokens": 14544512,
+            "output_tokens": 79873,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.264202,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 12467.0,
+              "reward": 0.264202,
+              "success_rate": 0.264202,
+              "task_score": 26.420219,
+              "trials_attempted": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "02-cantilever-overhang": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.137938,
+            "cost_source": "harness",
+            "hours": 0.4273,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260923T230345-4d2ba0c0d8e2-02_cantilever_overhang",
+            "started_at": "2026-09-23T23:03:45.085031",
+            "finished_at": "2026-09-23T23:29:23.376390",
+            "input_tokens": 8497724,
+            "cached_tokens": 8202368,
+            "output_tokens": 52758,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 3700.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "task_score": 0.0,
+              "trials_attempted": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "03-balance-coins": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 0.11033,
+            "cost_source": "harness",
+            "hours": 0.5097,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260923T232753-e38ff61ba8c9-03_balance_coins",
+            "started_at": "2026-09-23T23:27:53.077200",
+            "finished_at": "2026-09-23T23:58:27.873407",
+            "input_tokens": 5645171,
+            "cached_tokens": 5469696,
+            "output_tokens": 76171,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 1.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 12962.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "task_score": 100.0,
+              "trials_attempted": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "04-rubik-cube": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.234807,
+            "cost_source": "harness",
+            "hours": 0.6151,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260923T232954-41e6935e0dc7-04_rubik_cube",
+            "started_at": "2026-09-23T23:29:54.764330",
+            "finished_at": "2026-09-24T00:06:49.018431",
+            "input_tokens": 16643342,
+            "cached_tokens": 16389248,
+            "output_tokens": 91010,
+            "metrics": {
+              "actual_qtm": 0.0,
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 8590.0,
+              "optimal_qtm": 11.0,
+              "recoveries": 5.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "task_score": 0.0,
+              "trials_attempted": 1.0,
+              "trials_total": 1.0,
+              "unclassified_transitions": 0.0
+            }
+          },
+          "05-hidden-center-of-mass": {
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.03078,
+            "cost_source": "harness",
+            "hours": 0.1838,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260924T000720-4c9857d78314-05_hidden_center_of_mass",
+            "started_at": "2026-09-24T00:07:20.119323",
+            "finished_at": "2026-09-24T00:18:21.770491",
+            "input_tokens": 1003883,
+            "cached_tokens": 922880,
+            "output_tokens": 26901,
+            "metrics": {
+              "control_steps": 1038.0,
+              "correct": 0.0,
+              "reward": 0.0,
+              "submitted": 3.0,
+              "trial_1_control_steps": 525.0,
+              "trial_1_correct": 0.0,
+              "trial_1_reward": 0.0,
+              "trial_1_submitted": 1.0,
+              "trial_2_control_steps": 398.0,
+              "trial_2_correct": 0.0,
+              "trial_2_reward": 0.0,
+              "trial_2_submitted": 1.0,
+              "trial_3_control_steps": 115.0,
+              "trial_3_correct": 0.0,
+              "trial_3_reward": 0.0,
+              "trial_3_submitted": 1.0
+            }
+          }
+        }
       }
     },
     "task04": {
@@ -21844,6 +23144,248 @@
             }
           }
         }
+      },
+      "gpt6luna": {
+        "score": 0.16796,
+        "complete": true,
+        "n_runs": 5,
+        "n_subtasks": 5,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "01-dance": {
+            "score": 0.2165,
+            "reward": 0.2165,
+            "success_rate": null,
+            "cost_usd": 0.567891,
+            "cost_usd_mean": 0.567891,
+            "hours_median": 3.9668,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-fight": {
+            "score": 0.1701,
+            "reward": 0.1701,
+            "success_rate": null,
+            "cost_usd": 0.654629,
+            "cost_usd_mean": 0.654629,
+            "hours_median": 3.8763,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-fall-and-get-up": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.909272,
+            "cost_usd_mean": 0.909272,
+            "hours_median": 3.9624,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-run": {
+            "score": 0.123,
+            "reward": 0.123,
+            "success_rate": null,
+            "cost_usd": 0.706103,
+            "cost_usd_mean": 0.706103,
+            "hours_median": 4.015,
+            "n_runs": 1,
+            "complete": true
+          },
+          "05-sprint": {
+            "score": 0.3302,
+            "reward": 0.3302,
+            "success_rate": null,
+            "cost_usd": 0.668246,
+            "cost_usd_mean": 0.668246,
+            "hours_median": 3.947,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-dance": {
+            "reward": 0.2165,
+            "success_rate": null,
+            "cost_usd": 0.567891,
+            "cost_source": "harness",
+            "hours": 3.9668,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260924T003236-00bf7e797ec9-01_dance",
+            "started_at": "2026-09-24T00:32:36.875685",
+            "finished_at": "2026-09-24T04:30:37.526504",
+            "input_tokens": 45475998,
+            "cached_tokens": 44813568,
+            "output_tokens": 71830,
+            "metrics": {
+              "action_jerk": 0.2089,
+              "anchor_pos_err_m": 0.7294,
+              "falls": 8.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.2212,
+              "mpjpe_m": 0.0665,
+              "n_params": 82842.0,
+              "obs_history_length": 1.0,
+              "raw_total": 0.2165,
+              "reward": 0.2165,
+              "survival": 0.5069,
+              "survived_s": 10.137,
+              "tracking_multi": 0.31,
+              "tracking_score": 0.48
+            }
+          },
+          "02-fight": {
+            "reward": 0.1701,
+            "success_rate": null,
+            "cost_usd": 0.654629,
+            "cost_source": "harness",
+            "hours": 3.8763,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260924T004311-ca42f3d42420-02_fight",
+            "started_at": "2026-09-24T00:43:11.281159",
+            "finished_at": "2026-09-24T04:35:45.800257",
+            "input_tokens": 57707835,
+            "cached_tokens": 57220096,
+            "output_tokens": 67309,
+            "metrics": {
+              "action_jerk": 0.3224,
+              "anchor_pos_err_m": 0.7351,
+              "falls": 6.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.2323,
+              "mpjpe_m": 0.0907,
+              "n_params": 751513.0,
+              "obs_history_length": 1.0,
+              "raw_total": 0.1701,
+              "reward": 0.1701,
+              "survival": 0.3845,
+              "survived_s": 7.69,
+              "tracking_multi": 0.2284,
+              "tracking_score": 0.3592
+            }
+          },
+          "03-fall-and-get-up": {
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.909272,
+            "cost_source": "harness",
+            "hours": 3.9624,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260924T010735-9c8cf0e0eaa4-03_fall_and_get_up",
+            "started_at": "2026-09-24T01:07:35.355914",
+            "finished_at": "2026-09-24T05:05:20.072895",
+            "input_tokens": 81195775,
+            "cached_tokens": 80565760,
+            "output_tokens": 81226,
+            "metrics": {
+              "action_jerk": 0.1181,
+              "anchor_pos_err_m": 0.1596,
+              "falls": 8.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.1979,
+              "mpjpe_m": 0.0981,
+              "n_params": 250717.0,
+              "obs_history_length": 1.0,
+              "raw_total": 0.0,
+              "reward": 0.0,
+              "survival": 0.0624,
+              "survived_s": 1.248,
+              "tracking_multi": 0.0344,
+              "tracking_score": 0.0552
+            }
+          },
+          "04-run": {
+            "reward": 0.123,
+            "success_rate": null,
+            "cost_usd": 0.706103,
+            "cost_source": "harness",
+            "hours": 4.015,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260924T014509-e73068bea1c5-04_run",
+            "started_at": "2026-09-24T01:45:09.476311",
+            "finished_at": "2026-09-24T05:46:03.598050",
+            "input_tokens": 64065626,
+            "cached_tokens": 63522560,
+            "output_tokens": 33141,
+            "metrics": {
+              "action_jerk": 0.171,
+              "anchor_pos_err_m": 1.0098,
+              "falls": 7.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.1489,
+              "mpjpe_m": 0.0766,
+              "n_params": 250717.0,
+              "obs_history_length": 1.0,
+              "raw_total": 0.123,
+              "reward": 0.123,
+              "survival": 0.321,
+              "survived_s": 6.42,
+              "tracking_multi": 0.1906,
+              "tracking_score": 0.3002
+            }
+          },
+          "05-sprint": {
+            "reward": 0.3302,
+            "success_rate": null,
+            "cost_usd": 0.668246,
+            "cost_source": "harness",
+            "hours": 3.947,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260924T043943-d6ed6f07b125-05_sprint",
+            "started_at": "2026-09-24T04:39:43.265751",
+            "finished_at": "2026-09-24T08:36:32.578274",
+            "input_tokens": 56542294,
+            "cached_tokens": 55638784,
+            "output_tokens": 43015,
+            "metrics": {
+              "action_jerk": 0.1643,
+              "anchor_pos_err_m": 1.1426,
+              "falls": 5.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.2025,
+              "mpjpe_m": 0.0633,
+              "n_params": 250717.0,
+              "obs_history_length": 1.0,
+              "raw_total": 0.3302,
+              "reward": 0.3302,
+              "survival": 0.5871,
+              "survived_s": 11.742,
+              "tracking_multi": 0.38,
+              "tracking_score": 0.5572
+            }
+          }
+        }
       }
     },
     "task05": {
@@ -23765,6 +25307,154 @@
               "episodes": 225.0,
               "parameters": 10290264.0,
               "replay_wall_s": 405.180048
+            }
+          }
+        }
+      },
+      "gpt6luna": {
+        "score": 0.312333,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "01-libero-open-design": {
+            "score": 0.736,
+            "reward": 0.736,
+            "success_rate": 0.736,
+            "cost_usd": 0.496284,
+            "cost_usd_mean": 0.496284,
+            "hours_median": 3.8423,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-libero-robustness": {
+            "score": 0.23,
+            "reward": 0.23,
+            "success_rate": 0.23,
+            "cost_usd": 0.233312,
+            "cost_usd_mean": 0.233312,
+            "hours_median": 3.3201,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-robotwin-open-design": {
+            "score": 0.256667,
+            "reward": 0.256667,
+            "success_rate": 0.256667,
+            "cost_usd": 0.458633,
+            "cost_usd_mean": 0.458633,
+            "hours_median": 7.1042,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.026667,
+            "reward": 0.026667,
+            "success_rate": 0.026667,
+            "cost_usd": 0.647225,
+            "cost_usd_mean": 0.647225,
+            "hours_median": 9.1817,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.736,
+            "success_rate": 0.736,
+            "cost_usd": 0.496284,
+            "cost_source": "harness",
+            "hours": 3.8423,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-6-luna",
+            "job": "task05/task1/codex/gpt-6-luna",
+            "started_at": "2026-09-25T07:17:35.292865Z",
+            "finished_at": "2026-09-25T11:08:07.430663Z",
+            "input_tokens": 41852160,
+            "cached_tokens": 41394688,
+            "output_tokens": 73179,
+            "metrics": {
+              "reward": 0.736,
+              "success_rate": 0.736,
+              "episodes": 500.0,
+              "parameters": 2233784.0,
+              "replay_wall_s": 73.381772
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.23,
+            "success_rate": 0.23,
+            "cost_usd": 0.233312,
+            "cost_source": "harness",
+            "hours": 3.3201,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-6-luna",
+            "job": "task05/task2/codex/gpt-6-luna",
+            "started_at": "2026-09-25T07:44:34.588353Z",
+            "finished_at": "2026-09-25T11:03:47.075753Z",
+            "input_tokens": 18044815,
+            "cached_tokens": 17787392,
+            "output_tokens": 59391,
+            "metrics": {
+              "reward": 0.23,
+              "plus_success_rate": 0.23,
+              "episodes": 500.0,
+              "parameters": 7461603.0,
+              "replay_wall_s": 467.8832
+            }
+          },
+          "03-robotwin-open-design": {
+            "reward": 0.256667,
+            "success_rate": 0.256667,
+            "cost_usd": 0.458633,
+            "cost_source": "harness",
+            "hours": 7.1042,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-6-luna",
+            "job": "task05/task3/codex/gpt-6-luna",
+            "started_at": "2026-09-25T09:12:05.495283Z",
+            "finished_at": "2026-09-25T16:18:20.774936Z",
+            "input_tokens": 38270916,
+            "cached_tokens": 37796864,
+            "output_tokens": 66518,
+            "metrics": {
+              "reward": 0.256667,
+              "success_rate": 0.256667,
+              "episodes": 300.0,
+              "parameters": 4409004.0,
+              "replay_wall_s": 133.948798
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.026667,
+            "success_rate": 0.026667,
+            "cost_usd": 0.647225,
+            "cost_source": "harness",
+            "hours": 9.1817,
+            "status": "failed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "gpt-6-luna",
+            "job": "task05/task4/codex/gpt-6-luna",
+            "started_at": "2026-09-25T10:02:05.311639Z",
+            "finished_at": "2026-09-25T19:12:59.579949Z",
+            "input_tokens": 52785648,
+            "cached_tokens": 51970816,
+            "output_tokens": 92068,
+            "metrics": {
+              "reward": 0.026667,
+              "success_rate": 0.026667,
+              "episodes": 225.0,
+              "parameters": 1240364.0,
+              "replay_wall_s": 1676.187276
             }
           }
         }
@@ -26722,6 +28412,238 @@
             }
           }
         }
+      },
+      "gpt6luna": {
+        "score": 0.0,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "01-rgb-only": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.029903,
+            "cost_usd_mean": 0.029903,
+            "hours_median": 0.2746,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-rgb-depth": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.062716,
+            "cost_usd_mean": 0.062716,
+            "hours_median": 0.483,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-model-training": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.073888,
+            "cost_usd_mean": 0.073888,
+            "hours_median": 1.04,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-method-agnostic": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.030885,
+            "cost_usd_mean": 0.030885,
+            "hours_median": 0.36,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-rgb-only": {
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.029903,
+            "cost_source": "harness",
+            "hours": 0.2746,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260923T221959-c7eda97373d0-rgb_only",
+            "started_at": "2026-09-23T22:19:59.945462",
+            "finished_at": "2026-09-23T22:36:28.401820",
+            "input_tokens": 1311630,
+            "cached_tokens": 1244928,
+            "output_tokens": 21568,
+            "metrics": {
+              "abs_median_rot_deg": 5.98,
+              "abs_median_trans_mm": 36.5,
+              "abs_occluded_trans_mm": 72.71,
+              "accuracy_reward": 0.0,
+              "cp_A.pose": 0.0,
+              "cp_B.pose": 0.0,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.0,
+              "frame_time_s": 0.023878,
+              "gated": 0.0,
+              "inference_hz": 41.879222,
+              "inference_wall_s": 16.714732,
+              "merit": 0.0,
+              "raw_total": 0.0,
+              "reward": 0.0,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 0.28,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 19.4,
+              "stage_b_median_trans_mm": 46.54,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 0.416667,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.0,
+              "stage_stage_b": 0.0
+            }
+          },
+          "02-rgb-depth": {
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.062716,
+            "cost_source": "harness",
+            "hours": 0.483,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260923T221924-d75e133237a6-rgb_depth",
+            "started_at": "2026-09-23T22:19:24.231481",
+            "finished_at": "2026-09-23T22:48:23.049212",
+            "input_tokens": 3176231,
+            "cached_tokens": 3069056,
+            "output_tokens": 42615,
+            "metrics": {
+              "abs_median_rot_deg": 6.36,
+              "abs_median_trans_mm": 13.96,
+              "abs_occluded_trans_mm": 60.29,
+              "accuracy_reward": 0.0,
+              "cp_A.pose": 0.0,
+              "cp_B.pose": 0.0,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.067827,
+              "frame_time_s": 0.14393,
+              "gated": 0.0,
+              "inference_hz": 6.947805,
+              "inference_wall_s": 100.751238,
+              "merit": 0.0,
+              "raw_total": 0.0,
+              "reward": 0.0,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 0.49,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 9.78,
+              "stage_b_median_trans_mm": 39.96,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 0.7,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.0,
+              "stage_stage_b": 0.0
+            }
+          },
+          "03-model-training": {
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.073888,
+            "cost_source": "harness",
+            "hours": 1.04,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260924T053315-f481c4ec102c-rgb_depth_model_training",
+            "started_at": "2026-09-24T05:33:15.439034",
+            "finished_at": "2026-09-24T06:35:39.526709",
+            "input_tokens": 4491916,
+            "cached_tokens": 4379520,
+            "output_tokens": 37707,
+            "metrics": {
+              "abs_median_rot_deg": 6.51,
+              "abs_median_trans_mm": 23.0,
+              "abs_occluded_trans_mm": 42.24,
+              "accuracy_reward": 0.0,
+              "cp_A.pose": 0.0,
+              "cp_B.pose": 0.0,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.0,
+              "frame_time_s": 0.094898,
+              "gated": 0.0,
+              "inference_hz": 10.537661,
+              "inference_wall_s": 66.428405,
+              "merit": 0.0,
+              "raw_total": 0.0,
+              "reward": 0.0,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 0.37,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 16.72,
+              "stage_b_median_trans_mm": 32.4,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 0.381667,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.0,
+              "stage_stage_b": 0.0
+            }
+          },
+          "04-method-agnostic": {
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.030885,
+            "cost_source": "harness",
+            "hours": 0.36,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260924T000448-35c3a293cbdf-method_agnostic",
+            "started_at": "2026-09-24T00:04:48.082510",
+            "finished_at": "2026-09-24T00:26:24.235788",
+            "input_tokens": 1213096,
+            "cached_tokens": 1126016,
+            "output_tokens": 21834,
+            "metrics": {
+              "abs_median_rot_deg": 6.87,
+              "abs_median_trans_mm": 32.76,
+              "abs_occluded_trans_mm": 65.04,
+              "accuracy_reward": 0.0,
+              "cp_A.pose": 0.0,
+              "cp_B.pose": 0.0,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.117356,
+              "frame_time_s": 0.211911,
+              "gated": 0.0,
+              "inference_hz": 4.71897,
+              "inference_wall_s": 148.337469,
+              "merit": 0.0,
+              "raw_total": 0.0,
+              "reward": 0.0,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 0.43,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 15.81,
+              "stage_b_median_trans_mm": 46.53,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 0.345,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.0,
+              "stage_stage_b": 0.0
+            }
+          }
+        }
       }
     },
     "task07": {
@@ -27592,6 +29514,73 @@
               "reward": 0.8588,
               "speed_merit": 0.6003,
               "throughput_ppm": 10.2385
+            }
+          }
+        }
+      },
+      "gpt6luna": {
+        "score": 0.0476,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "clearance": {
+            "score": 0.4456,
+            "metric": "clear_frac",
+            "weight": 1.0,
+            "credit": 0.4456,
+            "n_runs": 1,
+            "complete": true
+          },
+          "throughput": {
+            "score": 0.3021,
+            "metric": "speed_merit",
+            "weight": 1.0,
+            "credit": 0.3021,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "bin-clearing": {
+            "reward": 0.0476,
+            "success_rate": null,
+            "cost_usd": 0.156691,
+            "cost_source": "harness",
+            "hours": 1.9416,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260923T223636-455b1e0aa70e-task07",
+            "started_at": "2026-09-23T22:36:36.710111",
+            "finished_at": "2026-09-24T00:33:06.582730",
+            "input_tokens": 10245974,
+            "cached_tokens": 9912064,
+            "output_tokens": 48358,
+            "metrics": {
+              "bin_hits": 0.0,
+              "clear_frac": 0.4456,
+              "damage_events": 0.0,
+              "episode_wall_s_total": 3594.2151,
+              "floor_drops": 12.0,
+              "gate_contract": 1.0,
+              "gate_determinism": 1.0,
+              "gate_load": 1.0,
+              "gate_stable": 1.0,
+              "gated": 0.0,
+              "harness_wall_s_total": 3541.7713,
+              "makespan_s": 70.8438,
+              "n_parts": 112.0,
+              "parts_cleared": 50.0,
+              "policy_faults": 0.0,
+              "policy_wall_s_total": 52.4438,
+              "raw_total": 0.0476,
+              "reward": 0.0476,
+              "speed_merit": 0.3021,
+              "throughput_ppm": 6.6187
             }
           }
         }
@@ -29084,6 +31073,122 @@
               "stage_integration": 0.125,
               "stage_static": 0.0,
               "stage_validity": 0.1425
+            }
+          }
+        }
+      },
+      "gpt6luna": {
+        "score": 0.3767,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "validity": {
+            "score": 0.8,
+            "metric": "stage_validity",
+            "weight": 0.15,
+            "credit": 0.12,
+            "n_runs": 1,
+            "complete": true
+          },
+          "design": {
+            "score": 0.619143,
+            "metric": "stage_design",
+            "weight": 0.35,
+            "credit": 0.2167,
+            "n_runs": 1,
+            "complete": true
+          },
+          "static": {
+            "score": 0.0,
+            "metric": "stage_static",
+            "weight": 0.15,
+            "credit": 0.0,
+            "n_runs": 1,
+            "complete": true
+          },
+          "dynamic": {
+            "score": 0.2,
+            "metric": "stage_dynamic",
+            "weight": 0.2,
+            "credit": 0.04,
+            "n_runs": 1,
+            "complete": true
+          },
+          "integration": {
+            "score": 0.0,
+            "metric": "stage_integration",
+            "weight": 0.15,
+            "credit": 0.0,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "mobile-base": {
+            "reward": 0.3767,
+            "success_rate": null,
+            "cost_usd": 0.021916,
+            "cost_source": "harness",
+            "hours": 0.27,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260923T224843-fa6a1efd7145-task08",
+            "started_at": "2026-09-23T22:48:43.165055",
+            "finished_at": "2026-09-23T23:04:55.231178",
+            "input_tokens": 692344,
+            "cached_tokens": 640512,
+            "output_tokens": 20656,
+            "metrics": {
+              "cp_S1.equilibrium": 1.0,
+              "cp_S1.inertia": 1.0,
+              "cp_S1.load": 1.0,
+              "cp_S1.mecanum": 0.0,
+              "cp_S1.structure": 1.0,
+              "cp_S3.battery_onboard": 1.0,
+              "cp_S3.design_efficiency": 0.5303,
+              "cp_S3.reach_beyond": 1.0,
+              "cp_S3.reach_preserved": 1.0,
+              "cp_S3.resource_constraints": 1.0,
+              "cp_S3.static_margin": 0.0,
+              "cp_S3.still_valid": 0.0,
+              "cp_S5.testB": 0.0,
+              "cp_S5.testC": 0.0,
+              "cp_S5.testD1": 1.0,
+              "cp_S5.testD2": 0.0,
+              "cp_S5.testE": 0.0,
+              "cp_S7.payload_margin": 0.0,
+              "cp_S7.pick_compat": 0.0,
+              "design_base_mass_kg": 18.3284,
+              "design_footprint_area_headroom_fraction": 0.252607,
+              "design_footprint_area_headroom_m2": 0.079217,
+              "design_footprint_area_m2": 0.234383,
+              "design_footprint_x_headroom_m": 0.026634,
+              "design_footprint_x_m": 0.533366,
+              "design_footprint_y_headroom_m": 0.12056,
+              "design_footprint_y_m": 0.43944,
+              "design_mass_budget_kg": 38.0,
+              "design_mass_headroom_fraction": 0.517674,
+              "design_mass_headroom_kg": 19.6716,
+              "design_profile_length_headroom_fraction": 0.820667,
+              "design_profile_length_headroom_m": 9.848,
+              "design_profile_length_m": 2.152,
+              "design_score": 0.530316,
+              "design_total_mass_kg": 40.1983,
+              "dynamic_mean": 0.2,
+              "dynamic_var": 0.16,
+              "gated": 0.0,
+              "raw_total": 0.3767,
+              "reward": 0.3767,
+              "stage_design": 0.2167,
+              "stage_dynamic": 0.04,
+              "stage_integration": 0.0,
+              "stage_static": 0.0,
+              "stage_validity": 0.12
             }
           }
         }
@@ -31061,6 +33166,158 @@
               "xarm7_stage_hardware": 0.1382,
               "xarm7_stage_software": 0.0923,
               "xarm7_stage_validity": 0.0,
+              "xarm7_validity_deduction": 0.0
+            }
+          }
+        }
+      },
+      "gpt6luna": {
+        "score": 0.211733,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Codex",
+        "splits": {
+          "franka": {
+            "score": 0.2253,
+            "metric": "franka_reward",
+            "weight": 1.0,
+            "credit": 0.2253,
+            "n_runs": 1,
+            "complete": true
+          },
+          "ur5e": {
+            "score": 0.1943,
+            "metric": "ur5e_reward",
+            "weight": 1.0,
+            "credit": 0.1943,
+            "n_runs": 1,
+            "complete": true
+          },
+          "xarm7": {
+            "score": 0.2156,
+            "metric": "xarm7_reward",
+            "weight": 1.0,
+            "credit": 0.2156,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "gello": {
+            "reward": 0.211733,
+            "success_rate": null,
+            "cost_usd": 0.018995,
+            "cost_source": "harness",
+            "hours": 0.1272,
+            "status": "completed",
+            "harness": "Codex",
+            "agent": "codex",
+            "model": "openai/gpt-6-luna",
+            "job": "codex-gpt_6_luna-20260923T230520-e5031ae58d43-task09",
+            "started_at": "2026-09-23T23:05:20.166813",
+            "finished_at": "2026-09-23T23:12:58.104751",
+            "input_tokens": 592410,
+            "cached_tokens": 540672,
+            "output_tokens": 16829,
+            "metrics": {
+              "franka_cp_B1.combined_hold": 0.2347,
+              "franka_cp_B2.combined_backdrive": 0.2925,
+              "franka_cp_B3.headroom": 0.485,
+              "franka_cp_B4.push_recovery": 0.2056,
+              "franka_cp_C1.budget": 1.0,
+              "franka_cp_C1.buildable": 1.0,
+              "franka_cp_C1.load": 1.0,
+              "franka_cp_C1.motion_clearance": 0.0,
+              "franka_cp_C1.printability": 1.0,
+              "franka_cp_C1.settle": 1.0,
+              "franka_cp_C1.springs_legal": 1.0,
+              "franka_cp_C1.structure": 1.0,
+              "franka_cp_H1.device_residual": 0.0836,
+              "franka_cp_H2.passive_hold": 0.1418,
+              "franka_cp_H3.passive_backdrive": 0.2509,
+              "franka_cp_S2.adapted_backdrive": 0.3201,
+              "franka_cp_S2.adapted_hold": 0.2389,
+              "franka_deduction_C1.budget": 0.0,
+              "franka_deduction_C1.buildable": 0.0,
+              "franka_deduction_C1.load": 0.0,
+              "franka_deduction_C1.printability": 0.0,
+              "franka_deduction_C1.settle": 0.0,
+              "franka_deduction_C1.springs_legal": 0.0,
+              "franka_deduction_C1.structure": 0.0,
+              "franka_gated": 0.0,
+              "franka_raw_total": 0.2253,
+              "franka_reward": 0.2253,
+              "franka_stage_codesign": 0.1218,
+              "franka_stage_hardware": 0.0476,
+              "franka_stage_software": 0.0559,
+              "franka_stage_validity": 0.0,
+              "franka_validity_deduction": 0.0,
+              "reward": 0.211733,
+              "ur5e_cp_B1.combined_hold": 0.0108,
+              "ur5e_cp_B2.combined_backdrive": 0.232,
+              "ur5e_cp_B3.headroom": 0.0171,
+              "ur5e_cp_B4.push_recovery": 0.02,
+              "ur5e_cp_C1.budget": 1.0,
+              "ur5e_cp_C1.buildable": 1.0,
+              "ur5e_cp_C1.load": 1.0,
+              "ur5e_cp_C1.motion_clearance": 1.0,
+              "ur5e_cp_C1.printability": 1.0,
+              "ur5e_cp_C1.settle": 1.0,
+              "ur5e_cp_C1.springs_legal": 1.0,
+              "ur5e_cp_C1.structure": 1.0,
+              "ur5e_cp_H1.device_residual": 0.1414,
+              "ur5e_cp_H2.passive_hold": 0.0735,
+              "ur5e_cp_H3.passive_backdrive": 0.1924,
+              "ur5e_cp_S2.adapted_backdrive": 0.1882,
+              "ur5e_cp_S2.adapted_hold": 0.0679,
+              "ur5e_deduction_C1.budget": 0.0,
+              "ur5e_deduction_C1.buildable": 0.0,
+              "ur5e_deduction_C1.load": 0.0,
+              "ur5e_deduction_C1.printability": 0.0,
+              "ur5e_deduction_C1.settle": 0.0,
+              "ur5e_deduction_C1.springs_legal": 0.0,
+              "ur5e_deduction_C1.structure": 0.0,
+              "ur5e_gated": 0.0,
+              "ur5e_raw_total": 0.1943,
+              "ur5e_reward": 0.1943,
+              "ur5e_stage_codesign": 0.028,
+              "ur5e_stage_hardware": 0.0407,
+              "ur5e_stage_software": 0.0256,
+              "ur5e_stage_validity": 0.1,
+              "ur5e_validity_deduction": 0.0,
+              "xarm7_cp_B1.combined_hold": 0.133,
+              "xarm7_cp_B2.combined_backdrive": 0.2442,
+              "xarm7_cp_B3.headroom": 0.0,
+              "xarm7_cp_B4.push_recovery": 0.1036,
+              "xarm7_cp_C1.budget": 1.0,
+              "xarm7_cp_C1.buildable": 1.0,
+              "xarm7_cp_C1.load": 1.0,
+              "xarm7_cp_C1.motion_clearance": 0.6667,
+              "xarm7_cp_C1.printability": 1.0,
+              "xarm7_cp_C1.settle": 1.0,
+              "xarm7_cp_C1.springs_legal": 1.0,
+              "xarm7_cp_C1.structure": 1.0,
+              "xarm7_cp_H1.device_residual": 0.0863,
+              "xarm7_cp_H2.passive_hold": 0.2697,
+              "xarm7_cp_H3.passive_backdrive": 0.2192,
+              "xarm7_cp_S2.adapted_backdrive": 0.26,
+              "xarm7_cp_S2.adapted_hold": 0.1734,
+              "xarm7_deduction_C1.budget": 0.0,
+              "xarm7_deduction_C1.buildable": 0.0,
+              "xarm7_deduction_C1.load": 0.0,
+              "xarm7_deduction_C1.printability": 0.0,
+              "xarm7_deduction_C1.settle": 0.0,
+              "xarm7_deduction_C1.springs_legal": 0.0,
+              "xarm7_deduction_C1.structure": 0.0,
+              "xarm7_gated": 0.0,
+              "xarm7_raw_total": 0.2156,
+              "xarm7_reward": 0.2156,
+              "xarm7_stage_codesign": 0.0481,
+              "xarm7_stage_hardware": 0.0575,
+              "xarm7_stage_software": 0.0433,
+              "xarm7_stage_validity": 0.0667,
               "xarm7_validity_deduction": 0.0
             }
           }

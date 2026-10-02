@@ -3663,6 +3663,288 @@
           }
         ]
       }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "codex-gpt_6_luna-20260923T221848-c8c65963e5bb-01_tower_max_height",
+      "status": "completed",
+      "cost_usd": 0.22242710000000004,
+      "reward": 0.264202,
+      "success_rate": 0.2642021865867028,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.2642021865867028,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 12467.0,
+        "reward": 0.264202,
+        "success_rate": 0.2642021865867028,
+        "task_score": 26.42021865867028,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-23T22:18:48.806629",
+        "finished_at": "2026-09-23T23:03:29.245398",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 14901196,
+          "n_cache_tokens": 14544512,
+          "n_output_tokens": 79873
+        },
+        "trials": [
+          {
+            "trial": "01-tower-max-height__y3PncvM",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.2642021865867028,
+              "interaction_budget": 50000,
+              "interaction_steps": 12467,
+              "reward": 0.264202,
+              "success_rate": 0.2642021865867028,
+              "task_score": 26.42021865867028,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "codex-gpt_6_luna-20260923T230345-4d2ba0c0d8e2-02_cantilever_overhang",
+      "status": "completed",
+      "cost_usd": 0.13793828,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 3700.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "task_score": 0.0,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-23T23:03:45.085031",
+        "finished_at": "2026-09-23T23:29:23.376390",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 8497724,
+          "n_cache_tokens": 8202368,
+          "n_output_tokens": 52758
+        },
+        "trials": [
+          {
+            "trial": "02-cantilever-overhang__viQhp6G",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 3700,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "task_score": 0.0,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "codex-gpt_6_luna-20260923T232753-e38ff61ba8c9-03_balance_coins",
+      "status": "completed",
+      "cost_usd": 0.11032996000000005,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 1.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 12962.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "task_score": 100.0,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-23T23:27:53.077200",
+        "finished_at": "2026-09-23T23:58:27.873407",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 5645171,
+          "n_cache_tokens": 5469696,
+          "n_output_tokens": 76171
+        },
+        "trials": [
+          {
+            "trial": "03-balance-coins__J7siLCc",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 1.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 12962,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "task_score": 100.0,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "codex-gpt_6_luna-20260923T232954-41e6935e0dc7-04_rubik_cube",
+      "status": "completed",
+      "cost_usd": 0.23480688000000002,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "actual_qtm": 0.0,
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 8590.0,
+        "optimal_qtm": 11.0,
+        "recoveries": 5.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "task_score": 0.0,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0,
+        "unclassified_transitions": 0.0
+      },
+      "extra": {
+        "started_at": "2026-09-23T23:29:54.764330",
+        "finished_at": "2026-09-24T00:06:49.018431",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 16643342,
+          "n_cache_tokens": 16389248,
+          "n_output_tokens": 91010
+        },
+        "trials": [
+          {
+            "trial": "04-rubik-cube__Y4yNJWu",
+            "rewards": {
+              "actual_qtm": 0,
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 8590,
+              "optimal_qtm": 11,
+              "recoveries": 5,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "task_score": 0.0,
+              "trials_attempted": 1,
+              "trials_total": 1,
+              "unclassified_transitions": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "codex-gpt_6_luna-20260924T000720-4c9857d78314-05_hidden_center_of_mass",
+      "status": "completed",
+      "cost_usd": 0.030779600000000004,
+      "reward": 0.0,
+      "success_rate": null,
+      "metrics": {
+        "control_steps": 1038.0,
+        "correct": 0.0,
+        "reward": 0.0,
+        "submitted": 3.0,
+        "trial_1_control_steps": 525.0,
+        "trial_1_correct": 0.0,
+        "trial_1_reward": 0.0,
+        "trial_1_submitted": 1.0,
+        "trial_2_control_steps": 398.0,
+        "trial_2_correct": 0.0,
+        "trial_2_reward": 0.0,
+        "trial_2_submitted": 1.0,
+        "trial_3_control_steps": 115.0,
+        "trial_3_correct": 0.0,
+        "trial_3_reward": 0.0,
+        "trial_3_submitted": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-24T00:07:20.119323",
+        "finished_at": "2026-09-24T00:18:21.770491",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 1003883,
+          "n_cache_tokens": 922880,
+          "n_output_tokens": 26901
+        },
+        "trials": [
+          {
+            "trial": "05-hidden-center-of-mass__mHCospi",
+            "rewards": {
+              "reward": 0.0,
+              "correct": 0,
+              "submitted": 3,
+              "control_steps": 1038,
+              "trial_1_reward": 0.0,
+              "trial_1_correct": 0,
+              "trial_1_submitted": 1,
+              "trial_1_control_steps": 525,
+              "trial_2_reward": 0.0,
+              "trial_2_correct": 0,
+              "trial_2_submitted": 1,
+              "trial_2_control_steps": 398,
+              "trial_3_reward": 0.0,
+              "trial_3_correct": 0,
+              "trial_3_submitted": 1,
+              "trial_3_control_steps": 115
+            }
+          }
+        ]
+      }
     }
   ]
 }
