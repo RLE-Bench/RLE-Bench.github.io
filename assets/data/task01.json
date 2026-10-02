@@ -8251,6 +8251,2166 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L1/01-open-fridge/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 16.34169780000001,
+      "reward": 0.4879848,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 46673.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.4879848,
+        "success_rate": 0.6,
+        "trials_attempted": 4.0,
+        "trials_recorded": 4.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T12:39:41.714363",
+        "finished_at": "2026-09-25T14:14:41.772405",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 44339681,
+          "n_cache_tokens": 43972209,
+          "n_output_tokens": 230462
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__CCvXQkK",
+            "rewards": {
+              "reward": 0.4879848,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 4,
+              "trials_attempted": 4,
+              "development_steps": 46673,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L1/01-open-fridge/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.4777922799999997,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 3348.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-24T21:48:44.929480",
+        "finished_at": "2026-09-24T22:54:37.478471",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 35421853,
+          "n_cache_tokens": 34742528,
+          "n_output_tokens": 124869
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__P4zD5S3",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 3348,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L1/02-close-cabinet/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 14.686246599999995,
+      "reward": 0.32400000000000007,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 47500.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.32400000000000007,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T14:14:46.070403",
+        "finished_at": "2026-09-25T16:20:49.177243",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 34675770,
+          "n_cache_tokens": 34288873,
+          "n_output_tokens": 236734
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__bDyEstb",
+            "rewards": {
+              "reward": 0.32400000000000007,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 47500,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L1/02-close-cabinet/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.3122525199999999,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 1192.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-24T22:54:39.031940",
+        "finished_at": "2026-09-24T23:51:36.642117",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 23762831,
+          "n_cache_tokens": 23469312,
+          "n_output_tokens": 96415
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__6E7WtYs",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 1192,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L1/03-turn-on-stove/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 13.1334364,
+      "reward": 0.887568,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 28108.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.887568,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T16:20:53.984464",
+        "finished_at": "2026-09-25T17:46:25.385847",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 35243185,
+          "n_cache_tokens": 34920902,
+          "n_output_tokens": 178630
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__FAT9EXw",
+            "rewards": {
+              "reward": 0.887568,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 28108,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L1/03-turn-on-stove/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.20129122000000002,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 616.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-24T23:51:37.798626",
+        "finished_at": "2026-09-25T00:27:11.377122",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 13664772,
+          "n_cache_tokens": 13382272,
+          "n_output_tokens": 78437
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__dYgoxZm",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 616,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L1/04-pick-place-counter-to-drawer/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 8.7854872,
+      "reward": 0.9221520000000001,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 19462.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.9221520000000001,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T17:46:28.583303",
+        "finished_at": "2026-09-25T18:41:09.446905",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 21690763,
+          "n_cache_tokens": 21459996,
+          "n_output_tokens": 132432
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__xmKNWFE",
+            "rewards": {
+              "reward": 0.9221520000000001,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 19462,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L1/04-pick-place-counter-to-drawer/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.22656497999999997,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 558.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T00:27:12.566989",
+        "finished_at": "2026-09-25T01:03:23.711731",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 16843042,
+          "n_cache_tokens": 16587008,
+          "n_output_tokens": 70183
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__2hEsEsa",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 558,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L1/05-pick-place-microwave-to-counter/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 13.930963199999999,
+      "reward": 0.944764,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 13809.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.944764,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T18:41:13.094500",
+        "finished_at": "2026-09-25T19:40:49.148302",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 35752767,
+          "n_cache_tokens": 35307556,
+          "n_output_tokens": 165477
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__P8RfHUm",
+            "rewards": {
+              "reward": 0.944764,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 13809,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L1/05-pick-place-microwave-to-counter/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.6321977,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 1289.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T11:47:13.724053",
+        "finished_at": "2026-09-25T13:15:27.389333",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 51245378,
+          "n_cache_tokens": 50621440,
+          "n_output_tokens": 127179
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__6FHXAWE",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 1289,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L2/01-open-fridge/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 8.153795,
+      "reward": 0.6423040000000001,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 49280.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.6423040000000001,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T19:40:52.985266",
+        "finished_at": "2026-09-25T20:59:33.958141",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 15521067,
+          "n_cache_tokens": 15254275,
+          "n_output_tokens": 148473
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__QVefzSe",
+            "rewards": {
+              "reward": 0.6423040000000001,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 49280,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L2/01-open-fridge/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.21039324000000012,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 10278.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T01:26:33.070999",
+        "finished_at": "2026-09-25T02:14:27.742949",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 14295727,
+          "n_cache_tokens": 14047744,
+          "n_output_tokens": 90235
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__ZRXKjuM",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 10278,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L2/02-close-cabinet/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 13.491146400000003,
+      "reward": 0.16582080000000002,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 42724.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.16582080000000002,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T20:59:38.355868",
+        "finished_at": "2026-09-25T22:30:12.590300",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 28623318,
+          "n_cache_tokens": 28234523,
+          "n_output_tokens": 233359
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__dugMrrk",
+            "rewards": {
+              "reward": 0.16582080000000002,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 42724,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L2/02-close-cabinet/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.17430854,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 2136.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T02:14:28.914975",
+        "finished_at": "2026-09-25T02:55:42.550845",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 11335686,
+          "n_cache_tokens": 11126784,
+          "n_output_tokens": 84301
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__fkt2TRy",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 2136,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L2/03-turn-on-stove/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 6.988411600000002,
+      "reward": 0.7227680000000001,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 24135.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7227680000000001,
+        "success_rate": 0.8,
+        "trials_attempted": 4.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T22:30:16.397910",
+        "finished_at": "2026-09-25T23:20:38.402555",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 16187400,
+          "n_cache_tokens": 15980798,
+          "n_output_tokens": 107023
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__7rALkb2",
+            "rewards": {
+              "reward": 0.7227680000000001,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 4,
+              "development_steps": 24135,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L2/03-turn-on-stove/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.06654118,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 809.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 2.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T02:55:43.815110",
+        "finished_at": "2026-09-25T03:17:03.865242",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 3052446,
+          "n_cache_tokens": 2940288,
+          "n_output_tokens": 51845
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__TUpiDLn",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 2,
+              "development_steps": 809,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L2/04-pick-place-counter-to-drawer/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 5.864217999999998,
+      "reward": 0.7558912000000001,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 13784.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7558912000000001,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T23:20:42.914704",
+        "finished_at": "2026-09-26T00:14:57.657110",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 13811982,
+          "n_cache_tokens": 13636150,
+          "n_output_tokens": 86565
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__tLbLoSn",
+            "rewards": {
+              "reward": 0.7558912000000001,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 13784,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L2/04-pick-place-counter-to-drawer/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.4053974399999998,
+      "reward": 0.195616,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 5480.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.195616,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T03:17:05.067851",
+        "finished_at": "2026-09-25T04:29:23.088881",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 29026577,
+          "n_cache_tokens": 28520064,
+          "n_output_tokens": 139091
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__A2VCoAR",
+            "rewards": {
+              "reward": 0.195616,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 5480,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L2/05-pick-place-microwave-to-counter/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 15.139623399999993,
+      "reward": 0.5013024,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 41124.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5013024,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-26T00:15:01.712071",
+        "finished_at": "2026-09-26T01:58:54.800454",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 45303860,
+          "n_cache_tokens": 44959377,
+          "n_output_tokens": 169685
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__KPaYaJw",
+            "rewards": {
+              "reward": 0.5013024,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 41124,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L2/05-pick-place-microwave-to-counter/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.38605075999999994,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 4394.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T04:29:24.247904",
+        "finished_at": "2026-09-25T06:13:12.711262",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 26130278,
+          "n_cache_tokens": 25718656,
+          "n_output_tokens": 175404
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__D6WiuK6",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 4394,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L3/01-open-fridge/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 7.039254400000001,
+      "reward": 0.7070048000000001,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 29061.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7070048000000001,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-26T01:58:59.311612",
+        "finished_at": "2026-09-26T03:09:06.023049",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 13640220,
+          "n_cache_tokens": 13424792,
+          "n_output_tokens": 131586
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__eQvSHhe",
+            "rewards": {
+              "reward": 0.7070048000000001,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 29061,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L3/01-open-fridge/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.27509906,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 4964.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T06:13:14.035074",
+        "finished_at": "2026-09-25T07:20:14.666965",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 17884359,
+          "n_cache_tokens": 17522176,
+          "n_output_tokens": 127318
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__Q5FCudx",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 4964,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L3/02-close-cabinet/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 11.093082199999998,
+      "reward": 0.801612,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 49597.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.801612,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-26T03:09:10.274338",
+        "finished_at": "2026-09-26T04:52:10.709480",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 21272165,
+          "n_cache_tokens": 20944391,
+          "n_output_tokens": 214149
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__CUXTxxh",
+            "rewards": {
+              "reward": 0.801612,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 49597,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L3/02-close-cabinet/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.34481449999999986,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 4279.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T07:20:15.810265",
+        "finished_at": "2026-09-25T08:23:40.351635",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 23332434,
+          "n_cache_tokens": 22895360,
+          "n_output_tokens": 144307
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__WTtV7C7",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 4279,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L3/03-turn-on-stove/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 2.5831801999999993,
+      "reward": 0.975028,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 6243.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.975028,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-26T04:52:15.256370",
+        "finished_at": "2026-09-26T05:15:34.094282",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 4034644,
+          "n_cache_tokens": 3932301,
+          "n_output_tokens": 48922
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__3RGGFMU",
+            "rewards": {
+              "reward": 0.975028,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 6243,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L3/03-turn-on-stove/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.27445548,
+      "reward": 0.19755040000000001,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 3062.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.19755040000000001,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T08:23:41.452282",
+        "finished_at": "2026-09-25T09:22:31.081471",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 18418096,
+          "n_cache_tokens": 18096768,
+          "n_output_tokens": 122710
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__ihRG4iR",
+            "rewards": {
+              "reward": 0.19755040000000001,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 3062,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L3/04-pick-place-counter-to-drawer/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 2.9649982,
+      "reward": 0.7590016,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 12812.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7590016,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-26T05:15:38.673084",
+        "finished_at": "2026-09-26T05:45:32.213394",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 4454110,
+          "n_cache_tokens": 4326951,
+          "n_output_tokens": 54138
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__Y7gXsJH",
+            "rewards": {
+              "reward": 0.7590016,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 12812,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L3/04-pick-place-counter-to-drawer/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.32669097999999996,
+      "reward": 0.19536320000000001,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 5796.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.19536320000000001,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T09:22:32.255198",
+        "finished_at": "2026-09-25T10:28:47.646805",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 19987097,
+          "n_cache_tokens": 19492608,
+          "n_output_tokens": 164632
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__3nQ6f2c",
+            "rewards": {
+              "reward": 0.19536320000000001,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 5796,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "L3/05-pick-place-microwave-to-counter/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 10.586229400000004,
+      "reward": 0.49162799999999995,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 45155.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.49162799999999995,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-26T05:45:36.846942",
+        "finished_at": "2026-09-26T07:19:12.323967",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 28119180,
+          "n_cache_tokens": 27848587,
+          "n_output_tokens": 142658
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__dErvyu3",
+            "rewards": {
+              "reward": 0.49162799999999995,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 45155,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "L3/05-pick-place-microwave-to-counter/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 0.31956332,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 12547.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T10:28:48.901932",
+        "finished_at": "2026-09-25T11:47:12.719195",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 19085952,
+          "n_cache_tokens": 18607232,
+          "n_output_tokens": 171238
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__bS9jxDz",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 12547,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L1/01-open-fridge/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 3.5975488000000015,
+      "reward": 0.5842584000000001,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 6559.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5842584000000001,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-29T22:37:24.571211",
+        "finished_at": "2026-09-29T23:52:28.924365",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 23123560,
+          "n_cache_tokens": 22766848,
+          "n_output_tokens": 60744
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__BpJxWGG",
+            "rewards": {
+              "reward": 0.5842584000000001,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 6559,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L1/02-close-cabinet/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 0.742808,
+      "reward": 0.7964192000000001,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 1119.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7964192000000001,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-29T23:52:30.667985",
+        "finished_at": "2026-09-30T00:13:06.855922",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 4547786,
+          "n_cache_tokens": 4466560,
+          "n_output_tokens": 13370
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__uAVVtwU",
+            "rewards": {
+              "reward": 0.7964192000000001,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 1119,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L1/03-turn-on-stove/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 1.6481108000000007,
+      "reward": 0.980624,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 4844.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.980624,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T00:13:08.644551",
+        "finished_at": "2026-09-30T00:54:57.597449",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 9758245,
+          "n_cache_tokens": 9603968,
+          "n_output_tokens": 37916
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__5rh29Na",
+            "rewards": {
+              "reward": 0.980624,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 4844,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L1/04-pick-place-counter-to-drawer/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 0.8820340000000003,
+      "reward": 0.996248,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 938.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.996248,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T00:54:59.013202",
+        "finished_at": "2026-09-30T01:21:50.349646",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 5076847,
+          "n_cache_tokens": 4992000,
+          "n_output_tokens": 21314
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__f3HL4Qs",
+            "rewards": {
+              "reward": 0.996248,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 938,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L1/05-pick-place-microwave-to-counter/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 3.276832,
+      "reward": 0.7932768000000001,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 2101.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7932768000000001,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T01:21:51.909038",
+        "finished_at": "2026-09-30T02:28:33.456717",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 17626825,
+          "n_cache_tokens": 17157120,
+          "n_output_tokens": 62171
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__DrPrRsD",
+            "rewards": {
+              "reward": 0.7932768000000001,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 2101,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L2/01-open-fridge/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 3.4621656,
+      "reward": 0.5533392,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 19442.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5533392,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T12:29:31.207186",
+        "finished_at": "2026-09-30T13:45:57.160642",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 21789902,
+          "n_cache_tokens": 21435136,
+          "n_output_tokens": 60912
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__t7BQZrg",
+            "rewards": {
+              "reward": 0.5533392,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 19442,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L2/02-close-cabinet/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 1.1936708000000007,
+      "reward": 0.9804320000000001,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 4892.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.9804320000000001,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T10:28:59.397743",
+        "finished_at": "2026-09-30T11:02:08.010286",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 7873123,
+          "n_cache_tokens": 7774208,
+          "n_output_tokens": 21842
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__RPLfg4k",
+            "rewards": {
+              "reward": 0.9804320000000001,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 4892,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L2/03-turn-on-stove/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 1.4505991999999994,
+      "reward": 0.5801064,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 8289.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5801064,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T11:02:09.456034",
+        "finished_at": "2026-09-30T11:40:02.295695",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 8135500,
+          "n_cache_tokens": 7960832,
+          "n_output_tokens": 30518
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__dDh33Ld",
+            "rewards": {
+              "reward": 0.5801064,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 8289,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L2/04-pick-place-counter-to-drawer/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 0.28602800000000006,
+      "reward": 0.39797600000000005,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 1265.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.39797600000000005,
+        "success_rate": 0.4,
+        "trials_attempted": 2.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T11:40:03.778778",
+        "finished_at": "2026-09-30T11:58:38.757453",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 1454284,
+          "n_cache_tokens": 1408000,
+          "n_output_tokens": 5266
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__6oXcihi",
+            "rewards": {
+              "reward": 0.39797600000000005,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 2,
+              "development_steps": 1265,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L2/05-pick-place-microwave-to-counter/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 1.656036,
+      "reward": 0.5959800000000001,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 1675.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5959800000000001,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T11:58:40.757333",
+        "finished_at": "2026-09-30T12:33:11.046331",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 11699067,
+          "n_cache_tokens": 11573120,
+          "n_output_tokens": 24683
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__MxXWsGn",
+            "rewards": {
+              "reward": 0.5959800000000001,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 1675,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L3/01-open-fridge/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 1.2599847999999998,
+      "reward": 0.38783680000000004,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 7602.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.38783680000000004,
+        "success_rate": 0.4,
+        "trials_attempted": 4.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T12:33:12.512581",
+        "finished_at": "2026-09-30T13:03:30.010116",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 8230241,
+          "n_cache_tokens": 8114688,
+          "n_output_tokens": 21741
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__f3kPody",
+            "rewards": {
+              "reward": 0.38783680000000004,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 4,
+              "development_steps": 7602,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L3/02-close-cabinet/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 1.1083712000000001,
+      "reward": 0.9712280000000001,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 7193.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.9712280000000001,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T13:03:31.543541",
+        "finished_at": "2026-09-30T13:31:39.332836",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 7182812,
+          "n_cache_tokens": 7078912,
+          "n_output_tokens": 19268
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__rzEh35C",
+            "rewards": {
+              "reward": 0.9712280000000001,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 7193,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L3/03-turn-on-stove/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 0.9288064,
+      "reward": 0.7909280000000001,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 2835.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7909280000000001,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T13:31:41.101359",
+        "finished_at": "2026-09-30T13:56:09.225353",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 5678550,
+          "n_cache_tokens": 5583744,
+          "n_output_tokens": 18082
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__apd4X2E",
+            "rewards": {
+              "reward": 0.7909280000000001,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 2835,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L3/04-pick-place-counter-to-drawer/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 0.6214647999999998,
+      "reward": 0.3966672,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 2083.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.3966672,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T13:56:10.790502",
+        "finished_at": "2026-09-30T14:14:01.230939",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 3730066,
+          "n_cache_tokens": 3657088,
+          "n_output_tokens": 10980
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__5YPeqAc",
+            "rewards": {
+              "reward": 0.3966672,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 2083,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "L3/05-pick-place-microwave-to-counter/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 4.359858400000001,
+      "reward": 0.1778984,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 27627.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.1778984,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T14:14:02.720127",
+        "finished_at": "2026-09-30T16:21:18.352174",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 28268110,
+          "n_cache_tokens": 27950464,
+          "n_output_tokens": 92952
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__SpVd35y",
+            "rewards": {
+              "reward": 0.1778984,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 27627,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
     }
   ]
 }

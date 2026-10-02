@@ -3103,6 +3103,566 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "claude_code-claude_opus_5_5-20260925T184359-ca19299a8671-01_tower_max_height",
+      "status": "completed",
+      "cost_usd": 4.2546846,
+      "reward": 0.976413,
+      "success_rate": 0.976412562712061,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.976412562712061,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 26042.0,
+        "reward": 0.976413,
+        "success_rate": 0.976412562712061,
+        "task_score": 97.6412562712061,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T18:43:59.614542",
+        "finished_at": "2026-09-25T19:12:50.235703",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 8311110,
+          "n_cache_tokens": 8173203,
+          "n_output_tokens": 75879
+        },
+        "trials": [
+          {
+            "trial": "01-tower-max-height__gAuX9aQ",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.976412562712061,
+              "interaction_budget": 50000,
+              "interaction_steps": 26042,
+              "reward": 0.976413,
+              "success_rate": 0.976412562712061,
+              "task_score": 97.6412562712061,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "claude_code-claude_opus_5_5-20260925T191242-b00850333732-02_cantilever_overhang",
+      "status": "completed",
+      "cost_usd": 0.9329963999999998,
+      "reward": 0.765663,
+      "success_rate": 0.7656628029919157,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.7656628029919157,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 2544.0,
+        "reward": 0.765663,
+        "success_rate": 0.7656628029919157,
+        "task_score": 76.56628029919158,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T19:12:42.820690",
+        "finished_at": "2026-09-25T19:18:40.353587",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 1201677,
+          "n_cache_tokens": 1163262,
+          "n_output_tokens": 19666
+        },
+        "trials": [
+          {
+            "trial": "02-cantilever-overhang__JDXtYPg",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.7656628029919157,
+              "interaction_budget": 50000,
+              "interaction_steps": 2544,
+              "reward": 0.765663,
+              "success_rate": 0.7656628029919157,
+              "task_score": 76.56628029919158,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "claude_code-claude_opus_5_5-20260925T191851-599395c4a45e-03_balance_coins",
+      "status": "completed",
+      "cost_usd": 1.2258656,
+      "reward": 0.666667,
+      "success_rate": 0.6666666666666666,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.6666666666666666,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 6552.0,
+        "reward": 0.666667,
+        "success_rate": 0.6666666666666666,
+        "task_score": 66.66666666666666,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T19:18:51.361726",
+        "finished_at": "2026-09-25T19:27:23.365705",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 1960805,
+          "n_cache_tokens": 1914688,
+          "n_output_tokens": 23720
+        },
+        "trials": [
+          {
+            "trial": "03-balance-coins__deqnMNi",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.6666666666666666,
+              "interaction_budget": 50000,
+              "interaction_steps": 6552,
+              "reward": 0.666667,
+              "success_rate": 0.6666666666666666,
+              "task_score": 66.66666666666666,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "claude_code-claude_opus_5_5-20260925T192733-f7058076e917-04_rubik_cube",
+      "status": "completed",
+      "cost_usd": 27.86006119999999,
+      "reward": 0.881591,
+      "success_rate": 1.0,
+      "metrics": {
+        "actual_qtm": 13.0,
+        "component_efficiency": 0.0,
+        "component_outcome": 0.8815912549960212,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 16013.0,
+        "optimal_qtm": 11.0,
+        "recoveries": 19.0,
+        "reward": 0.881591,
+        "success_rate": 1.0,
+        "task_score": 88.15912549960213,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0,
+        "unclassified_transitions": 0.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T19:27:33.602858",
+        "finished_at": "2026-09-25T20:45:46.614023",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 78244631,
+          "n_cache_tokens": 77722066,
+          "n_output_tokens": 406868
+        },
+        "trials": [
+          {
+            "trial": "04-rubik-cube__9tboXW3",
+            "rewards": {
+              "actual_qtm": 13,
+              "component_efficiency": 0.0,
+              "component_outcome": 0.8815912549960212,
+              "interaction_budget": 50000,
+              "interaction_steps": 16013,
+              "optimal_qtm": 11,
+              "recoveries": 19,
+              "reward": 0.881591,
+              "success_rate": 1.0,
+              "task_score": 88.15912549960213,
+              "trials_attempted": 1,
+              "trials_total": 1,
+              "unclassified_transitions": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "claude_code-claude_opus_5_5-20260925T204606-d9199b6a39d0-05_hidden_center_of_mass",
+      "status": "completed",
+      "cost_usd": 1.9279697999999998,
+      "reward": 1.0,
+      "success_rate": null,
+      "metrics": {
+        "control_steps": 6173.0,
+        "correct": 3.0,
+        "reward": 1.0,
+        "submitted": 3.0,
+        "trial_1_control_steps": 3973.0,
+        "trial_1_correct": 1.0,
+        "trial_1_reward": 1.0,
+        "trial_1_submitted": 1.0,
+        "trial_2_control_steps": 1100.0,
+        "trial_2_correct": 1.0,
+        "trial_2_reward": 1.0,
+        "trial_2_submitted": 1.0,
+        "trial_3_control_steps": 1100.0,
+        "trial_3_correct": 1.0,
+        "trial_3_reward": 1.0,
+        "trial_3_submitted": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T20:46:06.626350",
+        "finished_at": "2026-09-25T20:56:34.068292",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 2724451,
+          "n_cache_tokens": 2652889,
+          "n_output_tokens": 41268
+        },
+        "trials": [
+          {
+            "trial": "05-hidden-center-of-mass__FnPmy3E",
+            "rewards": {
+              "reward": 1.0,
+              "correct": 3,
+              "submitted": 3,
+              "control_steps": 6173,
+              "trial_1_reward": 1.0,
+              "trial_1_correct": 1,
+              "trial_1_submitted": 1,
+              "trial_1_control_steps": 3973,
+              "trial_2_reward": 1.0,
+              "trial_2_correct": 1,
+              "trial_2_submitted": 1,
+              "trial_2_control_steps": 1100,
+              "trial_3_reward": 1.0,
+              "trial_3_correct": 1,
+              "trial_3_submitted": 1,
+              "trial_3_control_steps": 1100
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "codex-gpt_6_1_sol-20260929T232608-682eb899ce71-01_tower_max_height",
+      "status": "completed",
+      "cost_usd": 2.8987104000000006,
+      "reward": 0.39406,
+      "success_rate": 0.39406001883448244,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.39406001883448244,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 49928.0,
+        "reward": 0.39406,
+        "success_rate": 0.39406001883448244,
+        "task_score": 39.40600188344824,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-29T23:26:08.023418",
+        "finished_at": "2026-09-30T00:28:45.039364",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 17076372,
+          "n_cache_tokens": 16732544,
+          "n_output_tokens": 53780
+        },
+        "trials": [
+          {
+            "trial": "01-tower-max-height__ybtQVfz",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.39406001883448244,
+              "interaction_budget": 50000,
+              "interaction_steps": 49928,
+              "reward": 0.39406,
+              "success_rate": 0.39406001883448244,
+              "task_score": 39.40600188344824,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "codex-gpt_6_1_sol-20260929T232739-0e3513e8fe00-02_cantilever_overhang",
+      "status": "completed",
+      "cost_usd": 0.38518,
+      "reward": 0.594303,
+      "success_rate": 0.5943030188313095,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.5943030188313095,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 5231.0,
+        "reward": 0.594303,
+        "success_rate": 0.5943030188313095,
+        "task_score": 59.43030188313095,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-29T23:27:39.381626",
+        "finished_at": "2026-09-29T23:40:44.489729",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 1415100,
+          "n_cache_tokens": 1344000,
+          "n_output_tokens": 10858
+        },
+        "trials": [
+          {
+            "trial": "02-cantilever-overhang__uXMqsG8",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.5943030188313095,
+              "interaction_budget": 50000,
+              "interaction_steps": 5231,
+              "reward": 0.594303,
+              "success_rate": 0.5943030188313095,
+              "task_score": 59.43030188313095,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "codex-gpt_6_1_sol-20260929T232810-9b15c42f0824-03_balance_coins",
+      "status": "completed",
+      "cost_usd": 0.6297876000000002,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 1.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 12311.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "task_score": 100.0,
+        "trials_attempted": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-29T23:28:10.764931",
+        "finished_at": "2026-09-29T23:45:42.286175",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 2713172,
+          "n_cache_tokens": 2589056,
+          "n_output_tokens": 12265
+        },
+        "trials": [
+          {
+            "trial": "03-balance-coins__JDn9ucm",
+            "rewards": {
+              "component_efficiency": 0.0,
+              "component_outcome": 1.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 12311,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "task_score": 100.0,
+              "trials_attempted": 1,
+              "trials_total": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "codex-gpt_6_1_sol-20260929T232842-e933c3808c4d-04_rubik_cube",
+      "status": "completed",
+      "cost_usd": 8.9565344,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "actual_qtm": 19.0,
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 0.0,
+        "optimal_qtm": 11.0,
+        "recoveries": 26.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "task_score": 0.0,
+        "unclassified_transitions": 0.0
+      },
+      "extra": {
+        "started_at": "2026-09-29T23:28:42.088642",
+        "finished_at": "2026-09-30T03:37:25.482179",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 41264513,
+          "n_cache_tokens": 40081664,
+          "n_output_tokens": 258267
+        },
+        "trials": [
+          {
+            "trial": "04-rubik-cube__UVJ8Ghq",
+            "rewards": {
+              "actual_qtm": 19,
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "interaction_budget": 50000,
+              "interaction_steps": 0,
+              "optimal_qtm": 11,
+              "recoveries": 26,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "task_score": 0.0,
+              "unclassified_transitions": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "codex-gpt_6_1_sol-20260929T234111-614ea8ff4de9-05_hidden_center_of_mass",
+      "status": "completed",
+      "cost_usd": 0.22469080000000005,
+      "reward": 1.0,
+      "success_rate": null,
+      "metrics": {
+        "control_steps": 1135.0,
+        "correct": 3.0,
+        "reward": 1.0,
+        "submitted": 3.0,
+        "trial_1_control_steps": 820.0,
+        "trial_1_correct": 1.0,
+        "trial_1_reward": 1.0,
+        "trial_1_submitted": 1.0,
+        "trial_2_control_steps": 160.0,
+        "trial_2_correct": 1.0,
+        "trial_2_reward": 1.0,
+        "trial_2_submitted": 1.0,
+        "trial_3_control_steps": 155.0,
+        "trial_3_correct": 1.0,
+        "trial_3_reward": 1.0,
+        "trial_3_submitted": 1.0
+      },
+      "extra": {
+        "started_at": "2026-09-29T23:41:11.712253",
+        "finished_at": "2026-09-29T23:49:05.198790",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 534204,
+          "n_cache_tokens": 479488,
+          "n_output_tokens": 6731
+        },
+        "trials": [
+          {
+            "trial": "05-hidden-center-of-mass__b5Cka9D",
+            "rewards": {
+              "reward": 1.0,
+              "correct": 3,
+              "submitted": 3,
+              "control_steps": 1135,
+              "trial_1_reward": 1.0,
+              "trial_1_correct": 1,
+              "trial_1_submitted": 1,
+              "trial_1_control_steps": 820,
+              "trial_2_reward": 1.0,
+              "trial_2_correct": 1,
+              "trial_2_submitted": 1,
+              "trial_2_control_steps": 160,
+              "trial_3_reward": 1.0,
+              "trial_3_correct": 1,
+              "trial_3_submitted": 1,
+              "trial_3_control_steps": 155
+            }
+          }
+        ]
+      }
     }
   ]
 }

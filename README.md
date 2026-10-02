@@ -12,6 +12,24 @@ The preview server supports HTTP byte ranges, which browsers need for video
 seeking. Plain `python3 -m http.server` may report a zero-length seekable range
 even after a clip has downloaded. GitHub Pages already supports range requests.
 
+## Report and citation
+
+The RLE-Bench report is on arXiv: [https://arxiv.org/pdf/2609.34210v2](https://arxiv.org/pdf/2609.34210v2). The header's Report link
+(`meta.arxiv` in `data.js`) and the homepage News item point to it. Please cite:
+
+```bibtex
+@article{ma2026rlebench,
+  title         = {{RLE-Bench}: A Qualifying Exam for Coding Agents as Robot Learning Engineers},
+  author        = {Ma, Haitong and Gao, Chenxiao and Qiang, Rushi and Dai, Bo and Li, Na},
+  journal       = {arXiv preprint arXiv:2609.34210},
+  year          = {2026},
+  eprint        = {2609.34210},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.RO},
+  url           = {https://arxiv.org/abs/2609.34210}
+}
+```
+
 ## Search discovery
 
 The homepage identifies the site as **RLE-Bench**, with **rlebench** as its
@@ -106,7 +124,7 @@ over HTTP (for example `python3 -m http.server 8000`) rather than opened via
 In `data.js`:
 
 - `presentation` — task order and public T01–T09 numbers (task IDs equal the public numbers). `snapshotTaskIds` lists the tasks eligible for the index; `app.js` intersects it with the tasks reported in the leaderboard JSON. `workflows` defines the two-level task breakdown: each workflow (interactive control, policy development, perception and estimation, mechanical design) lists the task IDs it groups, in display order; any task left out lands in a trailing "Other tasks" group. The homepage shows the workflows as a first tab row and only the selected workflow's tasks as a second row; deep links such as `?task=task04` select the matching workflow automatically.
-- `meta` — version string, updated date, header links (`github`, `arxiv`), and `dataStatus`. An empty `arxiv` renders the nav item greyed
+- `meta` — version string, updated date, header links (`github`, `arxiv`), and `dataStatus`. The static pages hard-code the Report link; the blog also reads `arxiv` at load time. An empty `arxiv` renders the nav item greyed
   out rather than pointing nowhere; an empty `github` drops that item entirely.
   The shared Contact panel and its email addresses live in `navigation.js`.
   `dataStatus` controls the source-status labels in charts and exports. The
@@ -131,7 +149,7 @@ concatenated into their respective `taskNN.json` files; do not append them again
 The T05 supplement's 20 new runs have also been appended to `task05.json`, skipping
 its 32 existing evaluations with renamed job paths. The exporter recognizes both
 the legacy track slugs and the new `task1`–`task4` paths.
-`export.py` excludes K3 and Gemini 3.8 Flash runs from every task's
+`export.py` excludes K3, Gemini 3.8 Flash and GPT-6 Luna runs from every task's
 public results while preserving them in the source dumps. Oracle runs are also
 excluded by default. Grok, Fable, DeepSeek and the other existing models remain
 visible. This policy applies to both the homepage and blog through the generated JSON.

@@ -31,7 +31,7 @@ Output layout (all scores are on a 0-1 scale)::
 same number as ``T01``. Only the tasks listed in ``TASKS`` below are exported; add a
 ``TaskSpec`` there when a new dump lands.
 
-K3 and Gemini 3.8 Flash runs stay in the source dumps but are excluded
+K3, Gemini 3.8 Flash and GPT-6 Luna runs stay in the source dumps but are excluded
 from the public leaderboard across all tasks. Grok, Fable, DeepSeek and the other
 existing models are exported.
 
@@ -85,13 +85,17 @@ MODELS: tuple[ModelSpec, ...] = (
     ModelSpec("grok-4-6", "Grok 4.6", "Grok 4.6", "xAI", False, ("grok-4-6",)),
     ModelSpec("fable51", "Claude Fable 5.1", "Fable 5.1", "Anthropic", False, ("claude-fable-5-1",)),
     ModelSpec("deepseek-flash", "DeepSeek-V4.1-Flash", "DeepSeek-V4.1-Flash", "DeepSeek AI", False, ("deepseek-flash",)),
+    ModelSpec("opus55", "Claude Opus 5.5", "Opus 5.5", "Anthropic", False, ("claude-opus-5-5", "claude-opus-5-5[1m]")),
+    ModelSpec("gpt6luna", "GPT-6 Luna", "GPT-6 Luna", "OpenAI", False, ("gpt-6-luna",)),
+    ModelSpec("gpt61sol", "GPT-6.1 Sol", "GPT-6.1 Sol", "OpenAI", False, ("gpt-6-1-sol",)),
 )
 
 # Reasoning-effort suffixes that some dumps append to the model string.
 EFFORT_SUFFIXES = ("-xhigh", "-high", "-medium", "-low", "-minimal")
 
 # Public display policy, applied before grouping or scoring any task's runs.
-EXCLUDED_MODEL_PREFIXES = ("k3", "gemini-3-8-flash")
+# gpt-6-luna is hidden for now; its T01/T02 runs stay in the dumps.
+EXCLUDED_MODEL_PREFIXES = ("k3", "gemini-3-8-flash", "gpt-6-luna")
 
 # Harness detection from the ``agent`` field of a run. First match wins.
 HARNESSES: tuple[tuple[str, str], ...] = (

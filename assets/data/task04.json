@@ -3651,6 +3651,664 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "claude_code-claude_opus_5_5-20260925T204637-2b64f92402d0-01_dance",
+      "status": "completed",
+      "cost_usd": 1.1043816,
+      "reward": 0.8187,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1445,
+        "anchor_pos_err_m": 0.6751,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1395,
+        "mpjpe_m": 0.0328,
+        "n_params": 250717.0,
+        "obs_history_length": 1.0,
+        "raw_total": 0.8187,
+        "reward": 0.8187,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.8425,
+        "tracking_score": 0.9864
+      },
+      "extra": {
+        "started_at": "2026-09-25T20:46:37.500607",
+        "finished_at": "2026-09-26T00:12:08.246957",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 2110514,
+          "n_cache_tokens": 2055888,
+          "n_output_tokens": 12825
+        },
+        "trials": [
+          {
+            "trial": "01-dance__mshGnxb",
+            "rewards": {
+              "reward": 0.8187,
+              "raw_total": 0.8187,
+              "gated": 0,
+              "tracking_score": 0.9864,
+              "tracking_multi": 0.8425,
+              "mpjpe_m": 0.0328,
+              "anchor_pos_err_m": 0.6751,
+              "joint_rmse_rad": 0.1395,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1445,
+              "falls": 0.0,
+              "n_params": 250717.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 1.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "claude_code-claude_opus_5_5-20260925T205649-99ef66aa6142-02_fight",
+      "status": "completed",
+      "cost_usd": 2.018372,
+      "reward": 0.7086,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1689,
+        "anchor_pos_err_m": 1.1554,
+        "falls": 1.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1746,
+        "mpjpe_m": 0.0457,
+        "n_params": 828765.0,
+        "obs_history_length": 1.0,
+        "raw_total": 0.7086,
+        "reward": 0.7086,
+        "survival": 0.964,
+        "survived_s": 19.28,
+        "tracking_multi": 0.7266,
+        "tracking_score": 0.9381
+      },
+      "extra": {
+        "started_at": "2026-09-25T20:56:49.185467",
+        "finished_at": "2026-09-25T23:04:59.349498",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 4039996,
+          "n_cache_tokens": 3961900,
+          "n_output_tokens": 30084
+        },
+        "trials": [
+          {
+            "trial": "02-fight__5uTJUBq",
+            "rewards": {
+              "reward": 0.7086,
+              "raw_total": 0.7086,
+              "gated": 0,
+              "tracking_score": 0.9381,
+              "tracking_multi": 0.7266,
+              "mpjpe_m": 0.0457,
+              "anchor_pos_err_m": 1.1554,
+              "joint_rmse_rad": 0.1746,
+              "survival": 0.964,
+              "survived_s": 19.28,
+              "action_jerk": 0.1689,
+              "falls": 1.0,
+              "n_params": 828765.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 1.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "claude_code-claude_opus_5_5-20260926T000847-e700dea019b4-03_fall_and_get_up",
+      "status": "completed",
+      "cost_usd": 4.290109800000001,
+      "reward": 0.8216,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1183,
+        "anchor_pos_err_m": 0.4645,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.3119,
+        "mpjpe_m": 0.0353,
+        "n_params": 250717.0,
+        "obs_history_length": 1.0,
+        "raw_total": 0.8216,
+        "reward": 0.8216,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.8281,
+        "tracking_score": 0.9814
+      },
+      "extra": {
+        "started_at": "2026-09-26T00:08:47.936009",
+        "finished_at": "2026-09-26T03:59:27.096290",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 10555660,
+          "n_cache_tokens": 10430729,
+          "n_output_tokens": 60273
+        },
+        "trials": [
+          {
+            "trial": "03-fall-and-get-up__5Zp37uG",
+            "rewards": {
+              "reward": 0.8216,
+              "raw_total": 0.8216,
+              "gated": 0,
+              "tracking_score": 0.9814,
+              "tracking_multi": 0.8281,
+              "mpjpe_m": 0.0353,
+              "anchor_pos_err_m": 0.4645,
+              "joint_rmse_rad": 0.3119,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1183,
+              "falls": 0.0,
+              "n_params": 250717.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 1.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "claude_code-claude_opus_5_5-20260926T014813-d2125a186833-04_run",
+      "status": "completed",
+      "cost_usd": 2.8855385999999994,
+      "reward": 0.7743,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1161,
+        "anchor_pos_err_m": 0.9464,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1342,
+        "mpjpe_m": 0.0439,
+        "n_params": 1157085.0,
+        "obs_history_length": 3.0,
+        "raw_total": 0.7743,
+        "reward": 0.7743,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.759,
+        "tracking_score": 0.9769
+      },
+      "extra": {
+        "started_at": "2026-09-26T01:48:13.864478",
+        "finished_at": "2026-09-26T05:35:20.100552",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 6397288,
+          "n_cache_tokens": 6296713,
+          "n_output_tokens": 41111
+        },
+        "trials": [
+          {
+            "trial": "04-run__FqRJGkK",
+            "rewards": {
+              "reward": 0.7743,
+              "raw_total": 0.7743,
+              "gated": 0,
+              "tracking_score": 0.9769,
+              "tracking_multi": 0.759,
+              "mpjpe_m": 0.0439,
+              "anchor_pos_err_m": 0.9464,
+              "joint_rmse_rad": 0.1342,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1161,
+              "falls": 0.0,
+              "n_params": 1157085.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 3.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "claude_code-claude_opus_5_5-20260926T014845-294afd997f82-05_sprint",
+      "status": "completed",
+      "cost_usd": 0.552795,
+      "reward": 0.0,
+      "success_rate": null,
+      "metrics": {
+        "gate_deterministic": 0.0,
+        "gate_stable": 0.0,
+        "gate_valid": 0.0,
+        "gated": 1.0,
+        "raw_total": 0.0,
+        "reward": 0.0
+      },
+      "extra": {
+        "started_at": "2026-09-26T01:48:45.120559",
+        "finished_at": "2026-09-26T01:54:35.522425",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 464566,
+          "n_cache_tokens": 422075,
+          "n_output_tokens": 6427
+        },
+        "trials": [
+          {
+            "trial": "05-sprint__uWVDYMy",
+            "rewards": {
+              "reward": 0.0,
+              "raw_total": 0.0,
+              "gated": 1,
+              "gate_valid": 0,
+              "gate_stable": 0,
+              "gate_deterministic": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "codex-gpt_6_1_sol-20260929T234553-0a1e81763fc7-01_dance",
+      "status": "failed",
+      "cost_usd": 4.6940588000000005,
+      "reward": 0.7688,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1561,
+        "anchor_pos_err_m": 0.8355,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.2578,
+        "mpjpe_m": 0.0411,
+        "n_params": 1244706.0,
+        "obs_history_length": 3.0,
+        "raw_total": 0.7688,
+        "reward": 0.7688,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.7793,
+        "tracking_score": 0.9799
+      },
+      "extra": {
+        "started_at": "2026-09-29T23:45:53.486238",
+        "finished_at": "2026-09-30T03:50:53.905281",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 1,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 18434908,
+          "n_cache_tokens": 17868288,
+          "n_output_tokens": 177399
+        },
+        "trials": [
+          {
+            "trial": "01-dance__dN4zyAb",
+            "rewards": {
+              "reward": 0.7688,
+              "raw_total": 0.7688,
+              "gated": 0,
+              "tracking_score": 0.9799,
+              "tracking_multi": 0.7793,
+              "mpjpe_m": 0.0411,
+              "anchor_pos_err_m": 0.8355,
+              "joint_rmse_rad": 0.2578,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1561,
+              "falls": 0.0,
+              "n_params": 1244706.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 3.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "codex-gpt_6_1_sol-20260929T234931-965b4aac1f07-02_fight",
+      "status": "failed",
+      "cost_usd": 4.9036188,
+      "reward": 0.7505,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.21,
+        "anchor_pos_err_m": 1.0865,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1785,
+        "mpjpe_m": 0.0397,
+        "n_params": 1158603.0,
+        "obs_history_length": 6.0,
+        "raw_total": 0.7505,
+        "reward": 0.7505,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.7909,
+        "tracking_score": 0.9808
+      },
+      "extra": {
+        "started_at": "2026-09-29T23:49:31.644931",
+        "finished_at": "2026-09-30T03:54:22.262996",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 1,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 18381177,
+          "n_cache_tokens": 17671808,
+          "n_output_tokens": 171770
+        },
+        "trials": [
+          {
+            "trial": "02-fight__K6KKhj5",
+            "rewards": {
+              "reward": 0.7505,
+              "raw_total": 0.7505,
+              "gated": 0,
+              "tracking_score": 0.9808,
+              "tracking_multi": 0.7909,
+              "mpjpe_m": 0.0397,
+              "anchor_pos_err_m": 1.0865,
+              "joint_rmse_rad": 0.1785,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.21,
+              "falls": 0.0,
+              "n_params": 1158603.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 6.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "codex-gpt_6_1_sol-20260930T002918-8e143f35081c-03_fall_and_get_up",
+      "status": "completed",
+      "cost_usd": 5.659972399999997,
+      "reward": 0.8567,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1048,
+        "anchor_pos_err_m": 0.3869,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1901,
+        "mpjpe_m": 0.0292,
+        "n_params": 3455947.0,
+        "obs_history_length": 16.0,
+        "raw_total": 0.8567,
+        "reward": 0.8567,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.8687,
+        "tracking_score": 0.9862
+      },
+      "extra": {
+        "started_at": "2026-09-30T00:29:18.483397",
+        "finished_at": "2026-09-30T04:34:21.256216",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 23927595,
+          "n_cache_tokens": 23143808,
+          "n_output_tokens": 176671
+        },
+        "trials": [
+          {
+            "trial": "03-fall-and-get-up__eFUYyKp",
+            "rewards": {
+              "reward": 0.8567,
+              "raw_total": 0.8567,
+              "gated": 0,
+              "tracking_score": 0.9862,
+              "tracking_multi": 0.8687,
+              "mpjpe_m": 0.0292,
+              "anchor_pos_err_m": 0.3869,
+              "joint_rmse_rad": 0.1901,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1048,
+              "falls": 0.0,
+              "n_params": 3455947.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 16.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "codex-gpt_6_1_sol-20260930T033737-227285ec3cdb-04_run",
+      "status": "failed",
+      "cost_usd": 5.561877999999997,
+      "reward": 0.7395,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.2561,
+        "anchor_pos_err_m": 1.2015,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.2393,
+        "mpjpe_m": 0.0375,
+        "n_params": 1553163.0,
+        "obs_history_length": 4.0,
+        "raw_total": 0.7395,
+        "reward": 0.7395,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.8075,
+        "tracking_score": 0.983
+      },
+      "extra": {
+        "started_at": "2026-09-30T03:37:37.026515",
+        "finished_at": "2026-09-30T07:42:06.858881",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 1,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 18987172,
+          "n_cache_tokens": 18119040,
+          "n_output_tokens": 201371
+        },
+        "trials": [
+          {
+            "trial": "04-run__Cy2DYhR",
+            "rewards": {
+              "reward": 0.7395,
+              "raw_total": 0.7395,
+              "gated": 0,
+              "tracking_score": 0.983,
+              "tracking_multi": 0.8075,
+              "mpjpe_m": 0.0375,
+              "anchor_pos_err_m": 1.2015,
+              "joint_rmse_rad": 0.2393,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.2561,
+              "falls": 0.0,
+              "n_params": 1553163.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 4.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "codex-gpt_6_1_sol-20260930T035102-39a1365296b7-05_sprint",
+      "status": "failed",
+      "cost_usd": 3.6152744,
+      "reward": 0.7904,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.2133,
+        "anchor_pos_err_m": 2.8327,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.2521,
+        "mpjpe_m": 0.0317,
+        "n_params": 1016388.0,
+        "obs_history_length": 6.0,
+        "raw_total": 0.7904,
+        "reward": 0.7904,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.8502,
+        "tracking_score": 0.9855
+      },
+      "extra": {
+        "started_at": "2026-09-30T03:51:02.616422",
+        "finished_at": "2026-09-30T07:55:42.372654",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 1,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 23860813,
+          "n_cache_tokens": 23614464,
+          "n_output_tokens": 76113
+        },
+        "trials": [
+          {
+            "trial": "05-sprint__zEWurZs",
+            "rewards": {
+              "reward": 0.7904,
+              "raw_total": 0.7904,
+              "gated": 0,
+              "tracking_score": 0.9855,
+              "tracking_multi": 0.8502,
+              "mpjpe_m": 0.0317,
+              "anchor_pos_err_m": 2.8327,
+              "joint_rmse_rad": 0.2521,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.2133,
+              "falls": 0.0,
+              "n_params": 1016388.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 6.0
+            }
+          }
+        ]
+      }
     }
   ]
 }

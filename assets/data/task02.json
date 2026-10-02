@@ -9476,6 +9476,2166 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "01-washing-dishes/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 23.922432800000003,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 65925.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T01:21:41.119995",
+        "finished_at": "2026-09-25T03:55:53.193699",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 60765999,
+          "n_cache_tokens": 60130684,
+          "n_output_tokens": 340850
+        },
+        "trials": [
+          {
+            "trial": "01-washing-dishes__BA4DhMG",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 65925,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "01-washing-dishes/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 1.33714278,
+      "reward": 0.6,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 3114.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.6,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-24T21:49:16.052730",
+        "finished_at": "2026-09-25T02:23:09.117214",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 95010243,
+          "n_cache_tokens": 93353728,
+          "n_output_tokens": 475908
+        },
+        "trials": [
+          {
+            "trial": "01-washing-dishes__mvyVxy6",
+            "rewards": {
+              "reward": 0.6,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 3114,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "02-sauteing-vegetables/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 45.15553180000002,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 70042.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T03:55:56.733721",
+        "finished_at": "2026-09-25T06:36:40.805051",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 140709197,
+          "n_cache_tokens": 139636699,
+          "n_output_tokens": 432622
+        },
+        "trials": [
+          {
+            "trial": "02-sauteing-vegetables__sHAu8f4",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 70042,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "02-sauteing-vegetables/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 1.7215426399999998,
+      "reward": 0.5,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 14834.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T02:23:10.760303",
+        "finished_at": "2026-09-25T08:22:51.726668",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 118727191,
+          "n_cache_tokens": 116767744,
+          "n_output_tokens": 715841
+        },
+        "trials": [
+          {
+            "trial": "02-sauteing-vegetables__MZfrGHj",
+            "rewards": {
+              "reward": 0.5,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 14834,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "03-baking/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 73.21902780000002,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 72500.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-26T14:03:23.160464",
+        "finished_at": "2026-09-26T18:11:26.895901",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 189011225,
+          "n_cache_tokens": 186279859,
+          "n_output_tokens": 705932
+        },
+        "trials": [
+          {
+            "trial": "03-baking__BD7ZDka",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 72500,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "03-baking/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 2.3183722799999984,
+      "reward": 0.2,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 17688.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.2,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T08:22:52.948600",
+        "finished_at": "2026-09-25T15:55:49.426873",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 170568650,
+          "n_cache_tokens": 168183808,
+          "n_output_tokens": 796100
+        },
+        "trials": [
+          {
+            "trial": "03-baking__5y4iGgm",
+            "rewards": {
+              "reward": 0.2,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 17688,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "04-reheating-food/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 31.489970200000002,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 75000.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-26T18:11:31.532733",
+        "finished_at": "2026-09-26T21:41:26.399100",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 85281057,
+          "n_cache_tokens": 84488671,
+          "n_output_tokens": 412869
+        },
+        "trials": [
+          {
+            "trial": "04-reheating-food__A4FWLAB",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 75000,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "04-reheating-food/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 2.744306160000002,
+      "reward": 0.3,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 73505.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.3,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-26T03:50:45.910521",
+        "finished_at": "2026-09-26T11:46:22.902882",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 198604876,
+          "n_cache_tokens": 195814016,
+          "n_output_tokens": 1014160
+        },
+        "trials": [
+          {
+            "trial": "04-reheating-food__csHHg8v",
+            "rewards": {
+              "reward": 0.3,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 73505,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "05-chopping-food/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 26.659425599999995,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 71943.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-26T21:41:29.396225",
+        "finished_at": "2026-09-27T00:27:41.094875",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 73033491,
+          "n_cache_tokens": 72424808,
+          "n_output_tokens": 365398
+        },
+        "trials": [
+          {
+            "trial": "05-chopping-food__SN2BtKx",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 71943,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "05-chopping-food/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 1.4827619199999997,
+      "reward": 0.2,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 24142.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.2,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-26T11:46:24.476678",
+        "finished_at": "2026-09-26T16:28:49.661605",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 104953735,
+          "n_cache_tokens": 103306112,
+          "n_output_tokens": 569877
+        },
+        "trials": [
+          {
+            "trial": "05-chopping-food__xKSaipj",
+            "rewards": {
+              "reward": 0.2,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 24142,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "06-setting-the-table/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 36.858579,
+      "reward": 0.9,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 75000.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.9,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-27T00:27:44.024879",
+        "finished_at": "2026-09-27T03:31:15.609929",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 95234475,
+          "n_cache_tokens": 94065535,
+          "n_output_tokens": 434934
+        },
+        "trials": [
+          {
+            "trial": "06-setting-the-table__zSqYwa2",
+            "rewards": {
+              "reward": 0.9,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 75000,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "06-setting-the-table/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 1.19031264,
+      "reward": 0.05,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 5196.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.05,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-26T16:28:50.962328",
+        "finished_at": "2026-09-26T20:17:05.514647",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 82005795,
+          "n_cache_tokens": 80610304,
+          "n_output_tokens": 489321
+        },
+        "trials": [
+          {
+            "trial": "06-setting-the-table__f27dBzi",
+            "rewards": {
+              "reward": 0.05,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 5196,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "07-portioning-meals/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 46.984071999999976,
+      "reward": 0.95,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 74634.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.95,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-27T03:31:19.374823",
+        "finished_at": "2026-09-27T07:09:56.579043",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 131984931,
+          "n_cache_tokens": 130698620,
+          "n_output_tokens": 527993
+        },
+        "trials": [
+          {
+            "trial": "07-portioning-meals__CbGLG2X",
+            "rewards": {
+              "reward": 0.95,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 74634,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "07-portioning-meals/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 2.810128859999998,
+      "reward": 0.1,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 40947.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.1,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-26T20:17:07.201323",
+        "finished_at": "2026-09-27T07:27:00.381213",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 210811872,
+          "n_cache_tokens": 207800576,
+          "n_output_tokens": 861987
+        },
+        "trials": [
+          {
+            "trial": "07-portioning-meals__Xe9kXng",
+            "rewards": {
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 40947,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "08-defrosting-food/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 41.467703199999974,
+      "reward": 0.75,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 74032.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.75,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-27T07:10:01.098048",
+        "finished_at": "2026-09-27T10:04:54.021085",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 116201332,
+          "n_cache_tokens": 114959536,
+          "n_output_tokens": 427321
+        },
+        "trials": [
+          {
+            "trial": "08-defrosting-food__Ec3BS2E",
+            "rewards": {
+              "reward": 0.75,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 74032,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "08-defrosting-food/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 4.013700259999999,
+      "reward": 0.1,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 31095.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.1,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-27T07:27:01.603522",
+        "finished_at": "2026-09-27T19:14:33.195082",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 298166122,
+          "n_cache_tokens": 294236416,
+          "n_output_tokens": 1356731
+        },
+        "trials": [
+          {
+            "trial": "08-defrosting-food__QHjJH4n",
+            "rewards": {
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 31095,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "09-arranging-buffet/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 37.6132198,
+      "reward": 0.6166666666666667,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 74418.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.6166666666666667,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-27T10:04:58.227484",
+        "finished_at": "2026-09-27T13:50:48.032668",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 94265106,
+          "n_cache_tokens": 93296619,
+          "n_output_tokens": 560506
+        },
+        "trials": [
+          {
+            "trial": "09-arranging-buffet__ni92SJr",
+            "rewards": {
+              "reward": 0.6166666666666667,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 74418,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "09-arranging-buffet/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 1.4294758200000004,
+      "reward": 0.1,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 2586.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.1,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-27T19:14:34.772430",
+        "finished_at": "2026-09-28T00:11:43.656323",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 95762152,
+          "n_cache_tokens": 93887232,
+          "n_output_tokens": 606223
+        },
+        "trials": [
+          {
+            "trial": "09-arranging-buffet__ejWnV9o",
+            "rewards": {
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 2586,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "10-serving-beverages/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 35.80936479999999,
+      "reward": 0.8,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 73234.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.8,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-27T13:50:52.338685",
+        "finished_at": "2026-09-27T17:08:30.738079",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 94391849,
+          "n_cache_tokens": 93323904,
+          "n_output_tokens": 430298
+        },
+        "trials": [
+          {
+            "trial": "10-serving-beverages__rF4t3xJ",
+            "rewards": {
+              "reward": 0.8,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 73234,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "10-serving-beverages/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 2.1813351600000015,
+      "reward": 0.06666666666666667,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 27680.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.06666666666666667,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-28T00:11:45.220844",
+        "finished_at": "2026-09-28T07:40:37.911261",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 159907913,
+          "n_cache_tokens": 157341696,
+          "n_output_tokens": 702593
+        },
+        "trials": [
+          {
+            "trial": "10-serving-beverages__bbT6a4E",
+            "rewards": {
+              "reward": 0.06666666666666667,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 27680,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "11-loading-fridge/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 59.577114,
+      "reward": 0.26666666666666666,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 65767.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.26666666666666666,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-27T17:08:35.024786",
+        "finished_at": "2026-09-27T21:00:11.598338",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 138960049,
+          "n_cache_tokens": 136483550,
+          "n_output_tokens": 623745
+        },
+        "trials": [
+          {
+            "trial": "11-loading-fridge__kxYQpcS",
+            "rewards": {
+              "reward": 0.26666666666666666,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 65767,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "11-loading-fridge/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 1.71205566,
+      "reward": 0.13333333333333333,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 9216.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.13333333333333333,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-28T07:40:39.438836",
+        "finished_at": "2026-09-28T13:13:39.686868",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 125608198,
+          "n_cache_tokens": 123684096,
+          "n_output_tokens": 565609
+        },
+        "trials": [
+          {
+            "trial": "11-loading-fridge__Ddyadz7",
+            "rewards": {
+              "reward": 0.13333333333333333,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 9216,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "12-managing-freezer-space/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 66.29495260000003,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 70507.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-27T21:00:15.294170",
+        "finished_at": "2026-09-28T01:37:30.870956",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 165112789,
+          "n_cache_tokens": 162884103,
+          "n_output_tokens": 794799
+        },
+        "trials": [
+          {
+            "trial": "12-managing-freezer-space__sCSJG6g",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 70507,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "12-managing-freezer-space/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 2.0881238599999996,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 6984.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-28T13:13:40.985605",
+        "finished_at": "2026-09-28T20:23:36.713278",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 149703602,
+          "n_cache_tokens": 147374976,
+          "n_output_tokens": 763023
+        },
+        "trials": [
+          {
+            "trial": "12-managing-freezer-space__xdk9NgP",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 6984,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "13-clearing-table/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 69.8757962,
+      "reward": 0.6666666666666666,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 72375.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.6666666666666666,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-28T01:37:34.749656",
+        "finished_at": "2026-09-28T06:20:47.753484",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 169601897,
+          "n_cache_tokens": 167122681,
+          "n_output_tokens": 831203
+        },
+        "trials": [
+          {
+            "trial": "13-clearing-table__HAeaED3",
+            "rewards": {
+              "reward": 0.6666666666666666,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 72375,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "13-clearing-table/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 2.6601280199999993,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 7325.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-28T20:23:37.973035",
+        "finished_at": "2026-09-29T03:28:16.086265",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 202432871,
+          "n_cache_tokens": 199827712,
+          "n_output_tokens": 802670
+        },
+        "trials": [
+          {
+            "trial": "13-clearing-table__oQJRewn",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 7325,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "14-microwaving-food/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 53.3878928,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 69996.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-28T06:20:51.923739",
+        "finished_at": "2026-09-28T10:45:20.124941",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 137961492,
+          "n_cache_tokens": 136268424,
+          "n_output_tokens": 629790
+        },
+        "trials": [
+          {
+            "trial": "14-microwaving-food__LGHxc5X",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 69996,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "14-microwaving-food/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 1.42095352,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 10238.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-29T03:28:17.760721",
+        "finished_at": "2026-09-29T08:32:53.839215",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 98840196,
+          "n_cache_tokens": 97197312,
+          "n_output_tokens": 569384
+        },
+        "trials": [
+          {
+            "trial": "14-microwaving-food__mHR8ruW",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 10238,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "15-storing-leftovers/claude-code/anthropic_claude-opus-5-5",
+      "status": "completed",
+      "cost_usd": 28.59830979999999,
+      "reward": 0.7333333333333332,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 74036.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7333333333333332,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-28T10:45:24.445970",
+        "finished_at": "2026-09-28T13:35:41.153593",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 69402022,
+          "n_cache_tokens": 68558069,
+          "n_output_tokens": 406982
+        },
+        "trials": [
+          {
+            "trial": "15-storing-leftovers__whPPfmP",
+            "rewards": {
+              "reward": 0.7333333333333332,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 74036,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6-luna",
+      "job": "15-storing-leftovers/codex/openai_gpt-6-luna",
+      "status": "completed",
+      "cost_usd": 1.07312364,
+      "reward": 0.06666666666666667,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 2856.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.06666666666666667,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-25T21:43:29.626753",
+        "finished_at": "2026-09-26T02:02:53.916942",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 72241709,
+          "n_cache_tokens": 70702464,
+          "n_output_tokens": 424349
+        },
+        "trials": [
+          {
+            "trial": "15-storing-leftovers__msULpZo",
+            "rewards": {
+              "reward": 0.06666666666666667,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 2856,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "01-washing-dishes/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 13.395403199999992,
+      "reward": 0.9333333333333333,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 42011.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.9333333333333333,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T10:14:56.500089",
+        "finished_at": "2026-09-30T18:40:00.049844",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 68976301,
+          "n_cache_tokens": 67895552,
+          "n_output_tokens": 444435
+        },
+        "trials": [
+          {
+            "trial": "01-washing-dishes__Y3KdjHW",
+            "rewards": {
+              "reward": 0.9333333333333333,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 42011,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "02-sauteing-vegetables/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 16.857644799999992,
+      "reward": 0.8,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 45239.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.8,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T18:40:01.885147",
+        "finished_at": "2026-10-01T03:12:49.119132",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 79353279,
+          "n_cache_tokens": 77648128,
+          "n_output_tokens": 568253
+        },
+        "trials": [
+          {
+            "trial": "02-sauteing-vegetables__nJgSe8v",
+            "rewards": {
+              "reward": 0.8,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 45239,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "03-baking/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 15.388680400000002,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 66099.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-01T03:14:11.685927",
+        "finished_at": "2026-10-01T11:23:44.045680",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 69558994,
+          "n_cache_tokens": 67890304,
+          "n_output_tokens": 526227
+        },
+        "trials": [
+          {
+            "trial": "03-baking__Gu9Jd2w",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 66099,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "04-reheating-food/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 10.361172400000001,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 30539.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-01T04:42:47.572402",
+        "finished_at": "2026-10-01T11:09:02.663940",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 48812840,
+          "n_cache_tokens": 47775104,
+          "n_output_tokens": 350819
+        },
+        "trials": [
+          {
+            "trial": "04-reheating-food__CShLkSW",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 30539,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "05-chopping-food/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 8.873236799999999,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 22324.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-01T20:58:06.827000",
+        "finished_at": "2026-10-02T00:39:43.470023",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 42922069,
+          "n_cache_tokens": 41906048,
+          "n_output_tokens": 265059
+        },
+        "trials": [
+          {
+            "trial": "05-chopping-food__o5qhqzj",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 22324,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "06-setting-the-table/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 17.7064128,
+      "reward": 0.7,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 47959.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-01T10:19:26.795822",
+        "finished_at": "2026-10-01T19:22:12.130092",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 98771025,
+          "n_cache_tokens": 97276288,
+          "n_output_tokens": 498931
+        },
+        "trials": [
+          {
+            "trial": "06-setting-the-table__Kin7GTa",
+            "rewards": {
+              "reward": 0.7,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 47959,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "07-portioning-meals/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 18.589345200000004,
+      "reward": 0.95,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 47514.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.95,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-01T11:09:56.299017",
+        "finished_at": "2026-10-01T20:26:46.120236",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 93197763,
+          "n_cache_tokens": 91477632,
+          "n_output_tokens": 600132
+        },
+        "trials": [
+          {
+            "trial": "07-portioning-meals__gQAeBo7",
+            "rewards": {
+              "reward": 0.95,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 47514,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "08-defrosting-food/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 17.339483999999995,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 35517.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-01T11:24:18.766288",
+        "finished_at": "2026-10-01T19:56:25.339916",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 92933723,
+          "n_cache_tokens": 91383680,
+          "n_output_tokens": 510103
+        },
+        "trials": [
+          {
+            "trial": "08-defrosting-food__YSMA6VM",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 35517,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "09-arranging-buffet/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 17.852731199999997,
+      "reward": 0.65,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 43155.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.65,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-01T11:56:44.967236",
+        "finished_at": "2026-10-01T21:13:20.593054",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 89567154,
+          "n_cache_tokens": 87935872,
+          "n_output_tokens": 579658
+        },
+        "trials": [
+          {
+            "trial": "09-arranging-buffet__XN8EUgy",
+            "rewards": {
+              "reward": 0.65,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 43155,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "10-serving-beverages/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 19.585318000000004,
+      "reward": 0.5333333333333333,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 66742.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5333333333333333,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-01T19:22:24.884295",
+        "finished_at": "2026-10-02T04:49:43.882752",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 100676729,
+          "n_cache_tokens": 98870400,
+          "n_output_tokens": 608562
+        },
+        "trials": [
+          {
+            "trial": "10-serving-beverages__WQX4XkA",
+            "rewards": {
+              "reward": 0.5333333333333333,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 66742,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "11-loading-fridge/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 21.168435599999995,
+      "reward": 0.6,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 57500.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.6,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-01T19:56:52.054746",
+        "finished_at": "2026-10-02T06:16:29.270073",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 106019021,
+          "n_cache_tokens": 103846016,
+          "n_output_tokens": 640105
+        },
+        "trials": [
+          {
+            "trial": "11-loading-fridge__GvB8DSW",
+            "rewards": {
+              "reward": 0.6,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 57500,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "12-managing-freezer-space/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 21.9514304,
+      "reward": 0.1,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 57108.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.1,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-01T00:16:13.798554",
+        "finished_at": "2026-10-01T10:18:48.935251",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 116832023,
+          "n_cache_tokens": 114967424,
+          "n_output_tokens": 672549
+        },
+        "trials": [
+          {
+            "trial": "12-managing-freezer-space__MNZUacc",
+            "rewards": {
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 57108,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "13-clearing-table/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 16.337836000000006,
+      "reward": 0.8,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 49267.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.8,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T23:59:29.738339",
+        "finished_at": "2026-10-01T08:26:42.311125",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 84688617,
+          "n_cache_tokens": 83141120,
+          "n_output_tokens": 492873
+        },
+        "trials": [
+          {
+            "trial": "13-clearing-table__DmqBmhQ",
+            "rewards": {
+              "reward": 0.8,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 49267,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "14-microwaving-food/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 20.256454400000003,
+      "reward": 0.8666666666666666,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 55309.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.8666666666666666,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T19:11:46.267473",
+        "finished_at": "2026-10-01T04:42:15.005626",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 102554113,
+          "n_cache_tokens": 100728064,
+          "n_output_tokens": 653155
+        },
+        "trials": [
+          {
+            "trial": "14-microwaving-food__kQ9AZm6",
+            "rewards": {
+              "reward": 0.8666666666666666,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 55309,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "15-storing-leftovers/codex/openai_gpt-6.1-sol",
+      "status": "completed",
+      "cost_usd": 19.85176919999999,
+      "reward": 0.5999999999999999,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 64609.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5999999999999999,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-09-30T14:40:58.117327",
+        "finished_at": "2026-09-30T23:51:04.963154",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 98226773,
+          "n_cache_tokens": 95980672,
+          "n_output_tokens": 576150
+        },
+        "trials": [
+          {
+            "trial": "15-storing-leftovers__Tp3cZkQ",
+            "rewards": {
+              "reward": 0.5999999999999999,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 64609,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
     }
   ]
 }

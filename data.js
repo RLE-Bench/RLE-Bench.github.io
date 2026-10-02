@@ -37,7 +37,7 @@ const BENCH = {
     // Header links. Fill `arxiv` in when the report is up — until then the
     // nav shows the link greyed out rather than pointing nowhere.
     github: "https://github.com/RLE-Bench/RLE-Bench",
-    arxiv: "",
+    arxiv: "https://arxiv.org/pdf/2609.34210v2",
   },
 
   /* --- agents under evaluation and their scores ---------------------------

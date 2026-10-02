@@ -815,6 +815,154 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-opus-5-5",
+      "job": "claude_code-claude_opus_5_5-20260926T014915-f9682e09cf8b-task07",
+      "status": "completed",
+      "cost_usd": 14.409789600000005,
+      "reward": 1.0,
+      "success_rate": null,
+      "metrics": {
+        "bin_hits": 0.0,
+        "clear_frac": 1.0,
+        "damage_events": 0.0,
+        "episode_wall_s_total": 1212.7777,
+        "floor_drops": 0.0,
+        "gate_contract": 1.0,
+        "gate_determinism": 1.0,
+        "gate_load": 1.0,
+        "gate_stable": 1.0,
+        "gated": 0.0,
+        "harness_wall_s_total": 1160.6688,
+        "makespan_s": 37.1437,
+        "n_parts": 112.0,
+        "parts_cleared": 112.0,
+        "policy_faults": 0.0,
+        "policy_wall_s_total": 52.1089,
+        "raw_total": 1.0,
+        "reward": 1.0,
+        "speed_merit": 0.8242,
+        "throughput_ppm": 23.7043
+      },
+      "extra": {
+        "started_at": "2026-09-26T01:49:15.752545",
+        "finished_at": "2026-09-26T05:38:27.284096",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 43522513,
+          "n_cache_tokens": 43203488,
+          "n_output_tokens": 160931
+        },
+        "trials": [
+          {
+            "trial": "task07__Fa7bvLg",
+            "rewards": {
+              "reward": 1.0,
+              "raw_total": 1.0,
+              "gated": 0,
+              "clear_frac": 1.0,
+              "parts_cleared": 112.0,
+              "n_parts": 112.0,
+              "speed_merit": 0.8242,
+              "throughput_ppm": 23.7043,
+              "makespan_s": 37.1437,
+              "floor_drops": 0.0,
+              "damage_events": 0.0,
+              "bin_hits": 0.0,
+              "policy_faults": 0.0,
+              "episode_wall_s_total": 1212.7777,
+              "policy_wall_s_total": 52.1089,
+              "harness_wall_s_total": 1160.6688,
+              "gate_load": 1,
+              "gate_contract": 1,
+              "gate_stable": 1,
+              "gate_determinism": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-sol",
+      "job": "codex-gpt_6_1_sol-20260930T003806-fd074620bff1-task07",
+      "status": "completed",
+      "cost_usd": 3.1372447999999995,
+      "reward": 0.8588,
+      "success_rate": null,
+      "metrics": {
+        "bin_hits": 0.0,
+        "clear_frac": 0.9712,
+        "damage_events": 0.0,
+        "episode_wall_s_total": 2645.9553,
+        "floor_drops": 0.0,
+        "gate_contract": 1.0,
+        "gate_determinism": 1.0,
+        "gate_load": 1.0,
+        "gate_stable": 1.0,
+        "gated": 0.0,
+        "harness_wall_s_total": 2605.5752,
+        "makespan_s": 82.525,
+        "n_parts": 112.0,
+        "parts_cleared": 109.0,
+        "policy_faults": 0.0,
+        "policy_wall_s_total": 40.38,
+        "raw_total": 0.8588,
+        "reward": 0.8588,
+        "speed_merit": 0.6003,
+        "throughput_ppm": 10.2385
+      },
+      "extra": {
+        "started_at": "2026-09-30T00:38:06.848106",
+        "finished_at": "2026-09-30T03:13:18.107887",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 13757435,
+          "n_cache_tokens": 13374208,
+          "n_output_tokens": 103337
+        },
+        "trials": [
+          {
+            "trial": "task07__dPwzddN",
+            "rewards": {
+              "reward": 0.8588,
+              "raw_total": 0.8588,
+              "gated": 0,
+              "clear_frac": 0.9712,
+              "parts_cleared": 109.0,
+              "n_parts": 112.0,
+              "speed_merit": 0.6003,
+              "throughput_ppm": 10.2385,
+              "makespan_s": 82.525,
+              "floor_drops": 0.0,
+              "damage_events": 0.0,
+              "bin_hits": 0.0,
+              "policy_faults": 0.0,
+              "episode_wall_s_total": 2645.9553,
+              "policy_wall_s_total": 40.38,
+              "harness_wall_s_total": 2605.5752,
+              "gate_load": 1,
+              "gate_contract": 1,
+              "gate_stable": 1,
+              "gate_determinism": 1
+            }
+          }
+        ]
+      }
     }
   ]
 }
