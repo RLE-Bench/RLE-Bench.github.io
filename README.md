@@ -19,7 +19,7 @@ The RLE-Bench report is on arXiv: [https://arxiv.org/pdf/2609.34210v2](https://a
 
 ```bibtex
 @article{ma2026rlebench,
-  title         = {{RLE-Bench}: A Qualifying Exam for Coding Agents as Robot Learning Engineers},
+  title         = "{RLE-Bench}: A Qualifying Exam for Coding Agents as Robot Learning Engineers",
   author        = {Ma, Haitong and Gao, Chenxiao and Qiang, Rushi and Dai, Bo and Li, Na},
   journal       = {arXiv preprint arXiv:2609.34210},
   year          = {2026},
