@@ -332,7 +332,7 @@
   }
   function costTip(r){
     const meta=costContext();
-    return `<div class="tt-title">${escapeHTML(r.m.name)}</div><div class="tt-line"><span>${meta.scoreLabel}</span><b>${pct(r.score)}</b></div><div class="tt-line"><span>${meta.costLabel}</span><b>${preciseUSD(r.cost)}</b></div><div class="tt-line"><span>Mean agent time</span><b>${num(r.hours)} h</b></div><div class="tt-line"><span>Mean context length</span><b>${tokens(r.context)}</b></div><div class="tt-sub">${escapeHTML(r.m.org)} · ${escapeHTML(r.m.harness)}${isSample?' · Illustrative data':''}</div>`;
+    return `<div class="tt-title">${escapeHTML(r.m.name)}</div><div class="tt-line"><span>${meta.scoreLabel}</span><b>${pct(r.score)}</b></div><div class="tt-line"><span>${meta.costLabel}</span><b>${preciseUSD(r.cost)}</b></div><div class="tt-line"><span>Mean agent time</span><b>${num(r.hours)} h</b></div><div class="tt-line"><span>Mean context length</span><b>${tokens(r.context)}</b></div><div class="tt-sub">${escapeHTML(r.m.org)} · ${escapeHTML(r.m.harness)}${r.onFront?' · On the Pareto front':''}${isSample?' · Illustrative data':''}</div>`;
   }
   function linkCost(node,row){
     node.dataset.costModel=row.m.id;bindTip(node,()=>costTip(row));
@@ -349,6 +349,10 @@
   });
   function logTicks(min,max){
     const out=[];for(let e=Math.floor(Math.log10(min));e<=Math.ceil(Math.log10(max));e++)for(const v of [1,2,5]){const x=v*10**e;if(x>=min&&x<=max)out.push(x);}return out;
+  }
+  function paretoFront(rows){
+    let best=-Infinity;
+    return rows.slice().sort((a,b)=>a.cost-b.cost||b.score-a.score).filter(r=>r.score>best&&(best=r.score,true));
   }
   function renderScatter(){
     const host=$('#scatter');if(!host)return;host.replaceChildren();highlightCost(null);
@@ -380,6 +384,10 @@
     svg.append(mk('line',{x1:M.l,x2:W-M.r,y1:H-M.b,y2:H-M.b},'plot-axis'));
     svg.append(text(`${meta.scoreLabel} · ${yMin}–${yMax}`,{x:M.l,y:12},'plot-axis-title'),text(meta.xLabel,{x:W-M.r,y:H-5,'text-anchor':'end'},'plot-axis-title'));
     const dots=pts.map(p=>({...p,cx:X(p.cost),cy:Y(p.score*100)}));
+    // Pareto front: points no other model beats on both cost (lower) and score (higher).
+    const front=paretoFront(dots);
+    front.forEach(p=>{p.onFront=true;});
+    if(front.length>1)svg.append(mk('polyline',{points:front.map(p=>`${p.cx},${p.cy}`).join(' ')},'plot-pareto'));
     const labels=[];
     if(showNames){
       const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d');ctx.font='12px '+css('--serif');
@@ -402,7 +410,7 @@
     });
     labels.forEach(({p,c,label})=>svg.append(text(label,{x:c.x,y:c.y+11,'data-label-for':p.m.id,'data-cost-model':p.m.id},'plot-label')));
     host.append(svg);
-    $('#costChartNote').textContent='API cost uses a logarithmic scale.';
+    $('#costChartNote').textContent=front.length>1?'Dashed line: Pareto front, the models no other model beats on both score and cost. API cost uses a logarithmic scale.':'API cost uses a logarithmic scale.';
   }
   const sortedCostRows=()=>costRows().sort((a,b)=>{
     const av=a[costSort.key],bv=b[costSort.key];if(!Number.isFinite(av)&&!Number.isFinite(bv))return 0;if(!Number.isFinite(av))return 1;if(!Number.isFinite(bv))return -1;
