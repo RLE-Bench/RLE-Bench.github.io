@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "measured",
-  "generated_at": "2026-10-02T16:51:11Z",
+  "generated_at": "2026-10-27T05:39:26Z",
   "generator": "assets/data/export.py",
   "source": {
     "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId] reports per-subtask means over the task's runs: cost = mean API cost in USD, hours = mean agent wall-clock hours, context_tokens = mean of input_tokens minus cached_tokens per run (the homepage's Context Length). cost_total, hours_total, hours_median and the input/cached/output token counts are the corresponding totals over runs. The homepage's overall figures average these per-task means within each workflow, then across workflows. Missing API cost or token counts stay null. Costs come from the run dumps except for the models listed under source.prices, whose cost is recomputed from token counts because their harness billed them against the wrong price sheet; costs[...].cost_sources and results[...].subtasks[...].cost_source say which applies. Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc.",
@@ -41,63 +41,63 @@
         "file": "task01.json",
         "root": "jobs/task01",
         "schema_version": 1,
-        "runs": 210,
+        "runs": 225,
         "runs_skipped": 0
       },
       "task02": {
         "file": "task02.json",
         "root": "jobs/task02",
         "schema_version": 1,
-        "runs": 210,
+        "runs": 225,
         "runs_skipped": 0
       },
       "task03": {
         "file": "task03.json",
         "root": "jobs/task03",
         "schema_version": 1,
-        "runs": 70,
+        "runs": 75,
         "runs_skipped": 0
       },
       "task04": {
         "file": "task04.json",
         "root": "jobs/task04",
         "schema_version": 1,
-        "runs": 70,
+        "runs": 75,
         "runs_skipped": 0
       },
       "task05": {
         "file": "task05.json",
         "root": "jobs/task05",
         "schema_version": 1,
-        "runs": 68,
+        "runs": 72,
         "runs_skipped": 12
       },
       "task06": {
         "file": "task06.json",
         "root": "jobs/task06",
         "schema_version": 1,
-        "runs": 56,
+        "runs": 60,
         "runs_skipped": 0
       },
       "task07": {
         "file": "task07.json",
         "root": "jobs/task07",
         "schema_version": 1,
-        "runs": 14,
+        "runs": 15,
         "runs_skipped": 0
       },
       "task08": {
         "file": "task08.json",
         "root": "jobs/task08",
         "schema_version": 1,
-        "runs": 14,
+        "runs": 15,
         "runs_skipped": 0
       },
       "task09": {
         "file": "task09.json",
         "root": "jobs/task09",
         "schema_version": 1,
-        "runs": 14,
+        "runs": 15,
         "runs_skipped": 0
       }
     }
@@ -110,6 +110,25 @@
       "org": "OpenAI",
       "open": false,
       "harness": "Codex",
+      "tasks": [
+        "task01",
+        "task02",
+        "task03",
+        "task04",
+        "task05",
+        "task06",
+        "task07",
+        "task08",
+        "task09"
+      ]
+    },
+    {
+      "id": "gemini4argon",
+      "name": "Gemini 4 Argon",
+      "short": "Argon",
+      "org": "Google",
+      "open": false,
+      "harness": "Antigravity CLI",
       "tasks": [
         "task01",
         "task02",
@@ -510,12 +529,13 @@
           "kitchen_task": "05-pick-place-microwave-to-counter"
         }
       ],
-      "n_runs": 210,
+      "n_runs": 225,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
         "gemini37flash",
+        "gemini4argon",
         "glm53flash",
         "gpt56luna",
         "gpt56sol",
@@ -668,12 +688,13 @@
           "heldout_task": "StoreLeftoversInBowl"
         }
       ],
-      "n_runs": 210,
+      "n_runs": 225,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
         "gemini37flash",
+        "gemini4argon",
         "glm53flash",
         "gpt56luna",
         "gpt56sol",
@@ -758,12 +779,13 @@
           "label": "Hidden Center of Mass"
         }
       ],
-      "n_runs": 70,
+      "n_runs": 75,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
         "gemini37flash",
+        "gemini4argon",
         "glm53flash",
         "gpt56luna",
         "gpt56sol",
@@ -848,12 +870,13 @@
           "label": "Sprint"
         }
       ],
-      "n_runs": 70,
+      "n_runs": 75,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
         "gemini37flash",
+        "gemini4argon",
         "glm53flash",
         "gpt56luna",
         "gpt56sol",
@@ -927,12 +950,13 @@
           "label": "RoboTwin · robustness"
         }
       ],
-      "n_runs": 68,
+      "n_runs": 72,
       "n_runs_skipped": 12,
       "models": [
         "deepseek-flash",
         "fable51",
         "gemini37flash",
+        "gemini4argon",
         "glm53flash",
         "gpt56luna",
         "gpt56sol",
@@ -1006,12 +1030,13 @@
           "label": "Method agnostic"
         }
       ],
-      "n_runs": 56,
+      "n_runs": 60,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
         "gemini37flash",
+        "gemini4argon",
         "glm53flash",
         "gpt56luna",
         "gpt56sol",
@@ -1060,12 +1085,13 @@
           "label": "Bin clearing"
         }
       ],
-      "n_runs": 14,
+      "n_runs": 15,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
         "gemini37flash",
+        "gemini4argon",
         "glm53flash",
         "gpt56luna",
         "gpt56sol",
@@ -1135,12 +1161,13 @@
           "label": "Mobile base"
         }
       ],
-      "n_runs": 14,
+      "n_runs": 15,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
         "gemini37flash",
+        "gemini4argon",
         "glm53flash",
         "gpt56luna",
         "gpt56sol",
@@ -1192,12 +1219,13 @@
           "label": "Gravity compensation"
         }
       ],
-      "n_runs": 14,
+      "n_runs": 15,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
         "gemini37flash",
+        "gemini4argon",
         "glm53flash",
         "gpt56luna",
         "gpt56sol",
@@ -1283,6 +1311,11 @@
         0.830165,
         0.621567,
         0.544912
+      ],
+      "gemini4argon": [
+        0.793529,
+        0.660654,
+        0.673468
       ]
     },
     "task02": {
@@ -1355,6 +1388,11 @@
         0.946667,
         0.766667,
         0.593333
+      ],
+      "gemini4argon": [
+        1.0,
+        0.95,
+        0.66
       ]
     },
     "task03": {
@@ -1455,6 +1493,13 @@
         1.0,
         0.0,
         0.0
+      ],
+      "gemini4argon": [
+        0.742527,
+        0.920707,
+        1.0,
+        1.0,
+        1.0
       ]
     },
     "task04": {
@@ -1555,6 +1600,13 @@
         0.0,
         0.123,
         0.3302
+      ],
+      "gemini4argon": [
+        0.8832,
+        0.7982,
+        0.7623,
+        0.8641,
+        0.8659
       ]
     },
     "task05": {
@@ -1641,6 +1693,12 @@
         0.23,
         0.256667,
         0.026667
+      ],
+      "gemini4argon": [
+        0.892,
+        0.83,
+        0.75,
+        0.24
       ]
     },
     "task06": {
@@ -1727,6 +1785,12 @@
         0.0,
         0.0,
         0.0
+      ],
+      "gemini4argon": [
+        0.5523,
+        0.7624,
+        0.2748,
+        0.8453
       ]
     },
     "task07": {
@@ -1785,6 +1849,10 @@
       "gpt6luna": [
         0.4456,
         0.3021
+      ],
+      "gemini4argon": [
+        1.0,
+        0.6216
       ]
     },
     "task08": {
@@ -1885,6 +1953,13 @@
         0.0,
         0.2,
         0.0
+      ],
+      "gemini4argon": [
+        1.0,
+        0.647429,
+        0.0,
+        0.3335,
+        0.666667
       ]
     },
     "task09": {
@@ -1957,6 +2032,11 @@
         0.2253,
         0.1943,
         0.2156
+      ],
+      "gemini4argon": [
+        0.5954,
+        0.4914,
+        0.4402
       ]
     }
   },
@@ -1996,7 +2076,7 @@
       },
       "opus48": {
         "cost": 41.044558,
-        "cost_total": 615.668371,
+        "cost_total": 615.668372,
         "hours": 2.7428,
         "hours_median": 2.5607,
         "hours_total": 41.1426,
@@ -2180,6 +2260,22 @@
         "input_tokens": 164174918,
         "cached_tokens": 161522688,
         "output_tokens": 501759,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 15,
+        "n_subtasks": 15
+      },
+      "gemini4argon": {
+        "cost": null,
+        "cost_total": null,
+        "hours": 0.9444,
+        "hours_median": 0.7752,
+        "hours_total": 14.1657,
+        "context_tokens": null,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
         "cost_sources": [
           "harness"
         ],
@@ -2411,6 +2507,22 @@
         ],
         "n_runs": 15,
         "n_subtasks": 15
+      },
+      "gemini4argon": {
+        "cost": null,
+        "cost_total": null,
+        "hours": 4.7693,
+        "hours_median": 4.8636,
+        "hours_total": 71.539,
+        "context_tokens": null,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 15,
+        "n_subtasks": 15
       }
     },
     "task03": {
@@ -2637,6 +2749,22 @@
         ],
         "n_runs": 5,
         "n_subtasks": 5
+      },
+      "gemini4argon": {
+        "cost": null,
+        "cost_total": null,
+        "hours": 1.0637,
+        "hours_median": 0.4523,
+        "hours_total": 5.3183,
+        "context_tokens": null,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 5,
+        "n_subtasks": 5
       }
     },
     "task04": {
@@ -2673,8 +2801,8 @@
         "n_subtasks": 5
       },
       "opus5": {
-        "cost": 7.638135,
-        "cost_total": 38.190673,
+        "cost": 7.638134,
+        "cost_total": 38.190672,
         "hours": 3.4833,
         "hours_median": 3.4621,
         "hours_total": 17.4166,
@@ -2858,6 +2986,22 @@
         "input_tokens": 304987528,
         "cached_tokens": 301760768,
         "output_tokens": 296521,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 5,
+        "n_subtasks": 5
+      },
+      "gemini4argon": {
+        "cost": null,
+        "cost_total": null,
+        "hours": 3.9216,
+        "hours_median": 3.9518,
+        "hours_total": 19.6078,
+        "context_tokens": null,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
         "cost_sources": [
           "harness"
         ],
@@ -3089,6 +3233,22 @@
         ],
         "n_runs": 4,
         "n_subtasks": 4
+      },
+      "gemini4argon": {
+        "cost": null,
+        "cost_total": null,
+        "hours": 5.6531,
+        "hours_median": 5.2581,
+        "hours_total": 22.6124,
+        "context_tokens": null,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 4,
+        "n_subtasks": 4
       }
     },
     "task06": {
@@ -3302,7 +3462,7 @@
       },
       "gpt6luna": {
         "cost": 0.049348,
-        "cost_total": 0.197392,
+        "cost_total": 0.197393,
         "hours": 0.5394,
         "hours_median": 0.4215,
         "hours_total": 2.1576,
@@ -3310,6 +3470,22 @@
         "input_tokens": 10192873,
         "cached_tokens": 9819520,
         "output_tokens": 123724,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 4,
+        "n_subtasks": 4
+      },
+      "gemini4argon": {
+        "cost": null,
+        "cost_total": null,
+        "hours": 1.4905,
+        "hours_median": 1.5328,
+        "hours_total": 5.9619,
+        "context_tokens": null,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
         "cost_sources": [
           "harness"
         ],
@@ -3541,6 +3717,22 @@
         ],
         "n_runs": 1,
         "n_subtasks": 1
+      },
+      "gemini4argon": {
+        "cost": null,
+        "cost_total": null,
+        "hours": 2.73,
+        "hours_median": 2.73,
+        "hours_total": 2.73,
+        "context_tokens": null,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
       }
     },
     "task08": {
@@ -3767,6 +3959,22 @@
         ],
         "n_runs": 1,
         "n_subtasks": 1
+      },
+      "gemini4argon": {
+        "cost": null,
+        "cost_total": null,
+        "hours": 1.1828,
+        "hours_median": 1.1828,
+        "hours_total": 1.1828,
+        "context_tokens": null,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
       }
     },
     "task09": {
@@ -3988,6 +4196,22 @@
         "input_tokens": 592410,
         "cached_tokens": 540672,
         "output_tokens": 16829,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "gemini4argon": {
+        "cost": null,
+        "cost_total": null,
+        "hours": 0.7738,
+        "hours_median": 0.7738,
+        "hours_total": 0.7738,
+        "context_tokens": null,
+        "input_tokens": null,
+        "cached_tokens": null,
+        "output_tokens": null,
         "cost_sources": [
           "harness"
         ],
@@ -10210,6 +10434,438 @@
             }
           }
         }
+      },
+      "gemini4argon": {
+        "score": 0.709217,
+        "complete": true,
+        "n_runs": 15,
+        "n_subtasks": 15,
+        "missing": [],
+        "harness": "Antigravity CLI",
+        "splits": {
+          "L1": {
+            "score": 0.793529,
+            "reward": 0.793529,
+            "success_rate": 0.8,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 0.8922,
+            "n_runs": 5,
+            "complete": true
+          },
+          "L2": {
+            "score": 0.660654,
+            "reward": 0.660654,
+            "success_rate": 0.68,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 1.1406,
+            "n_runs": 5,
+            "complete": true
+          },
+          "L3": {
+            "score": 0.673468,
+            "reward": 0.673468,
+            "success_rate": 0.68,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 0.7066,
+            "n_runs": 5,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "L1/01-open-fridge": {
+            "reward": 0.390808,
+            "success_rate": 0.4,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 1.4964,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L1/01-open-fridge/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-15T08:25:21.594621",
+            "finished_at": "2026-10-15T09:55:08.523214",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 5745.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.390808,
+              "success_rate": 0.4,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/02-close-cabinet": {
+            "reward": 0.987524,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.7752,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L1/02-close-cabinet/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T10:05:46.378518",
+            "finished_at": "2026-10-14T10:52:16.968153",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 3119.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.987524,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/03-turn-on-stove": {
+            "reward": 0.594876,
+            "success_rate": 0.6,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 1.3941,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L1/03-turn-on-stove/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-15T08:37:24.812449",
+            "finished_at": "2026-10-15T10:01:03.549202",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 2135.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.594876,
+              "success_rate": 0.6,
+              "trials_attempted": 4.0,
+              "trials_recorded": 4.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/04-pick-place-counter-to-drawer": {
+            "reward": 0.998736,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.7136,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L1/04-pick-place-counter-to-drawer/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-15T08:37:26.886874",
+            "finished_at": "2026-10-15T09:20:15.785864",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 316.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.998736,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/05-pick-place-microwave-to-counter": {
+            "reward": 0.9957,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.8922,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L1/05-pick-place-microwave-to-counter/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T10:47:19.986044",
+            "finished_at": "2026-10-14T11:40:51.806674",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 1075.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.9957,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/01-open-fridge": {
+            "reward": 0.37071,
+            "success_rate": 0.4,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 2.4429,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L2/01-open-fridge/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-15T09:26:27.107458",
+            "finished_at": "2026-10-15T11:53:01.566386",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 18306.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.37071,
+              "success_rate": 0.4,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/02-close-cabinet": {
+            "reward": 0.963764,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 1.3572,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L2/02-close-cabinet/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-15T09:29:53.331514",
+            "finished_at": "2026-10-15T10:51:19.258039",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 9059.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.963764,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/03-turn-on-stove": {
+            "reward": 0.398958,
+            "success_rate": 0.4,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.4558,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L2/03-turn-on-stove/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T11:25:10.890745",
+            "finished_at": "2026-10-14T11:52:31.651846",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 651.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.398958,
+              "success_rate": 0.4,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/04-pick-place-counter-to-drawer": {
+            "reward": 0.987104,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.4541,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L2/04-pick-place-counter-to-drawer/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-15T10:01:06.778167",
+            "finished_at": "2026-10-15T10:28:21.502611",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 3224.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.987104,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/05-pick-place-microwave-to-counter": {
+            "reward": 0.582734,
+            "success_rate": 0.6,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 1.1406,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L2/05-pick-place-microwave-to-counter/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T11:52:35.238970",
+            "finished_at": "2026-10-14T13:01:01.398550",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 7194.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.582734,
+              "success_rate": 0.6,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/01-open-fridge": {
+            "reward": 0.589205,
+            "success_rate": 0.6,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.8321,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L3/01-open-fridge/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T11:52:58.885706",
+            "finished_at": "2026-10-14T12:42:54.311982",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 4498.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.589205,
+              "success_rate": 0.6,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/02-close-cabinet": {
+            "reward": 0.793974,
+            "success_rate": 0.8,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.364,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L3/02-close-cabinet/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T11:59:01.147611",
+            "finished_at": "2026-10-14T12:20:51.665488",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 1883.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.793974,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/03-turn-on-stove": {
+            "reward": 0.792115,
+            "success_rate": 0.8,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.7119,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L3/03-turn-on-stove/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-15T11:53:05.500215",
+            "finished_at": "2026-10-15T12:35:48.496882",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 2464.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.792115,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/04-pick-place-counter-to-drawer": {
+            "reward": 0.595793,
+            "success_rate": 0.6,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.7066,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L3/04-pick-place-counter-to-drawer/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-15T11:54:25.608556",
+            "finished_at": "2026-10-15T12:36:49.474765",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 1753.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.595793,
+              "success_rate": 0.6,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/05-pick-place-microwave-to-counter": {
+            "reward": 0.596251,
+            "success_rate": 0.6,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.4291,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "L3/05-pick-place-microwave-to-counter/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T12:20:55.551727",
+            "finished_at": "2026-10-14T12:46:40.265871",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 1562.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.596251,
+              "success_rate": 0.6,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          }
+        }
       }
     },
     "task02": {
@@ -15300,8 +15956,8 @@
             "score": 0.513333,
             "reward": 0.513333,
             "success_rate": 0.2,
-            "cost_usd": 638.855003,
-            "cost_usd_mean": 127.771001,
+            "cost_usd": 638.855002,
+            "cost_usd_mean": 127.771,
             "hours_median": 4.5086,
             "n_runs": 5,
             "complete": true
@@ -17061,6 +17717,438 @@
             "output_tokens": 576150,
             "metrics": {
               "development_steps": 64609.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.6,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          }
+        }
+      },
+      "gemini4argon": {
+        "score": 0.87,
+        "complete": true,
+        "n_runs": 15,
+        "n_subtasks": 15,
+        "missing": [],
+        "harness": "Antigravity CLI",
+        "splits": {
+          "EASY": {
+            "score": 1.0,
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 4.3084,
+            "n_runs": 5,
+            "complete": true
+          },
+          "MEDIUM": {
+            "score": 0.95,
+            "reward": 0.95,
+            "success_rate": 0.88,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 4.8636,
+            "n_runs": 5,
+            "complete": true
+          },
+          "HARD": {
+            "score": 0.66,
+            "reward": 0.66,
+            "success_rate": 0.44,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 4.9831,
+            "n_runs": 5,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-washing-dishes": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 4.2274,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "01-washing-dishes/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T06:11:30.396836",
+            "finished_at": "2026-10-14T10:25:08.996964",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 75000.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "02-sauteing-vegetables": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 4.3084,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "02-sauteing-vegetables/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T12:34:55.321023",
+            "finished_at": "2026-10-14T16:53:25.703601",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 73256.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "03-baking": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 5.2746,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "03-baking/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T06:11:35.027743",
+            "finished_at": "2026-10-14T11:28:03.702342",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 74257.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "04-reheating-food": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 3.9016,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "04-reheating-food/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T06:11:37.088942",
+            "finished_at": "2026-10-14T10:05:43.027452",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 41405.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "05-chopping-food": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 4.9847,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "05-chopping-food/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T06:11:39.441102",
+            "finished_at": "2026-10-14T11:10:44.364400",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 44102.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "06-setting-the-table": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 4.598,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "06-setting-the-table/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T12:42:58.055154",
+            "finished_at": "2026-10-14T17:18:50.852248",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 68901.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "07-portioning-meals": {
+            "reward": 0.95,
+            "success_rate": 0.8,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 4.8636,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "07-portioning-meals/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T12:46:43.817257",
+            "finished_at": "2026-10-14T17:38:32.661238",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 71312.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.95,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "08-defrosting-food": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 3.079,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "08-defrosting-food/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T06:11:49.095702",
+            "finished_at": "2026-10-14T09:16:33.621140",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 48604.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "09-arranging-buffet": {
+            "reward": 0.9,
+            "success_rate": 0.8,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 5.0698,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "09-arranging-buffet/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T14:56:46.678919",
+            "finished_at": "2026-10-14T20:00:58.100791",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 73861.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.9,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "10-serving-beverages": {
+            "reward": 0.9,
+            "success_rate": 0.8,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 6.0224,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "10-serving-beverages/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T06:33:30.888371",
+            "finished_at": "2026-10-14T12:34:51.445103",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 73357.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.9,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "11-loading-fridge": {
+            "reward": 0.733333,
+            "success_rate": 0.6,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 4.5958,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "11-loading-fridge/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T06:33:33.147204",
+            "finished_at": "2026-10-14T11:09:18.015508",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 43760.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.733333,
+              "success_rate": 0.6,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "12-managing-freezer-space": {
+            "reward": 0.1,
+            "success_rate": 0.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 4.9831,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "12-managing-freezer-space/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T06:33:35.322671",
+            "finished_at": "2026-10-14T11:32:34.549899",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 71176.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "13-clearing-table": {
+            "reward": 0.866667,
+            "success_rate": 0.6,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 4.1338,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "13-clearing-table/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T06:33:49.010899",
+            "finished_at": "2026-10-14T10:41:50.758897",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 35395.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.866667,
+              "success_rate": 0.6,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "14-microwaving-food": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 5.4181,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "14-microwaving-food/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T06:33:51.032902",
+            "finished_at": "2026-10-14T11:58:56.171247",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 62193.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "15-storing-leftovers": {
+            "reward": 0.6,
+            "success_rate": 0.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 6.0785,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "15-storing-leftovers/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T06:33:42.294972",
+            "finished_at": "2026-10-14T12:38:25.016321",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "development_steps": 73978.0,
               "infrastructure_failures": 0.0,
               "reward": 0.6,
               "success_rate": 0.0,
@@ -20048,6 +21136,219 @@
               "trial_3_control_steps": 115.0,
               "trial_3_correct": 0.0,
               "trial_3_reward": 0.0,
+              "trial_3_submitted": 1.0
+            }
+          }
+        }
+      },
+      "gemini4argon": {
+        "score": 0.932647,
+        "complete": true,
+        "n_runs": 5,
+        "n_subtasks": 5,
+        "missing": [],
+        "harness": "Antigravity CLI",
+        "splits": {
+          "01-tower-max-height": {
+            "score": 0.742527,
+            "reward": 0.742527,
+            "success_rate": 0.742527,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 2.5459,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-cantilever-overhang": {
+            "score": 0.920707,
+            "reward": 0.920707,
+            "success_rate": 0.920707,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 0.2508,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-balance-coins": {
+            "score": 1.0,
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 0.3428,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-rubik-cube": {
+            "score": 1.0,
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 1.7264,
+            "n_runs": 1,
+            "complete": true
+          },
+          "05-hidden-center-of-mass": {
+            "score": 1.0,
+            "reward": 1.0,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 0.4523,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-tower-max-height": {
+            "reward": 0.742527,
+            "success_rate": 0.742527,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 2.5459,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "01-tower-max-height/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T11:09:23.038468",
+            "finished_at": "2026-10-14T13:42:08.457387",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.742527,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 44309.0,
+              "reward": 0.742527,
+              "success_rate": 0.742527,
+              "task_score": 74.252663,
+              "trials_attempted": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "02-cantilever-overhang": {
+            "reward": 0.920707,
+            "success_rate": 0.920707,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.2508,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "02-cantilever-overhang/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T11:32:37.820894",
+            "finished_at": "2026-10-14T11:47:40.690171",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.920707,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 4595.0,
+              "reward": 0.920707,
+              "success_rate": 0.920707,
+              "task_score": 92.070683,
+              "trials_attempted": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "03-balance-coins": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.3428,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "03-balance-coins/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T11:47:52.252579",
+            "finished_at": "2026-10-14T12:08:26.264117",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 1.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 6307.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "task_score": 100.0,
+              "trials_attempted": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "04-rubik-cube": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 1.7264,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "04-rubik-cube/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T12:00:45.348865",
+            "finished_at": "2026-10-14T13:44:20.410838",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "actual_qtm": 11.0,
+              "component_efficiency": 0.0,
+              "component_outcome": 1.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 9228.0,
+              "optimal_qtm": 11.0,
+              "recoveries": 12.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "task_score": 100.0,
+              "trials_attempted": 1.0,
+              "trials_total": 1.0,
+              "unclassified_transitions": 0.0
+            }
+          },
+          "05-hidden-center-of-mass": {
+            "reward": 1.0,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.4523,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "05-hidden-center-of-mass/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T12:08:30.282998",
+            "finished_at": "2026-10-14T12:35:38.682516",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "control_steps": 649.0,
+              "correct": 3.0,
+              "reward": 1.0,
+              "submitted": 3.0,
+              "trial_1_control_steps": 206.0,
+              "trial_1_correct": 1.0,
+              "trial_1_reward": 1.0,
+              "trial_1_submitted": 1.0,
+              "trial_2_control_steps": 205.0,
+              "trial_2_correct": 1.0,
+              "trial_2_reward": 1.0,
+              "trial_2_submitted": 1.0,
+              "trial_3_control_steps": 238.0,
+              "trial_3_correct": 1.0,
+              "trial_3_reward": 1.0,
               "trial_3_submitted": 1.0
             }
           }
@@ -23386,6 +24687,243 @@
             }
           }
         }
+      },
+      "gemini4argon": {
+        "score": 0.83474,
+        "complete": true,
+        "n_runs": 5,
+        "n_subtasks": 5,
+        "missing": [],
+        "harness": "Antigravity CLI",
+        "splits": {
+          "01-dance": {
+            "score": 0.8832,
+            "reward": 0.8832,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 4.0589,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-fight": {
+            "score": 0.7982,
+            "reward": 0.7982,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 3.6864,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-fall-and-get-up": {
+            "score": 0.7623,
+            "reward": 0.7623,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 4.0754,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-run": {
+            "score": 0.8641,
+            "reward": 0.8641,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 3.8354,
+            "n_runs": 1,
+            "complete": true
+          },
+          "05-sprint": {
+            "score": 0.8659,
+            "reward": 0.8659,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 3.9518,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-dance": {
+            "reward": 0.8832,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 4.0589,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "01-dance/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T20:39:40.137096",
+            "finished_at": "2026-10-15T00:43:12.213144",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "action_jerk": 0.1459,
+              "anchor_pos_err_m": 0.2565,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.0728,
+              "mpjpe_m": 0.0189,
+              "n_params": 4860567.0,
+              "raw_total": 0.8832,
+              "reward": 0.8832,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.9356,
+              "tracking_score": 0.9952
+            }
+          },
+          "02-fight": {
+            "reward": 0.7982,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 3.6864,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "02-fight/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T21:09:05.586347",
+            "finished_at": "2026-10-15T00:50:16.628774",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "action_jerk": 0.2379,
+              "anchor_pos_err_m": 0.7212,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.0844,
+              "mpjpe_m": 0.0277,
+              "n_params": 1439663.0,
+              "raw_total": 0.7982,
+              "reward": 0.7982,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.8786,
+              "tracking_score": 0.9902
+            }
+          },
+          "03-fall-and-get-up": {
+            "reward": 0.7623,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 4.0754,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "03-fall-and-get-up/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T22:22:04.380640",
+            "finished_at": "2026-10-15T02:26:35.664396",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "action_jerk": 0.0947,
+              "anchor_pos_err_m": 0.4758,
+              "falls": 1.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.1074,
+              "mpjpe_m": 0.0326,
+              "n_params": 2312488.0,
+              "raw_total": 0.7623,
+              "reward": 0.7623,
+              "survival": 0.912,
+              "survived_s": 18.24,
+              "tracking_multi": 0.7735,
+              "tracking_score": 0.8974
+            }
+          },
+          "04-run": {
+            "reward": 0.8641,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 3.8354,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "04-run/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T17:18:55.067425",
+            "finished_at": "2026-10-14T21:09:02.429689",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "action_jerk": 0.149,
+              "anchor_pos_err_m": 0.5623,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.0684,
+              "mpjpe_m": 0.0231,
+              "n_params": 4929050.0,
+              "raw_total": 0.8641,
+              "reward": 0.8641,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.9103,
+              "tracking_score": 0.9929
+            }
+          },
+          "05-sprint": {
+            "reward": 0.8659,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 3.9518,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "05-sprint/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-15T00:11:00.010786",
+            "finished_at": "2026-10-15T04:08:06.420511",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "action_jerk": 0.1251,
+              "anchor_pos_err_m": 2.0316,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.0878,
+              "mpjpe_m": 0.0246,
+              "n_params": 3732604.0,
+              "raw_total": 0.8659,
+              "reward": 0.8659,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.8962,
+              "tracking_score": 0.9912
+            }
+          }
+        }
       }
     },
     "task05": {
@@ -25455,6 +26993,154 @@
               "episodes": 225.0,
               "parameters": 1240364.0,
               "replay_wall_s": 1676.187276
+            }
+          }
+        }
+      },
+      "gemini4argon": {
+        "score": 0.678,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Antigravity CLI",
+        "splits": {
+          "01-libero-open-design": {
+            "score": 0.892,
+            "reward": 0.892,
+            "success_rate": 0.892,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 4.5996,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-libero-robustness": {
+            "score": 0.83,
+            "reward": 0.83,
+            "success_rate": 0.83,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 4.471,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-robotwin-open-design": {
+            "score": 0.75,
+            "reward": 0.75,
+            "success_rate": 0.75,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 5.9166,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.24,
+            "reward": 0.24,
+            "success_rate": 0.24,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 7.6252,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.892,
+            "success_rate": 0.892,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 4.5996,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "task05/01-libero-open-design/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-15T04:01:21.333258",
+            "finished_at": "2026-10-15T08:37:19.865650",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 74521459.0,
+              "replay_wall_s": 1178.977061,
+              "reward": 0.892,
+              "success_rate": 0.892
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.83,
+            "success_rate": 0.83,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 4.471,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "task05/02-libero-robustness/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-15T08:25:17.531421",
+            "finished_at": "2026-10-15T12:53:33.175293",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 193544764.0,
+              "plus_success_rate": 0.83,
+              "replay_wall_s": 1529.226244,
+              "reward": 0.83
+            }
+          },
+          "03-robotwin-open-design": {
+            "reward": 0.75,
+            "success_rate": 0.75,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 5.9166,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "task05/03-robotwin-open-design/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T11:40:56.791773",
+            "finished_at": "2026-10-14T17:35:56.416046",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "episodes": 300.0,
+              "parameters": 74654481.0,
+              "replay_wall_s": 1323.374502,
+              "reward": 0.75,
+              "success_rate": 0.75
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.24,
+            "success_rate": 0.24,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 7.6252,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "task05/04-robotwin-robustness/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-15T00:47:43.566425",
+            "finished_at": "2026-10-15T08:25:14.406545",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "episodes": 225.0,
+              "parameters": 40205434.0,
+              "replay_wall_s": 1451.2935,
+              "reward": 0.24,
+              "success_rate": 0.24
             }
           }
         }
@@ -28644,6 +30330,234 @@
             }
           }
         }
+      },
+      "gemini4argon": {
+        "score": 0.6087,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Antigravity CLI",
+        "splits": {
+          "01-rgb-only": {
+            "score": 0.5523,
+            "reward": 0.5523,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 1.2881,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-rgb-depth": {
+            "score": 0.7624,
+            "reward": 0.7624,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 0.8888,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-model-training": {
+            "score": 0.2748,
+            "reward": 0.2748,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 2.0076,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-method-agnostic": {
+            "score": 0.8453,
+            "reward": 0.8453,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_usd_mean": null,
+            "hours_median": 1.7775,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-rgb-only": {
+            "reward": 0.5523,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 1.2881,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "rgb-only/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T06:25:15.419482",
+            "finished_at": "2026-10-14T07:42:32.428890",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "abs_median_rot_deg": 0.11,
+              "abs_median_trans_mm": 0.45,
+              "abs_occluded_trans_mm": 0.8,
+              "accuracy_reward": 0.552291,
+              "cp_A.pose": 0.8973,
+              "cp_B.pose": 0.4044,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.0,
+              "frame_time_s": 0.082721,
+              "gated": 0.0,
+              "inference_hz": 12.088756,
+              "inference_wall_s": 57.90505,
+              "raw_total": 0.5523,
+              "reward": 0.5523,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 1.0,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 0.21,
+              "stage_b_median_trans_mm": 0.63,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 1.0,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.2692,
+              "stage_stage_b": 0.2831
+            }
+          },
+          "02-rgb-depth": {
+            "reward": 0.7624,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.8888,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "rgb-depth/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T06:25:13.229108",
+            "finished_at": "2026-10-14T07:18:32.805788",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "abs_median_rot_deg": 0.11,
+              "abs_median_trans_mm": 0.49,
+              "abs_occluded_trans_mm": 0.97,
+              "accuracy_reward": 0.815061,
+              "cp_A.pose": 0.8986,
+              "cp_B.pose": 0.7792,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.05265,
+              "frame_time_s": 0.131049,
+              "gated": 0.0,
+              "inference_hz": 7.630745,
+              "inference_wall_s": 91.734165,
+              "raw_total": 0.8151,
+              "reward": 0.7624,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 1.0,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 0.22,
+              "stage_b_median_trans_mm": 0.61,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 1.0,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.2696,
+              "stage_stage_b": 0.5455
+            }
+          },
+          "03-model-training": {
+            "reward": 0.2748,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 2.0076,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "rgb-depth-model-training/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-15T05:53:46.874976",
+            "finished_at": "2026-10-15T07:54:14.074629",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "abs_median_rot_deg": 0.31,
+              "abs_median_trans_mm": 0.98,
+              "abs_occluded_trans_mm": 2.55,
+              "accuracy_reward": 0.402611,
+              "cp_A.pose": 0.9851,
+              "cp_B.pose": 0.153,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.127804,
+              "frame_time_s": 0.23536,
+              "gated": 0.0,
+              "inference_hz": 4.248817,
+              "inference_wall_s": 164.751734,
+              "raw_total": 0.4026,
+              "reward": 0.2748,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 1.0,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 0.55,
+              "stage_b_median_trans_mm": 1.66,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 0.913333,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.2955,
+              "stage_stage_b": 0.1071
+            }
+          },
+          "04-method-agnostic": {
+            "reward": 0.8453,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 1.7775,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "method-agnostic/antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T20:35:21.966658",
+            "finished_at": "2026-10-14T22:22:00.975067",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "abs_median_rot_deg": 0.1,
+              "abs_median_trans_mm": 0.33,
+              "abs_occluded_trans_mm": 0.51,
+              "accuracy_reward": 0.924003,
+              "cp_A.pose": 0.998,
+              "cp_B.pose": 0.8923,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.078668,
+              "frame_time_s": 0.1548,
+              "gated": 0.0,
+              "inference_hz": 6.459955,
+              "inference_wall_s": 108.359882,
+              "raw_total": 0.924,
+              "reward": 0.8453,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 1.0,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 0.13,
+              "stage_b_median_trans_mm": 0.43,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 1.0,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.2994,
+              "stage_stage_b": 0.6246
+            }
+          }
+        }
       }
     },
     "task07": {
@@ -29581,6 +31495,73 @@
               "reward": 0.0476,
               "speed_merit": 0.3021,
               "throughput_ppm": 6.6187
+            }
+          }
+        }
+      },
+      "gemini4argon": {
+        "score": 0.9454,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Antigravity CLI",
+        "splits": {
+          "clearance": {
+            "score": 1.0,
+            "metric": "clear_frac",
+            "weight": 1.0,
+            "credit": 1.0,
+            "n_runs": 1,
+            "complete": true
+          },
+          "throughput": {
+            "score": 0.6216,
+            "metric": "speed_merit",
+            "weight": 1.0,
+            "credit": 0.6216,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "bin-clearing": {
+            "reward": 0.9454,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 2.73,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T05:32:52.240968",
+            "finished_at": "2026-10-14T08:16:40.212465",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "bin_hits": 0.0,
+              "clear_frac": 1.0,
+              "damage_events": 0.0,
+              "episode_wall_s_total": 4291.064,
+              "floor_drops": 0.0,
+              "gate_contract": 1.0,
+              "gate_determinism": 1.0,
+              "gate_load": 1.0,
+              "gate_stable": 1.0,
+              "gated": 0.0,
+              "harness_wall_s_total": 4205.5753,
+              "makespan_s": 83.0812,
+              "n_parts": 112.0,
+              "parts_cleared": 112.0,
+              "policy_faults": 0.0,
+              "policy_wall_s_total": 85.4888,
+              "raw_total": 0.9454,
+              "reward": 0.9454,
+              "speed_merit": 0.6216,
+              "throughput_ppm": 10.329
             }
           }
         }
@@ -31189,6 +33170,120 @@
               "stage_integration": 0.0,
               "stage_static": 0.0,
               "stage_validity": 0.12
+            }
+          }
+        }
+      },
+      "gemini4argon": {
+        "score": 0.5433,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Antigravity CLI",
+        "splits": {
+          "validity": {
+            "score": 1.0,
+            "metric": "stage_validity",
+            "weight": 0.15,
+            "credit": 0.15,
+            "n_runs": 1,
+            "complete": true
+          },
+          "design": {
+            "score": 0.647429,
+            "metric": "stage_design",
+            "weight": 0.35,
+            "credit": 0.2266,
+            "n_runs": 1,
+            "complete": true
+          },
+          "static": {
+            "score": 0.0,
+            "metric": "stage_static",
+            "weight": 0.15,
+            "credit": 0.0,
+            "n_runs": 1,
+            "complete": true
+          },
+          "dynamic": {
+            "score": 0.3335,
+            "metric": "stage_dynamic",
+            "weight": 0.2,
+            "credit": 0.0667,
+            "n_runs": 1,
+            "complete": true
+          },
+          "integration": {
+            "score": 0.666667,
+            "metric": "stage_integration",
+            "weight": 0.15,
+            "credit": 0.1,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "mobile-base": {
+            "reward": 0.5433,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 1.1828,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T05:32:57.156302",
+            "finished_at": "2026-10-14T06:43:55.113735",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "cp_S1.equilibrium": 1.0,
+              "cp_S1.inertia": 1.0,
+              "cp_S1.load": 1.0,
+              "cp_S1.mecanum": 1.0,
+              "cp_S1.structure": 1.0,
+              "cp_S3.battery_onboard": 1.0,
+              "cp_S3.design_efficiency": 0.4393,
+              "cp_S3.reach_beyond": 1.0,
+              "cp_S3.reach_preserved": 1.0,
+              "cp_S3.resource_constraints": 1.0,
+              "cp_S3.static_margin": 0.0,
+              "cp_S3.still_valid": 1.0,
+              "cp_S5.testB": 0.0,
+              "cp_S5.testC": 0.0,
+              "cp_S5.testD1": 0.6667,
+              "cp_S5.testD2": 1.0,
+              "cp_S5.testE": 0.0,
+              "cp_S7.payload_margin": 0.6667,
+              "cp_S7.pick_compat": 0.6667,
+              "design_base_mass_kg": 23.0004,
+              "design_footprint_area_headroom_fraction": 0.273248,
+              "design_footprint_area_headroom_m2": 0.08569,
+              "design_footprint_area_m2": 0.22791,
+              "design_footprint_x_headroom_m": 0.016634,
+              "design_footprint_x_m": 0.543366,
+              "design_footprint_y_headroom_m": 0.14056,
+              "design_footprint_y_m": 0.41944,
+              "design_mass_budget_kg": 38.0,
+              "design_mass_headroom_fraction": 0.394726,
+              "design_mass_headroom_kg": 14.9996,
+              "design_profile_length_headroom_fraction": 0.65,
+              "design_profile_length_headroom_m": 7.8,
+              "design_profile_length_m": 4.2,
+              "design_score": 0.439325,
+              "design_total_mass_kg": 44.8703,
+              "gated": 0.0,
+              "raw_total": 0.5433,
+              "reward": 0.5433,
+              "stage_design": 0.2266,
+              "stage_dynamic": 0.0667,
+              "stage_integration": 0.1,
+              "stage_static": 0.0,
+              "stage_validity": 0.15
             }
           }
         }
@@ -33318,6 +35413,158 @@
               "xarm7_stage_hardware": 0.0575,
               "xarm7_stage_software": 0.0433,
               "xarm7_stage_validity": 0.0667,
+              "xarm7_validity_deduction": 0.0
+            }
+          }
+        }
+      },
+      "gemini4argon": {
+        "score": 0.509,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Antigravity CLI",
+        "splits": {
+          "franka": {
+            "score": 0.5954,
+            "metric": "franka_reward",
+            "weight": 1.0,
+            "credit": 0.5954,
+            "n_runs": 1,
+            "complete": true
+          },
+          "ur5e": {
+            "score": 0.4914,
+            "metric": "ur5e_reward",
+            "weight": 1.0,
+            "credit": 0.4914,
+            "n_runs": 1,
+            "complete": true
+          },
+          "xarm7": {
+            "score": 0.4402,
+            "metric": "xarm7_reward",
+            "weight": 1.0,
+            "credit": 0.4402,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "gello": {
+            "reward": 0.509,
+            "success_rate": null,
+            "cost_usd": null,
+            "cost_source": "harness",
+            "hours": 0.7738,
+            "status": "completed",
+            "harness": "Antigravity CLI",
+            "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+            "model": "google/gemini-4-argon",
+            "job": "antigravity-cli/google_gemini-4-argon",
+            "started_at": "2026-10-14T05:32:54.891913",
+            "finished_at": "2026-10-14T06:19:20.531287",
+            "input_tokens": null,
+            "cached_tokens": null,
+            "output_tokens": null,
+            "metrics": {
+              "franka_cp_B1.combined_hold": 0.6193,
+              "franka_cp_B2.combined_backdrive": 0.5285,
+              "franka_cp_B3.headroom": 0.5881,
+              "franka_cp_B4.push_recovery": 0.2969,
+              "franka_cp_C1.budget": 1.0,
+              "franka_cp_C1.buildable": 1.0,
+              "franka_cp_C1.load": 1.0,
+              "franka_cp_C1.motion_clearance": 1.0,
+              "franka_cp_C1.printability": 1.0,
+              "franka_cp_C1.settle": 1.0,
+              "franka_cp_C1.springs_legal": 1.0,
+              "franka_cp_C1.structure": 1.0,
+              "franka_cp_H1.device_residual": 0.623,
+              "franka_cp_H2.passive_hold": 0.3784,
+              "franka_cp_H3.passive_backdrive": 0.3614,
+              "franka_cp_S2.adapted_backdrive": 0.5585,
+              "franka_cp_S2.adapted_hold": 1.0,
+              "franka_deduction_C1.budget": 0.0,
+              "franka_deduction_C1.buildable": 0.0,
+              "franka_deduction_C1.load": 0.0,
+              "franka_deduction_C1.printability": 0.0,
+              "franka_deduction_C1.settle": 0.0,
+              "franka_deduction_C1.springs_legal": 0.0,
+              "franka_deduction_C1.structure": 0.0,
+              "franka_gated": 0.0,
+              "franka_raw_total": 0.5954,
+              "franka_reward": 0.5954,
+              "franka_stage_codesign": 0.2033,
+              "franka_stage_hardware": 0.1363,
+              "franka_stage_software": 0.1559,
+              "franka_stage_validity": 0.1,
+              "franka_validity_deduction": 0.0,
+              "reward": 0.509,
+              "ur5e_cp_B1.combined_hold": 0.7139,
+              "ur5e_cp_B2.combined_backdrive": 0.3895,
+              "ur5e_cp_B3.headroom": 0.6461,
+              "ur5e_cp_B4.push_recovery": 0.1108,
+              "ur5e_cp_C1.budget": 1.0,
+              "ur5e_cp_C1.buildable": 1.0,
+              "ur5e_cp_C1.load": 1.0,
+              "ur5e_cp_C1.motion_clearance": 1.0,
+              "ur5e_cp_C1.printability": 1.0,
+              "ur5e_cp_C1.settle": 1.0,
+              "ur5e_cp_C1.springs_legal": 1.0,
+              "ur5e_cp_C1.structure": 1.0,
+              "ur5e_cp_H1.device_residual": 0.4588,
+              "ur5e_cp_H2.passive_hold": 0.4257,
+              "ur5e_cp_H3.passive_backdrive": 0.3865,
+              "ur5e_cp_S2.adapted_backdrive": 0.4521,
+              "ur5e_cp_S2.adapted_hold": 0.3309,
+              "ur5e_deduction_C1.budget": 0.0,
+              "ur5e_deduction_C1.buildable": 0.0,
+              "ur5e_deduction_C1.load": 0.0,
+              "ur5e_deduction_C1.printability": 0.0,
+              "ur5e_deduction_C1.settle": 0.0,
+              "ur5e_deduction_C1.springs_legal": 0.0,
+              "ur5e_deduction_C1.structure": 0.0,
+              "ur5e_gated": 0.0,
+              "ur5e_raw_total": 0.4914,
+              "ur5e_reward": 0.4914,
+              "ur5e_stage_codesign": 0.186,
+              "ur5e_stage_hardware": 0.1271,
+              "ur5e_stage_software": 0.0783,
+              "ur5e_stage_validity": 0.1,
+              "ur5e_validity_deduction": 0.0,
+              "xarm7_cp_B1.combined_hold": 0.3369,
+              "xarm7_cp_B2.combined_backdrive": 0.3358,
+              "xarm7_cp_B3.headroom": 0.5663,
+              "xarm7_cp_B4.push_recovery": 0.0716,
+              "xarm7_cp_C1.budget": 1.0,
+              "xarm7_cp_C1.buildable": 1.0,
+              "xarm7_cp_C1.load": 1.0,
+              "xarm7_cp_C1.motion_clearance": 1.0,
+              "xarm7_cp_C1.printability": 1.0,
+              "xarm7_cp_C1.settle": 1.0,
+              "xarm7_cp_C1.springs_legal": 1.0,
+              "xarm7_cp_C1.structure": 1.0,
+              "xarm7_cp_H1.device_residual": 0.5217,
+              "xarm7_cp_H2.passive_hold": 0.3916,
+              "xarm7_cp_H3.passive_backdrive": 0.368,
+              "xarm7_cp_S2.adapted_backdrive": 0.3746,
+              "xarm7_cp_S2.adapted_hold": 0.4353,
+              "xarm7_deduction_C1.budget": 0.0,
+              "xarm7_deduction_C1.buildable": 0.0,
+              "xarm7_deduction_C1.load": 0.0,
+              "xarm7_deduction_C1.printability": 0.0,
+              "xarm7_deduction_C1.settle": 0.0,
+              "xarm7_deduction_C1.springs_legal": 0.0,
+              "xarm7_deduction_C1.structure": 0.0,
+              "xarm7_gated": 0.0,
+              "xarm7_raw_total": 0.4402,
+              "xarm7_reward": 0.4402,
+              "xarm7_stage_codesign": 0.1311,
+              "xarm7_stage_hardware": 0.1281,
+              "xarm7_stage_software": 0.081,
+              "xarm7_stage_validity": 0.1,
               "xarm7_validity_deduction": 0.0
             }
           }

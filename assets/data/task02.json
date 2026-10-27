@@ -11636,6 +11636,726 @@
           }
         ]
       }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "01-washing-dishes/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 75000,
+        "infrastructure_failures": 0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T06:11:30.396836",
+        "finished_at": "2026-10-14T10:25:08.996964",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "01-washing-dishes__sNXvxmw",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 75000,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "02-sauteing-vegetables/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 73256,
+        "infrastructure_failures": 0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T12:34:55.321023",
+        "finished_at": "2026-10-14T16:53:25.703601",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "02-sauteing-vegetables__kx2SSke",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 73256,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "03-baking/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 74257,
+        "infrastructure_failures": 0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T06:11:35.027743",
+        "finished_at": "2026-10-14T11:28:03.702342",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "03-baking__6962FMD",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 74257,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "04-reheating-food/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 41405,
+        "infrastructure_failures": 0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T06:11:37.088942",
+        "finished_at": "2026-10-14T10:05:43.027452",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "04-reheating-food__HS3nLja",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 41405,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "05-chopping-food/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 44102,
+        "infrastructure_failures": 0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T06:11:39.441102",
+        "finished_at": "2026-10-14T11:10:44.364400",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "05-chopping-food__cbDnq2Y",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 44102,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "06-setting-the-table/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 68901,
+        "infrastructure_failures": 0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T12:42:58.055154",
+        "finished_at": "2026-10-14T17:18:50.852248",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "06-setting-the-table__kM2ntac",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 68901,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "07-portioning-meals/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.95,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 71312,
+        "infrastructure_failures": 0,
+        "reward": 0.95,
+        "success_rate": 0.8,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T12:46:43.817257",
+        "finished_at": "2026-10-14T17:38:32.661238",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "07-portioning-meals__TnbtMSg",
+            "rewards": {
+              "reward": 0.95,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 71312,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "08-defrosting-food/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 48604,
+        "infrastructure_failures": 0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T06:11:49.095702",
+        "finished_at": "2026-10-14T09:16:33.621140",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "08-defrosting-food__bNakU4z",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 48604,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "09-arranging-buffet/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.9,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 73861,
+        "infrastructure_failures": 0,
+        "reward": 0.9,
+        "success_rate": 0.8,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T14:56:46.678919",
+        "finished_at": "2026-10-14T20:00:58.100791",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "09-arranging-buffet__zwi9vEG",
+            "rewards": {
+              "reward": 0.9,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 73861,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "10-serving-beverages/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.9,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 73357,
+        "infrastructure_failures": 0,
+        "reward": 0.9,
+        "success_rate": 0.8,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T06:33:30.888371",
+        "finished_at": "2026-10-14T12:34:51.445103",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "10-serving-beverages__kda3y53",
+            "rewards": {
+              "reward": 0.9,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 73357,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "11-loading-fridge/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.7333333333333333,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 43760,
+        "infrastructure_failures": 0,
+        "reward": 0.7333333333333333,
+        "success_rate": 0.6,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T06:33:33.147204",
+        "finished_at": "2026-10-14T11:09:18.015508",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "11-loading-fridge__2dcu894",
+            "rewards": {
+              "reward": 0.7333333333333333,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 43760,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "12-managing-freezer-space/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.1,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 71176,
+        "infrastructure_failures": 0,
+        "reward": 0.1,
+        "success_rate": 0.0,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T06:33:35.322671",
+        "finished_at": "2026-10-14T11:32:34.549899",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "12-managing-freezer-space__WXFwJyL",
+            "rewards": {
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 71176,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "13-clearing-table/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.8666666666666666,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 35395,
+        "infrastructure_failures": 0,
+        "reward": 0.8666666666666666,
+        "success_rate": 0.6,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T06:33:49.010899",
+        "finished_at": "2026-10-14T10:41:50.758897",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "13-clearing-table__Txf6ScN",
+            "rewards": {
+              "reward": 0.8666666666666666,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 35395,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "14-microwaving-food/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 62193,
+        "infrastructure_failures": 0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T06:33:51.032902",
+        "finished_at": "2026-10-14T11:58:56.171247",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "14-microwaving-food__SCeh9Va",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 62193,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "15-storing-leftovers/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.5999999999999999,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 73978,
+        "infrastructure_failures": 0,
+        "reward": 0.5999999999999999,
+        "success_rate": 0.0,
+        "trials_attempted": 5,
+        "trials_recorded": 5,
+        "trials_total": 5
+      },
+      "extra": {
+        "started_at": "2026-10-14T06:33:42.294972",
+        "finished_at": "2026-10-14T12:38:25.016321",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "15-storing-leftovers__VmCLZh8",
+            "rewards": {
+              "reward": 0.5999999999999999,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 73978,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
     }
   ]
 }
