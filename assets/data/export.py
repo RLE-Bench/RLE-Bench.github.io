@@ -77,6 +77,7 @@ MODELS: tuple[ModelSpec, ...] = (
     ModelSpec("gpt6astra", "GPT-6 Astra", "Astra", "OpenAI", False, ("gpt-6-astra",)),
     ModelSpec("opus5", "Claude Opus 5", "Opus 5", "Anthropic", False, ("claude-opus-5",)),
     ModelSpec("gpt56sol", "GPT-5.6 Sol", "Sol", "OpenAI", False, ("gpt-5-6-sol",)),
+    ModelSpec("gemini4argon", "Gemini 4 Argon", "Argon", "Google", False, ("gemini-4-argon",)),
     ModelSpec("gemini37flash", "Gemini 3.7 Flash", "Gemini 3.7", "Google", False, ("gemini-3-7-flash",)),
     ModelSpec("opus48", "Claude Opus 4.8", "Opus 4.8", "Anthropic", False, ("claude-opus-4-8",)),
     ModelSpec("gpt56luna", "GPT-5.6 Luna", "Luna", "OpenAI", False, ("gpt-5-6-luna",)),

@@ -3945,6 +3945,288 @@
           }
         ]
       }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "01-tower-max-height/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.7425266264640372,
+      "success_rate": 0.7425266264640372,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.7425266264640372,
+        "interaction_budget": 50000,
+        "interaction_steps": 44309,
+        "reward": 0.7425266264640372,
+        "success_rate": 0.7425266264640372,
+        "task_score": 74.25266264640372,
+        "trials_attempted": 1,
+        "trials_total": 1
+      },
+      "extra": {
+        "started_at": "2026-10-14T11:09:23.038468",
+        "finished_at": "2026-10-14T13:42:08.457387",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "01-tower-max-height__D4rZVfe",
+            "rewards": {
+              "reward": 0.7425266264640372,
+              "success_rate": 0.7425266264640372,
+              "trials_total": 1,
+              "trials_attempted": 1,
+              "task_score": 74.25266264640372,
+              "component_outcome": 0.7425266264640372,
+              "component_efficiency": 0.0,
+              "interaction_steps": 44309,
+              "interaction_budget": 50000
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "02-cantilever-overhang/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 0.9207068272318566,
+      "success_rate": 0.9207068272318566,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.9207068272318566,
+        "interaction_budget": 50000,
+        "interaction_steps": 4595,
+        "reward": 0.9207068272318566,
+        "success_rate": 0.9207068272318566,
+        "task_score": 92.07068272318566,
+        "trials_attempted": 1,
+        "trials_total": 1
+      },
+      "extra": {
+        "started_at": "2026-10-14T11:32:37.820894",
+        "finished_at": "2026-10-14T11:47:40.690171",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "02-cantilever-overhang__nABXvoM",
+            "rewards": {
+              "reward": 0.9207068272318566,
+              "success_rate": 0.9207068272318566,
+              "trials_total": 1,
+              "trials_attempted": 1,
+              "task_score": 92.07068272318566,
+              "component_outcome": 0.9207068272318566,
+              "component_efficiency": 0.0,
+              "interaction_steps": 4595,
+              "interaction_budget": 50000
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "03-balance-coins/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 1.0,
+        "interaction_budget": 50000,
+        "interaction_steps": 6307,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "task_score": 100.0,
+        "trials_attempted": 1,
+        "trials_total": 1
+      },
+      "extra": {
+        "started_at": "2026-10-14T11:47:52.252579",
+        "finished_at": "2026-10-14T12:08:26.264117",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "03-balance-coins__58YgrmP",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 1,
+              "trials_attempted": 1,
+              "task_score": 100.0,
+              "component_outcome": 1.0,
+              "component_efficiency": 0.0,
+              "interaction_steps": 6307,
+              "interaction_budget": 50000
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "04-rubik-cube/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "actual_qtm": 11,
+        "component_efficiency": 0.0,
+        "component_outcome": 1.0,
+        "interaction_budget": 50000,
+        "interaction_steps": 9228,
+        "optimal_qtm": 11,
+        "recoveries": 12,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "task_score": 100.0,
+        "trials_attempted": 1,
+        "trials_total": 1,
+        "unclassified_transitions": 0
+      },
+      "extra": {
+        "started_at": "2026-10-14T12:00:45.348865",
+        "finished_at": "2026-10-14T13:44:20.410838",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "04-rubik-cube__NvYTK4F",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 1,
+              "trials_attempted": 1,
+              "optimal_qtm": 11,
+              "actual_qtm": 11,
+              "unclassified_transitions": 0,
+              "recoveries": 12,
+              "task_score": 100.0,
+              "component_outcome": 1.0,
+              "component_efficiency": 0.0,
+              "interaction_steps": 9228,
+              "interaction_budget": 50000
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rlebench.agents.antigravity:VertexAntigravityCli",
+      "model": "google/gemini-4-argon",
+      "job": "05-hidden-center-of-mass/antigravity-cli/google_gemini-4-argon",
+      "status": "completed",
+      "cost_usd": null,
+      "reward": 1.0,
+      "success_rate": null,
+      "metrics": {
+        "control_steps": 649,
+        "correct": 3,
+        "reward": 1.0,
+        "submitted": 3,
+        "trial_1_control_steps": 206,
+        "trial_1_correct": 1,
+        "trial_1_reward": 1.0,
+        "trial_1_submitted": 1,
+        "trial_2_control_steps": 205,
+        "trial_2_correct": 1,
+        "trial_2_reward": 1.0,
+        "trial_2_submitted": 1,
+        "trial_3_control_steps": 238,
+        "trial_3_correct": 1,
+        "trial_3_reward": 1.0,
+        "trial_3_submitted": 1
+      },
+      "extra": {
+        "started_at": "2026-10-14T12:08:30.282998",
+        "finished_at": "2026-10-14T12:35:38.682516",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": null,
+          "n_cache_tokens": null,
+          "n_output_tokens": null
+        },
+        "trials": [
+          {
+            "trial": "05-hidden-center-of-mass__xgPiLFW",
+            "rewards": {
+              "reward": 1.0,
+              "correct": 3,
+              "submitted": 3,
+              "control_steps": 649,
+              "trial_1_reward": 1.0,
+              "trial_1_correct": 1,
+              "trial_1_submitted": 1,
+              "trial_1_control_steps": 206,
+              "trial_2_reward": 1.0,
+              "trial_2_correct": 1,
+              "trial_2_submitted": 1,
+              "trial_2_control_steps": 205,
+              "trial_3_reward": 1.0,
+              "trial_3_correct": 1,
+              "trial_3_submitted": 1,
+              "trial_3_control_steps": 238
+            }
+          }
+        ]
+      }
     }
   ]
 }
