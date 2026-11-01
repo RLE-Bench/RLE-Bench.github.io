@@ -12356,6 +12356,726 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "01-washing-dishes/claude_code-k31_pro-20261031T202003-ca0fda872530-01_washing_dishes_fix2_h215",
+      "status": "completed",
+      "cost_usd": 98.8426035,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 32972.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:04.330834",
+        "finished_at": "2026-10-31T23:15:27.351730",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 148763249,
+          "n_cache_tokens": 146215237,
+          "n_output_tokens": 519797
+        },
+        "trials": [
+          {
+            "trial": "01-washing-dishes__WZoGQuk",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 32972,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "02-sauteing-vegetables/claude_code-k31_pro-20261031T202004-7781b66fbf25-02_sauteing_vegetables_fix2_h215",
+      "status": "completed",
+      "cost_usd": 96.12547700000002,
+      "reward": 0.9,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 69499.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.9,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:04.493304",
+        "finished_at": "2026-10-31T23:11:55.249517",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 136776778,
+          "n_cache_tokens": 133556314,
+          "n_output_tokens": 529800
+        },
+        "trials": [
+          {
+            "trial": "02-sauteing-vegetables__YB9ueTV",
+            "rewards": {
+              "reward": 0.9,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 69499,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "03-baking/claude_code-k31_pro-20261031T202004-154f40670302-03_baking_fix2_h215",
+      "status": "completed",
+      "cost_usd": 130.23695700000005,
+      "reward": 0.9,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 49200.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.9,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:04.678595",
+        "finished_at": "2026-10-31T23:55:54.432327",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 192188609,
+          "n_cache_tokens": 188515064,
+          "n_output_tokens": 704468
+        },
+        "trials": [
+          {
+            "trial": "03-baking__x25zwbU",
+            "rewards": {
+              "reward": 0.9,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 49200,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "04-reheating-food/claude_code-k31_pro-20261031T202004-3363b236e710-04_reheating_food_fix2_h215",
+      "status": "completed",
+      "cost_usd": 100.32399099999992,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 72966.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:04.883259",
+        "finished_at": "2026-10-31T23:20:05.280713",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 148724850,
+          "n_cache_tokens": 146089452,
+          "n_output_tokens": 564091
+        },
+        "trials": [
+          {
+            "trial": "04-reheating-food__LGRmfLF",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 72966,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "05-chopping-food/claude_code-k31_pro-20261031T202004-0dee3d9c195d-05_chopping_food_fix2_h215",
+      "status": "completed",
+      "cost_usd": 106.59780950000003,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 53251.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:05.068205",
+        "finished_at": "2026-10-31T23:02:53.548927",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 166612123,
+          "n_cache_tokens": 163842629,
+          "n_output_tokens": 433161
+        },
+        "trials": [
+          {
+            "trial": "05-chopping-food__SxB4bBc",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 53251,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "06-setting-the-table/claude_code-k31_pro-20261031T202004-43c75d5098f2-06_setting_the_table_fix2_h215",
+      "status": "completed",
+      "cost_usd": 117.81645500000003,
+      "reward": 0.2,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 53376.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.2,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:05.246747",
+        "finished_at": "2026-10-31T23:47:24.220697",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 175234306,
+          "n_cache_tokens": 172161200,
+          "n_output_tokens": 654813
+        },
+        "trials": [
+          {
+            "trial": "06-setting-the-table__csUKvsB",
+            "rewards": {
+              "reward": 0.2,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 53376,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "07-portioning-meals/claude_code-k31_pro-20261031T202005-dc88ffc37546-07_portioning_meals_fix2_h215",
+      "status": "completed",
+      "cost_usd": 138.89513100000016,
+      "reward": 0.8,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 42091.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.8,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:05.440283",
+        "finished_at": "2026-11-01T00:26:56.640334",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 209123157,
+          "n_cache_tokens": 205057862,
+          "n_output_tokens": 641589
+        },
+        "trials": [
+          {
+            "trial": "07-portioning-meals__yrVgrfy",
+            "rewards": {
+              "reward": 0.8,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 42091,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "08-defrosting-food/claude_code-k31_pro-20261031T202005-80bd0b0cceb0-08_defrosting_food_fix2_h215",
+      "status": "completed",
+      "cost_usd": 130.37675900000005,
+      "reward": 0.6833333333333333,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 45819.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.6833333333333333,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:05.621041",
+        "finished_at": "2026-10-31T23:48:07.409363",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 197938099,
+          "n_cache_tokens": 194567608,
+          "n_output_tokens": 649620
+        },
+        "trials": [
+          {
+            "trial": "08-defrosting-food__8NcQBuW",
+            "rewards": {
+              "reward": 0.6833333333333333,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 45819,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "09-arranging-buffet/claude_code-k31_pro-20261031T202005-47188c9e20da-09_arranging_buffet_fix2_h215",
+      "status": "completed",
+      "cost_usd": 105.81664800000003,
+      "reward": 0.65,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 35001.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.65,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:05.807692",
+        "finished_at": "2026-10-31T23:22:49.423497",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 152990968,
+          "n_cache_tokens": 149777576,
+          "n_output_tokens": 594436
+        },
+        "trials": [
+          {
+            "trial": "09-arranging-buffet__V9exWEt",
+            "rewards": {
+              "reward": 0.65,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 35001,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "10-serving-beverages/claude_code-k31_pro-20261031T202005-4668a0a6aff6-10_serving_beverages_fix2_h215",
+      "status": "completed",
+      "cost_usd": 127.98289500000007,
+      "reward": 0.06666666666666667,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 74571.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.06666666666666667,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:05.999484",
+        "finished_at": "2026-10-31T23:54:23.958921",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 200463338,
+          "n_cache_tokens": 197714910,
+          "n_output_tokens": 615332
+        },
+        "trials": [
+          {
+            "trial": "10-serving-beverages__Bygotcr",
+            "rewards": {
+              "reward": 0.06666666666666667,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 74571,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "11-loading-fridge/claude_code-k31_pro-20261031T202005-3766fa090d27-11_loading_fridge_fix2_h215",
+      "status": "completed",
+      "cost_usd": 131.452863,
+      "reward": 0.26666666666666666,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 38385.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.26666666666666666,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:06.196581",
+        "finished_at": "2026-10-31T23:42:34.535635",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 198044871,
+          "n_cache_tokens": 194607276,
+          "n_output_tokens": 677236
+        },
+        "trials": [
+          {
+            "trial": "11-loading-fridge__cVRstvn",
+            "rewards": {
+              "reward": 0.26666666666666666,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 38385,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "12-managing-freezer-space/claude_code-k31_pro-20261031T202006-945cdb703d86-12_managing_freezer_space_fix2_h215",
+      "status": "completed",
+      "cost_usd": 100.45814399999999,
+      "reward": 0.1,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 37044.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.1,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:06.394398",
+        "finished_at": "2026-10-31T23:55:02.730013",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 144468181,
+          "n_cache_tokens": 141798358,
+          "n_output_tokens": 648394
+        },
+        "trials": [
+          {
+            "trial": "12-managing-freezer-space__xc6rtqE",
+            "rewards": {
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 37044,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "13-clearing-table/claude_code-k31_pro-20261031T202006-1c22d1f1563b-13_clearing_table_fix2_h215",
+      "status": "completed",
+      "cost_usd": 118.25742000000004,
+      "reward": 0.3333333333333333,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 47915.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.3333333333333333,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:06.599204",
+        "finished_at": "2026-11-01T00:13:24.251772",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 168335614,
+          "n_cache_tokens": 165067600,
+          "n_output_tokens": 775342
+        },
+        "trials": [
+          {
+            "trial": "13-clearing-table__uqS7J4J",
+            "rewards": {
+              "reward": 0.3333333333333333,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 47915,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "14-microwaving-food/claude_code-k31_pro-20261031T202006-e7e3de225b69-14_microwaving_food_fix2_h215",
+      "status": "completed",
+      "cost_usd": 125.46906850000002,
+      "reward": 0.4666666666666667,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 47936.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.4666666666666667,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:06.939439",
+        "finished_at": "2026-11-01T00:09:23.540180",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 182764085,
+          "n_cache_tokens": 179098457,
+          "n_output_tokens": 703668
+        },
+        "trials": [
+          {
+            "trial": "14-microwaving-food__fKYvgwC",
+            "rewards": {
+              "reward": 0.4666666666666667,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 47936,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "15-storing-leftovers/claude_code-k31_pro-20261031T202507-a914a7bc6628-15_storing_leftovers_fix2_h215",
+      "status": "completed",
+      "cost_usd": 102.0641715,
+      "reward": 0.6666666666666666,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 32406.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.6666666666666666,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:25:08.361865",
+        "finished_at": "2026-10-31T23:56:18.072874",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 142238642,
+          "n_cache_tokens": 138774103,
+          "n_output_tokens": 614177
+        },
+        "trials": [
+          {
+            "trial": "15-storing-leftovers__v9sYLiD",
+            "rewards": {
+              "reward": 0.6666666666666666,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 32406,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
     }
   ]
 }
