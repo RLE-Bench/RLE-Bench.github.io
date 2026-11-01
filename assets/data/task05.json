@@ -3183,6 +3183,182 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "task05/01-libero-open-design/claude-code/kimi_kimi-31-pro-nuvora",
+      "status": "completed",
+      "cost_usd": 24.46774600000001,
+      "reward": 0.812,
+      "success_rate": 0.812,
+      "metrics": {
+        "episodes": 500.0,
+        "parameters": 22799916.0,
+        "replay_wall_s": 1187.6078797189984,
+        "reward": 0.812,
+        "success_rate": 0.812
+      },
+      "extra": {
+        "started_at": "2026-10-31T02:48:46.504604",
+        "finished_at": "2026-10-31T05:50:39.700626",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 31573581,
+          "n_cache_tokens": 31063552,
+          "n_output_tokens": 255433
+        },
+        "trials": [
+          {
+            "trial": "01-libero-open-design__ZWCRkRS",
+            "rewards": {
+              "reward": 0.812,
+              "success_rate": 0.812,
+              "episodes": 500.0,
+              "parameters": 22799916.0,
+              "replay_wall_s": 1187.6078797189984
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "task05/02-libero-robustness/claude-code/kimi_kimi-31-pro-nuvora",
+      "status": "completed",
+      "cost_usd": 31.98732049999999,
+      "reward": 0.698,
+      "success_rate": null,
+      "metrics": {
+        "episodes": 500.0,
+        "parameters": 53365036.0,
+        "plus_success_rate": 0.698,
+        "replay_wall_s": 807.6682000789988,
+        "reward": 0.698
+      },
+      "extra": {
+        "started_at": "2026-10-31T02:48:46.503245",
+        "finished_at": "2026-10-31T05:45:34.487106",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 59880068,
+          "n_cache_tokens": 59523791,
+          "n_output_tokens": 187157
+        },
+        "trials": [
+          {
+            "trial": "02-libero-robustness__bkd2PCf",
+            "rewards": {
+              "reward": 0.698,
+              "plus_success_rate": 0.698,
+              "episodes": 500.0,
+              "parameters": 53365036.0,
+              "replay_wall_s": 807.6682000789988
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "task05/03-robotwin-open-design/claude-code/kimi_kimi-31-pro-nuvora",
+      "status": "completed",
+      "cost_usd": 33.75489399999999,
+      "reward": 0.73,
+      "success_rate": 0.73,
+      "metrics": {
+        "episodes": 300.0,
+        "parameters": 5152373.0,
+        "replay_wall_s": 544.9104721719996,
+        "reward": 0.73,
+        "success_rate": 0.73
+      },
+      "extra": {
+        "started_at": "2026-10-31T02:48:46.520785",
+        "finished_at": "2026-10-31T07:51:39.118318",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 54529401,
+          "n_cache_tokens": 54138058,
+          "n_output_tokens": 189166
+        },
+        "trials": [
+          {
+            "trial": "03-robotwin-open-design__r5wh7zv",
+            "rewards": {
+              "reward": 0.73,
+              "success_rate": 0.73,
+              "episodes": 300.0,
+              "parameters": 5152373.0,
+              "replay_wall_s": 544.9104721719996
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "task05/04-robotwin-robustness/claude-code/kimi_kimi-31-pro-nuvora",
+      "status": "completed",
+      "cost_usd": 34.24451250000002,
+      "reward": 0.133333,
+      "success_rate": 0.13333333333333333,
+      "metrics": {
+        "episodes": 225.0,
+        "parameters": 22876276.0,
+        "replay_wall_s": 1161.84455342,
+        "reward": 0.133333,
+        "success_rate": 0.13333333333333333
+      },
+      "extra": {
+        "started_at": "2026-10-31T02:48:46.504172",
+        "finished_at": "2026-10-31T09:21:27.650881",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 54200346,
+          "n_cache_tokens": 53796615,
+          "n_output_tokens": 213102
+        },
+        "trials": [
+          {
+            "trial": "04-robotwin-robustness__4qmcuMF",
+            "rewards": {
+              "reward": 0.133333,
+              "success_rate": 0.13333333333333333,
+              "episodes": 225.0,
+              "parameters": 22876276.0,
+              "replay_wall_s": 1161.84455342
+            }
+          }
+        ]
+      }
     }
   ]
 }

@@ -4979,6 +4979,346 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "claude_code-k31_pro-20261029T085348-2c45cc863379-01_dance_h215",
+      "status": "completed",
+      "cost_usd": 171.82116200000007,
+      "reward": 0.8196,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.137,
+        "anchor_pos_err_m": 0.6687,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.2179,
+        "mpjpe_m": 0.0334,
+        "n_params": 831355.0,
+        "obs_history_length": 3.0,
+        "raw_total": 0.8196,
+        "reward": 0.8196,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.8384,
+        "tracking_score": 0.9864
+      },
+      "extra": {
+        "started_at": "2026-10-29T08:53:49.424317",
+        "finished_at": "2026-10-29T11:43:07.780239",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 321833219,
+          "n_cache_tokens": 320993218,
+          "n_output_tokens": 300392
+        },
+        "trials": [
+          {
+            "trial": "01-dance__xv8ZVRV",
+            "rewards": {
+              "reward": 0.8196,
+              "raw_total": 0.8196,
+              "gated": 0,
+              "tracking_score": 0.9864,
+              "tracking_multi": 0.8384,
+              "mpjpe_m": 0.0334,
+              "anchor_pos_err_m": 0.6687,
+              "joint_rmse_rad": 0.2179,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.137,
+              "falls": 0.0,
+              "n_params": 831355.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 3.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "claude_code-k31_pro-20261029T085348-5938e06ce486-02_fight_h215",
+      "status": "completed",
+      "cost_usd": 16.346887000000006,
+      "reward": 0.7498,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1358,
+        "anchor_pos_err_m": 1.0026,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1819,
+        "mpjpe_m": 0.0468,
+        "n_params": 250717.0,
+        "obs_history_length": 1.0,
+        "raw_total": 0.7498,
+        "reward": 0.7498,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.7379,
+        "tracking_score": 0.9735
+      },
+      "extra": {
+        "started_at": "2026-10-29T08:53:49.423891",
+        "finished_at": "2026-10-29T12:45:18.050035",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 25317093,
+          "n_cache_tokens": 25021184,
+          "n_output_tokens": 94270
+        },
+        "trials": [
+          {
+            "trial": "02-fight__W8XfJtw",
+            "rewards": {
+              "reward": 0.7498,
+              "raw_total": 0.7498,
+              "gated": 0,
+              "tracking_score": 0.9735,
+              "tracking_multi": 0.7379,
+              "mpjpe_m": 0.0468,
+              "anchor_pos_err_m": 1.0026,
+              "joint_rmse_rad": 0.1819,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1358,
+              "falls": 0.0,
+              "n_params": 250717.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 1.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "claude_code-k31_pro-20261029T114349-37e7b7b59f6c-03_fall_and_get_up_h215",
+      "status": "completed",
+      "cost_usd": 19.481306000000014,
+      "reward": 0.8074,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1514,
+        "anchor_pos_err_m": 0.5755,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.2381,
+        "mpjpe_m": 0.0347,
+        "n_params": 996220.0,
+        "obs_history_length": 4.0,
+        "raw_total": 0.8074,
+        "reward": 0.8074,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.8311,
+        "tracking_score": 0.9812
+      },
+      "extra": {
+        "started_at": "2026-10-29T11:43:49.682763",
+        "finished_at": "2026-10-29T15:20:51.848746",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 27438957,
+          "n_cache_tokens": 27091712,
+          "n_output_tokens": 167969
+        },
+        "trials": [
+          {
+            "trial": "03-fall-and-get-up__WtWpxxw",
+            "rewards": {
+              "reward": 0.8074,
+              "raw_total": 0.8074,
+              "gated": 0,
+              "tracking_score": 0.9812,
+              "tracking_multi": 0.8311,
+              "mpjpe_m": 0.0347,
+              "anchor_pos_err_m": 0.5755,
+              "joint_rmse_rad": 0.2381,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1514,
+              "falls": 0.0,
+              "n_params": 996220.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 4.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "claude_code-k31_pro-20261029T124619-0a216a0a5b89-04_run_h215",
+      "status": "completed",
+      "cost_usd": 26.611773,
+      "reward": 0.7642,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1427,
+        "anchor_pos_err_m": 1.7328,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.2177,
+        "mpjpe_m": 0.0435,
+        "n_params": 250717.0,
+        "obs_history_length": 1.0,
+        "raw_total": 0.7642,
+        "reward": 0.7642,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.7633,
+        "tracking_score": 0.9768
+      },
+      "extra": {
+        "started_at": "2026-10-29T12:46:19.766620",
+        "finished_at": "2026-10-29T16:43:00.988244",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 41291827,
+          "n_cache_tokens": 40929536,
+          "n_output_tokens": 173422
+        },
+        "trials": [
+          {
+            "trial": "04-run__4VPpC7U",
+            "rewards": {
+              "reward": 0.7642,
+              "raw_total": 0.7642,
+              "gated": 0,
+              "tracking_score": 0.9768,
+              "tracking_multi": 0.7633,
+              "mpjpe_m": 0.0435,
+              "anchor_pos_err_m": 1.7328,
+              "joint_rmse_rad": 0.2177,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1427,
+              "falls": 0.0,
+              "n_params": 250717.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 1.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "claude_code-k31_pro-20261029T152149-6173e26978b8-05_sprint_h215",
+      "status": "completed",
+      "cost_usd": 104.13900600000001,
+      "reward": 0.6367,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.3927,
+        "anchor_pos_err_m": 2.9094,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.4838,
+        "mpjpe_m": 0.0558,
+        "n_params": 251103.0,
+        "obs_history_length": 1.0,
+        "raw_total": 0.6367,
+        "reward": 0.6367,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.6952,
+        "tracking_score": 0.9576
+      },
+      "extra": {
+        "started_at": "2026-10-29T15:21:50.117005",
+        "finished_at": "2026-10-29T19:21:37.300525",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 187112001,
+          "n_cache_tokens": 186505422,
+          "n_output_tokens": 314136
+        },
+        "trials": [
+          {
+            "trial": "05-sprint__kLZME8E",
+            "rewards": {
+              "reward": 0.6367,
+              "raw_total": 0.6367,
+              "gated": 0,
+              "tracking_score": 0.9576,
+              "tracking_multi": 0.6952,
+              "mpjpe_m": 0.0558,
+              "anchor_pos_err_m": 2.9094,
+              "joint_rmse_rad": 0.4838,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.3927,
+              "falls": 0.0,
+              "n_params": 251103.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 1.0
+            }
+          }
+        ]
+      }
     }
   ]
 }

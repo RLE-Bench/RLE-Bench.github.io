@@ -1111,6 +1111,80 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "claude_code-k31_pro-20261029T161938-7ca646fca191-h215",
+      "status": "completed",
+      "cost_usd": 67.91048250000004,
+      "reward": 0.3096,
+      "success_rate": null,
+      "metrics": {
+        "bin_hits": 0.0,
+        "clear_frac": 0.7226,
+        "damage_events": 1.0,
+        "episode_wall_s_total": 3717.5928,
+        "floor_drops": 0.0,
+        "gate_contract": 1.0,
+        "gate_determinism": 1.0,
+        "gate_load": 1.0,
+        "gate_stable": 1.0,
+        "gated": 0.0,
+        "harness_wall_s_total": 3660.3509,
+        "makespan_s": 99.8,
+        "n_parts": 112.0,
+        "parts_cleared": 80.0,
+        "policy_faults": 0.0,
+        "policy_wall_s_total": 57.2419,
+        "raw_total": 0.3096,
+        "reward": 0.3096,
+        "speed_merit": 0.4249,
+        "throughput_ppm": 6.1296
+      },
+      "extra": {
+        "started_at": "2026-10-29T16:19:38.579243",
+        "finished_at": "2026-10-29T18:25:06.156070",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 112564831,
+          "n_cache_tokens": 111789955,
+          "n_output_tokens": 325645
+        },
+        "trials": [
+          {
+            "trial": "task07__knRZkUh",
+            "rewards": {
+              "reward": 0.3096,
+              "raw_total": 0.3096,
+              "gated": 0,
+              "clear_frac": 0.7226,
+              "parts_cleared": 80.0,
+              "n_parts": 112.0,
+              "speed_merit": 0.4249,
+              "throughput_ppm": 6.1296,
+              "makespan_s": 99.8,
+              "floor_drops": 0.0,
+              "damage_events": 1.0,
+              "bin_hits": 0.0,
+              "policy_faults": 0.0,
+              "episode_wall_s_total": 3717.5928,
+              "policy_wall_s_total": 57.2419,
+              "harness_wall_s_total": 3660.3509,
+              "gate_load": 1,
+              "gate_contract": 1,
+              "gate_stable": 1,
+              "gate_determinism": 1
+            }
+          }
+        ]
+      }
     }
   ]
 }

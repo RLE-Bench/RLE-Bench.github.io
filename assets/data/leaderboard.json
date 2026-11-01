@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "measured",
-  "generated_at": "2026-10-27T05:39:26Z",
+  "generated_at": "2026-11-01T06:16:09Z",
   "generator": "assets/data/export.py",
   "source": {
     "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId] reports per-subtask means over the task's runs: cost = mean API cost in USD, hours = mean agent wall-clock hours, context_tokens = mean of input_tokens minus cached_tokens per run (the homepage's Context Length). cost_total, hours_total, hours_median and the input/cached/output token counts are the corresponding totals over runs. The homepage's overall figures average these per-task means within each workflow, then across workflows. Missing API cost or token counts stay null. Costs come from the run dumps except for the models listed under source.prices, whose cost is recomputed from token counts because their harness billed them against the wrong price sheet; costs[...].cost_sources and results[...].subtasks[...].cost_source say which applies. Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc.",
@@ -34,6 +34,15 @@
         "input": 0.15,
         "cached_input": 0.03,
         "output": 0.5
+      },
+      "kimi-k3.1-pro": {
+        "file": "price/kimi-k3.1-pro.json",
+        "rate": "list",
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "input": 2.0,
+        "cached_input": 0.2,
+        "output": 10.0
       }
     },
     "files": {
@@ -55,49 +64,49 @@
         "file": "task03.json",
         "root": "jobs/task03",
         "schema_version": 1,
-        "runs": 75,
+        "runs": 80,
         "runs_skipped": 0
       },
       "task04": {
         "file": "task04.json",
         "root": "jobs/task04",
         "schema_version": 1,
-        "runs": 75,
+        "runs": 80,
         "runs_skipped": 0
       },
       "task05": {
         "file": "task05.json",
         "root": "jobs/task05",
         "schema_version": 1,
-        "runs": 72,
+        "runs": 76,
         "runs_skipped": 12
       },
       "task06": {
         "file": "task06.json",
         "root": "jobs/task06",
         "schema_version": 1,
-        "runs": 60,
+        "runs": 64,
         "runs_skipped": 0
       },
       "task07": {
         "file": "task07.json",
         "root": "jobs/task07",
         "schema_version": 1,
-        "runs": 15,
+        "runs": 16,
         "runs_skipped": 0
       },
       "task08": {
         "file": "task08.json",
         "root": "jobs/task08",
         "schema_version": 1,
-        "runs": 15,
+        "runs": 16,
         "runs_skipped": 0
       },
       "task09": {
         "file": "task09.json",
         "root": "jobs/task09",
         "schema_version": 1,
-        "runs": 15,
+        "runs": 16,
         "runs_skipped": 0
       }
     }
@@ -208,6 +217,23 @@
       "tasks": [
         "task01",
         "task02",
+        "task03",
+        "task04",
+        "task05",
+        "task06",
+        "task07",
+        "task08",
+        "task09"
+      ]
+    },
+    {
+      "id": "kimi31pro",
+      "name": "Kimi K3.1 Pro",
+      "short": "K3.1 Pro",
+      "org": "Moonshot AI",
+      "open": false,
+      "harness": "Claude Code",
+      "tasks": [
         "task03",
         "task04",
         "task05",
@@ -779,7 +805,7 @@
           "label": "Hidden Center of Mass"
         }
       ],
-      "n_runs": 75,
+      "n_runs": 80,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
@@ -794,6 +820,7 @@
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
+        "kimi31pro",
         "opus48",
         "opus5",
         "opus55"
@@ -870,7 +897,7 @@
           "label": "Sprint"
         }
       ],
-      "n_runs": 75,
+      "n_runs": 80,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
@@ -885,6 +912,7 @@
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
+        "kimi31pro",
         "opus48",
         "opus5",
         "opus55"
@@ -950,7 +978,7 @@
           "label": "RoboTwin · robustness"
         }
       ],
-      "n_runs": 72,
+      "n_runs": 76,
       "n_runs_skipped": 12,
       "models": [
         "deepseek-flash",
@@ -965,6 +993,7 @@
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
+        "kimi31pro",
         "opus48",
         "opus5",
         "opus55"
@@ -1030,7 +1059,7 @@
           "label": "Method agnostic"
         }
       ],
-      "n_runs": 60,
+      "n_runs": 64,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
@@ -1045,6 +1074,7 @@
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
+        "kimi31pro",
         "opus48",
         "opus5",
         "opus55"
@@ -1085,7 +1115,7 @@
           "label": "Bin clearing"
         }
       ],
-      "n_runs": 15,
+      "n_runs": 16,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
@@ -1100,6 +1130,7 @@
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
+        "kimi31pro",
         "opus48",
         "opus5",
         "opus55"
@@ -1161,7 +1192,7 @@
           "label": "Mobile base"
         }
       ],
-      "n_runs": 15,
+      "n_runs": 16,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
@@ -1176,6 +1207,7 @@
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
+        "kimi31pro",
         "opus48",
         "opus5",
         "opus55"
@@ -1219,7 +1251,7 @@
           "label": "Gravity compensation"
         }
       ],
-      "n_runs": 15,
+      "n_runs": 16,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
@@ -1234,6 +1266,7 @@
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
+        "kimi31pro",
         "opus48",
         "opus5",
         "opus55"
@@ -1500,6 +1533,13 @@
         1.0,
         1.0,
         1.0
+      ],
+      "kimi31pro": [
+        1.0,
+        0.805695,
+        0.666667,
+        0.0,
+        0.333333
       ]
     },
     "task04": {
@@ -1607,6 +1647,13 @@
         0.7623,
         0.8641,
         0.8659
+      ],
+      "kimi31pro": [
+        0.8196,
+        0.7498,
+        0.8074,
+        0.7642,
+        0.6367
       ]
     },
     "task05": {
@@ -1699,6 +1746,12 @@
         0.83,
         0.75,
         0.24
+      ],
+      "kimi31pro": [
+        0.812,
+        0.698,
+        0.73,
+        0.133333
       ]
     },
     "task06": {
@@ -1791,6 +1844,12 @@
         0.7624,
         0.2748,
         0.8453
+      ],
+      "kimi31pro": [
+        0.2723,
+        0.6768,
+        0.0544,
+        0.6517
       ]
     },
     "task07": {
@@ -1853,6 +1912,10 @@
       "gemini4argon": [
         1.0,
         0.6216
+      ],
+      "kimi31pro": [
+        0.7226,
+        0.4249
       ]
     },
     "task08": {
@@ -1960,6 +2023,13 @@
         0.0,
         0.3335,
         0.666667
+      ],
+      "kimi31pro": [
+        1.0,
+        0.684571,
+        0.0,
+        0.2665,
+        1.0
       ]
     },
     "task09": {
@@ -2037,6 +2107,11 @@
         0.5954,
         0.4914,
         0.4402
+      ],
+      "kimi31pro": [
+        0.531,
+        0.4608,
+        0.4446
       ]
     }
   },
@@ -2076,7 +2151,7 @@
       },
       "opus48": {
         "cost": 41.044558,
-        "cost_total": 615.668372,
+        "cost_total": 615.668371,
         "hours": 2.7428,
         "hours_median": 2.5607,
         "hours_total": 41.1426,
@@ -2765,6 +2840,22 @@
         ],
         "n_runs": 5,
         "n_subtasks": 5
+      },
+      "kimi31pro": {
+        "cost": 22.342367,
+        "cost_total": 111.711835,
+        "hours": 0.9826,
+        "hours_median": 0.6807,
+        "hours_total": 4.9128,
+        "context_tokens": 933248.4,
+        "input_tokens": 465110298,
+        "cached_tokens": 460444056,
+        "output_tokens": 1029054,
+        "cost_sources": [
+          "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 5,
+        "n_subtasks": 5
       }
     },
     "task04": {
@@ -2801,8 +2892,8 @@
         "n_subtasks": 5
       },
       "opus5": {
-        "cost": 7.638134,
-        "cost_total": 38.190672,
+        "cost": 7.638135,
+        "cost_total": 38.190673,
         "hours": 3.4833,
         "hours_median": 3.4621,
         "hours_total": 17.4166,
@@ -3004,6 +3095,22 @@
         "output_tokens": null,
         "cost_sources": [
           "harness"
+        ],
+        "n_runs": 5,
+        "n_subtasks": 5
+      },
+      "kimi31pro": {
+        "cost": 27.102831,
+        "cost_total": 135.514154,
+        "hours": 3.6476,
+        "hours_median": 3.858,
+        "hours_total": 18.2382,
+        "context_tokens": 490405.0,
+        "input_tokens": 602993097,
+        "cached_tokens": 600541072,
+        "output_tokens": 1050189,
+        "cost_sources": [
+          "price/kimi-k3.1-pro.json:list"
         ],
         "n_runs": 5,
         "n_subtasks": 5
@@ -3249,6 +3356,22 @@
         ],
         "n_runs": 4,
         "n_subtasks": 4
+      },
+      "kimi31pro": {
+        "cost": 12.868936,
+        "cost_total": 51.475743,
+        "hours": 4.3927,
+        "hours_median": 4.0397,
+        "hours_total": 17.5708,
+        "context_tokens": 415345.0,
+        "input_tokens": 200183396,
+        "cached_tokens": 198522016,
+        "output_tokens": 844858,
+        "cost_sources": [
+          "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 4,
+        "n_subtasks": 4
       }
     },
     "task06": {
@@ -3462,7 +3585,7 @@
       },
       "gpt6luna": {
         "cost": 0.049348,
-        "cost_total": 0.197393,
+        "cost_total": 0.197392,
         "hours": 0.5394,
         "hours_median": 0.4215,
         "hours_total": 2.1576,
@@ -3488,6 +3611,22 @@
         "output_tokens": null,
         "cost_sources": [
           "harness"
+        ],
+        "n_runs": 4,
+        "n_subtasks": 4
+      },
+      "kimi31pro": {
+        "cost": 9.208739,
+        "cost_total": 36.834954,
+        "hours": 0.6949,
+        "hours_median": 0.6858,
+        "hours_total": 2.7794,
+        "context_tokens": 328807.2,
+        "input_tokens": 141674911,
+        "cached_tokens": 140359682,
+        "output_tokens": 613256,
+        "cost_sources": [
+          "price/kimi-k3.1-pro.json:list"
         ],
         "n_runs": 4,
         "n_subtasks": 4
@@ -3733,6 +3872,22 @@
         ],
         "n_runs": 1,
         "n_subtasks": 1
+      },
+      "kimi31pro": {
+        "cost": 27.164193,
+        "cost_total": 27.164193,
+        "hours": 2.091,
+        "hours_median": 2.091,
+        "hours_total": 2.091,
+        "context_tokens": 774876.0,
+        "input_tokens": 112564831,
+        "cached_tokens": 111789955,
+        "output_tokens": 325645,
+        "cost_sources": [
+          "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
       }
     },
     "task08": {
@@ -3975,6 +4130,22 @@
         ],
         "n_runs": 1,
         "n_subtasks": 1
+      },
+      "kimi31pro": {
+        "cost": 22.867303,
+        "cost_total": 22.867303,
+        "hours": 0.9195,
+        "hours_median": 0.9195,
+        "hours_total": 0.9195,
+        "context_tokens": 872431.0,
+        "input_tokens": 89314287,
+        "cached_tokens": 88441856,
+        "output_tokens": 343407,
+        "cost_sources": [
+          "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
       }
     },
     "task09": {
@@ -4214,6 +4385,22 @@
         "output_tokens": null,
         "cost_sources": [
           "harness"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "kimi31pro": {
+        "cost": 21.982956,
+        "cost_total": 21.982956,
+        "hours": 0.6301,
+        "hours_median": 0.6301,
+        "hours_total": 0.6301,
+        "context_tokens": 708360.0,
+        "input_tokens": 85091592,
+        "cached_tokens": 84383232,
+        "output_tokens": 368959,
+        "cost_sources": [
+          "price/kimi-k3.1-pro.json:list"
         ],
         "n_runs": 1,
         "n_subtasks": 1
@@ -15956,8 +16143,8 @@
             "score": 0.513333,
             "reward": 0.513333,
             "success_rate": 0.2,
-            "cost_usd": 638.855002,
-            "cost_usd_mean": 127.771,
+            "cost_usd": 638.855003,
+            "cost_usd_mean": 127.771001,
             "hours_median": 4.5086,
             "n_runs": 5,
             "complete": true
@@ -21353,6 +21540,241 @@
             }
           }
         }
+      },
+      "kimi31pro": {
+        "score": 0.561139,
+        "complete": true,
+        "n_runs": 5,
+        "n_subtasks": 5,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-tower-max-height": {
+            "score": 1.0,
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 14.031504,
+            "cost_usd_mean": 14.031504,
+            "hours_median": 0.9364,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-cantilever-overhang": {
+            "score": 0.805695,
+            "reward": 0.805695,
+            "success_rate": 0.805695,
+            "cost_usd": 8.547201,
+            "cost_usd_mean": 8.547201,
+            "hours_median": 0.6807,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-balance-coins": {
+            "score": 0.666667,
+            "reward": 0.666667,
+            "success_rate": 0.666667,
+            "cost_usd": 1.730204,
+            "cost_usd_mean": 1.730204,
+            "hours_median": 0.2536,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-rubik-cube": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 85.371223,
+            "cost_usd_mean": 85.371223,
+            "hours_median": 2.7811,
+            "n_runs": 1,
+            "complete": true
+          },
+          "05-hidden-center-of-mass": {
+            "score": 0.333333,
+            "reward": 0.333333,
+            "success_rate": 0.333333,
+            "cost_usd": 2.031704,
+            "cost_usd_mean": 2.031704,
+            "hours_median": 0.2609,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-tower-max-height": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 14.031504,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 0.9364,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T161152-cc731eacc7ef-01_tower_max_height_h216",
+            "started_at": "2026-10-29T16:11:53.002704",
+            "finished_at": "2026-10-29T17:08:04.038897",
+            "input_tokens": 48458242,
+            "cached_tokens": 47254222,
+            "output_tokens": 217262,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 1.0,
+              "development_steps": 21336.0,
+              "infrastructure_failures": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 21336.0,
+              "quality": 1.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "task_score": 100.0,
+              "trials_attempted": 1.0,
+              "trials_recorded": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "02-cantilever-overhang": {
+            "reward": 0.805695,
+            "success_rate": 0.805695,
+            "cost_usd": 8.547201,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 0.6807,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T161937-1bf3d571d6ea-02_cantilever_overhang_h215",
+            "started_at": "2026-10-29T16:19:38.217576",
+            "finished_at": "2026-10-29T17:00:28.890910",
+            "input_tokens": 29693793,
+            "cached_tokens": 28962175,
+            "output_tokens": 129153,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.805695,
+              "development_steps": 33880.0,
+              "infrastructure_failures": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 33880.0,
+              "quality": 0.805695,
+              "reward": 0.805695,
+              "success_rate": 0.805695,
+              "task_score": 80.569465,
+              "trials_attempted": 1.0,
+              "trials_recorded": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "03-balance-coins": {
+            "reward": 0.666667,
+            "success_rate": 0.666667,
+            "cost_usd": 1.730204,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 0.2536,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T161937-4930adc60f39-03_balance_coins_h215",
+            "started_at": "2026-10-29T16:19:38.311278",
+            "finished_at": "2026-10-29T16:34:51.401662",
+            "input_tokens": 4265376,
+            "cached_tokens": 4146588,
+            "output_tokens": 66331,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.666667,
+              "development_steps": 8393.0,
+              "infrastructure_failures": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 8393.0,
+              "quality": 0.666667,
+              "reward": 0.666667,
+              "success_rate": 0.666667,
+              "task_score": 66.666667,
+              "trials_attempted": 1.0,
+              "trials_recorded": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "04-rubik-cube": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 85.371223,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 2.7811,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T161938-8eb21f26dbd3-04_rubik_cube_h215",
+            "started_at": "2026-10-29T16:19:38.408663",
+            "finished_at": "2026-10-29T19:06:30.381579",
+            "input_tokens": 376817825,
+            "cached_tokens": 374339193,
+            "output_tokens": 554612,
+            "metrics": {
+              "actual_qtm": 38.0,
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "development_steps": 0.0,
+              "infrastructure_failures": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 48505.0,
+              "optimal_qtm": 11.0,
+              "quality": 0.0,
+              "recoveries": 101.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "task_score": 0.0,
+              "trials_attempted": 1.0,
+              "trials_recorded": 1.0,
+              "trials_total": 1.0,
+              "unclassified_transitions": 2.0
+            }
+          },
+          "05-hidden-center-of-mass": {
+            "reward": 0.333333,
+            "success_rate": 0.333333,
+            "cost_usd": 2.031704,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 0.2609,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T161938-3641cdf06328-05_hidden_center_of_mass_h215",
+            "started_at": "2026-10-29T16:19:38.497115",
+            "finished_at": "2026-10-29T16:35:17.627234",
+            "input_tokens": 5875062,
+            "cached_tokens": 5741878,
+            "output_tokens": 61696,
+            "metrics": {
+              "control_steps": 3323.0,
+              "correct": 1.0,
+              "development_steps": 0.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.333333,
+              "submitted": 3.0,
+              "success_rate": 0.333333,
+              "trial_1_control_steps": 1893.0,
+              "trial_1_correct": 0.0,
+              "trial_1_reward": 0.0,
+              "trial_1_submitted": 1.0,
+              "trial_2_control_steps": 661.0,
+              "trial_2_correct": 0.0,
+              "trial_2_reward": 0.0,
+              "trial_2_submitted": 1.0,
+              "trial_3_control_steps": 769.0,
+              "trial_3_correct": 1.0,
+              "trial_3_reward": 1.0,
+              "trial_3_submitted": 1.0,
+              "trials_attempted": 3.0,
+              "trials_recorded": 3.0,
+              "trials_total": 3.0
+            }
+          }
+        }
       }
     },
     "task04": {
@@ -24924,6 +25346,248 @@
             }
           }
         }
+      },
+      "kimi31pro": {
+        "score": 0.75554,
+        "complete": true,
+        "n_runs": 5,
+        "n_subtasks": 5,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-dance": {
+            "score": 0.8196,
+            "reward": 0.8196,
+            "success_rate": null,
+            "cost_usd": 68.882566,
+            "cost_usd_mean": 68.882566,
+            "hours_median": 2.8218,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-fight": {
+            "score": 0.7498,
+            "reward": 0.7498,
+            "success_rate": null,
+            "cost_usd": 6.538755,
+            "cost_usd_mean": 6.538755,
+            "hours_median": 3.858,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-fall-and-get-up": {
+            "score": 0.8074,
+            "reward": 0.8074,
+            "success_rate": null,
+            "cost_usd": 7.792522,
+            "cost_usd_mean": 7.792522,
+            "hours_median": 3.6173,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-run": {
+            "score": 0.7642,
+            "reward": 0.7642,
+            "success_rate": null,
+            "cost_usd": 10.644709,
+            "cost_usd_mean": 10.644709,
+            "hours_median": 3.9448,
+            "n_runs": 1,
+            "complete": true
+          },
+          "05-sprint": {
+            "score": 0.6367,
+            "reward": 0.6367,
+            "success_rate": null,
+            "cost_usd": 41.655602,
+            "cost_usd_mean": 41.655602,
+            "hours_median": 3.9964,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-dance": {
+            "reward": 0.8196,
+            "success_rate": null,
+            "cost_usd": 68.882566,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 2.8218,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T085348-2c45cc863379-01_dance_h215",
+            "started_at": "2026-10-29T08:53:49.424317",
+            "finished_at": "2026-10-29T11:43:07.780239",
+            "input_tokens": 321833219,
+            "cached_tokens": 320993218,
+            "output_tokens": 300392,
+            "metrics": {
+              "action_jerk": 0.137,
+              "anchor_pos_err_m": 0.6687,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.2179,
+              "mpjpe_m": 0.0334,
+              "n_params": 831355.0,
+              "obs_history_length": 3.0,
+              "raw_total": 0.8196,
+              "reward": 0.8196,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.8384,
+              "tracking_score": 0.9864
+            }
+          },
+          "02-fight": {
+            "reward": 0.7498,
+            "success_rate": null,
+            "cost_usd": 6.538755,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 3.858,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T085348-5938e06ce486-02_fight_h215",
+            "started_at": "2026-10-29T08:53:49.423891",
+            "finished_at": "2026-10-29T12:45:18.050035",
+            "input_tokens": 25317093,
+            "cached_tokens": 25021184,
+            "output_tokens": 94270,
+            "metrics": {
+              "action_jerk": 0.1358,
+              "anchor_pos_err_m": 1.0026,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.1819,
+              "mpjpe_m": 0.0468,
+              "n_params": 250717.0,
+              "obs_history_length": 1.0,
+              "raw_total": 0.7498,
+              "reward": 0.7498,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.7379,
+              "tracking_score": 0.9735
+            }
+          },
+          "03-fall-and-get-up": {
+            "reward": 0.8074,
+            "success_rate": null,
+            "cost_usd": 7.792522,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 3.6173,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T114349-37e7b7b59f6c-03_fall_and_get_up_h215",
+            "started_at": "2026-10-29T11:43:49.682763",
+            "finished_at": "2026-10-29T15:20:51.848746",
+            "input_tokens": 27438957,
+            "cached_tokens": 27091712,
+            "output_tokens": 167969,
+            "metrics": {
+              "action_jerk": 0.1514,
+              "anchor_pos_err_m": 0.5755,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.2381,
+              "mpjpe_m": 0.0347,
+              "n_params": 996220.0,
+              "obs_history_length": 4.0,
+              "raw_total": 0.8074,
+              "reward": 0.8074,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.8311,
+              "tracking_score": 0.9812
+            }
+          },
+          "04-run": {
+            "reward": 0.7642,
+            "success_rate": null,
+            "cost_usd": 10.644709,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 3.9448,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T124619-0a216a0a5b89-04_run_h215",
+            "started_at": "2026-10-29T12:46:19.766620",
+            "finished_at": "2026-10-29T16:43:00.988244",
+            "input_tokens": 41291827,
+            "cached_tokens": 40929536,
+            "output_tokens": 173422,
+            "metrics": {
+              "action_jerk": 0.1427,
+              "anchor_pos_err_m": 1.7328,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.2177,
+              "mpjpe_m": 0.0435,
+              "n_params": 250717.0,
+              "obs_history_length": 1.0,
+              "raw_total": 0.7642,
+              "reward": 0.7642,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.7633,
+              "tracking_score": 0.9768
+            }
+          },
+          "05-sprint": {
+            "reward": 0.6367,
+            "success_rate": null,
+            "cost_usd": 41.655602,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 3.9964,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T152149-6173e26978b8-05_sprint_h215",
+            "started_at": "2026-10-29T15:21:50.117005",
+            "finished_at": "2026-10-29T19:21:37.300525",
+            "input_tokens": 187112001,
+            "cached_tokens": 186505422,
+            "output_tokens": 314136,
+            "metrics": {
+              "action_jerk": 0.3927,
+              "anchor_pos_err_m": 2.9094,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.4838,
+              "mpjpe_m": 0.0558,
+              "n_params": 251103.0,
+              "obs_history_length": 1.0,
+              "raw_total": 0.6367,
+              "reward": 0.6367,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.6952,
+              "tracking_score": 0.9576
+            }
+          }
+        }
       }
     },
     "task05": {
@@ -27141,6 +27805,154 @@
               "replay_wall_s": 1451.2935,
               "reward": 0.24,
               "success_rate": 0.24
+            }
+          }
+        }
+      },
+      "kimi31pro": {
+        "score": 0.593333,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-libero-open-design": {
+            "score": 0.812,
+            "reward": 0.812,
+            "success_rate": 0.812,
+            "cost_usd": 9.787098,
+            "cost_usd_mean": 9.787098,
+            "hours_median": 3.0314,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-libero-robustness": {
+            "score": 0.698,
+            "reward": 0.698,
+            "success_rate": null,
+            "cost_usd": 14.488882,
+            "cost_usd_mean": 14.488882,
+            "hours_median": 2.9467,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-robotwin-open-design": {
+            "score": 0.73,
+            "reward": 0.73,
+            "success_rate": 0.73,
+            "cost_usd": 13.501958,
+            "cost_usd_mean": 13.501958,
+            "hours_median": 5.0479,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.133333,
+            "reward": 0.133333,
+            "success_rate": 0.133333,
+            "cost_usd": 13.697805,
+            "cost_usd_mean": 13.697805,
+            "hours_median": 6.5448,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.812,
+            "success_rate": 0.812,
+            "cost_usd": 9.787098,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 3.0314,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "task05/01-libero-open-design/claude-code/kimi_kimi-31-pro-nuvora",
+            "started_at": "2026-10-31T02:48:46.504604",
+            "finished_at": "2026-10-31T05:50:39.700626",
+            "input_tokens": 31573581,
+            "cached_tokens": 31063552,
+            "output_tokens": 255433,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 22799916.0,
+              "replay_wall_s": 1187.60788,
+              "reward": 0.812,
+              "success_rate": 0.812
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.698,
+            "success_rate": null,
+            "cost_usd": 14.488882,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 2.9467,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "task05/02-libero-robustness/claude-code/kimi_kimi-31-pro-nuvora",
+            "started_at": "2026-10-31T02:48:46.503245",
+            "finished_at": "2026-10-31T05:45:34.487106",
+            "input_tokens": 59880068,
+            "cached_tokens": 59523791,
+            "output_tokens": 187157,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 53365036.0,
+              "plus_success_rate": 0.698,
+              "replay_wall_s": 807.6682,
+              "reward": 0.698
+            }
+          },
+          "03-robotwin-open-design": {
+            "reward": 0.73,
+            "success_rate": 0.73,
+            "cost_usd": 13.501958,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 5.0479,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "task05/03-robotwin-open-design/claude-code/kimi_kimi-31-pro-nuvora",
+            "started_at": "2026-10-31T02:48:46.520785",
+            "finished_at": "2026-10-31T07:51:39.118318",
+            "input_tokens": 54529401,
+            "cached_tokens": 54138058,
+            "output_tokens": 189166,
+            "metrics": {
+              "episodes": 300.0,
+              "parameters": 5152373.0,
+              "replay_wall_s": 544.910472,
+              "reward": 0.73,
+              "success_rate": 0.73
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.133333,
+            "success_rate": 0.133333,
+            "cost_usd": 13.697805,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 6.5448,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "task05/04-robotwin-robustness/claude-code/kimi_kimi-31-pro-nuvora",
+            "started_at": "2026-10-31T02:48:46.504172",
+            "finished_at": "2026-10-31T09:21:27.650881",
+            "input_tokens": 54200346,
+            "cached_tokens": 53796615,
+            "output_tokens": 213102,
+            "metrics": {
+              "episodes": 225.0,
+              "parameters": 22876276.0,
+              "replay_wall_s": 1161.844553,
+              "reward": 0.133333,
+              "success_rate": 0.133333
             }
           }
         }
@@ -30558,6 +31370,238 @@
             }
           }
         }
+      },
+      "kimi31pro": {
+        "score": 0.4138,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-rgb-only": {
+            "score": 0.2723,
+            "reward": 0.2723,
+            "success_rate": null,
+            "cost_usd": 9.583067,
+            "cost_usd_mean": 9.583067,
+            "hours_median": 0.6787,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-rgb-depth": {
+            "score": 0.6768,
+            "reward": 0.6768,
+            "success_rate": null,
+            "cost_usd": 6.48605,
+            "cost_usd_mean": 6.48605,
+            "hours_median": 0.81,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-model-training": {
+            "score": 0.0544,
+            "reward": 0.0544,
+            "success_rate": null,
+            "cost_usd": 10.951457,
+            "cost_usd_mean": 10.951457,
+            "hours_median": 0.5978,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-method-agnostic": {
+            "score": 0.6517,
+            "reward": 0.6517,
+            "success_rate": null,
+            "cost_usd": 9.81438,
+            "cost_usd_mean": 9.81438,
+            "hours_median": 0.6929,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-rgb-only": {
+            "reward": 0.2723,
+            "success_rate": null,
+            "cost_usd": 9.583067,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 0.6787,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T161938-f2a66e86f2bd-rgb_only_h215",
+            "started_at": "2026-10-29T16:19:38.568156",
+            "finished_at": "2026-10-29T17:00:22.062075",
+            "input_tokens": 34539867,
+            "cached_tokens": 34145137,
+            "output_tokens": 196458,
+            "metrics": {
+              "abs_median_rot_deg": 0.92,
+              "abs_median_trans_mm": 4.36,
+              "abs_occluded_trans_mm": 14.3,
+              "accuracy_reward": 0.272271,
+              "cp_A.pose": 0.7014,
+              "cp_B.pose": 0.0884,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.0,
+              "frame_time_s": 0.045728,
+              "gated": 0.0,
+              "inference_hz": 21.868208,
+              "inference_wall_s": 32.009938,
+              "merit": 0.2723,
+              "raw_total": 0.2723,
+              "reward": 0.2723,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 0.99,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 1.59,
+              "stage_b_median_trans_mm": 17.53,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 1.0,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.2104,
+              "stage_stage_b": 0.0618
+            }
+          },
+          "02-rgb-depth": {
+            "reward": 0.6768,
+            "success_rate": null,
+            "cost_usd": 6.48605,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 0.81,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T161938-3a5f1f782dc6-rgb_depth_h215",
+            "started_at": "2026-10-29T16:19:38.528061",
+            "finished_at": "2026-10-29T17:08:14.525492",
+            "input_tokens": 24979091,
+            "cached_tokens": 24740740,
+            "output_tokens": 106120,
+            "metrics": {
+              "abs_median_rot_deg": 0.09,
+              "abs_median_trans_mm": 2.79,
+              "abs_occluded_trans_mm": 4.36,
+              "accuracy_reward": 0.676784,
+              "cp_A.pose": 0.9345,
+              "cp_B.pose": 0.5663,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.0,
+              "frame_time_s": 0.091402,
+              "gated": 0.0,
+              "inference_hz": 10.940655,
+              "inference_wall_s": 63.981544,
+              "merit": 0.6768,
+              "raw_total": 0.6768,
+              "reward": 0.6768,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 1.0,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 0.26,
+              "stage_b_median_trans_mm": 3.32,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 1.0,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.2804,
+              "stage_stage_b": 0.3964
+            }
+          },
+          "03-model-training": {
+            "reward": 0.0544,
+            "success_rate": null,
+            "cost_usd": 10.951457,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 0.5978,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T201002-328fb9544022-rgb_depth_model_training_h215",
+            "started_at": "2026-10-29T20:10:03.158968",
+            "finished_at": "2026-10-29T20:45:55.325967",
+            "input_tokens": 42613931,
+            "cached_tokens": 42214536,
+            "output_tokens": 170976,
+            "metrics": {
+              "abs_median_rot_deg": 3.31,
+              "abs_median_trans_mm": 7.3,
+              "abs_occluded_trans_mm": 47.3,
+              "accuracy_reward": 0.054365,
+              "cp_A.pose": 0.1812,
+              "cp_B.pose": 0.0,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.0,
+              "frame_time_s": 0.081691,
+              "gated": 0.0,
+              "inference_hz": 12.241307,
+              "inference_wall_s": 57.183435,
+              "merit": 0.0544,
+              "raw_total": 0.0544,
+              "reward": 0.0544,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 0.99,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 18.45,
+              "stage_b_median_trans_mm": 20.43,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 0.808333,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.0544,
+              "stage_stage_b": 0.0
+            }
+          },
+          "04-method-agnostic": {
+            "reward": 0.6517,
+            "success_rate": null,
+            "cost_usd": 9.81438,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 0.6929,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T041457-a2f028e64650-method_agnostic",
+            "started_at": "2026-10-29T04:14:57.713674",
+            "finished_at": "2026-10-29T04:56:31.979690",
+            "input_tokens": 39542022,
+            "cached_tokens": 39259269,
+            "output_tokens": 139702,
+            "metrics": {
+              "abs_median_rot_deg": 0.18,
+              "abs_median_trans_mm": 1.25,
+              "abs_occluded_trans_mm": 2.41,
+              "accuracy_reward": 0.651745,
+              "cp_A.pose": 0.9807,
+              "cp_B.pose": 0.5108,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.0,
+              "frame_time_s": 0.096379,
+              "gated": 0.0,
+              "inference_hz": 10.37575,
+              "inference_wall_s": 67.465004,
+              "merit": 0.6517,
+              "raw_total": 0.6517,
+              "reward": 0.6517,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 1.0,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 0.39,
+              "stage_b_median_trans_mm": 1.64,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 1.0,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.2942,
+              "stage_stage_b": 0.3575
+            }
+          }
+        }
       }
     },
     "task07": {
@@ -31562,6 +32606,73 @@
               "reward": 0.9454,
               "speed_merit": 0.6216,
               "throughput_ppm": 10.329
+            }
+          }
+        }
+      },
+      "kimi31pro": {
+        "score": 0.3096,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "clearance": {
+            "score": 0.7226,
+            "metric": "clear_frac",
+            "weight": 1.0,
+            "credit": 0.7226,
+            "n_runs": 1,
+            "complete": true
+          },
+          "throughput": {
+            "score": 0.4249,
+            "metric": "speed_merit",
+            "weight": 1.0,
+            "credit": 0.4249,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "bin-clearing": {
+            "reward": 0.3096,
+            "success_rate": null,
+            "cost_usd": 27.164193,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 2.091,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T161938-7ca646fca191-h215",
+            "started_at": "2026-10-29T16:19:38.579243",
+            "finished_at": "2026-10-29T18:25:06.156070",
+            "input_tokens": 112564831,
+            "cached_tokens": 111789955,
+            "output_tokens": 325645,
+            "metrics": {
+              "bin_hits": 0.0,
+              "clear_frac": 0.7226,
+              "damage_events": 1.0,
+              "episode_wall_s_total": 3717.5928,
+              "floor_drops": 0.0,
+              "gate_contract": 1.0,
+              "gate_determinism": 1.0,
+              "gate_load": 1.0,
+              "gate_stable": 1.0,
+              "gated": 0.0,
+              "harness_wall_s_total": 3660.3509,
+              "makespan_s": 99.8,
+              "n_parts": 112.0,
+              "parts_cleared": 80.0,
+              "policy_faults": 0.0,
+              "policy_wall_s_total": 57.2419,
+              "raw_total": 0.3096,
+              "reward": 0.3096,
+              "speed_merit": 0.4249,
+              "throughput_ppm": 6.1296
             }
           }
         }
@@ -33282,6 +34393,120 @@
               "stage_design": 0.2266,
               "stage_dynamic": 0.0667,
               "stage_integration": 0.1,
+              "stage_static": 0.0,
+              "stage_validity": 0.15
+            }
+          }
+        }
+      },
+      "kimi31pro": {
+        "score": 0.593,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "validity": {
+            "score": 1.0,
+            "metric": "stage_validity",
+            "weight": 0.15,
+            "credit": 0.15,
+            "n_runs": 1,
+            "complete": true
+          },
+          "design": {
+            "score": 0.684571,
+            "metric": "stage_design",
+            "weight": 0.35,
+            "credit": 0.2396,
+            "n_runs": 1,
+            "complete": true
+          },
+          "static": {
+            "score": 0.0,
+            "metric": "stage_static",
+            "weight": 0.15,
+            "credit": 0.0,
+            "n_runs": 1,
+            "complete": true
+          },
+          "dynamic": {
+            "score": 0.2665,
+            "metric": "stage_dynamic",
+            "weight": 0.2,
+            "credit": 0.0533,
+            "n_runs": 1,
+            "complete": true
+          },
+          "integration": {
+            "score": 1.0,
+            "metric": "stage_integration",
+            "weight": 0.15,
+            "credit": 0.15,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "mobile-base": {
+            "reward": 0.593,
+            "success_rate": null,
+            "cost_usd": 22.867303,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 0.9195,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T161938-a17034d7406c-h215",
+            "started_at": "2026-10-29T16:19:38.611111",
+            "finished_at": "2026-10-29T17:14:48.944243",
+            "input_tokens": 89314287,
+            "cached_tokens": 88441856,
+            "output_tokens": 343407,
+            "metrics": {
+              "cp_S1.equilibrium": 1.0,
+              "cp_S1.inertia": 1.0,
+              "cp_S1.load": 1.0,
+              "cp_S1.mecanum": 1.0,
+              "cp_S1.structure": 1.0,
+              "cp_S3.battery_onboard": 1.0,
+              "cp_S3.design_efficiency": 0.4983,
+              "cp_S3.reach_beyond": 1.0,
+              "cp_S3.reach_preserved": 1.0,
+              "cp_S3.resource_constraints": 1.0,
+              "cp_S3.static_margin": 0.0,
+              "cp_S3.still_valid": 1.0,
+              "cp_S5.testB": 0.0,
+              "cp_S5.testC": 0.3333,
+              "cp_S5.testD1": 1.0,
+              "cp_S5.testD2": 0.0,
+              "cp_S5.testE": 0.0,
+              "cp_S7.payload_margin": 1.0,
+              "cp_S7.pick_compat": 1.0,
+              "design_base_mass_kg": 18.949,
+              "design_footprint_area_headroom_fraction": 0.184431,
+              "design_footprint_area_headroom_m2": 0.057837,
+              "design_footprint_area_m2": 0.255763,
+              "design_footprint_x_headroom_m": 0.003317,
+              "design_footprint_x_m": 0.556683,
+              "design_footprint_y_headroom_m": 0.10056,
+              "design_footprint_y_m": 0.45944,
+              "design_mass_budget_kg": 38.0,
+              "design_mass_headroom_fraction": 0.501342,
+              "design_mass_headroom_kg": 19.051,
+              "design_profile_length_headroom_fraction": 0.809167,
+              "design_profile_length_headroom_m": 9.71,
+              "design_profile_length_m": 2.29,
+              "design_score": 0.498313,
+              "design_total_mass_kg": 40.8189,
+              "gated": 0.0,
+              "raw_total": 0.593,
+              "reward": 0.593,
+              "stage_design": 0.2396,
+              "stage_dynamic": 0.0533,
+              "stage_integration": 0.15,
               "stage_static": 0.0,
               "stage_validity": 0.15
             }
@@ -35566,6 +36791,158 @@
               "xarm7_stage_software": 0.081,
               "xarm7_stage_validity": 0.1,
               "xarm7_validity_deduction": 0.0
+            }
+          }
+        }
+      },
+      "kimi31pro": {
+        "score": 0.4788,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "franka": {
+            "score": 0.531,
+            "metric": "franka_reward",
+            "weight": 1.0,
+            "credit": 0.531,
+            "n_runs": 1,
+            "complete": true
+          },
+          "ur5e": {
+            "score": 0.4608,
+            "metric": "ur5e_reward",
+            "weight": 1.0,
+            "credit": 0.4608,
+            "n_runs": 1,
+            "complete": true
+          },
+          "xarm7": {
+            "score": 0.4446,
+            "metric": "xarm7_reward",
+            "weight": 1.0,
+            "credit": 0.4446,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "gello": {
+            "reward": 0.4788,
+            "success_rate": null,
+            "cost_usd": 21.982956,
+            "cost_source": "price/kimi-k3.1-pro.json:list",
+            "hours": 0.6301,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "kimi-31-pro-nuvora",
+            "job": "claude_code-k31_pro-20261029T161938-a8f4d34ee55c-h215",
+            "started_at": "2026-10-29T16:19:38.654935",
+            "finished_at": "2026-10-29T16:57:27.019964",
+            "input_tokens": 85091592,
+            "cached_tokens": 84383232,
+            "output_tokens": 368959,
+            "metrics": {
+              "franka_cp_B1.combined_hold": 0.3511,
+              "franka_cp_B2.combined_backdrive": 0.3411,
+              "franka_cp_B3.headroom": 0.667,
+              "franka_cp_B4.push_recovery": 0.2755,
+              "franka_cp_C1.budget": 1.0,
+              "franka_cp_C1.buildable": 0.9722,
+              "franka_cp_C1.load": 1.0,
+              "franka_cp_C1.motion_clearance": 1.0,
+              "franka_cp_C1.printability": 1.0,
+              "franka_cp_C1.settle": 1.0,
+              "franka_cp_C1.springs_legal": 1.0,
+              "franka_cp_C1.structure": 1.0,
+              "franka_cp_H1.device_residual": 0.5157,
+              "franka_cp_H2.passive_hold": 0.3519,
+              "franka_cp_H3.passive_backdrive": 0.3537,
+              "franka_cp_S2.adapted_backdrive": 0.521,
+              "franka_cp_S2.adapted_hold": 0.9347,
+              "franka_deduction_C1.budget": 0.0,
+              "franka_deduction_C1.buildable": 0.000146,
+              "franka_deduction_C1.load": 0.0,
+              "franka_deduction_C1.printability": 0.0,
+              "franka_deduction_C1.settle": 0.0,
+              "franka_deduction_C1.springs_legal": 0.0,
+              "franka_deduction_C1.structure": 0.0,
+              "franka_gated": 0.0,
+              "franka_raw_total": 0.531,
+              "franka_reward": 0.531,
+              "franka_stage_codesign": 0.1635,
+              "franka_stage_hardware": 0.1221,
+              "franka_stage_software": 0.1456,
+              "franka_stage_validity": 0.0999,
+              "franka_validity_deduction": 0.000146,
+              "reward": 0.4788,
+              "ur5e_cp_B1.combined_hold": 0.6869,
+              "ur5e_cp_B2.combined_backdrive": 0.3632,
+              "ur5e_cp_B3.headroom": 0.5552,
+              "ur5e_cp_B4.push_recovery": 0.1187,
+              "ur5e_cp_C1.budget": 1.0,
+              "ur5e_cp_C1.buildable": 0.9667,
+              "ur5e_cp_C1.load": 1.0,
+              "ur5e_cp_C1.motion_clearance": 1.0,
+              "ur5e_cp_C1.printability": 1.0,
+              "ur5e_cp_C1.settle": 1.0,
+              "ur5e_cp_C1.springs_legal": 1.0,
+              "ur5e_cp_C1.structure": 1.0,
+              "ur5e_cp_H1.device_residual": 0.4713,
+              "ur5e_cp_H2.passive_hold": 0.3838,
+              "ur5e_cp_H3.passive_backdrive": 0.3639,
+              "ur5e_cp_S2.adapted_backdrive": 0.3662,
+              "ur5e_cp_S2.adapted_hold": 0.3,
+              "ur5e_deduction_C1.budget": 0.0,
+              "ur5e_deduction_C1.buildable": 0.000175,
+              "ur5e_deduction_C1.load": 0.0,
+              "ur5e_deduction_C1.printability": 0.0,
+              "ur5e_deduction_C1.settle": 0.0,
+              "ur5e_deduction_C1.springs_legal": 0.0,
+              "ur5e_deduction_C1.structure": 0.0,
+              "ur5e_gated": 0.0,
+              "ur5e_raw_total": 0.4608,
+              "ur5e_reward": 0.4608,
+              "ur5e_stage_codesign": 0.1724,
+              "ur5e_stage_hardware": 0.1219,
+              "ur5e_stage_software": 0.0666,
+              "ur5e_stage_validity": 0.0998,
+              "ur5e_validity_deduction": 0.000175,
+              "xarm7_cp_B1.combined_hold": 0.1505,
+              "xarm7_cp_B2.combined_backdrive": 0.1859,
+              "xarm7_cp_B3.headroom": 0.8443,
+              "xarm7_cp_B4.push_recovery": 0.1605,
+              "xarm7_cp_C1.budget": 1.0,
+              "xarm7_cp_C1.buildable": 0.975,
+              "xarm7_cp_C1.load": 1.0,
+              "xarm7_cp_C1.motion_clearance": 1.0,
+              "xarm7_cp_C1.printability": 1.0,
+              "xarm7_cp_C1.settle": 1.0,
+              "xarm7_cp_C1.springs_legal": 1.0,
+              "xarm7_cp_C1.structure": 1.0,
+              "xarm7_cp_H1.device_residual": 0.7847,
+              "xarm7_cp_H2.passive_hold": 0.3861,
+              "xarm7_cp_H3.passive_backdrive": 0.3791,
+              "xarm7_cp_S2.adapted_backdrive": 0.2889,
+              "xarm7_cp_S2.adapted_hold": 0.2676,
+              "xarm7_deduction_C1.budget": 0.0,
+              "xarm7_deduction_C1.buildable": 0.000132,
+              "xarm7_deduction_C1.load": 0.0,
+              "xarm7_deduction_C1.printability": 0.0,
+              "xarm7_deduction_C1.settle": 0.0,
+              "xarm7_deduction_C1.springs_legal": 0.0,
+              "xarm7_deduction_C1.structure": 0.0,
+              "xarm7_gated": 0.0,
+              "xarm7_raw_total": 0.4446,
+              "xarm7_reward": 0.4446,
+              "xarm7_stage_codesign": 0.1341,
+              "xarm7_stage_hardware": 0.155,
+              "xarm7_stage_software": 0.0557,
+              "xarm7_stage_validity": 0.0999,
+              "xarm7_validity_deduction": 0.000132
             }
           }
         }
