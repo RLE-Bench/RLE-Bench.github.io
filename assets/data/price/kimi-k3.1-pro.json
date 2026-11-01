@@ -16,14 +16,12 @@
       "input": 2.0,
       "cached_input": 0.2,
       "output": 10.0,
-      "note": "Moonshot list price for the standard (non-highspeed) model."
+      "note": "Official Moonshot list price (platform.kimi.ai pricing page, checked 2026-11-01). Cache writes are 2.00 (5m) / 4.00 (1h); the dumps report no cache-write tokens, so they are not priced."
     }
   },
   "note": "Claude Code cannot identify this model and bills it at Anthropic Opus rates (5 / 0.5 / 25), so cost_usd in the dumps is 2.5x too high; export.py recomputes it from the token counts. 'kimi-31-pro-nuvora' is the model string the runs used on api.moonshot.ai. No context-length tiering.",
   "sources": [
-    "https://platform.kimi.ai/docs/pricing/chat",
-    "https://benchlm.ai/moonshot/api-pricing",
-    "https://www.eesel.ai/blog/kimi-k3-1-pro-pricing"
+    "https://platform.kimi.ai/docs/pricing/chat"
   ],
   "updated": "2026-11-01"
 }
