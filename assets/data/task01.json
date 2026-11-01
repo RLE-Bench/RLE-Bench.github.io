@@ -11131,6 +11131,726 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L1/01-open-fridge/claude_code-k31_pro-20261031T205757-20a387b9be36-l1_01_open_fridge_fix2_h215",
+      "status": "completed",
+      "cost_usd": 56.84473300000001,
+      "reward": 0.35130880000000003,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 30432.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.35130880000000003,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:57:57.941672",
+        "finished_at": "2026-10-31T22:19:37.824888",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 93533433,
+          "n_cache_tokens": 92586546,
+          "n_output_tokens": 232681
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__EdfRwQL",
+            "rewards": {
+              "reward": 0.35130880000000003,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 30432,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L1/02-close-cabinet/claude_code-k31_pro-20261031T211349-ac9155f33454-l1_02_close_cabinet_fix2_h216",
+      "status": "completed",
+      "cost_usd": 243.01928499999997,
+      "reward": 0.37226400000000004,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 17335.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.37226400000000004,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T21:13:49.462826",
+        "finished_at": "2026-11-01T00:07:15.419205",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 434847515,
+          "n_cache_tokens": 431346370,
+          "n_output_tokens": 393615
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__V5QWabS",
+            "rewards": {
+              "reward": 0.37226400000000004,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 17335,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L1/03-turn-on-stove/claude_code-k31_pro-20261031T211349-b953d225afa4-l1_03_turn_on_stove_fix2_h216",
+      "status": "completed",
+      "cost_usd": 105.45504950000003,
+      "reward": 0.33291360000000003,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 41929.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.33291360000000003,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T21:13:49.597244",
+        "finished_at": "2026-10-31T23:10:10.364912",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 172532577,
+          "n_cache_tokens": 169987419,
+          "n_output_tokens": 309422
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__XHxxJaX",
+            "rewards": {
+              "reward": 0.33291360000000003,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 41929,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L1/04-pick-place-counter-to-drawer/claude_code-k31_pro-20261031T211349-d49eaafe0eb4-l1_04_pick_place_counter_to_drawer_fix2_h216",
+      "status": "completed",
+      "cost_usd": 79.67648850000005,
+      "reward": 0.160064,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 49920.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.160064,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T21:13:49.742604",
+        "finished_at": "2026-10-31T22:43:04.500540",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 132256094,
+          "n_cache_tokens": 130768557,
+          "n_output_tokens": 274181
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__6j2YfYj",
+            "rewards": {
+              "reward": 0.160064,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 49920,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L1/05-pick-place-microwave-to-counter/claude_code-k31_pro-20261031T211349-2c388aa9e814-l1_05_pick_place_microwave_to_counter_fix2_h216",
+      "status": "completed",
+      "cost_usd": 67.09535050000001,
+      "reward": 0.35114400000000007,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 30535.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.35114400000000007,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T21:13:49.901616",
+        "finished_at": "2026-10-31T22:45:09.862257",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 113229534,
+          "n_cache_tokens": 112231021,
+          "n_output_tokens": 239491
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__YvCrLoS",
+            "rewards": {
+              "reward": 0.35114400000000007,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 30535,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L2/01-open-fridge/claude_code-k31_pro-20261031T201757-5c6fd4564eb0-l2_01_open_fridge_fix2_h216",
+      "status": "completed",
+      "cost_usd": 42.372008999999984,
+      "reward": 0.16009920000000002,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 49876.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.16009920000000002,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:17:58.008968",
+        "finished_at": "2026-10-31T21:34:24.844081",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 71199720,
+          "n_cache_tokens": 70692548,
+          "n_output_tokens": 179595
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__Tw7ZJPo",
+            "rewards": {
+              "reward": 0.16009920000000002,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 49876,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L2/02-close-cabinet/claude_code-k31_pro-20261031T201757-ec9de022a78a-l2_02_close_cabinet_fix2_h216",
+      "status": "completed",
+      "cost_usd": 74.96680900000001,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 26300.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:17:58.233514",
+        "finished_at": "2026-10-31T22:01:34.112754",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 126520464,
+          "n_cache_tokens": 125165888,
+          "n_output_tokens": 238919
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__hkx4XPi",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 26300,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L2/03-turn-on-stove/claude_code-k31_pro-20261031T201758-6c8eee5177d8-l2_03_turn_on_stove_fix2_h216",
+      "status": "completed",
+      "cost_usd": 26.640410499999994,
+      "reward": 0.6941856000000001,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 33067.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.6941856000000001,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:17:58.484724",
+        "finished_at": "2026-10-31T21:39:27.352779",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 42929756,
+          "n_cache_tokens": 42493621,
+          "n_output_tokens": 128517
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__JyyQqwU",
+            "rewards": {
+              "reward": 0.6941856000000001,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 33067,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L2/04-pick-place-counter-to-drawer/claude_code-k31_pro-20261031T201758-c6008e234c6c-l2_04_pick_place_counter_to_drawer_fix2_h216",
+      "status": "completed",
+      "cost_usd": 15.235860500000001,
+      "reward": 0.4918056,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 45081.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.4918056,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:17:58.722859",
+        "finished_at": "2026-10-31T21:12:49.041471",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 22947279,
+          "n_cache_tokens": 22678841,
+          "n_output_tokens": 102170
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__mgqNJ95",
+            "rewards": {
+              "reward": 0.4918056,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 45081,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L2/05-pick-place-microwave-to-counter/claude_code-k31_pro-20261031T201758-6685caa8f184-l2_05_pick_place_microwave_to_counter_fix2_h216",
+      "status": "completed",
+      "cost_usd": 54.70769399999999,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 16429.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:17:58.964234",
+        "finished_at": "2026-10-31T21:44:17.870071",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 79860411,
+          "n_cache_tokens": 77838258,
+          "n_output_tokens": 227112
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__VFJmyuz",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 16429,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L3/01-open-fridge/claude_code-k31_pro-20261031T201758-78bf73c1e8fb-l3_01_open_fridge_fix2_h216",
+      "status": "completed",
+      "cost_usd": 91.22680950000003,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 34606.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:17:59.207947",
+        "finished_at": "2026-10-31T22:02:57.196554",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 161751676,
+          "n_cache_tokens": 161083149,
+          "n_output_tokens": 293704
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__jRtrV8W",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 34606,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L3/02-close-cabinet/claude_code-k31_pro-20261031T201759-65201e71d838-l3_02_close_cabinet_fix2_h216",
+      "status": "completed",
+      "cost_usd": 77.03661299999997,
+      "reward": 0.480024,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 49990.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.480024,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:17:59.445126",
+        "finished_at": "2026-10-31T22:04:09.810804",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 132887218,
+          "n_cache_tokens": 132213306,
+          "n_output_tokens": 302416
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__6FWbR2M",
+            "rewards": {
+              "reward": 0.480024,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 49990,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L3/03-turn-on-stove/claude_code-k31_pro-20261031T201759-71c38baa7c98-l3_03_turn_on_stove_fix2_h216",
+      "status": "completed",
+      "cost_usd": 57.57215799999998,
+      "reward": 0.502272,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 40720.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.502272,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:17:59.778654",
+        "finished_at": "2026-10-31T22:25:35.551055",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 95071577,
+          "n_cache_tokens": 94239006,
+          "n_output_tokens": 251592
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__G8pWe7F",
+            "rewards": {
+              "reward": 0.502272,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 40720,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L3/04-pick-place-counter-to-drawer/claude_code-k31_pro-20261031T202003-148622398acd-l3_04_pick_place_counter_to_drawer_fix2_h215",
+      "status": "completed",
+      "cost_usd": 24.827483499999992,
+      "reward": 0.7530592,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 14669.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7530592,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:03.989528",
+        "finished_at": "2026-10-31T21:20:36.964210",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 38577076,
+          "n_cache_tokens": 38212927,
+          "n_output_tokens": 156011
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__k8QCZwA",
+            "rewards": {
+              "reward": 0.7530592,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 14669,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "L3/05-pick-place-microwave-to-counter/claude_code-k31_pro-20261031T202003-66b99eb21245-l3_05_pick_place_microwave_to_counter_fix2_h215",
+      "status": "completed",
+      "cost_usd": 39.005895499999994,
+      "reward": 0.322168,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 48645.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.322168,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T20:20:04.138945",
+        "finished_at": "2026-10-31T21:48:26.159370",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 64959336,
+          "n_cache_tokens": 64523591,
+          "n_output_tokens": 182615
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__f3rGzEx",
+            "rewards": {
+              "reward": 0.322168,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 48645,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
     }
   ]
 }
