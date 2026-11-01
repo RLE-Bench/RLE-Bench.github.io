@@ -4227,6 +4227,332 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "claude_code-k31_pro-20261029T161152-cc731eacc7ef-01_tower_max_height_h216",
+      "status": "completed",
+      "cost_usd": 35.078761,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 1.0,
+        "development_steps": 21336.0,
+        "infrastructure_failures": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 21336.0,
+        "quality": 1.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "task_score": 100.0,
+        "trials_attempted": 1.0,
+        "trials_recorded": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-10-29T16:11:53.002704",
+        "finished_at": "2026-10-29T17:08:04.038897",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 48458242,
+          "n_cache_tokens": 47254222,
+          "n_output_tokens": 217262
+        },
+        "trials": [
+          {
+            "trial": "01-tower-max-height__qsP2cXu",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 1,
+              "trials_recorded": 1,
+              "trials_attempted": 1,
+              "development_steps": 21336,
+              "infrastructure_failures": 0,
+              "quality": 1.0,
+              "task_score": 100.0,
+              "component_outcome": 1.0,
+              "component_efficiency": 0.0,
+              "interaction_steps": 21336,
+              "interaction_budget": 50000
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "claude_code-k31_pro-20261029T161937-1bf3d571d6ea-02_cantilever_overhang_h215",
+      "status": "completed",
+      "cost_usd": 21.368002500000003,
+      "reward": 0.8056946532189084,
+      "success_rate": 0.8056946532189084,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.8056946532189084,
+        "development_steps": 33880.0,
+        "infrastructure_failures": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 33880.0,
+        "quality": 0.8056946532189084,
+        "reward": 0.8056946532189084,
+        "success_rate": 0.8056946532189084,
+        "task_score": 80.56946532189085,
+        "trials_attempted": 1.0,
+        "trials_recorded": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-10-29T16:19:38.217576",
+        "finished_at": "2026-10-29T17:00:28.890910",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 29693793,
+          "n_cache_tokens": 28962175,
+          "n_output_tokens": 129153
+        },
+        "trials": [
+          {
+            "trial": "02-cantilever-overhang__U2VgbaJ",
+            "rewards": {
+              "reward": 0.8056946532189084,
+              "success_rate": 0.8056946532189084,
+              "trials_total": 1,
+              "trials_recorded": 1,
+              "trials_attempted": 1,
+              "development_steps": 33880,
+              "infrastructure_failures": 0,
+              "quality": 0.8056946532189084,
+              "task_score": 80.56946532189085,
+              "component_outcome": 0.8056946532189084,
+              "component_efficiency": 0.0,
+              "interaction_steps": 33880,
+              "interaction_budget": 50000
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "claude_code-k31_pro-20261029T161937-4930adc60f39-03_balance_coins_h215",
+      "status": "completed",
+      "cost_usd": 4.325508999999999,
+      "reward": 0.6666666666666666,
+      "success_rate": 0.6666666666666666,
+      "metrics": {
+        "component_efficiency": 0.0,
+        "component_outcome": 0.6666666666666666,
+        "development_steps": 8393.0,
+        "infrastructure_failures": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 8393.0,
+        "quality": 0.6666666666666666,
+        "reward": 0.6666666666666666,
+        "success_rate": 0.6666666666666666,
+        "task_score": 66.66666666666666,
+        "trials_attempted": 1.0,
+        "trials_recorded": 1.0,
+        "trials_total": 1.0
+      },
+      "extra": {
+        "started_at": "2026-10-29T16:19:38.311278",
+        "finished_at": "2026-10-29T16:34:51.401662",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 4265376,
+          "n_cache_tokens": 4146588,
+          "n_output_tokens": 66331
+        },
+        "trials": [
+          {
+            "trial": "03-balance-coins__SwdHHD8",
+            "rewards": {
+              "reward": 0.6666666666666666,
+              "success_rate": 0.6666666666666666,
+              "trials_total": 1,
+              "trials_recorded": 1,
+              "trials_attempted": 1,
+              "development_steps": 8393,
+              "infrastructure_failures": 0,
+              "quality": 0.6666666666666666,
+              "task_score": 66.66666666666666,
+              "component_outcome": 0.6666666666666666,
+              "component_efficiency": 0.0,
+              "interaction_steps": 8393,
+              "interaction_budget": 50000
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "claude_code-k31_pro-20261029T161938-3641cdf06328-05_hidden_center_of_mass_h215",
+      "status": "completed",
+      "cost_usd": 5.079258999999998,
+      "reward": 0.3333333333333333,
+      "success_rate": 0.3333333333333333,
+      "metrics": {
+        "control_steps": 3323.0,
+        "correct": 1.0,
+        "development_steps": 0.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.3333333333333333,
+        "submitted": 3.0,
+        "success_rate": 0.3333333333333333,
+        "trial_1_control_steps": 1893.0,
+        "trial_1_correct": 0.0,
+        "trial_1_reward": 0.0,
+        "trial_1_submitted": 1.0,
+        "trial_2_control_steps": 661.0,
+        "trial_2_correct": 0.0,
+        "trial_2_reward": 0.0,
+        "trial_2_submitted": 1.0,
+        "trial_3_control_steps": 769.0,
+        "trial_3_correct": 1.0,
+        "trial_3_reward": 1.0,
+        "trial_3_submitted": 1.0,
+        "trials_attempted": 3.0,
+        "trials_recorded": 3.0,
+        "trials_total": 3.0
+      },
+      "extra": {
+        "started_at": "2026-10-29T16:19:38.497115",
+        "finished_at": "2026-10-29T16:35:17.627234",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 5875062,
+          "n_cache_tokens": 5741878,
+          "n_output_tokens": 61696
+        },
+        "trials": [
+          {
+            "trial": "05-hidden-center-of-mass__VDkscNz",
+            "rewards": {
+              "reward": 0.3333333333333333,
+              "success_rate": 0.3333333333333333,
+              "trials_total": 3,
+              "trials_recorded": 3,
+              "trials_attempted": 3,
+              "development_steps": 0,
+              "infrastructure_failures": 0,
+              "correct": 1,
+              "submitted": 3,
+              "control_steps": 3323,
+              "trial_1_reward": 0.0,
+              "trial_1_correct": 0,
+              "trial_1_submitted": 1,
+              "trial_1_control_steps": 1893,
+              "trial_2_reward": 0.0,
+              "trial_2_correct": 0,
+              "trial_2_submitted": 1,
+              "trial_2_control_steps": 661,
+              "trial_3_reward": 1.0,
+              "trial_3_correct": 1,
+              "trial_3_submitted": 1,
+              "trial_3_control_steps": 769
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "kimi-31-pro-nuvora",
+      "job": "claude_code-k31_pro-20261029T161938-8eb21f26dbd3-04_rubik_cube_h215",
+      "status": "completed",
+      "cost_usd": 213.42805649999994,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "actual_qtm": 38.0,
+        "component_efficiency": 0.0,
+        "component_outcome": 0.0,
+        "development_steps": 0.0,
+        "infrastructure_failures": 0.0,
+        "interaction_budget": 50000.0,
+        "interaction_steps": 48505.0,
+        "optimal_qtm": 11.0,
+        "quality": 0.0,
+        "recoveries": 101.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "task_score": 0.0,
+        "trials_attempted": 1.0,
+        "trials_recorded": 1.0,
+        "trials_total": 1.0,
+        "unclassified_transitions": 2.0
+      },
+      "extra": {
+        "started_at": "2026-10-29T16:19:38.408663",
+        "finished_at": "2026-10-29T19:06:30.381579",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 376817825,
+          "n_cache_tokens": 374339193,
+          "n_output_tokens": 554612
+        },
+        "trials": [
+          {
+            "trial": "04-rubik-cube__Fh6RMDB",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 1,
+              "trials_recorded": 1,
+              "trials_attempted": 1,
+              "development_steps": 0,
+              "infrastructure_failures": 0,
+              "optimal_qtm": 11,
+              "actual_qtm": 38,
+              "unclassified_transitions": 2,
+              "recoveries": 101,
+              "quality": 0.0,
+              "task_score": 0.0,
+              "component_outcome": 0.0,
+              "component_efficiency": 0.0,
+              "interaction_steps": 48505,
+              "interaction_budget": 50000
+            }
+          }
+        ]
+      }
     }
   ]
 }
