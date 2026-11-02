@@ -26,7 +26,7 @@
       "note": "Arithmetic mean of published peak and off-peak USD rates, as requested for benchmark cost reporting."
     }
   },
-  "note": "DeepSeek-V4.1-Flash 1017 snapshot (the `deepseek-flash` API name since 2026-10-17; the dumps relabel it `deepseek-flash-1017` to keep it apart from the September runs). Uses the September list rates: the 1017 rates are not yet confirmed. Costs use an equal-weight mean of peak and off-peak rates, not actual request-time billing. Input tokens include cached tokens; subtract cached tokens before charging the uncached input rate.",
+  "note": "DeepSeek-V4.1-Flash 1017 snapshot (the `deepseek-flash` API name since 2026-10-17; the dumps relabel it `deepseek-flash-1017` to keep it apart from the September runs). Same list rates as the September snapshot (confirmed 2026-11-02). Costs use an equal-weight mean of peak and off-peak rates, not actual request-time billing. Input tokens include cached tokens; subtract cached tokens before charging the uncached input rate.",
   "sources": [
     "https://api-docs.deepseek.com/quick_start/pricing/"
   ],
