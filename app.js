@@ -309,7 +309,10 @@
     const {list:pooled,ranks}=pool();
     if(!pooled.length){result.append(make('p','body','No models match this filter yet.'));host.append(result);return;}
     const sorted=pooled.slice().sort((a,b)=>(familyScore(t,b)??-1)-(familyScore(t,a)??-1));
-    const list=make('div','srow-list');list.role='list';
+    const previewCount=12;
+    const list=make('div','srow-list');list.role='list';list.id='taskRankingList';
+    const more=make('div','ranking-more');more.id='taskRankingMore';more.role='presentation';
+    const moreRows=make('div','ranking-more-rows');moreRows.role='presentation';more.append(moreRows);
     sorted.forEach((m,idx)=>{
       const v=familyScore(t,m),p=ranks[t.id][m.id],row=make('div','srow');row.role='listitem';row.tabIndex=0;
       row.setAttribute('aria-label',`Rank ${rankFormat(p)}: ${m.name}; task score ${pct(v)} out of 100.`);
@@ -322,8 +325,34 @@
         const stack=make('div','stack');stack.style.width=(Number.isFinite(v)?v*100:0)+'%';
         splitValues(t,m).forEach((value,i)=>{const segment=make('div','seg-mark');segment.style.flex=String(Math.max((value||0)*(t.weights?.[i]??1),.0001));segment.style.background=`var(--cat-${i%5+1})`;segment.style.animationDelay=(idx*35+i*25)+'ms';stack.append(segment);});track.style.background='transparent';track.append(stack);
       }
-      row.append(track,make('div','val',pct(v)));bindTip(row,()=>splitTip(m,t));list.append(row);
+      row.append(track,make('div','val',pct(v)));bindTip(row,()=>splitTip(m,t));
+      (idx<previewCount?list:moreRows).append(row);
     });result.append(list);
+    if(sorted.length>previewCount){
+      list.append(more);
+      const toggle=make('button','ranking-toggle');toggle.type='button';
+      toggle.setAttribute('aria-controls',more.id);
+      const update=expanded=>{
+        more.classList.toggle('is-expanded',expanded);
+        more.inert=!expanded;
+        more.setAttribute('aria-hidden',String(!expanded));
+        toggle.setAttribute('aria-expanded',String(expanded));
+        toggle.textContent=expanded?`Show top ${previewCount} only ↑`:`Show all ${sorted.length} models (+${sorted.length-previewCount}) ↓`;
+      };
+      const keepToggleVisible=()=>{
+        if(toggle.getBoundingClientRect().top<0)toggle.scrollIntoView({block:'center'});
+      };
+      more.addEventListener('transitionend',e=>{
+        if(e.target===more&&e.propertyName==='grid-template-rows'&&more.inert)keepToggleVisible();
+      });
+      update(false);
+      toggle.addEventListener('click',()=>{
+        hideTip();update(toggle.getAttribute('aria-expanded')!=='true');
+        // Keep the focused control visible when the expanded list shrinks.
+        if(reducedMotion())keepToggleVisible();
+      });
+      result.append(toggle);
+    }
     if(t.aggregate!=='min'){
       const legend=make('div','split-legend');t.splits.forEach((label,i)=>{const pair=make('span'),swatch=make('i');swatch.style.background=`var(--cat-${i%5+1})`;pair.append(swatch,document.createTextNode(label));legend.append(pair);});result.append(legend);
     }
