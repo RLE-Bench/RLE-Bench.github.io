@@ -85,7 +85,7 @@ MODELS: tuple[ModelSpec, ...] = (
     ModelSpec("gpt56terra", "GPT-5.6 Terra", "Terra", "OpenAI", False, ("gpt-5-6-terra",)),
     ModelSpec("grok-4-6", "Grok 4.6", "Grok 4.6", "xAI", False, ("grok-4-6",)),
     ModelSpec("fable51", "Claude Fable 5.1", "Fable 5.1", "Anthropic", False, ("claude-fable-5-1",)),
-    ModelSpec("deepseek-flash", "DeepSeek-V4.1-Flash", "DeepSeek-V4.1-Flash", "DeepSeek AI", False, ("deepseek-flash",)),
+    ModelSpec("deepseek-flash", "DeepSeek-V4.1-Flash", "DeepSeek-V4.1-Flash", "DeepSeek AI", True, ("deepseek-flash",)),
     ModelSpec("opus55", "Claude Opus 5.5", "Opus 5.5", "Anthropic", False, ("claude-opus-5-5", "claude-opus-5-5[1m]")),
     ModelSpec("gpt6luna", "GPT-6 Luna", "GPT-6 Luna", "OpenAI", False, ("gpt-6-luna",)),
     ModelSpec("gpt61sol", "GPT-6.1 Sol", "GPT-6.1 Sol", "OpenAI", False, ("gpt-6-1-sol",)),
