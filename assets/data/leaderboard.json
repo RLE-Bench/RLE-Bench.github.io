@@ -241,7 +241,7 @@
       "name": "DeepSeek-V4.1-Flash",
       "short": "DeepSeek-V4.1-Flash",
       "org": "DeepSeek AI",
-      "open": false,
+      "open": true,
       "harness": "Claude Code",
       "tasks": [
         "task01",
