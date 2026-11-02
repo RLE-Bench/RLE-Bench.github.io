@@ -355,6 +355,7 @@
   .home-page .rank-row, .home-page .rank-axis { grid-template-columns: 17px minmax(120px,1fr) minmax(65px,1.2fr) 38px; gap: 9px; }
   .home-page .rank-who strong { font-size: 12px; }
   .home-page .rank-row { min-height: 53px; }
+  .home-page .cost-controls { width: 100%; flex-shrink: 1; }
   .home-page .scope-select { width: 100%; }
   .home-page .scope-select select { width: 100%; max-width: none; font-size: 12px; }
   .home-page .figure-topline { padding: 21px 18px 8px; }
@@ -781,9 +782,11 @@ font-family:var(--serif);}
 .classic-home .section-title, .classic-home #cost-heading { font:600 34px/1.2 var(--section-title-font); letter-spacing:-.012em; }
 .classic-home .section-sub { color:var(--text-secondary); font:15.5px/1.65 var(--serif); max-width:79ch; margin:9px 0 0; }
 .classic-home #index .section-sub { max-width:76ch; }
-.classic-home #index .metric-switch { margin-left:auto; border-radius:9px; padding:3px; gap:3px; }
-.classic-home #index .metric-switch button { font:14px/1.2 var(--serif); padding:8px 13px; border-radius:7px; min-height:32px; color:var(--text-secondary); }
-.classic-home #index .metric-switch button[aria-pressed="true"] { color:var(--text-primary); box-shadow:var(--shadow); }
+.home-page .cost-controls { flex-shrink:0; display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end; }
+.classic-home #index .index-controls { margin-left:auto; display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+.classic-home #index .metric-switch, .classic-home .access-switch { border-radius:9px; padding:3px; gap:3px; }
+.classic-home #index .metric-switch button, .classic-home .access-switch button { font:14px/1.2 var(--serif); padding:8px 13px; border-radius:7px; min-height:32px; color:var(--text-secondary); }
+.classic-home #index .metric-switch button[aria-pressed="true"], .classic-home .access-switch button[aria-pressed="true"] { color:var(--text-primary); box-shadow:var(--shadow); }
 .classic-home #index .index-panel { padding:17px 18px 0; border-radius:12px; box-shadow:var(--shadow); }
 /* Compact matrix: rank, model, mean score, then one narrow column per task. */
 .classic-home #index .matrix { min-width:720px; border-collapse:separate; border-spacing:0 4px; table-layout:fixed; }
@@ -878,7 +881,7 @@ font-family:var(--serif);}
   .classic-home .section-head { gap:16px; margin-bottom:17px; }
   .classic-home .section-title, .classic-home #cost-heading { font-size:30px; }
   .classic-home .section-sub { font-size:14.5px; }
-  .classic-home #index .metric-switch { margin-left:0; }
+  .classic-home #index .index-controls { margin-left:0; }
   .classic-home #index .index-panel { padding:13px 12px 12px; }
   /* Narrow screens: keep rank, model, and mean score pinned while task columns scroll. */
   .classic-home #index .matrix { min-width:640px; }

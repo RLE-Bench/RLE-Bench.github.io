@@ -26,6 +26,7 @@ main,#main{padding:0!important;margin:0!important}
 #index .section-title{font-size:46px!important}
 #index .section-sub{font-size:21px!important;max-width:none!important}
 #index .metric-switch{flex-shrink:0!important}
+#index .access-switch{display:none!important}
 #index .metric-switch button{font-size:19px!important;padding:10px 16px!important}
 #index .family-matrix .col-rank{width:46px!important}
 #index .family-matrix .col-model{width:262px!important}

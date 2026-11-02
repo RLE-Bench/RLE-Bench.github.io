@@ -96,7 +96,8 @@
 </ul>
 </aside>
 <div class="section-head"><div><h2 class="section-title" id="index-heading">RLE Index</h2><p class="section-sub" id="indexBlurb">Task scores are averaged within each workflow, then across workflows, on a 0–100 scale.</p></div>
-<div aria-label="Leaderboard metric" class="metric-switch" role="group"><button aria-pressed="true" data-metric="score" type="button">By Score</button><button aria-pressed="false" data-metric="rank" type="button">By Task Rank</button></div>
+<div class="index-controls"><div aria-label="Model access" class="metric-switch access-switch" role="group"><button aria-pressed="true" data-access="all" type="button">All</button><button aria-pressed="false" data-access="open" type="button">Open</button><button aria-pressed="false" data-access="proprietary" type="button">Proprietary</button></div>
+<div aria-label="Leaderboard metric" class="metric-switch" role="group"><button aria-pressed="true" data-metric="score" type="button">By Score</button><button aria-pressed="false" data-metric="rank" type="button">By Task Rank</button></div></div>
 </div>
 <div class="family-comparison">
 <div class="data-panel index-panel">
@@ -108,7 +109,7 @@
 </section>
 <section aria-labelledby="tasks-heading" class="section section-alt" id="tasks">
 <div class="wrap">
-<div class="section-head"><div><h2 class="section-title" id="tasks-heading">Task Breakdown</h2><p class="section-sub">Nine tasks across four workflows. Numbering and definitions follow the research overview.</p></div></div>
+<div class="section-head"><div><h2 class="section-title" id="tasks-heading">Task Breakdown</h2><p class="section-sub">Nine tasks across four workflows. Numbering and definitions follow the research overview.</p></div><div aria-label="Model access" class="metric-switch access-switch" role="group"><button aria-pressed="true" data-access="all" type="button">All</button><button aria-pressed="false" data-access="open" type="button">Open</button><button aria-pressed="false" data-access="proprietary" type="button">Proprietary</button></div></div>
 <div aria-label="Workflows" class="workflow-tabs" id="workflowTabs" role="tablist"></div>
 <div aria-label="Tasks in the selected workflow" class="tabs" id="taskTabs" role="tablist"></div>
 <div class="task-view" id="taskView" role="tabpanel" tabindex="0"></div>
@@ -117,7 +118,7 @@
 <section aria-labelledby="cost-heading" class="home-section" id="cost">
 <div class="wrap">
 <div class="section-heading"><div><h2 id="cost-heading">Performance and Cost</h2><p class="section-description">Task scores, API cost, agent time, and context length, averaged over a task's subtasks, then within each workflow, then across workflows. Cost excludes simulation, GPU compute, and other infrastructure.</p></div>
-<label class="scope-select"><span>Evaluation Scope</span><select aria-label="Cost evaluation scope" id="costScope"><option value="overall">Overall</option></select></label>
+<div class="cost-controls"><div aria-label="Model access" class="metric-switch access-switch" role="group"><button aria-pressed="true" data-access="all" type="button">All</button><button aria-pressed="false" data-access="open" type="button">Open</button><button aria-pressed="false" data-access="proprietary" type="button">Proprietary</button></div><label class="scope-select"><span>Evaluation Scope</span><select aria-label="Cost evaluation scope" id="costScope"><option value="overall">Overall</option></select></label></div>
 </div>
 <div class="data-panel cost-workbench"><figure aria-describedby="costChartNote" aria-labelledby="costChartTitle" class="cost-figure">
 <div class="figure-topline"><div><p class="micro-label" id="costMetricLabel">Mean Task Score / API Cost</p><h3 id="costChartTitle">Score vs. Cost</h3></div></div>

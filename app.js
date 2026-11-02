@@ -31,7 +31,6 @@
   const abbreviated = {task08:'Design',task09:'Co-Design',task01:'Control',task02:'Harness',task06:'Pose',task07:'Clearing',task03:'Reasoning',task04:'Tracking',task05:'NanoVLA'};
   const agents=models.filter(m=>!m.baseline);
 
-  const completeAgents=agents.filter(m=>Number.isFinite(indexScore(m)));
   // Competition ranking: exact ties share the lower rank (1, 2, 2, 4). The reference solution never enters the ranking population.
   function ranksOf(list,value){
     const sorted=list.filter(m=>Number.isFinite(value(m))).sort((a,b)=>value(b)-value(a));
@@ -40,11 +39,25 @@
       for(let k=i;k<j;k++)map[sorted[k].id]=i+1;i=j;}
     return map;
   }
-  const scoreRanks=ranksOf(completeAgents,indexScore);
   const familyRanks=Object.fromEntries(tasks.map(t=>[t.id,ranksOf(agents,m=>familyScore(t,m))]));
-  const meanRank=m=>hierarchical(m,(t,x)=>familyRanks[t.id][x.id]);
+  const meanRank=(m,ranks=familyRanks)=>hierarchical(m,(t,x)=>ranks[t.id][x.id]);
   const rankFormat=v=>Number.isFinite(v)?(Number.isInteger(v)?String(v):v.toFixed(1)):'—';
   let metric='score';
+  // Leaderboard filter by weight availability: 'all', 'open' (open weights), or 'proprietary'.
+  let access='all';
+  const inAccess=m=>access==='all'||(access==='open'?m.open===true:m.open!==true);
+  // Every leaderboard on the page shows the same filtered pool; ranks are recomputed within it.
+  const poolCache={};
+  function pool(){
+    if(!poolCache[access]){
+      const list=agents.filter(inAccess);
+      const ranks=access==='all'?familyRanks:Object.fromEntries(tasks.map(t=>[t.id,ranksOf(list,m=>familyScore(t,m))]));
+      // Cost point IDs follow RLE Index order within the pool and stay fixed when the cost table is re-sorted.
+      const ids=Object.fromEntries(list.slice().sort((a,b)=>(indexScore(b)??-1)-(indexScore(a)??-1)).map((m,i)=>[m.id,i+1]));
+      poolCache[access]={list,ranks,ids};
+    }
+    return poolCache[access];
+  }
   let activeTask=tasks[0].id;
   let costView='overall';
   let costSort={key:'cost',direction:'asc'};
@@ -126,7 +139,7 @@
   };
 
   // Family segments are contributions to the same hierarchical mean as the original table.
-  function renderFamilyMatrix(sorted, rankPlace) {
+  function renderFamilyMatrix(sorted, rankPlace, ranks = familyRanks, poolSize = agents.length) {
     const host = $('#familyIndexGrid');
     if (!host) return;
     host.replaceChildren();
@@ -169,15 +182,15 @@
       const name = make('th'); name.scope = 'row';
       name.append(make('div', 'model-label', m.name), make('span', 'model-meta', `${m.org} · ${m.harness}`));
       row.append(name);
-      const total = metric === 'score' ? indexScore(m) : meanRank(m);
+      const total = metric === 'score' ? indexScore(m) : meanRank(m, ranks);
       const cell = make('td', 'stack-cell'), bar = make('div', metric === 'rank' ? 'family-stack family-rank-grid' : 'family-stack');
       if (metric === 'rank') {
         bar.style.gridTemplateColumns = `repeat(${tasks.length}, minmax(0, 1fr))`;
         tasks.forEach(t => {
-          const value = familyRanks[t.id][m.id];
+          const value = ranks[t.id][m.id];
           const button = make('button', 'family-rank-cell', rankFormat(value)); button.type = 'button';
           if (Number.isFinite(value)) {
-            const strength = 1 - (value - 1) / Math.max(1, agents.length - 1);
+            const strength = 1 - (value - 1) / Math.max(1, poolSize - 1);
             const hue = workflowHue(workflowOf[t.id]);
             const bg = blend(theme() === 'dark' ? '#1a1a19' : '#fcfcfb', hue, .15 + .85 * Math.max(0, Math.min(1, strength)));
             button.style.background = bg; button.style.color = heatInk(bg);
@@ -189,10 +202,10 @@
       } else if (Number.isFinite(total)) {
         included.forEach(w => {
           const eligible = w.tasks.filter(t => snapshotIds.has(t.id));
-          const value = mean(eligible.map(t => metric === 'score' ? familyScore(t, m) : familyRanks[t.id][m.id]));
+          const value = mean(eligible.map(t => metric === 'score' ? familyScore(t, m) : ranks[t.id][m.id]));
           const contribution = value / included.length;
           const segment = make('button', 'family-segment'); segment.type = 'button';
-          segment.style.width = (contribution / (metric === 'score' ? 1 : agents.length) * 100) + '%';
+          segment.style.width = (contribution / (metric === 'score' ? 1 : poolSize) * 100) + '%';
           segment.style.background = workflowHue(w);
           segment.setAttribute('aria-label', `${m.name}, ${w.name}: ${metric === 'score' ? pct(value) : num(value, 2)}. Show task scores.`);
           bindTip(segment, () => `<div class="tt-workflow-header"><div class="tt-title">${escapeHTML(m.name)}</div><div class="tt-workflow-score"><span>Workflow score</span><strong>${pct(value)}</strong></div></div>${taskDetails(w, m)}<div class="tt-sub">Workflow score is the mean of included task scores. Contribution to overall mean: ${pct(contribution)}. Task scores out of 100; ${eligible.length} of ${w.tasks.length} tasks included.</div>`);
@@ -226,12 +239,19 @@
     $('#indexBlurb').textContent=metric==='score'
       ?'Task scores are averaged within each workflow, then across workflows, on a 0–100 scale.'
       :'Per-task ranks are averaged within each workflow, then across workflows. Lower is better.';
-    const value=m=>metric==='score'?indexScore(m):meanRank(m);
-    const sorted=agents.slice().sort((a,b)=>{const x=value(a),y=value(b);if(x===null)return 1;if(y===null)return -1;return metric==='score'?y-x:x-y;});
-    const rankPlace=metric==='score'?scoreRanks:ranksOf(completeAgents,m=>-meanRank(m));
-    renderFamilyMatrix(sorted, rankPlace);
+    // Ranks are recomputed within the filtered pool, so "#1 open model" means best among open models.
+    const {list,ranks}=pool(),complete=list.filter(m=>Number.isFinite(indexScore(m)));
+    const value=m=>metric==='score'?indexScore(m):meanRank(m,ranks);
+    const sorted=list.slice().sort((a,b)=>{const x=value(a),y=value(b);if(x===null)return 1;if(y===null)return -1;return metric==='score'?y-x:x-y;});
+    const rankPlace=metric==='score'?ranksOf(complete,indexScore):ranksOf(complete,m=>-meanRank(m,ranks));
+    if(!sorted.length){const host=$('#familyIndexGrid');host.replaceChildren(make('p','family-scale-note','No models match this filter yet.'));return;}
+    renderFamilyMatrix(sorted, rankPlace, ranks, list.length);
   }
   $$('[data-metric]').forEach(b=>b.addEventListener('click',()=>{metric=b.dataset.metric;$$('[data-metric]').forEach(n=>n.setAttribute('aria-pressed',String(n===b)));renderMatrix();}));
+  $$('[data-access]').forEach(b=>b.addEventListener('click',()=>{
+    access=b.dataset.access;$$('[data-access]').forEach(n=>n.setAttribute('aria-pressed',String(n.dataset.access===access)));
+    hideTip();renderMatrix();renderTask();renderScatter();renderCostTable();
+  }));
 
   /* Task panel and roving-focus tabs. */
   /* Two-level tabs: the workflow row is always visible; the task row lists only the selected workflow's tasks. */
@@ -286,10 +306,12 @@
     const result=make('section','results');result.setAttribute('aria-label',t.short+' results');
     const head=make('div','results-head');head.append(make('h4',null,'Results'));result.append(head);
     if(!t.splits.length){result.append(make('p','body','Results for this task are not reported yet.'));host.append(result);return;}
-    const sorted=agents.slice().sort((a,b)=>(familyScore(t,b)??-1)-(familyScore(t,a)??-1));
+    const {list:pooled,ranks}=pool();
+    if(!pooled.length){result.append(make('p','body','No models match this filter yet.'));host.append(result);return;}
+    const sorted=pooled.slice().sort((a,b)=>(familyScore(t,b)??-1)-(familyScore(t,a)??-1));
     const list=make('div','srow-list');list.role='list';
     sorted.forEach((m,idx)=>{
-      const v=familyScore(t,m),p=familyRanks[t.id][m.id],row=make('div','srow');row.role='listitem';row.tabIndex=0;
+      const v=familyScore(t,m),p=ranks[t.id][m.id],row=make('div','srow');row.role='listitem';row.tabIndex=0;
       row.setAttribute('aria-label',`Rank ${rankFormat(p)}: ${m.name}; task score ${pct(v)} out of 100.`);
       row.append(make('div','rank'+(p<=3?' is-top':''),rankFormat(p)));
       const who=make('div','who');who.append(make('div','who-name',m.name),make('div','who-meta',`${m.org} · ${m.harness}`));row.append(who);
@@ -317,14 +339,13 @@
     if(key==='context')return Number.isFinite(c.context_tokens)?c.context_tokens:null;
     return Number.isFinite(c[key])?c[key]:null;};
   const costMetric=(m,key)=>costView==='overall'?hierarchical(m,(t,x)=>taskCostField(t,x,key)):taskCostField(byId[costView],m,key);
-  const costRows=()=>agents.map(m=>({m,score:costView==='overall'?indexScore(m):familyScore(byId[costView],m),cost:costMetric(m,'cost'),hours:costMetric(m,'hours'),context:costMetric(m,'context')}));
+  const costRows=()=>pool().list.map(m=>({m,score:costView==='overall'?indexScore(m):familyScore(byId[costView],m),cost:costMetric(m,'cost'),hours:costMetric(m,'hours'),context:costMetric(m,'context')}));
   function costContext(){
     const overall=costView==='overall',t=byId[costView];
     return {overall,scoreLabel:overall?'Mean Task Score':'Task Score',costLabel:'Mean API Cost',
       title:overall?'Score vs. Cost':`Task ${t.num} · ${abbreviated[t.id]||t.short}`,
       xLabel:'Mean API cost per subtask · USD (log)'};
   }
-  const costModelIds=Object.fromEntries(agents.slice().sort((a,b)=>(indexScore(b)??-1)-(indexScore(a)??-1)).map((m,i)=>[m.id,i+1]));
   // Plot labels: the export supplies `short` per model; the map covers older snapshots without it.
   function highlightCost(id){
     $('.cost-workbench').classList.toggle('has-highlight',!!id);
@@ -405,7 +426,7 @@
     labels.forEach(({p,c})=>{if(Math.abs(c.y+7-p.cy)>2)svg.append(mk('line',{x1:p.cx,y1:p.cy,x2:c.side===1?c.x-4:c.x+c.w+4,y2:c.y+7},'plot-leader'));});
     dots.forEach(p=>{
       const group=mk('g',{tabindex:0,role:'button','aria-label':`${p.m.name}: ${pct(p.score)} points; ${preciseUSD(p.cost)}. Show details.`},'plot-point-group');
-      group.append(mk('circle',{cx:p.cx,cy:p.cy,r:8.5},'plot-point'),text(costModelIds[p.m.id],{x:p.cx,y:p.cy+3,'text-anchor':'middle','aria-hidden':true},'plot-point-number'));
+      group.append(mk('circle',{cx:p.cx,cy:p.cy,r:8.5},'plot-point'),text(pool().ids[p.m.id],{x:p.cx,y:p.cy+3,'text-anchor':'middle','aria-hidden':true},'plot-point-number'));
       linkCost(group,p);group.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showTip(group,costTip(p));}});svg.append(group);
     });
     labels.forEach(({p,c,label})=>svg.append(text(label,{x:c.x,y:c.y+11,'data-label-for':p.m.id,'data-cost-model':p.m.id},'plot-label')));
@@ -432,7 +453,7 @@
     sortedCostRows().forEach(r=>{
       const tr=make('tr');tr.dataset.model=r.m.id;tr.tabIndex=0;
       tr.setAttribute('aria-label',`${r.m.name}, ${r.m.harness}: ${pct(r.score)} points; API cost ${preciseUSD(r.cost)}; ${num(r.hours)} hours; context ${tokens(r.context)}.`);
-      const name=make('th');name.scope='row';const label=make('div','cost-model-name');const badge=make('span','model-id',costModelIds[r.m.id]);badge.setAttribute('aria-hidden','true');
+      const name=make('th');name.scope='row';const label=make('div','cost-model-name');const badge=make('span','model-id',pool().ids[r.m.id]);badge.setAttribute('aria-hidden','true');
       const who=make('span');who.append(make('span','model-label',r.m.name),make('span','model-meta',r.m.harness));label.append(badge,who);name.append(label);
       tr.append(name,make('td',null,preciseUSD(r.cost)),make('td','cost-hours',Number.isFinite(r.hours)?r.hours.toFixed(1)+' h':'—'),make('td','cost-context',tokens(r.context)));
       linkCost(tr,r);body.append(tr);
@@ -443,7 +464,7 @@
     const clean=v=>{let s=String(v??'');if(/^[=+\-@]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"';};
     const headers=['data_status','snapshot_date','scope','model_id','model','harness','score_0_100','api_cost_usd','agent_hours','context_tokens','aggregation'];
     const rows=sortedCostRows().map(r=>[isSample?'illustrative_placeholder':'measured',BENCH.meta.updated,costView,r.m.id,r.m.name,r.m.harness,Number.isFinite(r.score)?(r.score*100).toFixed(6):'',Number.isFinite(r.cost)?r.cost.toFixed(6):'',Number.isFinite(r.hours)?r.hours.toFixed(4):'',Number.isFinite(r.context)?Math.round(r.context):'',costView==='overall'?'subtask_mean_then_workflow_mean_then_overall_mean':'subtask_mean']);
-    const csv='\uFEFF'+[headers,...rows].map(r=>r.map(clean).join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob);const a=make('a');a.href=url;a.download=`rle-bench-${costView}-${isSample?'illustrative':'results'}.csv`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
+    const csv='\uFEFF'+[headers,...rows].map(r=>r.map(clean).join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob);const a=make('a');a.href=url;a.download=`rle-bench-${costView}${access==='all'?'':'-'+access}-${isSample?'illustrative':'results'}.csv`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
   });
   let resizeTimer;addEventListener('resize',()=>{hideTip();clearTimeout(resizeTimer);resizeTimer=setTimeout(renderScatter,120);});
   renderMeta();
