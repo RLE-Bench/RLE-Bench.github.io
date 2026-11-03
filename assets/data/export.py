@@ -33,8 +33,8 @@ same number as ``T01``. Only the tasks listed in ``TASKS`` below are exported; a
 
 K3, Gemini 3.8 Flash and GPT-6.1 Terra runs stay in the source dumps but are
 excluded from the public leaderboard across all tasks. GPT-6.1 Terra is held
-back temporarily. Grok, Fable, DeepSeek and the other
-existing models are exported.
+back temporarily. The older DeepSeek Flash snapshot is also excluded;
+DeepSeek-V4.1-Flash-1017 remains public.
 
 API costs come from the dumps except for models priced in ``assets/data/price/``,
 whose cost is recomputed from the run's token counts — a harness can bill a model
@@ -101,6 +101,8 @@ EFFORT_SUFFIXES = ("-xhigh", "-high", "-medium", "-low", "-minimal")
 # Public display policy, applied before grouping or scoring any task's runs.
 # GPT-6.1 Terra is temporarily held back; keep its source runs for later release.
 EXCLUDED_MODEL_PREFIXES = ("k3", "gemini-3-8-flash", "gpt-6-1-terra")
+# Exact match keeps the newer deepseek-flash-1017 snapshot visible.
+EXCLUDED_MODELS = ("deepseek-flash",)
 
 # Harness detection from the ``agent`` field of a run. First match wins.
 HARNESSES: tuple[tuple[str, str], ...] = (
@@ -674,7 +676,8 @@ def load_task(spec: TaskSpec, args: argparse.Namespace, prices: dict[str, PriceS
     skipped = 0
     oracle = 0
     for run in runs:
-        if normalise_model(run.get("model") or "").startswith(EXCLUDED_MODEL_PREFIXES):
+        model_slug = normalise_model(run.get("model") or "")
+        if model_slug in EXCLUDED_MODELS or model_slug.startswith(EXCLUDED_MODEL_PREFIXES):
             skipped += 1
             continue
         if not args.keep_oracle and is_oracle_run(run):
@@ -945,6 +948,7 @@ def build(args: argparse.Namespace) -> dict:
                 "dedupe": args.dedupe,
                 "compact": args.compact,
                 "excluded_model_prefixes": list(EXCLUDED_MODEL_PREFIXES),
+                "excluded_models": list(EXCLUDED_MODELS),
             },
             "prices": {
                 spec.model: {
