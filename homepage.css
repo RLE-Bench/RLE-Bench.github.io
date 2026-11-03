@@ -1091,6 +1091,9 @@ font-family:var(--serif);}
 .family-bar-legend span { display:inline-flex; align-items:center; gap:5px; }
 .family-bar-legend i { flex:0 0 8px; width:8px; height:8px; border-radius:2px; }
 .family-scale-note { font-size:14px; color:var(--text-muted); margin:12px 0 0; }
+.leaderboard-footnotes { margin-top:12px; }
+.leaderboard-footnotes .family-scale-note { margin:4px 0 0; }
+.model-footnote-marker { font-size:.75em; line-height:0; vertical-align:super; }
 @media (max-width:760px) {
   .classic-home #index .family-matrix .place-cell,
   .classic-home #index .family-matrix tbody th,

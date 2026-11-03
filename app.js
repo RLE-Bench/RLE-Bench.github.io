@@ -143,6 +143,8 @@
     const host = $('#familyIndexGrid');
     if (!host) return;
     host.replaceChildren();
+    const notes = $('#indexFootnotes');
+    notes.replaceChildren();
     const included = workflows.filter(w => w.tasks.some(t => snapshotIds.has(t.id)));
     const legend = make('div', 'family-bar-legend');
     included.forEach(w => {
@@ -180,7 +182,13 @@
       const row = make('tr');
       row.append(make('td', 'place-cell', rankFormat(rankPlace[m.id])));
       const name = make('th'); name.scope = 'row';
-      name.append(make('div', 'model-label', m.name), make('span', 'model-meta', `${m.org} · ${m.harness}`));
+      const modelLabel = make('div', 'model-label', m.name);
+      if (m.id === 'deepseek-flash-1017') {
+        const marker = make('sup', 'model-footnote-marker', '*');
+        modelLabel.append(marker);
+        modelLabel.setAttribute('aria-describedby', 'deepseek-snapshot-note');
+      }
+      name.append(modelLabel, make('span', 'model-meta', `${m.org} · ${m.harness}`));
       row.append(name);
       const total = metric === 'score' ? indexScore(m) : meanRank(m, ranks);
       const cell = make('td', 'stack-cell'), bar = make('div', metric === 'rank' ? 'family-stack family-rank-grid' : 'family-stack');
@@ -221,9 +229,12 @@
       body.append(row);
     });
     table.append(body); host.append(table);
-    host.append(make('p', 'family-scale-note', metric === 'score' ? 'Each segment contributes one family’s share of the mean. Full width = 100 points.' : 'Each cell shows one task’s rank. Rank 1 is best; stronger colors indicate better ranks.'));
+    notes.append(make('p', 'family-scale-note', metric === 'score' ? 'Each segment contributes one family’s share of the mean. Full width = 100 points.' : 'Each cell shows one task’s rank. Rank 1 is best; stronger colors indicate better ranks.'));
     if (sorted.some(m => m.id === 'deepseek-flash-1017')) {
-      host.append(make('p', 'family-scale-note', 'DeepSeek-V4.1-Flash results use the updated 1017 snapshot (October 17, 2026).'));
+      const note = make('p', 'family-scale-note');
+      note.id = 'deepseek-snapshot-note';
+      note.append(make('sup', 'model-footnote-marker', '*'), document.createTextNode(' DeepSeek-V4.1-Flash results use the updated 1017 snapshot (October 17, 2026).'));
+      notes.append(note);
     }
   }
 
@@ -247,7 +258,7 @@
     const value=m=>metric==='score'?indexScore(m):meanRank(m,ranks);
     const sorted=list.slice().sort((a,b)=>{const x=value(a),y=value(b);if(x===null)return 1;if(y===null)return -1;return metric==='score'?y-x:x-y;});
     const rankPlace=metric==='score'?ranksOf(complete,indexScore):ranksOf(complete,m=>-meanRank(m,ranks));
-    if(!sorted.length){const host=$('#familyIndexGrid');host.replaceChildren(make('p','family-scale-note','No models match this filter yet.'));return;}
+    if(!sorted.length){$('#indexFootnotes').replaceChildren();const host=$('#familyIndexGrid');host.replaceChildren(make('p','family-scale-note','No models match this filter yet.'));return;}
     renderFamilyMatrix(sorted, rankPlace, ranks, list.length);
   }
   $$('[data-metric]').forEach(b=>b.addEventListener('click',()=>{metric=b.dataset.metric;$$('[data-metric]').forEach(n=>n.setAttribute('aria-pressed',String(n===b)));renderMatrix();}));
