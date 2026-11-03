@@ -5319,6 +5319,686 @@
           }
         ]
       }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "codex-gpt_6_1_terra-20261101T103642-3f30d1a73652-02_fight_terra_h216",
+      "status": "completed",
+      "cost_usd": 5.4717344000000026,
+      "reward": 0.7068,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1392,
+        "anchor_pos_err_m": 0.9611,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.2263,
+        "mpjpe_m": 0.0555,
+        "n_params": 1003203.0,
+        "obs_history_length": 1.0,
+        "raw_total": 0.7068,
+        "reward": 0.7068,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.6788,
+        "tracking_score": 0.9629
+      },
+      "extra": {
+        "started_at": "2026-11-01T10:36:43.015233",
+        "finished_at": "2026-11-01T14:40:45.291330",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 96223674,
+          "n_cache_tokens": 95968768,
+          "n_output_tokens": 83678
+        },
+        "trials": [
+          {
+            "trial": "02-fight__222ro42",
+            "rewards": {
+              "reward": 0.7068,
+              "raw_total": 0.7068,
+              "gated": 0,
+              "tracking_score": 0.9629,
+              "tracking_multi": 0.6788,
+              "mpjpe_m": 0.0555,
+              "anchor_pos_err_m": 0.9611,
+              "joint_rmse_rad": 0.2263,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1392,
+              "falls": 0.0,
+              "n_params": 1003203.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 1.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "codex-gpt_6_1_terra-20261101T103642-53048791c0e2-03_fall_and_get_up_terra_h216",
+      "status": "completed",
+      "cost_usd": 6.431476599999998,
+      "reward": 0.5384,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1134,
+        "anchor_pos_err_m": 1.4074,
+        "falls": 4.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.2921,
+        "mpjpe_m": 0.0611,
+        "n_params": 752475.0,
+        "obs_history_length": 1.0,
+        "raw_total": 0.5384,
+        "reward": 0.5384,
+        "survival": 0.7941,
+        "survived_s": 15.883,
+        "tracking_multi": 0.5385,
+        "tracking_score": 0.7574
+      },
+      "extra": {
+        "started_at": "2026-11-01T10:36:43.156089",
+        "finished_at": "2026-11-01T14:40:00.526628",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 114130453,
+          "n_cache_tokens": 113853312,
+          "n_output_tokens": 92334
+        },
+        "trials": [
+          {
+            "trial": "03-fall-and-get-up__nHP3xLj",
+            "rewards": {
+              "reward": 0.5384,
+              "raw_total": 0.5384,
+              "gated": 0,
+              "tracking_score": 0.7574,
+              "tracking_multi": 0.5385,
+              "mpjpe_m": 0.0611,
+              "anchor_pos_err_m": 1.4074,
+              "joint_rmse_rad": 0.2921,
+              "survival": 0.7941,
+              "survived_s": 15.883,
+              "action_jerk": 0.1134,
+              "falls": 4.0,
+              "n_params": 752475.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 1.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "codex-gpt_6_1_terra-20261101T103642-7471862dca5b-01_dance_terra_h216",
+      "status": "completed",
+      "cost_usd": 2.2965306000000014,
+      "reward": 0.8249,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1963,
+        "anchor_pos_err_m": 0.7146,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.3083,
+        "mpjpe_m": 0.0266,
+        "n_params": 251365.0,
+        "obs_history_length": 2.0,
+        "raw_total": 0.8249,
+        "reward": 0.8249,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.8876,
+        "tracking_score": 0.9912
+      },
+      "extra": {
+        "started_at": "2026-11-01T10:36:42.861183",
+        "finished_at": "2026-11-01T14:40:53.938296",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 38765151,
+          "n_cache_tokens": 38588032,
+          "n_output_tokens": 38002
+        },
+        "trials": [
+          {
+            "trial": "01-dance__xcXUdws",
+            "rewards": {
+              "reward": 0.8249,
+              "raw_total": 0.8249,
+              "gated": 0,
+              "tracking_score": 0.9912,
+              "tracking_multi": 0.8876,
+              "mpjpe_m": 0.0266,
+              "anchor_pos_err_m": 0.7146,
+              "joint_rmse_rad": 0.3083,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1963,
+              "falls": 0.0,
+              "n_params": 251365.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 2.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "codex-gpt_6_1_terra-20261101T104005-4882baede1d3-04_run_terra_h215",
+      "status": "completed",
+      "cost_usd": 5.381326800000004,
+      "reward": 0.7482,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1301,
+        "anchor_pos_err_m": 0.6827,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1678,
+        "mpjpe_m": 0.0478,
+        "n_params": 332957.0,
+        "obs_history_length": 2.0,
+        "raw_total": 0.7482,
+        "reward": 0.7482,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.7316,
+        "tracking_score": 0.9723
+      },
+      "extra": {
+        "started_at": "2026-11-01T10:40:05.853614",
+        "finished_at": "2026-11-01T14:44:13.203912",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 95604385,
+          "n_cache_tokens": 95325056,
+          "n_output_tokens": 67149
+        },
+        "trials": [
+          {
+            "trial": "04-run__dVxgJjf",
+            "rewards": {
+              "reward": 0.7482,
+              "raw_total": 0.7482,
+              "gated": 0,
+              "tracking_score": 0.9723,
+              "tracking_multi": 0.7316,
+              "mpjpe_m": 0.0478,
+              "anchor_pos_err_m": 0.6827,
+              "joint_rmse_rad": 0.1678,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1301,
+              "falls": 0.0,
+              "n_params": 332957.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 2.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "codex-gpt_6_1_terra-20261101T104005-8c30f05b9041-05_sprint_terra_h215",
+      "status": "completed",
+      "cost_usd": 2.8023114000000002,
+      "reward": 0.7654,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.131,
+        "anchor_pos_err_m": 1.6591,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.2402,
+        "mpjpe_m": 0.0451,
+        "n_params": 497437.0,
+        "obs_history_length": 4.0,
+        "raw_total": 0.7654,
+        "reward": 0.7654,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.7568,
+        "tracking_score": 0.9734
+      },
+      "extra": {
+        "started_at": "2026-11-01T10:40:05.939752",
+        "finished_at": "2026-11-01T14:43:02.595561",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 46175119,
+          "n_cache_tokens": 45873408,
+          "n_output_tokens": 41386
+        },
+        "trials": [
+          {
+            "trial": "05-sprint__cpcGGNE",
+            "rewards": {
+              "reward": 0.7654,
+              "raw_total": 0.7654,
+              "gated": 0,
+              "tracking_score": 0.9734,
+              "tracking_multi": 0.7568,
+              "mpjpe_m": 0.0451,
+              "anchor_pos_err_m": 1.6591,
+              "joint_rmse_rad": 0.2402,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.131,
+              "falls": 0.0,
+              "n_params": 497437.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 4.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "claude_code-deepseek_flash_1017-20261031T233030-66ab29cd14b6-01_dance_h216",
+      "status": "completed",
+      "cost_usd": 3.434544,
+      "reward": 0.593,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1707,
+        "anchor_pos_err_m": 0.7144,
+        "falls": 2.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1697,
+        "mpjpe_m": 0.0513,
+        "n_params": 497437.0,
+        "obs_history_length": 4.0,
+        "raw_total": 0.593,
+        "reward": 0.593,
+        "survival": 0.7668,
+        "survived_s": 15.335,
+        "tracking_multi": 0.6138,
+        "tracking_score": 0.7517
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:30:30.839814",
+        "finished_at": "2026-11-01T02:19:50.842891",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 41319514,
+          "n_cache_tokens": 41195776,
+          "n_output_tokens": 244818
+        },
+        "trials": [
+          {
+            "trial": "01-dance__qQ2XuaB",
+            "rewards": {
+              "reward": 0.593,
+              "raw_total": 0.593,
+              "gated": 0,
+              "tracking_score": 0.7517,
+              "tracking_multi": 0.6138,
+              "mpjpe_m": 0.0513,
+              "anchor_pos_err_m": 0.7144,
+              "joint_rmse_rad": 0.1697,
+              "survival": 0.7668,
+              "survived_s": 15.335,
+              "action_jerk": 0.1707,
+              "falls": 2.0,
+              "n_params": 497437.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 4.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "claude_code-deepseek_flash_1017-20261031T233030-b3c16740afba-03_fall_and_get_up_h216",
+      "status": "completed",
+      "cost_usd": 16.369388000000004,
+      "reward": 0.0716,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.3848,
+        "anchor_pos_err_m": 0.389,
+        "falls": 8.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.2368,
+        "mpjpe_m": 0.0944,
+        "n_params": 415197.0,
+        "obs_history_length": 3.0,
+        "raw_total": 0.0716,
+        "reward": 0.0716,
+        "survival": 0.1712,
+        "survived_s": 3.425,
+        "tracking_multi": 0.1178,
+        "tracking_score": 0.1614
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:30:31.271571",
+        "finished_at": "2026-11-01T02:19:39.756897",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 24751586,
+          "n_cache_tokens": 24637440,
+          "n_output_tokens": 149509
+        },
+        "trials": [
+          {
+            "trial": "03-fall-and-get-up__CU7b5es",
+            "rewards": {
+              "reward": 0.0716,
+              "raw_total": 0.0716,
+              "gated": 0,
+              "tracking_score": 0.1614,
+              "tracking_multi": 0.1178,
+              "mpjpe_m": 0.0944,
+              "anchor_pos_err_m": 0.389,
+              "joint_rmse_rad": 0.2368,
+              "survival": 0.1712,
+              "survived_s": 3.425,
+              "action_jerk": 0.3848,
+              "falls": 8.0,
+              "n_params": 415197.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 3.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "claude_code-deepseek_flash_1017-20261031T233030-e819723c2f1f-02_fight_h216",
+      "status": "completed",
+      "cost_usd": 6.298837000000002,
+      "reward": 0.6887,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1206,
+        "anchor_pos_err_m": 0.8146,
+        "falls": 1.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1612,
+        "mpjpe_m": 0.0486,
+        "n_params": 497437.0,
+        "obs_history_length": 4.0,
+        "raw_total": 0.6887,
+        "reward": 0.6887,
+        "survival": 0.8889,
+        "survived_s": 17.777,
+        "tracking_multi": 0.6857,
+        "tracking_score": 0.8674
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:30:31.047273",
+        "finished_at": "2026-11-01T02:19:20.155039",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 32734277,
+          "n_cache_tokens": 32612608,
+          "n_output_tokens": 139496
+        },
+        "trials": [
+          {
+            "trial": "02-fight__qc9F528",
+            "rewards": {
+              "reward": 0.6887,
+              "raw_total": 0.6887,
+              "gated": 0,
+              "tracking_score": 0.8674,
+              "tracking_multi": 0.6857,
+              "mpjpe_m": 0.0486,
+              "anchor_pos_err_m": 0.8146,
+              "joint_rmse_rad": 0.1612,
+              "survival": 0.8889,
+              "survived_s": 17.777,
+              "action_jerk": 0.1206,
+              "falls": 1.0,
+              "n_params": 497437.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 4.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "claude_code-deepseek_flash_1017-20261101T022020-41bc41e80ebc-05_sprint_h216",
+      "status": "completed",
+      "cost_usd": 5.242637,
+      "reward": 0.1687,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.2091,
+        "anchor_pos_err_m": 1.2225,
+        "falls": 8.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1544,
+        "mpjpe_m": 0.059,
+        "n_params": 497826.0,
+        "obs_history_length": 4.0,
+        "raw_total": 0.1687,
+        "reward": 0.1687,
+        "survival": 0.417,
+        "survived_s": 8.34,
+        "tracking_multi": 0.2804,
+        "tracking_score": 0.3961
+      },
+      "extra": {
+        "started_at": "2026-11-01T02:20:20.457491",
+        "finished_at": "2026-11-01T06:09:34.542051",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 32878904,
+          "n_cache_tokens": 32779008,
+          "n_output_tokens": 166043
+        },
+        "trials": [
+          {
+            "trial": "05-sprint__LQb5hkq",
+            "rewards": {
+              "reward": 0.1687,
+              "raw_total": 0.1687,
+              "gated": 0,
+              "tracking_score": 0.3961,
+              "tracking_multi": 0.2804,
+              "mpjpe_m": 0.059,
+              "anchor_pos_err_m": 1.2225,
+              "joint_rmse_rad": 0.1544,
+              "survival": 0.417,
+              "survived_s": 8.34,
+              "action_jerk": 0.2091,
+              "falls": 8.0,
+              "n_params": 497826.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 4.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "claude_code-deepseek_flash_1017-20261101T022020-b3b484071bd3-04_run_h216",
+      "status": "completed",
+      "cost_usd": 6.323571999999997,
+      "reward": 0.8139,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.134,
+        "anchor_pos_err_m": 0.7942,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1119,
+        "mpjpe_m": 0.035,
+        "n_params": 868381.0,
+        "obs_history_length": 4.0,
+        "raw_total": 0.8139,
+        "reward": 0.8139,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.8282,
+        "tracking_score": 0.984
+      },
+      "extra": {
+        "started_at": "2026-11-01T02:20:20.282314",
+        "finished_at": "2026-11-01T05:43:44.370597",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 37107933,
+          "n_cache_tokens": 36990720,
+          "n_output_tokens": 214281
+        },
+        "trials": [
+          {
+            "trial": "04-run__ydrqK3C",
+            "rewards": {
+              "reward": 0.8139,
+              "raw_total": 0.8139,
+              "gated": 0,
+              "tracking_score": 0.984,
+              "tracking_multi": 0.8282,
+              "mpjpe_m": 0.035,
+              "anchor_pos_err_m": 0.7942,
+              "joint_rmse_rad": 0.1119,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.134,
+              "falls": 0.0,
+              "n_params": 868381.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 4.0
+            }
+          }
+        ]
+      }
     }
   ]
 }

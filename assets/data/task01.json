@@ -11851,6 +11851,1446 @@
           }
         ]
       }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L1/01-open-fridge/codex-gpt_6_1_terra-20261101T113144-7aa87734b42a-l1_01_open_fridge_terra_h216",
+      "status": "completed",
+      "cost_usd": 1.5415608000000003,
+      "reward": 0.7956768000000001,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 1351.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7956768000000001,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T11:31:45.196349",
+        "finished_at": "2026-11-01T11:44:40.206803",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 25497614,
+          "n_cache_tokens": 25357056,
+          "n_output_tokens": 26630
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__c295Qsc",
+            "rewards": {
+              "reward": 0.7956768000000001,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 1351,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L1/02-close-cabinet/codex-gpt_6_1_terra-20261101T113309-0cc14ca06244-l1_02_close_cabinet_terra_h215",
+      "status": "completed",
+      "cost_usd": 0.4723252,
+      "reward": 0.7840832000000001,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 4974.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7840832000000001,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T11:33:09.398088",
+        "finished_at": "2026-11-01T11:42:10.753543",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 6144271,
+          "n_cache_tokens": 6072064,
+          "n_output_tokens": 19303
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__C5uuLTt",
+            "rewards": {
+              "reward": 0.7840832000000001,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 4974,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L1/03-turn-on-stove/codex-gpt_6_1_terra-20261101T114009-68a0162d4e70-l1_03_turn_on_stove_terra_h215",
+      "status": "completed",
+      "cost_usd": 1.0280572000000003,
+      "reward": 0.992916,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 1771.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.992916,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T11:40:09.554530",
+        "finished_at": "2026-11-01T11:52:22.491294",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 15540497,
+          "n_cache_tokens": 15433984,
+          "n_output_tokens": 29969
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__ipwPK3C",
+            "rewards": {
+              "reward": 0.992916,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 1771,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L1/04-pick-place-counter-to-drawer/codex-gpt_6_1_terra-20261101T114309-a5f44041ccfa-l1_04_pick_place_counter_to_drawer_terra_h215",
+      "status": "completed",
+      "cost_usd": 0.7229197999999999,
+      "reward": 0.39714560000000004,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 1784.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.39714560000000004,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T11:43:09.718876",
+        "finished_at": "2026-11-01T11:54:50.854504",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 9324893,
+          "n_cache_tokens": 9190656,
+          "n_output_tokens": 25830
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__DeEaYxe",
+            "rewards": {
+              "reward": 0.39714560000000004,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 1784,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L1/05-pick-place-microwave-to-counter/codex-gpt_6_1_terra-20261101T114515-39f8a4903e4b-l1_05_pick_place_microwave_to_counter_terra_h216",
+      "status": "completed",
+      "cost_usd": 1.0089782,
+      "reward": 0.398992,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 630.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.398992,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T11:45:15.583018",
+        "finished_at": "2026-11-01T11:58:38.714694",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 15557267,
+          "n_cache_tokens": 15448704,
+          "n_output_tokens": 25596
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__wchSDM5",
+            "rewards": {
+              "reward": 0.398992,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 630,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L2/01-open-fridge/codex-gpt_6_1_terra-20261101T104005-3690a2c68462-l2_01_open_fridge_terra_h215",
+      "status": "completed",
+      "cost_usd": 0.7278720000000003,
+      "reward": 0.590424,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 3990.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.590424,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T10:40:06.166127",
+        "finished_at": "2026-11-01T10:54:00.421933",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 10413381,
+          "n_cache_tokens": 10331520,
+          "n_output_tokens": 25887
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__WXkP8AR",
+            "rewards": {
+              "reward": 0.590424,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 3990,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L2/02-close-cabinet/codex-gpt_6_1_terra-20261101T104813-5154874f046b-l2_02_close_cabinet_terra_h216",
+      "status": "completed",
+      "cost_usd": 0.3868733999999999,
+      "reward": 0.9922920000000001,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 1927.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.9922920000000001,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T10:48:13.993472",
+        "finished_at": "2026-11-01T10:54:34.771405",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 4353936,
+          "n_cache_tokens": 4254208,
+          "n_output_tokens": 14887
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__XvYsGa6",
+            "rewards": {
+              "reward": 0.9922920000000001,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 1927,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L2/03-turn-on-stove/codex-gpt_6_1_terra-20261101T105436-d6ec182e4a72-l2_03_turn_on_stove_terra_h215",
+      "status": "completed",
+      "cost_usd": 0.5895786000000003,
+      "reward": 0.39835200000000004,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 1030.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.39835200000000004,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T10:54:37.676972",
+        "finished_at": "2026-11-01T11:06:19.646680",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 8321924,
+          "n_cache_tokens": 8252032,
+          "n_output_tokens": 21417
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__7a4zvfi",
+            "rewards": {
+              "reward": 0.39835200000000004,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 1030,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L2/04-pick-place-counter-to-drawer/codex-gpt_6_1_terra-20261101T105513-bb8be79a0c9d-l2_04_pick_place_counter_to_drawer_terra_h216",
+      "status": "completed",
+      "cost_usd": 0.4049356,
+      "reward": 0.7956608000000001,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 1356.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7956608000000001,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T10:55:14.152370",
+        "finished_at": "2026-11-01T11:02:35.370049",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 5143065,
+          "n_cache_tokens": 5069952,
+          "n_output_tokens": 15665
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__KqCETU5",
+            "rewards": {
+              "reward": 0.7956608000000001,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 1356,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L2/05-pick-place-microwave-to-counter/codex-gpt_6_1_terra-20261101T110314-fc019b3d5270-l2_05_pick_place_microwave_to_counter_terra_h216",
+      "status": "completed",
+      "cost_usd": 0.6895834000000001,
+      "reward": 0.39616960000000007,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 2394.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.39616960000000007,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T11:03:14.397554",
+        "finished_at": "2026-11-01T11:14:25.033577",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 9143216,
+          "n_cache_tokens": 9035008,
+          "n_output_tokens": 25925
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__ypgVTD9",
+            "rewards": {
+              "reward": 0.39616960000000007,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 2394,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L3/01-open-fridge/codex-gpt_6_1_terra-20261101T110708-d41b339a32d3-l3_01_open_fridge_terra_h215",
+      "status": "completed",
+      "cost_usd": 0.7602953999999997,
+      "reward": 0.7792576000000001,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 6482.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7792576000000001,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T11:07:09.606666",
+        "finished_at": "2026-11-01T11:21:37.029519",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 10785718,
+          "n_cache_tokens": 10689408,
+          "n_output_tokens": 25903
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__z5P5Vfp",
+            "rewards": {
+              "reward": 0.7792576000000001,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 6482,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L3/02-close-cabinet/codex-gpt_6_1_terra-20261101T111514-83a27349c1b1-l3_02_close_cabinet_terra_h216",
+      "status": "completed",
+      "cost_usd": 0.5024537999999998,
+      "reward": 0.5895768,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 4343.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5895768,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T11:15:14.686923",
+        "finished_at": "2026-11-01T11:25:03.978544",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 6458493,
+          "n_cache_tokens": 6375936,
+          "n_output_tokens": 20220
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__EK8nwDE",
+            "rewards": {
+              "reward": 0.5895768,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 4343,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L3/03-turn-on-stove/codex-gpt_6_1_terra-20261101T112208-b5367bd7d30f-l3_03_turn_on_stove_terra_h215",
+      "status": "completed",
+      "cost_usd": 0.5883306000000001,
+      "reward": 0.789568,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 3260.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.789568,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T11:22:09.096633",
+        "finished_at": "2026-11-01T11:31:03.663226",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 7994939,
+          "n_cache_tokens": 7923072,
+          "n_output_tokens": 24062
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__d7bkU8w",
+            "rewards": {
+              "reward": 0.789568,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 3260,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L3/04-pick-place-counter-to-drawer/codex-gpt_6_1_terra-20261101T112544-febbf31d64cd-l3_04_pick_place_counter_to_drawer_terra_h216",
+      "status": "completed",
+      "cost_usd": 0.27976580000000006,
+      "reward": 0.7967968000000001,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 1001.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7967968000000001,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T11:25:44.950335",
+        "finished_at": "2026-11-01T11:30:55.278180",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 3407556,
+          "n_cache_tokens": 3353216,
+          "n_output_tokens": 11553
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__jrZA3jg",
+            "rewards": {
+              "reward": 0.7967968000000001,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 1001,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "L3/05-pick-place-microwave-to-counter/codex-gpt_6_1_terra-20261101T113138-64cbd555ccaa-l3_05_pick_place_microwave_to_counter_terra_h215",
+      "status": "completed",
+      "cost_usd": 0.4125699999999999,
+      "reward": 0.1977624,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 2797.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.1977624,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T11:31:39.235193",
+        "finished_at": "2026-11-01T11:39:26.063589",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 5434933,
+          "n_cache_tokens": 5373440,
+          "n_output_tokens": 16481
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__qYwUtRw",
+            "rewards": {
+              "reward": 0.1977624,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 2797,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L1/01-open-fridge/claude_code-deepseek_flash_1017-20261031T233128-8f5fc3aad70b-l1_01_open_fridge_h215",
+      "status": "completed",
+      "cost_usd": 64.60878999999997,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 50000.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:31:28.702114",
+        "finished_at": "2026-11-01T01:34:43.994197",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 99407198,
+          "n_cache_tokens": 99260800,
+          "n_output_tokens": 569856
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__3Lx62n2",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 50000,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L1/02-close-cabinet/claude_code-deepseek_flash_1017-20261031T233128-9a184a2c5b4b-l1_02_close_cabinet_h215",
+      "status": "completed",
+      "cost_usd": 46.11039900000001,
+      "reward": 0.19136720000000002,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 10791.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.19136720000000002,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:31:28.980647",
+        "finished_at": "2026-11-01T00:53:50.594667",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 72845463,
+          "n_cache_tokens": 72712448,
+          "n_output_tokens": 363564
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__osygh4R",
+            "rewards": {
+              "reward": 0.19136720000000002,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 10791,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L1/03-turn-on-stove/claude_code-deepseek_flash_1017-20261031T233128-a425e86d6331-l1_03_turn_on_stove_h215",
+      "status": "completed",
+      "cost_usd": 73.661114,
+      "reward": 0.39336480000000007,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 4147.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.39336480000000007,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:31:29.193616",
+        "finished_at": "2026-11-01T00:48:40.596050",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 116263852,
+          "n_cache_tokens": 115305728,
+          "n_output_tokens": 441629
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__K7bb7Fd",
+            "rewards": {
+              "reward": 0.39336480000000007,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 4147,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L1/04-pick-place-counter-to-drawer/claude_code-deepseek_flash_1017-20261031T233129-92ce3c69d784-l1_04_pick_place_counter_to_drawer_h215",
+      "status": "completed",
+      "cost_usd": 71.735469,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 9632.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:31:29.427687",
+        "finished_at": "2026-11-01T00:49:42.625045",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 111271596,
+          "n_cache_tokens": 110201856,
+          "n_output_tokens": 444749
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__TZZ3W3U",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 9632,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L1/05-pick-place-microwave-to-counter/claude_code-deepseek_flash_1017-20261031T233129-ae7abbad71c7-l1_05_pick_place_microwave_to_counter_h215",
+      "status": "completed",
+      "cost_usd": 64.86397800000005,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 49929.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:31:29.670497",
+        "finished_at": "2026-11-01T01:47:56.215284",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 109276211,
+          "n_cache_tokens": 109114496,
+          "n_output_tokens": 374523
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__q7wQA5Z",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 49929,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L2/01-open-fridge/claude_code-deepseek_flash_1017-20261031T233031-91992b4f9096-l2_01_open_fridge_h216",
+      "status": "completed",
+      "cost_usd": 24.20975400000001,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 50000.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:30:31.902489",
+        "finished_at": "2026-11-01T00:33:05.626616",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 35811204,
+          "n_cache_tokens": 35685248,
+          "n_output_tokens": 229494
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__fYbmGWt",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 50000,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L2/02-close-cabinet/claude_code-deepseek_flash_1017-20261031T233031-0eda1c455b7f-l2_02_close_cabinet_h216",
+      "status": "completed",
+      "cost_usd": 28.213995000000004,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 38922.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:30:32.106997",
+        "finished_at": "2026-11-01T00:35:47.519531",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 40737385,
+          "n_cache_tokens": 40589440,
+          "n_output_tokens": 287182
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__TqV2aJT",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 38922,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L2/03-turn-on-stove/claude_code-deepseek_flash_1017-20261031T233126-6f03a8236a5e-l2_03_turn_on_stove_h215",
+      "status": "completed",
+      "cost_usd": 33.603739000000004,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 50000.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:31:26.576156",
+        "finished_at": "2026-11-01T01:04:15.869046",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 49859737,
+          "n_cache_tokens": 49736576,
+          "n_output_tokens": 333750
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__RNM5QZV",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 50000,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L2/04-pick-place-counter-to-drawer/claude_code-deepseek_flash_1017-20261031T233126-b1329be4caf0-l2_04_pick_place_counter_to_drawer_h215",
+      "status": "completed",
+      "cost_usd": 82.94302500000002,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 26091.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:31:26.816195",
+        "finished_at": "2026-11-01T00:35:24.890982",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 146099587,
+          "n_cache_tokens": 145908480,
+          "n_output_tokens": 361330
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__p5723R8",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 26091,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L2/05-pick-place-microwave-to-counter/claude_code-deepseek_flash_1017-20261101T003351-9ed5ec491db4-l2_05_pick_place_microwave_to_counter_h216",
+      "status": "completed",
+      "cost_usd": 36.10480100000001,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 47958.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T00:33:52.049541",
+        "finished_at": "2026-11-01T01:50:56.010744",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 52848358,
+          "n_cache_tokens": 52376192,
+          "n_output_tokens": 302235
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__bga6XVU",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 47958,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L3/01-open-fridge/claude_code-deepseek_flash_1017-20261101T003627-9bb6e54f89e4-l3_01_open_fridge_h216",
+      "status": "completed",
+      "cost_usd": 34.059824,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 50000.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T00:36:27.456729",
+        "finished_at": "2026-11-01T01:45:45.864489",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 54149519,
+          "n_cache_tokens": 54025088,
+          "n_output_tokens": 257005
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__Xdq5E7h",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 50000,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L3/02-close-cabinet/claude_code-deepseek_flash_1017-20261101T010818-04e66caef2e6-l3_02_close_cabinet_h215",
+      "status": "completed",
+      "cost_usd": 55.17319499999999,
+      "reward": 0.32934080000000004,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 44162.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.32934080000000004,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T01:08:18.394575",
+        "finished_at": "2026-11-01T01:41:04.270186",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 90312147,
+          "n_cache_tokens": 90154240,
+          "n_output_tokens": 382600
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__SzN2tUT",
+            "rewards": {
+              "reward": 0.32934080000000004,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 44162,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L3/03-turn-on-stove/claude_code-deepseek_flash_1017-20261101T003608-d321d9997120-l3_03_turn_on_stove_h215",
+      "status": "completed",
+      "cost_usd": 82.74298499999998,
+      "reward": 0.16636000000000004,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 42050.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.16636000000000004,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T00:36:09.072995",
+        "finished_at": "2026-11-01T01:41:14.743513",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 143717892,
+          "n_cache_tokens": 143516800,
+          "n_output_tokens": 399165
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__DoKhCv7",
+            "rewards": {
+              "reward": 0.16636000000000004,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 42050,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L3/04-pick-place-counter-to-drawer/claude_code-deepseek_flash_1017-20261101T014158-67a90020b3db-l3_04_pick_place_counter_to_drawer_h215",
+      "status": "completed",
+      "cost_usd": 23.324494999999995,
+      "reward": 0.6413792,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 49569.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.6413792,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T01:41:59.071958",
+        "finished_at": "2026-11-01T02:23:24.636360",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 34790686,
+          "n_cache_tokens": 34654080,
+          "n_output_tokens": 212577
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__8DKWAPL",
+            "rewards": {
+              "reward": 0.6413792,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 49569,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "L3/05-pick-place-microwave-to-counter/claude_code-deepseek_flash_1017-20261101T014623-a42a5c7d3d65-l3_05_pick_place_microwave_to_counter_h216",
+      "status": "completed",
+      "cost_usd": 20.04260899999999,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 46481.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T01:46:23.984276",
+        "finished_at": "2026-11-01T01:46:05.791425",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 27057950,
+          "n_cache_tokens": 26955648,
+          "n_output_tokens": 242131
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__u4XQqaj",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 46481,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
     }
   ]
 }

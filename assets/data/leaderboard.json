@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "measured",
-  "generated_at": "2026-11-02T01:14:33Z",
+  "generated_at": "2026-11-03T18:13:21Z",
   "generator": "assets/data/export.py",
   "source": {
     "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId] reports per-subtask means over the task's runs: cost = mean API cost in USD, hours = mean agent wall-clock hours, context_tokens = mean of input_tokens minus cached_tokens per run (the homepage's Context Length). cost_total, hours_total, hours_median and the input/cached/output token counts are the corresponding totals over runs. The homepage's overall figures average these per-task means within each workflow, then across workflows. Missing API cost or token counts stay null. Costs come from the run dumps except for the models listed under source.prices, whose cost is recomputed from token counts because their harness billed them against the wrong price sheet; costs[...].cost_sources and results[...].subtasks[...].cost_source say which applies. Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc.",
@@ -13,10 +13,23 @@
       "compact": false,
       "excluded_model_prefixes": [
         "k3",
-        "gemini-3-8-flash"
+        "gemini-3-8-flash",
+        "gpt-6-1-terra"
+      ],
+      "excluded_models": [
+        "deepseek-flash"
       ]
     },
     "prices": {
+      "deepseek-flash-1017": {
+        "file": "price/deepseek-flash-1017.json",
+        "rate": "mean",
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "input": 0.225,
+        "cached_input": 0.0045,
+        "output": 0.9
+      },
       "deepseek-flash": {
         "file": "price/deepseek-flash.json",
         "rate": "mean",
@@ -50,64 +63,64 @@
         "file": "task01.json",
         "root": "jobs/task01",
         "schema_version": 1,
-        "runs": 240,
-        "runs_skipped": 0
+        "runs": 270,
+        "runs_skipped": 30
       },
       "task02": {
         "file": "task02.json",
         "root": "jobs/task02",
         "schema_version": 1,
-        "runs": 240,
-        "runs_skipped": 0
+        "runs": 270,
+        "runs_skipped": 30
       },
       "task03": {
         "file": "task03.json",
         "root": "jobs/task03",
         "schema_version": 1,
-        "runs": 80,
-        "runs_skipped": 0
+        "runs": 90,
+        "runs_skipped": 10
       },
       "task04": {
         "file": "task04.json",
         "root": "jobs/task04",
         "schema_version": 1,
-        "runs": 80,
-        "runs_skipped": 0
+        "runs": 90,
+        "runs_skipped": 10
       },
       "task05": {
         "file": "task05.json",
         "root": "jobs/task05",
         "schema_version": 1,
-        "runs": 76,
-        "runs_skipped": 12
+        "runs": 80,
+        "runs_skipped": 16
       },
       "task06": {
         "file": "task06.json",
         "root": "jobs/task06",
         "schema_version": 1,
-        "runs": 64,
-        "runs_skipped": 0
+        "runs": 72,
+        "runs_skipped": 8
       },
       "task07": {
         "file": "task07.json",
         "root": "jobs/task07",
         "schema_version": 1,
-        "runs": 16,
-        "runs_skipped": 0
+        "runs": 18,
+        "runs_skipped": 2
       },
       "task08": {
         "file": "task08.json",
         "root": "jobs/task08",
         "schema_version": 1,
-        "runs": 16,
-        "runs_skipped": 0
+        "runs": 18,
+        "runs_skipped": 2
       },
       "task09": {
         "file": "task09.json",
         "root": "jobs/task09",
         "schema_version": 1,
-        "runs": 16,
-        "runs_skipped": 0
+        "runs": 18,
+        "runs_skipped": 2
       }
     }
   },
@@ -265,7 +278,7 @@
       ]
     },
     {
-      "id": "deepseek-flash",
+      "id": "deepseek-flash-1017",
       "name": "DeepSeek-V4.1-Flash",
       "short": "DeepSeek-V4.1-Flash",
       "org": "DeepSeek AI",
@@ -557,10 +570,10 @@
           "kitchen_task": "05-pick-place-microwave-to-counter"
         }
       ],
-      "n_runs": 240,
-      "n_runs_skipped": 0,
+      "n_runs": 270,
+      "n_runs_skipped": 30,
       "models": [
-        "deepseek-flash",
+        "deepseek-flash-1017",
         "fable51",
         "gemini37flash",
         "gemini4argon",
@@ -717,10 +730,10 @@
           "heldout_task": "StoreLeftoversInBowl"
         }
       ],
-      "n_runs": 240,
-      "n_runs_skipped": 0,
+      "n_runs": 270,
+      "n_runs_skipped": 30,
       "models": [
-        "deepseek-flash",
+        "deepseek-flash-1017",
         "fable51",
         "gemini37flash",
         "gemini4argon",
@@ -809,10 +822,10 @@
           "label": "Hidden Center of Mass"
         }
       ],
-      "n_runs": 80,
-      "n_runs_skipped": 0,
+      "n_runs": 90,
+      "n_runs_skipped": 10,
       "models": [
-        "deepseek-flash",
+        "deepseek-flash-1017",
         "fable51",
         "gemini37flash",
         "gemini4argon",
@@ -901,10 +914,10 @@
           "label": "Sprint"
         }
       ],
-      "n_runs": 80,
-      "n_runs_skipped": 0,
+      "n_runs": 90,
+      "n_runs_skipped": 10,
       "models": [
-        "deepseek-flash",
+        "deepseek-flash-1017",
         "fable51",
         "gemini37flash",
         "gemini4argon",
@@ -982,10 +995,10 @@
           "label": "RoboTwin · robustness"
         }
       ],
-      "n_runs": 76,
-      "n_runs_skipped": 12,
+      "n_runs": 80,
+      "n_runs_skipped": 16,
       "models": [
-        "deepseek-flash",
+        "deepseek-flash-1017",
         "fable51",
         "gemini37flash",
         "gemini4argon",
@@ -1063,10 +1076,10 @@
           "label": "Method agnostic"
         }
       ],
-      "n_runs": 64,
-      "n_runs_skipped": 0,
+      "n_runs": 72,
+      "n_runs_skipped": 8,
       "models": [
-        "deepseek-flash",
+        "deepseek-flash-1017",
         "fable51",
         "gemini37flash",
         "gemini4argon",
@@ -1119,10 +1132,10 @@
           "label": "Bin clearing"
         }
       ],
-      "n_runs": 16,
-      "n_runs_skipped": 0,
+      "n_runs": 18,
+      "n_runs_skipped": 2,
       "models": [
-        "deepseek-flash",
+        "deepseek-flash-1017",
         "fable51",
         "gemini37flash",
         "gemini4argon",
@@ -1196,10 +1209,10 @@
           "label": "Mobile base"
         }
       ],
-      "n_runs": 16,
-      "n_runs_skipped": 0,
+      "n_runs": 18,
+      "n_runs_skipped": 2,
       "models": [
-        "deepseek-flash",
+        "deepseek-flash-1017",
         "fable51",
         "gemini37flash",
         "gemini4argon",
@@ -1255,10 +1268,10 @@
           "label": "Gravity compensation"
         }
       ],
-      "n_runs": 16,
-      "n_runs_skipped": 0,
+      "n_runs": 18,
+      "n_runs_skipped": 2,
       "models": [
-        "deepseek-flash",
+        "deepseek-flash-1017",
         "fable51",
         "gemini37flash",
         "gemini4argon",
@@ -1324,11 +1337,6 @@
         0.619801,
         0.586944
       ],
-      "deepseek-flash": [
-        0.0,
-        0.032,
-        0.032122
-      ],
       "grok-4-6": [
         0.0,
         0.175308,
@@ -1358,6 +1366,11 @@
         0.313539,
         0.269218,
         0.411505
+      ],
+      "deepseek-flash-1017": [
+        0.116946,
+        0.0,
+        0.227416
       ]
     },
     "task02": {
@@ -1401,11 +1414,6 @@
         0.27,
         0.12
       ],
-      "deepseek-flash": [
-        0.433333,
-        0.043333,
-        0.106667
-      ],
       "grok-4-6": [
         0.646667,
         0.366667,
@@ -1440,6 +1448,11 @@
         0.96,
         0.48,
         0.366667
+      ],
+      "deepseek-flash-1017": [
+        0.666667,
+        0.146667,
+        0.253333
       ]
     },
     "task03": {
@@ -1506,13 +1519,6 @@
         0.0,
         0.0
       ],
-      "deepseek-flash": [
-        0.264183,
-        0.241989,
-        1.0,
-        0.0,
-        0.666667
-      ],
       "fable51": [
         0.743968,
         0.83986,
@@ -1554,6 +1560,13 @@
         0.666667,
         0.0,
         0.333333
+      ],
+      "deepseek-flash-1017": [
+        0.161554,
+        0.0,
+        0.5,
+        0.0,
+        1.0
       ]
     },
     "task04": {
@@ -1613,13 +1626,6 @@
         0.0226,
         0.261
       ],
-      "deepseek-flash": [
-        0.8032,
-        0.7576,
-        0.4147,
-        0.8208,
-        0.6032
-      ],
       "grok-4-6": [
         0.3631,
         0.0929,
@@ -1668,6 +1674,13 @@
         0.8074,
         0.7642,
         0.6367
+      ],
+      "deepseek-flash-1017": [
+        0.593,
+        0.6887,
+        0.0716,
+        0.8139,
+        0.1687
       ]
     },
     "task05": {
@@ -1719,12 +1732,6 @@
         0.61,
         0.146667
       ],
-      "deepseek-flash": [
-        0.782,
-        0.712,
-        0.61,
-        0.035556
-      ],
       "grok-4-6": [
         0.794,
         0.642,
@@ -1766,6 +1773,12 @@
         0.698,
         0.73,
         0.133333
+      ],
+      "deepseek-flash-1017": [
+        0.804,
+        0.306,
+        0.713333,
+        0.164444
       ]
     },
     "task06": {
@@ -1810,12 +1823,6 @@
         0.8605,
         0.4113,
         0.9178
-      ],
-      "deepseek-flash": [
-        0.3212,
-        0.2115,
-        0.0,
-        0.085
       ],
       "glm53flash": [
         0.0137,
@@ -1864,6 +1871,12 @@
         0.6768,
         0.0544,
         0.6517
+      ],
+      "deepseek-flash-1017": [
+        0.3268,
+        0.0,
+        0.0,
+        0.2803
       ]
     },
     "task07": {
@@ -1899,10 +1912,6 @@
         1.0,
         0.5991
       ],
-      "deepseek-flash": [
-        0.8709,
-        0.419
-      ],
       "grok-4-6": [
         0.7152,
         0.3675
@@ -1930,6 +1939,10 @@
       "kimi31pro": [
         0.7226,
         0.4249
+      ],
+      "deepseek-flash-1017": [
+        0.8006,
+        0.5219
       ]
     },
     "task08": {
@@ -1989,13 +2002,6 @@
         0.564,
         0.916667
       ],
-      "deepseek-flash": [
-        0.85,
-        0.558,
-        0.0,
-        0.2665,
-        0.083333
-      ],
       "grok-4-6": [
         1.0,
         0.616,
@@ -2044,6 +2050,13 @@
         0.0,
         0.2665,
         1.0
+      ],
+      "deepseek-flash-1017": [
+        0.85,
+        0.599714,
+        0.0,
+        0.0665,
+        0.583333
       ]
     },
     "task09": {
@@ -2087,11 +2100,6 @@
         0.5298,
         0.5107
       ],
-      "deepseek-flash": [
-        0.6524,
-        0.4444,
-        0.2767
-      ],
       "grok-4-6": [
         0.3219,
         0.2227,
@@ -2126,6 +2134,11 @@
         0.531,
         0.4608,
         0.4446
+      ],
+      "deepseek-flash-1017": [
+        0.5613,
+        0.3373,
+        0.3314
       ]
     }
   },
@@ -2275,22 +2288,6 @@
         "n_runs": 15,
         "n_subtasks": 15
       },
-      "deepseek-flash": {
-        "cost": 0.907506,
-        "cost_total": 13.612587,
-        "hours": 1.9953,
-        "hours_median": 1.882,
-        "hours_total": 29.9302,
-        "context_tokens": 263118.8,
-        "input_tokens": 1315606686,
-        "cached_tokens": 1311659904,
-        "output_tokens": 7580102,
-        "cost_sources": [
-          "price/deepseek-flash.json:mean"
-        ],
-        "n_runs": 15,
-        "n_subtasks": 15
-      },
       "grok-4-6": {
         "cost": null,
         "cost_total": null,
@@ -2383,6 +2380,22 @@
         "output_tokens": 3512041,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 15,
+        "n_subtasks": 15
+      },
+      "deepseek-flash-1017": {
+        "cost": 0.729942,
+        "cost_total": 10.949123,
+        "hours": 1.2711,
+        "hours_median": 1.2198,
+        "hours_total": null,
+        "context_tokens": 283444.3,
+        "input_tokens": 1184448785,
+        "cached_tokens": 1180197120,
+        "output_tokens": 5201790,
+        "cost_sources": [
+          "price/deepseek-flash-1017.json:mean"
         ],
         "n_runs": 15,
         "n_subtasks": 15
@@ -2517,22 +2530,6 @@
         "n_runs": 15,
         "n_subtasks": 15
       },
-      "deepseek-flash": {
-        "cost": 1.374299,
-        "cost_total": 20.614481,
-        "hours": 4.1578,
-        "hours_median": 3.6613,
-        "hours_total": 62.3671,
-        "context_tokens": 615122.1,
-        "input_tokens": 1659781583,
-        "cached_tokens": 1650554752,
-        "output_tokens": 12345497,
-        "cost_sources": [
-          "price/deepseek-flash.json:mean"
-        ],
-        "n_runs": 15,
-        "n_subtasks": 15
-      },
       "grok-4-6": {
         "cost": null,
         "cost_total": null,
@@ -2641,6 +2638,22 @@
         "output_tokens": 9325924,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 15,
+        "n_subtasks": 15
+      },
+      "deepseek-flash-1017": {
+        "cost": 1.715982,
+        "cost_total": 25.739735,
+        "hours": 2.4193,
+        "hours_median": 2.3331,
+        "hours_total": 36.2899,
+        "context_tokens": 597067.5,
+        "input_tokens": 2213125356,
+        "cached_tokens": 2204169344,
+        "output_tokens": 15339856,
+        "cost_sources": [
+          "price/deepseek-flash-1017.json:mean"
         ],
         "n_runs": 15,
         "n_subtasks": 15
@@ -2791,22 +2804,6 @@
         "n_runs": 5,
         "n_subtasks": 5
       },
-      "deepseek-flash": {
-        "cost": 0.224273,
-        "cost_total": 1.121367,
-        "hours": 0.4765,
-        "hours_median": 0.5211,
-        "hours_total": 2.3824,
-        "context_tokens": 54568.2,
-        "input_tokens": 64859849,
-        "cached_tokens": 64587008,
-        "output_tokens": 854818,
-        "cost_sources": [
-          "price/deepseek-flash.json:mean"
-        ],
-        "n_runs": 5,
-        "n_subtasks": 5
-      },
       "fable51": {
         "cost": 24.091813,
         "cost_total": 120.459067,
@@ -2899,6 +2896,22 @@
         "output_tokens": 1029054,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 5,
+        "n_subtasks": 5
+      },
+      "deepseek-flash-1017": {
+        "cost": 0.488869,
+        "cost_total": 2.444345,
+        "hours": 0.8465,
+        "hours_median": 0.8883,
+        "hours_total": 4.2326,
+        "context_tokens": 153676.6,
+        "input_tokens": 178138239,
+        "cached_tokens": 177369856,
+        "output_tokens": 1636994,
+        "cost_sources": [
+          "price/deepseek-flash-1017.json:mean"
         ],
         "n_runs": 5,
         "n_subtasks": 5
@@ -3033,22 +3046,6 @@
         "n_runs": 5,
         "n_subtasks": 5
       },
-      "deepseek-flash": {
-        "cost": 0.251149,
-        "cost_total": 1.255743,
-        "hours": 3.47,
-        "hours_median": 3.3742,
-        "hours_total": 17.3498,
-        "context_tokens": 97344.6,
-        "input_tokens": 110076739,
-        "cached_tokens": 109590016,
-        "output_tokens": 725639,
-        "cost_sources": [
-          "price/deepseek-flash.json:mean"
-        ],
-        "n_runs": 5,
-        "n_subtasks": 5
-      },
       "grok-4-6": {
         "cost": null,
         "cost_total": null,
@@ -3157,6 +3154,22 @@
         "output_tokens": 1050189,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 5,
+        "n_subtasks": 5
+      },
+      "deepseek-flash-1017": {
+        "cost": 0.34189,
+        "cost_total": 1.709451,
+        "hours": 3.1331,
+        "hours_median": 2.8222,
+        "hours_total": 15.6655,
+        "context_tokens": 115332.4,
+        "input_tokens": 168792214,
+        "cached_tokens": 168215552,
+        "output_tokens": 914147,
+        "cost_sources": [
+          "price/deepseek-flash-1017.json:mean"
         ],
         "n_runs": 5,
         "n_subtasks": 5
@@ -3291,22 +3304,6 @@
         "n_runs": 4,
         "n_subtasks": 4
       },
-      "deepseek-flash": {
-        "cost": 0.170957,
-        "cost_total": 0.683828,
-        "hours": 5.108,
-        "hours_median": 5.1402,
-        "hours_total": 20.4321,
-        "context_tokens": 79095.5,
-        "input_tokens": 53181150,
-        "cached_tokens": 52864768,
-        "output_tokens": 416390,
-        "cost_sources": [
-          "price/deepseek-flash.json:mean"
-        ],
-        "n_runs": 4,
-        "n_subtasks": 4
-      },
       "grok-4-6": {
         "cost": 2.335076,
         "cost_total": 9.340303,
@@ -3415,6 +3412,22 @@
         "output_tokens": 844858,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 4,
+        "n_subtasks": 4
+      },
+      "deepseek-flash-1017": {
+        "cost": 0.263893,
+        "cost_total": 1.055574,
+        "hours": 5.0312,
+        "hours_median": 4.8943,
+        "hours_total": 20.125,
+        "context_tokens": 113357.2,
+        "input_tokens": 97976501,
+        "cached_tokens": 97523072,
+        "output_tokens": 571887,
+        "cost_sources": [
+          "price/deepseek-flash-1017.json:mean"
         ],
         "n_runs": 4,
         "n_subtasks": 4
@@ -3529,22 +3542,6 @@
         "output_tokens": 124392,
         "cost_sources": [
           "harness"
-        ],
-        "n_runs": 4,
-        "n_subtasks": 4
-      },
-      "deepseek-flash": {
-        "cost": 0.310925,
-        "cost_total": 1.243698,
-        "hours": 1.5519,
-        "hours_median": 1.5594,
-        "hours_total": 6.2077,
-        "context_tokens": 95566.5,
-        "input_tokens": 105587386,
-        "cached_tokens": 105205120,
-        "output_tokens": 760295,
-        "cost_sources": [
-          "price/deepseek-flash.json:mean"
         ],
         "n_runs": 4,
         "n_subtasks": 4
@@ -3673,6 +3670,22 @@
         "output_tokens": 613256,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 4,
+        "n_subtasks": 4
+      },
+      "deepseek-flash-1017": {
+        "cost": 0.323978,
+        "cost_total": 1.295913,
+        "hours": 1.2425,
+        "hours_median": 1.1642,
+        "hours_total": 4.9701,
+        "context_tokens": 96104.5,
+        "input_tokens": 112901153,
+        "cached_tokens": 112516735,
+        "output_tokens": 781215,
+        "cost_sources": [
+          "price/deepseek-flash-1017.json:mean"
         ],
         "n_runs": 4,
         "n_subtasks": 4
@@ -3807,22 +3820,6 @@
         "n_runs": 1,
         "n_subtasks": 1
       },
-      "deepseek-flash": {
-        "cost": 0.396947,
-        "cost_total": 0.396947,
-        "hours": 3.1909,
-        "hours_median": 3.1909,
-        "hours_total": 3.1909,
-        "context_tokens": 152551.0,
-        "input_tokens": 37924327,
-        "cached_tokens": 37771776,
-        "output_tokens": 214056,
-        "cost_sources": [
-          "price/deepseek-flash.json:mean"
-        ],
-        "n_runs": 1,
-        "n_subtasks": 1
-      },
       "grok-4-6": {
         "cost": null,
         "cost_total": null,
@@ -3931,6 +3928,22 @@
         "output_tokens": 325645,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "deepseek-flash-1017": {
+        "cost": 0.397634,
+        "cost_total": 0.397634,
+        "hours": 2.1227,
+        "hours_median": 2.1227,
+        "hours_total": 2.1227,
+        "context_tokens": 132765.0,
+        "input_tokens": 38859549,
+        "cached_tokens": 38726784,
+        "output_tokens": 214990,
+        "cost_sources": [
+          "price/deepseek-flash-1017.json:mean"
         ],
         "n_runs": 1,
         "n_subtasks": 1
@@ -4065,22 +4078,6 @@
         "n_runs": 1,
         "n_subtasks": 1
       },
-      "deepseek-flash": {
-        "cost": 0.2591,
-        "cost_total": 0.2591,
-        "hours": 0.5296,
-        "hours_median": 0.5296,
-        "hours_total": 0.5296,
-        "context_tokens": 95165.0,
-        "input_tokens": 17642173,
-        "cached_tokens": 17547008,
-        "output_tokens": 176363,
-        "cost_sources": [
-          "price/deepseek-flash.json:mean"
-        ],
-        "n_runs": 1,
-        "n_subtasks": 1
-      },
       "grok-4-6": {
         "cost": null,
         "cost_total": null,
@@ -4189,6 +4186,22 @@
         "output_tokens": 343407,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "deepseek-flash-1017": {
+        "cost": 0.185868,
+        "cost_total": 0.185868,
+        "hours": 0.5033,
+        "hours_median": 0.5033,
+        "hours_total": 0.5033,
+        "context_tokens": 82329.0,
+        "input_tokens": 9159321,
+        "cached_tokens": 9076992,
+        "output_tokens": 140553,
+        "cost_sources": [
+          "price/deepseek-flash-1017.json:mean"
         ],
         "n_runs": 1,
         "n_subtasks": 1
@@ -4323,22 +4336,6 @@
         "n_runs": 1,
         "n_subtasks": 1
       },
-      "deepseek-flash": {
-        "cost": 0.155596,
-        "cost_total": 0.155596,
-        "hours": 0.2422,
-        "hours_median": 0.2422,
-        "hours_total": 0.2422,
-        "context_tokens": 82834.0,
-        "input_tokens": 7390354,
-        "cached_tokens": 7307520,
-        "output_tokens": 115638,
-        "cost_sources": [
-          "price/deepseek-flash.json:mean"
-        ],
-        "n_runs": 1,
-        "n_subtasks": 1
-      },
       "grok-4-6": {
         "cost": null,
         "cost_total": null,
@@ -4447,6 +4444,22 @@
         "output_tokens": 368959,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "deepseek-flash-1017": {
+        "cost": 0.211632,
+        "cost_total": 0.211632,
+        "hours": 0.3989,
+        "hours_median": 0.3989,
+        "hours_total": 0.3989,
+        "context_tokens": 86989.0,
+        "input_tokens": 12708557,
+        "cached_tokens": 12621568,
+        "output_tokens": 150292,
+        "cost_sources": [
+          "price/deepseek-flash-1017.json:mean"
         ],
         "n_runs": 1,
         "n_subtasks": 1
@@ -8478,453 +8491,6 @@
           }
         }
       },
-      "deepseek-flash": {
-        "score": 0.021374,
-        "complete": true,
-        "n_runs": 15,
-        "n_subtasks": 15,
-        "missing": [],
-        "harness": "Claude Code",
-        "splits": {
-          "L1": {
-            "score": 0.0,
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 4.770389,
-            "cost_usd_mean": 0.954078,
-            "hours_median": 1.8546,
-            "n_runs": 5,
-            "complete": true
-          },
-          "L2": {
-            "score": 0.032,
-            "reward": 0.032,
-            "success_rate": 0.04,
-            "cost_usd": 4.738026,
-            "cost_usd_mean": 0.947605,
-            "hours_median": 1.9413,
-            "n_runs": 5,
-            "complete": true
-          },
-          "L3": {
-            "score": 0.032122,
-            "reward": 0.032122,
-            "success_rate": 0.04,
-            "cost_usd": 4.104172,
-            "cost_usd_mean": 0.820834,
-            "hours_median": 1.7879,
-            "n_runs": 5,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "L1/01-open-fridge": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 1.087833,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 2.9834,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L1/01-open-fridge/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T11:02:55.789427",
-            "finished_at": "2026-09-12T14:01:55.868851",
-            "input_tokens": 107204803,
-            "cached_tokens": 106963584,
-            "output_tokens": 613581,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 49925.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L1/02-close-cabinet": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 0.914616,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 1.6093,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L1/02-close-cabinet/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-11T22:53:06.611802",
-            "finished_at": "2026-09-12T00:29:40.084290",
-            "input_tokens": 73721249,
-            "cached_tokens": 73523840,
-            "output_tokens": 599268,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 46213.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L1/03-turn-on-stove": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 1.133655,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 1.8546,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L1/03-turn-on-stove/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T00:29:43.966986",
-            "finished_at": "2026-09-12T02:21:00.503580",
-            "input_tokens": 125332839,
-            "cached_tokens": 125079552,
-            "output_tokens": 570897,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 50000.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L1/04-pick-place-counter-to-drawer": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 1.076151,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 2.7702,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L1/04-pick-place-counter-to-drawer/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T11:05:40.556055",
-            "finished_at": "2026-09-12T13:51:53.366161",
-            "input_tokens": 120846500,
-            "cached_tokens": 120575616,
-            "output_tokens": 525124,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 47487.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L1/05-pick-place-microwave-to-counter": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 0.558135,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 1.6085,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L1/05-pick-place-microwave-to-counter/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-13T00:53:47.237548",
-            "finished_at": "2026-09-13T02:30:17.862853",
-            "input_tokens": 42474987,
-            "cached_tokens": 42292992,
-            "output_tokens": 363186,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 27754.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L2/01-open-fridge": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 0.906156,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 1.882,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L2/01-open-fridge/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T01:58:26.494804",
-            "finished_at": "2026-09-12T03:51:21.677787",
-            "input_tokens": 83335358,
-            "cached_tokens": 83055232,
-            "output_tokens": 521532,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 50000.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L2/02-close-cabinet": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 0.876182,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 1.9413,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L2/02-close-cabinet/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T03:51:25.186266",
-            "finished_at": "2026-09-12T05:47:53.925403",
-            "input_tokens": 81257871,
-            "cached_tokens": 80987136,
-            "output_tokens": 500916,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 50000.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L2/03-turn-on-stove": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 0.730708,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 0.9559,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L2/03-turn-on-stove/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T05:47:57.687269",
-            "finished_at": "2026-09-12T06:45:18.999113",
-            "input_tokens": 56862757,
-            "cached_tokens": 56633856,
-            "output_tokens": 471503,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 23591.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L2/04-pick-place-counter-to-drawer": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 1.146837,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 2.6134,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L2/04-pick-place-counter-to-drawer/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-13T02:30:22.103595",
-            "finished_at": "2026-09-13T05:07:10.502567",
-            "input_tokens": 141825901,
-            "cached_tokens": 141477760,
-            "output_tokens": 479839,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 49812.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L2/05-pick-place-microwave-to-counter": {
-            "reward": 0.16,
-            "success_rate": 0.2,
-            "cost_usd": 1.078144,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 2.3693,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L2/05-pick-place-microwave-to-counter/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T07:49:58.188343",
-            "finished_at": "2026-09-12T10:12:07.766802",
-            "input_tokens": 122358528,
-            "cached_tokens": 122018816,
-            "output_tokens": 502916,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.16,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 50000.0,
-              "reward": 0.16,
-              "success_rate": 0.2,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L3/01-open-fridge": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 0.746167,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 1.7491,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L3/01-open-fridge/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T15:32:39.153530",
-            "finished_at": "2026-09-12T17:17:35.917096",
-            "input_tokens": 61405058,
-            "cached_tokens": 61131520,
-            "output_tokens": 455032,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 47165.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L3/02-close-cabinet": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 1.055376,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 1.7879,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L3/02-close-cabinet/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T17:17:39.491750",
-            "finished_at": "2026-09-12T19:04:55.987721",
-            "input_tokens": 80251568,
-            "cached_tokens": 80026496,
-            "output_tokens": 716239,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 43102.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L3/03-turn-on-stove": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 0.839191,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 2.0572,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L3/03-turn-on-stove/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T19:05:00.788685",
-            "finished_at": "2026-09-12T21:08:26.584912",
-            "input_tokens": 73555850,
-            "cached_tokens": 73235072,
-            "output_tokens": 486065,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 49731.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L3/04-pick-place-counter-to-drawer": {
-            "reward": 0.160611,
-            "success_rate": 0.2,
-            "cost_usd": 0.547876,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 1.5885,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L3/04-pick-place-counter-to-drawer/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T21:08:27.790781",
-            "finished_at": "2026-09-12T22:43:46.386050",
-            "input_tokens": 47260626,
-            "cached_tokens": 47045632,
-            "output_tokens": 319774,
-            "metrics": {
-              "component_efficiency": 0.000611,
-              "component_outcome": 0.16,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 49236.0,
-              "reward": 0.160611,
-              "success_rate": 0.2,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L3/05-pick-place-microwave-to-counter": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 0.915563,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 2.1596,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "L3/05-pick-place-microwave-to-counter/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T22:43:50.002845",
-            "finished_at": "2026-09-13T00:53:24.453353",
-            "input_tokens": 97912791,
-            "cached_tokens": 97612800,
-            "output_tokens": 454230,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 49605.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_total": 5.0
-            }
-          }
-        }
-      },
       "grok-4-6": {
         "score": 0.105601,
         "complete": true,
@@ -11525,6 +11091,438 @@
               "infrastructure_failures": 0.0,
               "reward": 0.322168,
               "success_rate": 0.4,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          }
+        }
+      },
+      "deepseek-flash-1017": {
+        "score": 0.114787,
+        "complete": true,
+        "n_runs": 15,
+        "n_subtasks": 15,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "L1": {
+            "score": 0.116946,
+            "reward": 0.116946,
+            "success_rate": 0.12,
+            "cost_usd": 4.810091,
+            "cost_usd_mean": 0.962018,
+            "hours_median": 1.3727,
+            "n_runs": 5,
+            "complete": true
+          },
+          "L2": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 3.060499,
+            "cost_usd_mean": 0.6121,
+            "hours_median": 1.0876,
+            "n_runs": 5,
+            "complete": true
+          },
+          "L3": {
+            "score": 0.227416,
+            "reward": 0.227416,
+            "success_rate": 0.28,
+            "cost_usd": 3.078533,
+            "cost_usd_mean": 0.615707,
+            "hours_median": 0.8877,
+            "n_runs": 5,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "L1/01-open-fridge": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.992484,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.0542,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L1/01-open-fridge/claude_code-deepseek_flash_1017-20261031T233128-8f5fc3aad70b-l1_01_open_fridge_h215",
+            "started_at": "2026-10-31T23:31:28.702114",
+            "finished_at": "2026-11-01T01:34:43.994197",
+            "input_tokens": 99407198,
+            "cached_tokens": 99260800,
+            "output_tokens": 569856,
+            "metrics": {
+              "development_steps": 50000.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/02-close-cabinet": {
+            "reward": 0.191367,
+            "success_rate": 0.2,
+            "cost_usd": 0.684342,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.3727,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L1/02-close-cabinet/claude_code-deepseek_flash_1017-20261031T233128-9a184a2c5b4b-l1_02_close_cabinet_h215",
+            "started_at": "2026-10-31T23:31:28.980647",
+            "finished_at": "2026-11-01T00:53:50.594667",
+            "input_tokens": 72845463,
+            "cached_tokens": 72712448,
+            "output_tokens": 363564,
+            "metrics": {
+              "development_steps": 10791.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.191367,
+              "success_rate": 0.2,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/03-turn-on-stove": {
+            "reward": 0.393365,
+            "success_rate": 0.4,
+            "cost_usd": 1.13192,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.2865,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L1/03-turn-on-stove/claude_code-deepseek_flash_1017-20261031T233128-a425e86d6331-l1_03_turn_on_stove_h215",
+            "started_at": "2026-10-31T23:31:29.193616",
+            "finished_at": "2026-11-01T00:48:40.596050",
+            "input_tokens": 116263852,
+            "cached_tokens": 115305728,
+            "output_tokens": 441629,
+            "metrics": {
+              "development_steps": 4147.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.393365,
+              "success_rate": 0.4,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/04-pick-place-counter-to-drawer": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.136874,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.3037,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L1/04-pick-place-counter-to-drawer/claude_code-deepseek_flash_1017-20261031T233129-92ce3c69d784-l1_04_pick_place_counter_to_drawer_h215",
+            "started_at": "2026-10-31T23:31:29.427687",
+            "finished_at": "2026-11-01T00:49:42.625045",
+            "input_tokens": 111271596,
+            "cached_tokens": 110201856,
+            "output_tokens": 444749,
+            "metrics": {
+              "development_steps": 9632.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/05-pick-place-microwave-to-counter": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.864472,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.274,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L1/05-pick-place-microwave-to-counter/claude_code-deepseek_flash_1017-20261031T233129-ae7abbad71c7-l1_05_pick_place_microwave_to_counter_h215",
+            "started_at": "2026-10-31T23:31:29.670497",
+            "finished_at": "2026-11-01T01:47:56.215284",
+            "input_tokens": 109276211,
+            "cached_tokens": 109114496,
+            "output_tokens": 374523,
+            "metrics": {
+              "development_steps": 49929.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/01-open-fridge": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.395468,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.0427,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L2/01-open-fridge/claude_code-deepseek_flash_1017-20261031T233031-91992b4f9096-l2_01_open_fridge_h216",
+            "started_at": "2026-10-31T23:30:31.902489",
+            "finished_at": "2026-11-01T00:33:05.626616",
+            "input_tokens": 35811204,
+            "cached_tokens": 35685248,
+            "output_tokens": 229494,
+            "metrics": {
+              "development_steps": 50000.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/02-close-cabinet": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.474404,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.0876,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L2/02-close-cabinet/claude_code-deepseek_flash_1017-20261031T233031-0eda1c455b7f-l2_02_close_cabinet_h216",
+            "started_at": "2026-10-31T23:30:32.106997",
+            "finished_at": "2026-11-01T00:35:47.519531",
+            "input_tokens": 40737385,
+            "cached_tokens": 40589440,
+            "output_tokens": 287182,
+            "metrics": {
+              "development_steps": 38922.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/03-turn-on-stove": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.551901,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.547,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L2/03-turn-on-stove/claude_code-deepseek_flash_1017-20261031T233126-6f03a8236a5e-l2_03_turn_on_stove_h215",
+            "started_at": "2026-10-31T23:31:26.576156",
+            "finished_at": "2026-11-01T01:04:15.869046",
+            "input_tokens": 49859737,
+            "cached_tokens": 49736576,
+            "output_tokens": 333750,
+            "metrics": {
+              "development_steps": 50000.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/04-pick-place-counter-to-drawer": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.024784,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.0661,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L2/04-pick-place-counter-to-drawer/claude_code-deepseek_flash_1017-20261031T233126-b1329be4caf0-l2_04_pick_place_counter_to_drawer_h215",
+            "started_at": "2026-10-31T23:31:26.816195",
+            "finished_at": "2026-11-01T00:35:24.890982",
+            "input_tokens": 146099587,
+            "cached_tokens": 145908480,
+            "output_tokens": 361330,
+            "metrics": {
+              "development_steps": 26091.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/05-pick-place-microwave-to-counter": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.613942,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.2844,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L2/05-pick-place-microwave-to-counter/claude_code-deepseek_flash_1017-20261101T003351-9ed5ec491db4-l2_05_pick_place_microwave_to_counter_h216",
+            "started_at": "2026-11-01T00:33:52.049541",
+            "finished_at": "2026-11-01T01:50:56.010744",
+            "input_tokens": 52848358,
+            "cached_tokens": 52376192,
+            "output_tokens": 302235,
+            "metrics": {
+              "development_steps": 47958.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/01-open-fridge": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.502414,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.1551,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L3/01-open-fridge/claude_code-deepseek_flash_1017-20261101T003627-9bb6e54f89e4-l3_01_open_fridge_h216",
+            "started_at": "2026-11-01T00:36:27.456729",
+            "finished_at": "2026-11-01T01:45:45.864489",
+            "input_tokens": 54149519,
+            "cached_tokens": 54025088,
+            "output_tokens": 257005,
+            "metrics": {
+              "development_steps": 50000.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/02-close-cabinet": {
+            "reward": 0.329341,
+            "success_rate": 0.4,
+            "cost_usd": 0.785563,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 0.5461,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L3/02-close-cabinet/claude_code-deepseek_flash_1017-20261101T010818-04e66caef2e6-l3_02_close_cabinet_h215",
+            "started_at": "2026-11-01T01:08:18.394575",
+            "finished_at": "2026-11-01T01:41:04.270186",
+            "input_tokens": 90312147,
+            "cached_tokens": 90154240,
+            "output_tokens": 382600,
+            "metrics": {
+              "development_steps": 44162.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.329341,
+              "success_rate": 0.4,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/03-turn-on-stove": {
+            "reward": 0.16636,
+            "success_rate": 0.2,
+            "cost_usd": 1.05032,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.0849,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L3/03-turn-on-stove/claude_code-deepseek_flash_1017-20261101T003608-d321d9997120-l3_03_turn_on_stove_h215",
+            "started_at": "2026-11-01T00:36:09.072995",
+            "finished_at": "2026-11-01T01:41:14.743513",
+            "input_tokens": 143717892,
+            "cached_tokens": 143516800,
+            "output_tokens": 399165,
+            "metrics": {
+              "development_steps": 42050.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.16636,
+              "success_rate": 0.2,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/04-pick-place-counter-to-drawer": {
+            "reward": 0.641379,
+            "success_rate": 0.8,
+            "cost_usd": 0.377999,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 0.6904,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L3/04-pick-place-counter-to-drawer/claude_code-deepseek_flash_1017-20261101T014158-67a90020b3db-l3_04_pick_place_counter_to_drawer_h215",
+            "started_at": "2026-11-01T01:41:59.071958",
+            "finished_at": "2026-11-01T02:23:24.636360",
+            "input_tokens": 34790686,
+            "cached_tokens": 34654080,
+            "output_tokens": 212577,
+            "metrics": {
+              "development_steps": 49569.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.641379,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/05-pick-place-microwave-to-counter": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.362236,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": null,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "L3/05-pick-place-microwave-to-counter/claude_code-deepseek_flash_1017-20261101T014623-a42a5c7d3d65-l3_05_pick_place_microwave_to_counter_h216",
+            "started_at": "2026-11-01T01:46:23.984276",
+            "finished_at": "2026-11-01T01:46:05.791425",
+            "input_tokens": 27057950,
+            "cached_tokens": 26955648,
+            "output_tokens": 242131,
+            "metrics": {
+              "development_steps": 46481.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
               "trials_attempted": 5.0,
               "trials_recorded": 5.0,
               "trials_total": 5.0
@@ -15590,513 +15588,6 @@
           }
         }
       },
-      "deepseek-flash": {
-        "score": 0.194445,
-        "complete": true,
-        "n_runs": 15,
-        "n_subtasks": 15,
-        "missing": [],
-        "harness": "Claude Code",
-        "splits": {
-          "EASY": {
-            "score": 0.433333,
-            "reward": 0.433333,
-            "success_rate": 0.24,
-            "cost_usd": 6.959221,
-            "cost_usd_mean": 1.391844,
-            "hours_median": 3.8258,
-            "n_runs": 5,
-            "complete": true
-          },
-          "MEDIUM": {
-            "score": 0.043333,
-            "reward": 0.043333,
-            "success_rate": 0.0,
-            "cost_usd": 6.616203,
-            "cost_usd_mean": 1.323241,
-            "hours_median": 3.2291,
-            "n_runs": 5,
-            "complete": true
-          },
-          "HARD": {
-            "score": 0.106667,
-            "reward": 0.106667,
-            "success_rate": 0.0,
-            "cost_usd": 7.039056,
-            "cost_usd_mean": 1.407811,
-            "hours_median": 3.8082,
-            "n_runs": 5,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "01-washing-dishes": {
-            "reward": 0.866667,
-            "success_rate": 0.6,
-            "cost_usd": 1.047583,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 2.1394,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "01-washing-dishes/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-11T21:37:21.369695",
-            "finished_at": "2026-09-11T23:45:43.235135",
-            "input_tokens": 56911744,
-            "cached_tokens": 56459776,
-            "output_tokens": 768690,
-            "metrics": {
-              "dev_episodes": 39.0,
-              "dev_successes": 0.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 13974.0,
-              "planned_trials": 5.0,
-              "reward": 0.866667,
-              "success_rate": 0.6,
-              "successes": 3.0,
-              "tasks_practised": 1.0,
-              "train_tasks_solved": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0
-            }
-          },
-          "02-sauteing-vegetables": {
-            "reward": 0.7,
-            "success_rate": 0.6,
-            "cost_usd": 1.438258,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 3.8258,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "02-sauteing-vegetables/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-11T23:45:46.795061",
-            "finished_at": "2026-09-12T03:35:19.564077",
-            "input_tokens": 127456398,
-            "cached_tokens": 126940288,
-            "output_tokens": 834336,
-            "metrics": {
-              "dev_episodes": 166.0,
-              "dev_successes": 5.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 44581.0,
-              "planned_trials": 5.0,
-              "reward": 0.7,
-              "success_rate": 0.6,
-              "successes": 3.0,
-              "tasks_practised": 3.0,
-              "train_tasks_solved": 1.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0
-            }
-          },
-          "03-baking": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 1.378247,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 4.7156,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "03-baking/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-13T21:44:25.082189",
-            "finished_at": "2026-09-14T02:27:21.146513",
-            "input_tokens": 99767448,
-            "cached_tokens": 99148416,
-            "output_tokens": 880886,
-            "metrics": {
-              "dev_episodes": 89.0,
-              "dev_successes": 0.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 13585.0,
-              "planned_trials": 5.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "successes": 0.0,
-              "tasks_practised": 3.0,
-              "train_tasks_solved": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0
-            }
-          },
-          "04-reheating-food": {
-            "reward": 0.2,
-            "success_rate": 0.0,
-            "cost_usd": 1.367259,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 3.6613,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "04-reheating-food/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T08:21:23.255113",
-            "finished_at": "2026-09-12T12:01:03.824589",
-            "input_tokens": 106138804,
-            "cached_tokens": 105604096,
-            "output_tokens": 857479,
-            "metrics": {
-              "dev_episodes": 74.0,
-              "dev_successes": 0.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 68628.0,
-              "planned_trials": 5.0,
-              "reward": 0.2,
-              "success_rate": 0.0,
-              "successes": 0.0,
-              "tasks_practised": 3.0,
-              "train_tasks_solved": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0
-            }
-          },
-          "05-chopping-food": {
-            "reward": 0.4,
-            "success_rate": 0.0,
-            "cost_usd": 1.727874,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 7.5671,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "05-chopping-food/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T12:01:06.956063",
-            "finished_at": "2026-09-12T19:35:08.447948",
-            "input_tokens": 178443008,
-            "cached_tokens": 177824384,
-            "output_tokens": 876082,
-            "metrics": {
-              "dev_episodes": 77.0,
-              "dev_successes": 1.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 71265.0,
-              "planned_trials": 5.0,
-              "reward": 0.4,
-              "success_rate": 0.0,
-              "successes": 0.0,
-              "tasks_practised": 3.0,
-              "train_tasks_solved": 1.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0
-            }
-          },
-          "06-setting-the-table": {
-            "reward": 0.1,
-            "success_rate": 0.0,
-            "cost_usd": 1.187168,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 2.7388,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "06-setting-the-table/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-13T21:44:25.080386",
-            "finished_at": "2026-09-14T00:28:44.774872",
-            "input_tokens": 86307469,
-            "cached_tokens": 85796352,
-            "output_tokens": 762314,
-            "metrics": {
-              "dev_episodes": 83.0,
-              "dev_successes": 5.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 25273.0,
-              "planned_trials": 5.0,
-              "reward": 0.1,
-              "success_rate": 0.0,
-              "successes": 0.0,
-              "tasks_practised": 3.0,
-              "train_tasks_solved": 1.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0
-            }
-          },
-          "07-portioning-meals": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 1.58945,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 4.2394,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "07-portioning-meals/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T23:05:11.716981",
-            "finished_at": "2026-09-13T03:19:33.725165",
-            "input_tokens": 135815158,
-            "cached_tokens": 135225088,
-            "output_tokens": 942413,
-            "metrics": {
-              "dev_episodes": 143.0,
-              "dev_successes": 0.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 50607.0,
-              "planned_trials": 5.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "successes": 0.0,
-              "tasks_practised": 3.0,
-              "train_tasks_solved": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0
-            }
-          },
-          "08-defrosting-food": {
-            "reward": 0.05,
-            "success_rate": 0.0,
-            "cost_usd": 1.126127,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 2.9531,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "08-defrosting-food/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-13T03:19:37.356323",
-            "finished_at": "2026-09-13T06:16:48.438695",
-            "input_tokens": 73962631,
-            "cached_tokens": 73473152,
-            "output_tokens": 761517,
-            "metrics": {
-              "dev_episodes": 81.0,
-              "dev_successes": 0.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 36212.0,
-              "planned_trials": 5.0,
-              "reward": 0.05,
-              "success_rate": 0.0,
-              "successes": 0.0,
-              "tasks_practised": 3.0,
-              "train_tasks_solved": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0
-            }
-          },
-          "09-arranging-buffet": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 1.545316,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 3.616,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "09-arranging-buffet/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-14T02:27:24.475559",
-            "finished_at": "2026-09-14T06:04:22.126116",
-            "input_tokens": 118451687,
-            "cached_tokens": 117837184,
-            "output_tokens": 974206,
-            "metrics": {
-              "dev_episodes": 77.0,
-              "dev_successes": 0.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 17611.0,
-              "planned_trials": 5.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "successes": 0.0,
-              "tasks_practised": 3.0,
-              "train_tasks_solved": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0
-            }
-          },
-          "10-serving-beverages": {
-            "reward": 0.066667,
-            "success_rate": 0.0,
-            "cost_usd": 1.168142,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 3.2291,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "10-serving-beverages/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-14T00:28:47.807270",
-            "finished_at": "2026-09-14T03:42:32.722985",
-            "input_tokens": 90948283,
-            "cached_tokens": 90382464,
-            "output_tokens": 704569,
-            "metrics": {
-              "dev_episodes": 105.0,
-              "dev_successes": 0.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 65914.0,
-              "planned_trials": 5.0,
-              "reward": 0.066667,
-              "success_rate": 0.0,
-              "successes": 0.0,
-              "tasks_practised": 3.0,
-              "train_tasks_solved": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0
-            }
-          },
-          "11-loading-fridge": {
-            "reward": 0.4,
-            "success_rate": 0.0,
-            "cost_usd": 1.129745,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 8.3051,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "11-loading-fridge/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-13T12:18:29.969639",
-            "finished_at": "2026-09-13T20:36:48.285854",
-            "input_tokens": 84782637,
-            "cached_tokens": 84315904,
-            "output_tokens": 717010,
-            "metrics": {
-              "dev_episodes": 114.0,
-              "dev_successes": 0.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 36638.0,
-              "planned_trials": 5.0,
-              "reward": 0.4,
-              "success_rate": 0.0,
-              "successes": 0.0,
-              "tasks_practised": 3.0,
-              "train_tasks_solved": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0
-            }
-          },
-          "12-managing-freezer-space": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 1.850191,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 6.5951,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "12-managing-freezer-space/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-13T01:34:02.979753",
-            "finished_at": "2026-09-13T08:09:45.274902",
-            "input_tokens": 168537102,
-            "cached_tokens": 167399552,
-            "output_tokens": 934383,
-            "metrics": {
-              "dev_episodes": 160.0,
-              "dev_successes": 0.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 47333.0,
-              "planned_trials": 5.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "successes": 0.0,
-              "tasks_practised": 1.0,
-              "train_tasks_solved": 0.0,
-              "trials_attempted": 3.0,
-              "trials_recorded": 3.0
-            }
-          },
-          "13-clearing-table": {
-            "reward": 0.066667,
-            "success_rate": 0.0,
-            "cost_usd": 1.704824,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 3.8082,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "13-clearing-table/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T21:41:03.257941",
-            "finished_at": "2026-09-13T01:29:32.920796",
-            "input_tokens": 154387823,
-            "cached_tokens": 153302784,
-            "output_tokens": 856475,
-            "metrics": {
-              "dev_episodes": 65.0,
-              "dev_successes": 0.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 75000.0,
-              "planned_trials": 5.0,
-              "reward": 0.066667,
-              "success_rate": 0.0,
-              "successes": 0.0,
-              "tasks_practised": 3.0,
-              "train_tasks_solved": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0
-            }
-          },
-          "14-microwaving-food": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 1.151397,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 2.3988,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "14-microwaving-food/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T19:00:51.222059",
-            "finished_at": "2026-09-12T21:24:46.796007",
-            "input_tokens": 82026844,
-            "cached_tokens": 81538176,
-            "output_tokens": 749472,
-            "metrics": {
-              "dev_episodes": 91.0,
-              "dev_successes": 0.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 18705.0,
-              "planned_trials": 5.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "successes": 0.0,
-              "tasks_practised": 3.0,
-              "train_tasks_solved": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0
-            }
-          },
-          "15-storing-leftovers": {
-            "reward": 0.066667,
-            "success_rate": 0.0,
-            "cost_usd": 1.202898,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 2.5743,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "15-storing-leftovers/claude-code/deepseek_deepseek-flash",
-            "started_at": "2026-09-12T15:48:38.580767",
-            "finished_at": "2026-09-12T18:23:06.030742",
-            "input_tokens": 95844547,
-            "cached_tokens": 95307136,
-            "output_tokens": 725665,
-            "metrics": {
-              "dev_episodes": 40.0,
-              "dev_successes": 0.0,
-              "interaction_budget": 75000.0,
-              "interaction_steps": 5095.0,
-              "planned_trials": 5.0,
-              "reward": 0.066667,
-              "success_rate": 0.0,
-              "successes": 0.0,
-              "tasks_practised": 3.0,
-              "train_tasks_solved": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0
-            }
-          }
-        }
-      },
       "grok-4-6": {
         "score": 0.417778,
         "complete": true,
@@ -19255,6 +18746,438 @@
             }
           }
         }
+      },
+      "deepseek-flash-1017": {
+        "score": 0.355556,
+        "complete": true,
+        "n_runs": 15,
+        "n_subtasks": 15,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "EASY": {
+            "score": 0.666667,
+            "reward": 0.666667,
+            "success_rate": 0.52,
+            "cost_usd": 9.544951,
+            "cost_usd_mean": 1.90899,
+            "hours_median": 2.98,
+            "n_runs": 5,
+            "complete": true
+          },
+          "MEDIUM": {
+            "score": 0.146667,
+            "reward": 0.146667,
+            "success_rate": 0.0,
+            "cost_usd": 7.323153,
+            "cost_usd_mean": 1.464631,
+            "hours_median": 2.1317,
+            "n_runs": 5,
+            "complete": true
+          },
+          "HARD": {
+            "score": 0.253333,
+            "reward": 0.253333,
+            "success_rate": 0.04,
+            "cost_usd": 8.871632,
+            "cost_usd_mean": 1.774326,
+            "hours_median": 2.2095,
+            "n_runs": 5,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-washing-dishes": {
+            "reward": 0.933333,
+            "success_rate": 0.8,
+            "cost_usd": 2.362686,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.0275,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "01-washing-dishes/claude_code-deepseek_flash_1017-20261031T233129-54b028059eeb-01_washing_dishes_h215",
+            "started_at": "2026-10-31T23:31:30.255313",
+            "finished_at": "2026-11-01T01:33:09.418288",
+            "input_tokens": 296671113,
+            "cached_tokens": 296126976,
+            "output_tokens": 1008538,
+            "metrics": {
+              "development_steps": 72696.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.933333,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "02-sauteing-vegetables": {
+            "reward": 0.8,
+            "success_rate": 0.8,
+            "cost_usd": 1.479432,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.3999,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "02-sauteing-vegetables/claude_code-deepseek_flash_1017-20261031T233130-e419573cac3c-02_sauteing_vegetables_h215",
+            "started_at": "2026-10-31T23:31:30.469889",
+            "finished_at": "2026-11-01T01:55:30.237797",
+            "input_tokens": 118496357,
+            "cached_tokens": 117971712,
+            "output_tokens": 922794,
+            "metrics": {
+              "development_steps": 74995.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.8,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "03-baking": {
+            "reward": 0.5,
+            "success_rate": 0.4,
+            "cost_usd": 2.584321,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 3.47,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "03-baking/claude_code-deepseek_flash_1017-20261031T233640-44b13f475352-03_baking_h215",
+            "started_at": "2026-10-31T23:36:40.583430",
+            "finished_at": "2026-11-01T03:04:52.559132",
+            "input_tokens": 231172534,
+            "cached_tokens": 230147328,
+            "output_tokens": 1464430,
+            "metrics": {
+              "development_steps": 74360.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.5,
+              "success_rate": 0.4,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "04-reheating-food": {
+            "reward": 0.5,
+            "success_rate": 0.2,
+            "cost_usd": 1.79154,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.98,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "04-reheating-food/claude_code-deepseek_flash_1017-20261031T233640-0e71fd13fa8a-04_reheating_food_h215",
+            "started_at": "2026-10-31T23:36:40.785137",
+            "finished_at": "2026-11-01T02:35:28.784496",
+            "input_tokens": 152567943,
+            "cached_tokens": 152015360,
+            "output_tokens": 1092378,
+            "metrics": {
+              "development_steps": 73298.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.5,
+              "success_rate": 0.2,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "05-chopping-food": {
+            "reward": 0.6,
+            "success_rate": 0.4,
+            "cost_usd": 1.32697,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 3.4138,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "05-chopping-food/claude_code-deepseek_flash_1017-20261031T233640-48e1b1214d52-05_chopping_food_h215",
+            "started_at": "2026-10-31T23:36:40.905591",
+            "finished_at": "2026-11-01T03:01:30.759228",
+            "input_tokens": 104178180,
+            "cached_tokens": 103682432,
+            "output_tokens": 832062,
+            "metrics": {
+              "development_steps": 69153.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.6,
+              "success_rate": 0.4,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "06-setting-the-table": {
+            "reward": 0.25,
+            "success_rate": 0.0,
+            "cost_usd": 1.805951,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.1317,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "06-setting-the-table/claude_code-deepseek_flash_1017-20261031T233544-164e59f442ef-06_setting_the_table_h216",
+            "started_at": "2026-10-31T23:35:45.246368",
+            "finished_at": "2026-11-01T01:43:39.531662",
+            "input_tokens": 150130588,
+            "cached_tokens": 149586304,
+            "output_tokens": 1122610,
+            "metrics": {
+              "development_steps": 60025.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.25,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "07-portioning-meals": {
+            "reward": 0.1,
+            "success_rate": 0.0,
+            "cost_usd": 1.378677,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.8013,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "07-portioning-meals/claude_code-deepseek_flash_1017-20261031T233640-78c28653937c-07_portioning_meals_h215",
+            "started_at": "2026-10-31T23:36:41.072428",
+            "finished_at": "2026-11-01T01:24:45.596627",
+            "input_tokens": 92505410,
+            "cached_tokens": 92049664,
+            "output_tokens": 957679,
+            "metrics": {
+              "development_steps": 22686.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "08-defrosting-food": {
+            "reward": 0.166667,
+            "success_rate": 0.0,
+            "cost_usd": 1.303445,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.7146,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "08-defrosting-food/claude_code-deepseek_flash_1017-20261031T233640-e86160787e98-08_defrosting_food_h215",
+            "started_at": "2026-10-31T23:36:41.708517",
+            "finished_at": "2026-11-01T01:19:34.388269",
+            "input_tokens": 90832448,
+            "cached_tokens": 90392960,
+            "output_tokens": 886435,
+            "metrics": {
+              "development_steps": 27730.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.166667,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "09-arranging-buffet": {
+            "reward": 0.05,
+            "success_rate": 0.0,
+            "cost_usd": 1.141344,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.3331,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "09-arranging-buffet/claude_code-deepseek_flash_1017-20261031T233640-cd2be2dcc095-09_arranging_buffet_h215",
+            "started_at": "2026-10-31T23:36:41.711563",
+            "finished_at": "2026-11-01T01:56:41.010284",
+            "input_tokens": 69339290,
+            "cached_tokens": 68890752,
+            "output_tokens": 811572,
+            "metrics": {
+              "development_steps": 12469.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.05,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "10-serving-beverages": {
+            "reward": 0.166667,
+            "success_rate": 0.0,
+            "cost_usd": 1.693735,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.5925,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "10-serving-beverages/claude_code-deepseek_flash_1017-20261031T234150-23639e38b87c-10_serving_beverages_h215",
+            "started_at": "2026-10-31T23:41:50.746141",
+            "finished_at": "2026-11-01T02:17:23.763823",
+            "input_tokens": 142079638,
+            "cached_tokens": 141574656,
+            "output_tokens": 1047809,
+            "metrics": {
+              "development_steps": 71163.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.166667,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "11-loading-fridge": {
+            "reward": 0.133333,
+            "success_rate": 0.0,
+            "cost_usd": 1.469036,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.2095,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "11-loading-fridge/claude_code-deepseek_flash_1017-20261031T234658-0d81d071ce81-11_loading_fridge_h215",
+            "started_at": "2026-10-31T23:46:59.333914",
+            "finished_at": "2026-11-01T01:59:33.494005",
+            "input_tokens": 115723782,
+            "cached_tokens": 115176320,
+            "output_tokens": 919515,
+            "metrics": {
+              "development_steps": 60482.0,
+              "infrastructure_failures": 1.0,
+              "reward": 0.133333,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "12-managing-freezer-space": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 1.74017,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.5857,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "12-managing-freezer-space/claude_code-deepseek_flash_1017-20261031T234832-e9c754980cda-12_managing_freezer_space_h215",
+            "started_at": "2026-10-31T23:48:32.545837",
+            "finished_at": "2026-11-01T02:23:40.935205",
+            "input_tokens": 152848573,
+            "cached_tokens": 151954688,
+            "output_tokens": 950277,
+            "metrics": {
+              "development_steps": 70403.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "13-clearing-table": {
+            "reward": 0.066667,
+            "success_rate": 0.0,
+            "cost_usd": 1.935973,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.0906,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "13-clearing-table/claude_code-deepseek_flash_1017-20261031T235412-c1d9527c6810-13_clearing_table_h215",
+            "started_at": "2026-10-31T23:54:13.456047",
+            "finished_at": "2026-11-01T01:59:39.588692",
+            "input_tokens": 183299680,
+            "cached_tokens": 182597632,
+            "output_tokens": 1062581,
+            "metrics": {
+              "development_steps": 27699.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.066667,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "14-microwaving-food": {
+            "reward": 0.466667,
+            "success_rate": 0.2,
+            "cost_usd": 2.017706,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.6521,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "14-microwaving-food/claude_code-deepseek_flash_1017-20261031T235515-953558df1181-14_microwaving_food_h215",
+            "started_at": "2026-10-31T23:55:16.079288",
+            "finished_at": "2026-11-01T02:34:23.682865",
+            "input_tokens": 168224327,
+            "cached_tokens": 167497472,
+            "output_tokens": 1222695,
+            "metrics": {
+              "development_steps": 72984.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.466667,
+              "success_rate": 0.2,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "15-storing-leftovers": {
+            "reward": 0.6,
+            "success_rate": 0.0,
+            "cost_usd": 1.708747,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.8874,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "15-storing-leftovers/claude_code-deepseek_flash_1017-20261031T235617-ac29f1e0afe4-15_storing_leftovers_h215",
+            "started_at": "2026-10-31T23:56:18.486504",
+            "finished_at": "2026-11-01T01:49:33.257889",
+            "input_tokens": 145055493,
+            "cached_tokens": 144505088,
+            "output_tokens": 1038481,
+            "metrics": {
+              "development_steps": 16996.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.6,
+              "success_rate": 0.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          }
+        }
       }
     },
     "task03": {
@@ -21175,219 +21098,6 @@
           }
         }
       },
-      "deepseek-flash": {
-        "score": 0.434568,
-        "complete": true,
-        "n_runs": 5,
-        "n_subtasks": 5,
-        "missing": [],
-        "harness": "Claude Code",
-        "splits": {
-          "01-tower-max-height": {
-            "score": 0.264183,
-            "reward": 0.264183,
-            "success_rate": 0.264183,
-            "cost_usd": 0.058413,
-            "cost_usd_mean": 0.058413,
-            "hours_median": 0.2865,
-            "n_runs": 1,
-            "complete": true
-          },
-          "02-cantilever-overhang": {
-            "score": 0.241989,
-            "reward": 0.241989,
-            "success_rate": 0.241989,
-            "cost_usd": 0.309482,
-            "cost_usd_mean": 0.309482,
-            "hours_median": 0.5594,
-            "n_runs": 1,
-            "complete": true
-          },
-          "03-balance-coins": {
-            "score": 1.0,
-            "reward": 1.0,
-            "success_rate": 1.0,
-            "cost_usd": 0.199968,
-            "cost_usd_mean": 0.199968,
-            "hours_median": 0.6686,
-            "n_runs": 1,
-            "complete": true
-          },
-          "04-rubik-cube": {
-            "score": 0.0,
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 0.321424,
-            "cost_usd_mean": 0.321424,
-            "hours_median": 0.5211,
-            "n_runs": 1,
-            "complete": true
-          },
-          "05-hidden-center-of-mass": {
-            "score": 0.666667,
-            "reward": 0.666667,
-            "success_rate": null,
-            "cost_usd": 0.23208,
-            "cost_usd_mean": 0.23208,
-            "hours_median": 0.3469,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "01-tower-max-height": {
-            "reward": 0.264183,
-            "success_rate": 0.264183,
-            "cost_usd": 0.058413,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 0.2865,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T214901-task03_01_tower_max_height_context1m_high-d0d15045",
-            "started_at": "2026-09-11T21:49:02.082626",
-            "finished_at": "2026-09-11T22:06:13.328636",
-            "input_tokens": 1833770,
-            "cached_tokens": 1799936,
-            "output_tokens": 47445,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.264183,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 49999.0,
-              "reward": 0.264183,
-              "success_rate": 0.264183,
-              "task_score": 26.41825,
-              "trials_attempted": 1.0,
-              "trials_total": 1.0
-            }
-          },
-          "02-cantilever-overhang": {
-            "reward": 0.241989,
-            "success_rate": 0.241989,
-            "cost_usd": 0.309482,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 0.5594,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T214905-task03_02_cantilever_overhang_context1m_high-079d6327",
-            "started_at": "2026-09-11T21:49:05.617973",
-            "finished_at": "2026-09-11T22:22:39.628654",
-            "input_tokens": 21181316,
-            "cached_tokens": 21114752,
-            "output_tokens": 221654,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.241989,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 45648.0,
-              "reward": 0.241989,
-              "success_rate": 0.241989,
-              "task_score": 24.198915,
-              "trials_attempted": 1.0,
-              "trials_total": 1.0
-            }
-          },
-          "03-balance-coins": {
-            "reward": 1.0,
-            "success_rate": 1.0,
-            "cost_usd": 0.199968,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 0.6686,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T220657-task03_03_balance_coins_context1m_high-54b43f37",
-            "started_at": "2026-09-11T22:06:57.748111",
-            "finished_at": "2026-09-11T22:47:04.611528",
-            "input_tokens": 8907184,
-            "cached_tokens": 8853376,
-            "output_tokens": 164468,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 1.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 49499.0,
-              "reward": 1.0,
-              "success_rate": 1.0,
-              "task_score": 100.0,
-              "trials_attempted": 1.0,
-              "trials_total": 1.0
-            }
-          },
-          "04-rubik-cube": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 0.321424,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 0.5211,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T222317-task03_04_rubik_cube_context1m_high-dee0daae",
-            "started_at": "2026-09-11T22:23:18.115331",
-            "finished_at": "2026-09-11T22:54:33.926964",
-            "input_tokens": 22317297,
-            "cached_tokens": 22243072,
-            "output_tokens": 227366,
-            "metrics": {
-              "actual_qtm": 12.0,
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 34214.0,
-              "optimal_qtm": 11.0,
-              "recoveries": 40.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "task_score": 0.0,
-              "trials_attempted": 1.0,
-              "trials_total": 1.0,
-              "unclassified_transitions": 1.0
-            }
-          },
-          "05-hidden-center-of-mass": {
-            "reward": 0.666667,
-            "success_rate": null,
-            "cost_usd": 0.23208,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 0.3469,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T224748-task03_05_hidden_center_of_mass_context1m_high-1cfced70",
-            "started_at": "2026-09-11T22:47:48.934448",
-            "finished_at": "2026-09-11T23:08:37.682516",
-            "input_tokens": 10620282,
-            "cached_tokens": 10575872,
-            "output_tokens": 193885,
-            "metrics": {
-              "control_steps": 12465.0,
-              "correct": 2.0,
-              "reward": 0.666667,
-              "submitted": 3.0,
-              "trial_1_control_steps": 6115.0,
-              "trial_1_correct": 1.0,
-              "trial_1_reward": 1.0,
-              "trial_1_submitted": 1.0,
-              "trial_2_control_steps": 1800.0,
-              "trial_2_correct": 1.0,
-              "trial_2_reward": 1.0,
-              "trial_2_submitted": 1.0,
-              "trial_3_control_steps": 4550.0,
-              "trial_3_correct": 0.0,
-              "trial_3_reward": 0.0,
-              "trial_3_submitted": 1.0
-            }
-          }
-        }
-      },
       "fable51": {
         "score": 0.793084,
         "complete": true,
@@ -22676,6 +22386,241 @@
               "trial_2_reward": 0.0,
               "trial_2_submitted": 1.0,
               "trial_3_control_steps": 769.0,
+              "trial_3_correct": 1.0,
+              "trial_3_reward": 1.0,
+              "trial_3_submitted": 1.0,
+              "trials_attempted": 3.0,
+              "trials_recorded": 3.0,
+              "trials_total": 3.0
+            }
+          }
+        }
+      },
+      "deepseek-flash-1017": {
+        "score": 0.332311,
+        "complete": true,
+        "n_runs": 5,
+        "n_subtasks": 5,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-tower-max-height": {
+            "score": 0.161554,
+            "reward": 0.161554,
+            "success_rate": 0.161554,
+            "cost_usd": 0.63233,
+            "cost_usd_mean": 0.63233,
+            "hours_median": 1.0087,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-cantilever-overhang": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.548502,
+            "cost_usd_mean": 0.548502,
+            "hours_median": 0.8883,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-balance-coins": {
+            "score": 0.5,
+            "reward": 0.5,
+            "success_rate": 0.5,
+            "cost_usd": 0.169935,
+            "cost_usd_mean": 0.169935,
+            "hours_median": 0.6157,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-rubik-cube": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.421269,
+            "cost_usd_mean": 0.421269,
+            "hours_median": 0.826,
+            "n_runs": 1,
+            "complete": true
+          },
+          "05-hidden-center-of-mass": {
+            "score": 1.0,
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 0.672309,
+            "cost_usd_mean": 0.672309,
+            "hours_median": 0.8939,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-tower-max-height": {
+            "reward": 0.161554,
+            "success_rate": 0.161554,
+            "cost_usd": 0.63233,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.0087,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261101T000024-17b2ac57718a-01_tower_max_height_h215",
+            "started_at": "2026-11-01T00:00:24.662551",
+            "finished_at": "2026-11-01T01:00:55.869632",
+            "input_tokens": 64366361,
+            "cached_tokens": 64262400,
+            "output_tokens": 355287,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.161554,
+              "development_steps": 49547.0,
+              "infrastructure_failures": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 49547.0,
+              "quality": 0.161554,
+              "reward": 0.161554,
+              "success_rate": 0.161554,
+              "task_score": 16.155428,
+              "trials_attempted": 1.0,
+              "trials_recorded": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "02-cantilever-overhang": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.548502,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 0.8883,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261101T000602-473be64f8fa9-02_cantilever_overhang_h215",
+            "started_at": "2026-11-01T00:06:03.385558",
+            "finished_at": "2026-11-01T00:59:21.436368",
+            "input_tokens": 44395154,
+            "cached_tokens": 44306560,
+            "output_tokens": 365765,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "development_steps": 48849.0,
+              "infrastructure_failures": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 48849.0,
+              "quality": 0.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "task_score": 0.0,
+              "trials_attempted": 1.0,
+              "trials_recorded": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "03-balance-coins": {
+            "reward": 0.5,
+            "success_rate": 0.5,
+            "cost_usd": 0.169935,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 0.6157,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261101T001244-052e6e3def21-03_balance_coins_h215",
+            "started_at": "2026-11-01T00:12:45.184141",
+            "finished_at": "2026-11-01T00:49:41.631668",
+            "input_tokens": 6967178,
+            "cached_tokens": 6903936,
+            "output_tokens": 138486,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.5,
+              "development_steps": 44443.0,
+              "infrastructure_failures": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 44443.0,
+              "quality": 0.5,
+              "reward": 0.5,
+              "success_rate": 0.5,
+              "task_score": 50.0,
+              "trials_attempted": 1.0,
+              "trials_recorded": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "04-rubik-cube": {
+            "reward": 0.0,
+            "success_rate": 0.0,
+            "cost_usd": 0.421269,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 0.826,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261101T001750-490ff859beac-04_rubik_cube_h215",
+            "started_at": "2026-11-01T00:17:51.087719",
+            "finished_at": "2026-11-01T01:07:24.715936",
+            "input_tokens": 26882926,
+            "cached_tokens": 26799872,
+            "output_tokens": 313314,
+            "metrics": {
+              "actual_qtm": 6.0,
+              "component_efficiency": 0.0,
+              "component_outcome": 0.0,
+              "development_steps": 0.0,
+              "infrastructure_failures": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 16051.0,
+              "optimal_qtm": 11.0,
+              "quality": 0.0,
+              "recoveries": 27.0,
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "task_score": 0.0,
+              "trials_attempted": 1.0,
+              "trials_recorded": 1.0,
+              "trials_total": 1.0,
+              "unclassified_transitions": 0.0
+            }
+          },
+          "05-hidden-center-of-mass": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 0.672309,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 0.8939,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261101T002659-3b1bfd7cc829-05_hidden_center_of_mass_h215",
+            "started_at": "2026-11-01T00:27:00.123959",
+            "finished_at": "2026-11-01T01:20:38.053262",
+            "input_tokens": 35526620,
+            "cached_tokens": 35097088,
+            "output_tokens": 464142,
+            "metrics": {
+              "control_steps": 11594.0,
+              "correct": 3.0,
+              "development_steps": 0.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "submitted": 3.0,
+              "success_rate": 1.0,
+              "trial_1_control_steps": 5886.0,
+              "trial_1_correct": 1.0,
+              "trial_1_reward": 1.0,
+              "trial_1_submitted": 1.0,
+              "trial_2_control_steps": 3847.0,
+              "trial_2_correct": 1.0,
+              "trial_2_reward": 1.0,
+              "trial_2_submitted": 1.0,
+              "trial_3_control_steps": 1861.0,
               "trial_3_correct": 1.0,
               "trial_3_reward": 1.0,
               "trial_3_submitted": 1.0,
@@ -24584,248 +24529,6 @@
           }
         }
       },
-      "deepseek-flash": {
-        "score": 0.6799,
-        "complete": true,
-        "n_runs": 5,
-        "n_subtasks": 5,
-        "missing": [],
-        "harness": "Claude Code",
-        "splits": {
-          "01-dance": {
-            "score": 0.8032,
-            "reward": 0.8032,
-            "success_rate": null,
-            "cost_usd": 0.133295,
-            "cost_usd_mean": 0.133295,
-            "hours_median": 3.3742,
-            "n_runs": 1,
-            "complete": true
-          },
-          "02-fight": {
-            "score": 0.7576,
-            "reward": 0.7576,
-            "success_rate": null,
-            "cost_usd": 0.229174,
-            "cost_usd_mean": 0.229174,
-            "hours_median": 3.6884,
-            "n_runs": 1,
-            "complete": true
-          },
-          "03-fall-and-get-up": {
-            "score": 0.4147,
-            "reward": 0.4147,
-            "success_rate": null,
-            "cost_usd": 0.475784,
-            "cost_usd_mean": 0.475784,
-            "hours_median": 3.6738,
-            "n_runs": 1,
-            "complete": true
-          },
-          "04-run": {
-            "score": 0.8208,
-            "reward": 0.8208,
-            "success_rate": null,
-            "cost_usd": 0.18178,
-            "cost_usd_mean": 0.18178,
-            "hours_median": 3.2607,
-            "n_runs": 1,
-            "complete": true
-          },
-          "05-sprint": {
-            "score": 0.6032,
-            "reward": 0.6032,
-            "success_rate": null,
-            "cost_usd": 0.23571,
-            "cost_usd_mean": 0.23571,
-            "hours_median": 3.3527,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "01-dance": {
-            "reward": 0.8032,
-            "success_rate": null,
-            "cost_usd": 0.133295,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 3.3742,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T192422-task04_01_dance_context1m_high-484a077c",
-            "started_at": "2026-09-11T19:24:23.213222",
-            "finished_at": "2026-09-11T22:46:50.277744",
-            "input_tokens": 7662772,
-            "cached_tokens": 7592960,
-            "output_tokens": 92688,
-            "metrics": {
-              "action_jerk": 0.1149,
-              "anchor_pos_err_m": 0.7057,
-              "falls": 0.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.193,
-              "mpjpe_m": 0.0386,
-              "n_params": 826397.0,
-              "obs_history_length": 8.0,
-              "raw_total": 0.8032,
-              "reward": 0.8032,
-              "survival": 1.0,
-              "survived_s": 20.0,
-              "tracking_multi": 0.7994,
-              "tracking_score": 0.9822
-            }
-          },
-          "02-fight": {
-            "reward": 0.7576,
-            "success_rate": null,
-            "cost_usd": 0.229174,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 3.6884,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T224710-task04_02_fight_context1m_high-8ff34358",
-            "started_at": "2026-09-11T22:47:10.624448",
-            "finished_at": "2026-09-12T02:28:28.851886",
-            "input_tokens": 15908377,
-            "cached_tokens": 15803776,
-            "output_tokens": 149469,
-            "metrics": {
-              "action_jerk": 0.1637,
-              "anchor_pos_err_m": 0.9992,
-              "falls": 0.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.1953,
-              "mpjpe_m": 0.0431,
-              "n_params": 828826.0,
-              "obs_history_length": 1.0,
-              "raw_total": 0.7576,
-              "reward": 0.7576,
-              "survival": 1.0,
-              "survived_s": 20.0,
-              "tracking_multi": 0.7685,
-              "tracking_score": 0.9762
-            }
-          },
-          "03-fall-and-get-up": {
-            "reward": 0.4147,
-            "success_rate": null,
-            "cost_usd": 0.475784,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 3.6738,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T231709-task04_03_fall_and_get_up_context1m_high-a67068ef",
-            "started_at": "2026-09-11T23:17:09.958381",
-            "finished_at": "2026-09-12T02:57:35.689542",
-            "input_tokens": 56121086,
-            "cached_tokens": 55984000,
-            "output_tokens": 214457,
-            "metrics": {
-              "action_jerk": 0.3445,
-              "anchor_pos_err_m": 1.0726,
-              "falls": 5.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.2796,
-              "mpjpe_m": 0.0459,
-              "n_params": 1980542.0,
-              "obs_history_length": 8.0,
-              "raw_total": 0.4147,
-              "reward": 0.4147,
-              "survival": 0.6981,
-              "survived_s": 13.962,
-              "tracking_multi": 0.5332,
-              "tracking_score": 0.6783
-            }
-          },
-          "04-run": {
-            "reward": 0.8208,
-            "success_rate": null,
-            "cost_usd": 0.18178,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 3.2607,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T201841-task04_04_run_context1m_high-9368dfa4",
-            "started_at": "2026-09-11T20:18:42.209859",
-            "finished_at": "2026-09-11T23:34:20.670365",
-            "input_tokens": 12681323,
-            "cached_tokens": 12600960,
-            "output_tokens": 118882,
-            "metrics": {
-              "action_jerk": 0.1453,
-              "anchor_pos_err_m": 0.9781,
-              "falls": 0.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.109,
-              "mpjpe_m": 0.0323,
-              "n_params": 1485405.0,
-              "obs_history_length": 5.0,
-              "raw_total": 0.8208,
-              "reward": 0.8208,
-              "survival": 1.0,
-              "survived_s": 20.0,
-              "tracking_multi": 0.846,
-              "tracking_score": 0.9869
-            }
-          },
-          "05-sprint": {
-            "reward": 0.6032,
-            "success_rate": null,
-            "cost_usd": 0.23571,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 3.3527,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T233430-task04_05_sprint_context1m_high-210dd7c4",
-            "started_at": "2026-09-11T23:34:31.045984",
-            "finished_at": "2026-09-12T02:55:40.886047",
-            "input_tokens": 17703181,
-            "cached_tokens": 17608320,
-            "output_tokens": 150143,
-            "metrics": {
-              "action_jerk": 0.133,
-              "anchor_pos_err_m": 2.2967,
-              "falls": 2.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.206,
-              "mpjpe_m": 0.0577,
-              "n_params": 661919.0,
-              "obs_history_length": 6.0,
-              "raw_total": 0.6032,
-              "reward": 0.6032,
-              "survival": 0.8726,
-              "survived_s": 17.453,
-              "tracking_multi": 0.5989,
-              "tracking_score": 0.8287
-            }
-          }
-        }
-      },
       "grok-4-6": {
         "score": 0.27502,
         "complete": true,
@@ -26498,6 +26201,248 @@
             }
           }
         }
+      },
+      "deepseek-flash-1017": {
+        "score": 0.46718,
+        "complete": true,
+        "n_runs": 5,
+        "n_subtasks": 5,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-dance": {
+            "score": 0.593,
+            "reward": 0.593,
+            "success_rate": null,
+            "cost_usd": 0.433558,
+            "cost_usd_mean": 0.433558,
+            "hours_median": 2.8222,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-fight": {
+            "score": 0.6887,
+            "reward": 0.6887,
+            "success_rate": null,
+            "cost_usd": 0.299679,
+            "cost_usd_mean": 0.299679,
+            "hours_median": 2.8136,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-fall-and-get-up": {
+            "score": 0.0716,
+            "reward": 0.0716,
+            "success_rate": null,
+            "cost_usd": 0.271109,
+            "cost_usd_mean": 0.271109,
+            "hours_median": 2.819,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-run": {
+            "score": 0.8139,
+            "reward": 0.8139,
+            "success_rate": null,
+            "cost_usd": 0.385684,
+            "cost_usd_mean": 0.385684,
+            "hours_median": 3.39,
+            "n_runs": 1,
+            "complete": true
+          },
+          "05-sprint": {
+            "score": 0.1687,
+            "reward": 0.1687,
+            "success_rate": null,
+            "cost_usd": 0.319421,
+            "cost_usd_mean": 0.319421,
+            "hours_median": 3.8206,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-dance": {
+            "reward": 0.593,
+            "success_rate": null,
+            "cost_usd": 0.433558,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.8222,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261031T233030-66ab29cd14b6-01_dance_h216",
+            "started_at": "2026-10-31T23:30:30.839814",
+            "finished_at": "2026-11-01T02:19:50.842891",
+            "input_tokens": 41319514,
+            "cached_tokens": 41195776,
+            "output_tokens": 244818,
+            "metrics": {
+              "action_jerk": 0.1707,
+              "anchor_pos_err_m": 0.7144,
+              "falls": 2.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.1697,
+              "mpjpe_m": 0.0513,
+              "n_params": 497437.0,
+              "obs_history_length": 4.0,
+              "raw_total": 0.593,
+              "reward": 0.593,
+              "survival": 0.7668,
+              "survived_s": 15.335,
+              "tracking_multi": 0.6138,
+              "tracking_score": 0.7517
+            }
+          },
+          "02-fight": {
+            "reward": 0.6887,
+            "success_rate": null,
+            "cost_usd": 0.299679,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.8136,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261031T233030-e819723c2f1f-02_fight_h216",
+            "started_at": "2026-10-31T23:30:31.047273",
+            "finished_at": "2026-11-01T02:19:20.155039",
+            "input_tokens": 32734277,
+            "cached_tokens": 32612608,
+            "output_tokens": 139496,
+            "metrics": {
+              "action_jerk": 0.1206,
+              "anchor_pos_err_m": 0.8146,
+              "falls": 1.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.1612,
+              "mpjpe_m": 0.0486,
+              "n_params": 497437.0,
+              "obs_history_length": 4.0,
+              "raw_total": 0.6887,
+              "reward": 0.6887,
+              "survival": 0.8889,
+              "survived_s": 17.777,
+              "tracking_multi": 0.6857,
+              "tracking_score": 0.8674
+            }
+          },
+          "03-fall-and-get-up": {
+            "reward": 0.0716,
+            "success_rate": null,
+            "cost_usd": 0.271109,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.819,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261031T233030-b3c16740afba-03_fall_and_get_up_h216",
+            "started_at": "2026-10-31T23:30:31.271571",
+            "finished_at": "2026-11-01T02:19:39.756897",
+            "input_tokens": 24751586,
+            "cached_tokens": 24637440,
+            "output_tokens": 149509,
+            "metrics": {
+              "action_jerk": 0.3848,
+              "anchor_pos_err_m": 0.389,
+              "falls": 8.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.2368,
+              "mpjpe_m": 0.0944,
+              "n_params": 415197.0,
+              "obs_history_length": 3.0,
+              "raw_total": 0.0716,
+              "reward": 0.0716,
+              "survival": 0.1712,
+              "survived_s": 3.425,
+              "tracking_multi": 0.1178,
+              "tracking_score": 0.1614
+            }
+          },
+          "04-run": {
+            "reward": 0.8139,
+            "success_rate": null,
+            "cost_usd": 0.385684,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 3.39,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261101T022020-b3b484071bd3-04_run_h216",
+            "started_at": "2026-11-01T02:20:20.282314",
+            "finished_at": "2026-11-01T05:43:44.370597",
+            "input_tokens": 37107933,
+            "cached_tokens": 36990720,
+            "output_tokens": 214281,
+            "metrics": {
+              "action_jerk": 0.134,
+              "anchor_pos_err_m": 0.7942,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.1119,
+              "mpjpe_m": 0.035,
+              "n_params": 868381.0,
+              "obs_history_length": 4.0,
+              "raw_total": 0.8139,
+              "reward": 0.8139,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.8282,
+              "tracking_score": 0.984
+            }
+          },
+          "05-sprint": {
+            "reward": 0.1687,
+            "success_rate": null,
+            "cost_usd": 0.319421,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 3.8206,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261101T022020-41bc41e80ebc-05_sprint_h216",
+            "started_at": "2026-11-01T02:20:20.457491",
+            "finished_at": "2026-11-01T06:09:34.542051",
+            "input_tokens": 32878904,
+            "cached_tokens": 32779008,
+            "output_tokens": 166043,
+            "metrics": {
+              "action_jerk": 0.2091,
+              "anchor_pos_err_m": 1.2225,
+              "falls": 8.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.1544,
+              "mpjpe_m": 0.059,
+              "n_params": 497826.0,
+              "obs_history_length": 4.0,
+              "raw_total": 0.1687,
+              "reward": 0.1687,
+              "survival": 0.417,
+              "survived_s": 8.34,
+              "tracking_multi": 0.2804,
+              "tracking_score": 0.3961
+            }
+          }
+        }
       }
     },
     "task05": {
@@ -27683,154 +27628,6 @@
           }
         }
       },
-      "deepseek-flash": {
-        "score": 0.534889,
-        "complete": true,
-        "n_runs": 4,
-        "n_subtasks": 4,
-        "missing": [],
-        "harness": "Claude Code",
-        "splits": {
-          "01-libero-open-design": {
-            "score": 0.782,
-            "reward": 0.782,
-            "success_rate": 0.782,
-            "cost_usd": 0.154589,
-            "cost_usd_mean": 0.154589,
-            "hours_median": 4.3979,
-            "n_runs": 1,
-            "complete": true
-          },
-          "02-libero-robustness": {
-            "score": 0.712,
-            "reward": 0.712,
-            "success_rate": 0.712,
-            "cost_usd": 0.148588,
-            "cost_usd_mean": 0.148588,
-            "hours_median": 3.4046,
-            "n_runs": 1,
-            "complete": true
-          },
-          "03-robotwin-open-design": {
-            "score": 0.61,
-            "reward": 0.61,
-            "success_rate": 0.61,
-            "cost_usd": 0.20474,
-            "cost_usd_mean": 0.20474,
-            "hours_median": 5.8824,
-            "n_runs": 1,
-            "complete": true
-          },
-          "04-robotwin-robustness": {
-            "score": 0.035556,
-            "reward": 0.035556,
-            "success_rate": 0.035556,
-            "cost_usd": 0.175911,
-            "cost_usd_mean": 0.175911,
-            "hours_median": 6.7473,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "01-libero-open-design": {
-            "reward": 0.782,
-            "success_rate": 0.782,
-            "cost_usd": 0.154589,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 4.3979,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "task05/task1/claude-code/deepseek-flash",
-            "started_at": "2026-09-12T03:52:52.146344Z",
-            "finished_at": "2026-09-12T08:16:44.535156Z",
-            "input_tokens": 11700151,
-            "cached_tokens": 11635968,
-            "output_tokens": 97540,
-            "metrics": {
-              "reward": 0.782,
-              "success_rate": 0.782,
-              "episodes": 500.0,
-              "parameters": 61650474.0,
-              "replay_wall_s": 1663.703879
-            }
-          },
-          "02-libero-robustness": {
-            "reward": 0.712,
-            "success_rate": 0.712,
-            "cost_usd": 0.148588,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 3.4046,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "task05/task2/claude-code/deepseek-flash",
-            "started_at": "2026-09-12T05:13:52.690200Z",
-            "finished_at": "2026-09-12T08:38:09.127849Z",
-            "input_tokens": 12520531,
-            "cached_tokens": 12439168,
-            "output_tokens": 82561,
-            "metrics": {
-              "reward": 0.712,
-              "plus_success_rate": 0.712,
-              "episodes": 500.0,
-              "parameters": 107230477.0,
-              "replay_wall_s": 1520.15759
-            }
-          },
-          "03-robotwin-open-design": {
-            "reward": 0.61,
-            "success_rate": 0.61,
-            "cost_usd": 0.20474,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 5.8824,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "task05/task3/claude-code/deepseek-flash",
-            "started_at": "2026-09-12T06:48:22.445391Z",
-            "finished_at": "2026-09-12T12:41:19.190851Z",
-            "input_tokens": 16122329,
-            "cached_tokens": 16013184,
-            "output_tokens": 120137,
-            "metrics": {
-              "reward": 0.61,
-              "success_rate": 0.61,
-              "episodes": 300.0,
-              "parameters": 106006576.0,
-              "replay_wall_s": 1603.346063
-            }
-          },
-          "04-robotwin-robustness": {
-            "reward": 0.035556,
-            "success_rate": 0.035556,
-            "cost_usd": 0.175911,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 6.7473,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "task05/task4/claude-code/deepseek-flash",
-            "started_at": "2026-09-12T07:34:52.947831Z",
-            "finished_at": "2026-09-12T14:19:43.093116Z",
-            "input_tokens": 12838139,
-            "cached_tokens": 12776448,
-            "output_tokens": 116152,
-            "metrics": {
-              "reward": 0.035556,
-              "success_rate": 0.035556,
-              "episodes": 225.0,
-              "parameters": 22198286.0,
-              "replay_wall_s": 1708.567168
-            }
-          }
-        }
-      },
       "grok-4-6": {
         "score": 0.510389,
         "complete": true,
@@ -28863,6 +28660,154 @@
               "replay_wall_s": 1161.844553,
               "reward": 0.133333,
               "success_rate": 0.133333
+            }
+          }
+        }
+      },
+      "deepseek-flash-1017": {
+        "score": 0.496944,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-libero-open-design": {
+            "score": 0.804,
+            "reward": 0.804,
+            "success_rate": 0.804,
+            "cost_usd": 0.226317,
+            "cost_usd_mean": 0.226317,
+            "hours_median": 3.2669,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-libero-robustness": {
+            "score": 0.306,
+            "reward": 0.306,
+            "success_rate": null,
+            "cost_usd": 0.214658,
+            "cost_usd_mean": 0.214658,
+            "hours_median": 4.5887,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-robotwin-open-design": {
+            "score": 0.713333,
+            "reward": 0.713333,
+            "success_rate": 0.713333,
+            "cost_usd": 0.285252,
+            "cost_usd_mean": 0.285252,
+            "hours_median": 5.1999,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.164444,
+            "reward": 0.164444,
+            "success_rate": 0.164444,
+            "cost_usd": 0.329346,
+            "cost_usd_mean": 0.329346,
+            "hours_median": 7.0694,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.804,
+            "success_rate": 0.804,
+            "cost_usd": 0.226317,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 3.2669,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "task05/01-libero-open-design/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-11-02T19:57:38.575868",
+            "finished_at": "2026-11-02T23:13:39.531023",
+            "input_tokens": 19297716,
+            "cached_tokens": 19210752,
+            "output_tokens": 133669,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 14854693.0,
+              "replay_wall_s": 859.596597,
+              "reward": 0.804,
+              "success_rate": 0.804
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.306,
+            "success_rate": null,
+            "cost_usd": 0.214658,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 4.5887,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "task05/02-libero-robustness/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-11-02T23:13:42.223324",
+            "finished_at": "2026-11-03T03:49:01.684662",
+            "input_tokens": 17826685,
+            "cached_tokens": 17748480,
+            "output_tokens": 130215,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 42513452.0,
+              "plus_success_rate": 0.306,
+              "replay_wall_s": 1702.924099,
+              "reward": 0.306
+            }
+          },
+          "03-robotwin-open-design": {
+            "reward": 0.713333,
+            "success_rate": 0.713333,
+            "cost_usd": 0.285252,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 5.1999,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "task05/03-robotwin-open-design/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-11-03T03:49:04.070771",
+            "finished_at": "2026-11-03T09:01:03.585848",
+            "input_tokens": 33105152,
+            "cached_tokens": 33000832,
+            "output_tokens": 125863,
+            "metrics": {
+              "episodes": 300.0,
+              "parameters": 9024116.0,
+              "replay_wall_s": 1622.163448,
+              "reward": 0.713333,
+              "success_rate": 0.713333
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.164444,
+            "success_rate": 0.164444,
+            "cost_usd": 0.329346,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 7.0694,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "task05/04-robotwin-robustness/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-11-03T09:01:06.088436",
+            "finished_at": "2026-11-03T16:05:16.070905",
+            "input_tokens": 27746948,
+            "cached_tokens": 27563008,
+            "output_tokens": 182140,
+            "metrics": {
+              "episodes": 225.0,
+              "parameters": 30373485.0,
+              "replay_wall_s": 1682.420942,
+              "reward": 0.164444,
+              "success_rate": 0.164444
             }
           }
         }
@@ -30461,238 +30406,6 @@
               "stage_gate": 0.0,
               "stage_stage_a": 0.2978,
               "stage_stage_b": 0.62
-            }
-          }
-        }
-      },
-      "deepseek-flash": {
-        "score": 0.154425,
-        "complete": true,
-        "n_runs": 4,
-        "n_subtasks": 4,
-        "missing": [],
-        "harness": "Claude Code",
-        "splits": {
-          "01-rgb-only": {
-            "score": 0.3212,
-            "reward": 0.3212,
-            "success_rate": null,
-            "cost_usd": 0.233792,
-            "cost_usd_mean": 0.233792,
-            "hours_median": 1.241,
-            "n_runs": 1,
-            "complete": true
-          },
-          "02-rgb-depth": {
-            "score": 0.2115,
-            "reward": 0.2115,
-            "success_rate": null,
-            "cost_usd": 0.277004,
-            "cost_usd_mean": 0.277004,
-            "hours_median": 1.3497,
-            "n_runs": 1,
-            "complete": true
-          },
-          "03-model-training": {
-            "score": 0.0,
-            "reward": 0.0,
-            "success_rate": null,
-            "cost_usd": 0.354385,
-            "cost_usd_mean": 0.354385,
-            "hours_median": 1.7692,
-            "n_runs": 1,
-            "complete": true
-          },
-          "04-method-agnostic": {
-            "score": 0.085,
-            "reward": 0.085,
-            "success_rate": null,
-            "cost_usd": 0.378518,
-            "cost_usd_mean": 0.378518,
-            "hours_median": 1.8479,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "01-rgb-only": {
-            "reward": 0.3212,
-            "success_rate": null,
-            "cost_usd": 0.233792,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 1.241,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T192516-task06_rgb_only_context1m_high-05973eaf",
-            "started_at": "2026-09-11T19:25:16.634763",
-            "finished_at": "2026-09-11T20:39:44.230050",
-            "input_tokens": 16116954,
-            "cached_tokens": 16035200,
-            "output_tokens": 159154,
-            "metrics": {
-              "abs_median_rot_deg": 1.21,
-              "abs_median_trans_mm": 3.07,
-              "abs_occluded_trans_mm": 12.53,
-              "accuracy_reward": 0.3212,
-              "cp_A.pose": 0.8237,
-              "cp_B.pose": 0.1059,
-              "cp_G.load": 1.0,
-              "efficiency_deduction": 0.0,
-              "frame_time_s": 0.097446,
-              "gated": 0.0,
-              "inference_hz": 10.262058,
-              "inference_wall_s": 68.212438,
-              "merit": 0.3212,
-              "raw_total": 0.3212,
-              "reward": 0.3212,
-              "stage_a_frames": 100.0,
-              "stage_a_shape_accuracy": 1.0,
-              "stage_b_frames": 600.0,
-              "stage_b_median_rot_deg": 0.6,
-              "stage_b_median_trans_mm": 3.29,
-              "stage_b_occluded_fraction": 0.4733,
-              "stage_b_occluded_frames": 284.0,
-              "stage_b_shape_accuracy": 1.0,
-              "stage_gate": 0.0,
-              "stage_stage_a": 0.2471,
-              "stage_stage_b": 0.0741
-            }
-          },
-          "02-rgb-depth": {
-            "reward": 0.2115,
-            "success_rate": null,
-            "cost_usd": 0.277004,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 1.3497,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T192515-task06_rgb_depth_context1m_high-28fedd76",
-            "started_at": "2026-09-11T19:25:15.403749",
-            "finished_at": "2026-09-11T20:46:14.181780",
-            "input_tokens": 22197133,
-            "cached_tokens": 22098816,
-            "output_tokens": 172709,
-            "metrics": {
-              "abs_median_rot_deg": 0.5,
-              "abs_median_trans_mm": 5.05,
-              "abs_occluded_trans_mm": 27.89,
-              "accuracy_reward": 0.211475,
-              "cp_A.pose": 0.7049,
-              "cp_B.pose": 0.0,
-              "cp_G.load": 1.0,
-              "efficiency_deduction": 0.0,
-              "frame_time_s": 0.05921,
-              "gated": 0.0,
-              "inference_hz": 16.889152,
-              "inference_wall_s": 41.446723,
-              "merit": 0.2115,
-              "raw_total": 0.2115,
-              "reward": 0.2115,
-              "stage_a_frames": 100.0,
-              "stage_a_shape_accuracy": 0.99,
-              "stage_b_frames": 600.0,
-              "stage_b_median_rot_deg": 2.91,
-              "stage_b_median_trans_mm": 11.97,
-              "stage_b_occluded_fraction": 0.4733,
-              "stage_b_occluded_frames": 284.0,
-              "stage_b_shape_accuracy": 1.0,
-              "stage_gate": 0.0,
-              "stage_stage_a": 0.2115,
-              "stage_stage_b": 0.0
-            }
-          },
-          "03-model-training": {
-            "reward": 0.0,
-            "success_rate": null,
-            "cost_usd": 0.354385,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 1.7692,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260912T022841-task06_rgb_depth_model_training_context1m_high-8a150d03",
-            "started_at": "2026-09-12T02:28:41.874094",
-            "finished_at": "2026-09-12T04:14:51.046506",
-            "input_tokens": 33109898,
-            "cached_tokens": 33021952,
-            "output_tokens": 206665,
-            "metrics": {
-              "abs_median_rot_deg": 63.52,
-              "abs_median_trans_mm": 262.96,
-              "abs_occluded_trans_mm": 227.82,
-              "accuracy_reward": 0.0,
-              "cp_A.pose": 0.0,
-              "cp_B.pose": 0.0,
-              "cp_G.load": 1.0,
-              "efficiency_deduction": 0.0,
-              "frame_time_s": 0.071212,
-              "gated": 0.0,
-              "inference_hz": 14.04252,
-              "inference_wall_s": 49.848603,
-              "merit": 0.0,
-              "raw_total": 0.0,
-              "reward": 0.0,
-              "stage_a_frames": 100.0,
-              "stage_a_shape_accuracy": 0.33,
-              "stage_b_frames": 600.0,
-              "stage_b_median_rot_deg": 62.07,
-              "stage_b_median_trans_mm": 245.73,
-              "stage_b_occluded_fraction": 0.4733,
-              "stage_b_occluded_frames": 284.0,
-              "stage_b_shape_accuracy": 0.398333,
-              "stage_gate": 0.0,
-              "stage_stage_a": 0.0,
-              "stage_stage_b": 0.0
-            }
-          },
-          "04-method-agnostic": {
-            "reward": 0.085,
-            "success_rate": null,
-            "cost_usd": 0.378518,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 1.8479,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T212604-task06_method_agnostic_context1m_high-931fb025",
-            "started_at": "2026-09-11T21:26:05.059810",
-            "finished_at": "2026-09-11T23:16:57.336171",
-            "input_tokens": 34163401,
-            "cached_tokens": 34049152,
-            "output_tokens": 221767,
-            "metrics": {
-              "abs_median_rot_deg": 0.3,
-              "abs_median_trans_mm": 3.87,
-              "abs_occluded_trans_mm": 32.5,
-              "accuracy_reward": 0.26338,
-              "cp_A.pose": 0.8777,
-              "cp_B.pose": 0.0001,
-              "cp_G.load": 1.0,
-              "efficiency_deduction": 0.178366,
-              "frame_time_s": 0.506701,
-              "gated": 0.0,
-              "inference_hz": 1.973552,
-              "inference_wall_s": 354.690439,
-              "merit": 0.2634,
-              "raw_total": 0.2634,
-              "reward": 0.085,
-              "stage_a_frames": 100.0,
-              "stage_a_shape_accuracy": 1.0,
-              "stage_b_frames": 600.0,
-              "stage_b_median_rot_deg": 0.82,
-              "stage_b_median_trans_mm": 5.26,
-              "stage_b_occluded_fraction": 0.4733,
-              "stage_b_occluded_frames": 284.0,
-              "stage_b_shape_accuracy": 1.0,
-              "stage_gate": 0.0,
-              "stage_stage_a": 0.2633,
-              "stage_stage_b": 0.0001
             }
           }
         }
@@ -32512,6 +32225,238 @@
             }
           }
         }
+      },
+      "deepseek-flash-1017": {
+        "score": 0.151775,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-rgb-only": {
+            "score": 0.3268,
+            "reward": 0.3268,
+            "success_rate": null,
+            "cost_usd": 0.281739,
+            "cost_usd_mean": 0.281739,
+            "hours_median": 1.2063,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-rgb-depth": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.458832,
+            "cost_usd_mean": 0.458832,
+            "hours_median": 1.1221,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-model-training": {
+            "score": 0.0,
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.253726,
+            "cost_usd_mean": 0.253726,
+            "hours_median": 1.8191,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-method-agnostic": {
+            "score": 0.2803,
+            "reward": 0.2803,
+            "success_rate": null,
+            "cost_usd": 0.301616,
+            "cost_usd_mean": 0.301616,
+            "hours_median": 0.8226,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-rgb-only": {
+            "reward": 0.3268,
+            "success_rate": null,
+            "cost_usd": 0.281739,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.2063,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261031T233547-9f97c60c8127-rgb_only_h216",
+            "started_at": "2026-10-31T23:35:47.363026",
+            "finished_at": "2026-11-01T00:48:10.050800",
+            "input_tokens": 20184860,
+            "cached_tokens": 20090752,
+            "output_tokens": 189063,
+            "metrics": {
+              "abs_median_rot_deg": 0.7,
+              "abs_median_trans_mm": 2.54,
+              "abs_occluded_trans_mm": 6.52,
+              "accuracy_reward": 0.326773,
+              "cp_A.pose": 0.7688,
+              "cp_B.pose": 0.1373,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.0,
+              "frame_time_s": 0.059207,
+              "gated": 0.0,
+              "inference_hz": 16.890024,
+              "inference_wall_s": 41.444582,
+              "merit": 0.3268,
+              "raw_total": 0.3268,
+              "reward": 0.3268,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 0.99,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 1.83,
+              "stage_b_median_trans_mm": 3.31,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 0.966667,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.2306,
+              "stage_stage_b": 0.0961
+            }
+          },
+          "02-rgb-depth": {
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.458832,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.1221,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261031T233547-2889150f95a5-rgb_depth_h216",
+            "started_at": "2026-10-31T23:35:47.331686",
+            "finished_at": "2026-11-01T00:43:07.012158",
+            "input_tokens": 50879978,
+            "cached_tokens": 50758912,
+            "output_tokens": 225752,
+            "metrics": {
+              "abs_median_rot_deg": 1.49,
+              "abs_median_trans_mm": 6.85,
+              "abs_occluded_trans_mm": 21.26,
+              "accuracy_reward": 0.142138,
+              "cp_A.pose": 0.465,
+              "cp_B.pose": 0.0038,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.150451,
+              "frame_time_s": 0.309625,
+              "gated": 0.0,
+              "inference_hz": 3.229713,
+              "inference_wall_s": 216.737531,
+              "merit": 0.1421,
+              "raw_total": 0.1421,
+              "reward": 0.0,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 0.98,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 3.09,
+              "stage_b_median_trans_mm": 14.39,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 1.0,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.1395,
+              "stage_stage_b": 0.0026
+            }
+          },
+          "03-model-training": {
+            "reward": 0.0,
+            "success_rate": null,
+            "cost_usd": 0.253726,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 1.8191,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261031T233126-eed5aa50fb5c-rgb_depth_model_training_h215",
+            "started_at": "2026-10-31T23:31:26.375089",
+            "finished_at": "2026-11-01T01:20:35.079939",
+            "input_tokens": 19631015,
+            "cached_tokens": 19544319,
+            "output_tokens": 162522,
+            "metrics": {
+              "abs_median_rot_deg": 17.3,
+              "abs_median_trans_mm": 96.01,
+              "abs_occluded_trans_mm": 90.52,
+              "accuracy_reward": 0.0,
+              "cp_A.pose": 0.0,
+              "cp_B.pose": 0.0,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.011496,
+              "frame_time_s": 0.105455,
+              "gated": 0.0,
+              "inference_hz": 9.482702,
+              "inference_wall_s": 73.818619,
+              "merit": 0.0,
+              "raw_total": 0.0,
+              "reward": 0.0,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 0.66,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 37.31,
+              "stage_b_median_trans_mm": 94.44,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 0.415,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.0,
+              "stage_stage_b": 0.0
+            }
+          },
+          "04-method-agnostic": {
+            "reward": 0.2803,
+            "success_rate": null,
+            "cost_usd": 0.301616,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 0.8226,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261031T233031-447b98336645-method_agnostic_h216",
+            "started_at": "2026-10-31T23:30:31.685312",
+            "finished_at": "2026-11-01T00:19:52.919975",
+            "input_tokens": 22205300,
+            "cached_tokens": 22122752,
+            "output_tokens": 203878,
+            "metrics": {
+              "abs_median_rot_deg": 0.4,
+              "abs_median_trans_mm": 2.45,
+              "abs_occluded_trans_mm": 31.92,
+              "accuracy_reward": 0.28025,
+              "cp_A.pose": 0.92,
+              "cp_B.pose": 0.0061,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.0,
+              "frame_time_s": 0.0704,
+              "gated": 0.0,
+              "inference_hz": 14.204477,
+              "inference_wall_s": 49.280239,
+              "merit": 0.2803,
+              "raw_total": 0.2803,
+              "reward": 0.2803,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 1.0,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 6.08,
+              "stage_b_median_trans_mm": 20.38,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 1.0,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.276,
+              "stage_stage_b": 0.0042
+            }
+          }
+        }
       }
     },
     "task07": {
@@ -33051,73 +32996,6 @@
           }
         }
       },
-      "deepseek-flash": {
-        "score": 0.4604,
-        "complete": true,
-        "n_runs": 1,
-        "n_subtasks": 1,
-        "missing": [],
-        "harness": "Claude Code",
-        "splits": {
-          "clearance": {
-            "score": 0.8709,
-            "metric": "clear_frac",
-            "weight": 1.0,
-            "credit": 0.8709,
-            "n_runs": 1,
-            "complete": true
-          },
-          "throughput": {
-            "score": 0.419,
-            "metric": "speed_merit",
-            "weight": 1.0,
-            "credit": 0.419,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "bin-clearing": {
-            "reward": 0.4604,
-            "success_rate": null,
-            "cost_usd": 0.396947,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 3.1909,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T192517-task07_context1m_high-c9b93ac4",
-            "started_at": "2026-09-11T19:25:17.853287",
-            "finished_at": "2026-09-11T22:36:45.123674",
-            "input_tokens": 37924327,
-            "cached_tokens": 37771776,
-            "output_tokens": 214056,
-            "metrics": {
-              "bin_hits": 0.0,
-              "clear_frac": 0.8709,
-              "damage_events": 0.0,
-              "episode_wall_s_total": 3641.7609,
-              "floor_drops": 0.0,
-              "gate_contract": 1.0,
-              "gate_determinism": 1.0,
-              "gate_load": 1.0,
-              "gate_stable": 1.0,
-              "gated": 0.0,
-              "harness_wall_s_total": 3530.0716,
-              "makespan_s": 107.2812,
-              "n_parts": 112.0,
-              "parts_cleared": 97.0,
-              "policy_faults": 0.0,
-              "policy_wall_s_total": 111.6893,
-              "raw_total": 0.4604,
-              "reward": 0.4604,
-              "speed_merit": 0.419,
-              "throughput_ppm": 6.8153
-            }
-          }
-        }
-      },
       "grok-4-6": {
         "score": 0.1899,
         "complete": true,
@@ -33583,6 +33461,73 @@
               "reward": 0.3096,
               "speed_merit": 0.4249,
               "throughput_ppm": 6.1296
+            }
+          }
+        }
+      },
+      "deepseek-flash-1017": {
+        "score": 0.5271,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "clearance": {
+            "score": 0.8006,
+            "metric": "clear_frac",
+            "weight": 1.0,
+            "credit": 0.8006,
+            "n_runs": 1,
+            "complete": true
+          },
+          "throughput": {
+            "score": 0.5219,
+            "metric": "speed_merit",
+            "weight": 1.0,
+            "credit": 0.5219,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "bin-clearing": {
+            "reward": 0.5271,
+            "success_rate": null,
+            "cost_usd": 0.397634,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 2.1227,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261031T233547-a7beccdbfac6-h216",
+            "started_at": "2026-10-31T23:35:47.404032",
+            "finished_at": "2026-11-01T01:43:09.073578",
+            "input_tokens": 38859549,
+            "cached_tokens": 38726784,
+            "output_tokens": 214990,
+            "metrics": {
+              "bin_hits": 0.0,
+              "clear_frac": 0.8006,
+              "damage_events": 5.0,
+              "episode_wall_s_total": 3115.0283,
+              "floor_drops": 1.0,
+              "gate_contract": 1.0,
+              "gate_determinism": 1.0,
+              "gate_load": 1.0,
+              "gate_stable": 1.0,
+              "gated": 0.0,
+              "harness_wall_s_total": 3027.5001,
+              "makespan_s": 80.7938,
+              "n_parts": 112.0,
+              "parts_cleared": 89.0,
+              "policy_faults": 0.0,
+              "policy_wall_s_total": 87.5282,
+              "raw_total": 0.5271,
+              "reward": 0.5271,
+              "speed_merit": 0.5219,
+              "throughput_ppm": 8.5158
             }
           }
         }
@@ -34501,122 +34446,6 @@
           }
         }
       },
-      "deepseek-flash": {
-        "score": 0.3886,
-        "complete": true,
-        "n_runs": 1,
-        "n_subtasks": 1,
-        "missing": [],
-        "harness": "Claude Code",
-        "splits": {
-          "validity": {
-            "score": 0.85,
-            "metric": "stage_validity",
-            "weight": 0.15,
-            "credit": 0.1275,
-            "n_runs": 1,
-            "complete": true
-          },
-          "design": {
-            "score": 0.558,
-            "metric": "stage_design",
-            "weight": 0.35,
-            "credit": 0.1953,
-            "n_runs": 1,
-            "complete": true
-          },
-          "static": {
-            "score": 0.0,
-            "metric": "stage_static",
-            "weight": 0.15,
-            "credit": 0.0,
-            "n_runs": 1,
-            "complete": true
-          },
-          "dynamic": {
-            "score": 0.2665,
-            "metric": "stage_dynamic",
-            "weight": 0.2,
-            "credit": 0.0533,
-            "n_runs": 1,
-            "complete": true
-          },
-          "integration": {
-            "score": 0.083333,
-            "metric": "stage_integration",
-            "weight": 0.15,
-            "credit": 0.0125,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "mobile-base": {
-            "reward": 0.3886,
-            "success_rate": null,
-            "cost_usd": 0.2591,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 0.5296,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T192518-task08_context1m_high-0f0fc92b",
-            "started_at": "2026-09-11T19:25:19.072784",
-            "finished_at": "2026-09-11T19:57:05.714538",
-            "input_tokens": 17642173,
-            "cached_tokens": 17547008,
-            "output_tokens": 176363,
-            "metrics": {
-              "cp_S1.equilibrium": 1.0,
-              "cp_S1.inertia": 1.0,
-              "cp_S1.load": 1.0,
-              "cp_S1.mecanum": 0.25,
-              "cp_S1.structure": 1.0,
-              "cp_S3.battery_onboard": 1.0,
-              "cp_S3.design_efficiency": 0.4331,
-              "cp_S3.reach_beyond": 1.0,
-              "cp_S3.reach_preserved": 1.0,
-              "cp_S3.resource_constraints": 1.0,
-              "cp_S3.static_margin": 0.0,
-              "cp_S3.still_valid": 0.0,
-              "cp_S5.testB": 0.0,
-              "cp_S5.testC": 0.0,
-              "cp_S5.testD1": 0.3333,
-              "cp_S5.testD2": 1.0,
-              "cp_S5.testE": 0.0,
-              "cp_S7.payload_margin": 0.0833,
-              "cp_S7.pick_compat": 0.0833,
-              "design_base_mass_kg": 20.2284,
-              "design_footprint_area_headroom_fraction": 0.215286,
-              "design_footprint_area_headroom_m2": 0.067514,
-              "design_footprint_area_m2": 0.246086,
-              "design_footprint_x_headroom_m": 0.0,
-              "design_footprint_x_m": 0.56,
-              "design_footprint_y_headroom_m": 0.12056,
-              "design_footprint_y_m": 0.43944,
-              "design_mass_budget_kg": 38.0,
-              "design_mass_headroom_fraction": 0.467674,
-              "design_mass_headroom_kg": 17.7716,
-              "design_profile_length_headroom_fraction": 0.616333,
-              "design_profile_length_headroom_m": 7.396,
-              "design_profile_length_m": 4.604,
-              "design_score": 0.433098,
-              "design_total_mass_kg": 42.0983,
-              "dynamic_mean": 0.2667,
-              "dynamic_var": 0.19556,
-              "gated": 0.0,
-              "raw_total": 0.3886,
-              "reward": 0.3886,
-              "stage_design": 0.1953,
-              "stage_dynamic": 0.0533,
-              "stage_integration": 0.0125,
-              "stage_static": 0.0,
-              "stage_validity": 0.1275
-            }
-          }
-        }
-      },
       "grok-4-6": {
         "score": 0.4017,
         "complete": true,
@@ -35419,6 +35248,122 @@
               "stage_integration": 0.15,
               "stage_static": 0.0,
               "stage_validity": 0.15
+            }
+          }
+        }
+      },
+      "deepseek-flash-1017": {
+        "score": 0.4383,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "validity": {
+            "score": 0.85,
+            "metric": "stage_validity",
+            "weight": 0.15,
+            "credit": 0.1275,
+            "n_runs": 1,
+            "complete": true
+          },
+          "design": {
+            "score": 0.599714,
+            "metric": "stage_design",
+            "weight": 0.35,
+            "credit": 0.2099,
+            "n_runs": 1,
+            "complete": true
+          },
+          "static": {
+            "score": 0.0,
+            "metric": "stage_static",
+            "weight": 0.15,
+            "credit": 0.0,
+            "n_runs": 1,
+            "complete": true
+          },
+          "dynamic": {
+            "score": 0.0665,
+            "metric": "stage_dynamic",
+            "weight": 0.2,
+            "credit": 0.0133,
+            "n_runs": 1,
+            "complete": true
+          },
+          "integration": {
+            "score": 0.583333,
+            "metric": "stage_integration",
+            "weight": 0.15,
+            "credit": 0.0875,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "mobile-base": {
+            "reward": 0.4383,
+            "success_rate": null,
+            "cost_usd": 0.185868,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 0.5033,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261031T233547-a8be0b82f6b4-h216",
+            "started_at": "2026-10-31T23:35:47.423439",
+            "finished_at": "2026-11-01T00:05:59.227288",
+            "input_tokens": 9159321,
+            "cached_tokens": 9076992,
+            "output_tokens": 140553,
+            "metrics": {
+              "cp_S1.equilibrium": 1.0,
+              "cp_S1.inertia": 1.0,
+              "cp_S1.load": 1.0,
+              "cp_S1.mecanum": 0.25,
+              "cp_S1.structure": 1.0,
+              "cp_S3.battery_onboard": 1.0,
+              "cp_S3.design_efficiency": 0.4997,
+              "cp_S3.reach_beyond": 1.0,
+              "cp_S3.reach_preserved": 1.0,
+              "cp_S3.resource_constraints": 1.0,
+              "cp_S3.static_margin": 0.0,
+              "cp_S3.still_valid": 0.0,
+              "cp_S5.testB": 0.0,
+              "cp_S5.testC": 0.0,
+              "cp_S5.testD1": 0.3333,
+              "cp_S5.testD2": 0.0,
+              "cp_S5.testE": 0.0,
+              "cp_S7.payload_margin": 0.5833,
+              "cp_S7.pick_compat": 0.5833,
+              "design_base_mass_kg": 19.1308,
+              "design_footprint_area_headroom_fraction": 0.18929,
+              "design_footprint_area_headroom_m2": 0.059361,
+              "design_footprint_area_m2": 0.254239,
+              "design_footprint_x_headroom_m": 0.006634,
+              "design_footprint_x_m": 0.553366,
+              "design_footprint_y_headroom_m": 0.10056,
+              "design_footprint_y_m": 0.45944,
+              "design_mass_budget_kg": 38.0,
+              "design_mass_headroom_fraction": 0.496558,
+              "design_mass_headroom_kg": 18.8692,
+              "design_profile_length_headroom_fraction": 0.813333,
+              "design_profile_length_headroom_m": 9.76,
+              "design_profile_length_m": 2.24,
+              "design_score": 0.499727,
+              "design_total_mass_kg": 41.0007,
+              "dynamic_mean": 0.0667,
+              "dynamic_var": 0.06222,
+              "gated": 0.0,
+              "raw_total": 0.4383,
+              "reward": 0.4383,
+              "stage_design": 0.2099,
+              "stage_dynamic": 0.0133,
+              "stage_integration": 0.0875,
+              "stage_static": 0.0,
+              "stage_validity": 0.1275
             }
           }
         }
@@ -36641,158 +36586,6 @@
           }
         }
       },
-      "deepseek-flash": {
-        "score": 0.457833,
-        "complete": true,
-        "n_runs": 1,
-        "n_subtasks": 1,
-        "missing": [],
-        "harness": "Claude Code",
-        "splits": {
-          "franka": {
-            "score": 0.6524,
-            "metric": "franka_reward",
-            "weight": 1.0,
-            "credit": 0.6524,
-            "n_runs": 1,
-            "complete": true
-          },
-          "ur5e": {
-            "score": 0.4444,
-            "metric": "ur5e_reward",
-            "weight": 1.0,
-            "credit": 0.4444,
-            "n_runs": 1,
-            "complete": true
-          },
-          "xarm7": {
-            "score": 0.2767,
-            "metric": "xarm7_reward",
-            "weight": 1.0,
-            "credit": 0.2767,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "gello": {
-            "reward": 0.457833,
-            "success_rate": null,
-            "cost_usd": 0.155596,
-            "cost_source": "price/deepseek-flash.json:mean",
-            "hours": 0.2422,
-            "status": "completed",
-            "harness": "Claude Code",
-            "agent": "claude-code",
-            "model": "deepseek-flash",
-            "job": "claude_code-deepseek_flash-20260911T192520-task09_context1m_high-0a30e072",
-            "started_at": "2026-09-11T19:25:20.340063",
-            "finished_at": "2026-09-11T19:39:52.259659",
-            "input_tokens": 7390354,
-            "cached_tokens": 7307520,
-            "output_tokens": 115638,
-            "metrics": {
-              "franka_cp_B1.combined_hold": 1.0,
-              "franka_cp_B2.combined_backdrive": 0.675,
-              "franka_cp_B3.headroom": 0.4284,
-              "franka_cp_B4.push_recovery": 1.0,
-              "franka_cp_C1.budget": 1.0,
-              "franka_cp_C1.buildable": 0.9667,
-              "franka_cp_C1.load": 1.0,
-              "franka_cp_C1.motion_clearance": 1.0,
-              "franka_cp_C1.printability": 1.0,
-              "franka_cp_C1.settle": 1.0,
-              "franka_cp_C1.springs_legal": 1.0,
-              "franka_cp_C1.structure": 1.0,
-              "franka_cp_H1.device_residual": 0.1908,
-              "franka_cp_H2.passive_hold": 0.2868,
-              "franka_cp_H3.passive_backdrive": 0.2848,
-              "franka_cp_S2.adapted_backdrive": 0.6602,
-              "franka_cp_S2.adapted_hold": 1.0,
-              "franka_deduction_C1.budget": 0.0,
-              "franka_deduction_C1.buildable": 0.000175,
-              "franka_deduction_C1.load": 0.0,
-              "franka_deduction_C1.printability": 0.0,
-              "franka_deduction_C1.settle": 0.0,
-              "franka_deduction_C1.springs_legal": 0.0,
-              "franka_deduction_C1.structure": 0.0,
-              "franka_gated": 0.0,
-              "franka_raw_total": 0.6524,
-              "franka_reward": 0.6524,
-              "franka_stage_codesign": 0.3103,
-              "franka_stage_hardware": 0.0762,
-              "franka_stage_software": 0.166,
-              "franka_stage_validity": 0.0998,
-              "franka_validity_deduction": 0.000175,
-              "reward": 0.457833,
-              "ur5e_cp_B1.combined_hold": 0.534,
-              "ur5e_cp_B2.combined_backdrive": 0.4411,
-              "ur5e_cp_B3.headroom": 0.0933,
-              "ur5e_cp_B4.push_recovery": 0.0194,
-              "ur5e_cp_C1.budget": 1.0,
-              "ur5e_cp_C1.buildable": 0.9615,
-              "ur5e_cp_C1.load": 1.0,
-              "ur5e_cp_C1.motion_clearance": 1.0,
-              "ur5e_cp_C1.printability": 1.0,
-              "ur5e_cp_C1.settle": 1.0,
-              "ur5e_cp_C1.springs_legal": 1.0,
-              "ur5e_cp_C1.structure": 1.0,
-              "ur5e_cp_H1.device_residual": 0.2715,
-              "ur5e_cp_H2.passive_hold": 0.2817,
-              "ur5e_cp_H3.passive_backdrive": 0.2435,
-              "ur5e_cp_S2.adapted_backdrive": 0.5616,
-              "ur5e_cp_S2.adapted_hold": 1.0,
-              "ur5e_deduction_C1.budget": 0.0,
-              "ur5e_deduction_C1.buildable": 0.000202,
-              "ur5e_deduction_C1.load": 0.0,
-              "ur5e_deduction_C1.printability": 0.0,
-              "ur5e_deduction_C1.settle": 0.0,
-              "ur5e_deduction_C1.springs_legal": 0.0,
-              "ur5e_deduction_C1.structure": 0.0,
-              "ur5e_gated": 0.0,
-              "ur5e_raw_total": 0.4444,
-              "ur5e_reward": 0.4444,
-              "ur5e_stage_codesign": 0.1088,
-              "ur5e_stage_hardware": 0.0797,
-              "ur5e_stage_software": 0.1562,
-              "ur5e_stage_validity": 0.0998,
-              "ur5e_validity_deduction": 0.000202,
-              "xarm7_cp_B1.combined_hold": 0.042,
-              "xarm7_cp_B2.combined_backdrive": 0.0701,
-              "xarm7_cp_B3.headroom": 0.0,
-              "xarm7_cp_B4.push_recovery": 0.0676,
-              "xarm7_cp_C1.budget": 1.0,
-              "xarm7_cp_C1.buildable": 0.9667,
-              "xarm7_cp_C1.load": 1.0,
-              "xarm7_cp_C1.motion_clearance": 1.0,
-              "xarm7_cp_C1.printability": 1.0,
-              "xarm7_cp_C1.settle": 1.0,
-              "xarm7_cp_C1.springs_legal": 1.0,
-              "xarm7_cp_C1.structure": 1.0,
-              "xarm7_cp_H1.device_residual": 0.1724,
-              "xarm7_cp_H2.passive_hold": 0.3014,
-              "xarm7_cp_H3.passive_backdrive": 0.2607,
-              "xarm7_cp_S2.adapted_backdrive": 0.3765,
-              "xarm7_cp_S2.adapted_hold": 0.478,
-              "xarm7_deduction_C1.budget": 0.0,
-              "xarm7_deduction_C1.buildable": 0.000175,
-              "xarm7_deduction_C1.load": 0.0,
-              "xarm7_deduction_C1.printability": 0.0,
-              "xarm7_deduction_C1.settle": 0.0,
-              "xarm7_deduction_C1.springs_legal": 0.0,
-              "xarm7_deduction_C1.structure": 0.0,
-              "xarm7_gated": 0.0,
-              "xarm7_raw_total": 0.2767,
-              "xarm7_reward": 0.2767,
-              "xarm7_stage_codesign": 0.018,
-              "xarm7_stage_hardware": 0.0734,
-              "xarm7_stage_software": 0.0854,
-              "xarm7_stage_validity": 0.0998,
-              "xarm7_validity_deduction": 0.000175
-            }
-          }
-        }
-      },
       "grok-4-6": {
         "score": 0.288467,
         "complete": true,
@@ -37853,6 +37646,158 @@
               "xarm7_stage_software": 0.0557,
               "xarm7_stage_validity": 0.0999,
               "xarm7_validity_deduction": 0.000132
+            }
+          }
+        }
+      },
+      "deepseek-flash-1017": {
+        "score": 0.41,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "franka": {
+            "score": 0.5613,
+            "metric": "franka_reward",
+            "weight": 1.0,
+            "credit": 0.5613,
+            "n_runs": 1,
+            "complete": true
+          },
+          "ur5e": {
+            "score": 0.3373,
+            "metric": "ur5e_reward",
+            "weight": 1.0,
+            "credit": 0.3373,
+            "n_runs": 1,
+            "complete": true
+          },
+          "xarm7": {
+            "score": 0.3314,
+            "metric": "xarm7_reward",
+            "weight": 1.0,
+            "credit": 0.3314,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "gello": {
+            "reward": 0.41,
+            "success_rate": null,
+            "cost_usd": 0.211632,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 0.3989,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "claude_code-deepseek_flash_1017-20261031T234104-161c207cd752-h216",
+            "started_at": "2026-10-31T23:41:04.496967",
+            "finished_at": "2026-11-01T00:05:00.524792",
+            "input_tokens": 12708557,
+            "cached_tokens": 12621568,
+            "output_tokens": 150292,
+            "metrics": {
+              "franka_cp_B1.combined_hold": 0.8241,
+              "franka_cp_B2.combined_backdrive": 0.3895,
+              "franka_cp_B3.headroom": 0.4056,
+              "franka_cp_B4.push_recovery": 1.0,
+              "franka_cp_C1.budget": 1.0,
+              "franka_cp_C1.buildable": 1.0,
+              "franka_cp_C1.load": 1.0,
+              "franka_cp_C1.motion_clearance": 1.0,
+              "franka_cp_C1.printability": 1.0,
+              "franka_cp_C1.settle": 1.0,
+              "franka_cp_C1.springs_legal": 1.0,
+              "franka_cp_C1.structure": 1.0,
+              "franka_cp_H1.device_residual": 0.1596,
+              "franka_cp_H2.passive_hold": 0.2752,
+              "franka_cp_H3.passive_backdrive": 0.275,
+              "franka_cp_S2.adapted_backdrive": 0.3625,
+              "franka_cp_S2.adapted_hold": 0.922,
+              "franka_deduction_C1.budget": 0.0,
+              "franka_deduction_C1.buildable": 0.0,
+              "franka_deduction_C1.load": 0.0,
+              "franka_deduction_C1.printability": 0.0,
+              "franka_deduction_C1.settle": 0.0,
+              "franka_deduction_C1.springs_legal": 0.0,
+              "franka_deduction_C1.structure": 0.0,
+              "franka_gated": 0.0,
+              "franka_raw_total": 0.5613,
+              "franka_reward": 0.5613,
+              "franka_stage_codesign": 0.2619,
+              "franka_stage_hardware": 0.071,
+              "franka_stage_software": 0.1284,
+              "franka_stage_validity": 0.1,
+              "franka_validity_deduction": 0.0,
+              "reward": 0.41,
+              "ur5e_cp_B1.combined_hold": 0.3069,
+              "ur5e_cp_B2.combined_backdrive": 0.4237,
+              "ur5e_cp_B3.headroom": 0.0838,
+              "ur5e_cp_B4.push_recovery": 0.0306,
+              "ur5e_cp_C1.budget": 1.0,
+              "ur5e_cp_C1.buildable": 1.0,
+              "ur5e_cp_C1.load": 1.0,
+              "ur5e_cp_C1.motion_clearance": 1.0,
+              "ur5e_cp_C1.printability": 1.0,
+              "ur5e_cp_C1.settle": 1.0,
+              "ur5e_cp_C1.springs_legal": 1.0,
+              "ur5e_cp_C1.structure": 1.0,
+              "ur5e_cp_H1.device_residual": 0.2395,
+              "ur5e_cp_H2.passive_hold": 0.3023,
+              "ur5e_cp_H3.passive_backdrive": 0.2422,
+              "ur5e_cp_S2.adapted_backdrive": 0.3897,
+              "ur5e_cp_S2.adapted_hold": 0.3547,
+              "ur5e_deduction_C1.budget": 0.0,
+              "ur5e_deduction_C1.buildable": 0.0,
+              "ur5e_deduction_C1.load": 0.0,
+              "ur5e_deduction_C1.printability": 0.0,
+              "ur5e_deduction_C1.settle": 0.0,
+              "ur5e_deduction_C1.springs_legal": 0.0,
+              "ur5e_deduction_C1.structure": 0.0,
+              "ur5e_gated": 0.0,
+              "ur5e_raw_total": 0.3373,
+              "ur5e_reward": 0.3373,
+              "ur5e_stage_codesign": 0.0845,
+              "ur5e_stage_hardware": 0.0784,
+              "ur5e_stage_software": 0.0744,
+              "ur5e_stage_validity": 0.1,
+              "ur5e_validity_deduction": 0.0,
+              "xarm7_cp_B1.combined_hold": 0.2405,
+              "xarm7_cp_B2.combined_backdrive": 0.2528,
+              "xarm7_cp_B3.headroom": 0.0076,
+              "xarm7_cp_B4.push_recovery": 0.6008,
+              "xarm7_cp_C1.budget": 1.0,
+              "xarm7_cp_C1.buildable": 1.0,
+              "xarm7_cp_C1.load": 1.0,
+              "xarm7_cp_C1.motion_clearance": 1.0,
+              "xarm7_cp_C1.printability": 1.0,
+              "xarm7_cp_C1.settle": 1.0,
+              "xarm7_cp_C1.springs_legal": 1.0,
+              "xarm7_cp_C1.structure": 1.0,
+              "xarm7_cp_H1.device_residual": 0.1441,
+              "xarm7_cp_H2.passive_hold": 0.2059,
+              "xarm7_cp_H3.passive_backdrive": 0.2389,
+              "xarm7_cp_S2.adapted_backdrive": 0.27,
+              "xarm7_cp_S2.adapted_hold": 0.3539,
+              "xarm7_deduction_C1.budget": 0.0,
+              "xarm7_deduction_C1.buildable": 0.0,
+              "xarm7_deduction_C1.load": 0.0,
+              "xarm7_deduction_C1.printability": 0.0,
+              "xarm7_deduction_C1.settle": 0.0,
+              "xarm7_deduction_C1.springs_legal": 0.0,
+              "xarm7_deduction_C1.structure": 0.0,
+              "xarm7_gated": 0.0,
+              "xarm7_raw_total": 0.3314,
+              "xarm7_reward": 0.3314,
+              "xarm7_stage_codesign": 0.1102,
+              "xarm7_stage_hardware": 0.0589,
+              "xarm7_stage_software": 0.0624,
+              "xarm7_stage_validity": 0.1,
+              "xarm7_validity_deduction": 0.0
             }
           }
         }

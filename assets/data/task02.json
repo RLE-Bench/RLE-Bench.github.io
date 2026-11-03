@@ -13076,6 +13076,1446 @@
           }
         ]
       }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "01-washing-dishes/codex-gpt_6_1_terra-20261101T115309-50795e2a03f0-01_washing_dishes_terra_h215",
+      "status": "completed",
+      "cost_usd": 3.6547384000000016,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 18090.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T11:53:09.854183",
+        "finished_at": "2026-11-01T12:39:07.473465",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 54148260,
+          "n_cache_tokens": 53692928,
+          "n_output_tokens": 102952
+        },
+        "trials": [
+          {
+            "trial": "01-washing-dishes__aj4MVGA",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 18090,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "02-sauteing-vegetables/codex-gpt_6_1_terra-20261101T115539-25ebb9c0d494-02_sauteing_vegetables_terra_h215",
+      "status": "completed",
+      "cost_usd": 2.0636494,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 15734.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T11:55:40.001381",
+        "finished_at": "2026-11-01T12:30:13.824334",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 26571953,
+          "n_cache_tokens": 26258688,
+          "n_output_tokens": 87490
+        },
+        "trials": [
+          {
+            "trial": "02-sauteing-vegetables__GNSWwMY",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 15734,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "03-baking/codex-gpt_6_1_terra-20261101T115915-58cb00e1ad05-03_baking_terra_h216",
+      "status": "completed",
+      "cost_usd": 3.2484321999999994,
+      "reward": 0.8,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 13121.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.8,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T11:59:15.790060",
+        "finished_at": "2026-11-01T12:53:29.773948",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 43794401,
+          "n_cache_tokens": 43410304,
+          "n_output_tokens": 138764
+        },
+        "trials": [
+          {
+            "trial": "03-baking__usnrQNB",
+            "rewards": {
+              "reward": 0.8,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 13121,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "04-reheating-food/codex-gpt_6_1_terra-20261101T123109-226f6f35b176-04_reheating_food_terra_h215",
+      "status": "completed",
+      "cost_usd": 1.7655284,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 5269.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T12:31:10.243335",
+        "finished_at": "2026-11-01T13:02:03.401938",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 21247740,
+          "n_cache_tokens": 21011328,
+          "n_output_tokens": 95710
+        },
+        "trials": [
+          {
+            "trial": "04-reheating-food__MTeKyYz",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 5269,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "05-chopping-food/codex-gpt_6_1_terra-20261101T123940-f7a871e2e851-05_chopping_food_terra_h215",
+      "status": "completed",
+      "cost_usd": 1.105165,
+      "reward": 1.0,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 7773.0,
+        "infrastructure_failures": 0.0,
+        "reward": 1.0,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T12:39:40.399518",
+        "finished_at": "2026-11-01T13:03:38.169860",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 12617434,
+          "n_cache_tokens": 12453120,
+          "n_output_tokens": 63639
+        },
+        "trials": [
+          {
+            "trial": "05-chopping-food__Q5nsgfH",
+            "rewards": {
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 7773,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "06-setting-the-table/codex-gpt_6_1_terra-20261101T124252-2b8e4b75a837-06_setting_the_table_terra_h216",
+      "status": "completed",
+      "cost_usd": 3.619889400000001,
+      "reward": 0.55,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 10033.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.55,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T12:42:53.157765",
+        "finished_at": "2026-11-01T13:40:59.734677",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 47189075,
+          "n_cache_tokens": 46722048,
+          "n_output_tokens": 163352
+        },
+        "trials": [
+          {
+            "trial": "06-setting-the-table__iDPanqV",
+            "rewards": {
+              "reward": 0.55,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 10033,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "07-portioning-meals/codex-gpt_6_1_terra-20261101T124253-a6719a98445c-07_portioning_meals_terra_h216",
+      "status": "completed",
+      "cost_usd": 9.281902100000002,
+      "reward": 0.95,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 49260.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.95,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T12:42:53.313882",
+        "finished_at": "2026-11-01T14:33:13.470529",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 128943374,
+          "n_cache_tokens": 128258816,
+          "n_output_tokens": 238989
+        },
+        "trials": [
+          {
+            "trial": "07-portioning-meals__yiXy2QD",
+            "rewards": {
+              "reward": 0.95,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 49260,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "08-defrosting-food/codex-gpt_6_1_terra-20261101T124332-fa99c5a279a7-08_defrosting_food_terra_h215",
+      "status": "completed",
+      "cost_usd": 2.762110199999999,
+      "reward": 0.7333333333333333,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 7442.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7333333333333333,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T12:43:33.135386",
+        "finished_at": "2026-11-01T13:32:30.168126",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 35801668,
+          "n_cache_tokens": 35450624,
+          "n_output_tokens": 127707
+        },
+        "trials": [
+          {
+            "trial": "08-defrosting-food__qv2HDyP",
+            "rewards": {
+              "reward": 0.7333333333333333,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 7442,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "09-arranging-buffet/codex-gpt_6_1_terra-20261101T124332-ebf800ac2153-09_arranging_buffet_terra_h215",
+      "status": "completed",
+      "cost_usd": 5.727015000000001,
+      "reward": 0.4666666666666667,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 24409.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.4666666666666667,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T12:43:33.271904",
+        "finished_at": "2026-11-01T13:57:59.830420",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 84028214,
+          "n_cache_tokens": 83413120,
+          "n_output_tokens": 188253
+        },
+        "trials": [
+          {
+            "trial": "09-arranging-buffet__xYMrKnk",
+            "rewards": {
+              "reward": 0.4666666666666667,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 24409,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "10-serving-beverages/codex-gpt_6_1_terra-20261101T125423-c9b00c6a752f-10_serving_beverages_terra_h216",
+      "status": "completed",
+      "cost_usd": 2.8114638000000003,
+      "reward": 0.9,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 2902.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.9,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T12:54:23.573840",
+        "finished_at": "2026-11-01T13:39:23.930796",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 34093477,
+          "n_cache_tokens": 33632256,
+          "n_output_tokens": 133726
+        },
+        "trials": [
+          {
+            "trial": "10-serving-beverages__gSGLbRu",
+            "rewards": {
+              "reward": 0.9,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 2902,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "11-loading-fridge/codex-gpt_6_1_terra-20261101T130303-d228141c3987-11_loading_fridge_terra_h215",
+      "status": "completed",
+      "cost_usd": 5.6624687999999965,
+      "reward": 0.6666666666666666,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 33181.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.6666666666666666,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T13:03:03.453354",
+        "finished_at": "2026-11-01T14:22:04.300594",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 80991732,
+          "n_cache_tokens": 80304256,
+          "n_output_tokens": 191956
+        },
+        "trials": [
+          {
+            "trial": "11-loading-fridge__FDJp6qJ",
+            "rewards": {
+              "reward": 0.6666666666666666,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 33181,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "12-managing-freezer-space/codex-gpt_6_1_terra-20261101T130433-c8abcee36253-12_managing_freezer_space_terra_h215",
+      "status": "completed",
+      "cost_usd": 3.955175399999999,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 8813.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T13:04:33.613694",
+        "finished_at": "2026-11-01T14:07:41.344833",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 50711646,
+          "n_cache_tokens": 50158848,
+          "n_output_tokens": 178887
+        },
+        "trials": [
+          {
+            "trial": "12-managing-freezer-space__kp7bVDB",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 8813,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "13-clearing-table/codex-gpt_6_1_terra-20261101T133303-7125d7e3190b-13_clearing_table_terra_h215",
+      "status": "completed",
+      "cost_usd": 6.484881399999998,
+      "reward": 0.26666666666666666,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 16743.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.26666666666666666,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T13:33:03.873445",
+        "finished_at": "2026-11-01T15:06:10.891753",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 97316408,
+          "n_cache_tokens": 96700928,
+          "n_output_tokens": 206871
+        },
+        "trials": [
+          {
+            "trial": "13-clearing-table__U9eLNmi",
+            "rewards": {
+              "reward": 0.26666666666666666,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 16743,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "14-microwaving-food/codex-gpt_6_1_terra-20261101T134023-2904a7407eae-14_microwaving_food_terra_h216",
+      "status": "completed",
+      "cost_usd": 3.9160771999999993,
+      "reward": 0.06666666666666667,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 30951.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.06666666666666667,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T13:40:24.050566",
+        "finished_at": "2026-11-01T14:49:29.527254",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 52348763,
+          "n_cache_tokens": 51812864,
+          "n_output_tokens": 157907
+        },
+        "trials": [
+          {
+            "trial": "14-microwaving-food__9RHUTEZ",
+            "rewards": {
+              "reward": 0.06666666666666667,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 30951,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "codex",
+      "model": "openai/gpt-6.1-terra",
+      "job": "15-storing-leftovers/codex-gpt_6_1_terra-20261101T134153-43019ae1312a-15_storing_leftovers_terra_h216",
+      "status": "completed",
+      "cost_usd": 2.694247599999999,
+      "reward": 0.6666666666666666,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 8265.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.6666666666666666,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-01T13:41:54.222196",
+        "finished_at": "2026-11-01T14:33:07.746853",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 34357763,
+          "n_cache_tokens": 34002432,
+          "n_output_tokens": 127759
+        },
+        "trials": [
+          {
+            "trial": "15-storing-leftovers__8f6g7Td",
+            "rewards": {
+              "reward": 0.6666666666666666,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 8265,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "01-washing-dishes/claude_code-deepseek_flash_1017-20261031T233129-54b028059eeb-01_washing_dishes_h215",
+      "status": "completed",
+      "cost_usd": 174.83761499999997,
+      "reward": 0.9333333333333332,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 72696.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.9333333333333332,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:31:30.255313",
+        "finished_at": "2026-11-01T01:33:09.418288",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 296671113,
+          "n_cache_tokens": 296126976,
+          "n_output_tokens": 1008538
+        },
+        "trials": [
+          {
+            "trial": "01-washing-dishes__4qQz69a",
+            "rewards": {
+              "reward": 0.9333333333333332,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 72696,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "02-sauteing-vegetables/claude_code-deepseek_flash_1017-20261031T233130-e419573cac3c-02_sauteing_vegetables_h215",
+      "status": "completed",
+      "cost_usd": 84.678931,
+      "reward": 0.8,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 74995.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.8,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:31:30.469889",
+        "finished_at": "2026-11-01T01:55:30.237797",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 118496357,
+          "n_cache_tokens": 117971712,
+          "n_output_tokens": 922794
+        },
+        "trials": [
+          {
+            "trial": "02-sauteing-vegetables__u5fCBxR",
+            "rewards": {
+              "reward": 0.8,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 74995,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "03-baking/claude_code-deepseek_flash_1017-20261031T233640-44b13f475352-03_baking_h215",
+      "status": "completed",
+      "cost_usd": 156.81044400000002,
+      "reward": 0.5,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 74360.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:36:40.583430",
+        "finished_at": "2026-11-01T03:04:52.559132",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 231172534,
+          "n_cache_tokens": 230147328,
+          "n_output_tokens": 1464430
+        },
+        "trials": [
+          {
+            "trial": "03-baking__djdFuUu",
+            "rewards": {
+              "reward": 0.5,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 74360,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "04-reheating-food/claude_code-deepseek_flash_1017-20261031T233640-0e71fd13fa8a-04_reheating_food_h215",
+      "status": "completed",
+      "cost_usd": 106.08004500000001,
+      "reward": 0.5,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 73298.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:36:40.785137",
+        "finished_at": "2026-11-01T02:35:28.784496",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 152567943,
+          "n_cache_tokens": 152015360,
+          "n_output_tokens": 1092378
+        },
+        "trials": [
+          {
+            "trial": "04-reheating-food__WX2oQx8",
+            "rewards": {
+              "reward": 0.5,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 73298,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "05-chopping-food/claude_code-deepseek_flash_1017-20261031T233640-48e1b1214d52-05_chopping_food_h215",
+      "status": "completed",
+      "cost_usd": 74.929611,
+      "reward": 0.6,
+      "success_rate": 0.4,
+      "metrics": {
+        "development_steps": 69153.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.6,
+        "success_rate": 0.4,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:36:40.905591",
+        "finished_at": "2026-11-01T03:01:30.759228",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 104178180,
+          "n_cache_tokens": 103682432,
+          "n_output_tokens": 832062
+        },
+        "trials": [
+          {
+            "trial": "05-chopping-food__V2ctMaK",
+            "rewards": {
+              "reward": 0.6,
+              "success_rate": 0.4,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 69153,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "06-setting-the-table/claude_code-deepseek_flash_1017-20261031T233544-164e59f442ef-06_setting_the_table_h216",
+      "status": "completed",
+      "cost_usd": 105.72464699999999,
+      "reward": 0.25,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 60025.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.25,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:35:45.246368",
+        "finished_at": "2026-11-01T01:43:39.531662",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 150130588,
+          "n_cache_tokens": 149586304,
+          "n_output_tokens": 1122610
+        },
+        "trials": [
+          {
+            "trial": "06-setting-the-table__uXUWdzw",
+            "rewards": {
+              "reward": 0.25,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 60025,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "07-portioning-meals/claude_code-deepseek_flash_1017-20261031T233640-78c28653937c-07_portioning_meals_h215",
+      "status": "completed",
+      "cost_usd": 72.245537,
+      "reward": 0.1,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 22686.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.1,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:36:41.072428",
+        "finished_at": "2026-11-01T01:24:45.596627",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 92505410,
+          "n_cache_tokens": 92049664,
+          "n_output_tokens": 957679
+        },
+        "trials": [
+          {
+            "trial": "07-portioning-meals__BBzZDdi",
+            "rewards": {
+              "reward": 0.1,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 22686,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "08-defrosting-food/claude_code-deepseek_flash_1017-20261031T233640-e86160787e98-08_defrosting_food_h215",
+      "status": "completed",
+      "cost_usd": 69.55479499999998,
+      "reward": 0.16666666666666666,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 27730.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.16666666666666666,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:36:41.708517",
+        "finished_at": "2026-11-01T01:19:34.388269",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 90832448,
+          "n_cache_tokens": 90392960,
+          "n_output_tokens": 886435
+        },
+        "trials": [
+          {
+            "trial": "08-defrosting-food__K6iPcBW",
+            "rewards": {
+              "reward": 0.16666666666666666,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 27730,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "09-arranging-buffet/claude_code-deepseek_flash_1017-20261031T233640-cd2be2dcc095-09_arranging_buffet_h215",
+      "status": "completed",
+      "cost_usd": 56.97736599999999,
+      "reward": 0.05,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 12469.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.05,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:36:41.711563",
+        "finished_at": "2026-11-01T01:56:41.010284",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 69339290,
+          "n_cache_tokens": 68890752,
+          "n_output_tokens": 811572
+        },
+        "trials": [
+          {
+            "trial": "09-arranging-buffet__ayJEuCS",
+            "rewards": {
+              "reward": 0.05,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 12469,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "10-serving-beverages/claude_code-deepseek_flash_1017-20261031T234150-23639e38b87c-10_serving_beverages_h215",
+      "status": "completed",
+      "cost_usd": 99.507463,
+      "reward": 0.16666666666666666,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 71163.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.16666666666666666,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:41:50.746141",
+        "finished_at": "2026-11-01T02:17:23.763823",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 142079638,
+          "n_cache_tokens": 141574656,
+          "n_output_tokens": 1047809
+        },
+        "trials": [
+          {
+            "trial": "10-serving-beverages__9LHuuEk",
+            "rewards": {
+              "reward": 0.16666666666666666,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 71163,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "11-loading-fridge/claude_code-deepseek_flash_1017-20261031T234658-0d81d071ce81-11_loading_fridge_h215",
+      "status": "completed",
+      "cost_usd": 83.31334500000001,
+      "reward": 0.13333333333333333,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 60482.0,
+        "infrastructure_failures": 1.0,
+        "reward": 0.13333333333333333,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:46:59.333914",
+        "finished_at": "2026-11-01T01:59:33.494005",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 115723782,
+          "n_cache_tokens": 115176320,
+          "n_output_tokens": 919515
+        },
+        "trials": [
+          {
+            "trial": "11-loading-fridge__cxporAi",
+            "rewards": {
+              "reward": 0.13333333333333333,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 60482,
+              "infrastructure_failures": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "12-managing-freezer-space/claude_code-deepseek_flash_1017-20261031T234832-e9c754980cda-12_managing_freezer_space_h215",
+      "status": "completed",
+      "cost_usd": 104.20369399999997,
+      "reward": 0.0,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 70403.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.0,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:48:32.545837",
+        "finished_at": "2026-11-01T02:23:40.935205",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 152848573,
+          "n_cache_tokens": 151954688,
+          "n_output_tokens": 950277
+        },
+        "trials": [
+          {
+            "trial": "12-managing-freezer-space__M67NMfJ",
+            "rewards": {
+              "reward": 0.0,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 70403,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "13-clearing-table/claude_code-deepseek_flash_1017-20261031T235412-c1d9527c6810-13_clearing_table_h215",
+      "status": "completed",
+      "cost_usd": 121.37358099999997,
+      "reward": 0.06666666666666667,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 27699.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.06666666666666667,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:54:13.456047",
+        "finished_at": "2026-11-01T01:59:39.588692",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 183299680,
+          "n_cache_tokens": 182597632,
+          "n_output_tokens": 1062581
+        },
+        "trials": [
+          {
+            "trial": "13-clearing-table__Ev9UcZy",
+            "rewards": {
+              "reward": 0.06666666666666667,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 27699,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "14-microwaving-food/claude_code-deepseek_flash_1017-20261031T235515-953558df1181-14_microwaving_food_h215",
+      "status": "completed",
+      "cost_usd": 117.950386,
+      "reward": 0.4666666666666667,
+      "success_rate": 0.2,
+      "metrics": {
+        "development_steps": 72984.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.4666666666666667,
+        "success_rate": 0.2,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:55:16.079288",
+        "finished_at": "2026-11-01T02:34:23.682865",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 168224327,
+          "n_cache_tokens": 167497472,
+          "n_output_tokens": 1222695
+        },
+        "trials": [
+          {
+            "trial": "14-microwaving-food__tX4rGgF",
+            "rewards": {
+              "reward": 0.4666666666666667,
+              "success_rate": 0.2,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 72984,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "15-storing-leftovers/claude_code-deepseek_flash_1017-20261031T235617-ac29f1e0afe4-15_storing_leftovers_h215",
+      "status": "completed",
+      "cost_usd": 100.96659400000001,
+      "reward": 0.5999999999999999,
+      "success_rate": 0.0,
+      "metrics": {
+        "development_steps": 16996.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5999999999999999,
+        "success_rate": 0.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-10-31T23:56:18.486504",
+        "finished_at": "2026-11-01T01:49:33.257889",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 145055493,
+          "n_cache_tokens": 144505088,
+          "n_output_tokens": 1038481
+        },
+        "trials": [
+          {
+            "trial": "15-storing-leftovers__EYG2Lbf",
+            "rewards": {
+              "reward": 0.5999999999999999,
+              "success_rate": 0.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 16996,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
     }
   ]
 }

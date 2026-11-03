@@ -1064,7 +1064,7 @@ font-family:var(--serif);}
 /* Keep every model visible while reducing the repeated space in each row. */
 .classic-home #index .family-matrix { min-width:660px; width:100%; border-spacing:0; }
 .classic-home #index .family-matrix .col-rank { width:30px; }
-.classic-home #index .family-matrix .col-model { width:190px; }
+.classic-home #index .family-matrix .col-model { width:230px; }
 .classic-home #index .family-matrix .col-index { width:90px; }
 .classic-home #index .family-matrix thead .index-th { font-size:12px; text-align:right; padding-inline:10px; border:0; }
 .classic-home #index .family-matrix .stack-heading { text-align:left; padding-left:14px; font-size:12px; }
@@ -1079,7 +1079,7 @@ font-family:var(--serif);}
 .classic-home #index .family-matrix tbody th,
 .classic-home #index .family-matrix tbody td { height:36px; padding-block:2px; }
 .classic-home #index .family-matrix .stack-cell { padding-inline:14px; }
-.classic-home #index .family-matrix .model-label { font-size:15px; white-space:nowrap; }
+.classic-home #index .family-matrix .model-label { font-size:15px; white-space:normal; overflow:visible; text-overflow:clip; overflow-wrap:anywhere; }
 .classic-home #index .family-matrix .model-meta { display:block; font-size:10px; line-height:1.3; margin-top:0; }
 .family-stack { display:flex; align-items:center; width:100%; height:24px; }
 .family-segment { display:block; flex:0 0 auto; min-width:0; height:24px; padding:0; border:0; border-radius:4px; box-shadow:inset -2px 0 var(--surface-1); cursor:pointer; }
@@ -1091,6 +1091,9 @@ font-family:var(--serif);}
 .family-bar-legend span { display:inline-flex; align-items:center; gap:5px; }
 .family-bar-legend i { flex:0 0 8px; width:8px; height:8px; border-radius:2px; }
 .family-scale-note { font-size:14px; color:var(--text-muted); margin:12px 0 0; }
+.leaderboard-footnotes { margin-top:12px; }
+.leaderboard-footnotes .family-scale-note { margin:4px 0 0; }
+.model-footnote-marker { font-size:.75em; line-height:0; vertical-align:super; }
 @media (max-width:760px) {
   .classic-home #index .family-matrix .place-cell,
   .classic-home #index .family-matrix tbody th,
