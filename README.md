@@ -149,8 +149,9 @@ concatenated into their respective `taskNN.json` files; do not append them again
 The T05 supplement's 20 new runs have also been appended to `task05.json`, skipping
 its 32 existing evaluations with renamed job paths. The exporter recognizes both
 the legacy track slugs and the new `task1`–`task4` paths.
-`export.py` excludes K3 and Gemini 3.8 Flash runs from every task's
-public results while preserving them in the source dumps. Oracle runs are also
+`export.py` excludes K3, Gemini 3.8 Flash and GPT-6.1 Terra runs from every
+task's public results while preserving them in the source dumps. GPT-6.1 Terra
+is temporarily held back pending release. Oracle runs are also
 excluded by default. Grok, Fable, DeepSeek and the other existing models remain
 visible. This policy applies to both the homepage and blog through the generated JSON.
 `export.py` maps the raw `model` string onto a stable id

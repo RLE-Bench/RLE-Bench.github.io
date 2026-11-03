@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "measured",
-  "generated_at": "2026-11-02T19:11:01Z",
+  "generated_at": "2026-11-03T18:01:12Z",
   "generator": "assets/data/export.py",
   "source": {
     "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId] reports per-subtask means over the task's runs: cost = mean API cost in USD, hours = mean agent wall-clock hours, context_tokens = mean of input_tokens minus cached_tokens per run (the homepage's Context Length). cost_total, hours_total, hours_median and the input/cached/output token counts are the corresponding totals over runs. The homepage's overall figures average these per-task means within each workflow, then across workflows. Missing API cost or token counts stay null. Costs come from the run dumps except for the models listed under source.prices, whose cost is recomputed from token counts because their harness billed them against the wrong price sheet; costs[...].cost_sources and results[...].subtasks[...].cost_source say which applies. Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc.",
@@ -13,7 +13,8 @@
       "compact": false,
       "excluded_model_prefixes": [
         "k3",
-        "gemini-3-8-flash"
+        "gemini-3-8-flash",
+        "gpt-6-1-terra"
       ]
     },
     "prices": {
@@ -60,34 +61,34 @@
         "root": "jobs/task01",
         "schema_version": 1,
         "runs": 270,
-        "runs_skipped": 0
+        "runs_skipped": 15
       },
       "task02": {
         "file": "task02.json",
         "root": "jobs/task02",
         "schema_version": 1,
         "runs": 270,
-        "runs_skipped": 0
+        "runs_skipped": 15
       },
       "task03": {
         "file": "task03.json",
         "root": "jobs/task03",
         "schema_version": 1,
         "runs": 90,
-        "runs_skipped": 0
+        "runs_skipped": 5
       },
       "task04": {
         "file": "task04.json",
         "root": "jobs/task04",
         "schema_version": 1,
         "runs": 90,
-        "runs_skipped": 0
+        "runs_skipped": 5
       },
       "task05": {
         "file": "task05.json",
         "root": "jobs/task05",
         "schema_version": 1,
-        "runs": 76,
+        "runs": 80,
         "runs_skipped": 12
       },
       "task06": {
@@ -95,28 +96,28 @@
         "root": "jobs/task06",
         "schema_version": 1,
         "runs": 72,
-        "runs_skipped": 0
+        "runs_skipped": 4
       },
       "task07": {
         "file": "task07.json",
         "root": "jobs/task07",
         "schema_version": 1,
         "runs": 18,
-        "runs_skipped": 0
+        "runs_skipped": 1
       },
       "task08": {
         "file": "task08.json",
         "root": "jobs/task08",
         "schema_version": 1,
         "runs": 18,
-        "runs_skipped": 0
+        "runs_skipped": 1
       },
       "task09": {
         "file": "task09.json",
         "root": "jobs/task09",
         "schema_version": 1,
         "runs": 18,
-        "runs_skipped": 0
+        "runs_skipped": 1
       }
     }
   },
@@ -236,24 +237,6 @@
       ]
     },
     {
-      "id": "gpt61terra",
-      "name": "GPT-6.1 Terra",
-      "short": "GPT-6.1 Terra",
-      "org": "OpenAI",
-      "open": false,
-      "harness": "Codex",
-      "tasks": [
-        "task01",
-        "task02",
-        "task03",
-        "task04",
-        "task06",
-        "task07",
-        "task08",
-        "task09"
-      ]
-    },
-    {
       "id": "kimi31pro",
       "name": "Kimi K3.1 Pro",
       "short": "K3.1 Pro",
@@ -322,6 +305,7 @@
         "task02",
         "task03",
         "task04",
+        "task05",
         "task06",
         "task07",
         "task08",
@@ -603,7 +587,7 @@
         }
       ],
       "n_runs": 270,
-      "n_runs_skipped": 0,
+      "n_runs_skipped": 15,
       "models": [
         "deepseek-flash",
         "deepseek-flash-1017",
@@ -615,7 +599,6 @@
         "gpt56sol",
         "gpt56terra",
         "gpt61sol",
-        "gpt61terra",
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
@@ -765,7 +748,7 @@
         }
       ],
       "n_runs": 270,
-      "n_runs_skipped": 0,
+      "n_runs_skipped": 15,
       "models": [
         "deepseek-flash",
         "deepseek-flash-1017",
@@ -777,7 +760,6 @@
         "gpt56sol",
         "gpt56terra",
         "gpt61sol",
-        "gpt61terra",
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
@@ -859,7 +841,7 @@
         }
       ],
       "n_runs": 90,
-      "n_runs_skipped": 0,
+      "n_runs_skipped": 5,
       "models": [
         "deepseek-flash",
         "deepseek-flash-1017",
@@ -871,7 +853,6 @@
         "gpt56sol",
         "gpt56terra",
         "gpt61sol",
-        "gpt61terra",
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
@@ -953,7 +934,7 @@
         }
       ],
       "n_runs": 90,
-      "n_runs_skipped": 0,
+      "n_runs_skipped": 5,
       "models": [
         "deepseek-flash",
         "deepseek-flash-1017",
@@ -965,7 +946,6 @@
         "gpt56sol",
         "gpt56terra",
         "gpt61sol",
-        "gpt61terra",
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
@@ -1035,10 +1015,11 @@
           "label": "RoboTwin · robustness"
         }
       ],
-      "n_runs": 76,
+      "n_runs": 80,
       "n_runs_skipped": 12,
       "models": [
         "deepseek-flash",
+        "deepseek-flash-1017",
         "fable51",
         "gemini37flash",
         "gemini4argon",
@@ -1117,7 +1098,7 @@
         }
       ],
       "n_runs": 72,
-      "n_runs_skipped": 0,
+      "n_runs_skipped": 4,
       "models": [
         "deepseek-flash",
         "deepseek-flash-1017",
@@ -1129,7 +1110,6 @@
         "gpt56sol",
         "gpt56terra",
         "gpt61sol",
-        "gpt61terra",
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
@@ -1175,7 +1155,7 @@
         }
       ],
       "n_runs": 18,
-      "n_runs_skipped": 0,
+      "n_runs_skipped": 1,
       "models": [
         "deepseek-flash",
         "deepseek-flash-1017",
@@ -1187,7 +1167,6 @@
         "gpt56sol",
         "gpt56terra",
         "gpt61sol",
-        "gpt61terra",
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
@@ -1254,7 +1233,7 @@
         }
       ],
       "n_runs": 18,
-      "n_runs_skipped": 0,
+      "n_runs_skipped": 1,
       "models": [
         "deepseek-flash",
         "deepseek-flash-1017",
@@ -1266,7 +1245,6 @@
         "gpt56sol",
         "gpt56terra",
         "gpt61sol",
-        "gpt61terra",
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
@@ -1315,7 +1293,7 @@
         }
       ],
       "n_runs": 18,
-      "n_runs_skipped": 0,
+      "n_runs_skipped": 1,
       "models": [
         "deepseek-flash",
         "deepseek-flash-1017",
@@ -1327,7 +1305,6 @@
         "gpt56sol",
         "gpt56terra",
         "gpt61sol",
-        "gpt61terra",
         "gpt6astra",
         "gpt6luna",
         "grok-4-6",
@@ -1420,11 +1397,6 @@
         0.269218,
         0.411505
       ],
-      "gpt61terra": [
-        0.673763,
-        0.63458,
-        0.630592
-      ],
       "deepseek-flash-1017": [
         0.116946,
         0.0,
@@ -1511,11 +1483,6 @@
         0.96,
         0.48,
         0.366667
-      ],
-      "gpt61terra": [
-        0.96,
-        0.72,
-        0.333333
       ],
       "deepseek-flash-1017": [
         0.666667,
@@ -1635,13 +1602,6 @@
         0.666667,
         0.0,
         0.333333
-      ],
-      "gpt61terra": [
-        0.558691,
-        0.268309,
-        1.0,
-        0.0,
-        1.0
       ],
       "deepseek-flash-1017": [
         0.161554,
@@ -1764,13 +1724,6 @@
         0.7642,
         0.6367
       ],
-      "gpt61terra": [
-        0.8249,
-        0.7068,
-        0.5384,
-        0.7482,
-        0.7654
-      ],
       "deepseek-flash-1017": [
         0.593,
         0.6887,
@@ -1875,6 +1828,12 @@
         0.698,
         0.73,
         0.133333
+      ],
+      "deepseek-flash-1017": [
+        0.804,
+        0.306,
+        0.713333,
+        0.164444
       ]
     },
     "task06": {
@@ -1974,12 +1933,6 @@
         0.0544,
         0.6517
       ],
-      "gpt61terra": [
-        0.1731,
-        0.2721,
-        0.2797,
-        0.2331
-      ],
       "deepseek-flash-1017": [
         0.3268,
         0.0,
@@ -2051,10 +2004,6 @@
       "kimi31pro": [
         0.7226,
         0.4249
-      ],
-      "gpt61terra": [
-        0.772,
-        0.38
       ],
       "deepseek-flash-1017": [
         0.8006,
@@ -2174,13 +2123,6 @@
         0.2665,
         1.0
       ],
-      "gpt61terra": [
-        1.0,
-        0.642,
-        0.0,
-        0.389,
-        0.833333
-      ],
       "deepseek-flash-1017": [
         0.85,
         0.599714,
@@ -2269,11 +2211,6 @@
         0.531,
         0.4608,
         0.4446
-      ],
-      "gpt61terra": [
-        0.6719,
-        0.5293,
-        0.4152
       ],
       "deepseek-flash-1017": [
         0.5613,
@@ -2536,22 +2473,6 @@
         "output_tokens": 3512041,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
-        ],
-        "n_runs": 15,
-        "n_subtasks": 15
-      },
-      "gpt61terra": {
-        "cost": 0.674407,
-        "cost_total": 10.1161,
-        "hours": 0.1732,
-        "hours_median": 0.1863,
-        "hours_total": 2.5975,
-        "context_tokens": 90763.1,
-        "input_tokens": 143521703,
-        "cached_tokens": 142160256,
-        "output_tokens": 329328,
-        "cost_sources": [
-          "harness"
         ],
         "n_runs": 15,
         "n_subtasks": 15
@@ -2830,22 +2751,6 @@
         "n_runs": 15,
         "n_subtasks": 15
       },
-      "gpt61terra": {
-        "cost": 3.91685,
-        "cost_total": 58.752744,
-        "hours": 0.98,
-        "hours_median": 0.9039,
-        "hours_total": 14.7005,
-        "context_tokens": 458623.2,
-        "input_tokens": 804161908,
-        "cached_tokens": 797282560,
-        "output_tokens": 2203962,
-        "cost_sources": [
-          "harness"
-        ],
-        "n_runs": 15,
-        "n_subtasks": 15
-      },
       "deepseek-flash-1017": {
         "cost": 1.715982,
         "cost_total": 25.739735,
@@ -3116,22 +3021,6 @@
         "output_tokens": 1029054,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
-        ],
-        "n_runs": 5,
-        "n_subtasks": 5
-      },
-      "gpt61terra": {
-        "cost": 0.403373,
-        "cost_total": 2.016867,
-        "hours": 0.1396,
-        "hours_median": 0.1038,
-        "hours_total": 0.6982,
-        "context_tokens": 65392.8,
-        "input_tokens": 25235124,
-        "cached_tokens": 24908160,
-        "output_tokens": 88899,
-        "cost_sources": [
-          "harness"
         ],
         "n_runs": 5,
         "n_subtasks": 5
@@ -3410,22 +3299,6 @@
         "n_runs": 5,
         "n_subtasks": 5
       },
-      "gpt61terra": {
-        "cost": 4.476676,
-        "cost_total": 22.38338,
-        "hours": 4.0619,
-        "hours_median": 4.0673,
-        "hours_total": 20.3096,
-        "context_tokens": 258041.2,
-        "input_tokens": 390898782,
-        "cached_tokens": 389608576,
-        "output_tokens": 322549,
-        "cost_sources": [
-          "harness"
-        ],
-        "n_runs": 5,
-        "n_subtasks": 5
-      },
       "deepseek-flash-1017": {
         "cost": 0.34189,
         "cost_total": 1.709451,
@@ -3699,6 +3572,22 @@
         ],
         "n_runs": 4,
         "n_subtasks": 4
+      },
+      "deepseek-flash-1017": {
+        "cost": 0.263893,
+        "cost_total": 1.055574,
+        "hours": 5.0312,
+        "hours_median": 4.8943,
+        "hours_total": 20.125,
+        "context_tokens": 113357.2,
+        "input_tokens": 97976501,
+        "cached_tokens": 97523072,
+        "output_tokens": 571887,
+        "cost_sources": [
+          "price/deepseek-flash-1017.json:mean"
+        ],
+        "n_runs": 4,
+        "n_subtasks": 4
       }
     },
     "task06": {
@@ -3954,22 +3843,6 @@
         "output_tokens": 613256,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
-        ],
-        "n_runs": 4,
-        "n_subtasks": 4
-      },
-      "gpt61terra": {
-        "cost": 0.354876,
-        "cost_total": 1.419505,
-        "hours": 0.3552,
-        "hours_median": 0.1874,
-        "hours_total": 1.4208,
-        "context_tokens": 42056.0,
-        "input_tokens": 18210336,
-        "cached_tokens": 18042112,
-        "output_tokens": 69835,
-        "cost_sources": [
-          "harness"
         ],
         "n_runs": 4,
         "n_subtasks": 4
@@ -4248,22 +4121,6 @@
         "n_runs": 1,
         "n_subtasks": 1
       },
-      "gpt61terra": {
-        "cost": 2.114983,
-        "cost_total": 2.114983,
-        "hours": 1.6541,
-        "hours_median": 1.6541,
-        "hours_total": 1.6541,
-        "context_tokens": 140493.0,
-        "input_tokens": 34143693,
-        "cached_tokens": 34003200,
-        "output_tokens": 54866,
-        "cost_sources": [
-          "harness"
-        ],
-        "n_runs": 1,
-        "n_subtasks": 1
-      },
       "deepseek-flash-1017": {
         "cost": 0.397634,
         "cost_total": 0.397634,
@@ -4538,22 +4395,6 @@
         "n_runs": 1,
         "n_subtasks": 1
       },
-      "gpt61terra": {
-        "cost": 0.66383,
-        "cost_total": 0.66383,
-        "hours": 0.405,
-        "hours_median": 0.405,
-        "hours_total": 0.405,
-        "context_tokens": 97137.0,
-        "input_tokens": 8021105,
-        "cached_tokens": 7923968,
-        "output_tokens": 34099,
-        "cost_sources": [
-          "harness"
-        ],
-        "n_runs": 1,
-        "n_subtasks": 1
-      },
       "deepseek-flash-1017": {
         "cost": 0.185868,
         "cost_total": 0.185868,
@@ -4824,22 +4665,6 @@
         "output_tokens": 368959,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
-        ],
-        "n_runs": 1,
-        "n_subtasks": 1
-      },
-      "gpt61terra": {
-        "cost": 0.089181,
-        "cost_total": 0.089181,
-        "hours": 0.0589,
-        "hours_median": 0.0589,
-        "hours_total": 0.0589,
-        "context_tokens": 20649.0,
-        "input_tokens": 456489,
-        "cached_tokens": 435840,
-        "output_tokens": 9348,
-        "cost_sources": [
-          "harness"
         ],
         "n_runs": 1,
         "n_subtasks": 1
@@ -11934,438 +11759,6 @@
               "infrastructure_failures": 0.0,
               "reward": 0.322168,
               "success_rate": 0.4,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          }
-        }
-      },
-      "gpt61terra": {
-        "score": 0.646312,
-        "complete": true,
-        "n_runs": 15,
-        "n_subtasks": 15,
-        "missing": [],
-        "harness": "Codex",
-        "splits": {
-          "L1": {
-            "score": 0.673763,
-            "reward": 0.673763,
-            "success_rate": 0.68,
-            "cost_usd": 4.773841,
-            "cost_usd_mean": 0.954768,
-            "hours_median": 0.2036,
-            "n_runs": 5,
-            "complete": true
-          },
-          "L2": {
-            "score": 0.63458,
-            "reward": 0.63458,
-            "success_rate": 0.64,
-            "cost_usd": 2.798843,
-            "cost_usd_mean": 0.559769,
-            "hours_median": 0.1863,
-            "n_runs": 5,
-            "complete": true
-          },
-          "L3": {
-            "score": 0.630592,
-            "reward": 0.630592,
-            "success_rate": 0.64,
-            "cost_usd": 2.543416,
-            "cost_usd_mean": 0.508683,
-            "hours_median": 0.1485,
-            "n_runs": 5,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "L1/01-open-fridge": {
-            "reward": 0.795677,
-            "success_rate": 0.8,
-            "cost_usd": 1.541561,
-            "cost_source": "harness",
-            "hours": 0.2153,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L1/01-open-fridge/codex-gpt_6_1_terra-20261101T113144-7aa87734b42a-l1_01_open_fridge_terra_h216",
-            "started_at": "2026-11-01T11:31:45.196349",
-            "finished_at": "2026-11-01T11:44:40.206803",
-            "input_tokens": 25497614,
-            "cached_tokens": 25357056,
-            "output_tokens": 26630,
-            "metrics": {
-              "development_steps": 1351.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.795677,
-              "success_rate": 0.8,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L1/02-close-cabinet": {
-            "reward": 0.784083,
-            "success_rate": 0.8,
-            "cost_usd": 0.472325,
-            "cost_source": "harness",
-            "hours": 0.1504,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L1/02-close-cabinet/codex-gpt_6_1_terra-20261101T113309-0cc14ca06244-l1_02_close_cabinet_terra_h215",
-            "started_at": "2026-11-01T11:33:09.398088",
-            "finished_at": "2026-11-01T11:42:10.753543",
-            "input_tokens": 6144271,
-            "cached_tokens": 6072064,
-            "output_tokens": 19303,
-            "metrics": {
-              "development_steps": 4974.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.784083,
-              "success_rate": 0.8,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L1/03-turn-on-stove": {
-            "reward": 0.992916,
-            "success_rate": 1.0,
-            "cost_usd": 1.028057,
-            "cost_source": "harness",
-            "hours": 0.2036,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L1/03-turn-on-stove/codex-gpt_6_1_terra-20261101T114009-68a0162d4e70-l1_03_turn_on_stove_terra_h215",
-            "started_at": "2026-11-01T11:40:09.554530",
-            "finished_at": "2026-11-01T11:52:22.491294",
-            "input_tokens": 15540497,
-            "cached_tokens": 15433984,
-            "output_tokens": 29969,
-            "metrics": {
-              "development_steps": 1771.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.992916,
-              "success_rate": 1.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L1/04-pick-place-counter-to-drawer": {
-            "reward": 0.397146,
-            "success_rate": 0.4,
-            "cost_usd": 0.72292,
-            "cost_source": "harness",
-            "hours": 0.1948,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L1/04-pick-place-counter-to-drawer/codex-gpt_6_1_terra-20261101T114309-a5f44041ccfa-l1_04_pick_place_counter_to_drawer_terra_h215",
-            "started_at": "2026-11-01T11:43:09.718876",
-            "finished_at": "2026-11-01T11:54:50.854504",
-            "input_tokens": 9324893,
-            "cached_tokens": 9190656,
-            "output_tokens": 25830,
-            "metrics": {
-              "development_steps": 1784.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.397146,
-              "success_rate": 0.4,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L1/05-pick-place-microwave-to-counter": {
-            "reward": 0.398992,
-            "success_rate": 0.4,
-            "cost_usd": 1.008978,
-            "cost_source": "harness",
-            "hours": 0.2231,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L1/05-pick-place-microwave-to-counter/codex-gpt_6_1_terra-20261101T114515-39f8a4903e4b-l1_05_pick_place_microwave_to_counter_terra_h216",
-            "started_at": "2026-11-01T11:45:15.583018",
-            "finished_at": "2026-11-01T11:58:38.714694",
-            "input_tokens": 15557267,
-            "cached_tokens": 15448704,
-            "output_tokens": 25596,
-            "metrics": {
-              "development_steps": 630.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.398992,
-              "success_rate": 0.4,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L2/01-open-fridge": {
-            "reward": 0.590424,
-            "success_rate": 0.6,
-            "cost_usd": 0.727872,
-            "cost_source": "harness",
-            "hours": 0.2317,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L2/01-open-fridge/codex-gpt_6_1_terra-20261101T104005-3690a2c68462-l2_01_open_fridge_terra_h215",
-            "started_at": "2026-11-01T10:40:06.166127",
-            "finished_at": "2026-11-01T10:54:00.421933",
-            "input_tokens": 10413381,
-            "cached_tokens": 10331520,
-            "output_tokens": 25887,
-            "metrics": {
-              "development_steps": 3990.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.590424,
-              "success_rate": 0.6,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L2/02-close-cabinet": {
-            "reward": 0.992292,
-            "success_rate": 1.0,
-            "cost_usd": 0.386873,
-            "cost_source": "harness",
-            "hours": 0.1058,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L2/02-close-cabinet/codex-gpt_6_1_terra-20261101T104813-5154874f046b-l2_02_close_cabinet_terra_h216",
-            "started_at": "2026-11-01T10:48:13.993472",
-            "finished_at": "2026-11-01T10:54:34.771405",
-            "input_tokens": 4353936,
-            "cached_tokens": 4254208,
-            "output_tokens": 14887,
-            "metrics": {
-              "development_steps": 1927.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.992292,
-              "success_rate": 1.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L2/03-turn-on-stove": {
-            "reward": 0.398352,
-            "success_rate": 0.4,
-            "cost_usd": 0.589579,
-            "cost_source": "harness",
-            "hours": 0.195,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L2/03-turn-on-stove/codex-gpt_6_1_terra-20261101T105436-d6ec182e4a72-l2_03_turn_on_stove_terra_h215",
-            "started_at": "2026-11-01T10:54:37.676972",
-            "finished_at": "2026-11-01T11:06:19.646680",
-            "input_tokens": 8321924,
-            "cached_tokens": 8252032,
-            "output_tokens": 21417,
-            "metrics": {
-              "development_steps": 1030.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.398352,
-              "success_rate": 0.4,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L2/04-pick-place-counter-to-drawer": {
-            "reward": 0.795661,
-            "success_rate": 0.8,
-            "cost_usd": 0.404936,
-            "cost_source": "harness",
-            "hours": 0.1226,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L2/04-pick-place-counter-to-drawer/codex-gpt_6_1_terra-20261101T105513-bb8be79a0c9d-l2_04_pick_place_counter_to_drawer_terra_h216",
-            "started_at": "2026-11-01T10:55:14.152370",
-            "finished_at": "2026-11-01T11:02:35.370049",
-            "input_tokens": 5143065,
-            "cached_tokens": 5069952,
-            "output_tokens": 15665,
-            "metrics": {
-              "development_steps": 1356.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.795661,
-              "success_rate": 0.8,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L2/05-pick-place-microwave-to-counter": {
-            "reward": 0.39617,
-            "success_rate": 0.4,
-            "cost_usd": 0.689583,
-            "cost_source": "harness",
-            "hours": 0.1863,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L2/05-pick-place-microwave-to-counter/codex-gpt_6_1_terra-20261101T110314-fc019b3d5270-l2_05_pick_place_microwave_to_counter_terra_h216",
-            "started_at": "2026-11-01T11:03:14.397554",
-            "finished_at": "2026-11-01T11:14:25.033577",
-            "input_tokens": 9143216,
-            "cached_tokens": 9035008,
-            "output_tokens": 25925,
-            "metrics": {
-              "development_steps": 2394.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.39617,
-              "success_rate": 0.4,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L3/01-open-fridge": {
-            "reward": 0.779258,
-            "success_rate": 0.8,
-            "cost_usd": 0.760295,
-            "cost_source": "harness",
-            "hours": 0.241,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L3/01-open-fridge/codex-gpt_6_1_terra-20261101T110708-d41b339a32d3-l3_01_open_fridge_terra_h215",
-            "started_at": "2026-11-01T11:07:09.606666",
-            "finished_at": "2026-11-01T11:21:37.029519",
-            "input_tokens": 10785718,
-            "cached_tokens": 10689408,
-            "output_tokens": 25903,
-            "metrics": {
-              "development_steps": 6482.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.779258,
-              "success_rate": 0.8,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L3/02-close-cabinet": {
-            "reward": 0.589577,
-            "success_rate": 0.6,
-            "cost_usd": 0.502454,
-            "cost_source": "harness",
-            "hours": 0.1637,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L3/02-close-cabinet/codex-gpt_6_1_terra-20261101T111514-83a27349c1b1-l3_02_close_cabinet_terra_h216",
-            "started_at": "2026-11-01T11:15:14.686923",
-            "finished_at": "2026-11-01T11:25:03.978544",
-            "input_tokens": 6458493,
-            "cached_tokens": 6375936,
-            "output_tokens": 20220,
-            "metrics": {
-              "development_steps": 4343.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.589577,
-              "success_rate": 0.6,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L3/03-turn-on-stove": {
-            "reward": 0.789568,
-            "success_rate": 0.8,
-            "cost_usd": 0.588331,
-            "cost_source": "harness",
-            "hours": 0.1485,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L3/03-turn-on-stove/codex-gpt_6_1_terra-20261101T112208-b5367bd7d30f-l3_03_turn_on_stove_terra_h215",
-            "started_at": "2026-11-01T11:22:09.096633",
-            "finished_at": "2026-11-01T11:31:03.663226",
-            "input_tokens": 7994939,
-            "cached_tokens": 7923072,
-            "output_tokens": 24062,
-            "metrics": {
-              "development_steps": 3260.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.789568,
-              "success_rate": 0.8,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L3/04-pick-place-counter-to-drawer": {
-            "reward": 0.796797,
-            "success_rate": 0.8,
-            "cost_usd": 0.279766,
-            "cost_source": "harness",
-            "hours": 0.0862,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L3/04-pick-place-counter-to-drawer/codex-gpt_6_1_terra-20261101T112544-febbf31d64cd-l3_04_pick_place_counter_to_drawer_terra_h216",
-            "started_at": "2026-11-01T11:25:44.950335",
-            "finished_at": "2026-11-01T11:30:55.278180",
-            "input_tokens": 3407556,
-            "cached_tokens": 3353216,
-            "output_tokens": 11553,
-            "metrics": {
-              "development_steps": 1001.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.796797,
-              "success_rate": 0.8,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "L3/05-pick-place-microwave-to-counter": {
-            "reward": 0.197762,
-            "success_rate": 0.2,
-            "cost_usd": 0.41257,
-            "cost_source": "harness",
-            "hours": 0.1297,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "L3/05-pick-place-microwave-to-counter/codex-gpt_6_1_terra-20261101T113138-64cbd555ccaa-l3_05_pick_place_microwave_to_counter_terra_h215",
-            "started_at": "2026-11-01T11:31:39.235193",
-            "finished_at": "2026-11-01T11:39:26.063589",
-            "input_tokens": 5434933,
-            "cached_tokens": 5373440,
-            "output_tokens": 16481,
-            "metrics": {
-              "development_steps": 2797.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.197762,
-              "success_rate": 0.2,
               "trials_attempted": 5.0,
               "trials_recorded": 5.0,
               "trials_total": 5.0
@@ -20529,438 +19922,6 @@
           }
         }
       },
-      "gpt61terra": {
-        "score": 0.671111,
-        "complete": true,
-        "n_runs": 15,
-        "n_subtasks": 15,
-        "missing": [],
-        "harness": "Codex",
-        "splits": {
-          "EASY": {
-            "score": 0.96,
-            "reward": 0.96,
-            "success_rate": 0.92,
-            "cost_usd": 11.837513,
-            "cost_usd_mean": 2.367503,
-            "hours_median": 0.5761,
-            "n_runs": 5,
-            "complete": true
-          },
-          "MEDIUM": {
-            "score": 0.72,
-            "reward": 0.72,
-            "success_rate": 0.48,
-            "cost_usd": 24.202381,
-            "cost_usd_mean": 4.840476,
-            "hours_median": 0.9685,
-            "n_runs": 5,
-            "complete": true
-          },
-          "HARD": {
-            "score": 0.333333,
-            "reward": 0.333333,
-            "success_rate": 0.08,
-            "cost_usd": 22.71285,
-            "cost_usd_mean": 4.54257,
-            "hours_median": 1.1515,
-            "n_runs": 5,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "01-washing-dishes": {
-            "reward": 1.0,
-            "success_rate": 1.0,
-            "cost_usd": 3.654738,
-            "cost_source": "harness",
-            "hours": 0.766,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "01-washing-dishes/codex-gpt_6_1_terra-20261101T115309-50795e2a03f0-01_washing_dishes_terra_h215",
-            "started_at": "2026-11-01T11:53:09.854183",
-            "finished_at": "2026-11-01T12:39:07.473465",
-            "input_tokens": 54148260,
-            "cached_tokens": 53692928,
-            "output_tokens": 102952,
-            "metrics": {
-              "development_steps": 18090.0,
-              "infrastructure_failures": 0.0,
-              "reward": 1.0,
-              "success_rate": 1.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "02-sauteing-vegetables": {
-            "reward": 1.0,
-            "success_rate": 1.0,
-            "cost_usd": 2.063649,
-            "cost_source": "harness",
-            "hours": 0.5761,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "02-sauteing-vegetables/codex-gpt_6_1_terra-20261101T115539-25ebb9c0d494-02_sauteing_vegetables_terra_h215",
-            "started_at": "2026-11-01T11:55:40.001381",
-            "finished_at": "2026-11-01T12:30:13.824334",
-            "input_tokens": 26571953,
-            "cached_tokens": 26258688,
-            "output_tokens": 87490,
-            "metrics": {
-              "development_steps": 15734.0,
-              "infrastructure_failures": 0.0,
-              "reward": 1.0,
-              "success_rate": 1.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "03-baking": {
-            "reward": 0.8,
-            "success_rate": 0.6,
-            "cost_usd": 3.248432,
-            "cost_source": "harness",
-            "hours": 0.9039,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "03-baking/codex-gpt_6_1_terra-20261101T115915-58cb00e1ad05-03_baking_terra_h216",
-            "started_at": "2026-11-01T11:59:15.790060",
-            "finished_at": "2026-11-01T12:53:29.773948",
-            "input_tokens": 43794401,
-            "cached_tokens": 43410304,
-            "output_tokens": 138764,
-            "metrics": {
-              "development_steps": 13121.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.8,
-              "success_rate": 0.6,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "04-reheating-food": {
-            "reward": 1.0,
-            "success_rate": 1.0,
-            "cost_usd": 1.765528,
-            "cost_source": "harness",
-            "hours": 0.5148,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "04-reheating-food/codex-gpt_6_1_terra-20261101T123109-226f6f35b176-04_reheating_food_terra_h215",
-            "started_at": "2026-11-01T12:31:10.243335",
-            "finished_at": "2026-11-01T13:02:03.401938",
-            "input_tokens": 21247740,
-            "cached_tokens": 21011328,
-            "output_tokens": 95710,
-            "metrics": {
-              "development_steps": 5269.0,
-              "infrastructure_failures": 0.0,
-              "reward": 1.0,
-              "success_rate": 1.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "05-chopping-food": {
-            "reward": 1.0,
-            "success_rate": 1.0,
-            "cost_usd": 1.105165,
-            "cost_source": "harness",
-            "hours": 0.3994,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "05-chopping-food/codex-gpt_6_1_terra-20261101T123940-f7a871e2e851-05_chopping_food_terra_h215",
-            "started_at": "2026-11-01T12:39:40.399518",
-            "finished_at": "2026-11-01T13:03:38.169860",
-            "input_tokens": 12617434,
-            "cached_tokens": 12453120,
-            "output_tokens": 63639,
-            "metrics": {
-              "development_steps": 7773.0,
-              "infrastructure_failures": 0.0,
-              "reward": 1.0,
-              "success_rate": 1.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "06-setting-the-table": {
-            "reward": 0.55,
-            "success_rate": 0.4,
-            "cost_usd": 3.619889,
-            "cost_source": "harness",
-            "hours": 0.9685,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "06-setting-the-table/codex-gpt_6_1_terra-20261101T124252-2b8e4b75a837-06_setting_the_table_terra_h216",
-            "started_at": "2026-11-01T12:42:53.157765",
-            "finished_at": "2026-11-01T13:40:59.734677",
-            "input_tokens": 47189075,
-            "cached_tokens": 46722048,
-            "output_tokens": 163352,
-            "metrics": {
-              "development_steps": 10033.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.55,
-              "success_rate": 0.4,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "07-portioning-meals": {
-            "reward": 0.95,
-            "success_rate": 0.8,
-            "cost_usd": 9.281902,
-            "cost_source": "harness",
-            "hours": 1.8389,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "07-portioning-meals/codex-gpt_6_1_terra-20261101T124253-a6719a98445c-07_portioning_meals_terra_h216",
-            "started_at": "2026-11-01T12:42:53.313882",
-            "finished_at": "2026-11-01T14:33:13.470529",
-            "input_tokens": 128943374,
-            "cached_tokens": 128258816,
-            "output_tokens": 238989,
-            "metrics": {
-              "development_steps": 49260.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.95,
-              "success_rate": 0.8,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "08-defrosting-food": {
-            "reward": 0.733333,
-            "success_rate": 0.2,
-            "cost_usd": 2.76211,
-            "cost_source": "harness",
-            "hours": 0.8158,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "08-defrosting-food/codex-gpt_6_1_terra-20261101T124332-fa99c5a279a7-08_defrosting_food_terra_h215",
-            "started_at": "2026-11-01T12:43:33.135386",
-            "finished_at": "2026-11-01T13:32:30.168126",
-            "input_tokens": 35801668,
-            "cached_tokens": 35450624,
-            "output_tokens": 127707,
-            "metrics": {
-              "development_steps": 7442.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.733333,
-              "success_rate": 0.2,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "09-arranging-buffet": {
-            "reward": 0.466667,
-            "success_rate": 0.2,
-            "cost_usd": 5.727015,
-            "cost_source": "harness",
-            "hours": 1.2407,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "09-arranging-buffet/codex-gpt_6_1_terra-20261101T124332-ebf800ac2153-09_arranging_buffet_terra_h215",
-            "started_at": "2026-11-01T12:43:33.271904",
-            "finished_at": "2026-11-01T13:57:59.830420",
-            "input_tokens": 84028214,
-            "cached_tokens": 83413120,
-            "output_tokens": 188253,
-            "metrics": {
-              "development_steps": 24409.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.466667,
-              "success_rate": 0.2,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "10-serving-beverages": {
-            "reward": 0.9,
-            "success_rate": 0.8,
-            "cost_usd": 2.811464,
-            "cost_source": "harness",
-            "hours": 0.7501,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "10-serving-beverages/codex-gpt_6_1_terra-20261101T125423-c9b00c6a752f-10_serving_beverages_terra_h216",
-            "started_at": "2026-11-01T12:54:23.573840",
-            "finished_at": "2026-11-01T13:39:23.930796",
-            "input_tokens": 34093477,
-            "cached_tokens": 33632256,
-            "output_tokens": 133726,
-            "metrics": {
-              "development_steps": 2902.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.9,
-              "success_rate": 0.8,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "11-loading-fridge": {
-            "reward": 0.666667,
-            "success_rate": 0.4,
-            "cost_usd": 5.662469,
-            "cost_source": "harness",
-            "hours": 1.3169,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "11-loading-fridge/codex-gpt_6_1_terra-20261101T130303-d228141c3987-11_loading_fridge_terra_h215",
-            "started_at": "2026-11-01T13:03:03.453354",
-            "finished_at": "2026-11-01T14:22:04.300594",
-            "input_tokens": 80991732,
-            "cached_tokens": 80304256,
-            "output_tokens": 191956,
-            "metrics": {
-              "development_steps": 33181.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.666667,
-              "success_rate": 0.4,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "12-managing-freezer-space": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 3.955175,
-            "cost_source": "harness",
-            "hours": 1.0521,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "12-managing-freezer-space/codex-gpt_6_1_terra-20261101T130433-c8abcee36253-12_managing_freezer_space_terra_h215",
-            "started_at": "2026-11-01T13:04:33.613694",
-            "finished_at": "2026-11-01T14:07:41.344833",
-            "input_tokens": 50711646,
-            "cached_tokens": 50158848,
-            "output_tokens": 178887,
-            "metrics": {
-              "development_steps": 8813.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "13-clearing-table": {
-            "reward": 0.266667,
-            "success_rate": 0.0,
-            "cost_usd": 6.484881,
-            "cost_source": "harness",
-            "hours": 1.5519,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "13-clearing-table/codex-gpt_6_1_terra-20261101T133303-7125d7e3190b-13_clearing_table_terra_h215",
-            "started_at": "2026-11-01T13:33:03.873445",
-            "finished_at": "2026-11-01T15:06:10.891753",
-            "input_tokens": 97316408,
-            "cached_tokens": 96700928,
-            "output_tokens": 206871,
-            "metrics": {
-              "development_steps": 16743.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.266667,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "14-microwaving-food": {
-            "reward": 0.066667,
-            "success_rate": 0.0,
-            "cost_usd": 3.916077,
-            "cost_source": "harness",
-            "hours": 1.1515,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "14-microwaving-food/codex-gpt_6_1_terra-20261101T134023-2904a7407eae-14_microwaving_food_terra_h216",
-            "started_at": "2026-11-01T13:40:24.050566",
-            "finished_at": "2026-11-01T14:49:29.527254",
-            "input_tokens": 52348763,
-            "cached_tokens": 51812864,
-            "output_tokens": 157907,
-            "metrics": {
-              "development_steps": 30951.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.066667,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          },
-          "15-storing-leftovers": {
-            "reward": 0.666667,
-            "success_rate": 0.0,
-            "cost_usd": 2.694248,
-            "cost_source": "harness",
-            "hours": 0.8538,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "15-storing-leftovers/codex-gpt_6_1_terra-20261101T134153-43019ae1312a-15_storing_leftovers_terra_h216",
-            "started_at": "2026-11-01T13:41:54.222196",
-            "finished_at": "2026-11-01T14:33:07.746853",
-            "input_tokens": 34357763,
-            "cached_tokens": 34002432,
-            "output_tokens": 127759,
-            "metrics": {
-              "development_steps": 8265.0,
-              "infrastructure_failures": 0.0,
-              "reward": 0.666667,
-              "success_rate": 0.0,
-              "trials_attempted": 5.0,
-              "trials_recorded": 5.0,
-              "trials_total": 5.0
-            }
-          }
-        }
-      },
       "deepseek-flash-1017": {
         "score": 0.355556,
         "complete": true,
@@ -24813,241 +23774,6 @@
               "trial_2_reward": 0.0,
               "trial_2_submitted": 1.0,
               "trial_3_control_steps": 769.0,
-              "trial_3_correct": 1.0,
-              "trial_3_reward": 1.0,
-              "trial_3_submitted": 1.0,
-              "trials_attempted": 3.0,
-              "trials_recorded": 3.0,
-              "trials_total": 3.0
-            }
-          }
-        }
-      },
-      "gpt61terra": {
-        "score": 0.5654,
-        "complete": true,
-        "n_runs": 5,
-        "n_subtasks": 5,
-        "missing": [],
-        "harness": "Codex",
-        "splits": {
-          "01-tower-max-height": {
-            "score": 0.558691,
-            "reward": 0.558691,
-            "success_rate": 0.558691,
-            "cost_usd": 0.415015,
-            "cost_usd_mean": 0.415015,
-            "hours_median": 0.1744,
-            "n_runs": 1,
-            "complete": true
-          },
-          "02-cantilever-overhang": {
-            "score": 0.268309,
-            "reward": 0.268309,
-            "success_rate": 0.268309,
-            "cost_usd": 0.117861,
-            "cost_usd_mean": 0.117861,
-            "hours_median": 0.0533,
-            "n_runs": 1,
-            "complete": true
-          },
-          "03-balance-coins": {
-            "score": 1.0,
-            "reward": 1.0,
-            "success_rate": 1.0,
-            "cost_usd": 0.173196,
-            "cost_usd_mean": 0.173196,
-            "hours_median": 0.1038,
-            "n_runs": 1,
-            "complete": true
-          },
-          "04-rubik-cube": {
-            "score": 0.0,
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 1.192891,
-            "cost_usd_mean": 1.192891,
-            "hours_median": 0.3051,
-            "n_runs": 1,
-            "complete": true
-          },
-          "05-hidden-center-of-mass": {
-            "score": 1.0,
-            "reward": 1.0,
-            "success_rate": 1.0,
-            "cost_usd": 0.117904,
-            "cost_usd_mean": 0.117904,
-            "hours_median": 0.0616,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "01-tower-max-height": {
-            "reward": 0.558691,
-            "success_rate": 0.558691,
-            "cost_usd": 0.415015,
-            "cost_source": "harness",
-            "hours": 0.1744,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T135833-7fb1ddf2380c-01_tower_max_height_terra_h215",
-            "started_at": "2026-11-01T13:58:34.045552",
-            "finished_at": "2026-11-01T14:09:01.926960",
-            "input_tokens": 4935261,
-            "cached_tokens": 4848896,
-            "output_tokens": 17241,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.558691,
-              "development_steps": 15373.0,
-              "infrastructure_failures": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 15373.0,
-              "quality": 0.558691,
-              "reward": 0.558691,
-              "success_rate": 0.558691,
-              "task_score": 55.869125,
-              "trials_attempted": 1.0,
-              "trials_recorded": 1.0,
-              "trials_total": 1.0
-            }
-          },
-          "02-cantilever-overhang": {
-            "reward": 0.268309,
-            "success_rate": 0.268309,
-            "cost_usd": 0.117861,
-            "cost_source": "harness",
-            "hours": 0.0533,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T140833-8eac81dcd2ec-02_cantilever_overhang_terra_h215",
-            "started_at": "2026-11-01T14:08:34.220958",
-            "finished_at": "2026-11-01T14:11:45.996391",
-            "input_tokens": 1094096,
-            "cached_tokens": 1058432,
-            "output_tokens": 5855,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 0.268309,
-              "development_steps": 2985.0,
-              "infrastructure_failures": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 2985.0,
-              "quality": 0.268309,
-              "reward": 0.268309,
-              "success_rate": 0.268309,
-              "task_score": 26.830856,
-              "trials_attempted": 1.0,
-              "trials_recorded": 1.0,
-              "trials_total": 1.0
-            }
-          },
-          "03-balance-coins": {
-            "reward": 1.0,
-            "success_rate": 1.0,
-            "cost_usd": 0.173196,
-            "cost_source": "harness",
-            "hours": 0.1038,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T140934-9f6c508232c0-03_balance_coins_terra_h215",
-            "started_at": "2026-11-01T14:09:34.385523",
-            "finished_at": "2026-11-01T14:15:48.121035",
-            "input_tokens": 1687943,
-            "cached_tokens": 1638528,
-            "output_tokens": 8371,
-            "metrics": {
-              "component_efficiency": 0.0,
-              "component_outcome": 1.0,
-              "development_steps": 13185.0,
-              "infrastructure_failures": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 13185.0,
-              "quality": 1.0,
-              "reward": 1.0,
-              "success_rate": 1.0,
-              "task_score": 100.0,
-              "trials_attempted": 1.0,
-              "trials_recorded": 1.0,
-              "trials_total": 1.0
-            }
-          },
-          "04-rubik-cube": {
-            "reward": 0.0,
-            "success_rate": 0.0,
-            "cost_usd": 1.192891,
-            "cost_source": "harness",
-            "hours": 0.3051,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T141234-e6d19a16fc5e-04_rubik_cube_terra_h215",
-            "started_at": "2026-11-01T14:12:34.557863",
-            "finished_at": "2026-11-01T14:30:52.750286",
-            "input_tokens": 16468929,
-            "cached_tokens": 16350208,
-            "output_tokens": 51332,
-            "metrics": {
-              "actual_qtm": 7.0,
-              "component_efficiency": 0.0,
-              "component_outcome": 0.0,
-              "development_steps": 0.0,
-              "infrastructure_failures": 0.0,
-              "interaction_budget": 50000.0,
-              "interaction_steps": 12443.0,
-              "optimal_qtm": 11.0,
-              "quality": 0.0,
-              "recoveries": 20.0,
-              "reward": 0.0,
-              "success_rate": 0.0,
-              "task_score": 0.0,
-              "trials_attempted": 1.0,
-              "trials_recorded": 1.0,
-              "trials_total": 1.0,
-              "unclassified_transitions": 0.0
-            }
-          },
-          "05-hidden-center-of-mass": {
-            "reward": 1.0,
-            "success_rate": 1.0,
-            "cost_usd": 0.117904,
-            "cost_source": "harness",
-            "hours": 0.0616,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T141634-73689313daf9-05_hidden_center_of_mass_terra_h215",
-            "started_at": "2026-11-01T14:16:34.700196",
-            "finished_at": "2026-11-01T14:20:16.567715",
-            "input_tokens": 1048895,
-            "cached_tokens": 1012096,
-            "output_tokens": 6100,
-            "metrics": {
-              "control_steps": 3076.0,
-              "correct": 3.0,
-              "development_steps": 0.0,
-              "infrastructure_failures": 0.0,
-              "reward": 1.0,
-              "submitted": 3.0,
-              "success_rate": 1.0,
-              "trial_1_control_steps": 1928.0,
-              "trial_1_correct": 1.0,
-              "trial_1_reward": 1.0,
-              "trial_1_submitted": 1.0,
-              "trial_2_control_steps": 574.0,
-              "trial_2_correct": 1.0,
-              "trial_2_reward": 1.0,
-              "trial_2_submitted": 1.0,
-              "trial_3_control_steps": 574.0,
               "trial_3_correct": 1.0,
               "trial_3_reward": 1.0,
               "trial_3_submitted": 1.0,
@@ -29106,248 +27832,6 @@
           }
         }
       },
-      "gpt61terra": {
-        "score": 0.71674,
-        "complete": true,
-        "n_runs": 5,
-        "n_subtasks": 5,
-        "missing": [],
-        "harness": "Codex",
-        "splits": {
-          "01-dance": {
-            "score": 0.8249,
-            "reward": 0.8249,
-            "success_rate": null,
-            "cost_usd": 2.296531,
-            "cost_usd_mean": 2.296531,
-            "hours_median": 4.0697,
-            "n_runs": 1,
-            "complete": true
-          },
-          "02-fight": {
-            "score": 0.7068,
-            "reward": 0.7068,
-            "success_rate": null,
-            "cost_usd": 5.471734,
-            "cost_usd_mean": 5.471734,
-            "hours_median": 4.0673,
-            "n_runs": 1,
-            "complete": true
-          },
-          "03-fall-and-get-up": {
-            "score": 0.5384,
-            "reward": 0.5384,
-            "success_rate": null,
-            "cost_usd": 6.431477,
-            "cost_usd_mean": 6.431477,
-            "hours_median": 4.0548,
-            "n_runs": 1,
-            "complete": true
-          },
-          "04-run": {
-            "score": 0.7482,
-            "reward": 0.7482,
-            "success_rate": null,
-            "cost_usd": 5.381327,
-            "cost_usd_mean": 5.381327,
-            "hours_median": 4.0687,
-            "n_runs": 1,
-            "complete": true
-          },
-          "05-sprint": {
-            "score": 0.7654,
-            "reward": 0.7654,
-            "success_rate": null,
-            "cost_usd": 2.802311,
-            "cost_usd_mean": 2.802311,
-            "hours_median": 4.0491,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "01-dance": {
-            "reward": 0.8249,
-            "success_rate": null,
-            "cost_usd": 2.296531,
-            "cost_source": "harness",
-            "hours": 4.0697,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T103642-7471862dca5b-01_dance_terra_h216",
-            "started_at": "2026-11-01T10:36:42.861183",
-            "finished_at": "2026-11-01T14:40:53.938296",
-            "input_tokens": 38765151,
-            "cached_tokens": 38588032,
-            "output_tokens": 38002,
-            "metrics": {
-              "action_jerk": 0.1963,
-              "anchor_pos_err_m": 0.7146,
-              "falls": 0.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.3083,
-              "mpjpe_m": 0.0266,
-              "n_params": 251365.0,
-              "obs_history_length": 2.0,
-              "raw_total": 0.8249,
-              "reward": 0.8249,
-              "survival": 1.0,
-              "survived_s": 20.0,
-              "tracking_multi": 0.8876,
-              "tracking_score": 0.9912
-            }
-          },
-          "02-fight": {
-            "reward": 0.7068,
-            "success_rate": null,
-            "cost_usd": 5.471734,
-            "cost_source": "harness",
-            "hours": 4.0673,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T103642-3f30d1a73652-02_fight_terra_h216",
-            "started_at": "2026-11-01T10:36:43.015233",
-            "finished_at": "2026-11-01T14:40:45.291330",
-            "input_tokens": 96223674,
-            "cached_tokens": 95968768,
-            "output_tokens": 83678,
-            "metrics": {
-              "action_jerk": 0.1392,
-              "anchor_pos_err_m": 0.9611,
-              "falls": 0.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.2263,
-              "mpjpe_m": 0.0555,
-              "n_params": 1003203.0,
-              "obs_history_length": 1.0,
-              "raw_total": 0.7068,
-              "reward": 0.7068,
-              "survival": 1.0,
-              "survived_s": 20.0,
-              "tracking_multi": 0.6788,
-              "tracking_score": 0.9629
-            }
-          },
-          "03-fall-and-get-up": {
-            "reward": 0.5384,
-            "success_rate": null,
-            "cost_usd": 6.431477,
-            "cost_source": "harness",
-            "hours": 4.0548,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T103642-53048791c0e2-03_fall_and_get_up_terra_h216",
-            "started_at": "2026-11-01T10:36:43.156089",
-            "finished_at": "2026-11-01T14:40:00.526628",
-            "input_tokens": 114130453,
-            "cached_tokens": 113853312,
-            "output_tokens": 92334,
-            "metrics": {
-              "action_jerk": 0.1134,
-              "anchor_pos_err_m": 1.4074,
-              "falls": 4.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.2921,
-              "mpjpe_m": 0.0611,
-              "n_params": 752475.0,
-              "obs_history_length": 1.0,
-              "raw_total": 0.5384,
-              "reward": 0.5384,
-              "survival": 0.7941,
-              "survived_s": 15.883,
-              "tracking_multi": 0.5385,
-              "tracking_score": 0.7574
-            }
-          },
-          "04-run": {
-            "reward": 0.7482,
-            "success_rate": null,
-            "cost_usd": 5.381327,
-            "cost_source": "harness",
-            "hours": 4.0687,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T104005-4882baede1d3-04_run_terra_h215",
-            "started_at": "2026-11-01T10:40:05.853614",
-            "finished_at": "2026-11-01T14:44:13.203912",
-            "input_tokens": 95604385,
-            "cached_tokens": 95325056,
-            "output_tokens": 67149,
-            "metrics": {
-              "action_jerk": 0.1301,
-              "anchor_pos_err_m": 0.6827,
-              "falls": 0.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.1678,
-              "mpjpe_m": 0.0478,
-              "n_params": 332957.0,
-              "obs_history_length": 2.0,
-              "raw_total": 0.7482,
-              "reward": 0.7482,
-              "survival": 1.0,
-              "survived_s": 20.0,
-              "tracking_multi": 0.7316,
-              "tracking_score": 0.9723
-            }
-          },
-          "05-sprint": {
-            "reward": 0.7654,
-            "success_rate": null,
-            "cost_usd": 2.802311,
-            "cost_source": "harness",
-            "hours": 4.0491,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T104005-8c30f05b9041-05_sprint_terra_h215",
-            "started_at": "2026-11-01T10:40:05.939752",
-            "finished_at": "2026-11-01T14:43:02.595561",
-            "input_tokens": 46175119,
-            "cached_tokens": 45873408,
-            "output_tokens": 41386,
-            "metrics": {
-              "action_jerk": 0.131,
-              "anchor_pos_err_m": 1.6591,
-              "falls": 0.0,
-              "gate_deterministic": 1.0,
-              "gate_stable": 1.0,
-              "gate_valid": 1.0,
-              "gated": 0.0,
-              "joint_rmse_rad": 0.2402,
-              "mpjpe_m": 0.0451,
-              "n_params": 497437.0,
-              "obs_history_length": 4.0,
-              "raw_total": 0.7654,
-              "reward": 0.7654,
-              "survival": 1.0,
-              "survived_s": 20.0,
-              "tracking_multi": 0.7568,
-              "tracking_score": 0.9734
-            }
-          }
-        }
-      },
       "deepseek-flash-1017": {
         "score": 0.46718,
         "complete": true,
@@ -31954,6 +30438,154 @@
               "replay_wall_s": 1161.844553,
               "reward": 0.133333,
               "success_rate": 0.133333
+            }
+          }
+        }
+      },
+      "deepseek-flash-1017": {
+        "score": 0.496944,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-libero-open-design": {
+            "score": 0.804,
+            "reward": 0.804,
+            "success_rate": 0.804,
+            "cost_usd": 0.226317,
+            "cost_usd_mean": 0.226317,
+            "hours_median": 3.2669,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-libero-robustness": {
+            "score": 0.306,
+            "reward": 0.306,
+            "success_rate": null,
+            "cost_usd": 0.214658,
+            "cost_usd_mean": 0.214658,
+            "hours_median": 4.5887,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-robotwin-open-design": {
+            "score": 0.713333,
+            "reward": 0.713333,
+            "success_rate": 0.713333,
+            "cost_usd": 0.285252,
+            "cost_usd_mean": 0.285252,
+            "hours_median": 5.1999,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.164444,
+            "reward": 0.164444,
+            "success_rate": 0.164444,
+            "cost_usd": 0.329346,
+            "cost_usd_mean": 0.329346,
+            "hours_median": 7.0694,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.804,
+            "success_rate": 0.804,
+            "cost_usd": 0.226317,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 3.2669,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "task05/01-libero-open-design/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-11-02T19:57:38.575868",
+            "finished_at": "2026-11-02T23:13:39.531023",
+            "input_tokens": 19297716,
+            "cached_tokens": 19210752,
+            "output_tokens": 133669,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 14854693.0,
+              "replay_wall_s": 859.596597,
+              "reward": 0.804,
+              "success_rate": 0.804
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.306,
+            "success_rate": null,
+            "cost_usd": 0.214658,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 4.5887,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "task05/02-libero-robustness/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-11-02T23:13:42.223324",
+            "finished_at": "2026-11-03T03:49:01.684662",
+            "input_tokens": 17826685,
+            "cached_tokens": 17748480,
+            "output_tokens": 130215,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 42513452.0,
+              "plus_success_rate": 0.306,
+              "replay_wall_s": 1702.924099,
+              "reward": 0.306
+            }
+          },
+          "03-robotwin-open-design": {
+            "reward": 0.713333,
+            "success_rate": 0.713333,
+            "cost_usd": 0.285252,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 5.1999,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "task05/03-robotwin-open-design/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-11-03T03:49:04.070771",
+            "finished_at": "2026-11-03T09:01:03.585848",
+            "input_tokens": 33105152,
+            "cached_tokens": 33000832,
+            "output_tokens": 125863,
+            "metrics": {
+              "episodes": 300.0,
+              "parameters": 9024116.0,
+              "replay_wall_s": 1622.163448,
+              "reward": 0.713333,
+              "success_rate": 0.713333
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.164444,
+            "success_rate": 0.164444,
+            "cost_usd": 0.329346,
+            "cost_source": "price/deepseek-flash-1017.json:mean",
+            "hours": 7.0694,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "deepseek-flash-1017",
+            "job": "task05/04-robotwin-robustness/claude-code/deepseek_deepseek-flash",
+            "started_at": "2026-11-03T09:01:06.088436",
+            "finished_at": "2026-11-03T16:05:16.070905",
+            "input_tokens": 27746948,
+            "cached_tokens": 27563008,
+            "output_tokens": 182140,
+            "metrics": {
+              "episodes": 225.0,
+              "parameters": 30373485.0,
+              "replay_wall_s": 1682.420942,
+              "reward": 0.164444,
+              "success_rate": 0.164444
             }
           }
         }
@@ -35604,238 +34236,6 @@
           }
         }
       },
-      "gpt61terra": {
-        "score": 0.2395,
-        "complete": true,
-        "n_runs": 4,
-        "n_subtasks": 4,
-        "missing": [],
-        "harness": "Codex",
-        "splits": {
-          "01-rgb-only": {
-            "score": 0.1731,
-            "reward": 0.1731,
-            "success_rate": null,
-            "cost_usd": 0.150225,
-            "cost_usd_mean": 0.150225,
-            "hours_median": 0.1848,
-            "n_runs": 1,
-            "complete": true
-          },
-          "02-rgb-depth": {
-            "score": 0.2721,
-            "reward": 0.2721,
-            "success_rate": null,
-            "cost_usd": 0.191556,
-            "cost_usd_mean": 0.191556,
-            "hours_median": 0.1901,
-            "n_runs": 1,
-            "complete": true
-          },
-          "03-model-training": {
-            "score": 0.2797,
-            "reward": 0.2797,
-            "success_rate": null,
-            "cost_usd": 0.898903,
-            "cost_usd_mean": 0.898903,
-            "hours_median": 0.868,
-            "n_runs": 1,
-            "complete": true
-          },
-          "04-method-agnostic": {
-            "score": 0.2331,
-            "reward": 0.2331,
-            "success_rate": null,
-            "cost_usd": 0.17882,
-            "cost_usd_mean": 0.17882,
-            "hours_median": 0.1779,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "01-rgb-only": {
-            "reward": 0.1731,
-            "success_rate": null,
-            "cost_usd": 0.150225,
-            "cost_source": "harness",
-            "hours": 0.1848,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T142304-9dbdaa7d2e96-rgb_only_terra_h215",
-            "started_at": "2026-11-01T14:23:04.772466",
-            "finished_at": "2026-11-01T14:34:10.051416",
-            "input_tokens": 1223948,
-            "cached_tokens": 1178624,
-            "output_tokens": 9194,
-            "metrics": {
-              "abs_median_rot_deg": 1.05,
-              "abs_median_trans_mm": 3.02,
-              "abs_occluded_trans_mm": 12.19,
-              "accuracy_reward": 0.284661,
-              "cp_A.pose": 0.7175,
-              "cp_B.pose": 0.0992,
-              "cp_G.load": 1.0,
-              "efficiency_deduction": 0.111575,
-              "frame_time_s": 0.200839,
-              "gated": 0.0,
-              "inference_hz": 4.979123,
-              "inference_wall_s": 140.586993,
-              "merit": 0.2847,
-              "raw_total": 0.2847,
-              "reward": 0.1731,
-              "stage_a_frames": 100.0,
-              "stage_a_shape_accuracy": 0.99,
-              "stage_b_frames": 600.0,
-              "stage_b_median_rot_deg": 1.81,
-              "stage_b_median_trans_mm": 6.0,
-              "stage_b_occluded_fraction": 0.4733,
-              "stage_b_occluded_frames": 284.0,
-              "stage_b_shape_accuracy": 1.0,
-              "stage_gate": 0.0,
-              "stage_stage_a": 0.2152,
-              "stage_stage_b": 0.0694
-            }
-          },
-          "02-rgb-depth": {
-            "reward": 0.2721,
-            "success_rate": null,
-            "cost_usd": 0.191556,
-            "cost_source": "harness",
-            "hours": 0.1901,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T142104-05ddc8317a06-rgb_depth_terra_h215",
-            "started_at": "2026-11-01T14:21:04.783131",
-            "finished_at": "2026-11-01T14:32:29.034124",
-            "input_tokens": 2052248,
-            "cached_tokens": 2022144,
-            "output_tokens": 12069,
-            "metrics": {
-              "abs_median_rot_deg": 0.5,
-              "abs_median_trans_mm": 3.68,
-              "abs_occluded_trans_mm": 15.06,
-              "accuracy_reward": 0.272135,
-              "cp_A.pose": 0.8769,
-              "cp_B.pose": 0.0129,
-              "cp_G.load": 1.0,
-              "efficiency_deduction": 0.0,
-              "frame_time_s": 0.068862,
-              "gated": 0.0,
-              "inference_hz": 14.521714,
-              "inference_wall_s": 48.203677,
-              "merit": 0.2721,
-              "raw_total": 0.2721,
-              "reward": 0.2721,
-              "stage_a_frames": 100.0,
-              "stage_a_shape_accuracy": 1.0,
-              "stage_b_frames": 600.0,
-              "stage_b_median_rot_deg": 1.15,
-              "stage_b_median_trans_mm": 6.95,
-              "stage_b_occluded_fraction": 0.4733,
-              "stage_b_occluded_frames": 284.0,
-              "stage_b_shape_accuracy": 1.0,
-              "stage_gate": 0.0,
-              "stage_stage_a": 0.2631,
-              "stage_stage_b": 0.0091
-            }
-          },
-          "03-model-training": {
-            "reward": 0.2797,
-            "success_rate": null,
-            "cost_usd": 0.898903,
-            "cost_source": "harness",
-            "hours": 0.868,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T104005-717d0380e80f-rgb_depth_model_training_terra_h215",
-            "started_at": "2026-11-01T10:40:05.952968",
-            "finished_at": "2026-11-01T11:32:10.622726",
-            "input_tokens": 13236035,
-            "cached_tokens": 13180544,
-            "output_tokens": 36877,
-            "metrics": {
-              "abs_median_rot_deg": 0.8,
-              "abs_median_trans_mm": 1.52,
-              "abs_occluded_trans_mm": 19.54,
-              "accuracy_reward": 0.279745,
-              "cp_A.pose": 0.9325,
-              "cp_B.pose": 0.0,
-              "cp_G.load": 1.0,
-              "efficiency_deduction": 0.0,
-              "frame_time_s": 0.082647,
-              "gated": 0.0,
-              "inference_hz": 12.099721,
-              "inference_wall_s": 57.852574,
-              "merit": 0.2797,
-              "raw_total": 0.2797,
-              "reward": 0.2797,
-              "stage_a_frames": 100.0,
-              "stage_a_shape_accuracy": 1.0,
-              "stage_b_frames": 600.0,
-              "stage_b_median_rot_deg": 2.38,
-              "stage_b_median_trans_mm": 5.87,
-              "stage_b_occluded_fraction": 0.4733,
-              "stage_b_occluded_frames": 284.0,
-              "stage_b_shape_accuracy": 0.916667,
-              "stage_gate": 0.0,
-              "stage_stage_a": 0.2797,
-              "stage_stage_b": 0.0
-            }
-          },
-          "04-method-agnostic": {
-            "reward": 0.2331,
-            "success_rate": null,
-            "cost_usd": 0.17882,
-            "cost_source": "harness",
-            "hours": 0.1779,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T103643-3f3d6a00e3a7-method_agnostic_terra_h216",
-            "started_at": "2026-11-01T10:36:43.484195",
-            "finished_at": "2026-11-01T10:47:24.020798",
-            "input_tokens": 1698105,
-            "cached_tokens": 1660800,
-            "output_tokens": 11695,
-            "metrics": {
-              "abs_median_rot_deg": 0.84,
-              "abs_median_trans_mm": 5.24,
-              "abs_occluded_trans_mm": 33.5,
-              "accuracy_reward": 0.233128,
-              "cp_A.pose": 0.7673,
-              "cp_B.pose": 0.0042,
-              "cp_G.load": 1.0,
-              "efficiency_deduction": 0.0,
-              "frame_time_s": 0.093227,
-              "gated": 0.0,
-              "inference_hz": 10.726492,
-              "inference_wall_s": 65.258987,
-              "merit": 0.2331,
-              "raw_total": 0.2331,
-              "reward": 0.2331,
-              "stage_a_frames": 100.0,
-              "stage_a_shape_accuracy": 1.0,
-              "stage_b_frames": 600.0,
-              "stage_b_median_rot_deg": 2.22,
-              "stage_b_median_trans_mm": 11.3,
-              "stage_b_occluded_fraction": 0.4733,
-              "stage_b_occluded_frames": 284.0,
-              "stage_b_shape_accuracy": 0.858333,
-              "stage_gate": 0.0,
-              "stage_stage_a": 0.2302,
-              "stage_stage_b": 0.0029
-            }
-          }
-        }
-      },
       "deepseek-flash-1017": {
         "score": 0.151775,
         "complete": true,
@@ -37138,73 +35538,6 @@
               "reward": 0.3096,
               "speed_merit": 0.4249,
               "throughput_ppm": 6.1296
-            }
-          }
-        }
-      },
-      "gpt61terra": {
-        "score": 0.2659,
-        "complete": true,
-        "n_runs": 1,
-        "n_subtasks": 1,
-        "missing": [],
-        "harness": "Codex",
-        "splits": {
-          "clearance": {
-            "score": 0.772,
-            "metric": "clear_frac",
-            "weight": 1.0,
-            "credit": 0.772,
-            "n_runs": 1,
-            "complete": true
-          },
-          "throughput": {
-            "score": 0.38,
-            "metric": "speed_merit",
-            "weight": 1.0,
-            "credit": 0.38,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "bin-clearing": {
-            "reward": 0.2659,
-            "success_rate": null,
-            "cost_usd": 2.114983,
-            "cost_source": "harness",
-            "hours": 1.6541,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T143134-7c85454d5e78-terra_h215",
-            "started_at": "2026-11-01T14:31:34.821307",
-            "finished_at": "2026-11-01T16:10:49.550503",
-            "input_tokens": 34143693,
-            "cached_tokens": 34003200,
-            "output_tokens": 54866,
-            "metrics": {
-              "bin_hits": 0.0,
-              "clear_frac": 0.772,
-              "damage_events": 0.0,
-              "episode_wall_s_total": 3737.5345,
-              "floor_drops": 2.0,
-              "gate_contract": 1.0,
-              "gate_determinism": 1.0,
-              "gate_load": 1.0,
-              "gate_stable": 1.0,
-              "gated": 0.0,
-              "harness_wall_s_total": 3691.666,
-              "makespan_s": 106.95,
-              "n_parts": 112.0,
-              "parts_cleared": 86.0,
-              "policy_faults": 0.0,
-              "policy_wall_s_total": 45.8685,
-              "raw_total": 0.2659,
-              "reward": 0.2659,
-              "speed_merit": 0.38,
-              "throughput_ppm": 6.0496
             }
           }
         }
@@ -39106,122 +37439,6 @@
               "stage_design": 0.2396,
               "stage_dynamic": 0.0533,
               "stage_integration": 0.15,
-              "stage_static": 0.0,
-              "stage_validity": 0.15
-            }
-          }
-        }
-      },
-      "gpt61terra": {
-        "score": 0.5775,
-        "complete": true,
-        "n_runs": 1,
-        "n_subtasks": 1,
-        "missing": [],
-        "harness": "Codex",
-        "splits": {
-          "validity": {
-            "score": 1.0,
-            "metric": "stage_validity",
-            "weight": 0.15,
-            "credit": 0.15,
-            "n_runs": 1,
-            "complete": true
-          },
-          "design": {
-            "score": 0.642,
-            "metric": "stage_design",
-            "weight": 0.35,
-            "credit": 0.2247,
-            "n_runs": 1,
-            "complete": true
-          },
-          "static": {
-            "score": 0.0,
-            "metric": "stage_static",
-            "weight": 0.15,
-            "credit": 0.0,
-            "n_runs": 1,
-            "complete": true
-          },
-          "dynamic": {
-            "score": 0.389,
-            "metric": "stage_dynamic",
-            "weight": 0.2,
-            "credit": 0.0778,
-            "n_runs": 1,
-            "complete": true
-          },
-          "integration": {
-            "score": 0.833333,
-            "metric": "stage_integration",
-            "weight": 0.15,
-            "credit": 0.125,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "mobile-base": {
-            "reward": 0.5775,
-            "success_rate": null,
-            "cost_usd": 0.66383,
-            "cost_source": "harness",
-            "hours": 0.405,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T143304-beec4ceb1a39-terra_h215",
-            "started_at": "2026-11-01T14:33:05.181525",
-            "finished_at": "2026-11-01T14:57:23.032192",
-            "input_tokens": 8021105,
-            "cached_tokens": 7923968,
-            "output_tokens": 34099,
-            "metrics": {
-              "cp_S1.equilibrium": 1.0,
-              "cp_S1.inertia": 1.0,
-              "cp_S1.load": 1.0,
-              "cp_S1.mecanum": 1.0,
-              "cp_S1.structure": 1.0,
-              "cp_S3.battery_onboard": 1.0,
-              "cp_S3.design_efficiency": 0.4303,
-              "cp_S3.reach_beyond": 1.0,
-              "cp_S3.reach_preserved": 1.0,
-              "cp_S3.resource_constraints": 1.0,
-              "cp_S3.static_margin": 0.0,
-              "cp_S3.still_valid": 1.0,
-              "cp_S5.testB": 0.6121,
-              "cp_S5.testC": 0.0,
-              "cp_S5.testD1": 0.3333,
-              "cp_S5.testD2": 1.0,
-              "cp_S5.testE": 0.0,
-              "cp_S7.payload_margin": 0.8333,
-              "cp_S7.pick_compat": 0.8333,
-              "design_base_mass_kg": 21.89,
-              "design_footprint_area_headroom_fraction": 0.118708,
-              "design_footprint_area_headroom_m2": 0.037227,
-              "design_footprint_area_m2": 0.276373,
-              "design_footprint_x_headroom_m": 0.006634,
-              "design_footprint_x_m": 0.553366,
-              "design_footprint_y_headroom_m": 0.06056,
-              "design_footprint_y_m": 0.49944,
-              "design_mass_budget_kg": 38.0,
-              "design_mass_headroom_fraction": 0.423947,
-              "design_mass_headroom_kg": 16.11,
-              "design_profile_length_headroom_fraction": 0.748333,
-              "design_profile_length_headroom_m": 8.98,
-              "design_profile_length_m": 3.02,
-              "design_score": 0.430329,
-              "design_total_mass_kg": 43.7599,
-              "dynamic_mean": 0.3891,
-              "dynamic_var": 0.19059,
-              "gated": 0.0,
-              "raw_total": 0.5775,
-              "reward": 0.5775,
-              "stage_design": 0.2247,
-              "stage_dynamic": 0.0778,
-              "stage_integration": 0.125,
               "stage_static": 0.0,
               "stage_validity": 0.15
             }
@@ -41774,158 +39991,6 @@
               "xarm7_stage_software": 0.0557,
               "xarm7_stage_validity": 0.0999,
               "xarm7_validity_deduction": 0.000132
-            }
-          }
-        }
-      },
-      "gpt61terra": {
-        "score": 0.5388,
-        "complete": true,
-        "n_runs": 1,
-        "n_subtasks": 1,
-        "missing": [],
-        "harness": "Codex",
-        "splits": {
-          "franka": {
-            "score": 0.6719,
-            "metric": "franka_reward",
-            "weight": 1.0,
-            "credit": 0.6719,
-            "n_runs": 1,
-            "complete": true
-          },
-          "ur5e": {
-            "score": 0.5293,
-            "metric": "ur5e_reward",
-            "weight": 1.0,
-            "credit": 0.5293,
-            "n_runs": 1,
-            "complete": true
-          },
-          "xarm7": {
-            "score": 0.4152,
-            "metric": "xarm7_reward",
-            "weight": 1.0,
-            "credit": 0.4152,
-            "n_runs": 1,
-            "complete": true
-          }
-        },
-        "subtasks": {
-          "gello": {
-            "reward": 0.5388,
-            "success_rate": null,
-            "cost_usd": 0.089181,
-            "cost_source": "harness",
-            "hours": 0.0589,
-            "status": "completed",
-            "harness": "Codex",
-            "agent": "codex",
-            "model": "openai/gpt-6.1-terra",
-            "job": "codex-gpt_6_1_terra-20261101T143354-f3a618984d45-terra_h216",
-            "started_at": "2026-11-01T14:33:54.773691",
-            "finished_at": "2026-11-01T14:37:26.682845",
-            "input_tokens": 456489,
-            "cached_tokens": 435840,
-            "output_tokens": 9348,
-            "metrics": {
-              "franka_cp_B1.combined_hold": 1.0,
-              "franka_cp_B2.combined_backdrive": 0.7451,
-              "franka_cp_B3.headroom": 0.4735,
-              "franka_cp_B4.push_recovery": 1.0,
-              "franka_cp_C1.budget": 1.0,
-              "franka_cp_C1.buildable": 1.0,
-              "franka_cp_C1.load": 1.0,
-              "franka_cp_C1.motion_clearance": 1.0,
-              "franka_cp_C1.printability": 1.0,
-              "franka_cp_C1.settle": 1.0,
-              "franka_cp_C1.springs_legal": 1.0,
-              "franka_cp_C1.structure": 1.0,
-              "franka_cp_H1.device_residual": 0.1102,
-              "franka_cp_H2.passive_hold": 0.3209,
-              "franka_cp_H3.passive_backdrive": 0.3316,
-              "franka_cp_S2.adapted_backdrive": 0.7379,
-              "franka_cp_S2.adapted_hold": 1.0,
-              "franka_deduction_C1.budget": 0.0,
-              "franka_deduction_C1.buildable": 0.0,
-              "franka_deduction_C1.load": 0.0,
-              "franka_deduction_C1.printability": 0.0,
-              "franka_deduction_C1.settle": 0.0,
-              "franka_deduction_C1.springs_legal": 0.0,
-              "franka_deduction_C1.structure": 0.0,
-              "franka_gated": 0.0,
-              "franka_raw_total": 0.6719,
-              "franka_reward": 0.6719,
-              "franka_stage_codesign": 0.3219,
-              "franka_stage_hardware": 0.0763,
-              "franka_stage_software": 0.1738,
-              "franka_stage_validity": 0.1,
-              "franka_validity_deduction": 0.0,
-              "reward": 0.5388,
-              "ur5e_cp_B1.combined_hold": 1.0,
-              "ur5e_cp_B2.combined_backdrive": 0.5103,
-              "ur5e_cp_B3.headroom": 0.415,
-              "ur5e_cp_B4.push_recovery": 0.0739,
-              "ur5e_cp_C1.budget": 1.0,
-              "ur5e_cp_C1.buildable": 1.0,
-              "ur5e_cp_C1.load": 1.0,
-              "ur5e_cp_C1.motion_clearance": 1.0,
-              "ur5e_cp_C1.printability": 1.0,
-              "ur5e_cp_C1.settle": 1.0,
-              "ur5e_cp_C1.springs_legal": 1.0,
-              "ur5e_cp_C1.structure": 1.0,
-              "ur5e_cp_H1.device_residual": 0.1368,
-              "ur5e_cp_H2.passive_hold": 0.3466,
-              "ur5e_cp_H3.passive_backdrive": 0.3078,
-              "ur5e_cp_S2.adapted_backdrive": 0.5021,
-              "ur5e_cp_S2.adapted_hold": 1.0,
-              "ur5e_deduction_C1.budget": 0.0,
-              "ur5e_deduction_C1.buildable": 0.0,
-              "ur5e_deduction_C1.load": 0.0,
-              "ur5e_deduction_C1.printability": 0.0,
-              "ur5e_deduction_C1.settle": 0.0,
-              "ur5e_deduction_C1.springs_legal": 0.0,
-              "ur5e_deduction_C1.structure": 0.0,
-              "ur5e_gated": 0.0,
-              "ur5e_raw_total": 0.5293,
-              "ur5e_reward": 0.5293,
-              "ur5e_stage_codesign": 0.1999,
-              "ur5e_stage_hardware": 0.0791,
-              "ur5e_stage_software": 0.1502,
-              "ur5e_stage_validity": 0.1,
-              "ur5e_validity_deduction": 0.0,
-              "xarm7_cp_B1.combined_hold": 0.5022,
-              "xarm7_cp_B2.combined_backdrive": 0.3869,
-              "xarm7_cp_B3.headroom": 0.4419,
-              "xarm7_cp_B4.push_recovery": 0.0086,
-              "xarm7_cp_C1.budget": 1.0,
-              "xarm7_cp_C1.buildable": 1.0,
-              "xarm7_cp_C1.load": 1.0,
-              "xarm7_cp_C1.motion_clearance": 1.0,
-              "xarm7_cp_C1.printability": 1.0,
-              "xarm7_cp_C1.settle": 1.0,
-              "xarm7_cp_C1.springs_legal": 1.0,
-              "xarm7_cp_C1.structure": 1.0,
-              "xarm7_cp_H1.device_residual": 0.1248,
-              "xarm7_cp_H2.passive_hold": 0.3156,
-              "xarm7_cp_H3.passive_backdrive": 0.2892,
-              "xarm7_cp_S2.adapted_backdrive": 0.4255,
-              "xarm7_cp_S2.adapted_hold": 0.6574,
-              "xarm7_deduction_C1.budget": 0.0,
-              "xarm7_deduction_C1.buildable": 0.0,
-              "xarm7_deduction_C1.load": 0.0,
-              "xarm7_deduction_C1.printability": 0.0,
-              "xarm7_deduction_C1.settle": 0.0,
-              "xarm7_deduction_C1.springs_legal": 0.0,
-              "xarm7_deduction_C1.structure": 0.0,
-              "xarm7_gated": 0.0,
-              "xarm7_raw_total": 0.4152,
-              "xarm7_reward": 0.4152,
-              "xarm7_stage_codesign": 0.134,
-              "xarm7_stage_hardware": 0.073,
-              "xarm7_stage_software": 0.1083,
-              "xarm7_stage_validity": 0.1,
-              "xarm7_validity_deduction": 0.0
             }
           }
         }

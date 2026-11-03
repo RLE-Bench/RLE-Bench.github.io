@@ -3359,6 +3359,182 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "task05/01-libero-open-design/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 13.381921000000004,
+      "reward": 0.804,
+      "success_rate": 0.804,
+      "metrics": {
+        "episodes": 500.0,
+        "parameters": 14854693.0,
+        "replay_wall_s": 859.5965966069998,
+        "reward": 0.804,
+        "success_rate": 0.804
+      },
+      "extra": {
+        "started_at": "2026-11-02T19:57:38.575868",
+        "finished_at": "2026-11-02T23:13:39.531023",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 19297716,
+          "n_cache_tokens": 19210752,
+          "n_output_tokens": 133669
+        },
+        "trials": [
+          {
+            "trial": "01-libero-open-design__F4vSMJT",
+            "rewards": {
+              "reward": 0.804,
+              "success_rate": 0.804,
+              "episodes": 500.0,
+              "parameters": 14854693.0,
+              "replay_wall_s": 859.5965966069998
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "task05/02-libero-robustness/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 12.520640000000002,
+      "reward": 0.306,
+      "success_rate": null,
+      "metrics": {
+        "episodes": 500.0,
+        "parameters": 42513452.0,
+        "plus_success_rate": 0.306,
+        "replay_wall_s": 1702.9240994539978,
+        "reward": 0.306
+      },
+      "extra": {
+        "started_at": "2026-11-02T23:13:42.223324",
+        "finished_at": "2026-11-03T03:49:01.684662",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 17826685,
+          "n_cache_tokens": 17748480,
+          "n_output_tokens": 130215
+        },
+        "trials": [
+          {
+            "trial": "02-libero-robustness__v4zqsyE",
+            "rewards": {
+              "reward": 0.306,
+              "plus_success_rate": 0.306,
+              "episodes": 500.0,
+              "parameters": 42513452.0,
+              "replay_wall_s": 1702.9240994539978
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "task05/03-robotwin-open-design/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 4.404452999999999,
+      "reward": 0.713333,
+      "success_rate": 0.7133333333333334,
+      "metrics": {
+        "episodes": 300.0,
+        "parameters": 9024116.0,
+        "replay_wall_s": 1622.163448444,
+        "reward": 0.713333,
+        "success_rate": 0.7133333333333334
+      },
+      "extra": {
+        "started_at": "2026-11-03T03:49:04.070771",
+        "finished_at": "2026-11-03T09:01:03.585848",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 33105152,
+          "n_cache_tokens": 33000832,
+          "n_output_tokens": 125863
+        },
+        "trials": [
+          {
+            "trial": "03-robotwin-open-design__A7xaH9t",
+            "rewards": {
+              "reward": 0.713333,
+              "success_rate": 0.7133333333333334,
+              "episodes": 300.0,
+              "parameters": 9024116.0,
+              "replay_wall_s": 1622.163448444
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "deepseek-flash-1017",
+      "job": "task05/04-robotwin-robustness/claude-code/deepseek_deepseek-flash",
+      "status": "completed",
+      "cost_usd": 7.840667999999998,
+      "reward": 0.164444,
+      "success_rate": 0.16444444444444445,
+      "metrics": {
+        "episodes": 225.0,
+        "parameters": 30373485.0,
+        "replay_wall_s": 1682.4209419649997,
+        "reward": 0.164444,
+        "success_rate": 0.16444444444444445
+      },
+      "extra": {
+        "started_at": "2026-11-03T09:01:06.088436",
+        "finished_at": "2026-11-03T16:05:16.070905",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 27746948,
+          "n_cache_tokens": 27563008,
+          "n_output_tokens": 182140
+        },
+        "trials": [
+          {
+            "trial": "04-robotwin-robustness__AXbzchL",
+            "rewards": {
+              "reward": 0.164444,
+              "success_rate": 0.16444444444444445,
+              "episodes": 225.0,
+              "parameters": 30373485.0,
+              "replay_wall_s": 1682.4209419649997
+            }
+          }
+        ]
+      }
     }
   ]
 }
