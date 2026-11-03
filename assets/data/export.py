@@ -34,7 +34,7 @@ same number as ``T01``. Only the tasks listed in ``TASKS`` below are exported; a
 K3, Gemini 3.8 Flash and GPT-6.1 Terra runs stay in the source dumps but are
 excluded from the public leaderboard across all tasks. GPT-6.1 Terra is held
 back temporarily. The older DeepSeek Flash snapshot is also excluded;
-DeepSeek-V4.1-Flash-1017 remains public.
+The DeepSeek-V4.1-Flash 1017 snapshot remains public.
 
 API costs come from the dumps except for models priced in ``assets/data/price/``,
 whose cost is recomputed from the run's token counts — a harness can bill a model
@@ -92,7 +92,7 @@ MODELS: tuple[ModelSpec, ...] = (
     ModelSpec("gpt61sol", "GPT-6.1 Sol", "GPT-6.1 Sol", "OpenAI", False, ("gpt-6-1-sol",)),
     ModelSpec("kimi31pro", "Kimi K3.1 Pro", "K3.1 Pro", "Moonshot AI", True, ("kimi-31-pro-nuvora", "kimi-k3-1-pro")),
     ModelSpec("gpt61terra", "GPT-6.1 Terra", "GPT-6.1 Terra", "OpenAI", False, ("gpt-6-1-terra",)),
-    ModelSpec("deepseek-flash-1017", "DeepSeek-V4.1-Flash-1017", "DeepSeek-V4.1-Flash-1017", "DeepSeek AI", True, ("deepseek-flash-1017",)),
+    ModelSpec("deepseek-flash-1017", "DeepSeek-V4.1-Flash", "DeepSeek-V4.1-Flash", "DeepSeek AI", True, ("deepseek-flash-1017",)),
 )
 
 # Reasoning-effort suffixes that some dumps append to the model string.

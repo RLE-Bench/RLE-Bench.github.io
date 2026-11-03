@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "measured",
-  "generated_at": "2026-11-03T18:12:03Z",
+  "generated_at": "2026-11-03T18:13:21Z",
   "generator": "assets/data/export.py",
   "source": {
     "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId] reports per-subtask means over the task's runs: cost = mean API cost in USD, hours = mean agent wall-clock hours, context_tokens = mean of input_tokens minus cached_tokens per run (the homepage's Context Length). cost_total, hours_total, hours_median and the input/cached/output token counts are the corresponding totals over runs. The homepage's overall figures average these per-task means within each workflow, then across workflows. Missing API cost or token counts stay null. Costs come from the run dumps except for the models listed under source.prices, whose cost is recomputed from token counts because their harness billed them against the wrong price sheet; costs[...].cost_sources and results[...].subtasks[...].cost_source say which applies. Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc.",
@@ -279,8 +279,8 @@
     },
     {
       "id": "deepseek-flash-1017",
-      "name": "DeepSeek-V4.1-Flash-1017",
-      "short": "DeepSeek-V4.1-Flash-1017",
+      "name": "DeepSeek-V4.1-Flash",
+      "short": "DeepSeek-V4.1-Flash",
       "org": "DeepSeek AI",
       "open": true,
       "harness": "Claude Code",

@@ -222,6 +222,9 @@
     });
     table.append(body); host.append(table);
     host.append(make('p', 'family-scale-note', metric === 'score' ? 'Each segment contributes one family’s share of the mean. Full width = 100 points.' : 'Each cell shows one task’s rank. Rank 1 is best; stronger colors indicate better ranks.'));
+    if (sorted.some(m => m.id === 'deepseek-flash-1017')) {
+      host.append(make('p', 'family-scale-note', 'DeepSeek-V4.1-Flash results use the updated 1017 snapshot (October 17, 2026).'));
+    }
   }
 
   /* Header, scope counts, and source status. */
