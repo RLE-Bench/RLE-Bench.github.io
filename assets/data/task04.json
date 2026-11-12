@@ -5319,6 +5319,346 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "claude_code-fable_5_2-20261110T211641-bf662260c530-01_dance_attempt_01_h216",
+      "status": "completed",
+      "cost_usd": 13.793988200000005,
+      "reward": 0.9179,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.0565,
+        "anchor_pos_err_m": 0.2346,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1613,
+        "mpjpe_m": 0.0213,
+        "n_params": 2910857.0,
+        "obs_history_length": 8.0,
+        "raw_total": 0.9179,
+        "reward": 0.9179,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.9223,
+        "tracking_score": 0.9941
+      },
+      "extra": {
+        "started_at": "2026-11-10T21:16:41.898882",
+        "finished_at": "2026-11-11T00:57:28.728322",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 17030576,
+          "n_cache_tokens": 16773061,
+          "n_output_tokens": 158018
+        },
+        "trials": [
+          {
+            "trial": "01-dance__aQ9tTDC",
+            "rewards": {
+              "reward": 0.9179,
+              "raw_total": 0.9179,
+              "gated": 0,
+              "tracking_score": 0.9941,
+              "tracking_multi": 0.9223,
+              "mpjpe_m": 0.0213,
+              "anchor_pos_err_m": 0.2346,
+              "joint_rmse_rad": 0.1613,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.0565,
+              "falls": 0.0,
+              "n_params": 2910857.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 8.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "claude_code-fable_5_2-20261110T221540-09bb362f2b7c-02_fight_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 12.937010800000007,
+      "reward": 0.8775,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.0899,
+        "anchor_pos_err_m": 0.4761,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1037,
+        "mpjpe_m": 0.0265,
+        "n_params": 1487068.0,
+        "obs_history_length": 5.0,
+        "raw_total": 0.8775,
+        "reward": 0.8775,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.8881,
+        "tracking_score": 0.9913
+      },
+      "extra": {
+        "started_at": "2026-11-10T22:15:40.662288",
+        "finished_at": "2026-11-11T01:54:49.253586",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 18590348,
+          "n_cache_tokens": 18352094,
+          "n_output_tokens": 136406
+        },
+        "trials": [
+          {
+            "trial": "02-fight__wHdzJfb",
+            "rewards": {
+              "reward": 0.8775,
+              "raw_total": 0.8775,
+              "gated": 0,
+              "tracking_score": 0.9913,
+              "tracking_multi": 0.8881,
+              "mpjpe_m": 0.0265,
+              "anchor_pos_err_m": 0.4761,
+              "joint_rmse_rad": 0.1037,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.0899,
+              "falls": 0.0,
+              "n_params": 1487068.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 5.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "claude_code-fable_5_2-20261110T221540-7747d4260568-03_fall_and_get_up_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 12.429741200000002,
+      "reward": 0.9016,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.0248,
+        "anchor_pos_err_m": 0.2224,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.14,
+        "mpjpe_m": 0.0276,
+        "n_params": 1322592.0,
+        "obs_history_length": 4.0,
+        "raw_total": 0.9016,
+        "reward": 0.9016,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.8768,
+        "tracking_score": 0.9879
+      },
+      "extra": {
+        "started_at": "2026-11-10T22:15:40.748210",
+        "finished_at": "2026-11-11T02:00:37.804715",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 16761057,
+          "n_cache_tokens": 16531906,
+          "n_output_tokens": 136466
+        },
+        "trials": [
+          {
+            "trial": "03-fall-and-get-up__Vb29agQ",
+            "rewards": {
+              "reward": 0.9016,
+              "raw_total": 0.9016,
+              "gated": 0,
+              "tracking_score": 0.9879,
+              "tracking_multi": 0.8768,
+              "mpjpe_m": 0.0276,
+              "anchor_pos_err_m": 0.2224,
+              "joint_rmse_rad": 0.14,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.0248,
+              "falls": 0.0,
+              "n_params": 1322592.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 4.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "claude_code-fable_5_2-20261111T015544-8d0ad0bfe8de-04_run_attempt_01_h217",
+      "status": "failed",
+      "cost_usd": 16.5135336,
+      "reward": 0.7956,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.1149,
+        "anchor_pos_err_m": 1.2658,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.1338,
+        "mpjpe_m": 0.0401,
+        "n_params": 896882.0,
+        "obs_history_length": 16.0,
+        "raw_total": 0.7956,
+        "reward": 0.7956,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.7887,
+        "tracking_score": 0.9798
+      },
+      "extra": {
+        "started_at": "2026-11-11T01:55:44.462522",
+        "finished_at": "2026-11-11T04:03:00.525683",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 1,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 18093450,
+          "n_cache_tokens": 17801788,
+          "n_output_tokens": 207205
+        },
+        "trials": [
+          {
+            "trial": "04-run__rEJyXEL",
+            "rewards": {
+              "reward": 0.7956,
+              "raw_total": 0.7956,
+              "gated": 0,
+              "tracking_score": 0.9798,
+              "tracking_multi": 0.7887,
+              "mpjpe_m": 0.0401,
+              "anchor_pos_err_m": 1.2658,
+              "joint_rmse_rad": 0.1338,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.1149,
+              "falls": 0.0,
+              "n_params": 896882.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 16.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "claude_code-fable_5_2-20261111T020119-df0f298e1861-05_sprint_attempt_01_h217",
+      "status": "failed",
+      "cost_usd": 9.191881200000001,
+      "reward": 0.9073,
+      "success_rate": null,
+      "metrics": {
+        "action_jerk": 0.027,
+        "anchor_pos_err_m": 1.4179,
+        "falls": 0.0,
+        "gate_deterministic": 1.0,
+        "gate_stable": 1.0,
+        "gate_valid": 1.0,
+        "gated": 0.0,
+        "joint_rmse_rad": 0.0816,
+        "mpjpe_m": 0.0263,
+        "n_params": 2492492.0,
+        "obs_history_length": 8.0,
+        "raw_total": 0.9073,
+        "reward": 0.9073,
+        "survival": 1.0,
+        "survived_s": 20.0,
+        "tracking_multi": 0.8865,
+        "tracking_score": 0.9902
+      },
+      "extra": {
+        "started_at": "2026-11-11T02:01:19.899656",
+        "finished_at": "2026-11-11T04:02:44.501640",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 1,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 8124897,
+          "n_cache_tokens": 7938166,
+          "n_output_tokens": 115439
+        },
+        "trials": [
+          {
+            "trial": "05-sprint__EcExVVg",
+            "rewards": {
+              "reward": 0.9073,
+              "raw_total": 0.9073,
+              "gated": 0,
+              "tracking_score": 0.9902,
+              "tracking_multi": 0.8865,
+              "mpjpe_m": 0.0263,
+              "anchor_pos_err_m": 1.4179,
+              "joint_rmse_rad": 0.0816,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "action_jerk": 0.027,
+              "falls": 0.0,
+              "n_params": 2492492.0,
+              "gate_valid": 1,
+              "gate_stable": 1,
+              "gate_deterministic": 1,
+              "obs_history_length": 8.0
+            }
+          }
+        ]
+      }
     }
   ]
 }

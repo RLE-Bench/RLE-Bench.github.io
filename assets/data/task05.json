@@ -3359,6 +3359,202 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "task05/01-libero-open-design/claude-code/anthropic_claude-fable-5-2",
+      "status": "completed",
+      "cost_usd": 1.6313490000000002,
+      "reward": 0.874,
+      "success_rate": 0.874,
+      "metrics": {
+        "episodes": 500.0,
+        "parameters": 98996267.0,
+        "replay_wall_s": 1676.5901545612141,
+        "reward": 0.874,
+        "success_rate": 0.874
+      },
+      "extra": {
+        "started_at": "2026-11-10T14:36:24.282064",
+        "finished_at": "2026-11-10T19:02:48.558038",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 2395215,
+          "n_cache_tokens": 2322330,
+          "n_output_tokens": 34013
+        },
+        "trials": [
+          {
+            "trial": "01-libero-open-design__MMYSrKe",
+            "status": "completed",
+            "started_at": "2026-11-10T19:36:24.356824Z",
+            "finished_at": "2026-11-11T00:02:48.542608Z",
+            "error": null,
+            "gated": null,
+            "rewards": {
+              "reward": 0.874,
+              "success_rate": 0.874,
+              "episodes": 500.0,
+              "parameters": 98996267.0,
+              "replay_wall_s": 1676.5901545612141
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "task05/02-libero-robustness/claude-code/anthropic_claude-fable-5-2",
+      "status": "completed",
+      "cost_usd": 7.4399630000000005,
+      "reward": 0.782,
+      "success_rate": null,
+      "metrics": {
+        "episodes": 500.0,
+        "parameters": 102535215.0,
+        "plus_success_rate": 0.782,
+        "replay_wall_s": 1562.3320284420624,
+        "reward": 0.782
+      },
+      "extra": {
+        "started_at": "2026-11-10T19:03:11.900589",
+        "finished_at": "2026-11-10T23:30:27.559135",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 8921445,
+          "n_cache_tokens": 8777215,
+          "n_output_tokens": 84455
+        },
+        "trials": [
+          {
+            "trial": "02-libero-robustness__kwBejxT",
+            "status": "completed",
+            "started_at": "2026-11-11T00:03:11.975517Z",
+            "finished_at": "2026-11-11T04:30:27.548661Z",
+            "error": null,
+            "gated": null,
+            "rewards": {
+              "reward": 0.782,
+              "plus_success_rate": 0.782,
+              "episodes": 500.0,
+              "parameters": 102535215.0,
+              "replay_wall_s": 1562.3320284420624
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "task05/03-robotwin-open-design/claude-code/anthropic_claude-fable-5-2",
+      "status": "completed",
+      "cost_usd": 4.36175,
+      "reward": 0.8,
+      "success_rate": 0.8,
+      "metrics": {
+        "episodes": 300.0,
+        "parameters": 106708588.0,
+        "replay_wall_s": 1531.2096189958975,
+        "reward": 0.8,
+        "success_rate": 0.8
+      },
+      "extra": {
+        "started_at": "2026-11-10T23:30:50.005136",
+        "finished_at": "2026-11-11T04:17:38.112225",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 4947548,
+          "n_cache_tokens": 4849990,
+          "n_output_tokens": 45795
+        },
+        "trials": [
+          {
+            "trial": "03-robotwin-open-design__WPchhAK",
+            "status": "completed",
+            "started_at": "2026-11-11T04:30:50.078280Z",
+            "finished_at": "2026-11-11T09:17:38.077603Z",
+            "error": null,
+            "gated": null,
+            "rewards": {
+              "reward": 0.8,
+              "success_rate": 0.8,
+              "episodes": 300.0,
+              "parameters": 106708588.0,
+              "replay_wall_s": 1531.2096189958975
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "task05/04-robotwin-robustness/claude-code/anthropic_claude-fable-5-2",
+      "status": "completed",
+      "cost_usd": 1.7991906,
+      "reward": 0.466667,
+      "success_rate": 0.4666666666666667,
+      "metrics": {
+        "episodes": 225.0,
+        "parameters": 109828972.0,
+        "replay_wall_s": 1502.1879647951573,
+        "reward": 0.466667,
+        "success_rate": 0.4666666666666667
+      },
+      "extra": {
+        "started_at": "2026-11-11T04:18:00.649155",
+        "finished_at": "2026-11-11T09:03:22.962178",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 2709222,
+          "n_cache_tokens": 2632289,
+          "n_output_tokens": 37835
+        },
+        "trials": [
+          {
+            "trial": "04-robotwin-robustness__TyEBB23",
+            "status": "completed",
+            "started_at": "2026-11-11T09:18:00.720576Z",
+            "finished_at": "2026-11-11T14:03:22.849618Z",
+            "error": null,
+            "gated": null,
+            "rewards": {
+              "reward": 0.466667,
+              "success_rate": 0.4666666666666667,
+              "episodes": 225.0,
+              "parameters": 109828972.0,
+              "replay_wall_s": 1502.1879647951573
+            }
+          }
+        ]
+      }
     }
   ]
 }
