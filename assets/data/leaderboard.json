@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "status": "measured",
-  "generated_at": "2026-11-02T01:14:33Z",
+  "generated_at": "2026-11-12T05:00:29Z",
   "generator": "assets/data/export.py",
   "source": {
     "note": "Aggregated from the per-task run dumps in assets/data/ (one taskNN.json per public task). scores[taskId][modelId] holds per-split scores aligned with tasks[taskId].splits; results[taskId][modelId].score is the task score (mean verifier reward over the task's subtasks). costs[taskId][modelId] reports per-subtask means over the task's runs: cost = mean API cost in USD, hours = mean agent wall-clock hours, context_tokens = mean of input_tokens minus cached_tokens per run (the homepage's Context Length). cost_total, hours_total, hours_median and the input/cached/output token counts are the corresponding totals over runs. The homepage's overall figures average these per-task means within each workflow, then across workflows. Missing API cost or token counts stay null. Costs come from the run dumps except for the models listed under source.prices, whose cost is recomputed from token counts because their harness billed them against the wrong price sheet; costs[...].cost_sources and results[...].subtasks[...].cost_source say which applies. Task ids equal the public task numbers used by data.js; tasks[taskId].public repeats it as T01 etc.",
@@ -50,68 +50,87 @@
         "file": "task01.json",
         "root": "jobs/task01",
         "schema_version": 1,
-        "runs": 240,
+        "runs": 255,
         "runs_skipped": 0
       },
       "task02": {
         "file": "task02.json",
         "root": "jobs/task02",
         "schema_version": 1,
-        "runs": 240,
+        "runs": 255,
         "runs_skipped": 0
       },
       "task03": {
         "file": "task03.json",
         "root": "jobs/task03",
         "schema_version": 1,
-        "runs": 80,
+        "runs": 85,
         "runs_skipped": 0
       },
       "task04": {
         "file": "task04.json",
         "root": "jobs/task04",
         "schema_version": 1,
-        "runs": 80,
+        "runs": 85,
         "runs_skipped": 0
       },
       "task05": {
         "file": "task05.json",
         "root": "jobs/task05",
         "schema_version": 1,
-        "runs": 76,
+        "runs": 80,
         "runs_skipped": 12
       },
       "task06": {
         "file": "task06.json",
         "root": "jobs/task06",
         "schema_version": 1,
-        "runs": 64,
+        "runs": 68,
         "runs_skipped": 0
       },
       "task07": {
         "file": "task07.json",
         "root": "jobs/task07",
         "schema_version": 1,
-        "runs": 16,
+        "runs": 17,
         "runs_skipped": 0
       },
       "task08": {
         "file": "task08.json",
         "root": "jobs/task08",
         "schema_version": 1,
-        "runs": 16,
+        "runs": 17,
         "runs_skipped": 0
       },
       "task09": {
         "file": "task09.json",
         "root": "jobs/task09",
         "schema_version": 1,
-        "runs": 16,
+        "runs": 17,
         "runs_skipped": 0
       }
     }
   },
   "models": [
+    {
+      "id": "fable52",
+      "name": "Claude Fable 5.2",
+      "short": "Fable 5.2",
+      "org": "Anthropic",
+      "open": false,
+      "harness": "Claude Code",
+      "tasks": [
+        "task01",
+        "task02",
+        "task03",
+        "task04",
+        "task05",
+        "task06",
+        "task07",
+        "task08",
+        "task09"
+      ]
+    },
     {
       "id": "gpt6astra",
       "name": "GPT-6 Astra",
@@ -557,11 +576,12 @@
           "kitchen_task": "05-pick-place-microwave-to-counter"
         }
       ],
-      "n_runs": 240,
+      "n_runs": 255,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
+        "fable52",
         "gemini37flash",
         "gemini4argon",
         "glm53flash",
@@ -717,11 +737,12 @@
           "heldout_task": "StoreLeftoversInBowl"
         }
       ],
-      "n_runs": 240,
+      "n_runs": 255,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
+        "fable52",
         "gemini37flash",
         "gemini4argon",
         "glm53flash",
@@ -809,11 +830,12 @@
           "label": "Hidden Center of Mass"
         }
       ],
-      "n_runs": 80,
+      "n_runs": 85,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
+        "fable52",
         "gemini37flash",
         "gemini4argon",
         "glm53flash",
@@ -901,11 +923,12 @@
           "label": "Sprint"
         }
       ],
-      "n_runs": 80,
+      "n_runs": 85,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
+        "fable52",
         "gemini37flash",
         "gemini4argon",
         "glm53flash",
@@ -982,11 +1005,12 @@
           "label": "RoboTwin · robustness"
         }
       ],
-      "n_runs": 76,
+      "n_runs": 80,
       "n_runs_skipped": 12,
       "models": [
         "deepseek-flash",
         "fable51",
+        "fable52",
         "gemini37flash",
         "gemini4argon",
         "glm53flash",
@@ -1063,11 +1087,12 @@
           "label": "Method agnostic"
         }
       ],
-      "n_runs": 64,
+      "n_runs": 68,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
+        "fable52",
         "gemini37flash",
         "gemini4argon",
         "glm53flash",
@@ -1119,11 +1144,12 @@
           "label": "Bin clearing"
         }
       ],
-      "n_runs": 16,
+      "n_runs": 17,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
+        "fable52",
         "gemini37flash",
         "gemini4argon",
         "glm53flash",
@@ -1196,11 +1222,12 @@
           "label": "Mobile base"
         }
       ],
-      "n_runs": 16,
+      "n_runs": 17,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
+        "fable52",
         "gemini37flash",
         "gemini4argon",
         "glm53flash",
@@ -1255,11 +1282,12 @@
           "label": "Gravity compensation"
         }
       ],
-      "n_runs": 16,
+      "n_runs": 17,
       "n_runs_skipped": 0,
       "models": [
         "deepseek-flash",
         "fable51",
+        "fable52",
         "gemini37flash",
         "gemini4argon",
         "glm53flash",
@@ -1358,6 +1386,11 @@
         0.313539,
         0.269218,
         0.411505
+      ],
+      "fable52": [
+        0.810084,
+        0.760287,
+        0.79263
       ]
     },
     "task02": {
@@ -1440,6 +1473,11 @@
         0.96,
         0.48,
         0.366667
+      ],
+      "fable52": [
+        0.966667,
+        0.936667,
+        0.78
       ]
     },
     "task03": {
@@ -1554,6 +1592,13 @@
         0.666667,
         0.0,
         0.333333
+      ],
+      "fable52": [
+        0.864998,
+        1.0,
+        1.0,
+        0.938931,
+        1.0
       ]
     },
     "task04": {
@@ -1668,6 +1713,13 @@
         0.8074,
         0.7642,
         0.6367
+      ],
+      "fable52": [
+        0.9179,
+        0.8775,
+        0.9016,
+        0.7956,
+        0.9073
       ]
     },
     "task05": {
@@ -1766,6 +1818,12 @@
         0.698,
         0.73,
         0.133333
+      ],
+      "fable52": [
+        0.874,
+        0.782,
+        0.8,
+        0.466667
       ]
     },
     "task06": {
@@ -1864,6 +1922,12 @@
         0.6768,
         0.0544,
         0.6517
+      ],
+      "fable52": [
+        0.9027,
+        0.8974,
+        0.4708,
+        0.989
       ]
     },
     "task07": {
@@ -1930,6 +1994,10 @@
       "kimi31pro": [
         0.7226,
         0.4249
+      ],
+      "fable52": [
+        1.0,
+        0.7941
       ]
     },
     "task08": {
@@ -2044,6 +2112,13 @@
         0.0,
         0.2665,
         1.0
+      ],
+      "fable52": [
+        1.0,
+        0.659429,
+        0.0,
+        0.362,
+        0.833333
       ]
     },
     "task09": {
@@ -2126,6 +2201,11 @@
         0.531,
         0.4608,
         0.4446
+      ],
+      "fable52": [
+        0.6343,
+        0.3842,
+        0.5292
       ]
     }
   },
@@ -2383,6 +2463,22 @@
         "output_tokens": 3512041,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 15,
+        "n_subtasks": 15
+      },
+      "fable52": {
+        "cost": 27.181032,
+        "cost_total": 407.715478,
+        "hours": 1.377,
+        "hours_median": 1.4042,
+        "hours_total": 20.6551,
+        "context_tokens": 513302.6,
+        "input_tokens": 657938589,
+        "cached_tokens": 650239050,
+        "output_tokens": 3935362,
+        "cost_sources": [
+          "harness"
         ],
         "n_runs": 15,
         "n_subtasks": 15
@@ -2644,6 +2740,22 @@
         ],
         "n_runs": 15,
         "n_subtasks": 15
+      },
+      "fable52": {
+        "cost": 103.273488,
+        "cost_total": 1549.102315,
+        "hours": 3.7746,
+        "hours_median": 3.7184,
+        "hours_total": 56.6184,
+        "context_tokens": 2087966.7,
+        "input_tokens": 2617819985,
+        "cached_tokens": 2586500485,
+        "output_tokens": 13341262,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 15,
+        "n_subtasks": 15
       }
     },
     "task03": {
@@ -2899,6 +3011,22 @@
         "output_tokens": 1029054,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 5,
+        "n_subtasks": 5
+      },
+      "fable52": {
+        "cost": 14.459314,
+        "cost_total": 72.296572,
+        "hours": 0.6564,
+        "hours_median": 0.6085,
+        "hours_total": 3.2821,
+        "context_tokens": 257545.4,
+        "input_tokens": 79525467,
+        "cached_tokens": 78237740,
+        "output_tokens": 901308,
+        "cost_sources": [
+          "harness"
         ],
         "n_runs": 5,
         "n_subtasks": 5
@@ -3160,6 +3288,22 @@
         ],
         "n_runs": 5,
         "n_subtasks": 5
+      },
+      "fable52": {
+        "cost": 12.973231,
+        "cost_total": 64.866155,
+        "hours": 3.0452,
+        "hours_median": 3.6524,
+        "hours_total": 15.2259,
+        "context_tokens": 240662.6,
+        "input_tokens": 78600328,
+        "cached_tokens": 77397015,
+        "output_tokens": 753534,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 5,
+        "n_subtasks": 5
       }
     },
     "task05": {
@@ -3415,6 +3559,22 @@
         "output_tokens": 844858,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 4,
+        "n_subtasks": 4
+      },
+      "fable52": {
+        "cost": 3.808063,
+        "cost_total": 15.232253,
+        "hours": 4.6077,
+        "hours_median": 4.6053,
+        "hours_total": 18.4307,
+        "context_tokens": 97901.5,
+        "input_tokens": 18973430,
+        "cached_tokens": 18581824,
+        "output_tokens": 202098,
+        "cost_sources": [
+          "harness"
         ],
         "n_runs": 4,
         "n_subtasks": 4
@@ -3676,6 +3836,22 @@
         ],
         "n_runs": 4,
         "n_subtasks": 4
+      },
+      "fable52": {
+        "cost": 9.829996,
+        "cost_total": 39.319983,
+        "hours": 1.2371,
+        "hours_median": 1.4118,
+        "hours_total": 4.9484,
+        "context_tokens": 186018.2,
+        "input_tokens": 38999589,
+        "cached_tokens": 38255516,
+        "output_tokens": 494214,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 4,
+        "n_subtasks": 4
       }
     },
     "task07": {
@@ -3931,6 +4107,22 @@
         "output_tokens": 325645,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "fable52": {
+        "cost": 30.255608,
+        "cost_total": 30.255608,
+        "hours": 3.5732,
+        "hours_median": 3.5732,
+        "hours_total": 3.5732,
+        "context_tokens": 509481.0,
+        "input_tokens": 50242720,
+        "cached_tokens": 49733239,
+        "output_tokens": 303992,
+        "cost_sources": [
+          "harness"
         ],
         "n_runs": 1,
         "n_subtasks": 1
@@ -4192,6 +4384,22 @@
         ],
         "n_runs": 1,
         "n_subtasks": 1
+      },
+      "fable52": {
+        "cost": 13.289737,
+        "cost_total": 13.289737,
+        "hours": 1.6798,
+        "hours_median": 1.6798,
+        "hours_total": 1.6798,
+        "context_tokens": 252504.0,
+        "input_tokens": 13722830,
+        "cached_tokens": 13470326,
+        "output_tokens": 163923,
+        "cost_sources": [
+          "harness"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
       }
     },
     "task09": {
@@ -4447,6 +4655,22 @@
         "output_tokens": 368959,
         "cost_sources": [
           "price/kimi-k3.1-pro.json:list"
+        ],
+        "n_runs": 1,
+        "n_subtasks": 1
+      },
+      "fable52": {
+        "cost": 6.746843,
+        "cost_total": 6.746843,
+        "hours": 0.5385,
+        "hours_median": 0.5385,
+        "hours_total": 0.5385,
+        "context_tokens": 153610.0,
+        "input_tokens": 4482186,
+        "cached_tokens": 4328576,
+        "output_tokens": 85599,
+        "cost_sources": [
+          "harness"
         ],
         "n_runs": 1,
         "n_subtasks": 1
@@ -11525,6 +11749,438 @@
               "infrastructure_failures": 0.0,
               "reward": 0.322168,
               "success_rate": 0.4,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          }
+        }
+      },
+      "fable52": {
+        "score": 0.787667,
+        "complete": true,
+        "n_runs": 15,
+        "n_subtasks": 15,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "L1": {
+            "score": 0.810084,
+            "reward": 0.810084,
+            "success_rate": 0.88,
+            "cost_usd": 168.029821,
+            "cost_usd_mean": 33.605964,
+            "hours_median": 1.5894,
+            "n_runs": 5,
+            "complete": true
+          },
+          "L2": {
+            "score": 0.760287,
+            "reward": 0.760287,
+            "success_rate": 0.84,
+            "cost_usd": 112.6178,
+            "cost_usd_mean": 22.52356,
+            "hours_median": 1.3445,
+            "n_runs": 5,
+            "complete": true
+          },
+          "L3": {
+            "score": 0.79263,
+            "reward": 0.79263,
+            "success_rate": 0.88,
+            "cost_usd": 127.067857,
+            "cost_usd_mean": 25.413571,
+            "hours_median": 1.2493,
+            "n_runs": 5,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "L1/01-open-fridge": {
+            "reward": 0.654896,
+            "success_rate": 0.8,
+            "cost_usd": 29.289711,
+            "cost_source": "harness",
+            "hours": 2.131,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L1/01-open-fridge/claude_code-fable_5_2-20261109T223107-e967513112bb-l1_01_open_fridge_attempt_01_h216",
+            "started_at": "2026-11-09T22:31:07.797667",
+            "finished_at": "2026-11-10T00:38:59.272671",
+            "input_tokens": 43533769,
+            "cached_tokens": 43022522,
+            "output_tokens": 315966,
+            "metrics": {
+              "development_steps": 45345.0,
+              "infrastructure_failures": 1.0,
+              "reward": 0.654896,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/02-close-cabinet": {
+            "reward": 0.520843,
+            "success_rate": 0.6,
+            "cost_usd": 26.915408,
+            "cost_source": "harness",
+            "hours": 1.5894,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L1/02-close-cabinet/claude_code-fable_5_2-20261110T015338-56b6e22ba2e0-l1_02_close_cabinet_attempt_01_h217",
+            "started_at": "2026-11-10T01:53:39.074673",
+            "finished_at": "2026-11-10T03:29:00.862721",
+            "input_tokens": 39932555,
+            "cached_tokens": 39416418,
+            "output_tokens": 325728,
+            "metrics": {
+              "development_steps": 32982.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.520843,
+              "success_rate": 0.6,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/03-turn-on-stove": {
+            "reward": 0.946308,
+            "success_rate": 1.0,
+            "cost_usd": 23.082919,
+            "cost_source": "harness",
+            "hours": 1.4296,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L1/03-turn-on-stove/claude_code-fable_5_2-20261110T032940-e0fbfc482ca9-l1_03_turn_on_stove_attempt_01_h217",
+            "started_at": "2026-11-10T03:29:40.701286",
+            "finished_at": "2026-11-10T04:55:27.085558",
+            "input_tokens": 42118756,
+            "cached_tokens": 41684234,
+            "output_tokens": 194909,
+            "metrics": {
+              "development_steps": 13423.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.946308,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/04-pick-place-counter-to-drawer": {
+            "reward": 0.980172,
+            "success_rate": 1.0,
+            "cost_usd": 26.859253,
+            "cost_source": "harness",
+            "hours": 1.1032,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L1/04-pick-place-counter-to-drawer/claude_code-fable_5_2-20261110T040900-11b528c00fb1-l1_04_pick_place_counter_to_drawer_attempt_01_h216",
+            "started_at": "2026-11-10T04:09:00.627832",
+            "finished_at": "2026-11-10T05:15:12.327734",
+            "input_tokens": 43164370,
+            "cached_tokens": 42555906,
+            "output_tokens": 215395,
+            "metrics": {
+              "development_steps": 4957.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.980172,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L1/05-pick-place-microwave-to-counter": {
+            "reward": 0.9482,
+            "success_rate": 1.0,
+            "cost_usd": 61.88253,
+            "cost_source": "harness",
+            "hours": 1.7399,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L1/05-pick-place-microwave-to-counter/claude_code-fable_5_2-20261110T050511-c12ad8951958-l1_05_pick_place_microwave_to_counter_attempt_01_h217",
+            "started_at": "2026-11-10T05:05:12.298970",
+            "finished_at": "2026-11-10T06:49:35.865409",
+            "input_tokens": 150775333,
+            "cached_tokens": 149619731,
+            "output_tokens": 336935,
+            "metrics": {
+              "development_steps": 12950.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.9482,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/01-open-fridge": {
+            "reward": 0.888608,
+            "success_rate": 1.0,
+            "cost_usd": 24.745719,
+            "cost_source": "harness",
+            "hours": 1.3445,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L2/01-open-fridge/claude_code-fable_5_2-20261110T065013-83387951584a-l2_01_open_fridge_attempt_01_h217",
+            "started_at": "2026-11-10T06:50:13.823762",
+            "finished_at": "2026-11-10T08:10:54.004198",
+            "input_tokens": 33095871,
+            "cached_tokens": 32647634,
+            "output_tokens": 276164,
+            "metrics": {
+              "development_steps": 27848.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.888608,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/02-close-cabinet": {
+            "reward": 0.513734,
+            "success_rate": 0.6,
+            "cost_usd": 29.886723,
+            "cost_source": "harness",
+            "hours": 1.4744,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L2/02-close-cabinet/claude_code-fable_5_2-20261110T072514-924d4d565a9a-l2_02_close_cabinet_attempt_01_h217",
+            "started_at": "2026-11-10T07:25:15.175216",
+            "finished_at": "2026-11-10T08:53:42.979596",
+            "input_tokens": 39356196,
+            "cached_tokens": 38784856,
+            "output_tokens": 324767,
+            "metrics": {
+              "development_steps": 35944.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.513734,
+              "success_rate": 0.6,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/03-turn-on-stove": {
+            "reward": 0.970008,
+            "success_rate": 1.0,
+            "cost_usd": 17.593594,
+            "cost_source": "harness",
+            "hours": 0.6776,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L2/03-turn-on-stove/claude_code-fable_5_2-20261110T072514-bad998b8c17c-l2_03_turn_on_stove_attempt_01_h217",
+            "started_at": "2026-11-10T07:25:15.268056",
+            "finished_at": "2026-11-10T08:05:54.731153",
+            "input_tokens": 29918159,
+            "cached_tokens": 29564608,
+            "output_tokens": 150654,
+            "metrics": {
+              "development_steps": 7498.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.970008,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/04-pick-place-counter-to-drawer": {
+            "reward": 0.93736,
+            "success_rate": 1.0,
+            "cost_usd": 14.989081,
+            "cost_source": "harness",
+            "hours": 0.8872,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L2/04-pick-place-counter-to-drawer/claude_code-fable_5_2-20261110T080645-2443ff388e8d-l2_04_pick_place_counter_to_drawer_attempt_01_h217",
+            "started_at": "2026-11-10T08:06:45.977089",
+            "finished_at": "2026-11-10T08:59:59.940867",
+            "input_tokens": 18781449,
+            "cached_tokens": 18481803,
+            "output_tokens": 162502,
+            "metrics": {
+              "development_steps": 15660.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.93736,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L2/05-pick-place-microwave-to-counter": {
+            "reward": 0.491724,
+            "success_rate": 0.6,
+            "cost_usd": 25.402683,
+            "cost_source": "harness",
+            "hours": 2.1052,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L2/05-pick-place-microwave-to-counter/claude_code-fable_5_2-20261110T081145-f6feef346b31-l2_05_pick_place_microwave_to_counter_attempt_01_h217",
+            "started_at": "2026-11-10T08:11:46.079146",
+            "finished_at": "2026-11-10T10:18:04.686011",
+            "input_tokens": 34531178,
+            "cached_tokens": 34045897,
+            "output_tokens": 270780,
+            "metrics": {
+              "development_steps": 45115.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.491724,
+              "success_rate": 0.6,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/01-open-fridge": {
+            "reward": 0.73511,
+            "success_rate": 0.8,
+            "cost_usd": 18.905697,
+            "cost_source": "harness",
+            "hours": 1.2493,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L3/01-open-fridge/claude_code-fable_5_2-20261110T085416-afbdede5e288-l3_01_open_fridge_attempt_01_h217",
+            "started_at": "2026-11-10T08:54:16.711229",
+            "finished_at": "2026-11-10T10:09:14.292543",
+            "input_tokens": 21438227,
+            "cached_tokens": 21052639,
+            "output_tokens": 226062,
+            "metrics": {
+              "development_steps": 20278.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.73511,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/02-close-cabinet": {
+            "reward": 0.856124,
+            "success_rate": 1.0,
+            "cost_usd": 28.326297,
+            "cost_source": "harness",
+            "hours": 1.4143,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L3/02-close-cabinet/claude_code-fable_5_2-20261110T090046-15e8d3afdd74-l3_02_close_cabinet_attempt_01_h217",
+            "started_at": "2026-11-10T09:00:46.831505",
+            "finished_at": "2026-11-10T10:25:38.408707",
+            "input_tokens": 35106204,
+            "cached_tokens": 34591407,
+            "output_tokens": 329332,
+            "metrics": {
+              "development_steps": 35969.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.856124,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/03-turn-on-stove": {
+            "reward": 0.974112,
+            "success_rate": 1.0,
+            "cost_usd": 36.089878,
+            "cost_source": "harness",
+            "hours": 1.1927,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L3/03-turn-on-stove/claude_code-fable_5_2-20261110T101317-4141221a5f31-l3_03_turn_on_stove_attempt_01_h217",
+            "started_at": "2026-11-10T10:13:17.615842",
+            "finished_at": "2026-11-10T11:24:51.389367",
+            "input_tokens": 76941229,
+            "cached_tokens": 76387068,
+            "output_tokens": 298744,
+            "metrics": {
+              "development_steps": 6472.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.974112,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/04-pick-place-counter-to-drawer": {
+            "reward": 0.566729,
+            "success_rate": 0.6,
+            "cost_usd": 18.197534,
+            "cost_source": "harness",
+            "hours": 0.9126,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L3/04-pick-place-counter-to-drawer/claude_code-fable_5_2-20261110T101847-406e0189cd8a-l3_04_pick_place_counter_to_drawer_attempt_01_h217",
+            "started_at": "2026-11-10T10:18:47.701008",
+            "finished_at": "2026-11-10T11:13:32.999131",
+            "input_tokens": 23786427,
+            "cached_tokens": 23441509,
+            "output_tokens": 199808,
+            "metrics": {
+              "development_steps": 13863.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.566729,
+              "success_rate": 0.6,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "L3/05-pick-place-microwave-to-counter": {
+            "reward": 0.831076,
+            "success_rate": 1.0,
+            "cost_usd": 25.548452,
+            "cost_source": "harness",
+            "hours": 1.4042,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "L3/05-pick-place-microwave-to-counter/claude_code-fable_5_2-20261110T102617-fb4593e269fe-l3_05_pick_place_microwave_to_counter_attempt_01_h217",
+            "started_at": "2026-11-10T10:26:18.260160",
+            "finished_at": "2026-11-10T11:50:33.554711",
+            "input_tokens": 25458866,
+            "cached_tokens": 24942818,
+            "output_tokens": 307616,
+            "metrics": {
+              "development_steps": 42231.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.831076,
+              "success_rate": 1.0,
               "trials_attempted": 5.0,
               "trials_recorded": 5.0,
               "trials_total": 5.0
@@ -19255,6 +19911,438 @@
             }
           }
         }
+      },
+      "fable52": {
+        "score": 0.894444,
+        "complete": true,
+        "n_runs": 15,
+        "n_subtasks": 15,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "EASY": {
+            "score": 0.966667,
+            "reward": 0.966667,
+            "success_rate": 0.92,
+            "cost_usd": 374.536734,
+            "cost_usd_mean": 74.907347,
+            "hours_median": 2.8907,
+            "n_runs": 5,
+            "complete": true
+          },
+          "MEDIUM": {
+            "score": 0.936667,
+            "reward": 0.936667,
+            "success_rate": 0.84,
+            "cost_usd": 545.575258,
+            "cost_usd_mean": 109.115052,
+            "hours_median": 3.9375,
+            "n_runs": 5,
+            "complete": true
+          },
+          "HARD": {
+            "score": 0.78,
+            "reward": 0.78,
+            "success_rate": 0.64,
+            "cost_usd": 628.990323,
+            "cost_usd_mean": 125.798065,
+            "hours_median": 4.9213,
+            "n_runs": 5,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-washing-dishes": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 48.192662,
+            "cost_source": "harness",
+            "hours": 2.4521,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "01-washing-dishes/claude_code-fable_5_2-20261110T134453-ba4ee9abab3a-01_washing_dishes_attempt_01_h217",
+            "started_at": "2026-11-10T13:44:53.473300",
+            "finished_at": "2026-11-10T16:12:01.059779",
+            "input_tokens": 69213313,
+            "cached_tokens": 68296188,
+            "output_tokens": 496606,
+            "metrics": {
+              "development_steps": 75000.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "02-sauteing-vegetables": {
+            "reward": 0.9,
+            "success_rate": 0.8,
+            "cost_usd": 68.367646,
+            "cost_source": "harness",
+            "hours": 2.7005,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "02-sauteing-vegetables/claude_code-fable_5_2-20261110T134453-42f8f2b2715f-02_sauteing_vegetables_attempt_01_h217",
+            "started_at": "2026-11-10T13:44:53.549274",
+            "finished_at": "2026-11-10T16:26:55.187296",
+            "input_tokens": 135925905,
+            "cached_tokens": 134838271,
+            "output_tokens": 600099,
+            "metrics": {
+              "development_steps": 75000.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.9,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "03-baking": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 112.726633,
+            "cost_source": "harness",
+            "hours": 3.8919,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "03-baking/claude_code-fable_5_2-20261110T134453-53eccc0514ec-03_baking_attempt_01_h217",
+            "started_at": "2026-11-10T13:44:53.639403",
+            "finished_at": "2026-11-10T17:38:24.496892",
+            "input_tokens": 171182394,
+            "cached_tokens": 168689283,
+            "output_tokens": 977675,
+            "metrics": {
+              "development_steps": 74964.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "04-reheating-food": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 71.040832,
+            "cost_source": "harness",
+            "hours": 2.8907,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "04-reheating-food/claude_code-fable_5_2-20261110T162756-c9712e8824da-04_reheating_food_attempt_01_h217",
+            "started_at": "2026-11-10T16:27:56.413526",
+            "finished_at": "2026-11-10T19:21:22.950592",
+            "input_tokens": 131221882,
+            "cached_tokens": 130070241,
+            "output_tokens": 665190,
+            "metrics": {
+              "development_steps": 74938.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "05-chopping-food": {
+            "reward": 0.933333,
+            "success_rate": 0.8,
+            "cost_usd": 74.208961,
+            "cost_source": "harness",
+            "hours": 3.2001,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "05-chopping-food/claude_code-fable_5_2-20261110T173858-0c7e4e2e78c4-05_chopping_food_attempt_01_h217",
+            "started_at": "2026-11-10T17:38:58.911701",
+            "finished_at": "2026-11-10T20:50:59.379254",
+            "input_tokens": 151740411,
+            "cached_tokens": 150606206,
+            "output_tokens": 648673,
+            "metrics": {
+              "development_steps": 73325.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.933333,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "06-setting-the-table": {
+            "reward": 0.9,
+            "success_rate": 0.8,
+            "cost_usd": 58.977096,
+            "cost_source": "harness",
+            "hours": 2.813,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "06-setting-the-table/claude_code-fable_5_2-20261110T192202-a96fd087f694-06_setting_the_table_attempt_01_h217",
+            "started_at": "2026-11-10T19:22:02.370537",
+            "finished_at": "2026-11-10T22:10:49.245203",
+            "input_tokens": 75438091,
+            "cached_tokens": 74246279,
+            "output_tokens": 626618,
+            "metrics": {
+              "development_steps": 74731.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.9,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "07-portioning-meals": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 120.111379,
+            "cost_source": "harness",
+            "hours": 4.5393,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "07-portioning-meals/claude_code-fable_5_2-20261110T193634-f0a03615b216-07_portioning_meals_attempt_01_h217",
+            "started_at": "2026-11-10T19:36:34.495372",
+            "finished_at": "2026-11-11T00:08:55.886886",
+            "input_tokens": 206002483,
+            "cached_tokens": 203528537,
+            "output_tokens": 995833,
+            "metrics": {
+              "development_steps": 74859.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "08-defrosting-food": {
+            "reward": 0.95,
+            "success_rate": 0.8,
+            "cost_usd": 139.220205,
+            "cost_source": "harness",
+            "hours": 4.2012,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "08-defrosting-food/claude_code-fable_5_2-20261110T221127-0982b230e173-08_defrosting_food_attempt_01_h217",
+            "started_at": "2026-11-10T22:11:27.578747",
+            "finished_at": "2026-11-11T02:23:31.732671",
+            "input_tokens": 235122586,
+            "cached_tokens": 231653984,
+            "output_tokens": 935060,
+            "metrics": {
+              "development_steps": 75000.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.95,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "09-arranging-buffet": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 107.711174,
+            "cost_source": "harness",
+            "hours": 3.9375,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "09-arranging-buffet/claude_code-fable_5_2-20261111T072930-08c88109e922-09_arranging_buffet_attempt_01_h217",
+            "started_at": "2026-11-11T07:29:30.576636",
+            "finished_at": "2026-11-11T11:25:45.454691",
+            "input_tokens": 176209365,
+            "cached_tokens": 173993831,
+            "output_tokens": 936863,
+            "metrics": {
+              "development_steps": 74917.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "10-serving-beverages": {
+            "reward": 0.833333,
+            "success_rate": 0.6,
+            "cost_usd": 119.555404,
+            "cost_source": "harness",
+            "hours": 3.6836,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "10-serving-beverages/claude_code-fable_5_2-20261111T081640-04513268cb79-10_serving_beverages_attempt_01_h217",
+            "started_at": "2026-11-11T08:16:41.223517",
+            "finished_at": "2026-11-11T11:57:42.272610",
+            "input_tokens": 239821544,
+            "cached_tokens": 237383578,
+            "output_tokens": 827062,
+            "metrics": {
+              "development_steps": 74906.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.833333,
+              "success_rate": 0.6,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "11-loading-fridge": {
+            "reward": 0.8,
+            "success_rate": 0.6,
+            "cost_usd": 88.939395,
+            "cost_source": "harness",
+            "hours": 3.7184,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "11-loading-fridge/claude_code-fable_5_2-20261111T033404-22d32fe6e025-11_loading_fridge_attempt_01_h217",
+            "started_at": "2026-11-11T03:34:04.798227",
+            "finished_at": "2026-11-11T07:17:10.954099",
+            "input_tokens": 125620868,
+            "cached_tokens": 124066897,
+            "output_tokens": 981748,
+            "metrics": {
+              "development_steps": 40980.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.8,
+              "success_rate": 0.6,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "12-managing-freezer-space": {
+            "reward": 0.3,
+            "success_rate": 0.2,
+            "cost_usd": 130.145595,
+            "cost_source": "harness",
+            "hours": 5.0606,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "12-managing-freezer-space/claude_code-fable_5_2-20261111T082843-5cecfe5b3d80-12_managing_freezer_space_attempt_01_h217",
+            "started_at": "2026-11-11T08:28:43.867720",
+            "finished_at": "2026-11-11T13:32:22.017268",
+            "input_tokens": 199970735,
+            "cached_tokens": 197479053,
+            "output_tokens": 1269809,
+            "metrics": {
+              "development_steps": 74548.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.3,
+              "success_rate": 0.2,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "13-clearing-table": {
+            "reward": 0.933333,
+            "success_rate": 0.8,
+            "cost_usd": 150.37479,
+            "cost_source": "harness",
+            "hours": 4.9213,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "13-clearing-table/claude_code-fable_5_2-20261111T133913-d05c8a97eabd-13_clearing_table_attempt_01_h217",
+            "started_at": "2026-11-11T13:39:13.558787",
+            "finished_at": "2026-11-11T18:34:30.292094",
+            "input_tokens": 262588721,
+            "cached_tokens": 259436011,
+            "output_tokens": 1243372,
+            "metrics": {
+              "development_steps": 73659.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.933333,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "14-microwaving-food": {
+            "reward": 0.933333,
+            "success_rate": 0.8,
+            "cost_usd": 91.91415,
+            "cost_source": "harness",
+            "hours": 3.1734,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "14-microwaving-food/claude_code-fable_5_2-20261111T140520-7a5fc051500c-14_microwaving_food_attempt_01_h217",
+            "started_at": "2026-11-11T14:05:20.963069",
+            "finished_at": "2026-11-11T17:15:45.192431",
+            "input_tokens": 138317171,
+            "cached_tokens": 136407801,
+            "output_tokens": 880985,
+            "metrics": {
+              "development_steps": 32696.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.933333,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          },
+          "15-storing-leftovers": {
+            "reward": 0.933333,
+            "success_rate": 0.8,
+            "cost_usd": 167.616393,
+            "cost_source": "harness",
+            "hours": 5.4349,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "15-storing-leftovers/claude_code-fable_5_2-20261111T152010-97f0087da7ff-15_storing_leftovers_attempt_01_h217",
+            "started_at": "2026-11-11T15:20:11.218358",
+            "finished_at": "2026-11-11T20:46:16.761883",
+            "input_tokens": 299444516,
+            "cached_tokens": 295804325,
+            "output_tokens": 1255669,
+            "metrics": {
+              "development_steps": 74914.0,
+              "infrastructure_failures": 0.0,
+              "reward": 0.933333,
+              "success_rate": 0.8,
+              "trials_attempted": 5.0,
+              "trials_recorded": 5.0,
+              "trials_total": 5.0
+            }
+          }
+        }
       }
     },
     "task03": {
@@ -22676,6 +23764,241 @@
               "trial_2_reward": 0.0,
               "trial_2_submitted": 1.0,
               "trial_3_control_steps": 769.0,
+              "trial_3_correct": 1.0,
+              "trial_3_reward": 1.0,
+              "trial_3_submitted": 1.0,
+              "trials_attempted": 3.0,
+              "trials_recorded": 3.0,
+              "trials_total": 3.0
+            }
+          }
+        }
+      },
+      "fable52": {
+        "score": 0.960786,
+        "complete": true,
+        "n_runs": 5,
+        "n_subtasks": 5,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-tower-max-height": {
+            "score": 0.864998,
+            "reward": 0.864998,
+            "success_rate": 0.864998,
+            "cost_usd": 14.556556,
+            "cost_usd_mean": 14.556556,
+            "hours_median": 0.7001,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-cantilever-overhang": {
+            "score": 1.0,
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 11.276538,
+            "cost_usd_mean": 11.276538,
+            "hours_median": 0.6085,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-balance-coins": {
+            "score": 1.0,
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 4.945441,
+            "cost_usd_mean": 4.945441,
+            "hours_median": 0.2709,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-rubik-cube": {
+            "score": 0.938931,
+            "reward": 0.938931,
+            "success_rate": 1.0,
+            "cost_usd": 32.1888,
+            "cost_usd_mean": 32.1888,
+            "hours_median": 1.2467,
+            "n_runs": 1,
+            "complete": true
+          },
+          "05-hidden-center-of-mass": {
+            "score": 1.0,
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 9.329236,
+            "cost_usd_mean": 9.329236,
+            "hours_median": 0.4559,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-tower-max-height": {
+            "reward": 0.864998,
+            "success_rate": 0.864998,
+            "cost_usd": 14.556556,
+            "cost_source": "harness",
+            "hours": 0.7001,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261110T193610-c791caa685c9-01_tower_max_height_attempt_01_h216",
+            "started_at": "2026-11-10T19:36:10.682783",
+            "finished_at": "2026-11-10T20:18:11.208817",
+            "input_tokens": 16133228,
+            "cached_tokens": 15861102,
+            "output_tokens": 175802,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 0.864998,
+              "development_steps": 36782.0,
+              "infrastructure_failures": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 36782.0,
+              "quality": 0.864998,
+              "reward": 0.864998,
+              "success_rate": 0.864998,
+              "task_score": 86.49984,
+              "trials_attempted": 1.0,
+              "trials_recorded": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "02-cantilever-overhang": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 11.276538,
+            "cost_source": "harness",
+            "hours": 0.6085,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261111T022345-a6cf369ac57e-02_cantilever_overhang_attempt_01_h216",
+            "started_at": "2026-11-11T02:23:45.325870",
+            "finished_at": "2026-11-11T03:00:15.993492",
+            "input_tokens": 9168306,
+            "cached_tokens": 8960291,
+            "output_tokens": 153936,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 1.0,
+              "development_steps": 16026.0,
+              "infrastructure_failures": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 16026.0,
+              "quality": 1.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "task_score": 100.0,
+              "trials_attempted": 1.0,
+              "trials_recorded": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "03-balance-coins": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 4.945441,
+            "cost_source": "harness",
+            "hours": 0.2709,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261111T030116-10745e5f34bb-03_balance_coins_attempt_01_h216",
+            "started_at": "2026-11-11T03:01:16.864791",
+            "finished_at": "2026-11-11T03:17:32.080635",
+            "input_tokens": 2910870,
+            "cached_tokens": 2808085,
+            "output_tokens": 68498,
+            "metrics": {
+              "component_efficiency": 0.0,
+              "component_outcome": 1.0,
+              "development_steps": 8558.0,
+              "infrastructure_failures": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 8558.0,
+              "quality": 1.0,
+              "reward": 1.0,
+              "success_rate": 1.0,
+              "task_score": 100.0,
+              "trials_attempted": 1.0,
+              "trials_recorded": 1.0,
+              "trials_total": 1.0
+            }
+          },
+          "04-rubik-cube": {
+            "reward": 0.938931,
+            "success_rate": 1.0,
+            "cost_usd": 32.1888,
+            "cost_source": "harness",
+            "hours": 1.2467,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261111T070147-1def2d44be97-04_rubik_cube_attempt_01_h216",
+            "started_at": "2026-11-11T07:01:48.172979",
+            "finished_at": "2026-11-11T08:16:36.206416",
+            "input_tokens": 46722145,
+            "cached_tokens": 46200240,
+            "output_tokens": 365020,
+            "metrics": {
+              "actual_qtm": 12.0,
+              "component_efficiency": 0.0,
+              "component_outcome": 0.938931,
+              "development_steps": 0.0,
+              "infrastructure_failures": 0.0,
+              "interaction_budget": 50000.0,
+              "interaction_steps": 7549.0,
+              "optimal_qtm": 11.0,
+              "quality": 0.938931,
+              "recoveries": 7.0,
+              "reward": 0.938931,
+              "success_rate": 1.0,
+              "task_score": 93.893091,
+              "trials_attempted": 1.0,
+              "trials_recorded": 1.0,
+              "trials_total": 1.0,
+              "unclassified_transitions": 0.0
+            }
+          },
+          "05-hidden-center-of-mass": {
+            "reward": 1.0,
+            "success_rate": 1.0,
+            "cost_usd": 9.329236,
+            "cost_source": "harness",
+            "hours": 0.4559,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261111T070147-18ccc7a2efc6-05_hidden_center_of_mass_attempt_01_h216",
+            "started_at": "2026-11-11T07:01:48.265472",
+            "finished_at": "2026-11-11T07:29:09.507391",
+            "input_tokens": 4590918,
+            "cached_tokens": 4408022,
+            "output_tokens": 138052,
+            "metrics": {
+              "control_steps": 834.0,
+              "correct": 3.0,
+              "development_steps": 0.0,
+              "infrastructure_failures": 0.0,
+              "reward": 1.0,
+              "submitted": 3.0,
+              "success_rate": 1.0,
+              "trial_1_control_steps": 236.0,
+              "trial_1_correct": 1.0,
+              "trial_1_reward": 1.0,
+              "trial_1_submitted": 1.0,
+              "trial_2_control_steps": 142.0,
+              "trial_2_correct": 1.0,
+              "trial_2_reward": 1.0,
+              "trial_2_submitted": 1.0,
+              "trial_3_control_steps": 456.0,
               "trial_3_correct": 1.0,
               "trial_3_reward": 1.0,
               "trial_3_submitted": 1.0,
@@ -26498,6 +27821,248 @@
             }
           }
         }
+      },
+      "fable52": {
+        "score": 0.87998,
+        "complete": true,
+        "n_runs": 5,
+        "n_subtasks": 5,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-dance": {
+            "score": 0.9179,
+            "reward": 0.9179,
+            "success_rate": null,
+            "cost_usd": 13.793988,
+            "cost_usd_mean": 13.793988,
+            "hours_median": 3.6797,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-fight": {
+            "score": 0.8775,
+            "reward": 0.8775,
+            "success_rate": null,
+            "cost_usd": 12.937011,
+            "cost_usd_mean": 12.937011,
+            "hours_median": 3.6524,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-fall-and-get-up": {
+            "score": 0.9016,
+            "reward": 0.9016,
+            "success_rate": null,
+            "cost_usd": 12.429741,
+            "cost_usd_mean": 12.429741,
+            "hours_median": 3.7492,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-run": {
+            "score": 0.7956,
+            "reward": 0.7956,
+            "success_rate": null,
+            "cost_usd": 16.513534,
+            "cost_usd_mean": 16.513534,
+            "hours_median": 2.1211,
+            "n_runs": 1,
+            "complete": true
+          },
+          "05-sprint": {
+            "score": 0.9073,
+            "reward": 0.9073,
+            "success_rate": null,
+            "cost_usd": 9.191881,
+            "cost_usd_mean": 9.191881,
+            "hours_median": 2.0235,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-dance": {
+            "reward": 0.9179,
+            "success_rate": null,
+            "cost_usd": 13.793988,
+            "cost_source": "harness",
+            "hours": 3.6797,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261110T211641-bf662260c530-01_dance_attempt_01_h216",
+            "started_at": "2026-11-10T21:16:41.898882",
+            "finished_at": "2026-11-11T00:57:28.728322",
+            "input_tokens": 17030576,
+            "cached_tokens": 16773061,
+            "output_tokens": 158018,
+            "metrics": {
+              "action_jerk": 0.0565,
+              "anchor_pos_err_m": 0.2346,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.1613,
+              "mpjpe_m": 0.0213,
+              "n_params": 2910857.0,
+              "obs_history_length": 8.0,
+              "raw_total": 0.9179,
+              "reward": 0.9179,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.9223,
+              "tracking_score": 0.9941
+            }
+          },
+          "02-fight": {
+            "reward": 0.8775,
+            "success_rate": null,
+            "cost_usd": 12.937011,
+            "cost_source": "harness",
+            "hours": 3.6524,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261110T221540-09bb362f2b7c-02_fight_attempt_01_h217",
+            "started_at": "2026-11-10T22:15:40.662288",
+            "finished_at": "2026-11-11T01:54:49.253586",
+            "input_tokens": 18590348,
+            "cached_tokens": 18352094,
+            "output_tokens": 136406,
+            "metrics": {
+              "action_jerk": 0.0899,
+              "anchor_pos_err_m": 0.4761,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.1037,
+              "mpjpe_m": 0.0265,
+              "n_params": 1487068.0,
+              "obs_history_length": 5.0,
+              "raw_total": 0.8775,
+              "reward": 0.8775,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.8881,
+              "tracking_score": 0.9913
+            }
+          },
+          "03-fall-and-get-up": {
+            "reward": 0.9016,
+            "success_rate": null,
+            "cost_usd": 12.429741,
+            "cost_source": "harness",
+            "hours": 3.7492,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261110T221540-7747d4260568-03_fall_and_get_up_attempt_01_h217",
+            "started_at": "2026-11-10T22:15:40.748210",
+            "finished_at": "2026-11-11T02:00:37.804715",
+            "input_tokens": 16761057,
+            "cached_tokens": 16531906,
+            "output_tokens": 136466,
+            "metrics": {
+              "action_jerk": 0.0248,
+              "anchor_pos_err_m": 0.2224,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.14,
+              "mpjpe_m": 0.0276,
+              "n_params": 1322592.0,
+              "obs_history_length": 4.0,
+              "raw_total": 0.9016,
+              "reward": 0.9016,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.8768,
+              "tracking_score": 0.9879
+            }
+          },
+          "04-run": {
+            "reward": 0.7956,
+            "success_rate": null,
+            "cost_usd": 16.513534,
+            "cost_source": "harness",
+            "hours": 2.1211,
+            "status": "failed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261111T015544-8d0ad0bfe8de-04_run_attempt_01_h217",
+            "started_at": "2026-11-11T01:55:44.462522",
+            "finished_at": "2026-11-11T04:03:00.525683",
+            "input_tokens": 18093450,
+            "cached_tokens": 17801788,
+            "output_tokens": 207205,
+            "metrics": {
+              "action_jerk": 0.1149,
+              "anchor_pos_err_m": 1.2658,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.1338,
+              "mpjpe_m": 0.0401,
+              "n_params": 896882.0,
+              "obs_history_length": 16.0,
+              "raw_total": 0.7956,
+              "reward": 0.7956,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.7887,
+              "tracking_score": 0.9798
+            }
+          },
+          "05-sprint": {
+            "reward": 0.9073,
+            "success_rate": null,
+            "cost_usd": 9.191881,
+            "cost_source": "harness",
+            "hours": 2.0235,
+            "status": "failed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261111T020119-df0f298e1861-05_sprint_attempt_01_h217",
+            "started_at": "2026-11-11T02:01:19.899656",
+            "finished_at": "2026-11-11T04:02:44.501640",
+            "input_tokens": 8124897,
+            "cached_tokens": 7938166,
+            "output_tokens": 115439,
+            "metrics": {
+              "action_jerk": 0.027,
+              "anchor_pos_err_m": 1.4179,
+              "falls": 0.0,
+              "gate_deterministic": 1.0,
+              "gate_stable": 1.0,
+              "gate_valid": 1.0,
+              "gated": 0.0,
+              "joint_rmse_rad": 0.0816,
+              "mpjpe_m": 0.0263,
+              "n_params": 2492492.0,
+              "obs_history_length": 8.0,
+              "raw_total": 0.9073,
+              "reward": 0.9073,
+              "survival": 1.0,
+              "survived_s": 20.0,
+              "tracking_multi": 0.8865,
+              "tracking_score": 0.9902
+            }
+          }
+        }
       }
     },
     "task05": {
@@ -28863,6 +30428,154 @@
               "replay_wall_s": 1161.844553,
               "reward": 0.133333,
               "success_rate": 0.133333
+            }
+          }
+        }
+      },
+      "fable52": {
+        "score": 0.730667,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-libero-open-design": {
+            "score": 0.874,
+            "reward": 0.874,
+            "success_rate": 0.874,
+            "cost_usd": 1.631349,
+            "cost_usd_mean": 1.631349,
+            "hours_median": 4.4401,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-libero-robustness": {
+            "score": 0.782,
+            "reward": 0.782,
+            "success_rate": null,
+            "cost_usd": 7.439963,
+            "cost_usd_mean": 7.439963,
+            "hours_median": 4.4543,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-robotwin-open-design": {
+            "score": 0.8,
+            "reward": 0.8,
+            "success_rate": 0.8,
+            "cost_usd": 4.36175,
+            "cost_usd_mean": 4.36175,
+            "hours_median": 4.78,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-robotwin-robustness": {
+            "score": 0.466667,
+            "reward": 0.466667,
+            "success_rate": 0.466667,
+            "cost_usd": 1.799191,
+            "cost_usd_mean": 1.799191,
+            "hours_median": 4.7562,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-libero-open-design": {
+            "reward": 0.874,
+            "success_rate": 0.874,
+            "cost_usd": 1.631349,
+            "cost_source": "harness",
+            "hours": 4.4401,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "task05/01-libero-open-design/claude-code/anthropic_claude-fable-5-2",
+            "started_at": "2026-11-10T14:36:24.282064",
+            "finished_at": "2026-11-10T19:02:48.558038",
+            "input_tokens": 2395215,
+            "cached_tokens": 2322330,
+            "output_tokens": 34013,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 98996267.0,
+              "replay_wall_s": 1676.590155,
+              "reward": 0.874,
+              "success_rate": 0.874
+            }
+          },
+          "02-libero-robustness": {
+            "reward": 0.782,
+            "success_rate": null,
+            "cost_usd": 7.439963,
+            "cost_source": "harness",
+            "hours": 4.4543,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "task05/02-libero-robustness/claude-code/anthropic_claude-fable-5-2",
+            "started_at": "2026-11-10T19:03:11.900589",
+            "finished_at": "2026-11-10T23:30:27.559135",
+            "input_tokens": 8921445,
+            "cached_tokens": 8777215,
+            "output_tokens": 84455,
+            "metrics": {
+              "episodes": 500.0,
+              "parameters": 102535215.0,
+              "plus_success_rate": 0.782,
+              "replay_wall_s": 1562.332028,
+              "reward": 0.782
+            }
+          },
+          "03-robotwin-open-design": {
+            "reward": 0.8,
+            "success_rate": 0.8,
+            "cost_usd": 4.36175,
+            "cost_source": "harness",
+            "hours": 4.78,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "task05/03-robotwin-open-design/claude-code/anthropic_claude-fable-5-2",
+            "started_at": "2026-11-10T23:30:50.005136",
+            "finished_at": "2026-11-11T04:17:38.112225",
+            "input_tokens": 4947548,
+            "cached_tokens": 4849990,
+            "output_tokens": 45795,
+            "metrics": {
+              "episodes": 300.0,
+              "parameters": 106708588.0,
+              "replay_wall_s": 1531.209619,
+              "reward": 0.8,
+              "success_rate": 0.8
+            }
+          },
+          "04-robotwin-robustness": {
+            "reward": 0.466667,
+            "success_rate": 0.466667,
+            "cost_usd": 1.799191,
+            "cost_source": "harness",
+            "hours": 4.7562,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "task05/04-robotwin-robustness/claude-code/anthropic_claude-fable-5-2",
+            "started_at": "2026-11-11T04:18:00.649155",
+            "finished_at": "2026-11-11T09:03:22.962178",
+            "input_tokens": 2709222,
+            "cached_tokens": 2632289,
+            "output_tokens": 37835,
+            "metrics": {
+              "episodes": 225.0,
+              "parameters": 109828972.0,
+              "replay_wall_s": 1502.187965,
+              "reward": 0.466667,
+              "success_rate": 0.466667
             }
           }
         }
@@ -32512,6 +34225,238 @@
             }
           }
         }
+      },
+      "fable52": {
+        "score": 0.814975,
+        "complete": true,
+        "n_runs": 4,
+        "n_subtasks": 4,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "01-rgb-only": {
+            "score": 0.9027,
+            "reward": 0.9027,
+            "success_rate": null,
+            "cost_usd": 11.707712,
+            "cost_usd_mean": 11.707712,
+            "hours_median": 1.1823,
+            "n_runs": 1,
+            "complete": true
+          },
+          "02-rgb-depth": {
+            "score": 0.8974,
+            "reward": 0.8974,
+            "success_rate": null,
+            "cost_usd": 4.693075,
+            "cost_usd_mean": 4.693075,
+            "hours_median": 0.4013,
+            "n_runs": 1,
+            "complete": true
+          },
+          "03-model-training": {
+            "score": 0.4708,
+            "reward": 0.4708,
+            "success_rate": null,
+            "cost_usd": 9.580603,
+            "cost_usd_mean": 9.580603,
+            "hours_median": 1.7235,
+            "n_runs": 1,
+            "complete": true
+          },
+          "04-method-agnostic": {
+            "score": 0.989,
+            "reward": 0.989,
+            "success_rate": null,
+            "cost_usd": 13.338593,
+            "cost_usd_mean": 13.338593,
+            "hours_median": 1.6414,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "01-rgb-only": {
+            "reward": 0.9027,
+            "success_rate": null,
+            "cost_usd": 11.707712,
+            "cost_source": "harness",
+            "hours": 1.1823,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261111T071723-93dfd6ea9f4c-rgb_only_attempt_01_h216",
+            "started_at": "2026-11-11T07:17:23.440116",
+            "finished_at": "2026-11-11T08:28:19.778519",
+            "input_tokens": 12052033,
+            "cached_tokens": 11834081,
+            "output_tokens": 146378,
+            "metrics": {
+              "abs_median_rot_deg": 0.07,
+              "abs_median_trans_mm": 0.31,
+              "abs_occluded_trans_mm": 0.4,
+              "accuracy_reward": 0.902715,
+              "cp_A.pose": 0.9984,
+              "cp_B.pose": 0.8617,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.0,
+              "frame_time_s": 0.029479,
+              "gated": 0.0,
+              "inference_hz": 33.922283,
+              "inference_wall_s": 20.635404,
+              "merit": 0.9027,
+              "raw_total": 0.9027,
+              "reward": 0.9027,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 1.0,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 0.1,
+              "stage_b_median_trans_mm": 0.37,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 1.0,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.2995,
+              "stage_stage_b": 0.6032
+            }
+          },
+          "02-rgb-depth": {
+            "reward": 0.8974,
+            "success_rate": null,
+            "cost_usd": 4.693075,
+            "cost_source": "harness",
+            "hours": 0.4013,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261111T030953-3199a1342664-rgb_depth_attempt_01_h216",
+            "started_at": "2026-11-11T03:09:53.875381",
+            "finished_at": "2026-11-11T03:33:58.411676",
+            "input_tokens": 2302770,
+            "cached_tokens": 2202337,
+            "output_tokens": 66156,
+            "metrics": {
+              "abs_median_rot_deg": 0.23,
+              "abs_median_trans_mm": 0.79,
+              "abs_occluded_trans_mm": 1.19,
+              "accuracy_reward": 0.897366,
+              "cp_A.pose": 0.9918,
+              "cp_B.pose": 0.8569,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.0,
+              "frame_time_s": 0.058044,
+              "gated": 0.0,
+              "inference_hz": 17.228362,
+              "inference_wall_s": 40.630676,
+              "merit": 0.8974,
+              "raw_total": 0.8974,
+              "reward": 0.8974,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 1.0,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 0.29,
+              "stage_b_median_trans_mm": 1.01,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 1.0,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.2975,
+              "stage_stage_b": 0.5998
+            }
+          },
+          "03-model-training": {
+            "reward": 0.4708,
+            "success_rate": null,
+            "cost_usd": 9.580603,
+            "cost_source": "harness",
+            "hours": 1.7235,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261110T175202-6442b9218eb2-rgb_depth_model_training_attempt_01_h216",
+            "started_at": "2026-11-10T17:52:02.645190",
+            "finished_at": "2026-11-10T19:35:27.079373",
+            "input_tokens": 10302897,
+            "cached_tokens": 10125615,
+            "output_tokens": 118007,
+            "metrics": {
+              "abs_median_rot_deg": 0.22,
+              "abs_median_trans_mm": 0.69,
+              "abs_occluded_trans_mm": 2.02,
+              "accuracy_reward": 0.470827,
+              "cp_A.pose": 0.893,
+              "cp_B.pose": 0.2899,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.0,
+              "frame_time_s": 0.09513,
+              "gated": 0.0,
+              "inference_hz": 10.511903,
+              "inference_wall_s": 66.591175,
+              "merit": 0.4708,
+              "raw_total": 0.4708,
+              "reward": 0.4708,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 0.99,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 0.36,
+              "stage_b_median_trans_mm": 1.14,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 0.97,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.2679,
+              "stage_stage_b": 0.2029
+            }
+          },
+          "04-method-agnostic": {
+            "reward": 0.989,
+            "success_rate": null,
+            "cost_usd": 13.338593,
+            "cost_source": "harness",
+            "hours": 1.6414,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261110T161230-89a3b3f0ce36-method_agnostic_attempt_01_h216",
+            "started_at": "2026-11-10T16:12:30.968091",
+            "finished_at": "2026-11-10T17:50:59.934312",
+            "input_tokens": 14341889,
+            "cached_tokens": 14093483,
+            "output_tokens": 163673,
+            "metrics": {
+              "abs_median_rot_deg": 0.1,
+              "abs_median_trans_mm": 0.33,
+              "abs_occluded_trans_mm": 0.75,
+              "accuracy_reward": 0.988994,
+              "cp_A.pose": 0.9979,
+              "cp_B.pose": 0.9852,
+              "cp_G.load": 1.0,
+              "efficiency_deduction": 0.0,
+              "frame_time_s": 0.079568,
+              "gated": 0.0,
+              "inference_hz": 12.567845,
+              "inference_wall_s": 55.697697,
+              "merit": 0.989,
+              "raw_total": 0.989,
+              "reward": 0.989,
+              "stage_a_frames": 100.0,
+              "stage_a_shape_accuracy": 1.0,
+              "stage_b_frames": 600.0,
+              "stage_b_median_rot_deg": 0.15,
+              "stage_b_median_trans_mm": 0.53,
+              "stage_b_occluded_fraction": 0.4733,
+              "stage_b_occluded_frames": 284.0,
+              "stage_b_shape_accuracy": 1.0,
+              "stage_gate": 0.0,
+              "stage_stage_a": 0.2994,
+              "stage_stage_b": 0.6896
+            }
+          }
+        }
       }
     },
     "task07": {
@@ -33583,6 +35528,73 @@
               "reward": 0.3096,
               "speed_merit": 0.4249,
               "throughput_ppm": 6.1296
+            }
+          }
+        }
+      },
+      "fable52": {
+        "score": 1.0,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "clearance": {
+            "score": 1.0,
+            "metric": "clear_frac",
+            "weight": 1.0,
+            "credit": 1.0,
+            "n_runs": 1,
+            "complete": true
+          },
+          "throughput": {
+            "score": 0.7941,
+            "metric": "speed_merit",
+            "weight": 1.0,
+            "credit": 0.7941,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "bin-clearing": {
+            "reward": 1.0,
+            "success_rate": null,
+            "cost_usd": 30.255608,
+            "cost_source": "harness",
+            "hours": 3.5732,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261111T114504-de96b982bd17-attempt_01_h216",
+            "started_at": "2026-11-11T11:45:04.362002",
+            "finished_at": "2026-11-11T15:19:27.765943",
+            "input_tokens": 50242720,
+            "cached_tokens": 49733239,
+            "output_tokens": 303992,
+            "metrics": {
+              "bin_hits": 0.0,
+              "clear_frac": 1.0,
+              "damage_events": 0.0,
+              "episode_wall_s_total": 1428.0165,
+              "floor_drops": 0.0,
+              "gate_contract": 1.0,
+              "gate_determinism": 1.0,
+              "gate_load": 1.0,
+              "gate_stable": 1.0,
+              "gated": 0.0,
+              "harness_wall_s_total": 1390.6705,
+              "makespan_s": 44.2563,
+              "n_parts": 112.0,
+              "parts_cleared": 112.0,
+              "policy_faults": 0.0,
+              "policy_wall_s_total": 37.346,
+              "raw_total": 1.0,
+              "reward": 1.0,
+              "speed_merit": 0.7941,
+              "throughput_ppm": 18.9747
             }
           }
         }
@@ -35417,6 +37429,122 @@
               "stage_design": 0.2396,
               "stage_dynamic": 0.0533,
               "stage_integration": 0.15,
+              "stage_static": 0.0,
+              "stage_validity": 0.15
+            }
+          }
+        }
+      },
+      "fable52": {
+        "score": 0.5782,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "validity": {
+            "score": 1.0,
+            "metric": "stage_validity",
+            "weight": 0.15,
+            "credit": 0.15,
+            "n_runs": 1,
+            "complete": true
+          },
+          "design": {
+            "score": 0.659429,
+            "metric": "stage_design",
+            "weight": 0.35,
+            "credit": 0.2308,
+            "n_runs": 1,
+            "complete": true
+          },
+          "static": {
+            "score": 0.0,
+            "metric": "stage_static",
+            "weight": 0.15,
+            "credit": 0.0,
+            "n_runs": 1,
+            "complete": true
+          },
+          "dynamic": {
+            "score": 0.362,
+            "metric": "stage_dynamic",
+            "weight": 0.2,
+            "credit": 0.0724,
+            "n_runs": 1,
+            "complete": true
+          },
+          "integration": {
+            "score": 0.833333,
+            "metric": "stage_integration",
+            "weight": 0.15,
+            "credit": 0.125,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "mobile-base": {
+            "reward": 0.5782,
+            "success_rate": null,
+            "cost_usd": 13.289737,
+            "cost_source": "harness",
+            "hours": 1.6798,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261111T115806-4ca9a446ad07-attempt_01_h216",
+            "started_at": "2026-11-11T11:58:06.415768",
+            "finished_at": "2026-11-11T13:38:53.630085",
+            "input_tokens": 13722830,
+            "cached_tokens": 13470326,
+            "output_tokens": 163923,
+            "metrics": {
+              "cp_S1.equilibrium": 1.0,
+              "cp_S1.inertia": 1.0,
+              "cp_S1.load": 1.0,
+              "cp_S1.mecanum": 1.0,
+              "cp_S1.structure": 1.0,
+              "cp_S3.battery_onboard": 1.0,
+              "cp_S3.design_efficiency": 0.4584,
+              "cp_S3.reach_beyond": 1.0,
+              "cp_S3.reach_preserved": 1.0,
+              "cp_S3.resource_constraints": 1.0,
+              "cp_S3.static_margin": 0.0,
+              "cp_S3.still_valid": 1.0,
+              "cp_S5.testB": 0.1423,
+              "cp_S5.testC": 0.0,
+              "cp_S5.testD1": 0.6667,
+              "cp_S5.testD2": 1.0,
+              "cp_S5.testE": 0.0,
+              "cp_S7.payload_margin": 0.8333,
+              "cp_S7.pick_compat": 0.8333,
+              "design_base_mass_kg": 20.74312,
+              "design_footprint_area_headroom_fraction": 0.203941,
+              "design_footprint_area_headroom_m2": 0.063956,
+              "design_footprint_area_m2": 0.249644,
+              "design_footprint_x_headroom_m": 0.016634,
+              "design_footprint_x_m": 0.543366,
+              "design_footprint_y_headroom_m": 0.10056,
+              "design_footprint_y_m": 0.45944,
+              "design_mass_budget_kg": 38.0,
+              "design_mass_headroom_fraction": 0.454128,
+              "design_mass_headroom_kg": 17.25688,
+              "design_profile_length_headroom_fraction": 0.717,
+              "design_profile_length_headroom_m": 8.604,
+              "design_profile_length_m": 3.396,
+              "design_score": 0.458356,
+              "design_total_mass_kg": 38.310021,
+              "dynamic_mean": 0.3618,
+              "dynamic_var": 0.21459,
+              "gated": 0.0,
+              "raw_total": 0.5782,
+              "reward": 0.5782,
+              "stage_design": 0.2308,
+              "stage_dynamic": 0.0724,
+              "stage_integration": 0.125,
               "stage_static": 0.0,
               "stage_validity": 0.15
             }
@@ -37853,6 +39981,158 @@
               "xarm7_stage_software": 0.0557,
               "xarm7_stage_validity": 0.0999,
               "xarm7_validity_deduction": 0.000132
+            }
+          }
+        }
+      },
+      "fable52": {
+        "score": 0.5159,
+        "complete": true,
+        "n_runs": 1,
+        "n_subtasks": 1,
+        "missing": [],
+        "harness": "Claude Code",
+        "splits": {
+          "franka": {
+            "score": 0.6343,
+            "metric": "franka_reward",
+            "weight": 1.0,
+            "credit": 0.6343,
+            "n_runs": 1,
+            "complete": true
+          },
+          "ur5e": {
+            "score": 0.3842,
+            "metric": "ur5e_reward",
+            "weight": 1.0,
+            "credit": 0.3842,
+            "n_runs": 1,
+            "complete": true
+          },
+          "xarm7": {
+            "score": 0.5292,
+            "metric": "xarm7_reward",
+            "weight": 1.0,
+            "credit": 0.5292,
+            "n_runs": 1,
+            "complete": true
+          }
+        },
+        "subtasks": {
+          "gello": {
+            "reward": 0.5159,
+            "success_rate": null,
+            "cost_usd": 6.746843,
+            "cost_source": "harness",
+            "hours": 0.5385,
+            "status": "completed",
+            "harness": "Claude Code",
+            "agent": "claude-code",
+            "model": "anthropic/claude-fable-5-2",
+            "job": "claude_code-fable_5_2-20261111T133242-4fc698bb415b-attempt_01_h216",
+            "started_at": "2026-11-11T13:32:42.868373",
+            "finished_at": "2026-11-11T14:05:01.478191",
+            "input_tokens": 4482186,
+            "cached_tokens": 4328576,
+            "output_tokens": 85599,
+            "metrics": {
+              "franka_cp_B1.combined_hold": 0.9562,
+              "franka_cp_B2.combined_backdrive": 0.7481,
+              "franka_cp_B3.headroom": 0.4808,
+              "franka_cp_B4.push_recovery": 0.7126,
+              "franka_cp_C1.budget": 1.0,
+              "franka_cp_C1.buildable": 1.0,
+              "franka_cp_C1.load": 1.0,
+              "franka_cp_C1.motion_clearance": 1.0,
+              "franka_cp_C1.printability": 1.0,
+              "franka_cp_C1.settle": 1.0,
+              "franka_cp_C1.springs_legal": 1.0,
+              "franka_cp_C1.structure": 1.0,
+              "franka_cp_H1.device_residual": 0.1207,
+              "franka_cp_H2.passive_hold": 0.282,
+              "franka_cp_H3.passive_backdrive": 0.2899,
+              "franka_cp_S2.adapted_backdrive": 0.7525,
+              "franka_cp_S2.adapted_hold": 1.0,
+              "franka_deduction_C1.budget": 0.0,
+              "franka_deduction_C1.buildable": 0.0,
+              "franka_deduction_C1.load": 0.0,
+              "franka_deduction_C1.printability": 0.0,
+              "franka_deduction_C1.settle": 0.0,
+              "franka_deduction_C1.springs_legal": 0.0,
+              "franka_deduction_C1.structure": 0.0,
+              "franka_gated": 0.0,
+              "franka_raw_total": 0.6343,
+              "franka_reward": 0.6343,
+              "franka_stage_codesign": 0.2898,
+              "franka_stage_hardware": 0.0693,
+              "franka_stage_software": 0.1752,
+              "franka_stage_validity": 0.1,
+              "franka_validity_deduction": 0.0,
+              "reward": 0.5159,
+              "ur5e_cp_B1.combined_hold": 0.4969,
+              "ur5e_cp_B2.combined_backdrive": 0.5158,
+              "ur5e_cp_B3.headroom": 0.0376,
+              "ur5e_cp_B4.push_recovery": 0.0241,
+              "ur5e_cp_C1.budget": 1.0,
+              "ur5e_cp_C1.buildable": 1.0,
+              "ur5e_cp_C1.load": 1.0,
+              "ur5e_cp_C1.motion_clearance": 1.0,
+              "ur5e_cp_C1.printability": 1.0,
+              "ur5e_cp_C1.settle": 1.0,
+              "ur5e_cp_C1.springs_legal": 1.0,
+              "ur5e_cp_C1.structure": 1.0,
+              "ur5e_cp_H1.device_residual": 0.175,
+              "ur5e_cp_H2.passive_hold": 0.2955,
+              "ur5e_cp_H3.passive_backdrive": 0.2397,
+              "ur5e_cp_S2.adapted_backdrive": 0.4574,
+              "ur5e_cp_S2.adapted_hold": 0.5995,
+              "ur5e_deduction_C1.budget": 0.0,
+              "ur5e_deduction_C1.buildable": 0.0,
+              "ur5e_deduction_C1.load": 0.0,
+              "ur5e_deduction_C1.printability": 0.0,
+              "ur5e_deduction_C1.settle": 0.0,
+              "ur5e_deduction_C1.springs_legal": 0.0,
+              "ur5e_deduction_C1.structure": 0.0,
+              "ur5e_gated": 0.0,
+              "ur5e_raw_total": 0.3842,
+              "ur5e_reward": 0.3842,
+              "ur5e_stage_codesign": 0.1074,
+              "ur5e_stage_hardware": 0.071,
+              "ur5e_stage_software": 0.1057,
+              "ur5e_stage_validity": 0.1,
+              "ur5e_validity_deduction": 0.0,
+              "xarm7_cp_B1.combined_hold": 0.5623,
+              "xarm7_cp_B2.combined_backdrive": 0.4132,
+              "xarm7_cp_B3.headroom": 0.3544,
+              "xarm7_cp_B4.push_recovery": 1.0,
+              "xarm7_cp_C1.budget": 1.0,
+              "xarm7_cp_C1.buildable": 1.0,
+              "xarm7_cp_C1.load": 1.0,
+              "xarm7_cp_C1.motion_clearance": 1.0,
+              "xarm7_cp_C1.printability": 1.0,
+              "xarm7_cp_C1.settle": 1.0,
+              "xarm7_cp_C1.springs_legal": 1.0,
+              "xarm7_cp_C1.structure": 1.0,
+              "xarm7_cp_H1.device_residual": 0.1148,
+              "xarm7_cp_H2.passive_hold": 0.3234,
+              "xarm7_cp_H3.passive_backdrive": 0.264,
+              "xarm7_cp_S2.adapted_backdrive": 0.4501,
+              "xarm7_cp_S2.adapted_hold": 0.8099,
+              "xarm7_deduction_C1.budget": 0.0,
+              "xarm7_deduction_C1.buildable": 0.0,
+              "xarm7_deduction_C1.load": 0.0,
+              "xarm7_deduction_C1.printability": 0.0,
+              "xarm7_deduction_C1.settle": 0.0,
+              "xarm7_deduction_C1.springs_legal": 0.0,
+              "xarm7_deduction_C1.structure": 0.0,
+              "xarm7_gated": 0.0,
+              "xarm7_raw_total": 0.5292,
+              "xarm7_reward": 0.5292,
+              "xarm7_stage_codesign": 0.233,
+              "xarm7_stage_hardware": 0.0702,
+              "xarm7_stage_software": 0.126,
+              "xarm7_stage_validity": 0.1,
+              "xarm7_validity_deduction": 0.0
             }
           }
         }

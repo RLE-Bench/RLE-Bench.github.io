@@ -11851,6 +11851,726 @@
           }
         ]
       }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L1/01-open-fridge/claude_code-fable_5_2-20261109T223107-e967513112bb-l1_01_open_fridge_attempt_01_h216",
+      "status": "completed",
+      "cost_usd": 29.289711200000003,
+      "reward": 0.654896,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 45345.0,
+        "infrastructure_failures": 1.0,
+        "reward": 0.654896,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-09T22:31:07.797667",
+        "finished_at": "2026-11-10T00:38:59.272671",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 43533769,
+          "n_cache_tokens": 43022522,
+          "n_output_tokens": 315966
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__H33x2k9",
+            "rewards": {
+              "reward": 0.654896,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 45345,
+              "infrastructure_failures": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L1/02-close-cabinet/claude_code-fable_5_2-20261110T015338-56b6e22ba2e0-l1_02_close_cabinet_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 26.915407599999988,
+      "reward": 0.5208432000000001,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 32982.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5208432000000001,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-10T01:53:39.074673",
+        "finished_at": "2026-11-10T03:29:00.862721",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 39932555,
+          "n_cache_tokens": 39416418,
+          "n_output_tokens": 325728
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__Ys9NPcW",
+            "rewards": {
+              "reward": 0.5208432000000001,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 32982,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L1/03-turn-on-stove/claude_code-fable_5_2-20261110T032940-e0fbfc482ca9-l1_03_turn_on_stove_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 23.08291880000001,
+      "reward": 0.946308,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 13423.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.946308,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-10T03:29:40.701286",
+        "finished_at": "2026-11-10T04:55:27.085558",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 42118756,
+          "n_cache_tokens": 41684234,
+          "n_output_tokens": 194909
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__xFe6gK2",
+            "rewards": {
+              "reward": 0.946308,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 13423,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L1/04-pick-place-counter-to-drawer/claude_code-fable_5_2-20261110T040900-11b528c00fb1-l1_04_pick_place_counter_to_drawer_attempt_01_h216",
+      "status": "completed",
+      "cost_usd": 26.85925319999999,
+      "reward": 0.980172,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 4957.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.980172,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-10T04:09:00.627832",
+        "finished_at": "2026-11-10T05:15:12.327734",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 43164370,
+          "n_cache_tokens": 42555906,
+          "n_output_tokens": 215395
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__rjqPMnp",
+            "rewards": {
+              "reward": 0.980172,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 4957,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L1/05-pick-place-microwave-to-counter/claude_code-fable_5_2-20261110T050511-c12ad8951958-l1_05_pick_place_microwave_to_counter_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 61.882530200000026,
+      "reward": 0.9482,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 12950.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.9482,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-10T05:05:12.298970",
+        "finished_at": "2026-11-10T06:49:35.865409",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 150775333,
+          "n_cache_tokens": 149619731,
+          "n_output_tokens": 336935
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__U9ybcNW",
+            "rewards": {
+              "reward": 0.9482,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 12950,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L2/01-open-fridge/claude_code-fable_5_2-20261110T065013-83387951584a-l2_01_open_fridge_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 24.74571880000001,
+      "reward": 0.8886080000000001,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 27848.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.8886080000000001,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-10T06:50:13.823762",
+        "finished_at": "2026-11-10T08:10:54.004198",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 33095871,
+          "n_cache_tokens": 32647634,
+          "n_output_tokens": 276164
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__hdLcw7v",
+            "rewards": {
+              "reward": 0.8886080000000001,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 27848,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L2/02-close-cabinet/claude_code-fable_5_2-20261110T072514-924d4d565a9a-l2_02_close_cabinet_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 29.886723199999988,
+      "reward": 0.5137344,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 35944.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5137344,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-10T07:25:15.175216",
+        "finished_at": "2026-11-10T08:53:42.979596",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 39356196,
+          "n_cache_tokens": 38784856,
+          "n_output_tokens": 324767
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__FHdFcgE",
+            "rewards": {
+              "reward": 0.5137344,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 35944,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L2/03-turn-on-stove/claude_code-fable_5_2-20261110T072514-bad998b8c17c-l2_03_turn_on_stove_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 17.59359360000001,
+      "reward": 0.9700080000000001,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 7498.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.9700080000000001,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-10T07:25:15.268056",
+        "finished_at": "2026-11-10T08:05:54.731153",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 29918159,
+          "n_cache_tokens": 29564608,
+          "n_output_tokens": 150654
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__wjr3FAJ",
+            "rewards": {
+              "reward": 0.9700080000000001,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 7498,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L2/04-pick-place-counter-to-drawer/claude_code-fable_5_2-20261110T080645-2443ff388e8d-l2_04_pick_place_counter_to_drawer_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 14.989080600000001,
+      "reward": 0.9373600000000001,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 15660.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.9373600000000001,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-10T08:06:45.977089",
+        "finished_at": "2026-11-10T08:59:59.940867",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 18781449,
+          "n_cache_tokens": 18481803,
+          "n_output_tokens": 162502
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__vVXggBy",
+            "rewards": {
+              "reward": 0.9373600000000001,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 15660,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L2/05-pick-place-microwave-to-counter/claude_code-fable_5_2-20261110T081145-f6feef346b31-l2_05_pick_place_microwave_to_counter_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 25.4026834,
+      "reward": 0.491724,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 45115.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.491724,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-10T08:11:46.079146",
+        "finished_at": "2026-11-10T10:18:04.686011",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 34531178,
+          "n_cache_tokens": 34045897,
+          "n_output_tokens": 270780
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__6bChj6g",
+            "rewards": {
+              "reward": 0.491724,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 45115,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L3/01-open-fridge/claude_code-fable_5_2-20261110T085416-afbdede5e288-l3_01_open_fridge_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 18.905696600000006,
+      "reward": 0.7351104,
+      "success_rate": 0.8,
+      "metrics": {
+        "development_steps": 20278.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.7351104,
+        "success_rate": 0.8,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-10T08:54:16.711229",
+        "finished_at": "2026-11-10T10:09:14.292543",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 21438227,
+          "n_cache_tokens": 21052639,
+          "n_output_tokens": 226062
+        },
+        "trials": [
+          {
+            "trial": "01-open-fridge__Fp8pPLE",
+            "rewards": {
+              "reward": 0.7351104,
+              "success_rate": 0.8,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 20278,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L3/02-close-cabinet/claude_code-fable_5_2-20261110T090046-15e8d3afdd74-l3_02_close_cabinet_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 28.326297399999994,
+      "reward": 0.856124,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 35969.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.856124,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-10T09:00:46.831505",
+        "finished_at": "2026-11-10T10:25:38.408707",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 35106204,
+          "n_cache_tokens": 34591407,
+          "n_output_tokens": 329332
+        },
+        "trials": [
+          {
+            "trial": "02-close-cabinet__sKZ9Qt9",
+            "rewards": {
+              "reward": 0.856124,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 35969,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L3/03-turn-on-stove/claude_code-fable_5_2-20261110T101317-4141221a5f31-l3_03_turn_on_stove_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 36.089877600000015,
+      "reward": 0.9741120000000001,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 6472.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.9741120000000001,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-10T10:13:17.615842",
+        "finished_at": "2026-11-10T11:24:51.389367",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 76941229,
+          "n_cache_tokens": 76387068,
+          "n_output_tokens": 298744
+        },
+        "trials": [
+          {
+            "trial": "03-turn-on-stove__nJfYTMs",
+            "rewards": {
+              "reward": 0.9741120000000001,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 6472,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L3/04-pick-place-counter-to-drawer/claude_code-fable_5_2-20261110T101847-406e0189cd8a-l3_04_pick_place_counter_to_drawer_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 18.197533800000006,
+      "reward": 0.5667288,
+      "success_rate": 0.6,
+      "metrics": {
+        "development_steps": 13863.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.5667288,
+        "success_rate": 0.6,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-10T10:18:47.701008",
+        "finished_at": "2026-11-10T11:13:32.999131",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 23786427,
+          "n_cache_tokens": 23441509,
+          "n_output_tokens": 199808
+        },
+        "trials": [
+          {
+            "trial": "04-pick-place-counter-to-drawer__UVbaKjC",
+            "rewards": {
+              "reward": 0.5667288,
+              "success_rate": 0.6,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 13863,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "agent": "claude-code",
+      "model": "anthropic/claude-fable-5-2",
+      "job": "L3/05-pick-place-microwave-to-counter/claude_code-fable_5_2-20261110T102617-fb4593e269fe-l3_05_pick_place_microwave_to_counter_attempt_01_h217",
+      "status": "completed",
+      "cost_usd": 25.548451600000003,
+      "reward": 0.831076,
+      "success_rate": 1.0,
+      "metrics": {
+        "development_steps": 42231.0,
+        "infrastructure_failures": 0.0,
+        "reward": 0.831076,
+        "success_rate": 1.0,
+        "trials_attempted": 5.0,
+        "trials_recorded": 5.0,
+        "trials_total": 5.0
+      },
+      "extra": {
+        "started_at": "2026-11-10T10:26:18.260160",
+        "finished_at": "2026-11-10T11:50:33.554711",
+        "n_total_trials": 1,
+        "progress": {
+          "n_completed_trials": 1,
+          "n_errored_trials": 0,
+          "n_running_trials": 0,
+          "n_pending_trials": 0,
+          "n_cancelled_trials": 0,
+          "n_retries": 0,
+          "n_input_tokens": 25458866,
+          "n_cache_tokens": 24942818,
+          "n_output_tokens": 307616
+        },
+        "trials": [
+          {
+            "trial": "05-pick-place-microwave-to-count__UPeCezQ",
+            "rewards": {
+              "reward": 0.831076,
+              "success_rate": 1.0,
+              "trials_total": 5,
+              "trials_recorded": 5,
+              "trials_attempted": 5,
+              "development_steps": 42231,
+              "infrastructure_failures": 0
+            }
+          }
+        ]
+      }
     }
   ]
 }

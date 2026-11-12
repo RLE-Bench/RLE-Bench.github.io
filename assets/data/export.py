@@ -90,6 +90,7 @@ MODELS: tuple[ModelSpec, ...] = (
     ModelSpec("gpt6luna", "GPT-6 Luna", "GPT-6 Luna", "OpenAI", False, ("gpt-6-luna",)),
     ModelSpec("gpt61sol", "GPT-6.1 Sol", "GPT-6.1 Sol", "OpenAI", False, ("gpt-6-1-sol",)),
     ModelSpec("kimi31pro", "Kimi K3.1 Pro", "K3.1 Pro", "Moonshot AI", True, ("kimi-31-pro-nuvora", "kimi-k3-1-pro")),
+    ModelSpec("fable52", "Claude Fable 5.2", "Fable 5.2", "Anthropic", False, ("claude-fable-5-2",)),
 )
 
 # Reasoning-effort suffixes that some dumps append to the model string.
